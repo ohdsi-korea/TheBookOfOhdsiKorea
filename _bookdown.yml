@@ -1,0 +1,11 @@
+book_filename: "TheBookOfOhdsiKorea"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+rmd_files: ["index.Rmd",
+"02-OhdsiCommunity.Rmd", "03-OmopCdm.Rmd", "04-OmopVoca.Rmd",
+"05-Etl.Rmd", "06-SqlR.Rmd",
+"07-Cohort.Rmd", "08-Characterization.Rmd",
+"09-Ple.Rmd","10-Plp.Rmd", "11-Extension.Rmd"]
+new_session: yes
