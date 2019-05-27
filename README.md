@@ -2,6 +2,6 @@
 
 집필 중인 인터넷 판은 하기 주소에서 보실 수 있습니다. 
 
-https://bookdown.org/applegna/TheBookOfOhdsiKorea/
+https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/
 
 Under the Development
