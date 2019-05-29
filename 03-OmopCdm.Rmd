@@ -7,8 +7,8 @@ output:
 
 * 최신 OMOP-CDM 상세설명서 : [CDM wiki page](https://github.com/ohdsi/commondatamodel/wiki)에서 가장 최신의 OMOP-CDM 공식 상세 설명을 보실 수 있습니다.
 * OMOP-CDM Github : [OMOP-CDM github](https://github.com/ohdsi/commondatamodel)
-* OMOP-CDM 이슈 페이지 : OMOP-CDM 발전에 대한 건의사항은 [OMOP-CDM 이슈페이지](https://github.com/ohdsi/commondatamodel/issues)에 올리면 됩니다.
-* OHDSI tutorial : [OHDSI past event](https://www.ohdsi.org/past-events/)에서 [영문 OMOP-CDM tutorial](https://www.ohdsi.org/past-events/2018-tutorials-omop-common-data-model-and-standardized-vocabularies/)을 보실 수 있습니다. 
+* OMOP-CDM 이슈 페이지 : OMOP-CDM 발전에 대한 건의사항은 [OMOP-CDM 이슈페이지](https://github.com/ohdsi/commondatamodel/issues)에 올리면 된다.
+* OHDSI tutorial : [OHDSI past event](https://www.ohdsi.org/past-events/)에서 [영문 OMOP-CDM tutorial](https://www.ohdsi.org/past-events/2018-tutorials-omop-common-data-model-and-standardized-vocabularies/)을 보실 수 있다. 
 
 ## 설계 원칙
 
@@ -103,7 +103,13 @@ knitr::include_graphics("images/CommonDataModel/github_pdf.PNG")
 
 ### OMOP-CDM 건의 사항 및 업그레이드
 
-Open community로 운영되는 OHDSI에서 OMOP-CDM 의 진화 역시 사용자에 의해서 결정된다. 만약, OMOP-CDM의 데이터 아키텍처에 대해 건의사항이 있을 경우 CDM [깃헙](https://github.com/ohdsi/commondatamodel/issues)에 issue로써 올리면 된다. OMOP-CDM 운영자들은 이를 확인하고 다른 사람들과 의논, 필요시 투표하여 차후의 버전에 필요사항을 반영할 것이다.
+Open community로 운영되는 OHDSI에서 OMOP-CDM 의 진화 역시 사용자에 의해서 결정된다. 만약, OMOP-CDM의 데이터 아키텍처에 대해 건의사항이 있을 경우 CDM [깃헙](https://github.com/ohdsi/commondatamodel/issues)에 의견을 자유롭게 적을 수 있다. OMOP-CDM 운영자들은 이를 확인하고 다른 사람들과 의논, 필요시 투표하여 차후의 버전에 필요사항을 반영할 것이다.
+
+OMOP-CDM 구조는 진화 중이며, 2019년 5월 30일 기준 최신 버전은 v6.0 이다.
+
+```{r cdmHistory, fig.cap = 'Evolution of OMOP-CDM',echo=FALSE, out.width='80%'}
+knitr::include_graphics("images/CommonDataModel/history_of_CDM.PNG")
+```
 
 ### Running Example: Endometriosis
 
