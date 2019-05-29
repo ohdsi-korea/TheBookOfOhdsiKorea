@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-05-27}
+    \date{2019-05-30}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -108,7 +108,7 @@
 
 최근 전세계적으로 의료 빅데이터 활용에 대한 논의가 뜨겁다.보건 빅데이터를 이용하여 질병 예방에 따른 의료비 절감, 의료기관의 운영비용 절감, 오류에 따른 손실비용 절감 등의 경제적 효과도 기대되어 활용이 증대되고 있다. 최근 헬스케어 서비스를 통해 생산되는 건강정보 관리와 활용에 대한 논의가 활발히 진행되고 있으며, 의료 빅데이터에 대한 니즈와 관련 데이터, 대응 방향 등이 이슈화되고 있다.
 
-보건 의료 빅데이터 구축을 위해 다양한 노력이 진행되어 왔으며, 그 중 최근 부상하고 있는 분야는 공통 데이터 모델 (Common Data Model, CDM) 기반의 분산 연구망 (Distributed Research Network) 이다. 여러 가지의 CDM / DRN 모델이 있지만, 한국에서는 오몹 공통 데이터 모델 (OMOP-CDM) 기반의 오딧세이 네트워크 (OHDSI network) 이 사실상 표준으로 자리잡고 있다.
+보건 의료 빅데이터 구축을 위해 다양한 노력이 진행되어 왔으며, 그 중 최근 부상하고 있는 분야는 공통 데이터 모델 (Common Data Model, CDM) 기반의 분산 연구망 (Distributed Research Network, DRN) 이다. 여러 가지의 CDM / DRN 모델이 있지만, 한국에서는 오몹 공통 데이터 모델 (OMOP-CDM) 기반의 오딧세이 네트워크 (OHDSI network) 가 사실상 표준으로 자리잡고 있다.
 
 OHDSI 네트워크는 오픈 소스 연구 네트워크 (open-source research network)로써 데이터 아키텍처부터 시작하여 매우 방대한 오픈소스 프레임워크를 제공하고 있지만, 이러한 자료들이 잘 정리되어 있지 않아 많은 사람들이 어려움을 겪고 있었다.
 
@@ -132,7 +132,7 @@ OHDSI 네트워크는 오픈 소스 연구 네트워크 (open-source research ne
 
 이런 제약을 극복하는 방법 중 하나가 분산연구망이다. 이는 의료데이터 유통의 제약 요인 극복을 위해 병원과 기업 등 수요자 간에 원본데이터의 공유 없이 분산된 형태로 데이터를 관리하면서 기관 내에서 분석한 결과만 필요 할 때 거래하는 방식이다.
 
-쉽게 설명하면, 각 병원의 환자정보를 표준화 및 익명화한 후 데이터를 병원 폐쇄망 안에 두고 사용자의 요청에 따라서 기관 안에서 분석코드/프로그램을 실행해 분석된 요약 집합정보(평균, 합, 표준편차, 오즈비, 위험도 등)만 수요자에게 회신하는 방식이라고 할 수 있다. 수요자는 폐쇄망 안에 있는 환자의 개별 정보를 보거나 취득할 수 없지만, 전체 데이터를 모아서 분석한 것과 동일한 분석 결과를 도출할 수 있다(그림 1). 여러 기관에서 자료를 통합하기 위해서는 공통데이터모델이 적용되어야 한다.
+쉽게 설명하면, 각 병원의 환자정보를 표준화 및 익명화한 후 데이터를 병원 폐쇄망 안에 두고 사용자의 요청에 따라서 기관 안에서 분석코드/프로그램을 실행해 분석된 요약 집합정보(평균, 합, 표준편차, 오즈비, 위험도 등)만 수요자에게 회신하는 방식이라고 할 수 있다. 수요자는 폐쇄망 안에 있는 환자의 개별 정보를 보거나 취득할 수 없지만, 전체 데이터를 모아서 분석한 것과 동일한 분석 결과를 도출할 수 있다. 여러 기관에서 자료를 통합하기 위해서는 공통데이터모델이 적용되어야 한다.
 
 \hypertarget{common-data-model}{%
 \subsection{공통데이터모델 (Common Data Model)}\label{common-data-model}}
@@ -142,6 +142,10 @@ OHDSI 네트워크는 오픈 소스 연구 네트워크 (open-source research ne
 이런 문제를 해결하기 위해 등장한 것이 공통데이터모델이다. 이는 여러 병원들의 데이터를 효율적으로 활용하기 위하여 정의한 표준화된 데이터 구조이다. 다기관 공동 연구 수행 시에 기관별로 서로 다른 데이터 구조로 인해 다양한 어려움이 따르는 것을 해결해 주는 방식으로 기관별로 상이한 데이터 구조와 의미를 동일한 하나의 구조와 의미를 갖도록 변환하는 벙법이라고 이해하면 쉽다.
 
 공통데이터모델을 따르기 위해서는 각 병원이나 기관이 기존의 데이터를 공통데이터모델로 변환하는 과정이 필요하다. 이를 ETL(Extract, Transform, Load) 이라 한다. 공통데이터모델은 기존의 한계점 등을 고려하여 지속적으로 업데이트 되고 있는 중이다.
+
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{images/OhdsiCommunity/CDM_DRN_1} \caption{Distributed Research Network}\label{fig:DRN}
+\end{figure}
 
 대표적인 공통데이터모델로는 비영리 국제컨소시엄인 오딧세이(Observational Health Data and Informatics, 이하 OHDSI)와 약물부작용 조사를 위한 미국 FDA의 센티넬 공통데이터모델(이하 Sentinel CDM), 미국 국내에서의 비교효과연구를 위한 피코르넷(The National Patient-Centered Clinical Outcomes Research Network, 이하 PCORnet) 등이 존재한다.
 
@@ -163,11 +167,36 @@ Sentinel은 데이터 파트너가 기존 환경에서 전자 데이터에 대�
 \hypertarget{OHDSIHistory}{%
 \section{오딧세이의 역사}\label{OHDSIHistory}}
 
+2008년 미국 식약처 (FDA) 주도로 공공기관과 여러 제약회사, 의료기관을 포함하는 민간기관, 학계가 합동하여 후향적 보건 데이터베이스의 적절한 활용을 통해 의약품의 효과 및 안정성을 확인하기 위한 파트너십으로 OMOP (Observational Medical Outcomes Partnership) 프로젝트가 시작되었다 \href{https://fnih.org/what-we-do/major-completed-programs/omop}{ref}. 2009년 \href{http://forums.ohdsi.org/uploads/default/original/1X/7b3fb0f7acda70533b966d2834fef4ded62a97be.docx}{OMOP-CDM version 1}이 탄생하였다 \href{http://forums.ohdsi.org/t/is-omop-cdm-10-years-old-in-2017/3370/4}{ref}. OMOP은 common data model (CDM) 인프라 기반으로 청구 데이터 (claim data) 및 전자 의무 기록 (eletronic heatlh record) 를 통합하고 대규모 통계 분석의 가능성 및 유용성을 확인하였고, 2013년 Reagan-Udall 재단으로 이전되었다.
+FDA의 재정 지원이 중단된 후 OMOP은 해체되었지만, Columbia 대학을 조직 본부 (coordinating center), George Hripsack 교수를 의장으로 하여 프로젝트에 참여했던 사람들은 다시 오픈 사이언스를 지향하는 비영리 연구 네트워크 오딧세이 (OHDSI) 를 구성하였다. 원래는 긴 여정을 뜻하는 ODYSSEY로 이름을 짓고 싶었지만, 너무 많은 단체에서 사용하고 있는 이름이어서 사전의 영문 발음기호를 따라 OHDSI라고 지었다는 후문이 전해진다.
+2014년 뉴욕 Columbia 대학에서 Face-to-Face 모임 (F2F meeting)을 가진 후 2015년 워싱턴 (Washington DC)에서 첫번째 연례 심포지엄을 가졌다. 이후 매년 워싱턴 또는 베데스타 (Bethesda) 에서 가을에 연례 심포지엄을 열고 있다. OHDSI의 가치에 따라 연례 심포지엄은 무료로 진행이 되고 있다.
+
+\hypertarget{OHDSIKoreaHistory}{%
+\subsection{한국 오딧세이의 역사}\label{OHDSIKoreaHistory}}
+
+아주대학교 박래웅 교수가 아주대 병원의 전자의무기록을 이용하여 2014년 OMOP-CDM 도입을 시작하였고, 2015년 첫 연례 심포지엄에서 활용 결과를 발표하면서 한국의 OHDSI 참여가 시작되었다. 이후 계속적으로 한국에서 OMOP-CDM, OHDSI 전파를 위해 노력하였고, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 \href{http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean}{Korean chapter}을 개설하고, 한국의 OHDSI 참여를 독려하였다.
+첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC01956} \caption{OHDSI International Symposium 2017 in Korea}\label{fig:OHDSIInternationalSymposium2017inKorea1}
+\end{figure}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC01861} \caption{OHDSI International Symposium 2017 in Korea}\label{fig:OHDSIInternationalSymposium2017inKorea1}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC02166} \caption{Tutorial in the OHDSI International Symposium 2017}\label{fig:OHDSIInternationalSymposium2017inKorea2}
+\end{figure}
+
+한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.
+
 \hypertarget{MissionVissionValues}{%
 \section{미션, 비젼, 가치}\label{MissionVissionValues}}
 
-\href{https://www.ohdsi.org/who-we-are/mission-vision-values/}{OHDSI 공식 홈페이지의 mission, vision, value page}에서 확인할 수 있습니다.
-\#\#\# 오딧세이 미션
+\href{https://www.ohdsi.org/who-we-are/mission-vision-values/}{OHDSI 공식 홈페이지의 mission, vision, value page}에서 확인할 수 있다.
+
+\hypertarget{section}{%
+\subsection{오딧세이 미션}\label{section}}
 
 참여 공동체의 상호협력 하에 의료 발전을 촉진하는 증거를 생성하는 능력을 부여한다.
 
@@ -175,8 +204,8 @@ Sentinel은 데이터 파트너가 기존 환경에서 전자 데이터에 대�
 To improve health by empowering a community to collaboratively generate the evidence that promotes better health decisions and better care.
 \end{quote}
 
-\hypertarget{section}{%
-\subsection{오딧세이 비전}\label{section}}
+\hypertarget{section-1}{%
+\subsection{오딧세이 비전}\label{section-1}}
 
 의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를 제공한다.
 
@@ -184,8 +213,8 @@ To improve health by empowering a community to collaboratively generate the evid
 A world in which observational research produces a comprehensive understanding of health and disease.
 \end{quote}
 
-\hypertarget{section-1}{%
-\subsection{오딧세이 핵심 가치}\label{section-1}}
+\hypertarget{section-2}{%
+\subsection{오딧세이 핵심 가치}\label{section-2}}
 
 \begin{itemize}
 \tightlist
@@ -257,13 +286,13 @@ We seek to protect the rights of individuals and organizations within our commun
 \item
   OMOP-CDM Github : \href{https://github.com/ohdsi/commondatamodel}{OMOP-CDM github}
 \item
-  OMOP-CDM 이슈 페이지 : OMOP-CDM 발전에 대한 건의사항은 \href{https://github.com/ohdsi/commondatamodel/issues}{OMOP-CDM 이슈페이지}에 올리면 됩니다.
+  OMOP-CDM 이슈 페이지 : OMOP-CDM 발전에 대한 건의사항은 \href{https://github.com/ohdsi/commondatamodel/issues}{OMOP-CDM 이슈페이지}에 올리면 된다.
 \item
-  OHDSI tutorial : \href{https://www.ohdsi.org/past-events/}{OHDSI past event}에서 \href{https://www.ohdsi.org/past-events/2018-tutorials-omop-common-data-model-and-standardized-vocabularies/}{영문 OMOP-CDM tutorial}을 보실 수 있습니다.
+  OHDSI tutorial : \href{https://www.ohdsi.org/past-events/}{OHDSI past event}에서 \href{https://www.ohdsi.org/past-events/2018-tutorials-omop-common-data-model-and-standardized-vocabularies/}{영문 OMOP-CDM tutorial}을 보실 수 있다.
 \end{itemize}
 
-\hypertarget{section-2}{%
-\section{설계 원칙}\label{section-2}}
+\hypertarget{section-3}{%
+\section{설계 원칙}\label{section-3}}
 
 OMOP-CDM은 신뢰성 있는 보건 과학적 증거를 발견하는데 필요한 관찰 의료 데이터의 속성들을 가급적 모두 포함하기 위하여 설계되었다. OMOP-CDM의 설계 원칙은 하기와 같다.
 
@@ -409,7 +438,13 @@ OMOP-CDM은 \href{https://github.com/ohdsi/commondatamodel}{OHDSI Common Data Mo
 \hypertarget{omop-cdm----}{%
 \subsection{OMOP-CDM 건의 사항 및 업그레이드}\label{omop-cdm----}}
 
-Open community로 운영되는 OHDSI에서 OMOP-CDM 의 진화 역시 사용자에 의해서 결정된다. 만약, OMOP-CDM의 데이터 아키텍처에 대해 건의사항이 있을 경우 CDM \href{https://github.com/ohdsi/commondatamodel/issues}{깃헙}에 issue로써 올리면 된다. OMOP-CDM 운영자들은 이를 확인하고 다른 사람들과 의논, 필요시 투표하여 차후의 버전에 필요사항을 반영할 것이다.
+Open community로 운영되는 OHDSI에서 OMOP-CDM 의 진화 역시 사용자에 의해서 결정된다. 만약, OMOP-CDM의 데이터 아키텍처에 대해 건의사항이 있을 경우 CDM \href{https://github.com/ohdsi/commondatamodel/issues}{깃헙}에 의견을 자유롭게 적을 수 있다. OMOP-CDM 운영자들은 이를 확인하고 다른 사람들과 의논, 필요시 투표하여 차후의 버전에 필요사항을 반영할 것이다.
+
+OMOP-CDM 구조는 진화 중이며, 2019년 5월 30일 기준 최신 버전은 v6.0 이다.
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/CommonDataModel/history_of_CDM} \caption{Evolution of OMOP-CDM}\label{fig:cdmHistory}
+\end{figure}
 
 \hypertarget{running-example-endometriosis}{%
 \subsection{Running Example: Endometriosis}\label{running-example-endometriosis}}
@@ -1304,6 +1339,8 @@ The source code for the modifier as it appears in the source data.\strut
 \hypertarget{etl}{%
 \chapter{Extract Transform Load}\label{etl}}
 
+실제 ETL 하면서 발생하는 질문 사항 및 답변은 \href{https://github.com/ohdsi-korea/themiskorea}{한국 테미스 깃헙} 의 \href{https://github.com/ohdsi-korea/themiskorea/issues}{이슈 페이지}에서 공유할 수 있다.
+
 \begin{itemize}
 \tightlist
 \item
@@ -1313,7 +1350,9 @@ The source code for the modifier as it appears in the source data.\strut
 \item
   그 외 ETL sample : \href{https://www.ohdsi.org/web/wiki/doku.php?id=documentation:example_etls}{ETL sample page}
 \item
-  ETL tools : \href{https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:whiterabbit}{ETL tool page}를 참고하기 바랍니다.
+  ETL tools : \href{https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:whiterabbit}{ETL tool page}
+\item
+  THEMIS WG: \href{https://github.com/ohdsi/themis}{Korean THEMIS WG}를 참고할 수 있다.
 \end{itemize}
 
 \hypertarget{pre-processing}{%
