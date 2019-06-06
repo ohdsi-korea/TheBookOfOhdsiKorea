@@ -114,7 +114,7 @@ OHDSI하면 전세계적에 통용 가능한 CDM 기반의 DRN 시스템이 가�
 
 ### 연구 재현성의 위기 (Reproducibility Crisis)
 
-'우리가 우울증 관련 단일 유전자를 찾기 위하여 20여년과 수십억원을 단순한 소음에 불과한 것을 연구하고 있었다는 것이 말이 되는가? *How on Earth could we have spent 20 yeares and hundreds of millions of dollars studying pure noise?*'[ref](https://www.theatlantic.com/science/archive/2019/05/waste-1000-studies/589684/) 지난 20여년 간 수천개의 논문이 주요 18가지의 유전 변이들이 주요 우울증 (major depression)과 관련이 있다고 주장해왔지만, 최근 Matthew Keller 박사가 이끄는 연구팀은 여러 개의 대규모 자료를 이용하여 해당 유전 변이들이 주요 우울증과 전혀 관련이 없음을 입증했다. 대부분의 연구 결과는 위양성 (false positive)에 의했던 것이다. [ref, Richard Border et al., American Journal Of Psychiatry, 2019]
+'우리가 우울증 관련 단일 유전자를 찾기 위하여 20여년과 수십억원을 단순한 소음에 불과한 것을 연구하고 있었다는 것이 말이 되는가? *How on Earth could we have spent 20 yeares and hundreds of millions of dollars studying pure noise?*'[ref](https://www.theatlantic.com/science/archive/2019/05/waste-1000-studies/589684/) 지난 20여년 간 수천개의 논문이 주요 18가지의 유전 변이들이 주요 우울증 (major depression)과 관련이 있다고 주장해왔지만, 최근 Matthew Keller 박사가 이끄는 연구팀은 여러 개의 대규모 자료를 이용하여 해당 유전 변이들이 주요 우울증과 전혀 관련이 없음을 입증했다. 대부분의 연구 결과는 위양성 (false positive)에 의했던 것이다. [ref, Richard Border et al., American Journal Of Psychiatry, 2019] [관련 한글 기사](https://ppss.kr/archives/196489)
 
 2016년 Nature지에서 1576명을 대상으로 설문조사를 진행하였을 때, 70% 이상의 연구자들이 다른 사람의 실험을 재현하는 데 실패하였으며, 약 50%에서 자신의 실험을 재현하는 데 실패했다고 밝혔다. 52%의 연구자들은 현재 과학계에 중대한 재현성의 위기가 존재한다고 시인했다. [ref](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
 
