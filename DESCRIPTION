@@ -1,0 +1,6 @@
+Package: TheBookOfOhdsiKorea
+Type: Book
+Title: The Book Of OHDSI Korea
+Version: 0.0.1
+Imports: bookdown
+Remotes: ohdsi-korea/TheBookOfOhdsiKorea

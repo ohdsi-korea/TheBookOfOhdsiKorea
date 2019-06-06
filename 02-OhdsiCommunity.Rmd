@@ -1,14 +1,6 @@
----
-author: "Seng Chan You"
-date: "`r Sys.Date()`"
-output:
-  html_document: default
-  pdf_document: default
----
 # The OHDSI Community{#ohdsiCommunity}
 
 <div style="text-align: right"> *Seng Chan You* </div>
-<div style="text-align: right"> *Last update: 2019-06-06* </div>
 
 ## OHDSI 홈페이지
 
@@ -116,7 +108,7 @@ knitr::include_graphics("images/OhdsiCommunity/DSC02166.jpg")
 
 OHDSI의 핵심 가치를 요약해 보면, '개방적인 커뮤니티에서 함께 혁신적이고, 재현 가능한 연구를 통해 선행의 정신을 구현하자' 정도로 요약해볼 수 있겠다. 
 
-## 재현 가능한 연구 (Open Science and Reproducible Research){openScience}
+## 재현 가능한 연구 (Open Science and Reproducible Research){#ReproducibleResearch}
 
 OHDSI하면 전세계적에 통용 가능한 CDM 기반의 DRN 시스템이 가장 큰 특징으로 꼽히겠지만, 그 못지 않게 중요한 특징은 개방성과 재현성을 추구한다는 데에 있다. 
 
