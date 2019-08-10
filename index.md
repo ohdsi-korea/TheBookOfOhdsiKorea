@@ -1,7 +1,7 @@
 ---
 title: "The Book of OHDSI Korea"
 author: "OHDSI-Korea"
-date: "2019-06-06"
+date: "2019-08-10"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Population-Level Estimation | The Book of OHDSI Korea</title>
+  <meta name="description" content="Chapter 9 Population-Level Estimation | The Book of OHDSI Korea" />
+  <meta name="generator" content="bookdown 0.10.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Population-Level Estimation | The Book of OHDSI Korea" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 9 Population-Level Estimation | The Book of OHDSI Korea" />
+  <meta name="github-repo" content="OHDSI-KOREA/TheBookOfOhdsiKorea" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Population-Level Estimation | The Book of OHDSI Korea" />
+  
+  <meta name="twitter:description" content="Chapter 9 Population-Level Estimation | The Book of OHDSI Korea" />
+  
+
+<meta name="author" content="OHDSI-Korea" />
+
+
+<meta name="date" content="2019-08-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="characterization.html">
+<link rel="next" href="patient-level-prediction.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Book of OHDSI Korea</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html"><i class="fa fa-check"></i><b>2</b> The OHDSI Community</a><ul>
+<li class="chapter" data-level="2.1" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#ohdsi-"><i class="fa fa-check"></i><b>2.1</b> OHDSI 홈페이지</a></li>
+<li class="chapter" data-level="2.2" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#drnCdm"><i class="fa fa-check"></i><b>2.2</b> 분산연구망과 공통데이터모델</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#distributed-research-network"><i class="fa fa-check"></i><b>2.2.1</b> 분산연구망 (Distributed Research Network)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#common-data-model"><i class="fa fa-check"></i><b>2.2.2</b> 공통데이터모델 (Common Data Model)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#OHDSINetwork"><i class="fa fa-check"></i><b>2.3</b> 오딧세이 네트워크 (OHDSI network)</a></li>
+<li class="chapter" data-level="2.4" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#OHDSIHistory"><i class="fa fa-check"></i><b>2.4</b> OHDSI의 역사</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#OHDSIKoreaHistory"><i class="fa fa-check"></i><b>2.4.1</b> 한국 오딧세이의 역사</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#MissionVissionValues"><i class="fa fa-check"></i><b>2.5</b> 미션, 비젼, 가치</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#ohdsi--1"><i class="fa fa-check"></i><b>2.5.1</b> OHDSI 미션</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#ohdsi--2"><i class="fa fa-check"></i><b>2.5.2</b> OHDSI 비전</a></li>
+<li class="chapter" data-level="2.5.3" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#ohdsi--"><i class="fa fa-check"></i><b>2.5.3</b> OHDSI 핵심 가치</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#ReproducibleResearch"><i class="fa fa-check"></i><b>2.6</b> 재현 가능한 연구 (Open Science and Reproducible Research)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#reproducibility-crisis"><i class="fa fa-check"></i><b>2.6.1</b> 연구 재현성의 위기 (Reproducibility Crisis)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ohdsiCommunity.html"><a href="ohdsiCommunity.html#section"><i class="fa fa-check"></i><b>2.6.2</b> 재현가능한 연구를 위하여</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="omopCdm.html"><a href="omopCdm.html"><i class="fa fa-check"></i><b>3</b> The OMOP-CDM</a><ul>
+<li class="chapter" data-level="3.1" data-path="omopCdm.html"><a href="omopCdm.html#section-1"><i class="fa fa-check"></i><b>3.1</b> 설계 원칙</a></li>
+<li class="chapter" data-level="3.2" data-path="omopCdm.html"><a href="omopCdm.html#data-model-conventions"><i class="fa fa-check"></i><b>3.2</b> Data Model Conventions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="omopCdm.html"><a href="omopCdm.html#model-conv"><i class="fa fa-check"></i><b>3.2.1</b> General conventions of the model</a></li>
+<li class="chapter" data-level="3.2.2" data-path="omopCdm.html"><a href="omopCdm.html#general-conventions-of-schemas"><i class="fa fa-check"></i><b>3.2.2</b> General conventions of schemas</a></li>
+<li class="chapter" data-level="3.2.3" data-path="omopCdm.html"><a href="omopCdm.html#general-conventions-of-data-tables"><i class="fa fa-check"></i><b>3.2.3</b> General conventions of data tables</a></li>
+<li class="chapter" data-level="3.2.4" data-path="omopCdm.html"><a href="omopCdm.html#general-conventions-of-fields"><i class="fa fa-check"></i><b>3.2.4</b> General conventions of fields</a></li>
+<li class="chapter" data-level="3.2.5" data-path="omopCdm.html"><a href="omopCdm.html#representation-of-content-through-concepts"><i class="fa fa-check"></i><b>3.2.5</b> Representation of content through Concepts</a></li>
+<li class="chapter" data-level="3.2.6" data-path="omopCdm.html"><a href="omopCdm.html#difference-between-concept-ids-and-source-values"><i class="fa fa-check"></i><b>3.2.6</b> Difference between Concept IDs and Source Values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="omopCdm.html"><a href="omopCdm.html#omop-cdm-standardized-tables"><i class="fa fa-check"></i><b>3.3</b> OMOP CDM Standardized Tables</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="omopCdm.html"><a href="omopCdm.html#omop-cdm----table-specification"><i class="fa fa-check"></i><b>3.3.1</b> OMOP-CDM 의 상세 설명 (table specification)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="omopCdm.html"><a href="omopCdm.html#omop-cdm----"><i class="fa fa-check"></i><b>3.3.2</b> OMOP-CDM 건의 사항 및 업그레이드</a></li>
+<li class="chapter" data-level="3.3.3" data-path="omopCdm.html"><a href="omopCdm.html#running-example-endometriosis"><i class="fa fa-check"></i><b>3.3.3</b> Running Example: Endometriosis</a></li>
+<li class="chapter" data-level="3.3.4" data-path="omopCdm.html"><a href="omopCdm.html#person"><i class="fa fa-check"></i><b>3.3.4</b> PERSON table</a></li>
+<li class="chapter" data-level="3.3.5" data-path="omopCdm.html"><a href="omopCdm.html#observationPeriod"><i class="fa fa-check"></i><b>3.3.5</b> OBSERVATION_PERIOD table</a></li>
+<li class="chapter" data-level="3.3.6" data-path="omopCdm.html"><a href="omopCdm.html#visitOccurrence"><i class="fa fa-check"></i><b>3.3.6</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="3.3.7" data-path="omopCdm.html"><a href="omopCdm.html#conditionOccurrence"><i class="fa fa-check"></i><b>3.3.7</b> CONDITION_OCCURRENCE</a></li>
+<li class="chapter" data-level="3.3.8" data-path="omopCdm.html"><a href="omopCdm.html#drugExposure"><i class="fa fa-check"></i><b>3.3.8</b> DRUG_EXPOSURE</a></li>
+<li class="chapter" data-level="3.3.9" data-path="omopCdm.html"><a href="omopCdm.html#procedureOccurrence"><i class="fa fa-check"></i><b>3.3.9</b> PROCEDURE_OCCURRENCE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="omopVoca.html"><a href="omopVoca.html"><i class="fa fa-check"></i><b>4</b> The OMOP Vocabulary</a><ul>
+<li class="chapter" data-level="4.1" data-path="omopVoca.html"><a href="omopVoca.html#design-principles"><i class="fa fa-check"></i><b>4.1</b> Design Principles</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="etl.html"><a href="etl.html"><i class="fa fa-check"></i><b>5</b> Extract Transform Load</a><ul>
+<li class="chapter" data-level="5.1" data-path="etl.html"><a href="etl.html#pre-processing"><i class="fa fa-check"></i><b>5.1</b> Pre-processing</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="etl.html"><a href="etl.html#whiterabbit-and-rabbit-in-a-hat"><i class="fa fa-check"></i><b>5.1.1</b> WhiteRabbit and Rabbit-in-a-Hat</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sql-and-r.html"><a href="sql-and-r.html"><i class="fa fa-check"></i><b>6</b> SQL and R</a><ul>
+<li class="chapter" data-level="6.1" data-path="sql-and-r.html"><a href="sql-and-r.html#database-connector"><i class="fa fa-check"></i><b>6.1</b> Database Connector</a></li>
+<li class="chapter" data-level="6.2" data-path="sql-and-r.html"><a href="sql-and-r.html#sql-render"><i class="fa fa-check"></i><b>6.2</b> SQL Render</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cohort.html"><a href="cohort.html"><i class="fa fa-check"></i><b>7</b> Cohort</a><ul>
+<li class="chapter" data-level="7.1" data-path="cohort.html"><a href="cohort.html#using-sql"><i class="fa fa-check"></i><b>7.1</b> Using SQL</a></li>
+<li class="chapter" data-level="7.2" data-path="cohort.html"><a href="cohort.html#atlas"><i class="fa fa-check"></i><b>7.2</b> ATLAS</a></li>
+<li class="chapter" data-level="7.3" data-path="cohort.html"><a href="cohort.html#phenotype-library"><i class="fa fa-check"></i><b>7.3</b> Phenotype Library</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="characterization.html"><a href="characterization.html"><i class="fa fa-check"></i><b>8</b> Characterization</a><ul>
+<li class="chapter" data-level="8.1" data-path="characterization.html"><a href="characterization.html#featureextraction"><i class="fa fa-check"></i><b>8.1</b> FeatureExtraction</a></li>
+<li class="chapter" data-level="8.2" data-path="characterization.html"><a href="characterization.html#atlas-1"><i class="fa fa-check"></i><b>8.2</b> ATLAS</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="characterization.html"><a href="characterization.html#baseline-characteristics"><i class="fa fa-check"></i><b>8.2.1</b> Baseline characteristics</a></li>
+<li class="chapter" data-level="8.2.2" data-path="characterization.html"><a href="characterization.html#incidence-rate-calculation"><i class="fa fa-check"></i><b>8.2.2</b> Incidence rate calculation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>9</b> Population-Level Estimation</a><ul>
+<li class="chapter" data-level="9.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>9.1</b> The cohort method design</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores"><i class="fa fa-check"></i><b>9.1.1</b> Propensity scores</a></li>
+<li class="chapter" data-level="9.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>9.1.2</b> Variable selection</a></li>
+<li class="chapter" data-level="9.1.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#caliper"><i class="fa fa-check"></i><b>9.1.3</b> Caliper</a></li>
+<li class="chapter" data-level="9.1.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#overlap-preference-scores"><i class="fa fa-check"></i><b>9.1.4</b> Overlap: preference scores</a></li>
+<li class="chapter" data-level="9.1.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#balance"><i class="fa fa-check"></i><b>9.1.5</b> Balance</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-self-controlled-cohort-design"><i class="fa fa-check"></i><b>9.2</b> The self-controlled cohort design</a></li>
+<li class="chapter" data-level="9.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-case-control-design"><i class="fa fa-check"></i><b>9.3</b> The case-control design</a></li>
+<li class="chapter" data-level="9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-case-crossover-design"><i class="fa fa-check"></i><b>9.4</b> The case-crossover design</a></li>
+<li class="chapter" data-level="9.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-self-controlled-case-series-design"><i class="fa fa-check"></i><b>9.5</b> The self-controlled case series design</a></li>
+<li class="chapter" data-level="9.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#designing-a-hypertension-study"><i class="fa fa-check"></i><b>9.6</b> Designing a hypertension study</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#problem-definition"><i class="fa fa-check"></i><b>9.6.1</b> Problem definition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#target-and-comparator"><i class="fa fa-check"></i><b>9.6.2</b> Target and comparator</a></li>
+<li class="chapter" data-level="9.6.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome"><i class="fa fa-check"></i><b>9.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="9.6.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#time-at-risk"><i class="fa fa-check"></i><b>9.6.4</b> Time-at-risk</a></li>
+<li class="chapter" data-level="9.6.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#model"><i class="fa fa-check"></i><b>9.6.5</b> Model</a></li>
+<li class="chapter" data-level="9.6.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#study-summary"><i class="fa fa-check"></i><b>9.6.6</b> Study summary</a></li>
+<li class="chapter" data-level="9.6.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#control-questions"><i class="fa fa-check"></i><b>9.6.7</b> Control questions</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#PleAtlas"><i class="fa fa-check"></i><b>9.7</b> Implementing the study using ATLAS</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>9.7.1</b> Comparative cohort settings</a></li>
+<li class="chapter" data-level="9.7.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-estimation-analysis-settings"><i class="fa fa-check"></i><b>9.7.2</b> Effect estimation analysis settings</a></li>
+<li class="chapter" data-level="9.7.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#evaluationSettings"><i class="fa fa-check"></i><b>9.7.3</b> Evaluation settings</a></li>
+<li class="chapter" data-level="9.7.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#running-the-study-package"><i class="fa fa-check"></i><b>9.7.4</b> Running the study package</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#pleR"><i class="fa fa-check"></i><b>9.8</b> Implementing the study using R</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#cohort-instantiation"><i class="fa fa-check"></i><b>9.8.1</b> Cohort instantiation</a></li>
+<li class="chapter" data-level="9.8.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#data-extraction"><i class="fa fa-check"></i><b>9.8.2</b> Data extraction</a></li>
+<li class="chapter" data-level="9.8.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#defining-the-study-population"><i class="fa fa-check"></i><b>9.8.3</b> Defining the study population</a></li>
+<li class="chapter" data-level="9.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores-1"><i class="fa fa-check"></i><b>9.8.4</b> Propensity scores</a></li>
+<li class="chapter" data-level="9.8.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-models"><i class="fa fa-check"></i><b>9.8.5</b> Outcome models</a></li>
+<li class="chapter" data-level="9.8.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>9.8.6</b> Running multiple analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#studyOutputs"><i class="fa fa-check"></i><b>9.9</b> Study outputs</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores-and-model"><i class="fa fa-check"></i><b>9.9.1</b> Propensity scores and model</a></li>
+<li class="chapter" data-level="9.9.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#covariate-balance"><i class="fa fa-check"></i><b>9.9.2</b> Covariate balance</a></li>
+<li class="chapter" data-level="9.9.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#follow-up-and-power"><i class="fa fa-check"></i><b>9.9.3</b> Follow up and power</a></li>
+<li class="chapter" data-level="9.9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#kaplan-meier"><i class="fa fa-check"></i><b>9.9.4</b> Kaplan-Meier</a></li>
+<li class="chapter" data-level="9.9.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-size-estimate"><i class="fa fa-check"></i><b>9.9.5</b> Effect size estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#summary"><i class="fa fa-check"></i><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#excercises"><i class="fa fa-check"></i><b>9.11</b> Excercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="patient-level-prediction.html"><a href="patient-level-prediction.html"><i class="fa fa-check"></i><b>10</b> Patient-Level Prediction</a></li>
+<li class="chapter" data-level="11" data-path="extension-of-cdm.html"><a href="extension-of-cdm.html"><i class="fa fa-check"></i><b>11</b> Extension of CDM</a><ul>
+<li class="chapter" data-level="11.1" data-path="extension-of-cdm.html"><a href="extension-of-cdm.html#genomic-cdm"><i class="fa fa-check"></i><b>11.1</b> Genomic CDM</a></li>
+<li class="chapter" data-level="11.2" data-path="extension-of-cdm.html"><a href="extension-of-cdm.html#radiology-cdm"><i class="fa fa-check"></i><b>11.2</b> Radiology CDM</a></li>
+<li class="chapter" data-level="11.3" data-path="extension-of-cdm.html"><a href="extension-of-cdm.html#aegis"><i class="fa fa-check"></i><b>11.3</b> AEGIS</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/OHDSI-Korea/TheBookOfOhdsiKorea" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Book of OHDSI Korea</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="PopulationLevelEstimation" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Population-Level Estimation</h1>
+<p><em>Chapter leads: Martijn Schuemie, David Madigan, Marc Suchard &amp; Patrick Ryan</em>
+<em>번역: 양영모, 유승찬</em></p>
+<p></p>
+<p>Observational healthcare data(예: administrative claims, electronic health records)는 환자의 삶을 의미 있게 향상시킬 수 있는 치료효과에 대한 실제 증거를 생성할 수 있는 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출(예: 약물 노출 또는 절차와 같은 의료개입)의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.</p>
+<ul>
+<li><strong>직접 효과 추정(direct effect estimation)</strong>: 노출 위험과 결과의 위험에 대한 노출 효과를 추정. </li>
+<li><strong>비교 효과 추정(comparative effect estimation)</strong>: 다른 노출(comparator exposure)과 비교하여 노출(target exposure)의 결과 위험에 대한 영향 추정. </li>
+</ul>
+<p>In both cases, the patient-level causal effect contrasts a factual outcome, i.e., what happened to the exposed patient, with a counterfactual outcome, i.e., what would have happened had the exposure not occurred (direct) or had a different exposure occurred (comparative). Since any one patient reveals only the factual outcome (the fundamental problem of causal inference), the various effect estimation designs employ different analytic devices to shed light on the counterfactual outcomes. </p>
+<p>인구 수준 효과 추정의 사용 사례(use-cases)는 치료선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트(예: signal evaluation)하거나 다중 가설을 한 번에 탐색(예: signal detection)할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다.  </p>
+<p>이 장에서는 우선 <a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>에 R 패키지로 구현되어 있는 다양한 <strong>Population-Level Estimation</strong> study design를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다.
+마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.</p>
+<div id="CohortMethod" class="section level2">
+<h2><span class="header-section-number">9.1</span> The cohort method design</h2>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:cohortMethod"></span>
+<img src="images/PopulationLevelEstimation/cohortMethod.png" alt="대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여 (weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델 (Propensity model) 또는 결과 모델 (Outcome model)에 포함된 특징은 치료 시작 전에 결정된다." width="90%" />
+<p class="caption">
+Figure 9.1: 대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여 (weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델 (Propensity model) 또는 결과 모델 (Outcome model)에 포함된 특징은 치료 시작 전에 결정된다.
+</p>
+</div>
+<p>코호트 방법은 무작위 임상 시험을 모방하려고 한다<span class="citation">(Hernan and Robins <a href="#ref-hernan_2016">2016</a>)</span>. 하나의 치료를 시작한 환자(target)는 다른 치료를 시작한 환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 동안(예: 치료를 받는 기간) 추적 관찰된다. 표 13.1에서 강조하는 5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다. <a href="PopulationLevelEstimation.html#tab:cmChoices">9.1</a>.   </p>
+<table>
+<caption><span id="tab:cmChoices">Table 9.1: </span> Main design choices in a comparative cohort design.</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Choice</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Target cohort</td>
+<td align="left">A cohort representing the target treatment</td>
+</tr>
+<tr class="even">
+<td align="left">Comparator cohort</td>
+<td align="left">A cohort representing the comparator treatment</td>
+</tr>
+<tr class="odd">
+<td align="left">Outcome cohort</td>
+<td align="left">A cohort representing the outcome of interest</td>
+</tr>
+<tr class="even">
+<td align="left">Time-at-risk</td>
+<td align="left">At what time (often relative to the target and comparator cohort start and end dates) do we consider the risk of the outcome?</td>
+</tr>
+<tr class="odd">
+<td align="left">Model</td>
+<td align="left">The model used to estimate the effect while adjusting for differences between the target and comparator</td>
+</tr>
+</tbody>
+</table>
+<p>모델 선택은 모델 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비(odds ratio)를 산출하는 로지스틱 회귀분석(logistic regression)을 사용할 수 있다. 로지스틱 회귀분석은 time-at-risk가 target과 comparator 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석(poisson regression)을 선택할 수 있는데, 이는 일정한 발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)를 추정한다. 콕스 회귀분석(cox regression)을 종종 사용하기도 하는데, 이는 target과 comparator 사이의 비례 위험(proportional hazard)을 가정하며, 위험 비율(hazard ratio)을 추정하려고 time-to-first-outcome을 고려한다.    </p>
+<p>New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출 군을 정의하기 힘들어 치료와 비치료를 비교하기 위해 이 방법을 사용하긴 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지 않을, 동일한 적응증이 적용되는 비교 대상을 관심 노출군(exposure of interest)으로 선택하는 방법이 선호된다. 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.</p>
+<p>주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로 (systemically) 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는 실험군 (target cohort)이 평균 60세인 반면, 해당 치료를 받지 않은 대조군 (comparator cohort)이 평균 40세라고 가정하자. 연령과 관련된 건강 결과(예: 뇌졸중)는 양 군간에 상당히 차이가 날 것이다. 이런 정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한 인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지 않았다면 실험군의 환자들이 뇌졸중에 걸리지 않을 것이라 생각할 수 있다. 이러한 결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높기 때문에 뇌졸중을 많이 경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는 “confounder”이다. </p>
+<div id="propensity-scores" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Propensity scores</h3>
+<p></p>
+<p>무작위 시험(randomized trial)에서 (가상의) 동전던지기는 환자를 각각의 그룹에 배정한다. 따라서, 설계상 비교 치료 군과 비교하여 환자가 대상치료를 받을 확률은 어떤 식으로든 연령과 같은 환자의 특성과 관련이 없다. 동전에는 환자에 대한 정보가 없으며, 환자가 대상에 노출될 정확한 확률을 확실하게 알고 있다. 결과적으로 임상시험에서 환자 수가 증가함에 따라 신뢰도가 증가해 두 환자군은 본질적으로 환자 특성에 따라 체계적으로 다를 수 없다. 이 보장된 균형은 trial이 측정한 특성(예: 연령)과 trial이 측정하지 못한 특성에 적용된다. </p>
+<p>주어진 환자의 <strong>성향 점수(Propensity score, PS)</strong>는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다 <span class="citation">(Rosenbaum and Rubin <a href="#ref-rosenbaum_1983">1983</a>)</span>. 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전(환자가 실제로 받은 치료와 관계없이)에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한 모델(예: 로지스틱 회귀분석)을 만들고, 이 모델을 사용하여 각 환자들에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. PS는 여러 가지 방법으로 사용할 수 있다. 예를 들어, target 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭 (PS matching)하거나, PS를 기반으로 연구 집단을 층화 (PS stratification) 하거나, PS에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상 당 두 명 이상의 비교 대상을 허용할 수 있다. <span class="citation">(Rassen et al. <a href="#ref-rassen_2012">2012</a>)</span>      </p>
+<p>예를 들면, one-on-one PS 매칭을 사용한다고 가정하면, Jan은 대상 치료를 받을 확률이 0.4이고, 실제로 대상 치료를 받는다. Jun이라고 하는 환자가 대상 치료를 받을 선험(priori) 확률이 0.4이지만, 사실상 비교 치료를 받았다면, 적어도 measured confounders와 관련하여 Jan과 Jun의 outcome 비교는 mini-randomized trial과 같다. 이 비교는 무작위 시험으로 산출한 결과만큼 양호한 Jan과 Jun의 인과적인 대조를 추정할 것이다. 추정은 다음과 같이 진행된다: 표적을 받은 모든 환자에 대해, 비교 치료를 받았지만 표적을 받는 선험적 확률이 동일한 하나 이상의 일치하는 환자를 찾는다. 대상 환자의 결과와 비교 그룹의 결과를 비교한다.</p>
+<p>Propensity scoring은 측정된 교란변수 (measured confounder)를 제어한다. 사실, 측정된 특성 하에서 치료배정(treatment assignment)이 “강하게 무시할 수 있는” 경우라면, 성향 점수는 인과 관계의 비편향적 추정을 산출할 것이다. “강력하게 무시할 수 있는” 이란 측정되지 않은 교란변수가 없고, 측정된 교란변수는 적절하게 조정된다는 것을 의미한다. 불행히도, 이것은 검증할만한 가정은 아니다. </p>
+<blockquote>
+<p>Propensity scoring controls for measured confounders. In fact, if treatment assignment is “strongly ignorable” given measured characteristics, propensity scoring will yield an unbiased estimate of the causal effect. “Strongly ignorable” essentially means that there are no unmeasured confounders, and that the measured confounders are adjusted for appropriately. Unfortunately this is not a testable assumption.</p>
+</blockquote>
+</div>
+<div id="VariableSelection" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Variable selection</h3>
+<p>전통적으로, 성향 점수는 임의로 선택된 특성 (manually selected characteristics) 을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성(즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성)을 포함하는 것을 선호한다. <span class="citation">(Tian, Schuemie, and Suchard <a href="#ref-tian_2018">2018</a>)</span> 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 독특한 특성을 포함하며, 이러한 모델은 <a href="https://ohdsi.github.io/Cyclops/">Cyclops</a> 패키지에서 구현되는 large-scale regularized regression<span class="citation">(Suchard et al. <a href="#ref-suchard_2013">2013</a>)</span>을 사용하여 적합화시킨다.</p>
+<p>치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 치료 개시일을 기준으로 기록되기 때문에 일반적으로 공변량 캡쳐 윈도우(covariate capture window)에 치료 개시일을 포함시킨다. <strong>그렇기 때문에 변수에서 표적과 비교 치료법을 명시적으로 배제할 것을 요구한다.</strong> 왜냐하면, 이것이 예측하려고 하는 것들이기 때문이다.</p>
+<blockquote>
+<p>We typically include the day of treatment initiation in the covariate capture window because many relevant data points such as the diagnosis leading to the treatment are recorded on that date. This does require us to explicitly exclude the target and comparator treatment from the set of covariates, because these are the things we are trying to predict.</p>
+</blockquote>
+<p>일부는 “올바른” 인과 관계 구조를 지정하기 위해 임상 전문 지식에 의존하지 않는 공변량 선정에 대한 데이터 중심 접근 방식은 소위 기계적 변수 및 충돌자(collider)를 잘못 포함하여 분산을 증가시키고 잠재적으로 편견을 유발할 위험을 내포하고 있다고 주장한다. <span class="citation">(Hernan et al. <a href="#ref-hernan_2002">2002</a>)</span> 그러나 이러한 우려는 실제 시나리오에 큰 영향을 미치지 않을 것이다.<span class="citation">(Schneeweiss <a href="#ref-schneeweiss_2018">2018</a>)</span> 또한 의학에서 진정한 인과관계 구조는 거의 알려지지 않았으며, 다른 연구자가 특정 연구 질문에 포함시킬 “올바른” 공변량을 확인하도록 요청할 때 각 연구자는 언제나 다른 목록을 제시하므로 그 과정은 재현 불가능하다. 가장 중요한 점은, 성향 모델 검사, 모든 공변량의 균형 평가, 부정적인 통제를 포함하는 진단은 충돌자 및 도구 변수와 관련된 대부분의 문제를 확인하는 것이다.  </p>
+<blockquote>
+<p>Some have argued that a data-driven approach to covariate selection that does not depend on clinical expertise to specify the “right” causal structure runs the risk of erroneously including so-called instrumental variables and colliders, thus increasing variance and potentially introducing bias. <span class="citation">(Hernan et al. <a href="#ref-hernan_2002">2002</a>)</span> However, these concerns are unlikely to have a large impact in real-world scenarios. <span class="citation">(Schneeweiss <a href="#ref-schneeweiss_2018">2018</a>)</span> Furthermore, in medicine the true causal structure is rarely known, and when different researchers are asked to identify the ‘right’ covariates to include for a specific research question, each researcher invariably comes up with a different list, thus making the process irreproducible. Most importantly, our diagnostics such as inspection of the propensity model, evaluating balance on all covariates, and including negative controls would identify most problems related to colliders and instrumental variables.</p>
+</blockquote>
+</div>
+<div id="caliper" class="section level3">
+<h3><span class="header-section-number">9.1.3</span> Caliper</h3>
+<p></p>
+<p>성향 점수가 0에서 1까지의 연속성을 갖기 때문에 정확한 일치는 거의 불가능하다. 그 대신, 매칭 프로세스는 대상 환자의 성향 점수와 일치하는 환자를 “캘리퍼 (caliper)”라고 알려진 내성 범위 내에서 찾는다. 이전 연구 <span class="citation">(Austin <a href="#ref-austin_2011">2011</a>)</span>에 따라, 우리는 로짓 척도에서 0.2 표준편차의 기본(default) 캘리퍼를 사용한다.</p>
+</div>
+<div id="overlap-preference-scores" class="section level3">
+<h3><span class="header-section-number">9.1.4</span> Overlap: preference scores</h3>
+<p></p>
+<p>성향 매칭 방법은 일치하는 환자가 필요하다! 따라서 주요 진단은 두 그룹의 성향 점수 분포를 보여준다. 해석을 용이하게 하기 위해 OHDSI 도구는 “선호 점수(preference score)”라는 성향 점수의 변형을 그린다.<span class="citation">(Walker et al. <a href="#ref-walker_2013">2013</a>)</span> 선호 점수는 두 가지 치료법의 “market share”을 조정하다. 예를 들면, 10%의 환자가 대상 치료를 받고(90%가 비교 치료를 받는 경우), 선호 점수가 0.5인 환자는 대상 치료를 받을 확률이 10%이다. 수학적으로 선호 점수는</p>
+<p><span class="math display">\[\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{1-P}\right)\]</span></p>
+<p>여기서 <span class="math inline">\(F\)</span> 는 선호 점수 (preference score), <span class="math inline">\(S\)</span> 는 성향 점수 (propensity score), 그리고 <span class="math inline">\(P\)</span> 는 대상치료를 받은 환자의 비율 ( proportion of patients receiving the target treatment) 이다.</p>
+<p><span class="citation">Walker et al. (<a href="#ref-walker_2013">2013</a>)</span> 는 “경험적 평형(empirical equipoise)”의 개념을 논의한다. 적어도 노출의 절반이 0.3과 0.7사이의 선호 점수를 갖는 환자에게 노출쌍(exposure pair)이 경험적 평형에서 나오는 것으로 받아 들인다. </p>
+<blockquote>
+<p><span class="citation">Walker et al. (<a href="#ref-walker_2013">2013</a>)</span> discuss the concept of “empirical equipoise.” They accept exposure pairs as emerging from empirical equipoise if at least half of the exposures are to patients with a preference score of between 0.3 and 0.7.</p>
+</blockquote>
+</div>
+<div id="balance" class="section level3">
+<h3><span class="header-section-number">9.1.5</span> Balance</h3>
+<p> </p>
+<p>좋은 방침(good practice)은 PS 조정이 균형 잡힌 환자 그룹을 만드는데 성공했는지 항상 확인하는 것이다. 그림 <a href="PopulationLevelEstimation.html#fig:balance">9.18</a> 은 균형을 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 PS 조정 전과 후에 두 노출 그룹간의 평균 차이를 표준화한다. 일부 지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다. <span class="citation">(Rubin <a href="#ref-rubin_2001">2001</a>)</span></p>
+</div>
+</div>
+<div id="the-self-controlled-cohort-design" class="section level2">
+<h2><span class="header-section-number">9.2</span> The self-controlled cohort design</h2>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:scc"></span>
+<img src="images/PopulationLevelEstimation/selfControlledCohort.png" alt="The self-controlled cohort design. The rate of outcomes during exposure to the target is compared to the rate of outcomes in the time pre-exposure." width="90%" />
+<p class="caption">
+Figure 9.2: The self-controlled cohort design. The rate of outcomes during exposure to the target is compared to the rate of outcomes in the time pre-exposure.
+</p>
+</div>
+<p>The self-controlled cohort (SCC) design <span class="citation">(Ryan, Schuemie, and Madigan <a href="#ref-ryan_2013">2013</a>)</span> compares the rate of outcomes during exposure to the rate of outcomes in the time just prior to the exposure. The four choices shown in Table <a href="PopulationLevelEstimation.html#tab:sccChoices">9.2</a> define a self-controlled cohort question.  </p>
+<table>
+<caption><span id="tab:sccChoices">Table 9.2: </span> Main design choices in a self-controlled cohort design.</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Choice</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Target cohort</td>
+<td align="left">A cohort representing the treatment</td>
+</tr>
+<tr class="even">
+<td align="left">Outcome cohort</td>
+<td align="left">A cohort representing the outcome of interest</td>
+</tr>
+<tr class="odd">
+<td align="left">Time-at-risk</td>
+<td align="left">At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?</td>
+</tr>
+<tr class="even">
+<td align="left">Control time</td>
+<td align="left">The time period used as the control time</td>
+</tr>
+</tbody>
+</table>
+<p>Because the same subject that make up the exposed group are also used as the control group, no adjustment for between-person differences need to be made. However, the method is vulnerable to other differences, such as differences in the baseline risk of the outcome between different time periods.</p>
+</div>
+<div id="the-case-control-design" class="section level2">
+<h2><span class="header-section-number">9.3</span> The case-control design</h2>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:caseControl"></span>
+<img src="images/PopulationLevelEstimation/caseControl.png" alt="The case-control design. Subjects with the outcome (‘cases’) are compared to subjects without the outcome (‘controls’) in terms of their exposure status. Often, cases and controls are matched on various characteristics such as age and sex." width="90%" />
+<p class="caption">
+Figure 9.3: The case-control design. Subjects with the outcome (‘cases’) are compared to subjects without the outcome (‘controls’) in terms of their exposure status. Often, cases and controls are matched on various characteristics such as age and sex.
+</p>
+</div>
+<p>Case-control studies <span class="citation">(Vandenbroucke and Pearce <a href="#ref-vandenbroucke_2012">2012</a>)</span> consider the question “are persons with a specific disease outcome exposed more frequently to a specific agent than those without the disease?” Thus, the central idea is to compare “cases,” i.e., subjects that experience the outcome of interest, with “controls,” i.e., subjects that did not experience the outcome of interest. The choices in Table <a href="PopulationLevelEstimation.html#tab:ccChoices">9.3</a> define a case-control question.   </p>
+<table>
+<caption><span id="tab:ccChoices">Table 9.3: </span> Main design choices in a case-control design.</caption>
+<colgroup>
+<col width="23%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Choice</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Outcome cohort</td>
+<td align="left">A cohort representing the cases (the outcome of interest)</td>
+</tr>
+<tr class="even">
+<td align="left">Control cohort</td>
+<td align="left">A cohort representing the controls. Typically the control cohort is automatically derived from the outcome cohort using some selection logic</td>
+</tr>
+<tr class="odd">
+<td align="left">Target cohort</td>
+<td align="left">A cohort representing the treatment</td>
+</tr>
+<tr class="even">
+<td align="left">Nesting cohort</td>
+<td align="left">Optionally, a cohort defining the subpopulation from which cases and controls are drawn</td>
+</tr>
+<tr class="odd">
+<td align="left">Time-at-risk</td>
+<td align="left">At what time (often relative to the index date) do we consider exposure status?</td>
+</tr>
+</tbody>
+</table>
+<p>Often, one selects controls to match cases based on characteristics such as age and sex to make them more comparable. Another widespread practice is to nest the analysis within a specific subgroup of people, for example people that have all been diagnosed with one of the indications of the exposure of interest.</p>
+</div>
+<div id="the-case-crossover-design" class="section level2">
+<h2><span class="header-section-number">9.4</span> The case-crossover design</h2>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:caseCrossover"></span>
+<img src="images/PopulationLevelEstimation/caseCrossover.png" alt="The case-crossover design. The time around the outcome is compared to a control date set at a predefined interval prior to the outcome date." width="90%" />
+<p class="caption">
+Figure 9.4: The case-crossover design. The time around the outcome is compared to a control date set at a predefined interval prior to the outcome date.
+</p>
+</div>
+<p>The case-crossover <span class="citation">(Maclure <a href="#ref-maclure_1991">1991</a>)</span> design evaluates whether the rate of exposure is different at the time of the outcome than at some predefined number of days prior to the outcome. It is trying to determine whether there is something special about the day the outcome occurred. Table <a href="PopulationLevelEstimation.html#tab:ccrChoices">9.4</a> shows the choices that define a case-crossover question.  </p>
+<table>
+<caption><span id="tab:ccrChoices">Table 9.4: </span> Main design choices in a case-crossover design.</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Choice</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Outcome cohort</td>
+<td align="left">A cohort representing the cases (the outcome of interest)</td>
+</tr>
+<tr class="even">
+<td align="left">Target cohort</td>
+<td align="left">A cohort representing the treatment</td>
+</tr>
+<tr class="odd">
+<td align="left">Time-at-risk</td>
+<td align="left">At what time (often relative to the index date) do we consider exposure status?</td>
+</tr>
+<tr class="even">
+<td align="left">Control time</td>
+<td align="left">The time period used as the control time</td>
+</tr>
+</tbody>
+</table>
+<p>Cases serve as their own controls. As self-controlled designs, they should be robust to confounding due to between-person differences. One concern is that, because the outcome date is always later than the control date, the method will be positively biased if the overall frequency of exposure increases over time (or negatively biased if there is a decrease). To address this, the case-time-control design <span class="citation">(Suissa <a href="#ref-suissa_1995">1995</a>)</span> was developed, which adds controls, matched for example on age and sex, to the case-crossover design to adjust for exposure trends. </p>
+</div>
+<div id="the-self-controlled-case-series-design" class="section level2">
+<h2><span class="header-section-number">9.5</span> The self-controlled case series design</h2>
+<p></p>
+<div class="figure" style="text-align: center"><span id="fig:selfControlledCaseSeries"></span>
+<img src="images/PopulationLevelEstimation/selfControlledCaseSeries.png" alt="The Self-Controlled Case Series design. The rate of outcomes during exposure is compared to the rate of outcomes when not exposed." width="90%" />
+<p class="caption">
+Figure 9.5: The Self-Controlled Case Series design. The rate of outcomes during exposure is compared to the rate of outcomes when not exposed.
+</p>
+</div>
+<p>The Self-Controlled Case Series (SCCS) design <span class="citation">(Farrington <a href="#ref-farrington_1995">1995</a>; Whitaker et al. <a href="#ref-whitaker_2006">2006</a>)</span> compares the rate of outcomes during exposure to the rate of outcomes during all unexposed time, including before, between, and after exposures. It is a Poisson regression that is conditioned on the person. Thus, it seeks to answer the question: “Given that a patient has the outcome, is the outcome more likely during exposed time compared to non-exposed time?”. The choices in Table <a href="PopulationLevelEstimation.html#tab:sccsChoices">9.5</a> define an SCCS question.  </p>
+<table>
+<caption><span id="tab:sccsChoices">Table 9.5: </span> Main design choices in a self-controlled case series design.</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Choice</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Target cohort</td>
+<td align="left">A cohort representing the treatment</td>
+</tr>
+<tr class="even">
+<td align="left">Outcome cohort</td>
+<td align="left">A cohort representing the outcome of interest</td>
+</tr>
+<tr class="odd">
+<td align="left">Time-at-risk</td>
+<td align="left">At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?</td>
+</tr>
+<tr class="even">
+<td align="left">Model</td>
+<td align="left">The model to estimate the effect, including any adjustments for time-varying confounders</td>
+</tr>
+</tbody>
+</table>
+<p>Like other self-controlled designs, the SCCS is robust to confounding due to between-person differences, but vulnerable to confounding due to time-varying effects. Several adjustments are possible to attempt to account for these, for example by including age and season. A special variant of the SCCS includes not just the exposure of interest, but all other exposures to drugs recorded in the database <span class="citation">(Simpson et al. <a href="#ref-simpson_2013">2013</a>)</span> potentially adding thousands of additional variables to the model. L1-regularization using cross-validation to select the regularization hyperparameter is applied to the coefficients of all exposures except the exposure of interest.</p>
+<p>One important assumption underlying the SCCS is that the observation period end is independent of the date of the outcome. For some outcomes, especially ones that can be fatal such as stroke, this assumption can be violated. An extension to the SCCS has been developed that corrects for any such dependency. <span class="citation">(Farrington et al. <a href="#ref-farrington_2011">2011</a>)</span></p>
+</div>
+<div id="designing-a-hypertension-study" class="section level2">
+<h2><span class="header-section-number">9.6</span> Designing a hypertension study</h2>
+<div id="problem-definition" class="section level3">
+<h3><span class="header-section-number">9.6.1</span> Problem definition</h3>
+<p>ACE inhibitors (ACEi) are widely used in patients with hypertension or ischemic heart disease, especially those with other comorbidities such as congestive heart failure, diabetes mellitus, or chronic kidney disease. <span class="citation">(Zaman, Oparil, and Calhoun <a href="#ref-zaman_2002">2002</a>)</span> Angioedema, a serious and sometimes life-threatening adverse event that usually manifests as swelling of the lips, tongue, mouth, larynx, pharynx, or periorbital region, has been linked to the use of these medications. <span class="citation">(Sabroe and Black <a href="#ref-sabroe_1997">1997</a>)</span> However, limited information is available about the absolute and relative risks for angioedema associated with the use of these medications. Existing evidence is primarily based on investigations of specific cohorts (e.g., predominantly male veterans or Medicaid beneficiaries) whose findings may not be generalizable to other populations, or based on investigations with few events, which provide unstable risk estimates <span class="citation">(Powers et al. <a href="#ref-powers_2012">2012</a>)</span>. Several observational studies compare ACEi to beta-blockers for the risk of angioedema, <span class="citation">(Magid et al. <a href="#ref-magid_2010">2010</a>; Toh et al. <a href="#ref-toh_2012">2012</a>)</span> but beta-blockers are no longer recommended as first-line treatment of hypertension. <span class="citation">(Whelton et al. <a href="#ref-whelton_2018">2018</a>)</span> A viable alternative treatment could be thiazides or thiazide-like diuretics (THZ), which could be just as effective in managing hypertension and its associated risks such as acute myocardial infarction (AMI), but without increasing the risk of angioedema.</p>
+<p>The following will demonstrate how to apply our population-level estimation framework to observational healthcare data to address the following comparative estimation questions:</p>
+<blockquote>
+<p>What is the risk of angioedema in new users of ACE inhibitors compared to new users of thiazide and thiazide-like diuretics?</p>
+</blockquote>
+<blockquote>
+<p>What is the risk of acute myocaridal infarction in new users of ACE inhibitors compared to new users of thiazide and thiazide-like diuretics?</p>
+</blockquote>
+<p>Since these are comparative effect estimation questions we will apply the cohort method as described in Cohort Method Section.</p>
+</div>
+<div id="target-and-comparator" class="section level3">
+<h3><span class="header-section-number">9.6.2</span> Target and comparator</h3>
+<p>We consider patients new-users if their first observed treatment for hypertension was monotherapy with any active ingredient in either the ACEi or THZ class. We define mono therapy as not starting on any other anti-hypertensive drug in the seven days following treatment initiation. We require patients to have at least one year of prior continuous observation in the database before first exposure and a recorded hypertension diagnosis at or in the year preceding treatment initiation.</p>
+</div>
+<div id="outcome" class="section level3">
+<h3><span class="header-section-number">9.6.3</span> Outcome</h3>
+<p>We define angioedema as any occurrence of an angioedema condition concept during an inpatient or emergency room (ER) visit, and require there to be no angioedema diagnosis recorded in the seven days prior. We define AMI as any occurrence of an AMI condition concept during an inpatient or ER visit, and require there to be no AMI diagnosis record in the 180 days prior.</p>
+</div>
+<div id="time-at-risk" class="section level3">
+<h3><span class="header-section-number">9.6.4</span> Time-at-risk</h3>
+<p>We define time-at-risk to start on the day after treatment initiation, and stop when exposure stops, allowing for a 30-day gap between subsequent drug exposures.</p>
+</div>
+<div id="model" class="section level3">
+<h3><span class="header-section-number">9.6.5</span> Model</h3>
+<p>We fit a PS model using the default set of covariates, including demographics, conditions, drugs, procedures, measurements, observations, and several co-morbidity scores. We exclude ACEi and THZ from the covariates. We perform variable-ratio matching and condition the Cox regression on the matched sets.</p>
+</div>
+<div id="study-summary" class="section level3">
+<h3><span class="header-section-number">9.6.6</span> Study summary</h3>
+<table>
+<caption><span id="tab:aceChoices">Table 9.6: </span> Main design choices for our comparative cohort study.</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Choice</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Target cohort</td>
+<td align="left">New users of ACE inhibitors as first-line monotherapy for hypertension.</td>
+</tr>
+<tr class="even">
+<td align="left">Comparator cohort</td>
+<td align="left">New users of thiazides or thiazide-like diuretics as first-line monotherapy for hypertension.</td>
+</tr>
+<tr class="odd">
+<td align="left">Outcome cohort</td>
+<td align="left">Angioedema or acute myocardial infarction.</td>
+</tr>
+<tr class="even">
+<td align="left">Time-at-risk</td>
+<td align="left">Starting the day after treatment initiation, stopping when exposure stops.</td>
+</tr>
+<tr class="odd">
+<td align="left">Model</td>
+<td align="left">Cox proportional hazards model using variable-ratio matching.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="control-questions" class="section level3">
+<h3><span class="header-section-number">9.6.7</span> Control questions</h3>
+<p>To evaluate whether our study design produces estimates in line with the truth, we additionally include a set of control questions where the true effect size is known. Control questions can be divided in negative controls, having a hazard ratio of 1, and positive controls, having a known hazard ratio greater than 1. For several reasons we use real negative controls, and synthesize positive controls based on these negative controls. How to define and use control questions is discussed in detail in Method Validity Chapter.</p>
+</div>
+</div>
+<div id="PleAtlas" class="section level2">
+<h2><span class="header-section-number">9.7</span> Implementing the study using ATLAS</h2>
+<p>Here we demonstrate how this study can be implemented using the Estimation function in ATLAS. Click on <img src="images/PopulationLevelEstimation/estimation.png" /> in the left bar of ATLAS, and create a new estimation study. Make sure to give the study an easy-to-recognize name. The study design can be saved at any time by clicking the <img src="images/PopulationLevelEstimation/save.png" /> button.</p>
+<p>In the Estimation design function, there are three sections: Comparisons, Analysis Settings, and Evaluation Settings. We can specify multiple comparisons and multiple analysis settings, and ATLAS will execute all combinations of these as separate analyses. Here we discuss each section:</p>
+<div id="ComparisonSettings" class="section level3">
+<h3><span class="header-section-number">9.7.1</span> Comparative cohort settings</h3>
+<p>A study can have one or more comparisons. Click on “Add Comparison,” which will open a new dialog. Click on <img src="images/PopulationLevelEstimation/open.png" /> to select the target and comparator cohorts. By clicking on “Add Outcome” we can add our two outcome cohorts. We assume the cohorts have already been created in ATLAS as described in Cohorts Chapter.</p>
+<div class="figure" style="text-align: center"><span id="fig:comparisons"></span>
+<img src="images/PopulationLevelEstimation/comparisons.png" alt="The comparison dialog" width="100%" />
+<p class="caption">
+Figure 9.6: The comparison dialog
+</p>
+</div>
+<p>Note that we can select multiple outcomes for a target-comparator pair. Each outcome will be treated independently, and will result in a separate analysis.</p>
+<p><strong>Negative control outcomes</strong></p>
+<p>Negative control outcomes are outcomes that are not believed to be caused by either the target or the comparator, and where therefore the true hazard ratio equals 1. Ideally, we would have proper cohort definitions for each outcome cohort. However, typically, we only have a concept set, with one concept per negative control outcome, and some standard logic to turn these into outcome cohorts. Here we assume the concept set has already been created as described in Method Validity Chapter and can simply be selected. The negative control concept set should contain a concept per negative control, and not include descendants. Figure <a href="PopulationLevelEstimation.html#fig:ncConceptSet">9.7</a> shows the negative control concept set used for this study.</p>
+<div class="figure" style="text-align: center"><span id="fig:ncConceptSet"></span>
+<img src="images/PopulationLevelEstimation/ncConceptSet.png" alt="Negative Control concept set." width="100%" />
+<p class="caption">
+Figure 9.7: Negative Control concept set.
+</p>
+</div>
+<p><strong>Concepts to include</strong></p>
+<p>When selecting concept to include, we can specify which covariates we would like to generate, for example to use in a propensity model. When specifying covariates here, all other covariates (aside from those you specified) are left out. We usually want to include all baseline covariates, letting the regularized regression build a model that balances all covariates. The only reason we might want to specify particular covariates is to replicate an existing study that manually picked covariates. These inclusions can be specified in this comparison section or in the analysis section, because sometimes they pertain to a specific comparison (e.g. know confounders in a comparison), or sometimes they pertain to an analysis (e.g. when evaluating a particular covariate selection strategy).</p>
+<p><strong>Concepts to exclude</strong></p>
+<p>Rather than specifying which concepts to include, we can instead specify concepts to <em>exclude</em>. When we submit a concept set in this field, we use every covariate except for those that we submitted. When using the default set of covariates, which includes all drugs and procedures occurring on the day of treatment initiation, we must exclude the target and comparator treatment, as well as any concepts that are directly related to these. For example, if the target exposure is an injectable, we should not only exclude the drug, but also the injection procedure from the propensity model. In this example, the covariates we want to exclude are ACEi and THZ. Figure <a href="PopulationLevelEstimation.html#fig:covsToExclude">9.8</a> shows we select a concept set that includes all these concepts.</p>
+<div class="figure" style="text-align: center"><span id="fig:covsToExclude"></span>
+<img src="images/PopulationLevelEstimation/covsToExclude.png" alt="The concept set defining the concepts to exclude." width="100%" />
+<p class="caption">
+Figure 9.8: The concept set defining the concepts to exclude.
+</p>
+</div>
+<p>After selecting the negative controls and covariates to exclude, the lower half of the comparisons dialog should look like Figure <a href="PopulationLevelEstimation.html#fig:comparisons2">9.9</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:comparisons2"></span>
+<img src="images/PopulationLevelEstimation/comparisons2.png" alt="The comparison window showing concept sets for negative controls and concepts to exclude." width="100%" />
+<p class="caption">
+Figure 9.9: The comparison window showing concept sets for negative controls and concepts to exclude.
+</p>
+</div>
+</div>
+<div id="effect-estimation-analysis-settings" class="section level3">
+<h3><span class="header-section-number">9.7.2</span> Effect estimation analysis settings</h3>
+<p>After closing the comparisons dialog we can click on “Add Analysis Settings.” In the box labeled “Analysis Name,” we can give the analysis a unique name that is easy to remember and locate in the future. For example, we could set the name to “Propensity score matching.”</p>
+<p><strong>Study population</strong></p>
+<p>There are a wide range of options to specify the study population, which is the set of subjects that will enter the analysis. Many of these overlap with options available when designing the target and comparator cohorts in the cohort definition tool. One reason for using the options in Estimation instead of in the cohort definition is re-usability; we can define the target, comparator, and outcome cohorts completely independently, and add dependencies between these at a later point in time. For example, if we wish to remove people who had the outcome before treatment initiation, we could do so in the definitions of the target and comparator cohort, but then we would need to create separate cohorts for every outcome! Instead, we can choose to have people with prior outcomes be removed in the analysis settings, and now we can reuse our target and comparator cohorts for our two outcomes of interest (as well as our negative control outcomes).</p>
+<p>The <strong>study start and end dates</strong> can be used to limit the analyses to a specific period. The study end date also truncates risk windows, meaning no outcomes beyond the study end date will be considered. One reason for selecting a study start date might be that one of the drugs being studied is new and did not exist in an earlier time. Automatically adjusting for this can be done by answering “yes” to the question “<strong>Restrict the analysis to the period when both exposures are observed?</strong>”. Another reason to adjust study start and end dates might be that medical practice changed over time (e.g., due to a drug warning) and we are only interested in the time where medicine was practiced a specific way.</p>
+<p>The option “<strong>Should only the first exposure per subject be included?</strong>” can be used to restrict to the first exposure per patient. Often this is already done in the cohort definition, as is the case in this example. Similarly, the option “<strong>The minimum required continuous observation time prior to index date for a person to be included in the cohort</strong>” is often already set in the cohort definition, and can therefore be left at 0 here. Having observed time (as defined in the OBSERVATION_PERIOD table) before the index date ensures that there is sufficient information about the patient to calculate a propensity score, and is also often used to ensure the patient is truly a new user, and therefore was not exposed before.</p>
+<p>“<strong>Remove subjects that are in both the target and comparator cohort?</strong>” defines, together with the option “<strong>If a subject is in multiple cohorts, should time-at-risk be censored when the new time-at-risk starts to prevent overlap?</strong>” what happens when a subject is in both target and comparator cohorts. The first setting has three choices:</p>
+<ul>
+<li>“<strong>Keep All</strong>” indicating to keep the subjects in both cohorts. With this option it might be possible to double-count subjects and outcomes.</li>
+<li>“<strong>Keep First</strong>” indicating to keep the subject in the first cohort that occurred.</li>
+<li>“<strong>Remove All</strong>” indicating to remove the subject from both cohorts.</li>
+</ul>
+<p>If the options “keep all” or “keep first” are selected, we may wish to censor the time when a person is in both cohorts. This is illustrated in Figure <a href="PopulationLevelEstimation.html#fig:tar">9.10</a>. By default, the time-at-risk is defined relative to the cohort start and end date. In this example, the time-at-risk starts one day after cohort entry, and stops at cohort end. Without censoring the time-at-risk for the two cohorts might overlap. This is especially problematic if we choose to keep all, because any outcome that occurs during this overlap (as shown) will be counted twice. If we choose to censor, the first cohort’s time-at-risk ends when the second cohort’s time-at-risk starts.</p>
+<div class="figure" style="text-align: center"><span id="fig:tar"></span>
+<img src="images/PopulationLevelEstimation/tar.png" alt="Time-at-risk (TAR) for subjects who are in both cohorts, assuming time-at-risk starts the day after treatment initiation, and stops at exposure end." width="80%" />
+<p class="caption">
+Figure 9.10: Time-at-risk (TAR) for subjects who are in both cohorts, assuming time-at-risk starts the day after treatment initiation, and stops at exposure end.
+</p>
+</div>
+<p>We can choose to <strong>remove subjects that have the outcome prior to the risk window start</strong>, because often a second outcome occurrence is the continuation of the first one. For instance, when someone develops heart failure, a second occurrence is likely, which means the heart failure probably never fully resolved in between. On the other hand, some outcomes are episodic, and it would be expected for patients to have more than one independent occurrence, like an upper respiratory infection. If we choose to remove people that had the outcome before, we can select <strong>how many days we should look back when identifying prior outcomes</strong>.</p>
+<p>Our choices for our example study are shown in Figure <a href="PopulationLevelEstimation.html#fig:studyPopulation">9.11</a>. Because our target and comparator cohort definitions already restrict to the first exposure and require observation time prior to treatment initiation, we do not apply these criteria here.</p>
+<div class="figure" style="text-align: center"><span id="fig:studyPopulation"></span>
+<img src="images/PopulationLevelEstimation/studyPopulation.png" alt="Study population settings." width="100%" />
+<p class="caption">
+Figure 9.11: Study population settings.
+</p>
+</div>
+<p><strong>Covariate settings</strong></p>
+<p>Here we specify the covariates to construct. These covariates are typically used in the propensity model, but can also be included in the outcome model (the Cox proporitional hazards model in this case). If we <strong>click to view details</strong> of our covariate settings, we can select which sets of covariates to construct. However, the recommendation is to use the default set, which constructs covariates for demographics, all conditions, drugs, procedures, measurements, etc.</p>
+<p>We can modify the set of covariates by specifying concepts to <strong>include</strong> and/or <strong>exclude</strong>. These settings are the same as the ones found in Comparison Settings Section on comparison settings. The reason why they can be found in two places is because sometimes these settings are related to a specific comparison, as is the case here because we wish to exclude the drugs we are comparing, and sometimes the settings are related to a specific analysis. When executing an analysis for a specific comparison using specific analysis settings, the OHDSI tools will take the union of these sets.</p>
+<p>The choice to <strong>add descendants to include or exclude</strong> affects this union of the two settings. So in this example we specified only the ingredients to exclude when defining the comparisons. Here we set “Should descendant concepts be added to the list of excluded concepts?” to “Yes” to also add all descendants.</p>
+<p>Figure <a href="PopulationLevelEstimation.html#fig:covariateSettings">9.12</a> shows our choices for this study. Note that we have selected to add descendants to the concept to exclude, which we defined in the comparison settings in Figure <a href="PopulationLevelEstimation.html#fig:comparisons2">9.9</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:covariateSettings"></span>
+<img src="images/PopulationLevelEstimation/covariateSettings.png" alt="Covariate settings." width="100%" />
+<p class="caption">
+Figure 9.12: Covariate settings.
+</p>
+</div>
+<p><strong>Time at risk</strong></p>
+<p>Time-at-risk is defined relative to the start and end dates of our target and comparator cohorts. In our example, we had set the cohort start date to start on treatment initiation, and cohort end date when exposure stops (for at least 30 days). We set the start of time-at-risk to one day after cohort start, so one day after treatment initiation. A reason to set the time-at-risk start to be later than the cohort start is because we may want to exclude outcome events that occur on the day of treatment initiation if we do not believe it biologically plausible they can be caused by the drug.</p>
+<p>We set the end of the time-at-risk to the cohort end, so when exposure stops. We could choose to set the end date later if for example we believe events closely following treatment end may still be attributable to the exposure. In the extreme we could set the time-at-risk end to a large number of days (e.g. 99999) after the cohort end date, meaning we will effectively follow up subjects until observation end. Such a design is sometimes referred to as an <em>intent-to-treat</em> design.</p>
+<p>A patient with zero days at risk adds no information, so the <strong>minimum days at risk</strong> is normally set at one day. If there is a known latency for the side effect, then this may be increased to get a more informative proportion. It can also be used to create a cohort more similar to that of a randomized trial it is being compared to (e.g., all the patients in the randomized trial were observed for at least N days).</p>
+<p>A golden rule in designing a cohort study is to never use information that falls after the cohort start date to define the study population, as this may introduce bias. For example, if we require everyone to have at least a year of time-at-risk, we will likely have limited our analyses to those who tolerate the treatment well. This setting should therefore be used with extreme care.</p>
+<div class="figure" style="text-align: center"><span id="fig:timeAtRisk"></span>
+<img src="images/PopulationLevelEstimation/timeAtRisk.png" alt="Time-at-risk settings." width="100%" />
+<p class="caption">
+Figure 9.13: Time-at-risk settings.
+</p>
+</div>
+<p><strong>Propensity score adjustment</strong></p>
+<p>We can opt to <strong>trim</strong> the study population, removing people with extreme PS values. We can choose to remove the top and bottom percentage, or we can remove subjects whose preference score falls outside the range we specify. Trimming the cohorts is generally not recommended because it requires discarding observations, which reduces statistical power. It may be desirable to trim in some cases, for example when using IPTW. </p>
+<p>In addition to, or instead of trimming, we can choose to <strong>stratify</strong> or <strong>match</strong> on the propensity score. When stratifying we need to specify the <strong>number of strata</strong> and whether to select the strata based on the target, comparator, or entire study population. When matching we need to specify the <strong>maximum number of people from the comparator group to match to each person in the target group</strong>. Typical values are 1 for one-on-one matching, or a large number (e.g. 100) for variable-ratio matching. We also need to specify the <strong>caliper</strong>: the maximum allowed difference between propensity scores to allow a match. The caliper can be defined on difference <strong>caliper scales</strong>: </p>
+<ul>
+<li><strong>The propensity score scale</strong>: the PS itself</li>
+<li><strong>The standardized scale</strong>: in standard deviations of the PS distributions</li>
+<li><strong>The standardized logit scale</strong>: in standard deviations of the PS distributions after the logit transformation to make the PS more normally distributed.</li>
+</ul>
+<p>In case of doubt, we suggest using the default values, or consult the work on this topic by <span class="citation">Austin (<a href="#ref-austin_2011">2011</a>)</span>.</p>
+<p>Fitting large-scale propensity models can be computationally expensive, so we may want to restrict the data used to fit the model to just a sample of the data. By default the maximum size of the target and comparator cohort is set to 250,000. In most studies this limit will not be reached. It is also unlikely that more data will lead to a better model. Note that although a sample of the data may be used to fit the model, the model will be used to compute PS for the entire population.</p>
+<p><strong>Test each covariate for correlation with the target assignment?</strong> If any covariate has an unusually high correlation (either positive or negative), this will throw an error. This avoids lengthy calculation of a propensity model only to discover complete separation. Finding very high univariate correlation allows you to review the covariate to determine why it has high correlation and whether it should be dropped.</p>
+<p>Figure <a href="PopulationLevelEstimation.html#fig:psSettings">9.14</a> shows our choices for this study. Note that we select variable-ratio matching by setting the maximum number of people to match to 100.</p>
+<div class="figure" style="text-align: center"><span id="fig:psSettings"></span>
+<img src="images/PopulationLevelEstimation/psSettings.png" alt="Propensity score adjustment settings." width="100%" />
+<p class="caption">
+Figure 9.14: Propensity score adjustment settings.
+</p>
+</div>
+<p><strong>Outcome model settings</strong></p>
+<p>First, we need to <strong>specify the statistical model we will use to estimate the relative risk of the outcome between target and comparator cohorts</strong>. We can choose between Cox, Poisson, and logistic regression, as discussed briefly in CohortMethod Section. For our example we choose a Cox proportional hazards model, which considers time to first event with possible censoring. Next, we need to specify <strong>whether the regression should be conditioned on the strata</strong>. One way to understand conditioning is to imagine a separate estimate is produced in each stratum, and then combined across strata. For one-to-one matching this is likely unnecessary and would just lose power. For stratification or variable-ratio matching it is required.  </p>
+<p>We can also choose to <strong>add all covariates to the outcome model</strong> to adjust the analysis. This can be done in addition or instead of using a propensity model. However, whereas there usually is ample data to fit a propensity model, with many people in both treatment groups, there is typically very little data to fit the outcome model, with only few people having the outcome. We therefore recommend keeping the outcome model as simple as possible and not include additional covariates.</p>
+<p>Instead of stratifying or matching on the propensity score we can also choose to <strong>use inverse probability of treatment weighting</strong> (IPTW). If weighting is used it is often recommended to use some form of trimming to avoid extreme weights and therefore unstable estimates.</p>
+<p>Figure <a href="PopulationLevelEstimation.html#fig:outcomeModelSettings">9.15</a> shows our choices for this study. Because we use variable-ratio matching, we must condition the regression on the strata (i.e. the matched sets).</p>
+<div class="figure" style="text-align: center"><span id="fig:outcomeModelSettings"></span>
+<img src="images/PopulationLevelEstimation/outcomeModelSettings.png" alt="Outcome model settings." width="100%" />
+<p class="caption">
+Figure 9.15: Outcome model settings.
+</p>
+</div>
+</div>
+<div id="evaluationSettings" class="section level3">
+<h3><span class="header-section-number">9.7.3</span> Evaluation settings</h3>
+<p>As described in Method Validity Chapter, negative and positive controls should be included in our study to evaluate the operating characteristics, and perform empirical calibration.</p>
+<p><strong>Negative control outcome cohort definition</strong></p>
+<p>In Comparison Settings Section we selected a concept set representing the negative control outcomes. However, we need logic to convert concepts to cohorts to be used as outcomes in our analysis. ATLAS provides standard logic with three choices. The first choice is whether to <strong>use all occurrences</strong> or just the <strong>first occurrence</strong> of the concept. The second choice determines <strong>whether occurrences of descendant concepts should be considered</strong>. For example, occurrences of the descendant “ingrown nail of foot” can also be counted as an occurrence of the ancestor “ingrown nail.” The third choice specifies which domains should be considered when looking for the concepts.</p>
+<div class="figure" style="text-align: center"><span id="fig:ncSettings"></span>
+<img src="images/PopulationLevelEstimation/ncSettings.png" alt="Negative control outcome cohort definition settings." width="100%" />
+<p class="caption">
+Figure 9.16: Negative control outcome cohort definition settings.
+</p>
+</div>
+<p><strong>Positive control synthesis</strong></p>
+<p>In addition to negative controls we can also include positive controls, which are exposure-outcome pairs where a causal effect is believed to exist with known effect size. For various reasons real positive controls are problematic, so instead we rely on synthetic positive controls, derived from negative controls as described in Method Validity Chapter. Positive control synthesis is an advanced topic that we will skip for now.</p>
+</div>
+<div id="running-the-study-package" class="section level3">
+<h3><span class="header-section-number">9.7.4</span> Running the study package</h3>
+<p>Now that we have fully defined our study, we can export it as an executable R package. This package contains everything that is needed to execute the study at a site that has data in CDM. This includes the cohort definitions that can be used to instantiate the target, comparator and outcome cohorts, the negative control concept set and logic to create the negative control outcome cohorts, as well as the R code to execute the analysis. Before generating the package make sure to save your study, then click on the <strong>Utilities</strong> tab. Here we can review the set of analyses that will be performed. As mentioned before, every combination of a comparison and an analysis setting will result in a separate analysis. In our example we have specified two analyses: ACEi versus THZ for AMI, and ACEi versus THZ for angioedema, both using propensity score matching.</p>
+<p>We must provide a name for our package, after which we can click on “Download” to download the zip file. The zip file contains an R package, with the usual required folder structure for R packages. <span class="citation">(Wickham <a href="#ref-Wickham_2015">2015</a>)</span> To use this package we recommend using R Studio. If you are running R Studio locally, unzip the file, and double click the .Rproj file to open it in R Studio. If you are running R Studio on an R studio server, click <img src="images/PopulationLevelEstimation/upload.png" /> to upload and unzip the file, then click on the .Rproj file to open the project.</p>
+<p>Once you have opened the project in R Studio, you can open the README file, and follow the instructions. Make sure to change all file paths to existing paths on your system.</p>
+<p>A common error message that may appear when running the study is “High correlation between covariate(s) and treatment detected.” This indicates that when fitting the propensity model, some covariates were observed to be highly correlated with the exposure. Please review the covariates mentioned in the error message, and exclude them from the set of covariates if appropriate (see Variable Selection Section). </p>
+</div>
+</div>
+<div id="pleR" class="section level2">
+<h2><span class="header-section-number">9.8</span> Implementing the study using R</h2>
+<p>Instead of using ATLAS to write the R code that executes the study, we can also write the R code ourselves. One reason we might want to do this is because R offers far greater flexibility than is exposed in ATLAS. If we for example wish to use custom covariates, or a linear outcome model, we will need to write some custom R code, and combine it with the functionality provided by the OHDSI R packages.</p>
+<p>For our example study we will rely on the <a href="https://ohdsi.github.io/CohortMethod/">CohortMethod</a> package to execute our study. CohortMethod extracts the necessary data from a database in the CDM and can use a large set of covariates for the propensity model. In the following example we first only consider angioedema as outcome. In Multiple Analyses Section we then describe how this can be extended to include AMI and the negative control outcomes.</p>
+<div id="cohort-instantiation" class="section level3">
+<h3><span class="header-section-number">9.8.1</span> Cohort instantiation</h3>
+<p>We first need to instantiate the target and outcome cohorts.</p>
+</div>
+<div id="data-extraction" class="section level3">
+<h3><span class="header-section-number">9.8.2</span> Data extraction</h3>
+<p>We first need to tell R how to connect to the server. <a href="https://ohdsi.github.io/CohortMethod/">CohortMethod</a> uses the <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> package, which provides a function called <code>createConnectionDetails</code>. Type <code>?createConnectionDetails</code> for the specific settings required for the various database management systems (DBMS). For example, one might connect to a PostgreSQL database using this code:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CohortMethod)
+connDetails &lt;-<span class="st"> </span><span class="kw">createConnectionDetails</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
+                                       <span class="dt">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,
+                                       <span class="dt">user =</span> <span class="st">&quot;joe&quot;</span>,
+                                       <span class="dt">password =</span> <span class="st">&quot;supersecret&quot;</span>)
+
+cdmDbSchema &lt;-<span class="st"> &quot;my_cdm_data&quot;</span>
+cohortDbSchema &lt;-<span class="st"> &quot;scratch&quot;</span>
+cohortTable &lt;-<span class="st"> &quot;my_cohorts&quot;</span>
+cdmVersion &lt;-<span class="st"> &quot;5&quot;</span></code></pre>
+<p>The last four lines define the <code>cdmDbSchema</code>, <code>cohortDbSchema</code>, and <code>cohortTable</code> variables, as well as the CDM version. We will use these later to tell R where the data in CDM format live, where the cohorts of interest have been created, and what version CDM is used. Note that for Microsoft SQL Server, database schemas need to specify both the database and the schema, so for example <code>cdmDbSchema &lt;- "my_cdm_data.dbo"</code>.</p>
+<p>Now we can tell CohortMethod to extract the cohorts, construct covariates, and extract all necessary data for our analysis:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># target and comparator ingredient concepts:</span>
+aceI &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1335471</span>,<span class="dv">1340128</span>,<span class="dv">1341927</span>,<span class="dv">1363749</span>,<span class="dv">1308216</span>,<span class="dv">1310756</span>,<span class="dv">1373225</span>,
+          <span class="dv">1331235</span>,<span class="dv">1334456</span>,<span class="dv">1342439</span>)
+thz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1395058</span>,<span class="dv">974166</span>,<span class="dv">978555</span>,<span class="dv">907013</span>)
+
+<span class="co"># Define which types of covariates must be constructed:</span>
+cs &lt;-<span class="st"> </span><span class="kw">createDefaultCovariateSettings</span>(<span class="dt">excludedCovariateConceptIds =</span> <span class="kw">c</span>(aceI,
+                                                                     thz),
+                                     <span class="dt">addDescendantsToExclude =</span> <span class="ot">TRUE</span>)
+
+<span class="co">#Load data:</span>
+cmData &lt;-<span class="st"> </span><span class="kw">getDbCohortMethodData</span>(<span class="dt">connectionDetails =</span> connectionDetails,
+                                <span class="dt">cdmDatabaseSchema =</span> cdmDatabaseSchema,
+                                <span class="dt">oracleTempSchema =</span> <span class="ot">NULL</span>,
+                                <span class="dt">targetId =</span> <span class="dv">1</span>,
+                                <span class="dt">comparatorId =</span> <span class="dv">2</span>,
+                                <span class="dt">outcomeIds =</span> <span class="dv">3</span>,
+                                <span class="dt">studyStartDate =</span> <span class="st">&quot;&quot;</span>,
+                                <span class="dt">studyEndDate =</span> <span class="st">&quot;&quot;</span>,
+                                <span class="dt">exposureDatabaseSchema =</span> cohortDbSchema,
+                                <span class="dt">exposureTable =</span> cohortTable,
+                                <span class="dt">outcomeDatabaseSchema =</span> cohortDbSchema,
+                                <span class="dt">outcomeTable =</span> cohortTable,
+                                <span class="dt">cdmVersion =</span> cdmVersion,
+                                <span class="dt">firstExposureOnly =</span> <span class="ot">FALSE</span>,
+                                <span class="dt">removeDuplicateSubjects =</span> <span class="ot">FALSE</span>,
+                                <span class="dt">restrictToCommonPeriod =</span> <span class="ot">FALSE</span>,
+                                <span class="dt">washoutPeriod =</span> <span class="dv">0</span>,
+                                <span class="dt">covariateSettings =</span> cs)
+cmData</code></pre>
+<pre><code>## CohortMethodData object
+## 
+## Treatment concept ID: 1
+## Comparator concept ID: 2
+## Outcome concept ID(s): 3</code></pre>
+<p>There are many parameters, but they are all documented in the <a href="https://ohdsi.github.io/CohortMethod/reference/">CohortMethod manual</a>. The <code>createDefaultCovariateSettings</code> function is described in the <a href="https://ohdsi.github.io/FeatureExtraction/">FeatureExtraction</a> package. In short, we are pointing the function to the table containing our cohorts and specify which cohort definition IDs in that table identify the target, comparator and outcome. We instruct that the default set of covariates should be constructed, including covariates for all conditions, drug exposures, and procedures that were found on or before the index date. As mentioned in Cohort Method Section we must exclude the target and comparator treatments from the set of covariates, and here we achieve this by listing all ingredients in the two classes, and tell FeatureExtraction to also exclude all descendants, thus excluding all drugs that contain these ingredients.</p>
+<p>All data about the cohorts, outcomes, and covariates are extracted from the server and stored in the <code>cohortMethodData</code> object. This object uses the package <code>ff</code> to store information in a way that ensures R does not run out of memory, even when the data are large, as mentioned in Section Big Data Support .</p>
+<p>We can use the generic <code>summary()</code> function to view some more information of the data we extracted:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cmData)</code></pre>
+<pre><code>## CohortMethodData object summary
+## 
+## Treatment concept ID: 1
+## Comparator concept ID: 2
+## Outcome concept ID(s): 3
+## 
+## Treated persons: 67166
+## Comparator persons: 35333
+## 
+## Outcome counts:
+##          Event count Person count
+## 3               980          891
+## 
+## Covariates:
+## Number of covariates: 58349
+## Number of non-zero covariate values: 24484665</code></pre>
+<p>Creating the <code>cohortMethodData</code> file can take considerable computing time, and it is probably a good idea to save it for future sessions. Because <code>cohortMethodData</code> uses <code>ff</code>, we cannot use R’s regular save function. Instead, we’ll have to use the <code>saveCohortMethodData()</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveCohortMethodData</span>(cmData, <span class="st">&quot;AceiVsThzForAngioedema&quot;</span>)</code></pre>
+<p>We can use the <code>loadCohortMethodData()</code> function to load the data in a future session.</p>
+<p><strong>Defining new users</strong></p>
+<p>Typically, a new user is defined as first time use of a drug (either target or comparator), and typically a washout period (a minimum number of days prior to first use) is used to increase the probability that it is truly first use. When using the CohortMethod package, you can enforce the necessary requirements for new use in three ways:</p>
+<ol style="list-style-type: decimal">
+<li>When defining the cohorts.</li>
+<li>When loading the cohorts using the <code>getDbCohortMethodData</code> function, you can use the <code>firstExposureOnly</code>, <code>removeDuplicateSubjects</code>, <code>restrictToCommonPeriod</code>, and <code>washoutPeriod</code> arguments.</li>
+<li>When defining the study population using the <code>createStudyPopulation</code> function (see below).</li>
+</ol>
+<p>The advantage of option 1 is that the input cohorts are already fully defined outside of the CohortMethod package, and external cohort characterization tools can be used on the same cohorts used in this analysis. The advantage of options 2 and 3 is that they save you the trouble of limiting to first use yourself, for example allowing you to directly use the DRUG_ERA table in the CDM. Option 2 is more efficient than 3, since only data for first use will be fetched, while option 3 is less efficient but allows you to compare the original cohorts to the study population.</p>
+</div>
+<div id="defining-the-study-population" class="section level3">
+<h3><span class="header-section-number">9.8.3</span> Defining the study population</h3>
+<p>Typically, the exposure cohorts and outcome cohorts will be defined independently of each other. When we want to produce an effect size estimate, we need to further restrict these cohorts and put them together, for example by removing exposed subjects that had the outcome prior to exposure, and only keeping outcomes that fall within a defined risk window. For this we can use the <code>createStudyPopulation</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r">studyPop &lt;-<span class="st"> </span><span class="kw">createStudyPopulation</span>(<span class="dt">cohortMethodData =</span> cmData,
+                                  <span class="dt">outcomeId =</span> <span class="dv">3</span>,
+                                  <span class="dt">firstExposureOnly =</span> <span class="ot">FALSE</span>,
+                                  <span class="dt">restrictToCommonPeriod =</span> <span class="ot">FALSE</span>,
+                                  <span class="dt">washoutPeriod =</span> <span class="dv">0</span>,
+                                  <span class="dt">removeDuplicateSubjects =</span> <span class="st">&quot;remove all&quot;</span>,
+                                  <span class="dt">removeSubjectsWithPriorOutcome =</span> <span class="ot">TRUE</span>,
+                                  <span class="dt">minDaysAtRisk =</span> <span class="dv">1</span>,
+                                  <span class="dt">riskWindowStart =</span> <span class="dv">1</span>,
+                                  <span class="dt">addExposureDaysToStart =</span> <span class="ot">FALSE</span>,
+                                  <span class="dt">riskWindowEnd =</span> <span class="dv">0</span>,
+                                  <span class="dt">addExposureDaysToEnd =</span> <span class="ot">TRUE</span>)</code></pre>
+<p>Note that we’ve set <code>firstExposureOnly</code> and <code>removeDuplicateSubjects</code> to FALSE, and <code>washoutPeriod</code> to 0 because we already applied those criteria in the cohort definitions. We specify the outcome ID we will use, and that people with outcomes prior to the risk window start date will be removed. The risk window is defined as starting on the day after the cohort start date (<code>riskWindowStart = 1</code> and <code>addExposureDaysToStart = FALSE</code>), and the risk windows ends when the cohort exposure ends (<code>riskWindowEnd = 0</code> and <code>addExposureDaysToEnd = TRUE</code>), which was defined as the end of exposure in the cohort definition. Note that the risk windows are automatically truncated at the end of observation or the study end date. We also remove subjects who have no time at risk. To see how many people are left in the study population we can always use the <code>getAttritionTable</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getAttritionTable</span>(studyPop)</code></pre>
+<pre><code>##                    description targetPersons comparatorPersons   ...
+## 1             Original cohorts         67212             35379   ...
+## 2 Removed subs in both cohorts         67166             35333   ...
+## 3             No prior outcome         67061             35238   ...
+## 4 Have at least 1 days at risk         66780             35086   ...</code></pre>
+</div>
+<div id="propensity-scores-1" class="section level3">
+<h3><span class="header-section-number">9.8.4</span> Propensity scores</h3>
+<p>We can fit a propensity model using the covariates constructed by the <code>getDbcohortMethodData()</code> function, and compute a PS for each person:</p>
+<pre class="sourceCode r"><code class="sourceCode r">ps &lt;-<span class="st"> </span><span class="kw">createPs</span>(<span class="dt">cohortMethodData =</span> cmData, <span class="dt">population =</span> studyPop)</code></pre>
+<p>The <code>createPs</code> function uses the <a href="https://ohdsi.github.io/Cyclops/">Cyclops</a> package to fit a large-scale regularized logistic regression. To fit the propensity model, Cyclops needs to know the hyperparameter value which specifies the variance of the prior. By default Cyclops will use cross-validation to estimate the optimal hyperparameter. However, be aware that this can take a really long time. You can use the <code>prior</code> and <code>control</code> parameters of the <code>createPs</code> function to specify Cyclops’ behavior, including using multiple CPUs to speed-up the cross-validation.</p>
+<p>Here we use the PS to perform variable-ratio matching:</p>
+<pre class="sourceCode r"><code class="sourceCode r">matchedPop &lt;-<span class="st"> </span><span class="kw">matchOnPs</span>(<span class="dt">population =</span> ps, <span class="dt">caliper =</span> <span class="fl">0.2</span>,
+                        <span class="dt">caliperScale =</span> <span class="st">&quot;standardized logit&quot;</span>, <span class="dt">maxRatio =</span> <span class="dv">100</span>)</code></pre>
+<p>Alternatively, we could have used the PS in the <code>trimByPs</code>, <code>trimByPsToEquipoise</code>, or <code>stratifyByPs</code> functions.</p>
+</div>
+<div id="outcome-models" class="section level3">
+<h3><span class="header-section-number">9.8.5</span> Outcome models</h3>
+<p>The outcome model is a model describing which variables are associated with the outcome. Under strict assumptions, the coefficient for the treatment variable can be interpreted as the causal effect. In this case we fit a Cox proportional hazards model, conditioned (stratified) on the matched sets:</p>
+<pre class="sourceCode r"><code class="sourceCode r">outcomeModel &lt;-<span class="st"> </span><span class="kw">fitOutcomeModel</span>(<span class="dt">population =</span> matchedPop,
+                                <span class="dt">modelType =</span> <span class="st">&quot;cox&quot;</span>,
+                                <span class="dt">stratified =</span> <span class="ot">TRUE</span>)
+outcomeModel</code></pre>
+<pre><code>## Model type: cox
+## Stratified: TRUE
+## Use covariates: FALSE
+## Use inverse probability of treatment weighting: FALSE
+## Status: OK
+## 
+##           Estimate lower .95 upper .95   logRr seLogRr
+## treatment   4.3203    2.4531    8.0771 1.4633   0.304</code></pre>
+</div>
+<div id="MultipleAnalyses" class="section level3">
+<h3><span class="header-section-number">9.8.6</span> Running multiple analyses</h3>
+<p>Often we want to perform more than one analysis, for example for multiple outcomes including negative controls. The <a href="https://ohdsi.github.io/CohortMethod/">CohortMethod</a> offers functions for performing such studies efficiently. This is described in detail in the <a href="https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html">package vignette on running multiple analyses</a>. Briefly, assuming the outcome of interest and negative control cohorts have already been created, we can specify all target-comparator-outcome combinations we wish to analyze:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Outcomes of interest:</span>
+ois &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>) <span class="co"># Angioedema, AMI</span>
+
+<span class="co"># Negative controls:</span>
+ncs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">434165</span>,<span class="dv">436409</span>,<span class="dv">199192</span>,<span class="dv">4088290</span>,<span class="dv">4092879</span>,<span class="dv">44783954</span>,<span class="dv">75911</span>,<span class="dv">137951</span>,<span class="dv">77965</span>,
+         <span class="dv">376707</span>,<span class="dv">4103640</span>,<span class="dv">73241</span>,<span class="dv">133655</span>,<span class="dv">73560</span>,<span class="dv">434327</span>,<span class="dv">4213540</span>,<span class="dv">140842</span>,<span class="dv">81378</span>,<span class="dv">432303</span>,
+         <span class="dv">4201390</span>,<span class="dv">46269889</span>,<span class="dv">134438</span>,<span class="dv">78619</span>,<span class="dv">201606</span>,<span class="dv">76786</span>,<span class="dv">4115402</span>,<span class="dv">45757370</span>,<span class="dv">433111</span>
+         <span class="dv">433527</span>,<span class="dv">4170770</span>,<span class="dv">4092896</span>,<span class="dv">259995</span>,<span class="dv">40481632</span>,<span class="dv">4166231</span>,<span class="dv">433577</span>,<span class="dv">4231770</span>,<span class="dv">440329</span>,
+         <span class="dv">4012570</span>,<span class="dv">4012934</span>,<span class="dv">441788</span>,<span class="dv">4201717</span>,<span class="dv">374375</span>,<span class="dv">4344500</span>,<span class="dv">139099</span>,<span class="dv">444132</span>,<span class="dv">196168</span>,
+         <span class="dv">432593</span>,<span class="dv">434203</span>,<span class="dv">438329</span>,<span class="dv">195873</span>,<span class="dv">4083487</span>,<span class="dv">4103703</span>,<span class="dv">4209423</span>,<span class="dv">377572</span>,<span class="dv">40480893</span>,
+         <span class="dv">136368</span>,<span class="dv">140648</span>,<span class="dv">438130</span>,<span class="dv">4091513</span>,<span class="dv">4202045</span>,<span class="dv">373478</span>,<span class="dv">46286594</span>,<span class="dv">439790</span>,<span class="dv">81634</span>,
+         <span class="dv">380706</span>,<span class="dv">141932</span>,<span class="dv">36713918</span>,<span class="dv">443172</span>,<span class="dv">81151</span>,<span class="dv">72748</span>,<span class="dv">378427</span>,<span class="dv">437264</span>,<span class="dv">194083</span>,
+         <span class="dv">140641</span>,<span class="dv">440193</span>,<span class="dv">4115367</span>)
+
+tcos &lt;-<span class="st"> </span><span class="kw">createTargetComparatorOutcomes</span>(<span class="dt">targetId =</span> <span class="dv">1</span>,
+                                       <span class="dt">comparatorId =</span> <span class="dv">2</span>,
+                                       <span class="dt">outcomeIds =</span> <span class="kw">c</span>(ois, ncs))
+
+tcosList &lt;-<span class="st"> </span><span class="kw">list</span>(tcos)</code></pre>
+<p>Next, we specify what arguments should be used when calling the various functions described previously in our example with one outcome:</p>
+<pre class="sourceCode r"><code class="sourceCode r">aceI &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1335471</span>,<span class="dv">1340128</span>,<span class="dv">1341927</span>,<span class="dv">1363749</span>,<span class="dv">1308216</span>,<span class="dv">1310756</span>,<span class="dv">1373225</span>,
+          <span class="dv">1331235</span>,<span class="dv">1334456</span>,<span class="dv">1342439</span>)
+thz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1395058</span>,<span class="dv">974166</span>,<span class="dv">978555</span>,<span class="dv">907013</span>)
+
+cs &lt;-<span class="st"> </span><span class="kw">createDefaultCovariateSettings</span>(<span class="dt">excludedCovariateConceptIds =</span> <span class="kw">c</span>(aceI,
+                                                                     thz),
+                                     <span class="dt">addDescendantsToExclude =</span> <span class="ot">TRUE</span>)
+
+cmdArgs &lt;-<span class="st"> </span><span class="kw">createGetDbCohortMethodDataArgs</span>(
+  <span class="dt">studyStartDate =</span> <span class="st">&quot;&quot;</span>,
+  <span class="dt">studyEndDate =</span> <span class="st">&quot;&quot;</span>,
+  <span class="dt">firstExposureOnly =</span> <span class="ot">FALSE</span>,
+  <span class="dt">removeDuplicateSubjects =</span> <span class="ot">FALSE</span>,
+  <span class="dt">restrictToCommonPeriod =</span> <span class="ot">FALSE</span>,
+  <span class="dt">washoutPeriod =</span> <span class="dv">0</span>,
+  <span class="dt">covariateSettings =</span> cs)
+
+spArgs &lt;-<span class="st"> </span><span class="kw">createCreateStudyPopulationArgs</span>(
+  <span class="dt">firstExposureOnly =</span> <span class="ot">FALSE</span>,
+  <span class="dt">restrictToCommonPeriod =</span> <span class="ot">FALSE</span>,
+  <span class="dt">washoutPeriod =</span> <span class="dv">0</span>,
+  <span class="dt">removeDuplicateSubjects =</span> <span class="st">&quot;remove all&quot;</span>,
+  <span class="dt">removeSubjectsWithPriorOutcome =</span> <span class="ot">TRUE</span>,
+  <span class="dt">minDaysAtRisk =</span> <span class="dv">1</span>,
+  <span class="dt">riskWindowStart =</span> <span class="dv">1</span>,
+  <span class="dt">addExposureDaysToStart =</span> <span class="ot">FALSE</span>,
+  <span class="dt">riskWindowEnd =</span> <span class="dv">0</span>,
+  <span class="dt">addExposureDaysToEnd =</span> <span class="ot">TRUE</span>)
+
+psArgs &lt;-<span class="st"> </span><span class="kw">createCreatePsArgs</span>()
+
+matchArgs &lt;-<span class="st"> </span><span class="kw">createMatchOnPsArgs</span>(
+  <span class="dt">caliper =</span> <span class="fl">0.2</span>,
+  <span class="dt">caliperScale =</span> <span class="st">&quot;standardized logit&quot;</span>,
+  <span class="dt">maxRatio =</span> <span class="dv">100</span>)
+
+fomArgs &lt;-<span class="st"> </span><span class="kw">createFitOutcomeModelArgs</span>(
+  <span class="dt">modelType =</span> <span class="st">&quot;cox&quot;</span>,
+  <span class="dt">stratified =</span> <span class="ot">TRUE</span>)</code></pre>
+<p>We then combine these into a single analysis settings object, which we provide a unique analysis ID and some description. We can combine one or more analysis settings objects into a list:</p>
+<pre class="sourceCode r"><code class="sourceCode r">cmAnalysis &lt;-<span class="st"> </span><span class="kw">createCmAnalysis</span>(
+  <span class="dt">analysisId =</span> <span class="dv">1</span>,
+  <span class="dt">description =</span> <span class="st">&quot;Propensity score matching&quot;</span>,
+  <span class="dt">getDbCohortMethodDataArgs =</span> cmdArgs,
+  <span class="dt">createStudyPopArgs =</span> spArgs,
+  <span class="dt">createPs =</span> <span class="ot">TRUE</span>,
+  <span class="dt">createPsArgs =</span> psArgs,
+  <span class="dt">matchOnPs =</span> <span class="ot">TRUE</span>,
+  <span class="dt">matchOnPsArgs =</span> matchArgs
+  <span class="dt">fitOutcomeModel =</span> <span class="ot">TRUE</span>,
+  <span class="dt">fitOutcomeModelArgs =</span> fomArgs)
+
+cmAnalysisList &lt;-<span class="st"> </span><span class="kw">list</span>(cmAnalysis)</code></pre>
+<p>We can now run the study including all comparisons and analysis settings:</p>
+<pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">runCmAnalyses</span>(<span class="dt">connectionDetails =</span> connectionDetails,
+                        <span class="dt">cdmDatabaseSchema =</span> cdmDatabaseSchema,
+                        <span class="dt">exposureDatabaseSchema =</span> cohortDbSchema,
+                        <span class="dt">exposureTable =</span> cohortTable,
+                        <span class="dt">outcomeDatabaseSchema =</span> cohortDbSchema,
+                        <span class="dt">outcomeTable =</span> cohortTable,
+                        <span class="dt">cdmVersion =</span> cdmVersion,
+                        <span class="dt">outputFolder =</span> outputFolder,
+                        <span class="dt">cmAnalysisList =</span> cmAnalysisList,
+                        <span class="dt">targetComparatorOutcomesList =</span> tcosList)</code></pre>
+<p>The <code>result</code> object contains references to all the artifacts that were created. For example, we can retrieve the outcome model for AMI:</p>
+<pre class="sourceCode r"><code class="sourceCode r">omFile &lt;-<span class="st"> </span>result<span class="op">$</span>outcomeModelFile[result<span class="op">$</span>targetId <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span>
+<span class="st">                                    </span>result<span class="op">$</span>comparatorId <span class="op">==</span><span class="st"> </span><span class="dv">2</span> <span class="op">&amp;</span>
+<span class="st">                                    </span>result<span class="op">$</span>outcomeId <span class="op">==</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;</span>
+<span class="st">                                    </span>result<span class="op">$</span>analysisId <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]
+outcomeModel &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">file.path</span>(outputFolder, omFile))
+outcomeModel</code></pre>
+<pre><code>## Model type: cox
+## Stratified: TRUE
+## Use covariates: FALSE
+## Use inverse probability of treatment weighting: FALSE
+## Status: OK
+## 
+##           Estimate lower .95 upper .95   logRr seLogRr
+## treatment   1.1338    0.5921    2.1765 0.1256   0.332</code></pre>
+<p>We can also retrieve the effect size estimates for all outcomes with one command:</p>
+<pre class="sourceCode r"><code class="sourceCode r">summ &lt;-<span class="st"> </span><span class="kw">summarizeAnalyses</span>(result, <span class="dt">outputFolder =</span> outputFolder)
+<span class="kw">head</span>(summ)</code></pre>
+<pre><code>##     analysisId targetId comparatorId outcomeId        rr    ci95lb  ...
+## 1            1        1            2     72748 0.9734698 0.5691589  ...
+## 2            1        1            2     73241 0.7067981 0.4009951  ...
+## 3            1        1            2     73560 1.0623951 0.7187302  ...
+## 4            1        1            2     75911 0.9952184 0.6190344  ...
+## 5            1        1            2     76786 1.0861746 0.6730408  ...
+## 6            1        1            2     77965 1.1439772 0.5173222  ...</code></pre>
+</div>
+</div>
+<div id="studyOutputs" class="section level2">
+<h2><span class="header-section-number">9.9</span> Study outputs</h2>
+<p>Our estimates are only valid if several assumptions have been met. We use a wide set of diagnostics to evaluate whether this is the case. These are available in the results produced by the R package generated by ATLAS, or can be generated on the fly using specific R functions.</p>
+<div id="propensity-scores-and-model" class="section level3">
+<h3><span class="header-section-number">9.9.1</span> Propensity scores and model</h3>
+<p>We first need to evaluate whether the target and comparator cohort are to some extent comparable. For this we can compute the Area Under the Receiver Operator Curve (AUC) statistic for the propensity model. An AUC of 1 indicates the treatment assignment was completely predictable based on baseline covariates, and that the two groups are therefore incomparable. We can use the <code>computePsAuc</code> function to compute the AUC, which in our example is 0.79. Using the <code>plotPs</code> function, we can also generate the preference score distribution as shown in Figure <a href="PopulationLevelEstimation.html#fig:ps">9.17</a>. Here we see that for many people the treatment they received was predictable, but there is also a large amount of overlap, indicating that adjustment can be used to select comparable groups. </p>
+<div class="figure" style="text-align: center"><span id="fig:ps"></span>
+<img src="images/PopulationLevelEstimation/ps.png" alt="Preference score distribution." width="80%" />
+<p class="caption">
+Figure 9.17: Preference score distribution.
+</p>
+</div>
+<p>In general it is a good idea to also inspect the propensity model itself, and especially so if the model is very predictive. That way we may discover which variables are most predictive. Table <a href="PopulationLevelEstimation.html#tab:psModel">9.7</a> shows the top predictors in our propensity model. Note that if a variable is too predictive, the CohortMethod package will throw an informative error rather than attempt to fit a model that is already known to be perfectly predictive. </p>
+<table>
+<caption><span id="tab:psModel">Table 9.7: </span> Top 10 predictors in the propensity model for ACEi and THZ. Positive values mean subjects with the covariate are more likely to receive the target treatment.</caption>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Beta</th>
+<th align="left">Covariate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">-1.42</td>
+<td align="left">condition_era group during day -30 through 0 days relative to index: Edema</td>
+</tr>
+<tr class="even">
+<td align="right">-1.11</td>
+<td align="left">drug_era group during day 0 through 0 days relative to index: Potassium Chloride</td>
+</tr>
+<tr class="odd">
+<td align="right">0.68</td>
+<td align="left">age group: 05-09</td>
+</tr>
+<tr class="even">
+<td align="right">0.64</td>
+<td align="left">measurement during day -365 through 0 days relative to index: Renin</td>
+</tr>
+<tr class="odd">
+<td align="right">0.63</td>
+<td align="left">condition_era group during day -30 through 0 days relative to index: Urticaria</td>
+</tr>
+<tr class="even">
+<td align="right">0.57</td>
+<td align="left">condition_era group during day -30 through 0 days relative to index: Proteinuria</td>
+</tr>
+<tr class="odd">
+<td align="right">0.55</td>
+<td align="left">drug_era group during day -365 through 0 days relative to index: INSULINS AND ANALOGUES</td>
+</tr>
+<tr class="even">
+<td align="right">-0.54</td>
+<td align="left">race = Black or African American</td>
+</tr>
+<tr class="odd">
+<td align="right">0.52</td>
+<td align="left">(Intercept)</td>
+</tr>
+<tr class="even">
+<td align="right">0.50</td>
+<td align="left">gender = MALE</td>
+</tr>
+</tbody>
+</table>
+<p>If a variable is found to be highly predictive, there are two possible conclusions: Either we find that the variable is clearly part of the exposure itself and should be removed before fitting the model, or else we must conclude that the two populations are truly incomparable, and the analysis must be stopped.```</p>
+</div>
+<div id="covariate-balance" class="section level3">
+<h3><span class="header-section-number">9.9.2</span> Covariate balance</h3>
+<p>The goal of using PS is to make the two groups comparable (or at least to select comparable groups). We must verify whether this is achieved, for example by checking whether the baseline covariates are indeed balanced after adjustment. We can use the <code>computeCovariateBalance</code> and <code>plotCovariateBalanceScatterPlot</code> functions to generate Figure <a href="PopulationLevelEstimation.html#fig:balance">9.18</a>. One rule-of-thumb to use is that no covariate may have an absolute standardized difference of means greater than 0.1 after propensity score adjustment. Here we see that although there was substantial imbalance before matching, after matching we meet this criterion. </p>
+<div class="figure" style="text-align: center"><span id="fig:balance"></span>
+<img src="images/PopulationLevelEstimation/balance.png" alt="Covariate balance, showing the absolute standardized difference of mean before and after propensity score matching. Each blue dot represents a covariate." width="70%" />
+<p class="caption">
+Figure 9.18: Covariate balance, showing the absolute standardized difference of mean before and after propensity score matching. Each blue dot represents a covariate.
+</p>
+</div>
+</div>
+<div id="follow-up-and-power" class="section level3">
+<h3><span class="header-section-number">9.9.3</span> Follow up and power</h3>
+<p>Before fitting an outcome model, we might be interested to know whether we have sufficient power to detect a particular effect size. It makes sense to perform these power calculations once the study population has been fully defined, so taking into account loss to the various inclusion and exclusion criteria (such as no prior outcomes), and loss due to matching and/or trimming. We can view the attrition of subjects in our study using the <code>drawAttritionDiagram</code> function as shown in Figure <a href="PopulationLevelEstimation.html#fig:attrition">9.19</a>. </p>
+<div class="figure" style="text-align: center"><span id="fig:attrition"></span>
+<img src="images/PopulationLevelEstimation/attrition.png" alt="Attrition diagram. The counts shown at the top are those that meet our target and comparator cohort definitions. The counts at the bottom are those that enter our outcome model, in  this case a Cox regression." width="70%" />
+<p class="caption">
+Figure 9.19: Attrition diagram. The counts shown at the top are those that meet our target and comparator cohort definitions. The counts at the bottom are those that enter our outcome model, in this case a Cox regression.
+</p>
+</div>
+<p>Since the sample size is fixed in retrospective studies (the data has already been collected), and the true effect size is unknown, it is therefore less meaningful to compute the power given an expected effect size. Instead, the CohortMethod package provides the <code>computeMdrr</code> function to compute the minimum detectable relative risk (MDRR). In our example study the MDRR is 1.69.  </p>
+<p>To gain a better understanding of the amount of follow-up available we can also inspect the distribution of follow-up time. We defined follow-up time as time at risk, so not censored by the occurrence of the outcome. The <code>getFollowUpDistribution</code> can provide a simple overview as shown in Figure <a href="PopulationLevelEstimation.html#fig:followUp">9.20</a>, which suggests the follow-up time for both cohorts is comparable.</p>
+<div class="figure" style="text-align: center"><span id="fig:followUp"></span>
+<img src="images/PopulationLevelEstimation/followUp.png" alt="Distribution of follow-up time for the target and comparator cohorts." width="80%" />
+<p class="caption">
+Figure 9.20: Distribution of follow-up time for the target and comparator cohorts.
+</p>
+</div>
+</div>
+<div id="kaplan-meier" class="section level3">
+<h3><span class="header-section-number">9.9.4</span> Kaplan-Meier</h3>
+<p>One last check is to review the Kaplan-Meier plot, showing the survival over time in both cohorts. Using the <code>plotKaplanMeier</code> function we can create s(fig:kmPlot), which we can check for example if our assumption of proportionality of hazards holds. The Kaplan-Meier plot automatically adjusts for stratification or weighting by PS. In this case, because variable-ratio matching is used, the survival curve for the comparator groups is adjusted to mimick what the curve had looked like for the target group had they been exposued to the comparator instead.  </p>
+<div class="figure" style="text-align: center"><span id="fig:kmPlot"></span>
+<img src="images/PopulationLevelEstimation/kmPlot.png" alt="Kaplan-Meier plot." width="100%" />
+<p class="caption">
+Figure 9.21: Kaplan-Meier plot.
+</p>
+</div>
+</div>
+<div id="effect-size-estimate" class="section level3">
+<h3><span class="header-section-number">9.9.5</span> Effect size estimate</h3>
+<p>We observe a hazard ratio of 4.32 (95% confidence interval: 2.45 - 8.08) for angioedema, which tells us that ACEi appears to increase the risk of angioedema compared to THZ. Similarly, we observe a hazard ratio of 1.13 (95% confidence interval: 0.59 - 2.18) for AMI, suggesting little or no effect for AMI. Our diagnostics, as reviewed earlier, give no reason for doubt. However, ultimately the quality of this evidence, and whether we choose to trust it, depends on many factors that are not covererd by the study diagnostics as described in Evidence Quality Chapter.</p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">9.10</span> Summary</h2>
+<ul>
+<li><p>Population-level estimation aims to infer causal effects from observational data.</p></li>
+<li><p>The <strong>counterfactual</strong>, what would have happened if the subject had received an alternative exposure or no exposure, cannot be observed.</p></li>
+<li><p>Different designs aim to construct the counterfactual in different ways.</p></li>
+<li><p>The various designs as implemented in the OHDSI Methods Library provide diagnostics to evaluate whether the assumptions for creating an appropriate counterfactual have been met.</p></li>
+</ul>
+</div>
+<div id="excercises" class="section level2">
+<h2><span class="header-section-number">9.11</span> Excercises</h2>
+<p>Note: The exercises still have to be defined. The idea is to require readers to define a study that estimates the effect of celecoxib on GI bleed, compared to diclofenac. For this they must use the Eunomia package, which is still under development.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-austin_2011">
+<p>Austin, Peter C. 2011. “Optimal Caliper Widths for Propensity-Score Matching When Estimating Differences in Means and Differences in Proportions in Observational Studies.” <em>Pharmaceutical Statistics</em> 10 (2): 150–61.</p>
+</div>
+<div id="ref-farrington_1995">
+<p>Farrington, C. P. 1995. “Relative incidence estimation from case series for vaccine safety evaluation.” <em>Biometrics</em> 51 (1): 228–35.</p>
+</div>
+<div id="ref-farrington_2011">
+<p>Farrington, C. P., Karim Anaya-Izquierdo, Heather J. Whitaker, Mounia N. Hocine, Ian Douglas, and Liam Smeeth. 2011. “Self-Controlled Case Series Analysis with Event-Dependent Observation Periods.” <em>Journal of the American Statistical Association</em> 106 (494): 417–26. <a href="https://doi.org/10.1198/jasa.2011.ap10108">https://doi.org/10.1198/jasa.2011.ap10108</a>.</p>
+</div>
+<div id="ref-hernan_2002">
+<p>Hernan, M. A., S. Hernandez-Diaz, M. M. Werler, and A. A. Mitchell. 2002. “Causal knowledge as a prerequisite for confounding evaluation: an application to birth defects epidemiology.” <em>Am. J. Epidemiol.</em> 155 (2): 176–84.</p>
+</div>
+<div id="ref-hernan_2016">
+<p>Hernan, M. A., and J. M. Robins. 2016. “Using Big Data to Emulate a Target Trial When a Randomized Trial Is Not Available.” <em>Am. J. Epidemiol.</em> 183 (8): 758–64.</p>
+</div>
+<div id="ref-maclure_1991">
+<p>Maclure, M. 1991. “The case-crossover design: a method for studying transient effects on the risk of acute events.” <em>Am. J. Epidemiol.</em> 133 (2): 144–53.</p>
+</div>
+<div id="ref-magid_2010">
+<p>Magid, D. J., S. M. Shetterly, K. L. Margolis, H. M. Tavel, P. J. O’Connor, J. V. Selby, and P. M. Ho. 2010. “Comparative effectiveness of angiotensin-converting enzyme inhibitors versus beta-blockers as second-line therapy for hypertension.” <em>Circ Cardiovasc Qual Outcomes</em> 3 (5): 453–58.</p>
+</div>
+<div id="ref-powers_2012">
+<p>Powers, B. J., R. R. Coeytaux, R. J. Dolor, V. Hasselblad, U. D. Patel, W. S. Yancy, R. N. Gray, R. J. Irvine, A. S. Kendrick, and G. D. Sanders. 2012. “Updated report on comparative effectiveness of ACE inhibitors, ARBs, and direct renin inhibitors for patients with essential hypertension: much more data, little new information.” <em>J Gen Intern Med</em> 27 (6): 716–29.</p>
+</div>
+<div id="ref-rassen_2012">
+<p>Rassen, J. A., A. A. Shelat, J. Myers, R. J. Glynn, K. J. Rothman, and S. Schneeweiss. 2012. “One-to-many propensity score matching in cohort studies.” <em>Pharmacoepidemiol Drug Saf</em> 21 Suppl 2 (May): 69–80.</p>
+</div>
+<div id="ref-rosenbaum_1983">
+<p>Rosenbaum, P., and D. Rubin. 1983. “The Central Role of the Propensity Score in Observational Studies for Causal Effects.” <em>Biometrika</em> 70 (April): 41–55. <a href="https://doi.org/10.1093/biomet/70.1.41">https://doi.org/10.1093/biomet/70.1.41</a>.</p>
+</div>
+<div id="ref-rubin_2001">
+<p>Rubin, Donald B. 2001. “Using Propensity Scores to Help Design Observational Studies: Application to the Tobacco Litigation.” <em>Health Services and Outcomes Research Methodology</em> 2 (3-4): 169–88.</p>
+</div>
+<div id="ref-ryan_2013">
+<p>Ryan, P. B., M. J. Schuemie, and D. Madigan. 2013. “Empirical performance of a self-controlled cohort method: lessons for developing a risk identification and analysis system.” <em>Drug Saf</em> 36 Suppl 1 (October): 95–106.</p>
+</div>
+<div id="ref-sabroe_1997">
+<p>Sabroe, R. A., and A. K. Black. 1997. “Angiotensin-converting enzyme (ACE) inhibitors and angio-oedema.” <em>Br. J. Dermatol.</em> 136 (2): 153–58.</p>
+</div>
+<div id="ref-schneeweiss_2018">
+<p>Schneeweiss, S. 2018. “Automated data-adaptive analytics for electronic healthcare data to study causal treatment effects.” <em>Clin Epidemiol</em> 10: 771–88.</p>
+</div>
+<div id="ref-simpson_2013">
+<p>Simpson, S. E., D. Madigan, I. Zorych, M. J. Schuemie, P. B. Ryan, and M. A. Suchard. 2013. “Multiple self-controlled case series for large-scale longitudinal observational databases.” <em>Biometrics</em> 69 (4): 893–902.</p>
+</div>
+<div id="ref-suchard_2013">
+<p>Suchard, M. A., S. E. Simpson, Ivan Zorych, P. B. Ryan, and David Madigan. 2013. “Massive Parallelization of Serial Inference Algorithms for a Complex Generalized Linear Model.” <em>ACM Trans. Model. Comput. Simul.</em> 23 (1): 10:1–10:17. <a href="https://doi.org/10.1145/2414416.2414791">https://doi.org/10.1145/2414416.2414791</a>.</p>
+</div>
+<div id="ref-suissa_1995">
+<p>Suissa, S. 1995. “The case-time-control design.” <em>Epidemiology</em> 6 (3): 248–53.</p>
+</div>
+<div id="ref-tian_2018">
+<p>Tian, Y., M. J. Schuemie, and M. A. Suchard. 2018. “Evaluating large-scale propensity score performance through real-world and synthetic data experiments.” <em>Int J Epidemiol</em> 47 (6): 2005–14.</p>
+</div>
+<div id="ref-toh_2012">
+<p>Toh, S., M. E. Reichman, M. Houstoun, M. Ross Southworth, X. Ding, A. F. Hernandez, M. Levenson, et al. 2012. “Comparative risk for angioedema associated with the use of drugs that target the renin-angiotensin-aldosterone system.” <em>Arch. Intern. Med.</em> 172 (20): 1582–9.</p>
+</div>
+<div id="ref-vandenbroucke_2012">
+<p>Vandenbroucke, J. P., and N. Pearce. 2012. “Case-control studies: basic concepts.” <em>Int J Epidemiol</em> 41 (5): 1480–9.</p>
+</div>
+<div id="ref-walker_2013">
+<p>Walker, Alexander M, Amanda R Patrick, Michael S Lauer, Mark C Hornbrook, Matthew G Marin, Richard Platt, Véronique L Roger, Paul Stang, and Sebastian Schneeweiss. 2013. “A Tool for Assessing the Feasibility of Comparative Effectiveness Research.” <em>Comp Eff Res</em> 3: 11–20.</p>
+</div>
+<div id="ref-whelton_2018">
+<p>Whelton, P. K., R. M. Carey, W. S. Aronow, D. E. Casey, K. J. Collins, C. Dennison Himmelfarb, S. M. DePalma, et al. 2018. “2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults: Executive Summary: A Report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice Guidelines.” <em>Circulation</em> 138 (17): e426–e483.</p>
+</div>
+<div id="ref-whitaker_2006">
+<p>Whitaker, H. J., C. P. Farrington, B. Spiessens, and P. Musonda. 2006. “Tutorial in biostatistics: the self-controlled case series method.” <em>Stat Med</em> 25 (10): 1768–97.</p>
+</div>
+<div id="ref-Wickham_2015">
+<p>Wickham, Hadley. 2015. <em>R Packages</em>. 1st ed. O’Reilly Media, Inc.</p>
+</div>
+<div id="ref-zaman_2002">
+<p>Zaman, M. A., S. Oparil, and D. A. Calhoun. 2002. “Drugs targeting the renin-angiotensin-aldosterone system.” <em>Nat Rev Drug Discov</em> 1 (8): 621–36.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="characterization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="patient-level-prediction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Ple.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsiKorea.pdf", "TheBookOfOhdsiKorea.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
