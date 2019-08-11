@@ -107,7 +107,7 @@ $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{
 <p class="caption">(\#fig:scc)The self-controlled cohort design. The rate of outcomes during exposure to the target is compared to the rate of outcomes in the time pre-exposure.</p>
 </div>
 
-The self-controlled cohort (SCC) design [@ryan_2013] compares the rate of outcomes during exposure to the rate of outcomes in the time just prior to the exposure. The  four choices shown in Table \@ref(tab:sccChoices) define a self-controlled cohort question. \index{target cohort!self-controlled cohort design} \index{outcome cohort!self-controlled cohort design}
+자가 통제 코호트(self-controlled cohort, SCC) 설계[@ryan_2013]는 노출 직전의 결과 비율을 기준으로 노출 동안의 결과 비율을 비교한다. 표 \@ref(tab:sccChoices)에 제시된 4가지 선택 사항은 SCC 질문을 정의한다.\index{target cohort!self-controlled cohort design} \index{outcome cohort!self-controlled cohort design}
 
 Table: (\#tab:sccChoices) Main design choices in a self-controlled cohort design.
 
@@ -118,7 +118,9 @@ Table: (\#tab:sccChoices) Main design choices in a self-controlled cohort design
 | Time-at-risk      | At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?  |
 | Control time      | The time period used as the control time                 |
 
-Because the same subject that make up the exposed group are also used as the control group, no adjustment for between-person differences need to be made. However, the method is vulnerable to other differences, such as differences in the baseline risk of the outcome between different time periods.
+노출 그룹을 구성하는 동일한 피험자가 대조 그룹(control group)으로 사용되기 때문에 사람간(between-person)의 차이를 조정할 필요가 없다. 그러나 이 방법은 다른 기간 간의 기존의 위험도 차이 등 다른 차이점에 대해 취약하다.
+
+>Because the same subject that make up the exposed group are also used as the control group, no adjustment for between-person differences need to be made. However, the method is vulnerable to other differences, such as differences in the baseline risk of the outcome between different time periods.
 
 ## The case-control design
 
@@ -129,7 +131,7 @@ Because the same subject that make up the exposed group are also used as the con
 <p class="caption">(\#fig:caseControl)The case-control design. Subjects with the outcome (‘cases’) are compared to subjects without the outcome (‘controls’) in terms of their exposure status. Often, cases and controls are matched on various characteristics such as age and sex.</p>
 </div>
 
-Case-control studies [@vandenbroucke_2012] consider the question “are persons with a specific disease outcome exposed more frequently to a specific agent than those without the disease?” Thus, the central idea is to compare “cases,” i.e., subjects that experience the outcome of interest, with “controls,” i.e., subjects that did not experience the outcome of interest. The choices in Table \@ref(tab:ccChoices) define a case-control question. \index{outcome cohort!case-control design} \index{target cohort!case-control design} \index{nesting cohort!case-control design}
+환자-대조군 연구[@vandenbroucke_2012]는 “특정 질병 결과가 있는 사람이 질병이 없는 사람보다 특정 치료(agent)에 더 자주 노출되는가?”라는 질문을 고려한다. 따라서, 주요 아이디어는 환자(cases)(i.e., 관심 결과를 경험한 피험자)를 대조군(controls)(i.e., 관심 결과를 경험하지 않은 피험자)에 비교하는 것이다. 표 \@ref(tab:ccChoices)에 선택 사항은 환자-대조군(case-control) 질문을 정의한다. \index{outcome cohort!case-control design} \index{target cohort!case-control design} \index{nesting cohort!case-control design}
 
 Table: (\#tab:ccChoices) Main design choices in a case-control design.
 
@@ -141,7 +143,9 @@ Table: (\#tab:ccChoices) Main design choices in a case-control design.
 | Nesting cohort  | Optionally, a cohort defining the subpopulation from which cases and controls are drawn  |
 | Time-at-risk      | At what time (often relative to the index date) do we consider exposure status?  |
 
-Often, one selects controls to match cases based on characteristics such as age and sex to make them more comparable. Another widespread practice is to nest the analysis within a specific subgroup of people, for example people that have all been diagnosed with one of the indications of the exposure of interest.
+종종 우리는 나이와 성별 등 환자군들의 특성을 매칭하여 대조군을 설정한다. 또 달리 많이 사용되는 방법은, 특정 질병이 있는 환자군처럼, 특정 subgroup 환자들 군 안에서 nested analysis 를 이용한다. 
+
+>Often, one selects controls to match cases based on characteristics such as age and sex to make them more comparable. Another widespread practice is to nest the analysis within a specific subgroup of people, for example people that have all been diagnosed with one of the indications of the exposure of interest.
 
 ## The case-crossover design
 
@@ -174,7 +178,7 @@ Cases serve as their own controls. As self-controlled designs, they should be ro
 <p class="caption">(\#fig:selfControlledCaseSeries)The Self-Controlled Case Series design. The rate of outcomes during exposure is compared to the rate of outcomes when not exposed.</p>
 </div>
 
-The Self-Controlled Case Series (SCCS) design [@farrington_1995; @whitaker_2006] compares the rate of outcomes during exposure to the rate of outcomes during all unexposed time, including before, between, and after exposures. It is a Poisson regression that is conditioned on the person. Thus, it seeks to answer the question: “Given that a patient has the outcome, is the outcome more likely during exposed time compared to non-exposed time?”. The choices in Table \@ref(tab:sccsChoices) define an SCCS question. \index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
+Self-Controlled Case Series(SCCS) 설계[@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출 사이, 노출 후) 과 노출기간 동안의 outcome 발생의 비율 (rate)를 비교한다. 즉 Poisson regression conditioned on the person 이라고 할 수 있다. 따라서, 그것은 "환자에게 outcome 이 발생하였을 때, non-exposed time 에 비해 exposed time 에 발생할 가능성이 더 높은가?" 이다. 표 \@ref(tab:sccsChoices) 의 선택사항은 SCCS 질문을 정의 한다.\index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
 
 Table: (\#tab:sccsChoices) Main design choices in a self-controlled case series design.
 
@@ -185,41 +189,44 @@ Table: (\#tab:sccsChoices) Main design choices in a self-controlled case series 
 | Time-at-risk      | At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?  |
 | Model             | The model to estimate the effect, including any adjustments for time-varying confounders |
 
-Like other self-controlled designs, the SCCS is robust to confounding due to between-person differences, but vulnerable to confounding due to time-varying effects. Several adjustments are possible to attempt to account for these, for example by including age and season. A special variant of the SCCS includes not just the exposure of interest, but all other exposures to drugs recorded in the database  [@simpson_2013] potentially adding thousands of additional variables to the model. L1-regularization using cross-validation to select the regularization hyperparameter is applied to the coefficients of all exposures except the exposure of interest.
+다른 자가 통제 설계 (self-controlled design)와 마찬가지로, SCCS는 사람 간의 교란 변수(counfounding due to betwee-person difference)는 잘 보정하지만, 시간의 변화에 따른 교란변수 (confounding due to time-varying effect)의 영향에는 취약한다. 이를 위해 몇 가지 보정을 시도할 수 있는데, 예를 들면 나이와 계절을 보정하는 것이다. SCCS의 특별한 변형은 관심대상의 노출뿐만 아니라 데이터베이스에 기록된 약물에 대한 다른 모든 노출[@simpson_2013]에 잠재적으로 수천 개의 추가변수를 모델에 추가하는 것을 포함한다. 정규화 하이퍼파라미터를 선택하기 위해 교차검증(cross-validation)을 사용하는 L1-regularization이 관심 대상 노출을 제외한 모든 노출 계수에 적용된다.
 
-One important assumption underlying the SCCS is that the observation period end is independent of the date of the outcome. For some outcomes, especially ones that can be fatal such as stroke, this assumption can be violated. An extension to the SCCS has been developed that corrects for any such dependency. [@farrington_2011]
-
+SCCS의 기본 가정 중 하나는 관찰 기간 종료가 결과 날짜 (outcome date)와 독립적이라는 것이다. 몇 가지 outcome 의 경우, 예를 들어 뇌졸중과 같은 치명적인 (fatal) 질병의 경우, 이러한 가정이 위반될 수 있다. 이러한 종속성을 수정하는 SCCS의 확장이 개발되었다.[@farrington_2011]
 
 ## Designing a hypertension study
 
 
 ### Problem definition
 
-ACE inhibitors (ACEi) are widely used in patients with hypertension or ischemic heart disease, especially those with other comorbidities such as congestive heart failure, diabetes mellitus, or chronic kidney disease. [@zaman_2002] Angioedema, a serious and sometimes life-threatening adverse event that usually manifests as swelling of the lips, tongue, mouth, larynx, pharynx, or periorbital region, has been linked to the use of these medications. [@sabroe_1997] However, limited information is available about the absolute and relative risks for angioedema associated with the use of these medications. Existing evidence is primarily based on investigations of specific cohorts (e.g., predominantly male veterans or Medicaid beneficiaries) whose findings may not be generalizable to other populations, or based on investigations with few events, which provide unstable risk estimates [@powers_2012]. Several observational studies compare ACEi to beta-blockers for the risk of angioedema, [@magid_2010; @toh_2012] but beta-blockers are no longer recommended as first-line treatment of hypertension. [@whelton_2018] A viable alternative treatment could be thiazides or thiazide-like diuretics (THZ), which could be just as effective in managing hypertension and its associated risks such as acute myocardial infarction (AMI), but without increasing the risk of angioedema.
+ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 울혈성 심부전, 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리 사용된다. [@zaman_2002] 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈 주위 부위가 부어 오르는 심각한 중증도의 때로는 생명을 위협하는 부작용은 이러한 약물의 사용과 관련이 있다. [@sabroe_1997] 그러나 이러한 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한 정보는 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한 특정 코호트(예: 주로 남성 퇴역 군인이나 메디케이드 수혜자)에 대한 조사 또는 불안정한 위험 추정치를 제공하는 경우가 거의 없는 조사를 기반으로 한다. [@powers_2012] 다수의 관찰 연구는 혈관부종의 위험에 대한 ACEi를 베타 차단제와 비교하지만[@magid_2010; @toh_2012], 베타 차단제는 더 이상 고혈압의 1차 치료제로 권장되지 않는다.[@whelton_2018] 사용 가능한 대체 치료제는 thiazide 또는 thiazide-like 이뇨제일 수 있으며, 이는 혈관부종의 위험 증가 없이 급성 심근경색과 같은 고혈압관련 위험을 관리하는데 ACEi만큼 효과적이다.
 
-The following will demonstrate how to apply our population-level estimation framework to observational healthcare data to address the following comparative estimation questions:
+다음은 다음과 같은 비교 추정 질문을 다루기 위해 인구수준 평가(population-level estimation) 프레임워크를 관찰보건데이터(observational healthcare data)에 적용하는 방법을 보여준다:
 
-> What is the risk of angioedema in new users of ACE inhibitors compared to new users of thiazide and thiazide-like diuretics?
+>Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를 새로 사용하는 환자들에서 혈관부종의 위험도는 어떻게 되는가?
 
-> What is the risk of acute myocaridal infarction in new users of ACE inhibitors compared to new users of thiazide and thiazide-like diuretics?
+> Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를 새로 사용하는 환자들에서급성 심근경색의 위험도는 어떻게 되는가?
 
-Since these are comparative effect estimation questions we will apply the cohort method as described in Cohort Method Section.
+이들이 비교 효과 추정 (comparative effect estimation) 질문이기 때문에 Cohort Method 절에서 설명한대로 Cohort Method 를 적용할 것이다
 
 ### Target and comparator
 
-We consider patients new-users if their first observed treatment for hypertension was monotherapy with any active ingredient in either the ACEi or THZ class. We define mono therapy as not starting on any other anti-hypertensive drug in the seven days following treatment initiation. We require patients to have at least one year of prior continuous observation in the database before first exposure and a recorded hypertension diagnosis at or in the year preceding treatment initiation.
+첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을 단독요법으로 사용하는 경우를 new-user로 간주한다. 이 중 치료 시작 후 7일 동안 다른 항고혈압제를 시작하지 않은 경우를 단독요법으로 정의한다. 환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속적으로 관찰되고, 치료시작 전 또는 그 이전에 기록된 고혈압 진단을 받도록 정의했다. 
 
 ### Outcome
 
-We define angioedema as any occurrence of an angioedema condition concept during an inpatient or emergency room (ER) visit, and require there to be no angioedema diagnosis recorded in the seven days prior. We define AMI as any occurrence of an AMI condition concept during an inpatient or ER visit, and require there to be no AMI diagnosis record in the 180 days prior.
+입원 또는 응급실 방문 중에 혈관부종이 발생하고, 그 이전 일주일간 혈관부종 발생이 없었던 경우를 혈관부종으로 정의했다. 입원 또는 응급실 방문 중에 심근경색이 발생하고, 그 이전 180일간 심근경색 발생이 없었던 경우를 심근경색으로 정의했다.
 
 ### Time-at-risk
 
-We define time-at-risk to start on the day after treatment initiation, and stop when exposure stops, allowing for a 30-day gap between subsequent drug exposures.
+30일 까지의 차이 (30-day gap)를 인정하여, 치료 시작 다음날부터 시작하여 연속적인 약물 노출이 중단될 때까지를 "time-at-risk"로 정의했다.
+
+>We define time-at-risk to start on the day after treatment initiation, and stop when exposure stops, allowing for a 30-day gap between subsequent drug exposures.
 
 ### Model
 
 We  fit a PS model using the default set of covariates, including demographics, conditions, drugs, procedures, measurements, observations, and several co-morbidity scores. We exclude ACEi and THZ from the covariates. We perform variable-ratio matching and condition the Cox regression on the matched sets.
+
+인구학적 특징, 상태, 약물, 절차, 측정, 관찰 결과, 다양한 병존질환을 포함하는 공변량 기본 세트를 사용하여 적합한 PS 모델을 구하는데, 공변량에서 ACEi와 THZ를 제외한다. 여기에서 변수-비율 매칭(variable-ratio matching)을 수행하고, PS 매칭된 세트에 대해 조건화된 콕스 회귀분석을 실시한다. 
 
 ### Study summary
 
@@ -235,29 +242,30 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 ### Control questions
 
-To evaluate whether our study design produces estimates in line with the truth, we additionally include a set of control questions where the true effect size is known. Control questions can be divided in negative controls, having a hazard ratio of 1, and positive controls, having a known hazard ratio greater than 1. For several reasons we use real negative controls, and synthesize positive controls based on these negative controls. How to define and use control questions is discussed in detail in Method Validity Chapter.
-
+우리 연구 디자인이 실제와 일치하는 추정치를 산출하는지 평가하기 위해 진짜 효과 크기가 알려진 곳에 일련의 통제 질문을 추가로 포함한다. 통제 질문은 위험비(hazard ratio)이 1인 음성 대조군(negative control)과 1보다 큰 위험 비율을 갖는 양성 대조군(positive control)으로 나눌 수 있다. 우리는 몇 가지 이유에서 실제 음성 대조군을 사용하고, 음성 대조군에 근거해 양성 대조군을 만든다. 통제 질문을 정의하고 사용하는 방법은 Method Validity 챕터에서 자세히 다룬다.
 
 ## Implementing the study using ATLAS {#PleAtlas}
 
-Here we demonstrate how this study can be implemented using the Estimation function in ATLAS. Click on ![](images/PopulationLevelEstimation/estimation.png) in the left bar of ATLAS, and create a new estimation study. Make sure to give the study an easy-to-recognize name. The study design can be saved at any time by clicking the ![](images/PopulationLevelEstimation/save.png) button.
+여기서는 ATLAS의 추정 기능(Estimation function)을 사용하여 이 연구를 어떻게 구현하는지 보여준다. ATLAS의 왼쪽 바에서  를 클릭하고 새로운 평가 연구를 작성하세요. 이 연구에 쉽게 인식할 수 있는 이름을 붙이세요. 연구 설계는  를 클릭하여 언제든지 저장할 수 있다.
 
-In the Estimation design function, there are three sections: Comparisons, Analysis Settings, and Evaluation Settings. We can specify multiple comparisons and multiple analysis settings, and ATLAS will execute all combinations of these as separate analyses. Here we discuss each section:
+이제 ATLAS 의 추정 기능 (Estimation function)을 사용하여 연구를 구현하는 방법에 대해 기술하겠다. ATLAS의 왼쪽 바에서 ![](images/PopulationLevelEstimation/estimation.png) 를 클릭하고 새로운 평가 연구를 작성하세요. 이 연구에 쉽게 인식할 수 있는 이름을 붙이세요. 연구 설계는 ![](images/PopulationLevelEstimation/save.png) 를 클릭하여 언제든지 저장할 수 있다.
+
+추정 설계 기능(estimation design function)에는 세 가지 섹션이 있다: 비교(comparisons), 분석 설정(analysis settings), 평가 설정(evaluation settings). 다중 비교 및 다중 분석 설정을 지정할 수 있으며, ATLAS는 이러한 모든 조합을 별도의 분석으로 수행한다. 여기서는 각 섹션에 대해 설명한다:
 
 ### Comparative cohort settings {#ComparisonSettings}
 
-A study can have one or more comparisons. Click on "Add Comparison," which will open a new dialog. Click on ![](images/PopulationLevelEstimation/open.png) to select the target and  comparator cohorts. By clicking on "Add Outcome" we can add our two outcome cohorts. We assume the cohorts have already been created in ATLAS as described in Cohorts Chapter. 
+한 연구에는 하나 이상의 비교대상이 있을 수 있다. “Add Comparison”을 클릭하면 새 대화 상자가 열린다. 대상(target) 및 비교(comparator) 코호트를 선택하려면 ![](images/PopulationLevelEstimation/open.png) 을 클릭하면 된다. “Add Outcome”을 클릭하면, 두 개의 결과(outcome) 코호트를 추가할 수 있다. 우리는 Cohorts 장에서 설명한대로 이미 코호트들이 생성된 것으로 가정한다. 
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/comparisons.png" alt="The comparison dialog" width="100%" />
 <p class="caption">(\#fig:comparisons)The comparison dialog</p>
 </div>
 
-Note that we can select multiple outcomes for a target-comparator pair. Each outcome will be treated independently, and will result in a separate analysis.
+복수의 대상-비교 쌍(target-comparator pair)에 대해 결과를 선택할 수 있다. 각 결과는 독립적으로 처리되며 별도의 분석이 이루어진다.
 
 **Negative control outcomes**
 
-Negative control outcomes are outcomes that are not believed to be caused by either the target or the comparator, and where therefore the true hazard ratio equals 1. Ideally, we would have proper cohort definitions for each outcome cohort. However, typically, we only have a concept set, with one concept per negative control outcome, and some standard logic to turn these into outcome cohorts. Here we assume the concept set has already been created as described in Method Validity Chapter and can simply be selected. The negative control concept set should contain a concept per negative control, and not include descendants. Figure \@ref(fig:ncConceptSet) shows the negative control concept set used for this study.
+음성 통제 결과 (Negative Control Outcome)는 대상군 또는 비교군에 의해 야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험비는 1과 동일해야 한다. 이상적으로는 우리는 각 결과 코호트에 대해 적절한 코호트 정의를 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 통제 결과 당 하나의 컨셉 셋(concept set)과 이를 결과 코호트로 변환하는 표준 논리만 가진다 (However, typically, we only have a concept set, with one concept per negative control outcome, and some standard logic to turn these into outcome cohorts). 여기서는 Method Validity장에서 설명한대로 컨셉 셋이 이미 생성되었다고 가정하고 간단하게 선택할 수 있다. 음성 통제 컨셉 셋에는 음성 통제 당 컨셉을 포함해야 하며, descendant를 포함하지 않아야 한다.  그림\@ref(fig:ncConceptSet) 은 본 연구에 사용된 음성 통제 셋을 보여준다.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/ncConceptSet.png" alt="Negative Control concept set." width="100%" />
@@ -841,21 +849,20 @@ We observe a hazard ratio of 4.32 (95% confidence interval: 2.45 - 8.08) for ang
 
 ## Summary
 
-- Population-level estimation aims to infer causal effects from observational data.
+-	Population-level estimation는 관찰 데이터의 인과 관계를 추론하는 것을 목적으로 한다.
 
-- The **counterfactual**, what would have happened if the subject had received an alternative exposure or no exposure, cannot be observed.
+-	반대의 경우, 즉 피험자가 대체제에 노출되었거나 치료제에 노출되지 않은 경우, 일어난 일은 관찰할 수 없다.
 
-- Different designs aim to construct the counterfactual in different ways.
+-	다른 디자인은 다른 방식으로 상대방(counterfactual)을 구성하는 것을 목적으로 한다.
 
-- The various designs as implemented in the OHDSI Methods Library provide diagnostics to evaluate whether the assumptions for creating an appropriate counterfactual have been met.
+-	OHDSI Methods Library에서 구현되는 것처럼 다양한 디자인은 적절한 counterfactual을 작성하기 위한 가정이 충족되었는지 여부를 평가하는 진단을 제공한다.
+
+>Population-level estimation aims to infer causal effects from observational data.
+The **counterfactual**, what would have happened if the subject had received an alternative exposure or no exposure, cannot be observed.
+Different designs aim to construct the counterfactual in different ways.
+The various designs as implemented in the OHDSI Methods Library provide diagnostics to evaluate whether the assumptions for creating an appropriate counterfactual have been met.
 
 
 ## Excercises
 
 Note: The exercises still have to be defined. The idea is to require readers to define a study that estimates the effect of celecoxib on GI bleed, compared to diclofenac. For this they must use the Eunomia package, which is still under development.
-
-
-
-
-
-
