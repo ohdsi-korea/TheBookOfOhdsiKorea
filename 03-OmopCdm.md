@@ -73,17 +73,15 @@ Many tables contain equivalent information in multiple places: As a Source Value
 
 Source Values are only provided for convenience and quality assurance (QA) purposes. Source Values and Source Concepts are optional, while **Standard Concepts are mandatory**. Source Values may contain information that is only meaningful in the context of a specific data source. This mandatory use of Standard Concepts is what allows all OHDSI collaborators to speak the same language. For example, let's look at the condition 'Pulmonary Tuberculosis' (TB). Figure \@ref(fig:pulmTubICD9) shows that the ICD9CM code for TB is 011.
 
-<div class="figure">
-<img src="images/CommonDataModel/pulmTubICD9.PNG" alt="ICD9CM code for Pulmonary Tuberculosis" width="75%" />
-<p class="caption">(\#fig:pulmTubICD9)ICD9CM code for Pulmonary Tuberculosis</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{images/CommonDataModel/pulmTubICD9} \caption{ICD9CM code for Pulmonary Tuberculosis}(\#fig:pulmTubICD9)
+\end{figure}
 
 Without the use of a standard way to represent TB the code 011 could be interpreted as 'Hospital Inpatient (Including Medicare Part A)' in the UB04 vocabulary, or as 'Nervous System Neoplasms without Complications, Comorbidities' in the DRG vocabulary. This is where Concept IDs, both Source and Standard, are valuable. The Concept ID that represents the 011 ICD9CM code is 44828631 [(http://athena.ohdsi.org/search-terms/terms/44828631)](http://athena.ohdsi.org/search-terms/terms/44828631). This differentiates the ICD9CM from the UBO4 and from the DRG. The Standard Concept that ICD9CM code maps to is 253954 [(http://athena.ohdsi.org/search-terms/terms/253954)](http://athena.ohdsi.org/search-terms/terms/253954) as shown in figure \@ref(fig:pulmTubMap) by the relationship 'Non-standard to Standard map (OMOP)'. This same mapping relationship exists between Read, ICD10, CIEL, and MeSH codes, among others, so that any research that references the standard SNOMED concept is sure to include all supported source codes.
 
-<div class="figure">
-<img src="images/CommonDataModel/pulmTubMap.png" alt="SNOMED code for Pulmonary Tuberculosis" width="100%" />
-<p class="caption">(\#fig:pulmTubMap)SNOMED code for Pulmonary Tuberculosis</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/CommonDataModel/pulmTubMap} \caption{SNOMED code for Pulmonary Tuberculosis}(\#fig:pulmTubMap)
+\end{figure}
 
 <!-- #TODO -->
 An example of how this relationship is depicted in the tables is shown in figure (**link to figure in CONDITION_OCCURRENCE**)
@@ -91,13 +89,15 @@ An example of how this relationship is depicted in the tables is shown in figure
 
 ## OMOP CDM Standardized Tables
 
-The OMOP CDM contains 16 Clinical data tables, 10 Vocabulary tables, 2 Metadata tables, 4 Health System data tables, 2 Health Economics data tables, 3 standardized derived elements, and 2 results schema tables. To illustrate how these tables are utilized in practice the data of one person will be used as a common thread throughout the rest of the chapter. While part of the CDM the Vocabulary tables are not covered here, rather, they are detailed in depth in StandardizedVocabularies Chapter.
+The OMOP CDM contains 16 Clinical data tables, 10 Vocabulary tables, 2 Metadata tables, 4 Health System data tables, 2 Health Economics data tables, 3 standardized derived elements, and 2 results schema tables. To illustrate how these tables are utilized in practice the data of one person will be used as a common thread throughout the rest of the chapter. While part of the CDM the Vocabulary tables are not covered here, rather, they are detailed in depth in Chapter \@ref(StandardizedVocabularies).
 
 ### OMOP-CDM 의 상세 설명 (table specification)
 
 OMOP-CDM은 [OHDSI Common Data Model 깃헙](https://github.com/ohdsi/commondatamodel)에서 관리되고 있다. 2019년 5월 25일 현재 기준으로 모델 버전은 6.0이다. 모델이 자주 업데이트 되므로 최신 버전에 대해서는 깃헙 의 [wiki page](https://github.com/OHDSI/CommonDataModel/wiki) 에서 확인하는 것이 좋다. 이전 버전의 OMOP-CDM specification이 필요할 경우 깃헙의 Tags에서 원하는 버전으로 이동한 후 pdf 파일을 열어 보면 된다.
 
-<img src="images/CommonDataModel/github_tags.PNG" width="80%" /><img src="images/CommonDataModel/github_pdf.PNG" width="80%" />
+
+\includegraphics[width=0.8\linewidth]{images/CommonDataModel/github_tags} 
+\includegraphics[width=0.8\linewidth]{images/CommonDataModel/github_pdf} 
 
 
 ### OMOP-CDM 건의 사항 및 업그레이드
@@ -106,21 +106,20 @@ Open community로 운영되는 OHDSI에서 OMOP-CDM 의 진화 역시 사용자�
 
 OMOP-CDM 구조는 진화 중이며, 2019년 5월 30일 기준 최신 버전은 v6.0 이다.
 
-<div class="figure">
-<img src="images/CommonDataModel/history_of_CDM.PNG" alt="Evolution of OMOP-CDM" width="80%" />
-<p class="caption">(\#fig:cdmHistory)Evolution of OMOP-CDM</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/CommonDataModel/history_of_CDM} \caption{Evolution of OMOP-CDM}(\#fig:cdmHistory)
+\end{figure}
 
 ### Running Example: Endometriosis
 
 Endometriosis is a painful condition whereby cells normally found in the lining of a woman's uterus occur elsewhere in the body. Severe cases can lead to infertility, bowel, and bladder problems. The following sections will detail one patient's experience with this disease and how her clinical experience might be represented in the Common Data Model.
 
-<img src="images/CommonDataModel/Lauren.jpg" width="50%" />
 
-<div class="figure">
-<img src="images/CommonDataModel/laurentext.png" alt="Read more about Lauren and endometriosis at https://www.endometriosis-uk.org/laurens-story" width="75%" />
-<p class="caption">(\#fig:Laurentext)Read more about Lauren and endometriosis at https://www.endometriosis-uk.org/laurens-story</p>
-</div>
+\includegraphics[width=0.5\linewidth]{images/CommonDataModel/Lauren} 
+
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{images/CommonDataModel/laurentext} \caption{Read more about Lauren and endometriosis at https://www.endometriosis-uk.org/laurens-story}(\#fig:Laurentext)
+\end{figure}
 
 ### PERSON table{#person}
 

@@ -22,10 +22,9 @@
 
 공통데이터모델을 따르기 위해서는 각 병원이나 기관이 기존의 데이터를 공통데이터모델로 변환하는 과정이 필요하다. 이를 ETL(Extract, Transform, Load) 이라 한다. 공통데이터모델은 기존의 한계점 등을 고려하여 지속적으로 업데이트 되고 있는 중이다.
 
-<div class="figure">
-<img src="images/OhdsiCommunity/CDM_DRN_1.png" alt="Distributed Research Network" width="75%" />
-<p class="caption">(\#fig:DRN)Distributed Research Network</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{images/OhdsiCommunity/CDM_DRN_1} \caption{Distributed Research Network}(\#fig:DRN)
+\end{figure}
 
 대표적인 공통데이터모델로는 비영리 국제컨소시엄인 오딧세이(Observational Health Data and Informatics, 이하 OHDSI)와 약물부작용 조사를 위한 미국 FDA의 센티넬 공통데이터모델(이하 Sentinel CDM), 미국 국내에서의 비교효과연구를 위한 피코르넷(The National Patient-Centered Clinical Outcomes Research Network, 이하 PCORnet) 등이 존재한다.
 
@@ -53,18 +52,16 @@ FDA의 재정 지원이 중단된 후 OMOP은 해체되었지만,  Columbia 대�
 아주대학교 박래웅 교수가 아주대 병원의 전자의무기록을 이용하여 2014년 OMOP-CDM 도입을 시작하였고, 2015년 첫 연례 심포지엄에서 활용 결과를 발표하면서 한국의 OHDSI 참여가 시작되었다. 이후 계속적으로 한국에서 OMOP-CDM, OHDSI 전파를 위해 노력하였고, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean)을 개설하고, 한국의 OHDSI 참여를 독려하였다.
 첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
 
-<div class="figure">
-<img src="images/OhdsiCommunity/DSC01956.jpg" alt="OHDSI International Symposium 2017 in Korea" width="80%" />
-<p class="caption">(\#fig:OHDSIInternationalSymposium2017inKorea1)OHDSI International Symposium 2017 in Korea</p>
-</div><div class="figure">
-<img src="images/OhdsiCommunity/DSC01861.jpg" alt="OHDSI International Symposium 2017 in Korea" width="80%" />
-<p class="caption">(\#fig:OHDSIInternationalSymposium2017inKorea1)OHDSI International Symposium 2017 in Korea</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC01956} \caption{OHDSI International Symposium 2017 in Korea}(\#fig:OHDSIInternationalSymposium2017inKorea1)
+\end{figure}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC01861} \caption{OHDSI International Symposium 2017 in Korea}(\#fig:OHDSIInternationalSymposium2017inKorea1)
+\end{figure}
 
-<div class="figure">
-<img src="images/OhdsiCommunity/DSC02166.jpg" alt="Tutorial in the OHDSI International Symposium 2017" width="80%" />
-<p class="caption">(\#fig:OHDSIInternationalSymposium2017inKorea2)Tutorial in the OHDSI International Symposium 2017</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC02166} \caption{Tutorial in the OHDSI International Symposium 2017}(\#fig:OHDSIInternationalSymposium2017inKorea2)
+\end{figure}
 한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.
 
 
@@ -123,20 +120,18 @@ OHDSI하면 전세계적에 통용 가능한 CDM 기반의 DRN 시스템이 가�
 
 2016년 Nature지에서 1576명을 대상으로 설문조사를 진행하였을 때, 70% 이상의 연구자들이 다른 사람의 실험을 재현하는 데 실패하였으며, 약 50%에서 자신의 실험을 재현하는 데 실패했다고 밝혔다. 52%의 연구자들은 현재 과학계에 중대한 재현성의 위기가 존재한다고 시인했다. [ref](https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
 
-<div class="figure">
-<img src="images/OhdsiCommunity/reproducibility-graphic-online1.jpeg" alt="연구 재현성의 위기는 실존하는가?" width="80%" />
-<p class="caption">(\#fig:isThereAReproducibilityCrisis)연구 재현성의 위기는 실존하는가?</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/reproducibility-graphic-online1} \caption{연구 재현성의 위기는 실존하는가?}(\#fig:isThereAReproducibilityCrisis)
+\end{figure}
 
 
 의료 데이터를 이용한 재현 가능한 연구 (Reproducible research)를 아주 간단히 정의하자면 '원 자료 (raw data)로부터 같은 결과를 도출하는 데이터 분석'이라고 할 수 있다. 
 
 유전자 데이터 및 의료 의무기록 등의 급증과 더불어 부상하고 있는 의료계의 빅데이터 분석 흐름에, 많은 연구들이 거짓 증거들을 만들고 있는 것이 아닌가하는 우려가 뒤따르고 있다. 실제로 PLOS Medicine에 실린 논문에 따르면 연구 대상자 수가 충분치 않은 역학 연구의 경우 1/10 경우만이 믿을 수 있고, 논문을 위한 논문 (Discovery-oriented exploratory research with massive testing)의 경우 1000개 중 1개 만이 믿을만 하다고 한다 [ref, *Ioannidis, 2005 PLOS Medicine*].
 
-<div class="figure">
-<img src="images/OhdsiCommunity/journal.pmed.0020124.t004.png" alt="PPV of Research Findings for various combinations of power, ratio of Tru to Not-True Relationship, and Bias" width="80%" />
-<p class="caption">(\#fig:whyMostPublishedResarchFindingsAreFalse)PPV of Research Findings for various combinations of power, ratio of Tru to Not-True Relationship, and Bias</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/journal.pmed.0020124.t004} \caption{PPV of Research Findings for various combinations of power, ratio of Tru to Not-True Relationship, and Bias}(\#fig:whyMostPublishedResarchFindingsAreFalse)
+\end{figure}
 
 어째서 이러한 일이 벌어지고 있는 것일까? 연구 재현성을 가로막는 것으로는 다음의 4가지가 주요 요인으로 꼽힌다[ref, *Bishop, 2019, Nature*].
 
@@ -173,7 +168,6 @@ Simmons 등은 앞선 연구에서 연구의 위양성을 줄이기 위하여 �
 ```
 강제는 아니지만 연구 재현성을 위한 OHDSI 연구의 기본 철학은 '파이프라인과 같은 연구' 이다. 데이터베이스로부터 결과 도출까지의 전 과정을 자동화하는 것을 목표로 하고 있다. OHDSI에서 연구를 수행한다는 것은 결국 이러한 파이프라인을 만드는 작업이 된다. 이러한 정신에 입각하여 연구에 사용된 코드를 [OHDSI Studies GitHub](https://github.com/OHDSI/OhdsiStudies) 또는 [OHDSI Study Protocol Github](https://github.com/OHDSI/StudyProtocols)을 통해 모두 공개하며 [연구 결과](http://data.ohdsi.org/) 역시 공개하고 있다. 
 
-<div class="figure">
-<img src="images/OhdsiCommunity/study_pipeline.png" alt="An OHDSI study shoul be look like a pipeline" width="80%" />
-<p class="caption">(\#fig:ohdsiStudyShouldBeLookLikeAPipeline)An OHDSI study shoul be look like a pipeline</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/study_pipeline} \caption{An OHDSI study shoul be look like a pipeline}(\#fig:ohdsiStudyShouldBeLookLikeAPipeline)
+\end{figure}
