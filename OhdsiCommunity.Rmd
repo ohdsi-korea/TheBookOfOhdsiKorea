@@ -1,14 +1,15 @@
 \mainmatter
 
-# (PART) The OHDSI Community {-} 
+# (PART) The OHDSI Community {-}
 
 # The OHDSI Community {#OhdsiCommunity}
 
 *Chapter leads: Patrick Ryan & George Hripcsak*
+*번역: 유승찬*
 
-> Coming together is a beginning; staying together is progress; working together is success. *Henry Ford*
+> 함께 모이면 시작되고, 함께 지내면 진보하고, 함께 일하면 성공한다. -헨리 포드
 
-## The Journey from Data to Evidence 
+## The Journey from Data to Evidence
 
 Everywhere in healthcare, all across the world, within academic medical centers and private practices, regulatory agencies and medical product manufacturers, insurance companies and policy centers, and at the heart of every patient-provider interaction, there is a common challenge: how do we apply what we've learned from the past to make better decisions for the future?
 
@@ -23,7 +24,7 @@ knitr::include_graphics("images/OhdsiCommunity/datajourney.png")
 There are different types of observational databases which capture disparate patient-level data in source systems. These databases are as diverse as the healthcare system itself, reflecting different populations, care settings, and data capture processes. There are also different types of evidence that could be useful to inform decision-making, which can be classified by the analytic use cases of clinical characterization, population-level effect estimation, and patient-level prediction. Independent from the origin (source data) and desired destination (evidence), the challenge is further complicated by the breadth of clinical, scientific, and technical competencies that are required to undertake the journey. It requires a thorough understanding of health informatics, including its full provenance of the source data from the point-of-care interaction between a patient and provider through the administrative and clinical systems and into final repository, with an appreciation of the biases that can arise as part of the health policies and behavioral incentives associated with the data capture and curation processes. It requires mastery of epidemiologic principles and statistical methods to translate a clinical question into an observational study design properly suited to produce a relevant answer. It requires the technical ability to implement and execute computationally-efficient data science algorithms to datasets containing millions of patients with billions of clinical observations over years of longitudinal follow-up. It requires the clinical knowledge to synthesize what has been learned across an observational data network with evidence from other information sources, and to determine how this new knowledge should impact health policy and clinical practice. Accordingly, it is quite rare that any one individual would possess the requisite skills and resources to successfully trek from data to evidence alone. Instead, the journey often requires collaboration across multiple individuals and organizations to ensure that the best available data are analyzed using the most appropriate methods to produce the evidence that all stakeholders can trust and use in their decision-making processes.
 
 
-## Observational Medical Outcomes Partnership 
+## Observational Medical Outcomes Partnership
 
 A notable example of collaboration in observational research was the Observational Medical Outcomes Partnership (OMOP). OMOP was a public-private partnership, chaired by the US Food and Drug Administration, administered by the Foundation for the National Institutes of Health, and funded by a consortium of pharmaceutical companies that collaborated with academic researchers and health data partners to establish a research program that sought to advance the science of active medical product safety surveillance using observational healthcare data. [@stang2010omop] OMOP established a multi-stakeholder governance structure and designed a series of methodological experiments to empirically test the performance of alternative epidemiologic designs and statistical methods when applied to an array of administrative claims and electronic health records databases for the task of identifying true drug safety associations and discriminating them from false positive findings.
 
@@ -35,37 +36,68 @@ And while OMOP was successful in completing its large-scale empirical experiment
 
 When the OMOP project had completed, having fulfilled its mandate to perform methodological research to inform the FDA's active surveillance activities, the team recognized the end of the OMOP journey needed to become the start of a new journey together. In spite of OMOP's methodological research providing tangible insights into scientific best practices that could demonstrably improve the quality of evidence generated from observational data, adoption of those best practices was slow. Several barriers were identified, including: 1) fundamental concerns about observational data quality that were felt to be higher priority to address before analytics innovations; 2) insufficient conceptual understanding of the methodological problems and solutions; 3) inability to independently implement solutions within their local environment; 4) uncertainty over whether these approaches were applicable to their clinical problems of interest. The one common thread to every barrier was the sense that one person alone didn't have everything they needed to enact change by themselves, but with some collaborative support all issues could be overcome. But several areas of collaboration were needed:
 
-- Collaboration on establishing open-community data standards, standardized vocabularies and ETL (Extract-Transform-Load) conventions that would increase confidence in the underlying data quality and promote consistency in structure, content, and semantics to enable standardized analytics. 
-- Collaboration on methodological research beyond drug safety to establish best practices more broadly for clinical characterization, population-level effect estimation, and patient-level prediction. Collaboration on open-source analytics development, to codify the scientific best practices proven through methodological research and make accessible as publicly available tools that can be easily adopted by the research community. 
-- Collaboration on clinical applications that address important health questions of shared interest across the community by collectively navigating the journey from data to evidence. 
+- Collaboration on establishing open-community data standards, standardized vocabularies and ETL (Extract-Transform-Load) conventions that would increase confidence in the underlying data quality and promote consistency in structure, content, and semantics to enable standardized analytics.
+- Collaboration on methodological research beyond drug safety to establish best practices more broadly for clinical characterization, population-level effect estimation, and patient-level prediction. Collaboration on open-source analytics development, to codify the scientific best practices proven through methodological research and make accessible as publicly available tools that can be easily adopted by the research community.
+- Collaboration on clinical applications that address important health questions of shared interest across the community by collectively navigating the journey from data to evidence.
 
 From this insight, OHDSI was born.
 
+## 한국 오딧세이의 역사
+아주대학교 박래웅 교수가 아주대 병원의 전자의무기록을 이용하여 2014년 OMOP-CDM 도입을 시작하였고, 2015년 첫 연례 심포지엄에서 활용 결과를 발표하면서 한국의 OHDSI 참여가 시작되었다. 이후 계속적으로 한국에서 OMOP-CDM, OHDSI 전파를 위해 노력하였고, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean)을 개설하고, 한국의 OHDSI 참여를 독려하였다.
+첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
+
+```{r OHDSIInternationalSymposium2017inKorea1, fig.cap='OHDSI International Symposium 2017 in Korea',echo=FALSE, out.width='80%'}
+knitr::include_graphics("images/OhdsiCommunity/DSC01956.jpg")
+knitr::include_graphics("images/OhdsiCommunity/DSC01861.jpg")
+```
+
+```{r OHDSIInternationalSymposium2017inKorea2, fig.cap='Tutorial in the OHDSI International Symposium 2017',echo=FALSE, out.width='80%'}
+knitr::include_graphics("images/OhdsiCommunity/DSC02166.jpg")
+```
+한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.
+
+
 ## OHDSI as an Open-Science Collaborative
 
-Observational Health Data Sciences and Informatics (OHDSI, pronounced “Odyssey”) is an open-science community that aims to improve health by empowering the community to collaboratively generate the evidence that promotes better health decisions and better care. [@Hripcsak2015] OHDSI conducts methodological research to establish scientific best practices for the appropriate use of observational health data, develops open-source analytics software that codify these practices into consistent, transparent, reproducible solutions, and applies these tools and practices to clinical questions to generate evidence that can guide healthcare policy and patient care. 
+Observational Health Data Sciences and Informatics (OHDSI, pronounced “Odyssey”) is an open-science community that aims to improve health by empowering the community to collaboratively generate the evidence that promotes better health decisions and better care. [@Hripcsak2015] OHDSI conducts methodological research to establish scientific best practices for the appropriate use of observational health data, develops open-source analytics software that codify these practices into consistent, transparent, reproducible solutions, and applies these tools and practices to clinical questions to generate evidence that can guide healthcare policy and patient care.
 
-### Our Mission 
+### OHDSI 미션 (Our Mission)
+
+참여 공동체의 상호협력 하에 의료 발전을 촉진하는 증거를 생성하는 능력을 부여한다.
 
 > To improve health by empowering a community to collaboratively generate the evidence that promotes better health decisions and better care. \index{mission}
 
-### Our Vision 
+### OHDSI 비전 (Our Vision)
+
+의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를 제공한다.
 
 > A world in which observational research produces a comprehensive understanding of health and disease. \index{vision}
 
-### Our Objectives 
+### OHDSI 핵심 가치 (Our Objectives)
 
-* **Innovation**: Observational research is a field which will benefit greatly from disruptive thinking. We actively seek and encourage fresh methodological approaches in our work.
+* **혁신성 Innovation**: 우리는 적극적으로 의료 빅데이터 분석 및 연구에 대한 혁신적인 방법론과 접근법을 찾고 격려한다.
 
-* **Reproducibility**: Accurate, reproducible, and well-calibrated evidence is necessary for health improvement.
+> Observational research is a field which will benefit greatly from disruptive thinking. We actively seek and encourage fresh methodological approaches in our work.
 
-* **Community**: Everyone is welcome to actively participate in OHDSI, whether you are a patient, a health professional, a researcher, or someone who simply believes in our cause. \index{community}
+* **재현성 Reproducibility**: 우리는 보건 증진을 위하여 정확하고, 재현 가능하며, 잘 보정된 증거를 찾도록 노력한다.
 
-* **Collaboration**: We work collectively to prioritize and address the real-world needs of our community’s participants.
+> Accurate, reproducible, and well-calibrated evidence is necessary for health improvement.
 
-* **Openness**: We strive to make all our community’s proceeds open and publicly accessible, including the methods, tools and the evidence that we generate.
+* **공동체 정신 Community**: 우리는 모든 참여자들을 환영하며 동등하게 우리의 활동에 참여할 수 있도록 돕는다.
 
-* **Beneficence**: We seek to protect the rights of individuals and organizations within our community at all times.
+> Everyone is welcome to actively participate in OHDSI, whether you are a patient, a health professional, a researcher, or someone who simply believes in our cause.
+
+* **개방성 Openness**: 우리는 의사 결정 과정의 투명성을 지향하며, 우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 증거를 가능한 공개적으로 접근 가능하게 한다.
+
+> We strive to make all our community’s proceeds open and publicly accessible, including the methods, tools and the evidence that we generate.
+
+* **협력 정신 Collaboration**: 우리는 참여자들의 실제적 요구를 우선적으로 다루고, 그것을 위해 공동으로 노력한다.
+
+> We work collectively to prioritize and address the real world needs of our community’s participants.
+
+* **선행의 정신 Beneficence**: 우리는 고통 받는 환자를 비롯하여 참여자 및 참여기관의 권리를 보호하기 위해 노력한다.
+
+> We seek to protect the rights of individuals and organizations within our community at all times.
 \index{objectives}
 
 ## OHDSI's Progress
@@ -78,7 +110,7 @@ OHDSI has grown since its inception in 2014 to include over 2,500 collaborators 
 knitr::include_graphics("images/OhdsiCommunity/mapOfCollaborators.png")
 ```
 
-As of August, 2019, OHDSI has also established a data network of over 100 different healthcare databases from over 20 countries, collectively capturing over one billion patient records by applying a distributed network approach using an open-community data standard it maintains, the OMOP CDM. A distributed network means that patient-level data are not required to be shared between individuals or organizations. Instead, research questions are asked by individuals within the community in the form of a study protocol and accompanied by analysis code that generates evidence as a set of aggregated summary statistics, and only these summary statistics are shared amongst the partners who opt to collaborate in the study. With the OHDSI distributed network, each data partner retains full autonomy over the use of their patient-level data, and continues to observe the data governance policies within their respective institutions. 
+As of August, 2019, OHDSI has also established a data network of over 100 different healthcare databases from over 20 countries, collectively capturing over one billion patient records by applying a distributed network approach using an open-community data standard it maintains, the OMOP CDM. A distributed network means that patient-level data are not required to be shared between individuals or organizations. Instead, research questions are asked by individuals within the community in the form of a study protocol and accompanied by analysis code that generates evidence as a set of aggregated summary statistics, and only these summary statistics are shared amongst the partners who opt to collaborate in the study. With the OHDSI distributed network, each data partner retains full autonomy over the use of their patient-level data, and continues to observe the data governance policies within their respective institutions.
 
 The OHDSI developer community has created a robust library of open-source analytics tools atop the OMOP CDM to support 3 use cases: 1) clinical characterization for disease natural history, treatment utilization, and quality improvement; 2) population-level effect estimation to apply causal inference methods for medical product safety surveillance and comparative effectiveness; and 3) patient-level prediction to apply machine learning algorithms for precision medicine and disease interception. OHDSI developers have also developed applications to support adoption of the OMOP CDM, data quality assessment, and facilitation of OHDSI network studies. These tools include back-end statistical packages built in R and Python, and front-end web applications developed in HTML and Javascript. All OHDSI tools are open source and publicly available via Github.[^GitUrl]
 
