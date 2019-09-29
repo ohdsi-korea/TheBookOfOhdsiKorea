@@ -47,12 +47,12 @@ From this insight, OHDSI was born.
 첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
 
 ```{r OHDSIInternationalSymposium2017inKorea1, fig.cap='OHDSI International Symposium 2017 in Korea',echo=FALSE, out.width='80%'}
-knitr::include_graphics("images/OhdsiCommunity/DSC01956.jpg")
-knitr::include_graphics("images/OhdsiCommunity/DSC01861.jpg")
+knitr::include_graphics("images/OhdsiCommunity/DSC01956.png")
+knitr::include_graphics("images/OhdsiCommunity/DSC01861.png")
 ```
 
 ```{r OHDSIInternationalSymposium2017inKorea2, fig.cap='Tutorial in the OHDSI International Symposium 2017',echo=FALSE, out.width='80%'}
-knitr::include_graphics("images/OhdsiCommunity/DSC02166.jpg")
+knitr::include_graphics("images/OhdsiCommunity/DSC02166.png")
 ```
 한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.
 
