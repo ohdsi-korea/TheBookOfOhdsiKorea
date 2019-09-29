@@ -5,7 +5,8 @@
 # The OHDSI Community {#OhdsiCommunity}
 
 *Chapter leads: Patrick Ryan & George Hripcsak*
-*번역: 유승찬*
+
+*번역 : 유승찬*
 
 > 함께 모이면 시작되고, 함께 지내면 진보하고, 함께 일하면 성공한다. -헨리 포드
 
