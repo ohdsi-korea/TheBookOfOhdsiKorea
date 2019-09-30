@@ -126,7 +126,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-29}
+    \date{2019-09-30}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -502,47 +502,45 @@ Amazon.
 
 \chapter{The OHDSI Community}\label{OhdsiCommunity}
 
-\emph{Chapter leads: Patrick Ryan \& George Hripcsak} \emph{번역:
-유승찬}
+\emph{Chapter leads: Patrick Ryan \& George Hripcsak}
+
+\emph{번역 : 유승찬}
 
 \begin{quote}
 함께 모이면 시작되고, 함께 지내면 진보하고, 함께 일하면 성공한다. -헨리
 포드
 \end{quote}
 
-\section{The Journey from Data to
-Evidence}\label{the-journey-from-data-to-evidence}
+\section{데이터에서 근거로의 여정 (The Journey from Data to
+Evidence)}\label{---the-journey-from-data-to-evidence}
 
-Everywhere in healthcare, all across the world, within academic medical
-centers and private practices, regulatory agencies and medical product
-manufacturers, insurance companies and policy centers, and at the heart
-of every patient-provider interaction, there is a common challenge: how
-do we apply what we've learned from the past to make better decisions
-for the future?
+의료 연구 기관 및 사설 의료 기관, 규제 기관 및 의료 제품 제조업체, 보험
+회사 및 정책 기관, 그리고 환자와 의료 제공자 간의 모든 상호관계를
+포함하는 전 세계 보건 의료의 어느 곳에서나 공통적인 과제가 있다. 어떻게
+우리가 과거에서 배운 것을 토대로 미래를 위해 더 나은 결정을 내릴 수 있을
+것인가?
 
-For more than a decade, many have argued for the vision of a
-\textbf{learning healthcare system}, ``designed to generate and apply
-the best evidence for the collaborative healthcare choices of each
-patient and provider; to drive the process of discovery as a natural
-outgrowth of patient care; and to ensure innovation, quality, safety,
-and value in healthcare''. \citep{olsen2007learning} A chief component
-of this ambition rests on the exciting prospect that patient-level data
-captured during the routine course of clinical care could be analyzed to
-produce \textbf{real-world evidence}, which in turn could be
-disseminated across the healthcare system to inform clinical practice.
-In 2007, the Institute of Medicine Roundtable on Evidence-Based Medicine
-issued a report which established a goal that ``By the year 2020, 90
-percent of clinical decisions will be supported by accurate, timely, and
-up-to-date clinical information, and will reflect the best available
-evidence.'' \citep{olsen2007learning} While tremendous progress has been
-made on many different fronts, we still fall well short of these
-laudable aspirations.
+10년이 넘도록, 많은 사람들이 \textbf{보건의료 체계 학습 (learning
+healthcare system)} 의 비전에 대해서 논의해 왔다. ``그것은, 환자와 의료
+제공자의 협력적인 보건 의료 선택에 있어 최상의 근거를 생성하고 적용하기
+위함입니다. 또한 환자 치료의 자연스러운 발전을 도모하고, 보건의료의
+혁신, 질, 안전 및 가치를 보장하기 위함입니다.''\citep{olsen2007learning}
+이 원대한 계획의 주요한 요소는 일상적인 임상 치료 과정에서 수집된 환자
+수준 (patient-level) 데이터를 분석하여 \textbf{실세계 근거 (real-world
+evidence)} 를 생성할 수 있으며, 의료 시스템에 전파되어 실제의 임상에
+정보를 제공 할 수 있으리라는 흥미로운 전망에 있다. 의학 연구소
+(Institute of Medicine) 의 근거 중심 의학 원탁회 (Roundtable on
+Evidence-Based Medicine) 가 발간한 2007년 보고서에서 ``2020년까지 90\%의
+임상 결정이 정확하고, 시기 적절하고, 최신의 임상 정보에 의해 뒷받침 될
+것이며, 그것은 가능한 최선의 근거를 반영할 것이다.''라고
+예측했다.\citep{olsen2007learning} 비록 여러가지면에서 엄청난 발전이
+있었지만, 우리는 여전히 이 위대한 열망에는 한참 미치지 못하고 있다.
 
-Why? In part, because the journey from patient-level data to reliable
-evidence is an arduous one. There is no single defined path from data to
-evidence, and no single map that can help to navigate along the way. In
-fact, there is no single notion of ``data,'' nor is there a singular
-notion of ``evidence.''
+무엇때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거까지의
+여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는데에는
+정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지 않는다.
+사실, ``데이터 (data)'' 가 무엇인지, 그리고 ``근거 (evidence)''가
+무엇인지에 대한 통일된 관념도 존재하지 않는다.
 
 \begin{figure}
 
@@ -553,39 +551,38 @@ notion of ``evidence.''
 \caption{The journey from data to evidence}\label{fig:datajourney}
 \end{figure}
 
-There are different types of observational databases which capture
-disparate patient-level data in source systems. These databases are as
-diverse as the healthcare system itself, reflecting different
-populations, care settings, and data capture processes. There are also
-different types of evidence that could be useful to inform
-decision-making, which can be classified by the analytic use cases of
-clinical characterization, population-level effect estimation, and
-patient-level prediction. Independent from the origin (source data) and
-desired destination (evidence), the challenge is further complicated by
-the breadth of clinical, scientific, and technical competencies that are
-required to undertake the journey. It requires a thorough understanding
-of health informatics, including its full provenance of the source data
-from the point-of-care interaction between a patient and provider
-through the administrative and clinical systems and into final
-repository, with an appreciation of the biases that can arise as part of
-the health policies and behavioral incentives associated with the data
-capture and curation processes. It requires mastery of epidemiologic
-principles and statistical methods to translate a clinical question into
-an observational study design properly suited to produce a relevant
-answer. It requires the technical ability to implement and execute
-computationally-efficient data science algorithms to datasets containing
-millions of patients with billions of clinical observations over years
-of longitudinal follow-up. It requires the clinical knowledge to
-synthesize what has been learned across an observational data network
-with evidence from other information sources, and to determine how this
-new knowledge should impact health policy and clinical practice.
-Accordingly, it is quite rare that any one individual would possess the
-requisite skills and resources to successfully trek from data to
-evidence alone. Instead, the journey often requires collaboration across
-multiple individuals and organizations to ensure that the best available
-data are analyzed using the most appropriate methods to produce the
-evidence that all stakeholders can trust and use in their
-decision-making processes.
+원본 시스템에서 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰
+데이터베이스 (observational database)가 있다. 이 데이터베이스는 서로
+다른 의료 시스템 내부의 인구, 치료 설정 및 데이터 수집 프로세스의
+이질성만큼 다양하다. There are also different types of evidence that
+could be useful to inform decision-making, which can be classified by
+the analytic use cases of clinical characterization, population-level
+effect estimation, and patient-level prediction. Independent from the
+origin (source data) and desired destination (evidence), the challenge
+is further complicated by the breadth of clinical, scientific, and
+technical competencies that are required to undertake the journey. It
+requires a thorough understanding of health informatics, including its
+full provenance of the source data from the point-of-care interaction
+between a patient and provider through the administrative and clinical
+systems and into final repository, with an appreciation of the biases
+that can arise as part of the health policies and behavioral incentives
+associated with the data capture and curation processes. It requires
+mastery of epidemiologic principles and statistical methods to translate
+a clinical question into an observational study design properly suited
+to produce a relevant answer. It requires the technical ability to
+implement and execute computationally-efficient data science algorithms
+to datasets containing millions of patients with billions of clinical
+observations over years of longitudinal follow-up. It requires the
+clinical knowledge to synthesize what has been learned across an
+observational data network with evidence from other information sources,
+and to determine how this new knowledge should impact health policy and
+clinical practice. Accordingly, it is quite rare that any one individual
+would possess the requisite skills and resources to successfully trek
+from data to evidence alone. Instead, the journey often requires
+collaboration across multiple individuals and organizations to ensure
+that the best available data are analyzed using the most appropriate
+methods to produce the evidence that all stakeholders can trust and use
+in their decision-making processes.
 
 \section{Observational Medical Outcomes
 Partnership}\label{observational-medical-outcomes-partnership}
@@ -724,7 +721,7 @@ healthcare policy and patient care.
 
 \subsection{OHDSI 미션 (Our Mission)}\label{ohdsi--our-mission}
 
-참여 공동체의 상호협력 하에 의료 발전을 촉진하는 증거를 생성하는 능력을
+참여 공동체의 상호협력 하에 의료 발전을 촉진하는 근거를 생성하는 능력을
 부여한다.
 
 \begin{quote}
@@ -763,7 +760,7 @@ approaches in our work.
 \tightlist
 \item
   \textbf{재현성 Reproducibility}: 우리는 보건 증진을 위하여 정확하고,
-  재현 가능하며, 잘 보정된 증거를 찾도록 노력한다.
+  재현 가능하며, 잘 보정된 근거를 찾도록 노력한다.
 \end{itemize}
 
 \begin{quote}
@@ -788,7 +785,7 @@ believes in our cause.
 \tightlist
 \item
   \textbf{개방성 Openness}: 우리는 의사 결정 과정의 투명성을 지향하며,
-  우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 증거를 가능한
+  우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 근거를 가능한
   공개적으로 접근 가능하게 한다.
 \end{itemize}
 
@@ -7462,7 +7459,7 @@ For example:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.nscvaz73children ;"
+## [1] "SELECT * FROM temp_schema.ormcp6cgchildren ;"
 \end{verbatim}
 
 Note that the user will need to have write privileges on
@@ -20226,7 +20223,7 @@ and execution of federated network studies.
 A web-based application that is installed on participating sites to
 support the design and execution of observational analyses to generate
 real world evidence from patient level clinical data.
-\item[Bias]
+\item[편향 (Bias)]
 The expected value of the error (the difference between the true value
 and the estimated value).
 \item[Boolean]
@@ -20235,12 +20232,12 @@ Variable that has only two values (true or false).
 A uniquely identified institutional (physical or organizational) unit
 where healthcare delivery is practiced (office, ward, hospital, clinic,
 etc.).
-\item[Case control]
+\item[환자 대조군 (Case control)]
 A type of retrospective study design for population-level effect
 estimation. Case-control studies match ``cases'' with the target outcome
 to ``controls'' without the target outcome. Then they look back in time
 and compare the odds of exposure in the cases and the controls.
-\item[Causal effect]
+\item[인과적 영향 (Causal effect)]
 What population-level estimation concerns itself with. One definition
 equates a ``causal effect'' as the average of the ``unit-level causal
 effects'' in a target population. The unit-level causal effect is the
@@ -20250,11 +20247,11 @@ against B).
 \item[Characterization]
 Descriptive study of a cohort or entire database. See Chapter
 \ref{Characterization}.
-\item[Claims data]
+\item[청구 자료 (Claims data)]
 Data generated for the purpose of billing a health insurance company.
-\item[Clinical trial]
+\item[임상 시험 (Clinical trial)]
 Interventional clinical study.
-\item[Cohort]
+\item[코호트 (Cohort)]
 A set of persons who satisfy one or more inclusion criteria for a
 duration of time. See Chapter \ref{Cohorts}.
 \item[Concept]
@@ -20264,24 +20261,24 @@ See Chapter \ref{StandardizedVocabularies}.
 A concept set is an expression representing a list of concepts that can
 be used as a reusable component in various analyses. See Chapter
 \ref{Cohorts}.
-\item[Common Data Model (CDM)]
+\item[공통 데이터 모델 (Common Data Model, CDM)]
 A convention for representing healthcare data that allows portability of
 analysis (the same analysis unmodified can be executed on multiple
 datasets). See Chapter \ref{CommonDataModel}.
-\item[Comparative Effectiveness]
+\item[비교 효과 Comparative Effectiveness]
 A comparison of the effects of two different exposures on an outcome of
 interest. See Chapter \ref{PopulationLevelEstimation}.
 \item[Condition]
 A diagnosis, a sign, or a symptom, which is either observed by a
 provider or reported by the patient.
-\item[Confounding]
+\item[교란 (Confounding)]
 Confounding is a distortion (inaccuracy) in the estimated measure of
 association that occurs when the primary exposure of interest is mixed
 up with some other factor that is associated with the outcome.
-\item[Covariate]
+\item[변수 (Covariate)]
 Data element (e.g., weight) that is used in a statistical model as
 independent variable.
-\item[Data quality]
+\item[데이터 질 (Data quality)]
 The state of completeness, validity, consistency, timeliness and
 accuracy that makes data appropriate for a specific use.
 \item[Device]
@@ -20304,19 +20301,19 @@ fields in the CDM tables. For example, the ``Condition'' Domain contains
 Concepts that describe a condition of a patient, and these Concepts can
 only be stored in the condition\_concept\_id field of the
 CONDITION\_OCCURRENCE and CONDITION\_ERA tables.
-\item[Electronic Health Record (EHR)]
+\item[전자 의무기록 (Electronic Health Record, EHR)]
 Data generated during course of care and recorded in an electronic
 system.
-\item[Epidemiology]
+\item[역학 (Epidemiology)]
 The study of the distribution, patterns and determinants of health and
 disease conditions in defined populations.
-\item[Evidence-based medicine]
+\item[근거 중심 의학 (Evidence-based medicine)]
 The use of empirical and scientific evidence in making decisions about
 the care of individual patients.
 \item[ETL (Extract-Transform-Load)]
 The process of converting data from one format to another, for example
 from a source format to the CDM. See Chapter \ref{ExtractTransformLoad}.
-\item[Matching]
+\item[짝짓기 (Matching)]
 Many population-level effect estimation approaches attempt to identify
 the causal effects of exposures by comparing outcomes in exposed
 patients to those same outcomes in unexposed patients (or exposed to A
@@ -20328,10 +20325,10 @@ measured patient characteristics.
 A structured value (numerical or categorical) obtained through
 systematic and standardized examination or testing of a person or
 person's sample.
-\item[Measurement error]
+\item[측정 오차 (Measurement error)]
 Occurs when a recorded measurement (e.g., blood pressure, patient age,
 duration of treatment) differs from the corresponding true measurement.
-\item[Metadata]
+\item[메타데이터 (Metadata)]
 A set of data that describes and gives information about other data and
 includes descriptive metadata, structural metadata, administrative
 metadata, reference metadata and statistical metadata.
@@ -20343,7 +20340,7 @@ Many OHDSI methods employ statistical models such as proportional
 hazards regression or random forests. Insofar as the mechanism that
 generated the data deviate from the assumed model, the model is
 ``misspecified.''
-\item[Negative control]
+\item[음성 통제 결과 (Negative control)]
 An exposure-outcome pair where the exposure is believed to not cause or
 prevent the outcome. Can be used to assess whether effect estimation
 methods produce results in line with the truth. See Chapter
@@ -20355,14 +20352,14 @@ questioning or a procedure.
 The span of time for which a person is at-risk to have clinical events
 recorded within the source systems, even if no events in fact are
 recorded (healthy patient with no healthcare interactions).
-\item[Observational study]
+\item[관찰 연구 (Observational study)]
 A study where the researcher has no control over the intervention.
 \item[OHDSI SQL]
 A SQL dialect that can be automatically translated to various other SQL
 dialects using the SqlRender R package. OHDSI SQL is mostly a subset of
 SQL Server SQL, but allows for additional parameterization. See Chapter
 \ref{SqlAndR}.
-\item[Open science]
+\item[오픈 사이언스 (Open science)]
 The movement to make scientific research (including publications, data,
 physical samples, and software) and its dissemination accessible to all
 levels of an inquiring society, amateur or professional. See Chapter
@@ -20376,14 +20373,14 @@ drug on the outcome ``headache.''
 Development and application of predictive models to produce
 patient-specific probabilities for experiencing some future outcome
 based on baseline characteristics.
-\item[Phenotype]
+\item[표현형 (Phenotype)]
 A description of physical characteristics. This includes visible
 characteristics like your weight and hair color, but also your overall
 health, your disease history, and your behavior.
 \item[Population-level estimation]
 A study into causal effects. Estimates an average (population-level)
 effect size.
-\item[Positive control]
+\item[양성 통제 결과 (Negative control)]
 An exposure-outcome pair where the exposure is believed to cause or
 prevent the outcome. Can be used to assess whether effect estimation
 methods produce results in line with the truth. See Chapter
@@ -20391,7 +20388,7 @@ methods produce results in line with the truth. See Chapter
 \item[Procedure]
 Activity or process ordered by, or carried out by, a healthcare provider
 on the patient to have a diagnostic or therapeutic purpose.
-\item[Propensity score (PS)]
+\item[성향 점수 (Propensity score, PS)]
 a single metric used in population-level estimation to balance
 populations in order to mimic randomization between two treatment groups
 in an observational study. The PS represents the probability of a
@@ -20400,20 +20397,20 @@ observed baseline covariates. It is most often calculated using a
 logistic regression model where the binary outcome is set to one for the
 group receiving the target treatment of interest and to zero for the
 comparator treatment. See Chapter \ref{PopulationLevelEstimation}.
-\item[Protocol]
+\item[프로토콜 (Protocol)]
 A human readable document that fully specifies the design of a study.
 \item[Rabbit-in-a-Hat]
 An interactive software tool to help define the ETL from source format
 to CDM. Uses the database profile generated by White Rabbit as input.
 See Chapter 7.
-\item[Selection bias]
+\item[선택 편향 (Selection bias)]
 A bias that occurs when the set of patients in your data deviates from
 the patients in the population in ways that distort statistical
 analyses.
 \item[Self-controlled designs]
 Study designs that compare outcomes during different exposures within
 the same patient.
-\item[Sensitivity analysis]
+\item[민감도 분석 (Sensitivity analysis)]
 A variant of the main analysis used in a study to asses the impact of an
 analysis choice over which uncertainty exists.
 \item[SNOMED]

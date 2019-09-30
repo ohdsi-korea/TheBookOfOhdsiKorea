@@ -5,24 +5,25 @@
 # The OHDSI Community {#OhdsiCommunity}
 
 *Chapter leads: Patrick Ryan & George Hripcsak*
-*번역: 유승찬*
+
+*번역 : 유승찬*
 
 > 함께 모이면 시작되고, 함께 지내면 진보하고, 함께 일하면 성공한다. -헨리 포드
 
-## The Journey from Data to Evidence
+## 데이터에서 근거로의 여정 (The Journey from Data to Evidence)
 
-Everywhere in healthcare, all across the world, within academic medical centers and private practices, regulatory agencies and medical product manufacturers, insurance companies and policy centers, and at the heart of every patient-provider interaction, there is a common challenge: how do we apply what we've learned from the past to make better decisions for the future?
+의료 연구 기관 및 사설 의료 기관, 규제 기관 및 의료 제품 제조업체, 보험 회사 및 정책 기관, 그리고 환자와 의료 제공자 간의 모든 상호관계를 포함하는 전 세계 보건 의료의 어느 곳에서나 공통적인 과제가 있다. 어떻게 우리가 과거에서 배운 것을 토대로 미래를 위해 더 나은 결정을 내릴 수 있을 것인가?
 
-For more than a decade, many have argued for the vision of a **learning healthcare system**, "designed to generate and apply the best evidence for the collaborative healthcare choices of each patient and provider; to drive the process of discovery as a natural outgrowth of patient care; and to ensure innovation, quality, safety, and value in healthcare". [@olsen2007learning] A chief component of this ambition rests on the exciting prospect that patient-level data captured during the routine course of clinical care could be analyzed to produce **real-world evidence**, which in turn could be disseminated across the healthcare system to inform clinical practice. In 2007, the Institute of Medicine Roundtable on Evidence-Based Medicine issued a report which established a goal that "By the year 2020, 90 percent of clinical decisions will be supported by accurate, timely, and up-to-date clinical information, and will reflect the best available evidence." [@olsen2007learning] While tremendous progress has been made on many different fronts, we still fall well short of these laudable aspirations.
+10년이 넘도록, 많은 사람들이 **보건의료 체계 학습 (learning healthcare system)** 의 비전에 대해서 논의해 왔다. "그것은, 환자와 의료 제공자의 협력적인 보건 의료 선택에 있어 최상의 근거를 생성하고 적용하기 위함입니다. 또한 환자 치료의 자연스러운 발전을 도모하고, 보건의료의 혁신, 질, 안전 및 가치를 보장하기 위함입니다."[@olsen2007learning] 이 원대한 계획의 주요한 요소는 일상적인 임상 치료 과정에서 수집된 환자 수준 (patient-level) 데이터를 분석하여 **실세계 근거 (real-world evidence)** 를 생성할 수 있으며, 의료 시스템에 전파되어 실제의 임상에 정보를 제공 할 수 있으리라는 흥미로운 전망에 있다. 의학 연구소 (Institute of Medicine) 의 근거 중심 의학 원탁회 (Roundtable on Evidence-Based Medicine) 가 발간한 2007년 보고서에서 "2020년까지 90%의 임상 결정이 정확하고, 시기 적절하고, 최신의 임상 정보에 의해 뒷받침 될 것이며, 그것은 가능한 최선의 근거를 반영할 것이다."라고 예측했다.[@olsen2007learning] 비록 여러가지면에서 엄청난 발전이 있었지만, 우리는 여전히 이 위대한 열망에는 한참 미치지 못하고 있다.
 
-Why? In part, because the journey from patient-level data to reliable evidence is an arduous one. There is no single defined path from data to evidence, and no single map that can help to navigate along the way. In fact, there is no single notion of "data," nor is there a singular notion of "evidence."
+무엇때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거까지의 여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는데에는 정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지 않는다. 사실, "데이터 (data)" 가 무엇인지, 그리고 "근거 (evidence)"가 무엇인지에 대한 통일된 관념도 존재하지 않는다.
 
 <div class="figure" style="text-align: center">
 <img src="images/OhdsiCommunity/datajourney.png" alt="The journey from data to evidence" width="100%" />
 <p class="caption">(\#fig:datajourney)The journey from data to evidence</p>
 </div>
 
-There are different types of observational databases which capture disparate patient-level data in source systems. These databases are as diverse as the healthcare system itself, reflecting different populations, care settings, and data capture processes. There are also different types of evidence that could be useful to inform decision-making, which can be classified by the analytic use cases of clinical characterization, population-level effect estimation, and patient-level prediction. Independent from the origin (source data) and desired destination (evidence), the challenge is further complicated by the breadth of clinical, scientific, and technical competencies that are required to undertake the journey. It requires a thorough understanding of health informatics, including its full provenance of the source data from the point-of-care interaction between a patient and provider through the administrative and clinical systems and into final repository, with an appreciation of the biases that can arise as part of the health policies and behavioral incentives associated with the data capture and curation processes. It requires mastery of epidemiologic principles and statistical methods to translate a clinical question into an observational study design properly suited to produce a relevant answer. It requires the technical ability to implement and execute computationally-efficient data science algorithms to datasets containing millions of patients with billions of clinical observations over years of longitudinal follow-up. It requires the clinical knowledge to synthesize what has been learned across an observational data network with evidence from other information sources, and to determine how this new knowledge should impact health policy and clinical practice. Accordingly, it is quite rare that any one individual would possess the requisite skills and resources to successfully trek from data to evidence alone. Instead, the journey often requires collaboration across multiple individuals and organizations to ensure that the best available data are analyzed using the most appropriate methods to produce the evidence that all stakeholders can trust and use in their decision-making processes.
+원본 시스템에서 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰 데이터베이스 (observational database)가 있다. 이 데이터베이스는 서로 다른 의료 시스템 내부의 인구, 치료 설정 및 데이터 수집 프로세스의 이질성만큼 다양하다. There are also different types of evidence that could be useful to inform decision-making, which can be classified by the analytic use cases of clinical characterization, population-level effect estimation, and patient-level prediction. Independent from the origin (source data) and desired destination (evidence), the challenge is further complicated by the breadth of clinical, scientific, and technical competencies that are required to undertake the journey. It requires a thorough understanding of health informatics, including its full provenance of the source data from the point-of-care interaction between a patient and provider through the administrative and clinical systems and into final repository, with an appreciation of the biases that can arise as part of the health policies and behavioral incentives associated with the data capture and curation processes. It requires mastery of epidemiologic principles and statistical methods to translate a clinical question into an observational study design properly suited to produce a relevant answer. It requires the technical ability to implement and execute computationally-efficient data science algorithms to datasets containing millions of patients with billions of clinical observations over years of longitudinal follow-up. It requires the clinical knowledge to synthesize what has been learned across an observational data network with evidence from other information sources, and to determine how this new knowledge should impact health policy and clinical practice. Accordingly, it is quite rare that any one individual would possess the requisite skills and resources to successfully trek from data to evidence alone. Instead, the journey often requires collaboration across multiple individuals and organizations to ensure that the best available data are analyzed using the most appropriate methods to produce the evidence that all stakeholders can trust and use in their decision-making processes.
 
 
 ## Observational Medical Outcomes Partnership
@@ -68,7 +69,7 @@ Observational Health Data Sciences and Informatics (OHDSI, pronounced “Odyssey
 
 ### OHDSI 미션 (Our Mission)
 
-참여 공동체의 상호협력 하에 의료 발전을 촉진하는 증거를 생성하는 능력을 부여한다.
+참여 공동체의 상호협력 하에 의료 발전을 촉진하는 근거를 생성하는 능력을 부여한다.
 
 > To improve health by empowering a community to collaboratively generate the evidence that promotes better health decisions and better care. \index{mission}
 
@@ -84,7 +85,7 @@ Observational Health Data Sciences and Informatics (OHDSI, pronounced “Odyssey
 
 > Observational research is a field which will benefit greatly from disruptive thinking. We actively seek and encourage fresh methodological approaches in our work.
 
-* **재현성 Reproducibility**: 우리는 보건 증진을 위하여 정확하고, 재현 가능하며, 잘 보정된 증거를 찾도록 노력한다.
+* **재현성 Reproducibility**: 우리는 보건 증진을 위하여 정확하고, 재현 가능하며, 잘 보정된 근거를 찾도록 노력한다.
 
 > Accurate, reproducible, and well-calibrated evidence is necessary for health improvement.
 
@@ -92,7 +93,7 @@ Observational Health Data Sciences and Informatics (OHDSI, pronounced “Odyssey
 
 > Everyone is welcome to actively participate in OHDSI, whether you are a patient, a health professional, a researcher, or someone who simply believes in our cause.
 
-* **개방성 Openness**: 우리는 의사 결정 과정의 투명성을 지향하며, 우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 증거를 가능한 공개적으로 접근 가능하게 한다.
+* **개방성 Openness**: 우리는 의사 결정 과정의 투명성을 지향하며, 우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 근거를 가능한 공개적으로 접근 가능하게 한다.
 
 > We strive to make all our community’s proceeds open and publicly accessible, including the methods, tools and the evidence that we generate.
 
