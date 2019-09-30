@@ -99,6 +99,7 @@ Observational Health Data Sciences and Informatics (OHDSI, pronounced “Odyssey
 * **선행의 정신 Beneficence**: 우리는 고통 받는 환자를 비롯하여 참여자 및 참여기관의 권리를 보호하기 위해 노력한다.
 
 > We seek to protect the rights of individuals and organizations within our community at all times.
+
 \index{objectives}
 
 ## OHDSI's Progress
