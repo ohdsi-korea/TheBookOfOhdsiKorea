@@ -1,13 +1,11 @@
 # TheBookOfOhdsi
 
-[![Build Status](https://travis-ci.org/OHDSI/TheBookOfOhdsi.svg?branch=master)](https://travis-ci.org/OHDSI/TheBookOfOhdsi)
+오딧세이 한국 네트워크 책입니다.
 
-The Book of OHDSI repository. These contents are automatically rendered to the online version of the book at [book.ohdsi.org](http://book.ohdsi.org).
+집필 중인 온라인 판은 하기 주소에서 보실 수 있습니다. 
 
-For notes on how to edit the book, see [the OHDSI Wiki](http://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:notes_on_writing_text_for_the_book), as well as the [Book of OHDSI Cheat Sheet](https://raw.githubusercontent.com/OHDSI/TheBookOfOhdsi/master/extras/CheatSheet.pdf).
+https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/
 
-Information on meetings of the Book of OHDSI Worgroup can be found on the [Workgroup Wiki](http://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:the_book_of_ohdsi).
+책 수정에 대한 설명은 [the OHDSI Wiki](http://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:notes_on_writing_text_for_the_book) 와 [Book of OHDSI Cheat Sheet](https://raw.githubusercontent.com/OHDSI/TheBookOfOhdsi/master/extras/CheatSheet.pdf) 을 확인하시기 바랍니다. 
 
-
-
-
+Under the Development
