@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 18 Method Validity | The Book of OHDSI Korea</title>
+  <meta name="description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 18 Method Validity | The Book of OHDSI Korea" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ohdsi.github.io/TheBookOfOhdsi/" />
+  <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
+  <meta property="og:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="github-repo" content="OHDSI/TheBookOfOhdsi" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 18 Method Validity | The Book of OHDSI Korea" />
+  
+  <meta name="twitter:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
+
+<meta name="author" content="Observational Health Data Sciences and Informatics" />
+
+
+<meta name="date" content="2019-10-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="SoftwareValidity.html">
+<link rel="next" href="StudySteps.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104086677-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104086677-2');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Book of OHDSI</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#goals-of-this-book"><i class="fa fa-check"></i>Goals of this Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-book"><i class="fa fa-check"></i>Structure of the Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i>Contributors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-versions"><i class="fa fa-check"></i>Software Versions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-developed"><i class="fa fa-check"></i>How the Book Is Developed</a></li>
+</ul></li>
+<li class="part"><span><b>I The OHDSI Community</b></span></li>
+<li class="chapter" data-level="1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html"><i class="fa fa-check"></i><b>1</b> The OHDSI Community</a><ul>
+<li class="chapter" data-level="1.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#---the-journey-from-data-to-evidence"><i class="fa fa-check"></i><b>1.1</b> 데이터에서 근거로의 여정 (The Journey from Data to Evidence)</a></li>
+<li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#observational-medical-outcomes-partnership"><i class="fa fa-check"></i><b>1.2</b> Observational Medical Outcomes Partnership</a></li>
+<li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#--"><i class="fa fa-check"></i><b>1.3</b> 한국 오딧세이의 역사</a></li>
+<li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi-as-an-open-science-collaborative"><i class="fa fa-check"></i><b>1.4</b> OHDSI as an Open-Science Collaborative</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-mission"><i class="fa fa-check"></i><b>1.4.1</b> OHDSI 미션 (Our Mission)</a></li>
+<li class="chapter" data-level="1.4.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-vision"><i class="fa fa-check"></i><b>1.4.2</b> OHDSI 비전 (Our Vision)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi---our-objectives"><i class="fa fa-check"></i><b>1.4.3</b> OHDSI 핵심 가치 (Our Objectives)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsis-progress"><i class="fa fa-check"></i><b>1.5</b> OHDSI’s Progress</a></li>
+<li class="chapter" data-level="1.6" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#collaborating-in-ohdsi"><i class="fa fa-check"></i><b>1.6</b> Collaborating in OHDSI</a></li>
+<li class="chapter" data-level="1.7" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#summary"><i class="fa fa-check"></i><b>1.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> Where to Begin</a><ul>
+<li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#join-the-journey"><i class="fa fa-check"></i><b>2.1</b> Join the Journey</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-forums"><i class="fa fa-check"></i><b>2.1.1</b> OHDSI Forums</a></li>
+<li class="chapter" data-level="2.1.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-events"><i class="fa fa-check"></i><b>2.1.2</b> OHDSI Events</a></li>
+<li class="chapter" data-level="2.1.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-community-calls"><i class="fa fa-check"></i><b>2.1.3</b> OHDSI Community Calls</a></li>
+<li class="chapter" data-level="2.1.4" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-workgroups"><i class="fa fa-check"></i><b>2.1.4</b> OHDSI Workgroups</a></li>
+<li class="chapter" data-level="2.1.5" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-regional-chapters"><i class="fa fa-check"></i><b>2.1.5</b> OHDSI Regional Chapters</a></li>
+<li class="chapter" data-level="2.1.6" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-research-network"><i class="fa fa-check"></i><b>2.1.6</b> OHDSI Research Network</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#where-you-fit-in"><i class="fa fa-check"></i><b>2.2</b> Where You Fit In</a></li>
+<li class="chapter" data-level="2.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#summary-1"><i class="fa fa-check"></i><b>2.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> Open Science</a><ul>
+<li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#open-science"><i class="fa fa-check"></i><b>3.1</b> Open Science</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#open-science-in-action-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> Open-Science in Action: the Study-a-Thon</a></li>
+<li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#open-standards"><i class="fa fa-check"></i><b>3.3</b> Open Standards</a></li>
+<li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#open-source"><i class="fa fa-check"></i><b>3.4</b> Open Source</a></li>
+<li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#open-data"><i class="fa fa-check"></i><b>3.5</b> Open Data</a></li>
+<li class="chapter" data-level="3.6" data-path="OpenScience.html"><a href="OpenScience.html#open-discourse"><i class="fa fa-check"></i><b>3.6</b> Open Discourse</a></li>
+<li class="chapter" data-level="3.7" data-path="OpenScience.html"><a href="OpenScience.html#ohdsi-and-the-fair-guiding-principles"><i class="fa fa-check"></i><b>3.7</b> OHDSI and the FAIR Guiding Principles</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="OpenScience.html"><a href="OpenScience.html#introduction"><i class="fa fa-check"></i><b>3.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.7.2" data-path="OpenScience.html"><a href="OpenScience.html#findability"><i class="fa fa-check"></i><b>3.7.2</b> Findability</a></li>
+<li class="chapter" data-level="3.7.3" data-path="OpenScience.html"><a href="OpenScience.html#accessibility"><i class="fa fa-check"></i><b>3.7.3</b> Accessibility</a></li>
+<li class="chapter" data-level="3.7.4" data-path="OpenScience.html"><a href="OpenScience.html#interoperability"><i class="fa fa-check"></i><b>3.7.4</b> Interoperability</a></li>
+<li class="chapter" data-level="3.7.5" data-path="OpenScience.html"><a href="OpenScience.html#reusability"><i class="fa fa-check"></i><b>3.7.5</b> Reusability</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Uniform Data Representation</b></span></li>
+<li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> The Common Data Model</a><ul>
+<li class="chapter" data-level="4.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#design-principles"><i class="fa fa-check"></i><b>4.1</b> Design Principles</a></li>
+<li class="chapter" data-level="4.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#data-model-conventions"><i class="fa fa-check"></i><b>4.2</b> Data Model Conventions</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.2.1</b> General Conventions of the Model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#general-conventions-of-schemas"><i class="fa fa-check"></i><b>4.2.2</b> General Conventions of Schemas</a></li>
+<li class="chapter" data-level="4.2.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#general-conventions-of-data-tables"><i class="fa fa-check"></i><b>4.2.3</b> General Conventions of Data Tables</a></li>
+<li class="chapter" data-level="4.2.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#domains"><i class="fa fa-check"></i><b>4.2.4</b> General Conventions of Domains</a></li>
+<li class="chapter" data-level="4.2.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#representation-of-content-through-concepts"><i class="fa fa-check"></i><b>4.2.5</b> Representation of Content Through Concepts</a></li>
+<li class="chapter" data-level="4.2.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#general-naming-conventions-of-fields"><i class="fa fa-check"></i><b>4.2.6</b> General Naming Conventions of Fields</a></li>
+<li class="chapter" data-level="4.2.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concepts-Sources"><i class="fa fa-check"></i><b>4.2.7</b> Difference Between Concepts and Source Values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#cdm-standardized-tables"><i class="fa fa-check"></i><b>4.3</b> CDM Standardized Tables</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#running-example-endometriosis"><i class="fa fa-check"></i><b>4.3.1</b> Running Example: Endometriosis</a></li>
+<li class="chapter" data-level="4.3.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.3.2</b> PERSON Table</a></li>
+<li class="chapter" data-level="4.3.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.3.3</b> OBSERVATION_PERIOD Table</a></li>
+<li class="chapter" data-level="4.3.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.3.4</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#conditionOccurrence"><i class="fa fa-check"></i><b>4.3.5</b> CONDITION_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#drugExposure"><i class="fa fa-check"></i><b>4.3.6</b> DRUG_EXPOSURE</a></li>
+<li class="chapter" data-level="4.3.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#procedureOccurrence"><i class="fa fa-check"></i><b>4.3.7</b> PROCEDURE_OCCURRENCE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#additional-information"><i class="fa fa-check"></i><b>4.4</b> Additional Information</a></li>
+<li class="chapter" data-level="4.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#summary-2"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+<li class="chapter" data-level="4.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#exercises"><i class="fa fa-check"></i><b>4.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabularies</a><ul>
+<li class="chapter" data-level="5.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#why-vocabularies-and-why-standardizing"><i class="fa fa-check"></i><b>5.1</b> Why Vocabularies, and Why Standardizing</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#building-the-standardized-vocabularies"><i class="fa fa-check"></i><b>5.1.1</b> Building the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.1.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#accessVocabularies"><i class="fa fa-check"></i><b>5.1.2</b> Access to the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.1.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#source-of-vocabularies-adopt-versus-build"><i class="fa fa-check"></i><b>5.1.3</b> Source of Vocabularies: Adopt Versus Build</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concepts"><i class="fa fa-check"></i><b>5.2</b> Concepts</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-ids"><i class="fa fa-check"></i><b>5.2.1</b> Concept IDs</a></li>
+<li class="chapter" data-level="5.2.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-names"><i class="fa fa-check"></i><b>5.2.2</b> Concept Names</a></li>
+<li class="chapter" data-level="5.2.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptDomains"><i class="fa fa-check"></i><b>5.2.3</b> Domains</a></li>
+<li class="chapter" data-level="5.2.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#vocabularies"><i class="fa fa-check"></i><b>5.2.4</b> Vocabularies</a></li>
+<li class="chapter" data-level="5.2.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-classes"><i class="fa fa-check"></i><b>5.2.5</b> Concept Classes</a></li>
+<li class="chapter" data-level="5.2.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#standardConcepts"><i class="fa fa-check"></i><b>5.2.6</b> Standard Concepts</a></li>
+<li class="chapter" data-level="5.2.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#non-standard-concepts"><i class="fa fa-check"></i><b>5.2.7</b> Non-Standard Concepts</a></li>
+<li class="chapter" data-level="5.2.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#classification-concepts"><i class="fa fa-check"></i><b>5.2.8</b> Classification Concepts</a></li>
+<li class="chapter" data-level="5.2.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-codes"><i class="fa fa-check"></i><b>5.2.9</b> Concept Codes</a></li>
+<li class="chapter" data-level="5.2.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptLifeCycle"><i class="fa fa-check"></i><b>5.2.10</b> Life-Cycle</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships"><i class="fa fa-check"></i><b>5.3</b> Relationships</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptMapping"><i class="fa fa-check"></i><b>5.3.1</b> Mapping Relationships</a></li>
+<li class="chapter" data-level="5.3.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#hierarchical-relationships"><i class="fa fa-check"></i><b>5.3.2</b> Hierarchical Relationships</a></li>
+<li class="chapter" data-level="5.3.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships-between-concepts-of-different-vocabularies"><i class="fa fa-check"></i><b>5.3.3</b> Relationships Between Concepts of Different Vocabularies</a></li>
+<li class="chapter" data-level="5.3.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships-between-concepts-of-the-same-vocabulary"><i class="fa fa-check"></i><b>5.3.4</b> Relationships Between Concepts of the Same Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptAncestor"><i class="fa fa-check"></i><b>5.4</b> Hierarchy</a></li>
+<li class="chapter" data-level="5.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#internal-reference-tables"><i class="fa fa-check"></i><b>5.5</b> Internal Reference Tables</a></li>
+<li class="chapter" data-level="5.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#specialSituations"><i class="fa fa-check"></i><b>5.6</b> Special Situations</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#gender"><i class="fa fa-check"></i><b>5.6.1</b> Gender</a></li>
+<li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#race-and-ethnicity"><i class="fa fa-check"></i><b>5.6.2</b> Race and Ethnicity</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#diagnostic-coding-schemes-and-omop-conditions"><i class="fa fa-check"></i><b>5.6.3</b> Diagnostic Coding Schemes and OMOP Conditions</a></li>
+<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#procedure-coding-systems"><i class="fa fa-check"></i><b>5.6.4</b> Procedure Coding Systems</a></li>
+<li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#devices"><i class="fa fa-check"></i><b>5.6.5</b> Devices</a></li>
+<li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#visits-and-services"><i class="fa fa-check"></i><b>5.6.6</b> Visits and Services</a></li>
+<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#providers-and-specialties"><i class="fa fa-check"></i><b>5.6.7</b> Providers and Specialties</a></li>
+<li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#therapeutic-areas-with-special-requirements"><i class="fa fa-check"></i><b>5.6.8</b> Therapeutic Areas With Special Requirements</a></li>
+<li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> Standard Concepts in the Drug Domain</a></li>
+<li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#flavors-of-null"><i class="fa fa-check"></i><b>5.6.10</b> Flavors of NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#summary-3"><i class="fa fa-check"></i><b>5.7</b> Summary</a></li>
+<li class="chapter" data-level="5.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#exercises-1"><i class="fa fa-check"></i><b>5.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> Extract Transform Load</a><ul>
+<li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-1-design-the-etl"><i class="fa fa-check"></i><b>6.2</b> Step 1: Design the ETL</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#white-rabbit"><i class="fa fa-check"></i><b>6.2.1</b> White Rabbit</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.2.2</b> Rabbit-In-a-Hat</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-2-create-the-code-mappings"><i class="fa fa-check"></i><b>6.3</b> Step 2: Create the Code Mappings</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.3.1</b> Usagi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-3-implement-the-etl"><i class="fa fa-check"></i><b>6.4</b> Step 3: Implement the ETL</a></li>
+<li class="chapter" data-level="6.5" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-4-quality-control"><i class="fa fa-check"></i><b>6.5</b> Step 4: Quality Control</a></li>
+<li class="chapter" data-level="6.6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etl-conventions-and-themis"><i class="fa fa-check"></i><b>6.6</b> ETL Conventions and THEMIS</a></li>
+<li class="chapter" data-level="6.7" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#CDMandETLMaintenance"><i class="fa fa-check"></i><b>6.7</b> CDM and ETL Maintenance</a></li>
+<li class="chapter" data-level="6.8" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#final-thoughts-on-etl"><i class="fa fa-check"></i><b>6.8</b> Final Thoughts on ETL</a></li>
+<li class="chapter" data-level="6.9" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#summary-4"><i class="fa fa-check"></i><b>6.9</b> Summary</a></li>
+<li class="chapter" data-level="6.10" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#exercises-2"><i class="fa fa-check"></i><b>6.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Analytics</b></span></li>
+<li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> Data Analytics Use Cases</a><ul>
+<li class="chapter" data-level="7.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#characterization"><i class="fa fa-check"></i><b>7.1</b> Characterization</a></li>
+<li class="chapter" data-level="7.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#population-level-estimation"><i class="fa fa-check"></i><b>7.2</b> Population-Level Estimation</a></li>
+<li class="chapter" data-level="7.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#patient-level-prediction"><i class="fa fa-check"></i><b>7.3</b> Patient-Level Prediction</a></li>
+<li class="chapter" data-level="7.4" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#example-use-cases-in-hypertension"><i class="fa fa-check"></i><b>7.4</b> Example Use Cases in Hypertension</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#characterization-questions"><i class="fa fa-check"></i><b>7.4.1</b> Characterization Questions</a></li>
+<li class="chapter" data-level="7.4.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#population-level-estimation-question"><i class="fa fa-check"></i><b>7.4.2</b> Population-Level Estimation Question</a></li>
+<li class="chapter" data-level="7.4.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#patient-level-prediction-question"><i class="fa fa-check"></i><b>7.4.3</b> Patient-Level Prediction Question</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#limitations-of-observational-research"><i class="fa fa-check"></i><b>7.5</b> Limitations of Observational Research</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#erroneous-data"><i class="fa fa-check"></i><b>7.5.1</b> Erroneous Data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#missing-data"><i class="fa fa-check"></i><b>7.5.2</b> Missing Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#summary-5"><i class="fa fa-check"></i><b>7.6</b> Summary</a></li>
+<li class="chapter" data-level="7.7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#exercises-3"><i class="fa fa-check"></i><b>7.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html"><i class="fa fa-check"></i><b>8</b> OHDSI Analytics Tools</a><ul>
+<li class="chapter" data-level="8.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysisImplementation"><i class="fa fa-check"></i><b>8.1</b> Analysis Implementation</a></li>
+<li class="chapter" data-level="8.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysis-strategies"><i class="fa fa-check"></i><b>8.2</b> Analysis Strategies</a></li>
+<li class="chapter" data-level="8.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#atlas"><i class="fa fa-check"></i><b>8.3</b> ATLAS</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#security"><i class="fa fa-check"></i><b>8.3.1</b> Security</a></li>
+<li class="chapter" data-level="8.3.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#documentation"><i class="fa fa-check"></i><b>8.3.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.3.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#how-to-install"><i class="fa fa-check"></i><b>8.3.3</b> How to Install</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#methods-library"><i class="fa fa-check"></i><b>8.4</b> Methods Library</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#support-for-large-scale-analytics"><i class="fa fa-check"></i><b>8.4.1</b> Support for Large-Scale Analytics</a></li>
+<li class="chapter" data-level="8.4.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#BigDataSupport"><i class="fa fa-check"></i><b>8.4.2</b> Support for Big Data</a></li>
+<li class="chapter" data-level="8.4.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#documentation-1"><i class="fa fa-check"></i><b>8.4.3</b> Documentation</a></li>
+<li class="chapter" data-level="8.4.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#system-requirements"><i class="fa fa-check"></i><b>8.4.4</b> System Requirements</a></li>
+<li class="chapter" data-level="8.4.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.4.5</b> How to Install</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#deployment-strategies"><i class="fa fa-check"></i><b>8.5</b> Deployment Strategies</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.5.1</b> Broadsea</a></li>
+<li class="chapter" data-level="8.5.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.5.2</b> Amazon AWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#summary-6"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="SqlAndR.html"><a href="SqlAndR.html"><i class="fa fa-check"></i><b>9</b> SQL and R</a><ul>
+<li class="chapter" data-level="9.1" data-path="SqlAndR.html"><a href="SqlAndR.html#SqlRender"><i class="fa fa-check"></i><b>9.1</b> SqlRender</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sql-parameterization"><i class="fa fa-check"></i><b>9.1.1</b> SQL Parameterization</a></li>
+<li class="chapter" data-level="9.1.2" data-path="SqlAndR.html"><a href="SqlAndR.html#translation-to-other-sql-dialects"><i class="fa fa-check"></i><b>9.1.2</b> Translation to Other SQL Dialects</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="SqlAndR.html"><a href="SqlAndR.html#DatabaseConnector"><i class="fa fa-check"></i><b>9.2</b> DatabaseConnector</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="SqlAndR.html"><a href="SqlAndR.html#creating-a-connection"><i class="fa fa-check"></i><b>9.2.1</b> Creating a Connection</a></li>
+<li class="chapter" data-level="9.2.2" data-path="SqlAndR.html"><a href="SqlAndR.html#querying"><i class="fa fa-check"></i><b>9.2.2</b> Querying</a></li>
+<li class="chapter" data-level="9.2.3" data-path="SqlAndR.html"><a href="SqlAndR.html#querying-using-ffdf-objects"><i class="fa fa-check"></i><b>9.2.3</b> Querying Using Ffdf Objects</a></li>
+<li class="chapter" data-level="9.2.4" data-path="SqlAndR.html"><a href="SqlAndR.html#querying-different-platforms-using-the-same-sql"><i class="fa fa-check"></i><b>9.2.4</b> Querying Different Platforms Using the Same SQL</a></li>
+<li class="chapter" data-level="9.2.5" data-path="SqlAndR.html"><a href="SqlAndR.html#inserting-tables"><i class="fa fa-check"></i><b>9.2.5</b> Inserting Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="SqlAndR.html"><a href="SqlAndR.html#QueryTheCdm"><i class="fa fa-check"></i><b>9.3</b> Querying the CDM</a></li>
+<li class="chapter" data-level="9.4" data-path="SqlAndR.html"><a href="SqlAndR.html#using-the-vocabulary-when-querying"><i class="fa fa-check"></i><b>9.4</b> Using the Vocabulary When Querying</a></li>
+<li class="chapter" data-level="9.5" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>9.5</b> QueryLibrary</a></li>
+<li class="chapter" data-level="9.6" data-path="SqlAndR.html"><a href="SqlAndR.html#designing-a-simple-study"><i class="fa fa-check"></i><b>9.6</b> Designing a Simple Study</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="SqlAndR.html"><a href="SqlAndR.html#problem-definition"><i class="fa fa-check"></i><b>9.6.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="SqlAndR.html"><a href="SqlAndR.html#exposure"><i class="fa fa-check"></i><b>9.6.2</b> Exposure</a></li>
+<li class="chapter" data-level="9.6.3" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome"><i class="fa fa-check"></i><b>9.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="9.6.4" data-path="SqlAndR.html"><a href="SqlAndR.html#time-at-risk"><i class="fa fa-check"></i><b>9.6.4</b> Time-At-Risk</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="SqlAndR.html"><a href="SqlAndR.html#implementing-the-study-using-sql-and-r"><i class="fa fa-check"></i><b>9.7</b> Implementing the Study Using SQL and R</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#exposure-cohort"><i class="fa fa-check"></i><b>9.7.1</b> Exposure Cohort</a></li>
+<li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome-cohort"><i class="fa fa-check"></i><b>9.7.2</b> Outcome Cohort</a></li>
+<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#incidence-rate-calculation"><i class="fa fa-check"></i><b>9.7.3</b> Incidence Rate Calculation</a></li>
+<li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#clean-up"><i class="fa fa-check"></i><b>9.7.4</b> Clean Up</a></li>
+<li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#compatibility"><i class="fa fa-check"></i><b>9.7.5</b> Compatibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="SqlAndR.html"><a href="SqlAndR.html#summary-7"><i class="fa fa-check"></i><b>9.8</b> Summary</a></li>
+<li class="chapter" data-level="9.9" data-path="SqlAndR.html"><a href="SqlAndR.html#exercises-4"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> Defining Cohorts</a><ul>
+<li class="chapter" data-level="10.1" data-path="Cohorts.html"><a href="Cohorts.html#what-is-a-cohort"><i class="fa fa-check"></i><b>10.1</b> What Is a Cohort?</a></li>
+<li class="chapter" data-level="10.2" data-path="Cohorts.html"><a href="Cohorts.html#rule-based-cohort-definitions"><i class="fa fa-check"></i><b>10.2</b> Rule-Based Cohort Definitions</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.3</b> Concept Sets</a></li>
+<li class="chapter" data-level="10.4" data-path="Cohorts.html"><a href="Cohorts.html#probabilistic-cohort-definitions"><i class="fa fa-check"></i><b>10.4</b> Probabilistic Cohort Definitions</a></li>
+<li class="chapter" data-level="10.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-definition-validity"><i class="fa fa-check"></i><b>10.5</b> Cohort Definition Validity</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-gold-standard-phenotype-library"><i class="fa fa-check"></i><b>10.5.1</b> OHDSI Gold Standard Phenotype Library</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="Cohorts.html"><a href="Cohorts.html#defining-a-cohort-for-hypertension"><i class="fa fa-check"></i><b>10.6</b> Defining a Cohort for Hypertension</a></li>
+<li class="chapter" data-level="10.7" data-path="Cohorts.html"><a href="Cohorts.html#implementing-a-cohort-using-atlas"><i class="fa fa-check"></i><b>10.7</b> Implementing a Cohort Using ATLAS</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="Cohorts.html"><a href="Cohorts.html#initial-event-criteria"><i class="fa fa-check"></i><b>10.7.1</b> Initial Event Criteria</a></li>
+<li class="chapter" data-level="10.7.2" data-path="Cohorts.html"><a href="Cohorts.html#defining-the-concept-set"><i class="fa fa-check"></i><b>10.7.2</b> Defining the Concept Set</a></li>
+<li class="chapter" data-level="10.7.3" data-path="Cohorts.html"><a href="Cohorts.html#additional-initial-event-criteria"><i class="fa fa-check"></i><b>10.7.3</b> Additional Initial Event Criteria</a></li>
+<li class="chapter" data-level="10.7.4" data-path="Cohorts.html"><a href="Cohorts.html#inclusion-criteria"><i class="fa fa-check"></i><b>10.7.4</b> Inclusion Criteria</a></li>
+<li class="chapter" data-level="10.7.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-exit-criteria"><i class="fa fa-check"></i><b>10.7.5</b> Cohort Exit Criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#implementing-the-cohort-using-sql"><i class="fa fa-check"></i><b>10.8</b> Implementing the Cohort Using SQL</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="Cohorts.html"><a href="Cohorts.html#connecting-to-the-database"><i class="fa fa-check"></i><b>10.8.1</b> Connecting to the Database</a></li>
+<li class="chapter" data-level="10.8.2" data-path="Cohorts.html"><a href="Cohorts.html#specifying-the-concepts"><i class="fa fa-check"></i><b>10.8.2</b> Specifying the Concepts</a></li>
+<li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#finding-first-use"><i class="fa fa-check"></i><b>10.8.3</b> Finding First Use</a></li>
+<li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#require-365-days-of-prior-observation"><i class="fa fa-check"></i><b>10.8.4</b> Require 365 Days of Prior Observation</a></li>
+<li class="chapter" data-level="10.8.5" data-path="Cohorts.html"><a href="Cohorts.html#require-prior-hypertension"><i class="fa fa-check"></i><b>10.8.5</b> Require Prior Hypertension</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#no-prior-treatment"><i class="fa fa-check"></i><b>10.8.6</b> No Prior Treatment</a></li>
+<li class="chapter" data-level="10.8.7" data-path="Cohorts.html"><a href="Cohorts.html#monotherapy"><i class="fa fa-check"></i><b>10.8.7</b> Monotherapy</a></li>
+<li class="chapter" data-level="10.8.8" data-path="Cohorts.html"><a href="Cohorts.html#cohort-exit"><i class="fa fa-check"></i><b>10.8.8</b> Cohort Exit</a></li>
+<li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#cleanup"><i class="fa fa-check"></i><b>10.8.9</b> Cleanup</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="Cohorts.html"><a href="Cohorts.html#summary-8"><i class="fa fa-check"></i><b>10.9</b> Summary</a></li>
+<li class="chapter" data-level="10.10" data-path="Cohorts.html"><a href="Cohorts.html#exercises-5"><i class="fa fa-check"></i><b>10.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> Characterization</a><ul>
+<li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#database-level-characterization"><i class="fa fa-check"></i><b>11.1</b> Database Level Characterization</a></li>
+<li class="chapter" data-level="11.2" data-path="Characterization.html"><a href="Characterization.html#cohort-characterization"><i class="fa fa-check"></i><b>11.2</b> Cohort Characterization</a></li>
+<li class="chapter" data-level="11.3" data-path="Characterization.html"><a href="Characterization.html#treatment-pathways"><i class="fa fa-check"></i><b>11.3</b> Treatment Pathways</a></li>
+<li class="chapter" data-level="11.4" data-path="Characterization.html"><a href="Characterization.html#incidence"><i class="fa fa-check"></i><b>11.4</b> Incidence</a></li>
+<li class="chapter" data-level="11.5" data-path="Characterization.html"><a href="Characterization.html#characterizing-hypertensive-persons"><i class="fa fa-check"></i><b>11.5</b> Characterizing Hypertensive Persons</a></li>
+<li class="chapter" data-level="11.6" data-path="Characterization.html"><a href="Characterization.html#database-characterization-in-atlas"><i class="fa fa-check"></i><b>11.6</b> Database Characterization in ATLAS</a></li>
+<li class="chapter" data-level="11.7" data-path="Characterization.html"><a href="Characterization.html#cohort-characterization-in-atlas"><i class="fa fa-check"></i><b>11.7</b> Cohort Characterization in ATLAS</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#design"><i class="fa fa-check"></i><b>11.7.1</b> Design</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#executions"><i class="fa fa-check"></i><b>11.7.2</b> Executions</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#results"><i class="fa fa-check"></i><b>11.7.3</b> Results</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#defining-custom-features"><i class="fa fa-check"></i><b>11.7.4</b> Defining Custom Features</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#cohort-characterization-in-r"><i class="fa fa-check"></i><b>11.8</b> Cohort Characterization in R</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#cohort-instantiation"><i class="fa fa-check"></i><b>11.8.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#data-extraction"><i class="fa fa-check"></i><b>11.8.2</b> Data Extraction</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#using-prespecified-analyses"><i class="fa fa-check"></i><b>11.8.3</b> Using Prespecified Analyses</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#creating-aggregated-covariates"><i class="fa fa-check"></i><b>11.8.4</b> Creating Aggregated Covariates</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#output-format"><i class="fa fa-check"></i><b>11.8.5</b> Output Format</a></li>
+<li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#custom-covariates"><i class="fa fa-check"></i><b>11.8.6</b> Custom Covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Characterization.html"><a href="Characterization.html#cohort-pathways-in-atlas"><i class="fa fa-check"></i><b>11.9</b> Cohort Pathways in ATLAS</a><ul>
+<li class="chapter" data-level="11.9.1" data-path="Characterization.html"><a href="Characterization.html#design-1"><i class="fa fa-check"></i><b>11.9.1</b> Design</a></li>
+<li class="chapter" data-level="11.9.2" data-path="Characterization.html"><a href="Characterization.html#executions-1"><i class="fa fa-check"></i><b>11.9.2</b> Executions</a></li>
+<li class="chapter" data-level="11.9.3" data-path="Characterization.html"><a href="Characterization.html#viewing-results"><i class="fa fa-check"></i><b>11.9.3</b> Viewing Results</a></li>
+</ul></li>
+<li class="chapter" data-level="11.10" data-path="Characterization.html"><a href="Characterization.html#incidence-analysis-in-atlas"><i class="fa fa-check"></i><b>11.10</b> Incidence Analysis in ATLAS</a><ul>
+<li class="chapter" data-level="11.10.1" data-path="Characterization.html"><a href="Characterization.html#design-2"><i class="fa fa-check"></i><b>11.10.1</b> Design</a></li>
+<li class="chapter" data-level="11.10.2" data-path="Characterization.html"><a href="Characterization.html#executions-2"><i class="fa fa-check"></i><b>11.10.2</b> Executions</a></li>
+<li class="chapter" data-level="11.10.3" data-path="Characterization.html"><a href="Characterization.html#viewing-results-1"><i class="fa fa-check"></i><b>11.10.3</b> Viewing Results</a></li>
+</ul></li>
+<li class="chapter" data-level="11.11" data-path="Characterization.html"><a href="Characterization.html#summary-9"><i class="fa fa-check"></i><b>11.11</b> Summary</a></li>
+<li class="chapter" data-level="11.12" data-path="Characterization.html"><a href="Characterization.html#exercises-6"><i class="fa fa-check"></i><b>11.12</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> Population-Level Estimation</a><ul>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> The Cohort Method Design</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores"><i class="fa fa-check"></i><b>12.1.1</b> Propensity Scores</a></li>
+<li class="chapter" data-level="12.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.1.2</b> Variable Selection</a></li>
+<li class="chapter" data-level="12.1.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#caliper"><i class="fa fa-check"></i><b>12.1.3</b> Caliper</a></li>
+<li class="chapter" data-level="12.1.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#overlap-preference-scores"><i class="fa fa-check"></i><b>12.1.4</b> Overlap: Preference Scores</a></li>
+<li class="chapter" data-level="12.1.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#balance"><i class="fa fa-check"></i><b>12.1.5</b> Balance</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-self-controlled-cohort-design"><i class="fa fa-check"></i><b>12.2</b> The Self-Controlled Cohort Design</a></li>
+<li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-case-control-design"><i class="fa fa-check"></i><b>12.3</b> The Case-Control Design</a></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-case-crossover-design"><i class="fa fa-check"></i><b>12.4</b> The Case-Crossover Design</a></li>
+<li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#the-self-controlled-case-series-design"><i class="fa fa-check"></i><b>12.5</b> The Self-Controlled Case Series Design</a></li>
+<li class="chapter" data-level="12.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#designing-a-hypertension-study"><i class="fa fa-check"></i><b>12.6</b> Designing a Hypertension Study</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#problem-definition-1"><i class="fa fa-check"></i><b>12.6.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="12.6.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#target-and-comparator"><i class="fa fa-check"></i><b>12.6.2</b> Target and Comparator</a></li>
+<li class="chapter" data-level="12.6.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-1"><i class="fa fa-check"></i><b>12.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="12.6.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#time-at-risk-1"><i class="fa fa-check"></i><b>12.6.4</b> Time-At-Risk</a></li>
+<li class="chapter" data-level="12.6.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#model"><i class="fa fa-check"></i><b>12.6.5</b> Model</a></li>
+<li class="chapter" data-level="12.6.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#study-summary"><i class="fa fa-check"></i><b>12.6.6</b> Study Summary</a></li>
+<li class="chapter" data-level="12.6.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#control-questions"><i class="fa fa-check"></i><b>12.6.7</b> Control Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#PleAtlas"><i class="fa fa-check"></i><b>12.7</b> Implementing the Study Using ATLAS</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>12.7.1</b> Comparative Cohort Settings</a></li>
+<li class="chapter" data-level="12.7.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-estimation-analysis-settings"><i class="fa fa-check"></i><b>12.7.2</b> Effect Estimation Analysis Settings</a></li>
+<li class="chapter" data-level="12.7.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#evaluationSettings"><i class="fa fa-check"></i><b>12.7.3</b> Evaluation Settings</a></li>
+<li class="chapter" data-level="12.7.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#running-the-study-package"><i class="fa fa-check"></i><b>12.7.4</b> Running the Study Package</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#pleR"><i class="fa fa-check"></i><b>12.8</b> Implementing the Study Using R</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#cohort-instantiation-1"><i class="fa fa-check"></i><b>12.8.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="12.8.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#data-extraction-1"><i class="fa fa-check"></i><b>12.8.2</b> Data Extraction</a></li>
+<li class="chapter" data-level="12.8.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#defining-the-study-population"><i class="fa fa-check"></i><b>12.8.3</b> Defining the Study Population</a></li>
+<li class="chapter" data-level="12.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores-1"><i class="fa fa-check"></i><b>12.8.4</b> Propensity Scores</a></li>
+<li class="chapter" data-level="12.8.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-models"><i class="fa fa-check"></i><b>12.8.5</b> Outcome Models</a></li>
+<li class="chapter" data-level="12.8.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>12.8.6</b> Running Multiple Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#studyOutputs"><i class="fa fa-check"></i><b>12.9</b> Study Outputs</a><ul>
+<li class="chapter" data-level="12.9.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores-and-model"><i class="fa fa-check"></i><b>12.9.1</b> Propensity Scores and Model</a></li>
+<li class="chapter" data-level="12.9.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#covariate-balance"><i class="fa fa-check"></i><b>12.9.2</b> Covariate Balance</a></li>
+<li class="chapter" data-level="12.9.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#follow-up-and-power"><i class="fa fa-check"></i><b>12.9.3</b> Follow Up and Power</a></li>
+<li class="chapter" data-level="12.9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#kaplan-meier"><i class="fa fa-check"></i><b>12.9.4</b> Kaplan-Meier</a></li>
+<li class="chapter" data-level="12.9.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-size-estimate"><i class="fa fa-check"></i><b>12.9.5</b> Effect Size Estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="12.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#summary-10"><i class="fa fa-check"></i><b>12.10</b> Summary</a></li>
+<li class="chapter" data-level="12.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#exercises-7"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> Patient-Level Prediction</a><ul>
+<li class="chapter" data-level="13.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#the-prediction-problem"><i class="fa fa-check"></i><b>13.1</b> The Prediction Problem</a></li>
+<li class="chapter" data-level="13.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-2"><i class="fa fa-check"></i><b>13.2</b> Data Extraction</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-example"><i class="fa fa-check"></i><b>13.2.1</b> Data Extraction Example</a></li>
+<li class="chapter" data-level="13.2.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#missingness"><i class="fa fa-check"></i><b>13.2.2</b> Missingness</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#modelFitting"><i class="fa fa-check"></i><b>13.3</b> Fitting the Model</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#regularized-logistic-regression"><i class="fa fa-check"></i><b>13.3.1</b> Regularized Logistic Regression</a></li>
+<li class="chapter" data-level="13.3.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#gradient-boosting-machines"><i class="fa fa-check"></i><b>13.3.2</b> Gradient Boosting Machines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#random-forest"><i class="fa fa-check"></i><b>13.3.3</b> Random Forest</a></li>
+<li class="chapter" data-level="13.3.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>13.3.4</b> K-Nearest Neighbors</a></li>
+<li class="chapter" data-level="13.3.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#naive-bayes"><i class="fa fa-check"></i><b>13.3.5</b> Naive Bayes</a></li>
+<li class="chapter" data-level="13.3.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.3.6</b> AdaBoost</a></li>
+<li class="chapter" data-level="13.3.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#decision-tree"><i class="fa fa-check"></i><b>13.3.7</b> Decision Tree</a></li>
+<li class="chapter" data-level="13.3.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#multilayer-perceptron"><i class="fa fa-check"></i><b>13.3.8</b> Multilayer Perceptron</a></li>
+<li class="chapter" data-level="13.3.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#deep-learning"><i class="fa fa-check"></i><b>13.3.9</b> Deep Learning</a></li>
+<li class="chapter" data-level="13.3.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#other-algorithms"><i class="fa fa-check"></i><b>13.3.10</b> Other Algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#evaluating-prediction-models"><i class="fa fa-check"></i><b>13.4</b> Evaluating Prediction Models</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#evaluation-types"><i class="fa fa-check"></i><b>13.4.1</b> Evaluation Types</a></li>
+<li class="chapter" data-level="13.4.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#performance"><i class="fa fa-check"></i><b>13.4.2</b> Performance Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#designing-a-patient-level-prediction-study"><i class="fa fa-check"></i><b>13.5</b> Designing a Patient-Level Prediction Study</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#problem-definition-3"><i class="fa fa-check"></i><b>13.5.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="13.5.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#study-population-definition"><i class="fa fa-check"></i><b>13.5.2</b> Study Population Definition</a></li>
+<li class="chapter" data-level="13.5.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-development-settings"><i class="fa fa-check"></i><b>13.5.3</b> Model Development Settings</a></li>
+<li class="chapter" data-level="13.5.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-evaluation"><i class="fa fa-check"></i><b>13.5.4</b> Model Evaluation</a></li>
+<li class="chapter" data-level="13.5.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#study-summary-1"><i class="fa fa-check"></i><b>13.5.5</b> Study Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#implementing-the-study-in-atlas"><i class="fa fa-check"></i><b>13.6</b> Implementing the Study in ATLAS</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#prediction-problem-settings"><i class="fa fa-check"></i><b>13.6.1</b> Prediction Problem Settings</a></li>
+<li class="chapter" data-level="13.6.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#analysis-settings"><i class="fa fa-check"></i><b>13.6.2</b> Analysis Settings</a></li>
+<li class="chapter" data-level="13.6.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#execution-settings"><i class="fa fa-check"></i><b>13.6.3</b> Execution Settings</a></li>
+<li class="chapter" data-level="13.6.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#training-settings"><i class="fa fa-check"></i><b>13.6.4</b> Training Settings</a></li>
+<li class="chapter" data-level="13.6.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#importing-and-exporting-a-study"><i class="fa fa-check"></i><b>13.6.5</b> Importing and Exporting a Study</a></li>
+<li class="chapter" data-level="13.6.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#downloading-the-study-package"><i class="fa fa-check"></i><b>13.6.6</b> Downloading the Study Package</a></li>
+<li class="chapter" data-level="13.6.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#running-the-study"><i class="fa fa-check"></i><b>13.6.7</b> Running the Study</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#implementing-the-study-in-r"><i class="fa fa-check"></i><b>13.7</b> Implementing the Study in R</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#cohort-instantiation-2"><i class="fa fa-check"></i><b>13.7.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-3"><i class="fa fa-check"></i><b>13.7.2</b> Data Extraction</a></li>
+<li class="chapter" data-level="13.7.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-inclusion-criteria"><i class="fa fa-check"></i><b>13.7.3</b> Additional Inclusion Criteria</a></li>
+<li class="chapter" data-level="13.7.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-development"><i class="fa fa-check"></i><b>13.7.4</b> Model Development</a></li>
+<li class="chapter" data-level="13.7.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#internal-validation"><i class="fa fa-check"></i><b>13.7.5</b> Internal Validation</a></li>
+<li class="chapter" data-level="13.7.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#external-validation"><i class="fa fa-check"></i><b>13.7.6</b> External Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#results-dissemination"><i class="fa fa-check"></i><b>13.8</b> Results Dissemination</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-performance"><i class="fa fa-check"></i><b>13.8.1</b> Model Performance</a></li>
+<li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#comparing-models"><i class="fa fa-check"></i><b>13.8.2</b> Comparing Models</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-patient-level-prediction-features"><i class="fa fa-check"></i><b>13.9</b> Additional Patient-Level Prediction Features</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#journal-paper-generation"><i class="fa fa-check"></i><b>13.9.1</b> Journal Paper Generation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#summary-11"><i class="fa fa-check"></i><b>13.10</b> Summary</a></li>
+<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises-8"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Evidence Quality</b></span></li>
+<li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> Evidence Quality</a><ul>
+<li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#attributes-of-reliable-evidence"><i class="fa fa-check"></i><b>14.1</b> Attributes of Reliable Evidence</a></li>
+<li class="chapter" data-level="14.2" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#understanding-evidence-quality"><i class="fa fa-check"></i><b>14.2</b> Understanding Evidence Quality</a></li>
+<li class="chapter" data-level="14.3" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#communicating-evidence-quality"><i class="fa fa-check"></i><b>14.3</b> Communicating Evidence Quality</a></li>
+<li class="chapter" data-level="14.4" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#summary-12"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> Data Quality</a><ul>
+<li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#sources-of-data-quality-problems"><i class="fa fa-check"></i><b>15.1</b> Sources of Data Quality Problems</a></li>
+<li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#data-quality-in-general"><i class="fa fa-check"></i><b>15.2</b> Data Quality in General</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#data-quality-checks"><i class="fa fa-check"></i><b>15.2.1</b> Data Quality Checks</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#study-specific-checks"><i class="fa fa-check"></i><b>15.3</b> Study-Specific Checks</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="DataQuality.html"><a href="DataQuality.html#checking-mappings"><i class="fa fa-check"></i><b>15.3.1</b> Checking Mappings</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES in Practice</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard in Practice</a></li>
+<li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#study-specific-checks-in-practice"><i class="fa fa-check"></i><b>15.6</b> Study-Specific Checks in Practice</a></li>
+<li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#summary-13"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
+<li class="chapter" data-level="15.8" data-path="DataQuality.html"><a href="DataQuality.html#exercises-9"><i class="fa fa-check"></i><b>15.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> Clinical Validity</a><ul>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> Characteristics of Health Care Databases</a></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CohortValidation"><i class="fa fa-check"></i><b>16.2</b> Cohort Validation</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#cohort-evaluation-metrics"><i class="fa fa-check"></i><b>16.2.1</b> Cohort Evaluation Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#source-record-verification"><i class="fa fa-check"></i><b>16.3</b> Source Record Verification</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#example-of-source-record-verification"><i class="fa fa-check"></i><b>16.3.1</b> Example of Source Record Verification</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluator"><i class="fa fa-check"></i><b>16.4</b> PheValuator</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#example-validation-by-phevaluator"><i class="fa fa-check"></i><b>16.4.1</b> Example Validation By PheValuator</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> Generalizability of the Evidence</a></li>
+<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#summary-14"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> Software Validity</a><ul>
+<li class="chapter" data-level="17.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#study-code-validity"><i class="fa fa-check"></i><b>17.1</b> Study Code Validity</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#automation"><i class="fa fa-check"></i><b>17.1.1</b> Automation As a Requirement for Reproducibility</a></li>
+<li class="chapter" data-level="17.1.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#programming-best-practices"><i class="fa fa-check"></i><b>17.1.2</b> Programming Best Practices</a></li>
+<li class="chapter" data-level="17.1.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#code-validation"><i class="fa fa-check"></i><b>17.1.3</b> Code Validation</a></li>
+<li class="chapter" data-level="17.1.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#using-the-methods-library"><i class="fa fa-check"></i><b>17.1.4</b> Using the Methods Library</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#methods-library-software-development-process"><i class="fa fa-check"></i><b>17.2</b> Methods Library Software Development Process</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#source-code-management"><i class="fa fa-check"></i><b>17.2.1</b> Source Code Management</a></li>
+<li class="chapter" data-level="17.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#documentation-2"><i class="fa fa-check"></i><b>17.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="17.2.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#availability-of-current-and-historical-archive-versions"><i class="fa fa-check"></i><b>17.2.3</b> Availability of Current and Historical Archive Versions</a></li>
+<li class="chapter" data-level="17.2.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#maintenance-support-and-retirement"><i class="fa fa-check"></i><b>17.2.4</b> Maintenance, Support and Retirement</a></li>
+<li class="chapter" data-level="17.2.5" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#qualified-personnel"><i class="fa fa-check"></i><b>17.2.5</b> Qualified Personnel</a></li>
+<li class="chapter" data-level="17.2.6" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#physical-and-logical-security"><i class="fa fa-check"></i><b>17.2.6</b> Physical and Logical Security</a></li>
+<li class="chapter" data-level="17.2.7" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#disaster-recovery"><i class="fa fa-check"></i><b>17.2.7</b> Disaster Recovery</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#methods-library-testing"><i class="fa fa-check"></i><b>17.3</b> Methods Library Testing</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#unit-test"><i class="fa fa-check"></i><b>17.3.1</b> Unit Test</a></li>
+<li class="chapter" data-level="17.3.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#simulation"><i class="fa fa-check"></i><b>17.3.2</b> Simulation</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#summary-15"><i class="fa fa-check"></i><b>17.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MethodValidity.html"><a href="MethodValidity.html"><i class="fa fa-check"></i><b>18</b> Method Validity</a><ul>
+<li class="chapter" data-level="18.1" data-path="MethodValidity.html"><a href="MethodValidity.html#design-specific-diagnostics"><i class="fa fa-check"></i><b>18.1</b> Design-Specific Diagnostics</a></li>
+<li class="chapter" data-level="18.2" data-path="MethodValidity.html"><a href="MethodValidity.html#diagnostics-for-all-estimation"><i class="fa fa-check"></i><b>18.2</b> Diagnostics for All Estimation</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="MethodValidity.html"><a href="MethodValidity.html#NegativeControls"><i class="fa fa-check"></i><b>18.2.1</b> Negative Controls</a></li>
+<li class="chapter" data-level="18.2.2" data-path="MethodValidity.html"><a href="MethodValidity.html#PositiveControls"><i class="fa fa-check"></i><b>18.2.2</b> Positive Controls</a></li>
+<li class="chapter" data-level="18.2.3" data-path="MethodValidity.html"><a href="MethodValidity.html#metrics"><i class="fa fa-check"></i><b>18.2.3</b> Empirical Evaluation</a></li>
+<li class="chapter" data-level="18.2.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-calibration"><i class="fa fa-check"></i><b>18.2.4</b> P-Value Calibration</a></li>
+<li class="chapter" data-level="18.2.5" data-path="MethodValidity.html"><a href="MethodValidity.html#confidence-interval-calibration"><i class="fa fa-check"></i><b>18.2.5</b> Confidence Interval Calibration</a></li>
+<li class="chapter" data-level="18.2.6" data-path="MethodValidity.html"><a href="MethodValidity.html#replication-across-sites"><i class="fa fa-check"></i><b>18.2.6</b> Replication Across Sites</a></li>
+<li class="chapter" data-level="18.2.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses"><i class="fa fa-check"></i><b>18.2.7</b> Sensitivity Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="MethodValidity.html"><a href="MethodValidity.html#method-validation-in-practice"><i class="fa fa-check"></i><b>18.3</b> Method Validation in Practice</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="MethodValidity.html"><a href="MethodValidity.html#selecting-negative-controls"><i class="fa fa-check"></i><b>18.3.1</b> Selecting Negative Controls</a></li>
+<li class="chapter" data-level="18.3.2" data-path="MethodValidity.html"><a href="MethodValidity.html#including-controls"><i class="fa fa-check"></i><b>18.3.2</b> Including Controls</a></li>
+<li class="chapter" data-level="18.3.3" data-path="MethodValidity.html"><a href="MethodValidity.html#empirical-performance"><i class="fa fa-check"></i><b>18.3.3</b> Empirical Performance</a></li>
+<li class="chapter" data-level="18.3.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-calibration-1"><i class="fa fa-check"></i><b>18.3.4</b> P-Value Calibration</a></li>
+<li class="chapter" data-level="18.3.5" data-path="MethodValidity.html"><a href="MethodValidity.html#confidence-interval-calibration-1"><i class="fa fa-check"></i><b>18.3.5</b> Confidence Interval Calibration</a></li>
+<li class="chapter" data-level="18.3.6" data-path="MethodValidity.html"><a href="MethodValidity.html#between-database-heterogeneity"><i class="fa fa-check"></i><b>18.3.6</b> Between-Database Heterogeneity</a></li>
+<li class="chapter" data-level="18.3.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses-1"><i class="fa fa-check"></i><b>18.3.7</b> Sensitivity Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsi-methods-benchmark"><i class="fa fa-check"></i><b>18.4</b> OHDSI Methods Benchmark</a></li>
+<li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#summary-16"><i class="fa fa-check"></i><b>18.5</b> Summary</a></li>
+</ul></li>
+<li class="part"><span><b>V OHDSI Studies</b></span></li>
+<li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> Study steps</a><ul>
+<li class="chapter" data-level="19.1" data-path="StudySteps.html"><a href="StudySteps.html#general-best-practice-guidelines"><i class="fa fa-check"></i><b>19.1</b> General Best Practice Guidelines</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="StudySteps.html"><a href="StudySteps.html#observational-study-definition"><i class="fa fa-check"></i><b>19.1.1</b> Observational Study Definition</a></li>
+<li class="chapter" data-level="19.1.2" data-path="StudySteps.html"><a href="StudySteps.html#pre-specification-of-study-design"><i class="fa fa-check"></i><b>19.1.2</b> Pre-Specification of Study Design</a></li>
+<li class="chapter" data-level="19.1.3" data-path="StudySteps.html"><a href="StudySteps.html#protocol"><i class="fa fa-check"></i><b>19.1.3</b> Protocol</a></li>
+<li class="chapter" data-level="19.1.4" data-path="StudySteps.html"><a href="StudySteps.html#standardized-analyses"><i class="fa fa-check"></i><b>19.1.4</b> Standardized Analyses</a></li>
+<li class="chapter" data-level="19.1.5" data-path="StudySteps.html"><a href="StudySteps.html#study-packages"><i class="fa fa-check"></i><b>19.1.5</b> Study Packages</a></li>
+<li class="chapter" data-level="19.1.6" data-path="StudySteps.html"><a href="StudySteps.html#the-data-underlying-the-cdm"><i class="fa fa-check"></i><b>19.1.6</b> The Data Underlying the CDM</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="StudySteps.html"><a href="StudySteps.html#study-steps-in-detail"><i class="fa fa-check"></i><b>19.2</b> Study Steps in Detail</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="StudySteps.html"><a href="StudySteps.html#define-question"><i class="fa fa-check"></i><b>19.2.1</b> Define Question</a></li>
+<li class="chapter" data-level="19.2.2" data-path="StudySteps.html"><a href="StudySteps.html#review-data-availability-and-quality"><i class="fa fa-check"></i><b>19.2.2</b> Review Data Availability and Quality</a></li>
+<li class="chapter" data-level="19.2.3" data-path="StudySteps.html"><a href="StudySteps.html#study-populations"><i class="fa fa-check"></i><b>19.2.3</b> Study Populations</a></li>
+<li class="chapter" data-level="19.2.4" data-path="StudySteps.html"><a href="StudySteps.html#Feasibility"><i class="fa fa-check"></i><b>19.2.4</b> Feasibility and Diagnostics</a></li>
+<li class="chapter" data-level="19.2.5" data-path="StudySteps.html"><a href="StudySteps.html#finalize-protocol-and-study-package"><i class="fa fa-check"></i><b>19.2.5</b> Finalize Protocol and Study Package</a></li>
+<li class="chapter" data-level="19.2.6" data-path="StudySteps.html"><a href="StudySteps.html#execute-study"><i class="fa fa-check"></i><b>19.2.6</b> Execute Study</a></li>
+<li class="chapter" data-level="19.2.7" data-path="StudySteps.html"><a href="StudySteps.html#interpretation-and-write-up"><i class="fa fa-check"></i><b>19.2.7</b> Interpretation and Write-Up</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="StudySteps.html"><a href="StudySteps.html#summary-17"><i class="fa fa-check"></i><b>19.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI Network Research</a><ul>
+<li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-as-a-research-network"><i class="fa fa-check"></i><b>20.1</b> OHDSI as a Research Network</a></li>
+<li class="chapter" data-level="20.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-network-studies"><i class="fa fa-check"></i><b>20.2</b> OHDSI Network Studies</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#motivations-for-conducting-an-ohdsi-network-study"><i class="fa fa-check"></i><b>20.2.1</b> Motivations for Conducting an OHDSI Network Study</a></li>
+<li class="chapter" data-level="20.2.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#definition-of-an-ohdsi-network-study"><i class="fa fa-check"></i><b>20.2.2</b> Definition of an OHDSI Network Study</a></li>
+<li class="chapter" data-level="20.2.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#design-considerations-for-an-ohdsi-network-study"><i class="fa fa-check"></i><b>20.2.3</b> Design Considerations for an OHDSI Network Study</a></li>
+<li class="chapter" data-level="20.2.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#logistical-considerations-for-an-ohdsi-network-study"><i class="fa fa-check"></i><b>20.2.4</b> Logistical Considerations for an OHDSI Network Study</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#running-an-ohdsi-network-study"><i class="fa fa-check"></i><b>20.3</b> Running an OHDSI Network Study</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#study-design-and-feasibility"><i class="fa fa-check"></i><b>20.3.1</b> Study Design and Feasibility</a></li>
+<li class="chapter" data-level="20.3.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#study-execution"><i class="fa fa-check"></i><b>20.3.2</b> Study Execution</a></li>
+<li class="chapter" data-level="20.3.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#results-dissemination-and-publication"><i class="fa fa-check"></i><b>20.3.3</b> Results Dissemination and Publication</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#forward-looking-using-network-study-automation"><i class="fa fa-check"></i><b>20.4</b> Forward Looking: Using Network Study Automation</a></li>
+<li class="chapter" data-level="20.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#best-practice-for-ohdsi-network-studies"><i class="fa fa-check"></i><b>20.5</b> Best Practice for OHDSI Network Studies</a></li>
+<li class="chapter" data-level="20.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#summary-18"><i class="fa fa-check"></i><b>20.6</b> Summary</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>A</b> Glossary</a></li>
+<li class="chapter" data-level="B" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html"><i class="fa fa-check"></i><b>B</b> Cohort definitions</a><ul>
+<li class="chapter" data-level="B.1" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitors"><i class="fa fa-check"></i><b>B.1</b> ACE Inhibitors</a></li>
+<li class="chapter" data-level="B.2" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitorsMono"><i class="fa fa-check"></i><b>B.2</b> New Users of ACE Inhibitors Monotherapy</a></li>
+<li class="chapter" data-level="B.3" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Ami"><i class="fa fa-check"></i><b>B.3</b> Acute Myocardial Infarction (AMI)</a></li>
+<li class="chapter" data-level="B.4" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Angioedema"><i class="fa fa-check"></i><b>B.4</b> Angioedema</a></li>
+<li class="chapter" data-level="B.5" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ThiazidesMono"><i class="fa fa-check"></i><b>B.5</b> New Users of Thiazide-Like Diuretics Monotherapy</a></li>
+<li class="chapter" data-level="B.6" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN1yrFO"><i class="fa fa-check"></i><b>B.6</b> Patients Initiating First-Line Therapy for Hypertension</a></li>
+<li class="chapter" data-level="B.7" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN3yrFO"><i class="fa fa-check"></i><b>B.7</b> Patients Initiating First-Line Therapy for Hypertension With &gt;3 Yr Follow-Up</a></li>
+<li class="chapter" data-level="B.8" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ACEiUse"><i class="fa fa-check"></i><b>B.8</b> ACE Inhibitor Use</a></li>
+<li class="chapter" data-level="B.9" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ARBUse"><i class="fa fa-check"></i><b>B.9</b> Angiotensin Receptor Blocker (ARB) Use</a></li>
+<li class="chapter" data-level="B.10" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#THZUse"><i class="fa fa-check"></i><b>B.10</b> Thiazide Or Thiazide-Like Diuretic Use</a></li>
+<li class="chapter" data-level="B.11" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#dCCBUse"><i class="fa fa-check"></i><b>B.11</b> Dihydropyridine Calcium Channel Blocker (dCCB) Use</a></li>
+<li class="chapter" data-level="B.12" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ndCCBUse"><i class="fa fa-check"></i><b>B.12</b> Non-Dihydropyridine Calcium Channel Blocker (ndCCB) Use</a></li>
+<li class="chapter" data-level="B.13" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#BBUse"><i class="fa fa-check"></i><b>B.13</b> Beta-Blocker Use</a></li>
+<li class="chapter" data-level="B.14" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DLoopUse"><i class="fa fa-check"></i><b>B.14</b> Diuretic-Loop Use</a></li>
+<li class="chapter" data-level="B.15" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DPUse"><i class="fa fa-check"></i><b>B.15</b> Diuretic-Potassium Sparing Use</a></li>
+<li class="chapter" data-level="B.16" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#A1BUse"><i class="fa fa-check"></i><b>B.16</b> Alpha-1 Blocker Use</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html"><i class="fa fa-check"></i><b>C</b> Negative controls</a><ul>
+<li class="chapter" data-level="C.1" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html#AceiThzNsc"><i class="fa fa-check"></i><b>C.1</b> ACEi and THZ</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="ProtocolTemplate.html"><a href="ProtocolTemplate.html"><i class="fa fa-check"></i><b>D</b> Protocol template</a></li>
+<li class="chapter" data-level="E" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>E</b> Suggested Answers</a><ul>
+<li class="chapter" data-level="E.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>E.1</b> The Common Data Model</a></li>
+<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> Standardized Vocabularies</a></li>
+<li class="chapter" data-level="E.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>E.3</b> Extract Transform Load</a></li>
+<li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> Data Analytics Use Cases</a></li>
+<li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQL and R</a></li>
+<li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> Defining Cohorts</a></li>
+<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> Characterization</a></li>
+<li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> Population-Level Estimation</a></li>
+<li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> Patient-Level Prediction</a></li>
+<li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> Data Quality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Book of OHDSI Korea</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="MethodValidity" class="section level1">
+<h1><span class="header-section-number">Chapter 18</span> Method Validity</h1>
+
+<p><em>Chapter lead: Martijn Schuemie</em></p>
+<p>When considering method validity we aim to answer the question</p>
+<blockquote>
+<p>Is this method valid for answering this question?</p>
+</blockquote>
+<p>“Method” includes not only the study design, but also the data and the implementation of the design. Method validity is therefore somewhat of a catch-all; it is often not possible to observe good method validity without good data quality, clinical validity, and software validity. Those aspects of evidence quality should have already been addressed separately before we consider method validity.</p>
+<p>The core activity when establishing method validity is evaluating whether important assumptions in the analysis have been met. For example, we assume that propensity-score matching makes two populations comparable, but we need to evaluate whether this is the case. Where possible, empirical tests should be performed to verify these assumptions. We can for example generate diagnostics to show that our two populations are indeed comparable on a wide range of characteristics after matching. In OHDSI we have developed many standardized diagnostics that should be generated and evaluated whenever an analysis is performed.</p>
+<p>In this chapter we will focus on the validity of methods use in population-level estimation. We will first briefly highlight some study design-specific diagnostics, and will then discuss diagnostics that are applicable to most if not all population-level estimation studies. Following this is a step-by-step description of how to execute these diagnostics using the OHDSI tools. We close this chapter with an advanced topic, reviewing the OHDSI Methods Benchmark and its application to the OHDSI Methods Library.</p>
+<div id="design-specific-diagnostics" class="section level2">
+<h2><span class="header-section-number">18.1</span> Design-Specific Diagnostics</h2>
+
+<p>For each study design there are diagnostics specific to such a design. Many of these diagnostics are implemented and readily available in the R packages of the <a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>. For example, Section <a href="PopulationLevelEstimation.html#studyOutputs">12.9</a> lists a wide range of diagnostics generated by the <a href="https://ohdsi.github.io/CohortMethod/">CohortMethod</a> package, including:</p>
+<ul>
+<li><strong>Propensity score distribution</strong> to asses initial comparability of cohorts.</li>
+<li><strong>Propensity model</strong> to identify potential variables that should be excluded from the model.</li>
+<li><strong>Covariate balance</strong> to evaluate whether propensity score adjustment has made the cohorts comparable (as measured through baseline covariates).</li>
+<li><strong>Attrition</strong> to observe how many subjects were excluded in the various analysis steps, which may inform on the generalizability of the results to the initial cohorts of interest.</li>
+<li><strong>Power</strong> to assess whether enough data is available to answer the question.</li>
+<li><strong>Kaplan Meier curve</strong> to asses typical time to onset, and whether the proportionality assumption underlying Cox models is met.</li>
+</ul>
+<p>Other study designs require different diagnostics to test the different assumptions in those designs. For example, for the self-controlled case series (SCCS) design we may check the necessary assumption that the end of observation is independent of the outcome. This assumption is often violated in the case of serious, potentially lethal, events such as myocardial infarction. We can evaluate whether the assumption holds by generating the plot shown in Figure <a href="MethodValidity.html#fig:timeToObsEnd">18.1</a>, which shows histograms of the time to observation period end for those that are censored, and those that are uncensored. In our data we consider those whose observation period ends at the end date of data capture (the date when observation stopped for the entire data base, for example the date of extraction, or the study end date) to be uncensored, and all others to be censored. In Figure <a href="MethodValidity.html#fig:timeToObsEnd">18.1</a> we see only minor differences between the two distributions, suggesting our assumptions holds.</p>
+<div class="figure" style="text-align: center"><span id="fig:timeToObsEnd"></span>
+<img src="images/MethodValidity/timeToObsEnd.png" alt="Time to observation end for those that are censored, and those that are uncensored." width="100%" />
+<p class="caption">
+Figure 18.1: Time to observation end for those that are censored, and those that are uncensored.
+</p>
+</div>
+</div>
+<div id="diagnostics-for-all-estimation" class="section level2">
+<h2><span class="header-section-number">18.2</span> Diagnostics for All Estimation</h2>
+<p>Next to the design-specific diagnostics, there are also several diagnostics that are applicable across all causal effect estimation methods. Many of these rely on the use of control hypotheses, research questions where the answer is already known. Using control hypotheses we can then evaluate whether our design produces results in line with the truth. Controls can be divided into negative controls and positive controls.</p>
+<div id="NegativeControls" class="section level3">
+<h3><span class="header-section-number">18.2.1</span> Negative Controls</h3>
+
+<p>Negative controls are exposure-outcome pairs where one believes no causal effect exists, and it includes negative controls or “falsification endpoints” <span class="citation">(Prasad and Jena <a href="#ref-prased_2013">2013</a>)</span> that have been recommended as a means to detect confounding, <span class="citation">(Lipsitch, Tchetgen Tchetgen, and Cohen <a href="#ref-lipsitch_2010">2010</a>)</span> selection bias, and measurement error. <span class="citation">(Arnold et al. <a href="#ref-arnold_2016">2016</a>)</span> For example, in one study <span class="citation">(Zaadstra et al. <a href="#ref-zaadstra_2008">2008</a>)</span> investigating the relationship between childhood diseases and later multiple sclerosis (MS), the authors include three negative controls that are not believed to cause MS: a broken arm, concussion, and tonsillectomy. Two of these three controls produce statistically significant associations with MS, suggesting that the study may be biased.</p>
+<p>We should select negative controls that are comparable to our hypothesis of interest, which means we typically select exposure-outcome pairs that either have the same exposure as the hypothesis of interest (so-called “outcome controls”) or the same outcome (“exposure controls”). Our negative controls should further meet these criteria:</p>
+<ul>
+<li>The exposure <strong>should not cause</strong> the outcome. One way to think of causation is to think of the counterfactual: could the outcome be caused (or prevented) if a patient was not exposed, compared to if the patient had been exposed? Sometimes this is clear, for example ACEi are known to cause angioedema. Other times this is far less obvious. For example, a drug that may cause hypertension can therefore indirectly cause cardiovascular diseases that are a consequence of the hypertension.</li>
+<li>The exposure should also <strong>not prevent or treat</strong> the outcome. This is just another causal relationship that should be absent if we are to believe the true effect size (e.g. the hazard ratio) is 1.</li>
+<li>The negative control should <strong>exist in the data</strong>, ideally with sufficient numbers. We try to achieve this by prioritizing candidate negative controls based on prevalence.</li>
+<li>Negative controls should ideally be <strong>independent</strong>. For example, we should avoid having negative controls that are either ancestors of each other (e.g. “ingrown nail” and “ingrown nail of foot”) or siblings (e.g. “fracture of left femur” and “fracture of right femur”).</li>
+<li>Negative controls should ideally have <strong>some potential for bias</strong>. For example, the last digit of someone’s social security number is basically a random number, and is unlikely to show confounding. It should therefore not be used as a negative control.</li>
+</ul>
+<p>Some argue that negative controls should also have the same confounding structure as the exposure-outcome pair of interest. <span class="citation">(Lipsitch, Tchetgen Tchetgen, and Cohen <a href="#ref-lipsitch_2010">2010</a>)</span> However, we believe this confounding structure is unknowable; the relationships between variables found in reality is often far more complex than people imagine. Also, even if the confounder structure was known, it is unlikely that a negative control exists having that exact same confounding structure, but lacking the direct causal effect. For this reason in OHDSI we rely on a large number of negative controls, assuming that such a set represents many different types of bias, including the ones present in the hypothesis of interest.</p>
+<p>The absence of a causal relationship between an exposure and an outcome is rarely documented. Instead, we often make the assumption that a lack of evidence of a relationship implies the lack of a relationship. This assumption is more likely to hold if the exposure and outcome have both been studied extensively, so a relationship could have been detected. For example, the lack of evidence for a completely novel drug likely implies a lack of knowledge, not the lack of a relationship. With this principle in mind we have developed a semi-automated procedure for selecting negative controls. <span class="citation">(Voss et al. <a href="#ref-voss_2016">2016</a>)</span> In brief, information from literature, product labels, and spontaneous reporting is automatically extracted and synthesized to produce a candidate list of negative controls. This list must then undergo manual review, not only to verify that the automated extraction was accurate, but also to impose additional criteria such as biological plausibility.</p>
+</div>
+<div id="PositiveControls" class="section level3">
+<h3><span class="header-section-number">18.2.2</span> Positive Controls</h3>
+
+<p>To understand the behavior of a method when the true relative risk is smaller or greater than one requires the use of positive controls where the null is believed to not be true. Unfortunately, real positive controls for observational research tend to be problematic for three reasons. First, in most research contexts, for example when comparing the effect of two treatments, there is a paucity of positive controls relevant for that specific context. Second, even if positive controls are available, the magnitude of the effect size may not be known with great accuracy, and often depends on the population in which one measures it. Third, when treatments are widely known to cause a particular outcome, this shapes the behavior of physicians prescribing the treatment, for example by taking actions to mitigate the risk of unwanted outcomes, thereby rendering the positive controls useless as a means for evaluation. <span class="citation">(Noren et al. <a href="#ref-noren_2014">2014</a>)</span></p>
+
+<p>In OHDSI we therefore use synthetic positive controls, <span class="citation">(Schuemie, Hripcsak, et al. <a href="#ref-schuemie_2018">2018</a>)</span> created by modifying a negative control through injection of additional, simulated occurrences of the outcome during the time at risk of the exposure. For example, assume that, during exposure to ACEi, n occurrences of our negative control outcome “ingrowing nail” were observed. If we now add an additional n simulated occurrences during exposure, we have doubled the risk. Since this was a negative control, the relative risk compared to the counterfactual was one, but after injection, it becomes two.</p>
+<p>One issue that stands important is the preservation of confounding. The negative controls may show strong confounding, but if we inject additional outcomes randomly, these new outcomes will not be confounded, and we may therefore be optimistic in our evaluation of our capacity to deal with confounding for positive controls. To preserve confounding, we want the new outcomes to show similar associations with baseline subject-specific covariates as the original outcomes. To achieve this, for each outcome we train a model to predict the survival rate with respect to the outcome during exposure using covariates captured prior to exposure. These covariates include demographics, as well as all recorded diagnoses, drug exposures, measurements, and medical procedures. An L1-regularized Poisson regression <span class="citation">(Suchard et al. <a href="#ref-suchard_2013">2013</a>)</span> using 10-fold cross-validation to select the regularization hyperparameter fits the prediction model. We then use the predicted rates to sample simulated outcomes during exposure to increase the true effect size to the desired magnitude. The resulting positive control thus contains both real and simulated outcomes.</p>
+<p>Figure <a href="MethodValidity.html#fig:posControlSynth">18.2</a> depicts this process. Note that although this procedure simulates several important sources of bias, it does not capture all. For example, some effects of measurement error are not present. The synthetic positive controls imply constant positive predictive value and sensitivity, which may not be true in reality.</p>
+<div class="figure" style="text-align: center"><span id="fig:posControlSynth"></span>
+<img src="images/MethodValidity/posControlSynth.png" alt="Synthesizing positive controls from negative controls." width="90%" />
+<p class="caption">
+Figure 18.2: Synthesizing positive controls from negative controls.
+</p>
+</div>
+<p>Although we refer to a single true “effect size” for each control, different methods estimate different statistics of the treatment effect. For negative controls, where we believe no causal effect exists, all such statistics, including the relative risk, hazard ratio, odds ratio, incidence rate ratio, both conditional and marginal, as well as the average treatment effect in the treated (ATT) and the overall average treatment effect (ATE) will be identical to 1. Our process for creating positive controls synthesizes outcomes with a constant incidence rate ratio over time and between patients, using a model conditioned on the patient where this ratio is held constant, up to the point where the marginal effect is achieved. The true effect size is thus guaranteed to hold as the marginal incidence rate ratio in the treated. Under the assumption that our outcome model used during synthesis is correct, this also holds for the conditional effect size and the ATE. Since all outcomes are rare, odds ratios are all but identical to the relative risk.</p>
+</div>
+<div id="metrics" class="section level3">
+<h3><span class="header-section-number">18.2.3</span> Empirical Evaluation</h3>
+
+<p>Based on the estimates of a particular method for the negative and positive controls, we can then understand the operating characteristics by computing a range of metrics, for example:</p>
+<ul>
+<li><strong>Area Under the receiver operator Curve (AUC)</strong>: the ability to discriminate between positive and negative controls.</li>
+<li><strong>Coverage</strong>: how often the true effect size is within the 95% confidence interval.</li>
+<li><strong>Mean precision</strong>: precision is computed as <span class="math inline">\(1/(standard\ error)^2\)</span>, higher precision means narrower confidence intervals. We use the geometric mean to account for the skewed distribution of the precision.</li>
+<li><strong>Mean squared error (MSE)</strong>: Mean squared error between the log of the effect size point-estimate and the log of the true effect size.</li>
+<li><strong>Type 1 error</strong>: For negative controls, how often was the null rejected (at <span class="math inline">\(\alpha = 0.05\)</span>). This is equivalent to the false positive rate and <span class="math inline">\(1 - specificity\)</span>.</li>
+<li><strong>Type 2 error</strong>: For positive controls, how often was the null not rejected (at <span class="math inline">\(\alpha = 0.05\)</span>). This is equivalent to the false negative rate and <span class="math inline">\(1 - sensitivity\)</span>.</li>
+<li><strong>Non-estimable</strong>: For how many of the controls was the method unable to produce an estimate? There can be various reasons why an estimate cannot be produced, for example because there were no subjects left after propensity score matching, or because no subjects remained having the outcome.</li>
+</ul>
+<p>Depending on our use case, we can evaluate whether these operating characteristics are suitable for our goal. For example, if we wish to perform signal detection, we may care about type 1 and type 2 error, or if we are willing to modify our <span class="math inline">\(\alpha\)</span> threshold, we may inspect the AUC instead.</p>
+</div>
+<div id="p-value-calibration" class="section level3">
+<h3><span class="header-section-number">18.2.4</span> P-Value Calibration</h3>
+<p> </p>
+<p>Often the type 1 error (at <span class="math inline">\(\alpha = 0.05\)</span>) is larger than 5%. In other words, we are often more likely than 5% to reject the null hypothesis when in fact the null hypothesis is true. The reason is that the p-value only reflects random error, the error due to having a limited sample size. It does not reflect systematic error, for example the error due to confounding. OHDSI has developed a process for calibrating p-values to restore the type 1 error to nominal. <span class="citation">(Schuemie et al. <a href="#ref-schuemie_2014">2014</a>)</span> We derive an empirical null distribution from the actual effect estimates for the negative controls. These negative control estimates give us an indication of what can be expected when the null hypothesis is true, and we use them to estimate an empirical null distribution.</p>
+<p>Formally, we fit a Gaussian probability distribution to the estimates, taking into account the sampling error of each estimate. Let <span class="math inline">\(\hat{\theta}_i\)</span> denote the estimated log effect estimate (relative risk, odds or incidence rate ratio) from the <span class="math inline">\(i\)</span>th negative control drug–outcome pair, and let <span class="math inline">\(\hat{\tau}_i\)</span> denote the corresponding estimated standard error, <span class="math inline">\(i=1,\ldots,n\)</span>. Let <span class="math inline">\(\theta_i\)</span> denote the true log effect size (assumed 0 for negative controls), and let <span class="math inline">\(\beta_i\)</span> denote the true (but unknown) bias associated with pair <span class="math inline">\(i\)</span> , that is, the difference between the log of the true effect size and the log of the estimate that the study would have returned for control <span class="math inline">\(i\)</span> had it been infinitely large. As in the standard p-value computation, we assume that <span class="math inline">\(\hat{\theta}_i\)</span> is normally distributed with mean <span class="math inline">\(\theta_i + \beta_i\)</span> and standard deviation <span class="math inline">\(\hat{\tau}_i^2\)</span>. Note that in traditional p-value calculation, <span class="math inline">\(\beta_i\)</span> is always assumed to be equal to zero, but that we assume the <span class="math inline">\(\beta_i\)</span>’s, arise from a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. This represents the null (bias) distribution. We estimate <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> via maximum likelihood. In summary, we assume the following:</p>
+<p><span class="math display">\[\beta_i \sim N(\mu,\sigma^2) \text{  and  } \hat{\theta}_i \sim N(\theta_i + \beta_i, \tau_i^2)\]</span></p>
+<p>where <span class="math inline">\(N(a,b)\)</span> denotes a Gaussian distribution with mean <span class="math inline">\(a\)</span> and variance <span class="math inline">\(b\)</span>, and estimate <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> by maximizing the following likelihood:</p>
+<p><span class="math display">\[L(\mu, \sigma | \theta, \tau) \propto \prod_{i=1}^{n}\int p(\hat{\theta}_i|\beta_i, \theta_i, \hat{\tau}_i)p(\beta_i|\mu, \sigma) \text{d}\beta_i\]</span></p>
+<p>yielding maximum likelihood estimates <span class="math inline">\(\hat{\mu}\)</span> and <span class="math inline">\(\hat{\sigma}\)</span>. We compute a calibrated p-value that uses the empirical null distribution. Let <span class="math inline">\(\hat{\theta}_{n+1}\)</span> denote the log of the effect estimate from a new drug–outcome pair, and let <span class="math inline">\(\hat{\tau}_{n+1}\)</span> denote the corresponding estimated standard error. From the aforementioned assumptions and assuming <span class="math inline">\(\beta_{n+1}\)</span> arises from the same null distribution, we have the following:</p>
+<p><span class="math display">\[\hat{\theta}_{n+1} \sim N(\hat{\mu}, \hat{\sigma} + \hat{\tau}_{n+1})\]</span></p>
+<p>When <span class="math inline">\(\hat{\theta}_{n+1}\)</span> is smaller than <span class="math inline">\(\hat{\mu}\)</span>, the one-sided calibrated p-value for the new pair is then</p>
+<p><span class="math display">\[\phi\left(\frac{\theta_{n+1} - \hat{\mu}}{\sqrt{\hat{\sigma}^2 + \hat{\tau}_{n+1}^2}}\right)\]</span></p>
+<p>where <span class="math inline">\(\phi(\cdot)\)</span> denotes the cumulative distribution function of the standard normal distribution. When <span class="math inline">\(\hat{\theta}_{n+1}\)</span> is bigger than <span class="math inline">\(\hat{\mu}\)</span>, the one-sided calibrated p-value is then</p>
+<p><span class="math display">\[1-\phi\left(\frac{\theta_{n+1} - \hat{\mu}}{\sqrt{\hat{\sigma}^2 + \hat{\tau}_{n+1}^2}}\right)\]</span></p>
+</div>
+<div id="confidence-interval-calibration" class="section level3">
+<h3><span class="header-section-number">18.2.5</span> Confidence Interval Calibration</h3>
+
+<p>Similarly, we typically observe that the coverage of the 95% confidence interval is less than 95%: the true effect size is inside the 95% confidence interval less than 95% of the time. For confidence interval calibration <span class="citation">(Schuemie, Hripcsak, et al. <a href="#ref-schuemie_2018">2018</a>)</span> we extend the framework for p-value calibration by also making use of our positive controls. Typically, but not necessarily, the calibrated confidence interval is wider than the nominal confidence interval, reflecting the problems unaccounted for in the standard procedure (such as unmeasured confounding, selection bias and measurement error) but accounted for in the calibration.</p>
+<p>Formally, we assume that <span class="math inline">\(beta_i\)</span>, the bias associated with pair <span class="math inline">\(i\)</span>, again comes from a Gaussian distribution, but this time using a mean and standard deviation that are linearly related to <span class="math inline">\(theta_i\)</span>, the true effect size:</p>
+<p><span class="math display">\[\beta_i \sim N(\mu(\theta_i) , \sigma^2(\theta_i))\]</span></p>
+<p>where</p>
+<p><span class="math display">\[\mu(\theta_i) = a + b \times \theta_i \text{ and } \\
+  \sigma(\theta_i) ^2= c + d \times \mid \theta_i \mid\]</span></p>
+<p>We estimate <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span> by maximizing the marginalized likelihood in which we integrate out the unobserved <span class="math inline">\(\beta_i\)</span>:</p>
+<p><span class="math display">\[l(a,b,c,d | \theta, \hat{\theta}, \hat{\tau} ) \propto \prod_{i=1}^{n}\int p(\hat{\theta}_i|\beta_i, \theta_i, \hat{\tau}_i)p(\beta_i|a,b,c,d,\theta_i) \text{d}\beta_i ,\]</span></p>
+<p>yielding maximum likelihood estimates <span class="math inline">\((\hat{a}, \hat{b}, \hat{c}, \hat{d})\)</span>.</p>
+<p>We compute a calibrated CI that uses the systematic error model. Let <span class="math inline">\(\hat{\theta}_{n+1}\)</span> again denote the log of the effect estimate for a new outcome of interest, and let <span class="math inline">\(\hat{\tau}_{n+1}\)</span> denote the corresponding estimated standard error. From the assumptions above, and assuming <span class="math inline">\(\beta_{n+1}\)</span> arises from the same systematic error model, we have:</p>
+<p><span class="math display">\[\hat{\theta}_{n+1} \sim N(
+\theta_{n+1} + \hat{a} + \hat{b} \times \theta_{n+1},
+\hat{c} + \hat{d} \times \mid \theta_{n+1} \mid) + \hat{\tau}_{n+1}^2) .\]</span></p>
+<p>We find the lower bound of the calibrated 95% CI by solving this equation for <span class="math inline">\(\theta_{n+1}\)</span>:</p>
+<p><span class="math display">\[\Phi\left(
+\frac{\theta_{n+1} + \hat{a} + \hat{b} \times \theta_{n+1}-\hat{\theta}_{n+1}}
+{\sqrt{(\hat{c} + \hat{d} \times \mid \theta_{n+1} \mid) + \hat{\tau}_{n+1}^2}}
+\right) = 0.025 ,\]</span></p>
+<p>where <span class="math inline">\(\Phi(\cdot)\)</span> denotes the cumulative distribution function of the standard normal distribution. We find the upper bound similarly for probability 0.975. We define the calibrated point estimate by using probability 0.5.</p>
+<p>Both p-value calibration and confidence interval calibration are implemented in the <a href="https://ohdsi.github.io/EmpiricalCalibration/">EmpiricalCalibration</a> package.</p>
+</div>
+<div id="replication-across-sites" class="section level3">
+<h3><span class="header-section-number">18.2.6</span> Replication Across Sites</h3>
+
+<p>Another form of method validation comes from executing the study across several different databases that represent different populations, different health care systems, and/or different data capture processes. Prior research has shown that executing the same study design across different databases can produce vastly different effect size estimates, <span class="citation">(Madigan et al. <a href="#ref-madigan_2013">2013</a>)</span> suggesting that either the effect differs greatly for different populations, or that the design does not adequately address the different biases found in the different databases. In fact, we observe that accounting for residual bias in a database through empirical calibration of confidence intervals can greatly reduce between-study heterogeneity. <span class="citation">(Schuemie, Hripcsak, et al. <a href="#ref-schuemie_2018">2018</a>)</span></p>
+<p>One way to express between-database heterogeneity is the <span class="math inline">\(I^2\)</span> score, describing the percentage of total variation across studies that is due to heterogeneity rather than chance. <span class="citation">(Higgins et al. <a href="#ref-higgins_2003">2003</a>)</span> A naive categorization of values for <span class="math inline">\(I^2\)</span> would not be appropriate for all circumstances, although one could tentatively assign adjectives of low, moderate, and high to <span class="math inline">\(I^2\)</span> values of 25%, 50%, and 75%. In a study estimating the effects for many depression treatments using a new-user cohort design with large-scale propensity score adjustment, <span class="citation">(Schuemie, Ryan, et al. <a href="#ref-schuemie_2018b">2018</a>)</span> observed only 58% of the estimates to have an <span class="math inline">\(I^2\)</span> below 25%. After empirical calibration this increased to 83%.</p>
+
+<div class="rmdimportant">
+Observing between-database heterogeneity casts doubt on the validity of the estimates. Unfortunately, the inverse is not true. Not observing heterogeneity does not guarantee an unbiased estimate. It is not unlikely that all databases share a similar bias, and that all estimates are therefore consistently wrong.
+</div>
+
+</div>
+<div id="sensitivity-analyses" class="section level3">
+<h3><span class="header-section-number">18.2.7</span> Sensitivity Analyses</h3>
+
+<p>When designing a study there are often design choices that are uncertain. For example, should propensity score matching of stratification be used? If stratification is used, how many strata? What is the appropriate time-at-risk? When faced with such uncertainty, one solution is to evaluate various options, and observe the sensitivity of the results to the design choice. If the estimate remains the same under various options, we can say the study is robust to the uncertainty.</p>
+<p>This definition of sensitivity analysis should not be confused with the definitions used by others such as, <span class="citation">Rosenbaum (<a href="#ref-rosenbaum_2005">2005</a>)</span> who defines sensitivity analysis to “appraise how the conclusions of a study might be altered by hidden biases of various magnitudes.”</p>
+</div>
+</div>
+<div id="method-validation-in-practice" class="section level2">
+<h2><span class="header-section-number">18.3</span> Method Validation in Practice</h2>
+<p>Here we build on the example in Chapter <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>, where we investigate the effect of ACE inhibitors (ACEi) on the risk of angioedema and acute myocardial infarction (AMI), compared to thiazides and thiazide-like diuretics (THZ). In that chapter we already explore many of the diagnostics specific to the design we used, the cohort method. Here, we apply additional diagnostics that could also have been applied had other designs been used. If the study is implemented using ATLAS as described in Section <a href="PopulationLevelEstimation.html#PleAtlas">12.7</a> these diagnostics are available in the Shiny app that is included in the study R package generated by ATLAS. If the study is implemented using R instead, as described in Section <a href="PopulationLevelEstimation.html#pleR">12.8</a>, then R functions available in the various packages should be used, as described in the next sections.</p>
+<div id="selecting-negative-controls" class="section level3">
+<h3><span class="header-section-number">18.3.1</span> Selecting Negative Controls</h3>
+<p>We must select negative controls, exposure-outcome pairs where no causal effect is believed to exist. For comparative effect estimation such as our example study, we select negative control outcomes that are believed to be neither caused by the target nor the comparator exposure. We want enough negative controls to make sure we have a diverse mix of biases represented in the controls, and also to allow empirical calibration. As a rule-of-thumb we typically aim to have 50-100 such negative controls. We could come up with these controls completely manually, but fortunately ATLAS provides features to aid the selection of negative controls using data from literature, product labels, and spontaneous reports.</p>
+<p>To generate a candidate list of negative controls, we first must create a concept set containing all exposures of interest. In this case we select all ingredients in the ACEi and THZ classes, as shown in Figure <a href="MethodValidity.html#fig:exposuresConceptSet">18.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:exposuresConceptSet"></span>
+<img src="images/MethodValidity/exposuresConceptSet.png" alt="A concept set containing the concepts defining the target and comparator exposures." width="100%" />
+<p class="caption">
+Figure 18.3: A concept set containing the concepts defining the target and comparator exposures.
+</p>
+</div>
+<p>Next, we go to the “Explore Evidence” tab, and click on the <img src="images/MethodValidity/generate.png" /> button. Generating the evidence overview will take a few minutes, after which you can click on the <img src="images/MethodValidity/viewEvidence.png" /> button. This will open the list of outcomes as shown in Figure <a href="MethodValidity.html#fig:candidateNcs">18.4</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:candidateNcs"></span>
+<img src="images/MethodValidity/candidateNcs.png" alt="Candidate control outcomes with an overview of the evidence found in literature, product labels, and spontaneous reports." width="100%" />
+<p class="caption">
+Figure 18.4: Candidate control outcomes with an overview of the evidence found in literature, product labels, and spontaneous reports.
+</p>
+</div>
+<p>This list shows condition concepts, along with an overview of the evidence linking the condition to any of the exposures we defined. For example, we see the number of publications that link the exposures to the outcomes found in PubMed using various strategies, the number of product labels of our exposures of interest that list the condition as a possible adverse effect, and the number of spontaneous reports. By default the list is sorted to show candidate negative controls first. It is then sorted by the “Sort Order,” which represents the prevalence of the condition in a collection of observational databases. The higher the Sort Order, the higher the prevalence. Although the prevalence in these databases might not correspond with the prevalence in the database we wish to run the study, it is likely a good approximation.</p>
+<p>The next step is to manually review the candidate list, typically starting at the top, so with the most prevalent condition, and working our way down until we are satisfied we have enough. One typical way to do this is to export the list to a CSV (comma separated values) file, and have clinicians review these, considering the criteria mentioned in Section <a href="MethodValidity.html#NegativeControls">18.2.1</a>.</p>
+<p>For our example study we select the 76 negative controls listed in Appendix <a href="NegativeControlsAppendix.html#AceiThzNsc">C.1</a>.</p>
+</div>
+<div id="including-controls" class="section level3">
+<h3><span class="header-section-number">18.3.2</span> Including Controls</h3>
+<p>Once we have defined our set of negative controls we must include them in our study. First we must define some logic for turning our negative control condition concepts into outcome cohorts. Section <a href="PopulationLevelEstimation.html#evaluationSettings">12.7.3</a> discusses how ATLAS allows creating such cohorts based on a few choices the user must make. Often we simply choose to create a cohort based on any occurrence of a negative control concept or any of its descendants. If the study is implemented in R, then SQL (Structured Query Language) can be used to construct the negative control cohorts. Chapter <a href="SqlAndR.html#SqlAndR">9</a> describes how cohorts can be created using SQL and R. We leave it as an exercise for the reader to write the appropriate SQL and R.</p>
+<p>The OHDSI tools also provide functionality for automatically generating and including positive controls derived from the negative controls. This functionality can be found in the Evaluation Settings section in ATLAS described in Section <a href="PopulationLevelEstimation.html#evaluationSettings">12.7.3</a>, and it is implemented in the <code>synthesizePositiveControls</code> function in the <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> package. Here we generate three positive controls for each negative control, with true effect sizes of 1.5, 2, and 4, using a survival model:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MethodEvaluation)
+<span class="co"># Create a data frame with all negative control exposure-</span>
+<span class="co"># outcome pairs, using only the target exposure (ACEi = 1).</span>
+eoPairs &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">exposureId =</span> <span class="dv">1</span>,
+                      <span class="dt">outcomeId =</span> ncs)
+
+pcs &lt;-<span class="st"> </span><span class="kw">synthesizePositiveControls</span>(
+  <span class="dt">connectionDetails =</span> connectionDetails,
+  <span class="dt">cdmDatabaseSchema =</span> cdmDbSchema,
+  <span class="dt">exposureDatabaseSchema =</span> cohortDbSchema,
+  <span class="dt">exposureTable =</span> cohortTable,
+  <span class="dt">outcomeDatabaseSchema =</span> cohortDbSchema,
+  <span class="dt">outcomeTable =</span> cohortTable,
+  <span class="dt">outputDatabaseSchema =</span> cohortDbSchema,
+  <span class="dt">outputTable =</span> cohortTable,
+  <span class="dt">createOutputTable =</span> <span class="ot">FALSE</span>,
+  <span class="dt">modelType =</span> <span class="st">&quot;survival&quot;</span>,
+  <span class="dt">firstExposureOnly =</span> <span class="ot">TRUE</span>,
+  <span class="dt">firstOutcomeOnly =</span> <span class="ot">TRUE</span>,
+  <span class="dt">removePeopleWithPriorOutcomes =</span> <span class="ot">TRUE</span>,
+  <span class="dt">washoutPeriod =</span> <span class="dv">365</span>,
+  <span class="dt">riskWindowStart =</span> <span class="dv">1</span>,
+  <span class="dt">riskWindowEnd =</span> <span class="dv">0</span>,
+  <span class="dt">endAnchor =</span> <span class="st">&quot;cohort end&quot;</span>,
+  <span class="dt">exposureOutcomePairs =</span> eoPairs,
+  <span class="dt">effectSizes =</span> <span class="kw">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">4</span>),
+  <span class="dt">cdmVersion =</span> cdmVersion,
+  <span class="dt">workFolder =</span> <span class="kw">file.path</span>(outputFolder, <span class="st">&quot;pcSynthesis&quot;</span>))</code></pre></div>
+<p>Note that we must mimic the time-at-risk settings used in our estimation study design. The <code>synthesizePositiveControls</code> function will extract information about the exposures and negative control outcomes, fit outcome models per exposure-outcome pair, and synthesize outcomes. The positive control outcome cohorts will be added to the cohort table specified by <code>cohortDbSchema</code> and <code>cohortTable</code>. The resulting <code>pcs</code> data frame contains the information on the synthesized positive controls.</p>
+<p>Next we must execute the same study used to estimate the effect of interest to also estimate effects for the negative and positive controls. Setting the set of negative controls in the comparisons dialog in ATLAS instructs ATLAS to compute estimates for these controls. Similarly, specifying that positive controls be generated in the Evaluation Settings includes these in our analysis. In R, the negative and positive controls should be treated as any other outcome. All estimation packages in the <a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a> readily allow estimation of many effects in an efficient manner.</p>
+</div>
+<div id="empirical-performance" class="section level3">
+<h3><span class="header-section-number">18.3.3</span> Empirical Performance</h3>
+<p>Figure <a href="MethodValidity.html#fig:controls">18.5</a> shows the estimated effect sizes for the negative and positive controls included in our example study, stratified by true effect size. This plot is included in the Shiny app that comes with the study R package generated by ATLAS, and can be generated using the <code>plotControls</code> function in the <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> package. Note that the number of controls is often lower than what was defined because there was not enough data to either produce an estimate or to synthesize a positive control.</p>
+<div class="figure" style="text-align: center"><span id="fig:controls"></span>
+<img src="images/MethodValidity/controls.png" alt="Estimates for the negative (true hazard ratio = 1) and positive controls (true hazard ratio &gt; 1). Each dot represents a control. Estimates below the dashed line have a confidence interval that doesn't include the true effect size." width="100%" />
+<p class="caption">
+Figure 18.5: Estimates for the negative (true hazard ratio = 1) and positive controls (true hazard ratio &gt; 1). Each dot represents a control. Estimates below the dashed line have a confidence interval that doesn’t include the true effect size.
+</p>
+</div>
+<p>Based on these estimates we can compute the metrics shown in Table <a href="MethodValidity.html#tab:exampleMetrics">18.1</a> using the <code>computeMetrics</code> function in the <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> package.</p>
+<table>
+<caption><span id="tab:exampleMetrics">Table 18.1: </span> Method performance metrics derived from the negative and positive control estimates.</caption>
+<thead>
+<tr class="header">
+<th align="left">Metric</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AUC</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="left">Coverage</td>
+<td align="right">0.97</td>
+</tr>
+<tr class="odd">
+<td align="left">Mean Precision</td>
+<td align="right">19.33</td>
+</tr>
+<tr class="even">
+<td align="left">MSE</td>
+<td align="right">2.08</td>
+</tr>
+<tr class="odd">
+<td align="left">Type 1 error</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td align="left">Type 2 error</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="odd">
+<td align="left">Non-estimable</td>
+<td align="right">0.08</td>
+</tr>
+</tbody>
+</table>
+<p>We see that coverage and type 1 error are very close to their nominal values of 95% and 5%, respectively, and that the AUC is very high. This is certainly not always the case.</p>
+<p>Note that although in Figure <a href="MethodValidity.html#fig:controls">18.5</a> not all confidence intervals include one when the true hazard ratio is one, the type 1 error in Table <a href="MethodValidity.html#tab:exampleMetrics">18.1</a> is 0%. This is an exceptional situation, caused by the fact that confidence intervals in the <a href="https://ohdsi.github.io/Cyclops/">Cyclops</a> package are estimated using likelihood profiling, which is more accurate than traditional methods but can result in asymmetric confidence intervals. The p-value instead is computed assuming symmetrical confidence intervals, and this is what was used to compute the type 1 error.</p>
+</div>
+<div id="p-value-calibration-1" class="section level3">
+<h3><span class="header-section-number">18.3.4</span> P-Value Calibration</h3>
+<p>We can use the estimates for our negative controls to calibrate our p-values. This is done automatically in the Shiny app, and can be done manually in R. Assuming we have created the summary object <code>summ</code> as described in Section <a href="PopulationLevelEstimation.html#MultipleAnalyses">12.8.6</a>, we can plot the empirical calibration effect plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Estimates for negative controls (ncs) and outcomes of interest (ois):</span>
+ncEstimates &lt;-<span class="st"> </span>summ[summ<span class="op">$</span>outcomeId <span class="op">%in%</span><span class="st"> </span>ncs, ]
+oiEstimates &lt;-<span class="st"> </span>summ[summ<span class="op">$</span>outcomeId <span class="op">%in%</span><span class="st"> </span>ois, ]
+
+<span class="kw">library</span>(EmpiricalCalibration)
+<span class="kw">plotCalibrationEffect</span>(<span class="dt">logRrNegatives =</span> ncEstimates<span class="op">$</span>logRr,
+                      <span class="dt">seLogRrNegatives =</span> ncEstimates<span class="op">$</span>seLogRr,
+                      <span class="dt">logRrPositives =</span> oiEstimates<span class="op">$</span>logRr,
+                      <span class="dt">seLogRrPositives =</span> oiEstimates<span class="op">$</span>seLogRr,
+                      <span class="dt">showCis =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:pValueCal"></span>
+<img src="images/MethodValidity/pValueCal.png" alt="P-value calibration: estimates below the dashed line have a conventional p &lt; 0.05. Estimates in the shaded area have calibrated p &lt; 0.05. The narrow band around the edge of the shaded area denotes the 95\% credible interval. Dots indicate negative controls. Diamonds indicate outcomes of interest." width="70%" />
+<p class="caption">
+Figure 18.6: P-value calibration: estimates below the dashed line have a conventional p &lt; 0.05. Estimates in the shaded area have calibrated p &lt; 0.05. The narrow band around the edge of the shaded area denotes the 95% credible interval. Dots indicate negative controls. Diamonds indicate outcomes of interest.
+</p>
+</div>
+<p>In Figure <a href="MethodValidity.html#fig:pValueCal">18.6</a> we see that the shaded area almost exactly overlaps with the area denoted by the dashed lines, indicating hardly any bias was observed for the negative controls. One of the outcomes of interest (AMI) is above the dashed line and the shaded area, indicating we cannot reject the null according to both the uncalibrated and calibrated p-value. The other outcome (angioedema) clearly stands out from the negative control, and falls well within the area where both uncalibrated and calibrated p-values are smaller than 0.05.</p>
+<p>We can compute the calibrated p-values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">null &lt;-<span class="st"> </span><span class="kw">fitNull</span>(<span class="dt">logRr =</span> ncEstimates<span class="op">$</span>logRr,
+                <span class="dt">seLogRr =</span> ncEstimates<span class="op">$</span>seLogRr)
+<span class="kw">calibrateP</span>(null,
+           <span class="dt">logRr=</span> oiEstimates<span class="op">$</span>logRr,
+           <span class="dt">seLogRr =</span> oiEstimates<span class="op">$</span>seLogRr)</code></pre></div>
+<pre><code>## [1] 1.604351e-06 7.159506e-01</code></pre>
+<p>And contrast these with the uncalibrated p-values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">oiEstimates<span class="op">$</span>p</code></pre></div>
+<pre><code>## [1] [1] 1.483652e-06 7.052822e-01</code></pre>
+<p>As expected, because little to no bias was observed, the uncalibrated and calibrated p-values are very similar.</p>
+</div>
+<div id="confidence-interval-calibration-1" class="section level3">
+<h3><span class="header-section-number">18.3.5</span> Confidence Interval Calibration</h3>
+<p>Similarly, we can use the estimates for our negative and positive controls to calibrate the confidence intervals. The Shiny app automatically reports the calibrate confidence intervals. In R we can calibrate intervals using the <code>fitSystematicErrorModel</code> and <code>calibrateConfidenceInterval</code> functions in the <a href="https://ohdsi.github.io/EmpiricalCalibration/">EmpiricalCalibration</a> package, as described in detail in the <a href="https://ohdsi.github.io/EmpiricalCalibration/articles/EmpiricalCiCalibrationVignette.html">“Empirical calibration of confidence intervals” vignette</a>.</p>
+<p>Before calibration, the estimated hazard ratios (95% confidence interval) are 4.32 (2.45 - 8.08) and 1.13 (0.59 - 2.18), for angioedema and AMI respectively. The calibrated hazard ratios are 4.75 (2.52 - 9.04) and 1.15 (0.58 - 2.30).</p>
+</div>
+<div id="between-database-heterogeneity" class="section level3">
+<h3><span class="header-section-number">18.3.6</span> Between-Database Heterogeneity</h3>
+<p>Just as we executed our analysis on one database, in this case the IBM MarketScan Medicaid (MDCD) database, we can also run the same analysis code on other databases that adhere to the Common Data Model (CDM). Figure <a href="MethodValidity.html#fig:forest">18.7</a> shows the forest plot and meta-analytic estimates (assuming random effects) <span class="citation">(DerSimonian and Laird <a href="#ref-dersimonian_1986">1986</a>)</span> across a total of five databases for the outcome of angioedema. This figure was generated using the <code>plotMetaAnalysisForest</code> function in the <a href="https://ohdsi.github.io/EvidenceSynthesis/">EvidenceSynthesis</a> package.</p>
+<div class="figure" style="text-align: center"><span id="fig:forest"></span>
+<img src="images/MethodValidity/forest.png" alt="Effect size estimates and 95\% confidence intervals (CI) from five different databases and a meta-analytic estimate when comparing ACE inhibitors to thiazides and thiazide-like diuretics for the risk of angioedema." width="90%" />
+<p class="caption">
+Figure 18.7: Effect size estimates and 95% confidence intervals (CI) from five different databases and a meta-analytic estimate when comparing ACE inhibitors to thiazides and thiazide-like diuretics for the risk of angioedema.
+</p>
+</div>
+<p>Although all confidence intervals are above one, suggesting agreement on the fact that there is an effect, the <span class="math inline">\(I^2\)</span> suggests between-database heterogeneity. However, if we compute the <span class="math inline">\(I^2\)</span> using the calibrated confidence intervals as shown in Figure <a href="MethodValidity.html#fig:forestCal">18.8</a>, we see that this heterogeneity can be explained by the bias measured in each database through the negative and positive controls. The empirical calibration appears to properly take this bias into account.</p>
+<div class="figure" style="text-align: center"><span id="fig:forestCal"></span>
+<img src="images/MethodValidity/forestCal.png" alt="Calibrated Effect size estimates and 95\% confidence intervals (CI) from five different databases and a meta-analytic estimate for the hazard ratio of angioedema when comparing ACE inhibitors to thiazides and thiazide-like diuretics." width="90%" />
+<p class="caption">
+Figure 18.8: Calibrated Effect size estimates and 95% confidence intervals (CI) from five different databases and a meta-analytic estimate for the hazard ratio of angioedema when comparing ACE inhibitors to thiazides and thiazide-like diuretics.
+</p>
+</div>
+</div>
+<div id="sensitivity-analyses-1" class="section level3">
+<h3><span class="header-section-number">18.3.7</span> Sensitivity Analyses</h3>
+<p>One of the design choices in our analysis was to use variable-ratio matching on the propensity score. However, we could have also used stratification on the propensity score. Because we are uncertain about this choice, we may decide to use both. Table <a href="MethodValidity.html#tab:sensAnalysis">18.2</a> shows the effect size estimates for AMI and angioedema, both calibrated and uncalibrated, when using variable-ratio matching and stratification (with 10 equally-sized strata).</p>
+<table style="width:86%;">
+<caption><span id="tab:sensAnalysis">Table 18.2: </span> Uncalibrated and calibrated hazard ratios (95% confidence interval) for the two analysis variants.</caption>
+<colgroup>
+<col width="30%" />
+<col width="16%" />
+<col width="19%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Outcome</th>
+<th align="left">Adjustment</th>
+<th>Uncalibrated</th>
+<th>Calibrated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Angioedema</td>
+<td align="left">Matching</td>
+<td>4.32 (2.45 - 8.08)</td>
+<td>4.75 (2.52 - 9.04)</td>
+</tr>
+<tr class="even">
+<td align="left">Angioedema</td>
+<td align="left">Stratification</td>
+<td>4.57 (3.00 - 7.19)</td>
+<td>4.52 (2.85 - 7.19)</td>
+</tr>
+<tr class="odd">
+<td align="left">Acute myocardial infarction</td>
+<td align="left">Matching</td>
+<td>1.13 (0.59 - 2.18)</td>
+<td>1.15 (0.58 - 2.30)</td>
+</tr>
+<tr class="even">
+<td align="left">Acute myocardial infarction</td>
+<td align="left">Stratification</td>
+<td>1.43 (1.02 - 2.06)</td>
+<td>1.45 (1.03 - 2.06)</td>
+</tr>
+</tbody>
+</table>
+<p>We see that the estimates from the matched and stratified analysis are in strong agreement, with the confidence intervals for stratification falling completely inside of the confidence intervals for matching. This suggests that our uncertainty around this design choice does not impact the validity of our estimates. Stratification does appear to give us more power (narrower confidence intervals), which is not surprising since matching results in loss of data, whereas stratification does not. The price for this could be an increase in bias, due to within-strata residual confounding, although we see no evidence of increased bias reflected in the calibrated confidence intervals.</p>
+
+<div class="rmdimportant">
+Study diagnostics allow us to evaluate design choices even before fully executing a study. It is recommended not to finalize the protocol before generating and reviewing all study diagnostics. To avoid p-hacking (adjusting the design to achieve a desired result), this should be done while blinded to the effect size estimate of interest.
+</div>
+
+</div>
+</div>
+<div id="ohdsi-methods-benchmark" class="section level2">
+<h2><span class="header-section-number">18.4</span> OHDSI Methods Benchmark</h2>
+
+<p>Although the recommended practice is to empirically evaluate a method’s performance within the context that it is applied, using negative and positive controls that are in ways similar to the exposures-outcomes pairs of interest (for example using the same exposure or the same outcome) and on the database used in the study, there is also value in evaluating a method’s performance in general. This is why the OHDSI Methods Evaluation Benchmark was developed. The benchmark evaluates performance using a wide range of control questions, including those with chronic or acute outcomes, and long-term or short-term exposures. The results on this benchmark can help demonstrate the overall usefulness of a method, and can be used to form a prior belief about the performance of a method when a context-specific empirical evaluation is not (yet) available. The benchmark consists of 200 carefully selected negative controls that can be stratified into eight categories, with the controls in each category either sharing the same exposure or the same outcome. From these 200 negative controls, 600 synthetic positive controls are derived as described in Section <a href="MethodValidity.html#PositiveControls">18.2.2</a>. To evaluate a method, it must be used to produce effect size estimates for all controls, after which the metrics described in Section <a href="MethodValidity.html#metrics">18.2.3</a> can be computed. The benchmark is publicly available, and can be deployed as described in the <a href="https://ohdsi.github.io/MethodEvaluation/articles/OhdsiMethodsBenchmark.html">Running the OHDSI Methods Benchmark vignette</a> in the <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> package.</p>
+<p>We have run all the methods in the OHDSI Methods Library through this benchmark, with various analysis choices per method. For example, the cohort method was evaluated using propensity score matching, stratification, and weighting. This experiment was executed on four large observational healthcare databases. The results, viewable in an online Shiny app<a href="#fn63" class="footnoteRef" id="fnref63"><sup>63</sup></a>, show that although several methods show high AUC (the ability to distinguish positive controls from negative controls), most methods in most settings demonstrate high type 1 error and low coverage of the 95% confidence interval, as shown in Figure <a href="MethodValidity.html#fig:methodEval">18.9</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:methodEval"></span>
+<img src="images/MethodValidity/methodEval.png" alt="Coverage of the 95\% confidence interval for the methods in the Methods Library. Each dot represents the performance of a specific set of analysis choices. The dashed line indicates nominal performance (95\% coverage). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease." width="100%" />
+<p class="caption">
+Figure 18.9: Coverage of the 95% confidence interval for the methods in the Methods Library. Each dot represents the performance of a specific set of analysis choices. The dashed line indicates nominal performance (95% coverage). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.
+</p>
+</div>
+<p>This emphasizes the need for empirical evaluation and calibration: if no empirical evaluation is performed, which is true for almost all published observational studies, we must assume a prior informed by the results in Figure <a href="MethodValidity.html#fig:methodEval">18.9</a>, and conclude that it is likely that the true effect size is not contained in the 95% confidence interval!</p>
+<p>Our evaluation of the designs in the Methods Library also shows that empirical calibration restores type 1 error and coverage to their nominal values, although often at the cost of increasing type 2 error and decreasing precision.</p>
+</div>
+<div id="summary-16" class="section level2">
+<h2><span class="header-section-number">18.5</span> Summary</h2>
+
+<div class="rmdsummary">
+<ul>
+<li><p>A method’s validity depends on whether the assumptions underlying the method are met.</p></li>
+<li><p>Where possible, these assumptions should be empirically tested using study diagnostics.</p></li>
+<li><p>Control hypotheses, questions where the answer is known, should be used to evaluate whether a specific study design produces answers in line with the truth.</p></li>
+<li><p>Often, p-values and confidence intervals do not demonstrate nominal characteristics as measured using control hypotheses.</p></li>
+<li><p>These characteristics can often be restored to nominal using empirical calibration.</p></li>
+<li>Study diagnostics can be used to guide analytic design choices and adapt the protocol, as long as the researcher remains blinded to the effect of interest to avoid p-hacking.</li>
+</ul>
+</div>
+
+
+</div>
+</div>
+
+
+
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-arnold_2016">
+<p>Arnold, B. F., A. Ercumen, J. Benjamin-Chung, and J. M. Colford. 2016. “Brief Report: Negative Controls to Detect Selection Bias and Measurement Bias in Epidemiologic Studies.” <em>Epidemiology</em> 27 (5): 637–41.</p>
+</div>
+<div id="ref-dersimonian_1986">
+<p>DerSimonian, R., and N. Laird. 1986. “Meta-analysis in clinical trials.” <em>Control Clin Trials</em> 7 (3): 177–88.</p>
+</div>
+<div id="ref-higgins_2003">
+<p>Higgins, J. P., S. G. Thompson, J. J. Deeks, and D. G. Altman. 2003. “Measuring inconsistency in meta-analyses.” <em>BMJ</em> 327 (7414): 557–60.</p>
+</div>
+<div id="ref-lipsitch_2010">
+<p>Lipsitch, M., E. Tchetgen Tchetgen, and T. Cohen. 2010. “Negative controls: a tool for detecting confounding and bias in observational studies.” <em>Epidemiology</em> 21 (3): 383–88.</p>
+</div>
+<div id="ref-madigan_2013">
+<p>Madigan, D., P. B. Ryan, M. Schuemie, P. E. Stang, J. M. Overhage, A. G. Hartzema, M. A. Suchard, W. DuMouchel, and J. A. Berlin. 2013. “Evaluating the impact of database heterogeneity on observational study results.” <em>Am. J. Epidemiol.</em> 178 (4): 645–51.</p>
+</div>
+<div id="ref-noren_2014">
+<p>Noren, G. N., O. Caster, K. Juhlin, and M. Lindquist. 2014. “Zoo or savannah? Choice of training ground for evidence-based pharmacovigilance.” <em>Drug Saf</em> 37 (9): 655–59.</p>
+</div>
+<div id="ref-prased_2013">
+<p>Prasad, V., and A. B. Jena. 2013. “Prespecified falsification end points: can they validate true observational associations?” <em>JAMA</em> 309 (3): 241–42.</p>
+</div>
+<div id="ref-rosenbaum_2005">
+<p>Rosenbaum, P. 2005. “Sensitivity Analysis in Observational Studies.” In <em>Encyclopedia of Statistics in Behavioral Science</em>. American Cancer Society. doi:<a href="https://doi.org/10.1002/0470013192.bsa606">10.1002/0470013192.bsa606</a>.</p>
+</div>
+<div id="ref-schuemie_2018">
+<p>Schuemie, M. 2018. “Empirical confidence interval calibration for population-level effect estimation studies in observational healthcare data.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 115 (11): 2571–7.</p>
+</div>
+<div id="ref-schuemie_2014">
+<p>Schuemie, M. J., P. B. Ryan, W. DuMouchel, M. A. Suchard, and D. Madigan. 2014. “Interpreting observational studies: why empirical calibration is needed to correct p-values.” <em>Stat Med</em> 33 (2): 209–18.</p>
+</div>
+<div id="ref-schuemie_2018b">
+<p>Schuemie, M. J., P. B. Ryan, G. Hripcsak, D. Madigan, and M. A. Suchard. 2018. “Improving reproducibility by using high-throughput observational studies with empirical calibration.” <em>Philos Trans A Math Phys Eng Sci</em> 376 (2128).</p>
+</div>
+<div id="ref-suchard_2013">
+<p>Suchard, M. A., S. E. Simpson, Ivan Zorych, P. B. Ryan, and David Madigan. 2013. “Massive Parallelization of Serial Inference Algorithms for a Complex Generalized Linear Model.” <em>ACM Trans. Model. Comput. Simul.</em> 23 (1). New York, NY, USA: ACM: 10:1–10:17. doi:<a href="https://doi.org/10.1145/2414416.2414791">10.1145/2414416.2414791</a>.</p>
+</div>
+<div id="ref-voss_2016">
+<p>Voss, E. A., R. D. Boyce, P. B. Ryan, J. van der Lei, P. R. Rijnbeek, and M. J. Schuemie. 2016. “Accuracy of an Automated Knowledge Base for Identifying Drug Adverse Reactions.” <em>J Biomed Inform</em>, December.</p>
+</div>
+<div id="ref-zaadstra_2008">
+<p>Zaadstra, B. M., A. M. Chorus, S. van Buuren, H. Kalsbeek, and J. M. van Noort. 2008. “Selective association of multiple sclerosis with infectious mononucleosis.” <em>Mult. Scler.</em> 14 (3): 307–13.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="63">
+<li id="fn63"><p><a href="http://data.ohdsi.org/MethodEvalViewer/" class="uri">http://data.ohdsi.org/MethodEvalViewer/</a><a href="MethodValidity.html#fnref63">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="SoftwareValidity.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="StudySteps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/OHDSI/TheBookOfOhdsi/edit/master/MethodValidity.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsiKorea.pdf", "TheBookOfOhdsiKorea.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
