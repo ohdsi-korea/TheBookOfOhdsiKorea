@@ -1,86 +1,206 @@
-# Characterization {#Characterization}
+# 환자 특성 분석 Characterization {#Characterization}
+
+*챕터 작성자 : Anthony Sena & Daniel Prieto-Alhambra*
+*번역 : 박유진*
 
 *Chapter leads: Anthony Sena & Daniel Prieto-Alhambra*
 
-Observational healthcare databases provide a valuable resource to understand variations in populations based on a host of characteristics. Characterizing populations through the use of descriptive statistics is an important first step in generating hypotheses about the determinants of health and disease. In this chapter we cover methods for characterization:
+관찰형 보건의료 데이터베이스는 다양한 특성을 기반으로하는 인구의 변화를 이해하는데 유용한 자원을 제공합니다. 
+Observational healthcare databases provide a valuable resource to understand variations in populations based on a host of characteristics.
+기술 통계를 이용한 인구 특성 분석은 건강과 질병에 영향을 주는 결정 요인(determinants)에 대한 가설 설정을 위한 첫 번째 중요한 과정입니다.
+Characterizing populations through the use of descriptive statistics is an important first step in generating hypotheses about the determinants of health and disease. 
+이 챕터에서는 특성 분석을 위한 방법들을 소개할 것입니다:
+In this chapter we cover methods for characterization:
 
-* **Database-level characterization**: provides a top-level set of summary statistics to understand the data profile of a database in its totality.
-* **Cohort characterization**: describes a population in terms of its aggregate medical history.
-* **Treatment pathways**: describes the sequence of interventions a person received for a duration of time.
-* **Incidence**: measures the occurrence rate of an outcome in a population for a time at risk.
+* **데이터베이스 수준의 특성 분석 (Database-level characterization)**: 
+데이터베이스의 데이터 프로파일을 전체적으로 이해하기 위한 상위 수준(top-level)의 기술 통계 세트를 제공합니다
+provides a top-level set of summary statistics to understand the data profile of a database in its totality.
+* **코호트의 특성 분석 (Cohort characterization)**: 
+집계된 과거력으로 인구(population)를 설명합니다.
+describes a population in terms of its aggregate medical history.
+* **치료 경로 (Treatment pathways)**:
+한 개인이 일정 기간 동안 받은 치료의 순서를 설명합니다.
+describes the sequence of interventions a person received for a duration of time.
+* **발생 (Incidence)**: 
+인구집단에서 위험에 노출된 기간(time at risk, TAR)동안의 outcome의 발생률을 계산합니다.
+measures the occurrence rate of an outcome in a population for a time at risk.
 
-With the exception of database-level characterization, these methods aim to describe a population relative to an event referred to as the index date. This population of interest is defined as a cohort as described in chapter \@ref(Cohorts). The cohort defines the index date for each person in the population of interest. Using the index date as an anchor, we define the time preceding the index date as **baseline** time. The index date and all time after is called the **post-index** time. 
+데이터베이스 수준의 특성 분석을 제외하고 위의 특성 분석 방법들은 index date라고 하는 시점과 관련된 인구 집단에 대해 설명하는 것을 목표로 합니다.
+With the exception of database-level characterization, these methods aim to describe a population relative to an event referred to as the index date.
+이처럼 관심이 있는 (분석하고자 하는) 인구집단을 본 챕터에서는 코호트라고 정의하겠습니다.
+This population of interest is defined as a cohort as described in chapter \@ref(Cohorts). 
+코호트는 관심 있는 인구집단의 개인 한명 한명에 대한 index date를 정의합니다.
+The cohort defines the index date for each person in the population of interest. 
+index date를 기준으로 하여 index date이전의 시간을 **기본(baseline)** 시간(time)이라 정의합니다. 
+Using the index date as an anchor, we define the time preceding the index date as **baseline** time. 
+index date를 포함한 그 이후의 시간들은 **index 후(post-index)** 시간(time)이라 합니다.
+The index date and all time after is called the **post-index** time. 
 
-Use-cases for characterization include disease natural history, treatment utilization and quality improvement. In this chapter will describe the methods for characterization. We will use a population of hypertensive persons to demonstrate how to use ATLAS and R to perform these characterization tasks.\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
+특성 분석을 통해 다음과 같은 곳에서 활용할 수 있습니다: 질병의 자연사 (disease natural history), 치료의 이용(utilization)과 품질 개선.  
+Use-cases for characterization include disease natural history, treatment utilization and quality improvement. 
+이번 챕터에서는 특성 분석 방법에 대해 설명할 것입니다.
+In this chapter will describe the methods for characterization. 
+ATLAS와 R을 이용해 고혈압 집단에 대한 특성 분석 과정을 보여줄 것입니다.
+We will use a population of hypertensive persons to demonstrate how to use ATLAS and R to perform these characterization tasks.\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
 
-## Database Level Characterization
+## 데이터베이스 수준의 특성 분석 (Database Level Characterization)
 
-Before we can answer any characterization question about a population of interest, we must first understand the characteristics of the database we intend to utilize. Database level characterization seeks to describe the totality of a database in terms of the temporal trends and distributions. This quantitative assessment of a database will typically include questions such as: 
+우리가 관심있는 인구 집단에 대한 특성 분석을 시행하기 전에 우리가 사용하고자 하는 데이터베이스의 특성을 이해하는 것이 선행되어야 합니다.
+Before we can answer any characterization question about a population of interest, we must first understand the characteristics of the database we intend to utilize. 
+데이터베이스 수준의 특성 분석은 일시적인 트렌드와 분포의 관점에서 데이터베이스를 전체적으로 설명하는데 사용됩니다.
+Database level characterization seeks to describe the totality of a database in terms of the temporal trends and distributions. 
+이러한 데이터베이스의 정량적인 평가는 다음과 같은 물음을 전형적으로 포함합니다:
+This quantitative assessment of a database will typically include questions such as: 
 
-* What is the total count of persons in this database?
-* What is the distribution of age for persons?
-* How long are persons in this database observed for?
-* What is the proportion of persons having a {treatment, condition, procedure, etc} recorded/prescribed over time?
+* 이 데이터베이스의 총 사람 수는 몇인가? 
+What is the total count of persons in this database?
+* 사람들의 연령 분포는 어떠한가?
+What is the distribution of age for persons?
+* 이 데이터베이스에 있는 사람들은 얼마나 오래 관찰되었는가?
+How long are persons in this database observed for?
+* 시간이 지남에 따라 기록/처방된 {치료, 질병, 처치 등}을 받은 사람의 분포는 어떠한가? 
+What is the proportion of persons having a {treatment, condition, procedure, etc} recorded/prescribed over time?
 
+이러한 데이터베이스 수준의 기술 통계는 연구자가 데이터베이스에 어떠한 데이터에서 손실이 있을 수 있는지를 이해할 수 있도록 합니다.
 These database-level descriptive statistics also help a researcher to understand what data may be missing in a database. Chapter \@ref(DataQuality) goes into further detail on data quality. \index{characterization!database level}
 
-## Cohort Characterization
+## 코호트 특성 분석 (Cohort Characterization)
 
-Cohort characterization describes the baseline and post-index characteristics of people in a cohort. OHDSI approaches characterization through descriptive statistics of all conditions, drug and device exposures, procedures and other clinical observations that are present in the person’s history. We also summarize the socio-demographics of members of the cohort at the index date. This approach provides a complete summary of the cohort of interest. Importantly, this enables a full exploration of the cohort with an eye towards variation in the data while also allowing for identification of potentially missing values. 
+코호트 특성 분석은 코호트에 포함된 사람들의 기본(baseline)과 index 후(post-index) 특성에 대해 설명합니다.
+Cohort characterization describes the baseline and post-index characteristics of people in a cohort. 
+OHDSI에서는 개인의 과거에 존재한 모든 질병, 약물 및 치료재료에의 노출, 시술, 그리고 다른 임상적인 관찰에 대한 서술 통계를 통해 특성 분석을 시행하도록 합니다.
+OHDSI approaches characterization through descriptive statistics of all conditions, drug and device exposures, procedures and other clinical observations that are present in the person’s history. 
+또한 index date에서 코호트에 포함된 사람들의 사회인구통계에 대해 간략히 보여줍니다.
+We also summarize the socio-demographics of members of the cohort at the index date. This approach provides a complete summary of the cohort of interest. 
+무엇보다도 이와 같은 분석은 데이터의 변화에 주목하여 잠재적인 결측값에 대한 식별을 가능하게 하면서 코호트에 대한 전체적인 탐색을 가능하게 합니다. 
+Importantly, this enables a full exploration of the cohort with an eye towards variation in the data while also allowing for identification of potentially missing values. 
 
-Cohort characterization methods can be used for person-level drug utilization studies (DUS) to estimate the prevalence of indications and contraindications amongst users of a given treatment. The dissemination of this cohort characterization is a recommended best practice for observational studies as detailed in the Strengthening the Reporting of Observation Studies in Epidemiology (STROBE) guidelines. [@VONELM2008344] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
+코호트 특성 분석 방법은 주어진 치료를 받은 사람들 사이에 적응증(indications) 및 금기(contraindications)에 대한 유병률(prevalence)을 추정하기 위한 사람 수준 (person-level)의 약물 사용 연구 (drug utilization studies, DUS)에 사용될 수 있습니다.
+Cohort characterization methods can be used for person-level drug utilization studies (DUS) to estimate the prevalence of indications and contraindications amongst users of a given treatment. 
+이 코호특 특성 분석은 Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) 가이드라인에 자세히 설명 된 관찰 연구에 권장되는 모범 사례입니다.   
+The dissemination of this cohort characterization is a recommended best practice for observational studies as detailed in the Strengthening the Reporting of Observation Studies in Epidemiology (STROBE) guidelines. [@VONELM2008344] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
 
-## Treatment Pathways
+## 치료 경로 (Treatment Pathways)
 
-Another method to characterize a population is to describe the treatment sequence during the post-index time window. For example, @Hripcsak7329 utilized the OHDSI common data standards to create descriptive statistics to characterize treatment pathways for type 2 diabetes, hypertension and depression. By standardizing this analytic approach, Hripcsak and colleagues were able to run the same analysis across the OHDSI network to describe the characteristics of these populations of interest. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
+인구의 특성을 분석하는 또 하나의 방법은 index 후 (post-index) 시기 동안의 치료 순서에 대한 것입니다. 
+Another method to characterize a population is to describe the treatment sequence during the post-index time window. 
+예를 들어 @Hripcsak7329 은 OHDSI의 공통 데이터 표준을 활용해 제 2형 당뇨, 고혈압, 우울증에 대한 치료 경로 기술 통계를 만들었습니다.
+For example, @Hripcsak7329 utilized the OHDSI common data standards to create descriptive statistics to characterize treatment pathways for type 2 diabetes, hypertension and depression. 
+이런 분석 방법을 표준화 함으로써, Hripcsak과 그 연구팀은 관심있는 인구 집단의 특성 분석을 OHDSI 네트워크 상에서 동일한 통계방법으로 실행할 수 있었습니다.
+By standardizing this analytic approach, Hripcsak and colleagues were able to run the same analysis across the OHDSI network to describe the characteristics of these populations of interest. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
 
-The pathway analysis aims to summarize the treatments (events) received by persons diagnosed with a specific condition from the first drug prescription/dispensation. In this study, treatments were described after the diagnosis of type 2 diabetes, hypertension and depression respectively. The events for each person were then aggregated to a set of summary statistics and visualized for each condition and for each database.
+경로 분석은 특정 질환으로 진단된 환자가 받은 치료를 가장 처음 처방/조제된 약물부터 요약하기 위해 시행합니다.  
+The pathway analysis aims to summarize the treatments (events) received by persons diagnosed with a specific condition from the first drug prescription/dispensation. 
+이 연구에서는 제 2형 당뇨, 고혈압, 우울증의 진단 이후의 치료들을 분석했습니다. 
+In this study, treatments were described after the diagnosis of type 2 diabetes, hypertension and depression respectively. 
+개개인이 받은 치료(event)들은 이후 요약 통계 세트로 집계되고 각각의 질병과 각각의 데이터베이스에서 시각화됩니다. 
+The events for each person were then aggregated to a set of summary statistics and visualized for each condition and for each database.
 
 ```{r treatmentPathwaysSunburstDataViz, fig.cap='OHDSI Treatment Pathways "sunburst" visualization for hypertension', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.png")
 ```
 
-As an example, figure \@ref(fig:treatmentPathwaysSunburstDataViz) represents a population of persons initiating treatment for hypertension. The first ring in the center shows the proportion of persons based on their first-line therapy. In this example, Hydrochlorothiazide is the most common first-line therapy for this population. The boxes that extend from the Hydrochlorothiazide section represent the 2nd and 3rd line therapies recorded for persons in the cohort. 
+예를 들어, figure \@ref(fig:treatmentPathwaysSunburstDataViz) 는 고혈압 치료를 시작한 사람들의 인구집단을 보여줍니다.
+As an example, figure \@ref(fig:treatmentPathwaysSunburstDataViz) represents a population of persons initiating treatment for hypertension. 
+중간으로부터 첫 번째 원은 그들이 가장 처음 받은 치료(first-line therapy)를 기준으로 한 사람들의 비율을 보여줍니다. 
+The first ring in the center shows the proportion of persons based on their first-line therapy. 
+예를 들어, Hydrochlorothiazide는 이 인구집단에서는 가장 흔하게 사용되는 첫 번째 치료 약물(first-line therapy)이라 할 수 있습니다. 
+In this example, Hydrochlorothiazide is the most common first-line therapy for this population. 
+Hydrochlorothiazide 부분에서 확장된 상자들은 해당 코호트에 속한 사람들에게서 기록된 두 번째, 세 번째 치료법을 나타냅니다.  
+The boxes that extend from the Hydrochlorothiazide section represent the 2nd and 3rd line therapies recorded for persons in the cohort. 
 
-A pathways analysis provides important evidence about treatment utilization amongst a population. From this analysis we can describe the most prevalent first-line therapies utilized, the proportion of persons that discontinue treatment, switch treatments or augment their therapy. Using the pathway analysis, @Hripcsak7329 found that metformin is the most commonly prescribed medication for diabetes thus confirming general adoption of the first-line recommendation of the American Association of Clinical Endocrinologists diabetes treatment algorithm. Additionally, they noted that 10% of diabetes patients, 24% of hypertension patients, and 11% of depression patients followed a treatment pathway that was shared with no one else in any of the data sources. 
+경로 분석은 인구집단 내의 치료 활용에 대한 중요한 근거를 제공합니다. 
+A pathways analysis provides important evidence about treatment utilization amongst a population. 
+이 분석으로부터 우리는 가장 빈번히 사용되는 첫 번째 치료(first-line therapies)를 표현할 수 있고, 치료가 중단, 변경, 혹은 강화된 사람들의 비율을 알 수 있습니다. 
+From this analysis we can describe the most prevalent first-line therapies utilized, the proportion of persons that discontinue treatment, switch treatments or augment their therapy. 
+경로 분석을 통해 @Hripcsak7329 은 metformin이 당뇨에서 가장 일반적으로 처방된 임을 밝혔고, 미국 내분비학회의 당뇨 치료 알고리즘의 일차 추천 약제가 일반적으로 적용이 되고 있음을 확인했습니다. 
+Using the pathway analysis, @Hripcsak7329 found that metformin is the most commonly prescribed medication for diabetes thus confirming general adoption of the first-line recommendation of the American Association of Clinical Endocrinologists diabetes treatment algorithm. 
+더불어 당뇨 환자의 10%, 고혈압 환자의 24%, 그리고 우울증 환자의 11%는 다른 데이터베이스의 사람들과 공유되지 않는 치료 경로를 따르고 있다고 말했습니다. 
+Additionally, they noted that 10% of diabetes patients, 24% of hypertension patients, and 11% of depression patients followed a treatment pathway that was shared with no one else in any of the data sources. 
 
+전형적인 약물 사용 연구 (DUS) 용어로써 치료 경로 분석은 서로 다른 치료 간 지속과 변경을 측정하는 것을 포함하는 몇몇 사람 수준 (person-level)의 약물 사용 (DUS) 뿐 아니라 특정 인구집단에서 하나 이상의 약물 치료의 보급률과 같은 인구 수준 (population-level)의 약물 사용 (DUS)을 측정하는 연구를 모두 포함합니다. 
 In classic DUS terminology, treatment pathway analyses include some population-level DUS estimates such as prevalence of use of one or more medications in a specified population, as well as some person-level DUS including measures of persistence and switching between different therapies.
 
-## Incidence
+## 발생 (Incidence)
 
-Incidence rates and proportions are statistics that are used in public health to assess the occurrence of a new outcome in a population during a time-at-risk (TAR). Figure \@ref(fig:incidenceTimeline) aims to show the components of an incidence calculation for a single person: \index{incidence}
+발생률과 발생비는 공중 보건에서 위험에 노출된 기간 (time-at-risk, TAR)동안 인구집단 내 새로운 outcome의 발생의 평가에 사용되는 통계값입니다.
+Incidence rates and proportions are statistics that are used in public health to assess the occurrence of a new outcome in a population during a time-at-risk (TAR).
+
+Figure \@ref(fig:incidenceTimeline) 는 한 사람에게서 발생률 계산의 구성을 보여주고 있습니다: \index{incidence}
+Figure \@ref(fig:incidenceTimeline) aims to show the components of an incidence calculation for a single person: \index{incidence}
 
 ```{r incidenceTimeline, fig.cap='Person-level view of incidence calculation components. In this example, time-at-risk is defined to start one day after cohort start, and end at cohort end.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/incidenceTimeline.png")
 ```
 
-In figure \@ref(fig:incidenceTimeline), a person has a period of time where they are observed in the data denoted by their observation start and end time. Next, the person has a point in time where they enter and exit a cohort by meeting some eligibility criteria. The time at risk window then denotes when we seek to understand the occurrence of an outcome. If the outcome falls into the TAR, we count that as an incidence of the outcome. 
+figure \@ref(fig:incidenceTimeline)에서 각각의 사람은 관찰 시작과 관찰 종료 시간으로 표시된 데이터에서 관찰된 기간을 갖습니다. 
+In figure \@ref(fig:incidenceTimeline), a person has a period of time where they are observed in the data denoted by their observation start and end time. 
+그 다음, 각각의 사람은 몇몇 조건 (eligibility criteria)에 의해 코호트에 들어가는 (enter) 시점과 나가는 (exit) 시점을 갖습니다. 
+Next, the person has a point in time where they enter and exit a cohort by meeting some eligibility criteria. 
+위험에 노출되는 (time at risk, TAR) 기간은 우리가 outcome의 발생을 보고자 하는 구간으로 표시합니다.
+The time at risk window then denotes when we seek to understand the occurrence of an outcome. 
+만일 outcome이 위험에 노출되는 구간 (time at risk, TAR)에서 발생한다면, outcome이 발생된 것으로 인정합니다. 
+If the outcome falls into the TAR, we count that as an incidence of the outcome. 
 
+발생을 계산하는 두 가지 식이 있습니다:  
 There are two metrics for calculating incidence:
+
+
+$$ 
+발생\;분율 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{\#\;TAR을\;가지면서\;코호트에\;포함된\;사람}
+$$
 
 $$ 
 Incidence\;Proportion = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{\#\;persons\;in\;cohort\;with\;TAR}
 $$
 
-An incidence proportion provides a measure of the new outcomes per person in the population during the time-at-risk. Stated another way, this is the proportion of the population of interest that developed the outcome in a defined timeframe.\index{incidence!proportion}
+발생 분율은 위험 노출 기간 (time-at-risk, TAR)동안 인구 집단 중 새로운 outcome의 발생을 측정을 나타냅니다.
+An incidence proportion provides a measure of the new outcomes per person in the population during the time-at-risk. 
+다른 방식으로 말하자면, 관심 있는 인구 집단에서 정해진 시간의 틀 안에서 발생한 outcome의 비율입니다.\index{incidence!proportion}
+Stated another way, this is the proportion of the population of interest that developed the outcome in a defined timeframe.\index{incidence!proportion}
+
+$$
+발생률 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{코호트에\;포함된\;사람들의\;위험\;노출\;기간\;(TAR)로\;구한\;인-시\;(person\;time\;at\;risk)}
+$$
 
 $$
 Incidence\;Rate = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{person\;time\;at\;risk\;contributed\;by\;persons\;in\;cohort}
 $$
 
-An incidence rate is a measure of the number of new outcomes during the cumulative TAR for the population. When a person experiences the outcome in the TAR, their contribution to the total person-time stops at the occurrence of the outcome event. The cumulative TAR is referred to as **person-time** and is expressed in days, months or years.\index{incidence!rate} \index{person-time}
+발생률은 인구집단에서 축적된 위험 노출 기간 (TAR)동안 새로 발생된 outcome의 횟수를 측정한 것을 말합니다. 
+An incidence rate is a measure of the number of new outcomes during the cumulative TAR for the population. 
+위험 노출 기간 (TAR)에서 outcome을 경험했을 때, 발생한 사람은 전체 인-시 (person-time)에 기여하는 개인의 인-시 (person-time)는 outcome이 발생한 시점에서 멈춥니다.
+When a person experiences the outcome in the TAR, their contribution to the total person-time stops at the occurrence of the outcome event. 
+축적된 위험 노출 기간 (TAR)은 **인-시(person-time)**라고 하고, 단위는 일, 개월, 혹은 년으로 표현합니다.\index{incidence!rate} \index{person-time}
+The cumulative TAR is referred to as **person-time** and is expressed in days, months or years.\index{incidence!rate} \index{person-time}
 
+치료 요법에 대하여 계산할 때, 주어진 치료 요법에 대한 발생 분율 혹은 발생률 계산은 전형적인 인구 집단 수준의 약물 사용 연구 (DUS)라 할 수 있습니다.  
 When calculated for therapies, incidence proportions and incidence rates of use of a given therapy are classic population-level DUS.
 
-## Characterizing Hypertensive Persons
+## 고혈압 환자의 특성 분석 (Characterizing Hypertensive Persons)
 
-Per the World Health Organization’s (WHO) global brief on hypertension [@WHOHypertension], there are significant health and economic gains attached to early detection, adequate treatment and good control of hypertension. The WHO brief provides an overview of hypertension and characterizes the burden of the disease across different countries. The WHO provides descriptive statistics around hypertension for geographic regions, socio-economic class and gender. 
+World Health Organization (WHO)의 고혈압에 대한 보고서에 따르면 [@WHOHypertension], 고혈압의 초기 발견, 적절한 치료 그리고 관리에 상당한 건강과 경제적인 이득이 있습니다.
+Per the World Health Organization’s (WHO) global brief on hypertension [@WHOHypertension], there are significant health and economic gains attached to early detection, adequate treatment and good control of hypertension. 
+WHO의 보고서는 고혈압과 서로 다른 국가 간 질병 부담의 특성에 대한 전반적인 정보를 제공합니다. 
+The WHO brief provides an overview of hypertension and characterizes the burden of the disease across different countries. 
+고혈압에 대한 지역, 사회 경제적인 계급 그리고 성별에 대한 서술 통계를 제공합니다.  
+The WHO provides descriptive statistics around hypertension for geographic regions, socio-economic class and gender. 
 
-Observational data sources provide a way to characterize hypertensive populations as was done by the WHO. In the subsequent sections of this chapter, we’ll explore the ways that we make use of ATLAS and R to explore a database to understand its composition for studying hypertensive populations. Then, we will use these same tools to describe the natural history and treatment patterns of hypertensive populations.
+관찰형 데이터 소스는 WHO에서 한 것과 같은 고혈압 집단에 대한 특성 분석을 제공합니다. 
+Observational data sources provide a way to characterize hypertensive populations as was done by the WHO. 
+이 챕터의 다음 섹션에서는 ATLAS와 R을 이용해 고혈압 집단을 연구하기 위한 데이터베이스의 구성을 이해하기 위 데이터베이스를 탐색하는 방법을 살펴봅니다.  
+In the subsequent sections of this chapter, we’ll explore the ways that we make use of ATLAS and R to explore a database to understand its composition for studying hypertensive populations. 
+또한, 동일한 툴을 사용해 고혈압 집단의 자연사 (natural history)와 치료 패턴을 알아 볼 것입니다. 
+Then, we will use these same tools to describe the natural history and treatment patterns of hypertensive populations.
 
-## Database Characterization in ATLAS
- 
-Here we demonstrate how to use the data sources module in ATLAS to explore database characterization statistics created with [ACHILLES](https://github.com/OHDSI/Achilles) to find database level characteristics related to hypertensive persons. Start by clicking on ![](images/Characterization/atlasDataSourcesMenuItem.png) in the left bar of ATLAS to start. In the first drop down list shown in ATLAS, select the database to explore. Next, use the drop down below the database to start exploring reports. To do this, select the Condition Occurrence from the report drop down which will reveal a treemap visualization of all conditions present in the database:
+## ATLAS에서 데이터베이스의 특성 분석 (Database Characterization in ATLAS)
+
+여기서는 ATLAS의 데이터 소스 모듈을 사용하여 고혈압 환자와 관련된 데이터베이스 수준의 특성을 알아내기 위해 [ACHILLES](https://github.com/OHDSI/Achilles) 로 생성된 데이터베이스의 특성 분석 통계를 탐색하는 방법을 보여줍니다. 
+Here we demonstrate how to use the data sources module in ATLAS to explore database characterization statistics created with [ACHILLES](https://github.com/OHDSI/Achilles) to find database level characteristics related to hypertensive persons. 
+시작하려면 ATLAS의 왼쪽 바의 ![](images/Characterization/atlasDataSourcesMenuItem.png)을 클릭해 시작하십시오.
+Start by clicking on ![](images/Characterization/atlasDataSourcesMenuItem.png) in the left bar of ATLAS to start. 
+
+In the first drop down list shown in ATLAS, select the database to explore. Next, use the drop down below the database to start exploring reports. To do this, select the Condition Occurrence from the report drop down which will reveal a treemap visualization of all conditions present in the database:
 
 ```{r atlasDataSourcesConditionTreemap, fig.cap='Atlas Data Sources: Condition Occurrence Treemap',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionTreemap.png")
