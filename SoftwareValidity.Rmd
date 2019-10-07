@@ -1,57 +1,58 @@
-# Software Validity {#SoftwareValidity}
+# 소프트웨어의 타당성 {#SoftwareValidity}
 
 *Chapter lead: Martijn Schuemie*
+*번역 : 김청수*
 
-The central question of software validity is
+이 단원의 주요 질문은 다음과 같다.
 
-> Does the software do what it is expected to do?
+> 소프트웨어가 우리의 예상대로 작동하는가?
 
-Software validity is an essential component of evidence quality: only if our analysis software does what it is expected to do can we produce reliable evidence. As described in Section \@ref(automation), it is essential to view every study as a software development exercise, creating an automated script that executes the entire analysis, from data in the Common Data Model (CDM) to the results such as estimates, figures as tables. It is this script, and any software used in this script, that must be validated. As described in Section \@ref(analysisImplementation), we can write the entire analysis as custom code, or we can use the functionality available in the [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/). The advantage of using the Methods Library is that great care has already been taken to ensure its validity, so establishing the validity of the entire analysis becomes less burdensome. \index{software validity} \index{common data model}
+소프트웨어의 타당성은 근거 품질의 필수적인 구성 요소이며, 우리의 분석 소프트웨어가 예상 기능을 수행하는 경우에만 신뢰할 수 있는 근거를 생성할 수 있다. \@ref(automation) 절에 설명한대로, 모든 연구를 소프트웨어 개발 활동으로 보고, 공통데이터모델의 데이터부터 추정치와 같은 결과, 그림과 표에 이르기까지 전체 분석을 실행하는 자동화된 스크립트를 만드는 것이 필수적이며, 이 스크립트와 스크립트 내에 사용된 모든 소프트웨어는 유효성 검증을 반드시 시행해야 한다. \@ref(analysisImplementation) 에서 언급하였듯이, 우리는 전체 분석 과정을 사용자의 자신의 코드로 직접 작성하거나, 오딧세이 연구방법 라이브러리[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에서 적절한 기능들을 사용할 수 있다. 연구방법 라이브러리(Methods Library)를 사용하면 얻을 수 있는 이점은 이미 타당성을 보장하기 위해 여러 노력이 가해진 방법들을 사용함으로써 전체 분석과정의 타당성을 정립하는데 있어 부담을 덜 수 있다는 점이다. \index{software validity} \index{common data model}
 
-In this chapter we first describe best practices for writing valid analysis code. After this we discuss how the Methods library is validated through its software development process and testing. \index{software development process}
+이 단원에서는 먼저 타당한 분석 코드를 작성하기 위한 몇 가지 모범 사례들을 살펴볼 것이고, 그 이후 소프트웨어 개발 과정과 검사를 통해 연구방법 라이브러리(Method Library)의 타당성을 검사하는 방법에 대해 설명할 것이다. \index{software development process}
 
-## Study Code Validity
+## 분석 코드의 타당성
 
-### Automation As a Requirement for Reproducibility {#automation}
+### 재현성 충족을 위한 자동화 {#automation}
 
-Traditionally, observational studies are often viewed as a journey rather than a process: a database expert may extract a data set from the database and hand this over to the data analyst, who may open it in a spreadsheet editor or other interactive tool, and start working on the analysis. In the end, a result is produced, but little is preserved of how it came about. The destination of the journey was reached, but it is not possible to retrace the exact steps taken to get there. This practice is entirely unacceptable, both because it is not reproducible, but also because it lacks transparency; we do not know exactly what was done to produce the result, so we also cannot verify that no mistakes were made. \index{study code validity}
+전통적으로 관찰연구는 종종 일련의 과정이라기보다는 여정(journey)에 비유되기도 한다. 데이터베이스 전문가는 데이터베이스에서 데이터셋을 추출하여 이를 데이터 분석가에게 넘겨주고, 데이터 분석가는 스프레드시트 편집기나 다른 편집도구를 사용하여 데이터셋을 열고 분석을 수행한다. 마지막으로 분석 결과가 생성되지만, 어떻게 이 결과가 도출되었는지 거의 보존되지 않는다. 여행의 목적지에는 도달했지만, 그 곳에 도달하기 위해 취한 정확한 단계들을 추적할 수는 없다. 이 방법은 재현할 수 없고(not reproducible), 투명성(transparency)이 부족하기 때문에 온전히 받아들여지지 않는다. \index{study code validity}
 
-Every analysis generating evidence must therefore be fully automated. By automated we mean the analysis should be implemented as a single script, and we should be able to redo the entire analysis from database in CDM format to results, including tables and figures, with a single command. The analysis can be of arbitrary complexity, perhaps producing just a single count, or generating empirically calibrated estimates for millions of research questions, but the same principle applies. The script can invoke other scripts, which in turn can invoke even lower-level analysis processes. 
+따라서 근거를 생성하는 모든 분석은 완전히 자동화되어야 한다. 분석의 자동화라는 의미는 단일 스크립트에 CDM 형식의 데이터베이스에서부터 표와 그림을 포함하는 전체 분석 결과를 생성해 내는 과정을 담아내어, 단일 명령으로 모든 과정을 재실행 할 수 있도록 구현하는 것이다. 분석은 단순히 수를 세는 것부터 수백만 건의 연구 문제에 대해 경험적으로 보정된 추정치를 생성하는 것까지 다양한 복잡성을 띄지만, 동일한 원칙이 적용된다. 이 스크립트는 다른 스크립트를 호출하여 하위 분석 절차를 진행하도록 할 수 있다.
 
-The analysis script can be implemented in any computer language, although in OHDSI the preferred language is R. Thanks to the [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) R package, we can connect directly to the data in CDM format, and many advanced analytics are available through the other R packages in the [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/). 
+분석 스크립트는 모든 컴퓨터 언어를 통해 구현할수 있으나, 오딧세이에서는 R 언어를 선호한다. [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 라는 R 패키지 덕분에 R 환경에서 CDM형식의 데이터에 직접 연결하여 사용할 수 있으며, 오딧세이 연구방법론 라이브러리[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/) 내의 다른 R 패키지들을 통해 고급 분석을 사용할 수 있다. 
 
-### Programming Best Practices
+### 프로그래밍 모범 사례
 
-Observational analyses can become very complex, with many steps needed to produce the final results. This complexity can make it harder to maintain the analysis code and increase the likelihood of making errors, as well as making it harder to notice errors. Luckily, computer programmers have over many years developed best practices for writing code that can deal with complexity, which are easy to read, reuse, adapt, and verify. [@Martin_2008] A full discussion of these best practices could fill many books. Here, we highlight these four important principles: \index{programming best practices}
+관찰연구 분석방법들은 최종 결과를 생성하기 위해 많은 단계를 거치거나 매우 복잡해질 수 있다. 이러한 복잡성으로 인해 분석 코드를 유지 관리하기 더욱 어려워지고, 오류가 발생할 가능성이 높아질 뿐 아니라 오류를 인식하기조차 어려워질 수 있다. 다행히도 많은 컴퓨터 프로그래머들은 수 년 동안 복잡한 코드를 작성하고 다루는데 있어서 이 코드들을 읽고, 재사용하고, 적용하고, 검증하는 과정들이 수월하도록 관리하는 몇 가지 모범 사례들을 개발해놓았다. (Martin 2008) 이 우수 사례들은 상당한 분량을 차지하므로, 여기서는 4가지 중요한 원칙을 강조하도록 하겠다. \index{programming best practices}
 
-- **Abstraction**: Rather than write a single large script that does everything, leading to so-called "spaghetti code" where dependencies between lines of code can go from anywhere to anywhere (e.g. a value set on line 10 is used in line 1,000), we can organize our code in units called "functions." A function should have a clear goal, for example "take random sample," and once created we can then use this function in our larger script without having to think of the minutiae of what the function does; we can abstract the function to a simple-to-understand concept.
-- **Encapsulation**: For abstraction to work, we should make sure that dependencies of a function are minimized and clearly defined. Our example sampling function should have a few arguments (e.g. a dataset and a sample size), and one output (e.g. the sample). Nothing else should influence what the function does. So-called "global variables", variables that are set outside a function, are not arguments of a function, but are nevertheless used in the function, should be avoided.
-- **Clear naming**: Variables and functions should have clear names, making code read almost like natural language. For example, instead of `x <- spl(y, 100)`, we can write code that reads `sampledPatients <- takeSample(patients, sampleSize = 100)`. Try to resist the urge to abbreviate. Modern languages have no limits on the length of variable and function names. 
-- **Reuse**: One advantage of writing clear, well encapsulated functions is that they can often be reused. This not only saves time, it also means there will be less code, so less complexity and fewer opportunities for errors.
+- **축약화(Abstraction)**: 모든 것을 수행하는 하나의 큰 스크립트(소위 “스파게티 코드” 라고 하며 코드 라인간 종속성이 있다. 예를 들면, 10행에서 설정된 값이 1000행에서 사용되는 경우를 들 수 있다.)를 작성하는 대신 코드를 “함수”라고 하는 단위로 구성할 수 있다. 함수는 명확한 목표를 가져야 하며(예를 들면 “무작위 샘플 추출”) 일단 생성하고 나면, 다른 스크립트에서도 직관적으로 사용할 수 있다. 이처럼 우리는 함수를 통해서 이해하기 쉬운 개념으로 코드를 추상화하고, 축약화할 수 있다.
+- **캡슐화(Encapsulation)**:축약 작업이 진행되기 위해서, 함수간의 의존성을 명확하게 정의하고 최소화해야 한다. 예로 들었던 무작위 샘플 추출 기능에서는 몇가지 인수(arguments) (예를 들어, 데이터셋과 추출 집단의 크기)와 하나의 출력값(예를 들어, 추출 집단)이 있어야 한다. 이 함수가 수행하는 기능에 있어서 어떠한 것도 영향을 줄 수 없어야 하며, 함수 외부에서 설정된 소위 “전역 변수(global variables)”는 비록 함수의 인수(arguments)는 아니지만 사용하는 것을 피해야 한다.
+- **명확한 명명**: 변수 혹은 함수의 이름은 명확해야하며, 자연어처럼 읽을 수 있도록 하라. 예를 들어, `x <- spl(y, 100)` 보다는 우리가 읽을 수 있도록 `sampledPatients <- takeSample(patients, sampleSize = 100)` 처럼 작성하라. 축약어를 사용하고자 하는 충동에 저항하라. 현대 언어는 변수, 함수의 이름으로 사용하는데 있어 충분히 다양하게 사용할 수 있다.
+- **재사용(Reuse)**: 명확하고 잘 캡슐화된 기능을 작성하였을 때 얻는 장점 중 하나는 계속해서 재사용할 수 있다는 점이다. 이렇게 하면 시간이 절약될 뿐 아니라 코드가 줄어 복잡성이 줄고, 오류가 발생할 가능성이 줄어 든다.
 
-### Code Validation
+### 코드 검증
 
-Several approaches exist to verify the validity of software code, but two are especially relevant for code implementing an observational study:
+소프트웨어 코드의 타당성을 검증하기 위한 여러 가지 방법이 있지만, 관찰연구에서 사용하는 코드와 관련하여 두 가지 방법을 소개하고자 한다.
 
-- **Code review**: One person writes the code, and another person reviews the code.
-- **Double coding**: Two persons both independently write the analysis code, and afterwards the results of the two scripts are compared.
+- **코드 검토**: 한 사람이 코드를 작성하고, 다른 사람이 코드를 검토한다.
+- **이중 코딩**: 두 사람이 독립적으로 분석 코드를 작성하고, 이후에 스크립트 실행 결과를 비교한다.
 
-Code review has the advantage that it is usually less work, but the disadvantage is that the reviewer might miss some errors. Double coding on the other hand is usually very labor intensive, but it is less likely, although not impossible, that errors are missed. Another disadvantage of double coding is that two separate implementations *almost always*  produce different results, due to the many minor arbitrary choices that need to made (e.g. should "until exposure end" be interpreted as including the exposure end date, or not?). As a consequence, the two supposedly independent programmers often need to work together to align their analyses, thus breaking their independence. 
+코드 검토는 일반적으로 작업량이 적지만, 검토자가 일부 오류를 놓칠 수 있다는 단점이 있다. 이중 코딩은 다소 노동 집약적이지만 오류를 놓칠 가능성이 적다. 이중 코딩의 다른 단점은 두 개별적인 코드의 구현이 *대부분, 아니 언제나* 다른 결과를 나타낸다는 점이다. 이는 임의적인 사소한 선택으로 인해 발생한다. (예를 들어 “노출 종료까지” 라는 말은 노출 종료일을 포함하는가 포함하지 않는가?) 결과적으로, 독립적인 두 프로그래머는 독립적으로 이중 코딩을 수행해야 함에도, 분석을 상호 조정하기 위해 협력하여야 할 필요가 있다.
 
-Other software validation practices such as unit testing are less relevant here because a study is typically a one-time activity with highly complex relationships between input (the data in CDM) and outputs (the study results), making these practices less usable. Note that these practices are applied in the Methods Library.
+단위 검사(unit testing)와 같은 다른 소프트웨어 검증 방법은 관찰 연구 특성상 데이터의 입력(CDM 내의 데이터)과 출력(연구 결과) 사이에 높은 복잡도의 관계를 가진 일회성 과정이므로 다소 유용하지 못하기 때문에 관련성이 적다고 할 수 있다. 이러한 다른 검증방법들은 연구방법론 라이브러리(Method Library) 내에서는 적용 되어있다는 점을 주의하라.
 
-### Using the Methods Library
+### 연구 방법론 라이브러리의 활용
 
-The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/) provides a large set of functions, allowing most observational studies to be implemented using only a few lines of code. Using the Methods Library therefore shifts most of the burden of establishing the validity of one's study code to the Library. Validity of the Methods Library is ensured by its software development process and by extensive testing.
+오딧세이 연구방법론 라이브러리 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/) 는 수많은 기능(function)을 제공하기 때문에, 대부분의 관찰 연구를 몇 줄의 코드만으로도 구현할 수 있다. 따라서 연구방법론 라이브러리(Method Library)를 사용하면 개인 연구 내에서 타당성을 입증해야 하는 부담이 연구방법론 라이브러리(Method Library)로 옮겨가게 된다. 연구방법론 라이브러리(Method Library)의 타당성은 자체의 소프트웨어 개발 과정과 광범위한 시험들을 통해 보장된다.
 
-## Methods Library Software Development Process
+## 연구 방법론 라이브러리 소프트웨어의 개발 과정
 
-The OHDSI Methods Library is developed by the OHDSI community. Proposed changes to the Library are discussed in two venues: The GitHub issue trackers (for example the CohortMethod issue tracker[^issueTrackerUrl]) and the OHDSI Forums.[^forumsUrl] Both are open to the public. Any member of the community can contribute software code to the Library, however, final approval of any changes incorporated in the released versions of the software is performed by the OHDSI Population-Level Estimation Workgroup leadership (Drs. Marc Suchard and Martijn Schuemie) and OHDSI Patient-Level Prediction Workgroup leadership (Drs. Peter Rijnbeek and Jenna Reps) only.
+오딧세이 연구방법론 라이브러리(OHDSI Methods Library)는 오딧세이 커뮤니티에서 개발하였으며, 라이브러리에 변경이 제안된 사항들은 GitHub의 issue tracker (예를 들어 CohortMethod issue tracker[^issueTrackerUrl]) 와 오딧세이 포럼[^forumsUrl], 이 두가지 장소에서 논의된다. 두 장소 모두 공개되어 있다. 커뮤니티의 모든 구성원은 소프트웨어 코드를 라이브러리에 제공할 수 있지만, 기존에 배포된 소프트웨어 버전에 대한 변경사항은 오딧세이 인구수준추정 그룹 리더십(현재 Marc Sucahrd 박사, Martigin Schuemie 박사)과 환자수준예측 그룹 리더십(현재 Peter Rijinbeek 박사, Jenna Reps 박사) 만이 최종 결정할 수 있다.
 
 [^issueTrackerUrl]: https://github.com/OHDSI/CohortMethod/issues 
 [^forumsUrl]: http://forums.ohdsi.org/
 
-Users can install the Methods Library in R directly from the master branches in the GitHub repositories, or through a system known as "drat" that is always up-to-date with the master branches. A number of the Methods Library packages are available through R’s Comprehensive R Archive Network (CRAN), and this number is expected to increase over time.
+사용자는 연구방법론 라이브러리(Methods Library)의 GitHub 저장소(master branch)에서 직접 설치할 수 있고, “drat”이라는 시스템을 이용하여서도 최신 버전을 설치할 수 있다. R의 Comprehensive R Archive Network (CRAN)을 통해서 다양한 연구방법론 라이브러리 패키지를 사용할 수 있으며, 이용할 수 있는 패키지의 수는 차차 증가할 것으로 예상된다.
 
 Reasonable software development and testing methodologies are employed by OHDSI to maximize the accuracy, reliability and consistency of the Methods Library performance. Importantly, as the Methods Library is released under the terms of the Apache License V2, all source code underlying the Methods Library, whether it be in R, C++, SQL, or Java is available for peer review by all members of the OHDSI community, and the public in general. Thus, all the functionality embodied within the Methods Library is subject to continuous critique and improvement relative to its accuracy, reliability and consistency.
 
