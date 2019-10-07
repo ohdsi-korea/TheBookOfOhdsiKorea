@@ -199,92 +199,174 @@ Then, we will use these same tools to describe the natural history and treatment
 Here we demonstrate how to use the data sources module in ATLAS to explore database characterization statistics created with [ACHILLES](https://github.com/OHDSI/Achilles) to find database level characteristics related to hypertensive persons. 
 시작하려면 ATLAS의 왼쪽 바의 ![](images/Characterization/atlasDataSourcesMenuItem.png)을 클릭해 시작하십시오.
 Start by clicking on ![](images/Characterization/atlasDataSourcesMenuItem.png) in the left bar of ATLAS to start. 
-
-In the first drop down list shown in ATLAS, select the database to explore. Next, use the drop down below the database to start exploring reports. To do this, select the Condition Occurrence from the report drop down which will reveal a treemap visualization of all conditions present in the database:
+ATLAS에서 첫 번째 드롭 다운 목록에서 탐색할 데이터베이스를 선택하십시오.
+In the first drop down list shown in ATLAS, select the database to explore. 
+그 다음, 원하는 주제에 대한 탐색을 데이터베이스 선택 목록 밑에 있는 두 번째 드롭 다운 목록을 이용해 시작할 수 있습니다.
+Next, use the drop down below the database to start exploring reports. 
+고혈압 환자에 대한 데이터베이스 수준의 특성 분석을 위해 두 번째 드롭 다운 목록인 report 드롭 다운 목록에서 Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병에 대한 treemap 시각화 결과가 표시됩니다:  
+To do this, select the Condition Occurrence from the report drop down which will reveal a treemap visualization of all conditions present in the database:
 
 ```{r atlasDataSourcesConditionTreemap, fig.cap='Atlas Data Sources: Condition Occurrence Treemap',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionTreemap.png")
 ```
 
-To search for a specific condition of interest, click on the Table tab to reveal the full list of conditions in the database with person count, prevalence and records per person. Using the filter box on the top, we can filter down the entries in the table based on concept name containing the term "hypertension":
+관심 있는 특정 질환을 찾기 위해 Table 탭을 클릭하면 데이터베이스에 있는 모든 질환에 대한 전체 리스트가 사람 수, 유병률, 한 사람당 기록 수와 함께 표시됩니다.
+To search for a specific condition of interest, click on the Table tab to reveal the full list of conditions in the database with person count, prevalence and records per person. 
+상단의 filter 칸을 이용해 컨셉 이름에 "hypertension"을 포함하는 경우만을 걸러낼 수 있습니다. 
+Using the filter box on the top, we can filter down the entries in the table based on concept name containing the term "hypertension":
 
 ```{r atlasDataSourcesConditionFiltered, fig.cap='Atlas Data Sources: Conditions with "hypertension" found in the concept name',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionFiltered.png")
 ```
 
-We can explore a detailed drill-down report of a condition by clicking on a row. In this case, we will select "essential hypertension" to get a breakdown of the trends of the selected condition over time and by gender, the prevalence of the condition by month, the type recorded with the condition and the age at first occurrence of the diagnosis:
+행을 클릭하면 해당 질환에 대한 자세한 드릴다운 보고서를 얻을 수 있습니다. 
+We can explore a detailed drill-down report of a condition by clicking on a row. 
+해당 예시에서는 "essential hypertension"을 클릭한 것이며, 이를 통해 시간에 따른 선택된 질환에 대한 성별별 트랜드, 월별 질환의 유병률, 질환에 대해 기록된 타입 (예를들어, 주상병 혹은 부상병) 그리고 질병의 첫 발생 나이에 대한 결과를 얻을 수 있다: 
+In this case, we will select "essential hypertension" to get a breakdown of the trends of the selected condition over time and by gender, the prevalence of the condition by month, the type recorded with the condition and the age at first occurrence of the diagnosis:
 
 ```{r atlasDataSourcesDrillDownReport, fig.cap='Atlas Data Sources: Essential hypertension drill down report',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesDrillDownReport.png")
 ```
 
-Now that we have reviewed the database’s characteristics for the presence of hypertension concepts and the trends over time, we can also explore drugs used to treat hypertensive persons. The process to do this follows the same steps except we use the Drug Era report to review characteristics of drugs summarized to their RxNorm Ingredient. Once we have explored the database characteristics to review items of interest, we are ready to move forward with constructing cohorts to identify the hypertensive persons to characterize.
+고혈압 이라는 질병의 컨셉과 시간에 따른 트랜드에 대한 데이터베이스 수준의 특성 분석을 시행 했으므로 고혈압 환자를 치료하는데 사용된 약물에 대하여도 탐색할 수 있습니다. 
+Now that we have reviewed the database’s characteristics for the presence of hypertension concepts and the trends over time, we can also explore drugs used to treat hypertensive persons. 
+이를 수행하는 프로세스는 Drug Era 라는 report 드롭 다운의 선택 목록을 이용하여 RxNorm Ingredient에 요약된 약물의 특성을 검토하는 것을 제외하고는 전반적으로 위와 동일한 단계를 따릅니다. 
+The process to do this follows the same steps except we use the Drug Era report to review characteristics of drugs summarized to their RxNorm Ingredient. 
+일단 관심있는 항목에 대한 데이터베이스 특성 탐색을 시행 한 후에는 특성화 하고자 하는 고혈압 환자를 식별하는 코호트 구축을 진행할 준비가 되었다고 할 수 있습니다.  
+Once we have explored the database characteristics to review items of interest, we are ready to move forward with constructing cohorts to identify the hypertensive persons to characterize.
 
-## Cohort Characterization in ATLAS
+## ATLAS에서 코호트의 특성 분석 (Cohort Characterization in ATLAS)
 
-Here we demonstrate how to use ATLAS to perform large-scale cohort characterization for several cohorts. Click on the ![](images/Characterization/atlasCharacterizationMenuItem.png) in the left bar of ATLAS and create a new characterization analysis. Give the analysis a name a save using the ![](images/PopulationLevelEstimation/save.png) button.
+이 챕터에서 우리는 몇몇 코호트에 대해 ATLAS를 이용한 대규모의 코호트 특성 분석 방법에 대해 설명하고자 합니다.  
+Here we demonstrate how to use ATLAS to perform large-scale cohort characterization for several cohorts. 
+ATLAS의 왼쪽 바에 있는 ![](images/Characterization/atlasCharacterizationMenuItem.png)를 클릭하면, 새로운 특성 분석이 생성됩니다.  
+Click on the ![](images/Characterization/atlasCharacterizationMenuItem.png) in the left bar of ATLAS and create a new characterization analysis.
+분석의 이름을 넣은 후 ![](images/PopulationLevelEstimation/save.png) 버튼을 눌러 저장합니다. 
+Give the analysis a name a save using the ![](images/PopulationLevelEstimation/save.png) button.
 
-### Design
+### 디자인 (Design)
 
-A characterization analysis requires at least one cohort and at least one feature to characterize. For this example, we will use two cohorts. The first cohort will define persons initiating a treatment for hypertension as their index date with at least one diagnosis of hypertension in the year prior. We will also require that persons in this cohort have at least one year of observation after initiating the hypertensive drug (Appendix \@ref(HTN1yrFO)). The second cohort is identical to the first cohort described with a requirement having at least three years of observation instead of one (Appendix \@ref(HTN3yrFO)).
+특성 분석은 하나 이상의 코호트와 분석하고자 하는 하나 이상의 특성을 필요로 합니다. 
+A characterization analysis requires at least one cohort and at least one feature to characterize. 
+예를 들어, 두 개의 코호트를 사용한다고 가정 해 봅시다.
+For this example, we will use two cohorts. 
+첫 번째 코호트는 고혈압 치료를 시작한 시점을 index date로 하고 index date의 전년도에 고혈압 진단을 적어도 한번 이상 받은 환자라고 정의한다고 합시다. 
+The first cohort will define persons initiating a treatment for hypertension as their index date with at least one diagnosis of hypertension in the year prior. 
+또한 이 코호트에 속한 사람들은 고혈압 치료제를 복용하기 시작한 후 최소 1년의 관찰 기간을 갖도록 했다고 합시다(Appendix \@ref(HTN1yrFO)).
+We will also require that persons in this cohort have at least one year of observation after initiating the hypertensive drug (Appendix \@ref(HTN1yrFO)). 
+두 번째 코호트는 첫 번째 코호트와 모든 조건이 동일하지만 1년의 관찰기간 대신 최소 3년의 관찰기간을 갖는다고 합시다 (Appendix \@ref(HTN3yrFO)). 
+The second cohort is identical to the first cohort described with a requirement having at least three years of observation instead of one (Appendix \@ref(HTN3yrFO)).
 
-#### Cohort Definitions {-}
+#### 코호트 정의 (Cohort Definitions) {-}
 
 ```{r atlasCharacterizationCohortSelection, fig.cap='Characterization design tab - cohort definition selection',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationCohortSelection.png")
 ```
 
-We assume the cohorts have already been created in ATLAS as described in Chapter \@ref(Cohorts). Click on ![](images/Characterization/atlasImportButton.png) and select the cohorts as shown in figure \@ref(fig:atlasCharacterizationCohortSelection). Next, we’ll define the features to use for characterizing these two cohorts.
+해당 코호트들은 chapter \@ref(Cohorts) 에서 이미 생성 한 코호트들 입니다. 
+We assume the cohorts have already been created in ATLAS as described in Chapter \@ref(Cohorts). 
+![](images/Characterization/atlasImportButton.png)을 클릭하고 figure \@ref(fig:atlasCharacterizationCohortSelection)에서 보이는 바와 같이 코호트를 선택합니다.  
+Click on ![](images/Characterization/atlasImportButton.png) and select the cohorts as shown in figure \@ref(fig:atlasCharacterizationCohortSelection). 
+그 다음, 두 코호트에서 분석에 사용할 특성을 설정합니다. 
+Next, we’ll define the features to use for characterizing these two cohorts.
 
-#### Feature Selection {-}
+#### 특성 선택 (Feature Selection) {-}
 
-ATLAS comes with nearly 100 preset feature analyses that are used to perform characterization across the clinical domains modeled in the OMOP CDM. Each of these preset feature analyses perform aggregation and summarization functions on clinical observations for the selected target cohorts. These calculations provide potentially thousands of features to describe the cohorts baseline and post-index characteristics. Under the hood, ATLAS is utilizing the OHDSI FeatureExtraction R package to perform the characterization for each cohort. We will cover the use of FeatureExtraction and R in more detail in the next section. \index{feature analyses}
+ATLAS는 OMOP CDM에서 모델링 된 임상 도메인에서 특성 분석을 수행하는 데 사용되는 100개에 이르는 사전 설정 분석이 제공됩니다.  
+ATLAS comes with nearly 100 preset feature analyses that are used to perform characterization across the clinical domains modeled in the OMOP CDM. 
+각각의 이들 사전 설정 특성 분석은 선택된 분석을 하고자 하는 코호트들에 대한 임상 관찰들을 집계하고 요약하는 기능을 수행합니다. 
+Each of these preset feature analyses perform aggregation and summarization functions on clinical observations for the selected target cohorts. 
+이와 같은 계산은 코호트의 기저 (baseline) 그리고 index 이 (post-index) 특징들을 설명하기 위해 수천 가지의 기능을 제공합니다. 
+These calculations provide potentially thousands of features to describe the cohorts baseline and post-index characteristics.
+자세히 살펴보면, ATLAS는 OHDSI에서 제공하는 FeatureExtraction이라고 하는 R package를 이용해 개별 코호트에 대한 특성 분석을 시행합니다. 
+Under the hood, ATLAS is utilizing the OHDSI FeatureExtraction R package to perform the characterization for each cohort. 
+이 FeatureExtraction과 R을 사용하는 방법에 대하여는 뒤에서 더 자세하게 다루도록 하겠습니다.  
+We will cover the use of FeatureExtraction and R in more detail in the next section. \index{feature analyses}
 
-Click on ![](images/Characterization/atlasImportButton.png) to select the feature to characterize. Below is a list of features we will use to characterize these cohorts:
+분석하고자 하는 특성들선 선택하기 위해 ![](images/Characterization/atlasImportButton.png) 를 클릭합니다. 
+Click on ![](images/Characterization/atlasImportButton.png) to select the feature to characterize. 
+이 코호트들의 특성 분석에 사용하고자 하는 특성들의 목록은 다음과 같습니다:
+Below is a list of features we will use to characterize these cohorts:
 
 ```{r atlasCharacterizationFeatureSelection, fig.cap='Characterization design tab - feature selection.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationFeatureSelection.png")
 ```
 
-The figure above shows the list of features selected along with a description of what each feature will characterize for each cohort. The features that start with the name "Demographics" will calculate the demographic information for each person at the cohort start date. For the features that start with a domain name (i.e. Visit, Procedure, Condition, Drug, etc), these will characterize all recorded observations in that domain. Each domain feature has four options of time window preceding the cohort star, namely:
+위의 그림은 각각의 코호트에서 분석할 특성들에 어떤 것들이 있는지를 설명과 함께 선택된 특성들의 목록을 보여줍니다. 
+The figure above shows the list of features selected along with a description of what each feature will characterize for each cohort. 
+"Demographics"라고 명명된 특성들은 코호트가 시작되는 날짜에서 각각의 사람들의 인구 통계학적인 정보들에 대하여 계산한 것이다. 
+The features that start with the name "Demographics" will calculate the demographic information for each person at the cohort start date. 
+도메인 이름으로 시작한 특성들 (예를 들어, Visit, Procedure, Condition, Drug 등)은 해당 도메인에 기록된 관찰측치들에 대한 특성들을 나타낸 것입니다.  
+For the features that start with a domain name (i.e. Visit, Procedure, Condition, Drug, etc), these will characterize all recorded observations in that domain. 
+각각의 도메인의 특성들은 코호트 시작 지점 이전으로 4 가지의 시간대 옵션이 존재합니다. 
+Each domain feature has four options of time window preceding the cohort star, namely:
 
+* **Any time prior**: 사람의 관찰 기간 내에서 코호트 시작 지점 이전의 모든 시간대를 사용
 * **Any time prior**: uses all available time prior to cohort start that fall into the person’s observation period
+
+* **Long term**: 코호트 시작 지점을 포함하여 365일 이전까지
 * **Long term**: 365 days prior up to and including the cohort start date. 
+
+* **Medium term**: 코호트 시작 지점을 포함하여 180일 이전까지
 * **Medium term**: 180 days prior up to and including the cohort start date. 
+
+* **short term**: 코호트 시작 지점을 포함하여 30일 이전까지
 * **Short term**: 30 days prior up to and including the cohort start date. 
 
-#### Subgroup Analysis {-}
+#### 하위 집단 분석 (Subgroup Analysis) {-}
 
-What if we were interested in creating different characteristics based on gender? We can use the "subgroup analyses" section to define new subgroups of interest to use in our characterization.
+만일 성별에 따라 특성에 차이가 있는지가 궁금하다면 어떨까요?
+What if we were interested in creating different characteristics based on gender? 
+이럴 때 우리는 "하위 집단 분석 (subgroup analyses)"을 이용해 특성화에 사용할 새로운 하위 집단을 정의할 수 있습니다. 
+We can use the "subgroup analyses" section to define new subgroups of interest to use in our characterization.
 
-To create a subgroup, click on and add your criteria for subgroup membership. This step is similar to the criteria used to identify cohort enrollment. In this example, we’ll define a set of criteria to identify females amongst our cohorts:
+하위 집단을 생성하기 위해 클릭하고 하위 그룹에 대한 기준 (criteria)을 추가해야 합니다.  
+To create a subgroup, click on and add your criteria for subgroup membership. 
+이 단계는 코호트 정의에 사용되는 기준 (criteria)과 유사합니다. 
+This step is similar to the criteria used to identify cohort enrollment. 
+해당 예시에서 코호트 내의 여성을 알아보고자 하는 기준 (criteria) 세트를 정의한 것입니다:  
+In this example, we’ll define a set of criteria to identify females amongst our cohorts:
   
 ```{r atlasCharacterizationSubgroup, fig.cap='Characterization design with female sub group analysis.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationSubgroup.png")
 ```
 
 ```{block2, type='rmdimportant'}
-Subgroup analyses in ATLAS are not the same as strata. Strata are mutually exclusive while subgroups may include the same persons based on the criteria chosen.
+ATLAS의 하위 그룹 분석은 층화 (strata)와 같지 않습니다.
+Subgroup analyses in ATLAS are not the same as strata. 
+층화 (strata)는 상호배타적인 반면, 하위그룹은 선택된 기준 (criteria)에 따라 동일한 사람을 포함할 수 있습니다. 
+Strata are mutually exclusive while subgroups may include the same persons based on the criteria chosen.
 ```
 
-### Executions
-Once we have our characterization designed, we can execute this design against one or more databases in our environment.  Navigate to the Executions tab and click on the Generate button to start the analysis on a database:
+### 실행 (Executions)
+시행하고자 하는 특성 분석의 디자인을 마치고 나면, 사용할 수 있는 하나 이상의 데이터베이스에서 분석을 시행할 수 있습니다. 
+Once we have our characterization designed, we can execute this design against one or more databases in our environment.  
+Execution 탭으로 이동하여 Generate 버튼을 클릭해면 데이터베이스에서 분석이 시작됩니다:
+Navigate to the Executions tab and click on the Generate button to start the analysis on a database:
 
 
 ```{r atlasCharacterizationExecutions, fig.cap='Characterization design execution - CDM source selection.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationExecutions.png")
 ```
 
-Once the analysis is complete, we can view reports by clicking on the "All Executions" button and from the list of executions, select "View Reports". Alternatively, you can click "View latest result" to view the last execution performed.
+분석이 완료되면, "All Executions" 버튼을 클릭하고 실행 목록에서 "View Reports"를 선택하면 보고서를 볼 수 있습니다. 
+Once the analysis is complete, we can view reports by clicking on the "All Executions" button and from the list of executions, select "View Reports". 
+또 다른 방법으로는 "view latest result"를 클릭하면 가장 최근에 시행된 분석에 대하여 결과를 확인할 수 있습니다. 
+Alternatively, you can click "View latest result" to view the last execution performed.
 
-### Results
+### 결과 (Results)
 
 
 ```{r atlasCharacterizationResultsSummary, fig.cap='Characterization results - condition occurrence long term.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsSummary.png")
 ```
 
-The results provide a tabular view of the different features for each cohort selected in the design. In figure \@ref(fig:atlasCharacterizationResultsSummary), a table provides a summary of all conditions present in the two cohorts in the preceding 365 days from the cohort start. Each covariate has a count and percentage for each cohort and the female subgroup we defined within each cohort. 
+결과는 분석 스터디의 설계시 선택한 각각의 코호트에 대한 다양한 기능을 표 형식으로 보여줍니다. 
+The results provide a tabular view of the different features for each cohort selected in the design. 
+그림 \@ref(fig:atlasCharacterizationResultsSummary)에서는 코호트 시작 일로부터 365일 이전에 두 코호트에 존재하는 모든 질환을 요약한 표이다. 
+In figure \@ref(fig:atlasCharacterizationResultsSummary), a table provides a summary of all conditions present in the two cohorts in the preceding 365 days from the cohort start. 
+각각 변수들은 개별 코호트와 우리가 코호트내에서 정의한 여성 하위그룹에 대한 수 (count)와 백붑율 (percentage)를 갖습니다.  
+Each covariate has a count and percentage for each cohort and the female subgroup we defined within each cohort. 
 
 We used the search box to filter the results to see what proportion of persons have a `cardiac arrhythmia` in their history in an effort to understand what cardiovascular-related diagnoses are observed in the populations. We can use the `Explore` link next to the cardiac arrhythmia concept to open a new window with more details about the concept for a single cohort as shown in figure \@ref(fig:atlasCharacterizationResultsExplore):
 
