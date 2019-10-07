@@ -6,8 +6,6 @@
 
 *Chapter leads: Patrick Ryan & George Hripcsak*
 
-*번역 : 유승찬*
-
 > 함께 모이면 시작되고, 함께 지내면 진보하고, 함께 일하면 성공한다. -헨리 포드
 
 ## 데이터에서 근거로의 여정 (The Journey from Data to Evidence)
@@ -134,4 +132,5 @@ knitr::include_graphics("images/OhdsiCommunity/DSC02166.png")
 - OHDSI의 이상은 혁신성, 재현성, 공동체 정신, 개방성, 협력 정신, 선행의 정신을 바탕으로 의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를 제공하는 것이다. 
 
 - OHDSI 참가자들은 개방형 공동체로서의 데이터 표준, 방법론 연구, 오픈소스 분석 소프트웨어 개발 및 임상적 적용을 통해 데이터로부터 근거로의 여정을 발전시키고자 노력한다.
+
 ```
