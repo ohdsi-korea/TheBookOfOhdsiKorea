@@ -559,7 +559,7 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
 이 새로운 정의에서 long-term 구간은은 코호트 시작 날짜를 포함하지 않고 180일 이전까지의 구간을 나타내고, short-term 구간은 코호트 시작 날짜를 포함하지 않고 14일 이전까지의 구간을 나태냅니다.   
 This redefines the long-term window as 180 days prior up to (but not including) the cohort start date, and redefines the short term window as 14 days prior up to (but not including) the cohort start date. 
 
-
+또한, 변수 구성에서 어떤 concept ID는 반드시 필요하고 어떤 concept ID는 반드시 빠져야 하는지를 정할 수 있습니다:
 Again, we can also specify which concept IDs should or should not be used to construct covariates: 
 
 ```{r tidy=FALSE,eval=FALSE}
@@ -576,12 +576,14 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
 ```
 
 ```{block2, type='rmdimportant'}
+`aggregated = TRUE`는 FeatureExtraction에 모든 요약 통계치를 제공함을 나타냅니다. 이 플래그를 제외하면 코호트 내의 각각의 사람에 대한 값이 계산됩니다.  
 The use of `aggregated = TRUE` for all of the examples above indicate to FeatureExtraction to provide summary statistics. Excluding this flag will compute covariates for each person in the cohort.
 ```
 
 
-### Creating Aggregated Covariates
+### 집계 변수의 생성 (Creating Aggregated Covariates)
 
+다음의 코드는 코호트에서 집계 변수를 생성하는 코드입니다:
 The following code block will generate aggregated statistics for a cohort: 
 
 ```{r tidy=FALSE,eval=FALSE}
@@ -599,6 +601,7 @@ covariateData2 <- getDbCovariateData(
 summary(covariateData2) 
 ```
 
+그 결과값은 다음과 유사하게 나타납니다:
 And the output will look similar to the following:
 
 ```
@@ -608,8 +611,9 @@ And the output will look similar to the following:
 ## Number of Non-Zero Covariate Values: 41330
 ```
 
-### Output Format
+### 결과 형식 (Output Format)
 
+집계 `변수 데이터 (covariateData)`에서 주요한 두 가지 구성요소는 이분법적인 혹은 연속적 변수에 대한 `변수 (covariates)`와 `변수 량 (covariatesContinuous)`입니다: 
 The two main components of the aggregated `covariateData` object are `covariates` and `covariatesContinuous` for binary and continuous covariates respectively:
 
 ```{r tidy=FALSE,eval=FALSE}
@@ -617,91 +621,181 @@ covariateData2$covariates
 covariateData2$covariatesContinuous
 ```
 
-### Custom Covariates
+### 사용자 정의 변수 (Custom Covariates)
 
-FeatureExtraction also provides the ability to define and utilize custom covariates. These details are an advanced topic and covered in the user documentation: http://ohdsi.github.io/FeatureExtraction/. 
+FeatureExtraction은 또한 변수를 사용자가 정의하고 사용할 수 있도록 사용자 정의 변수를 제공합니다. 
+FeatureExtraction also provides the ability to define and utilize custom covariates. 
+이에 대한 세부 사항은 고급 주제이고 다음 링크에서 볼 수 있는 사용자 문서에서 볼수 있습니다: http://ohdsi.github.io/FeatureExtraction/.
+These details are an advanced topic and covered in the user documentation: http://ohdsi.github.io/FeatureExtraction/. 
 
-## Cohort Pathways in ATLAS
+## ATLAS에서 코호트 경로 (Cohort Pathways in ATLAS)
 
-The goal with a pathway analysis is to understand the sequencing of treatments along in one or more cohorts of interest. The methods applied are based on the design reported by @Hripcsak7329. These methods were generalized and codified into a feature called Cohort Pathways in ATLAS.
+경로 분석은 관심 있는 하나 이상의 코호트에서 치료의 순서에 대해 알기 위해 시행합니다.  
+The goal with a pathway analysis is to understand the sequencing of treatments along in one or more cohorts of interest. 
+분석 방법은 @Hripcsak7329의 디자인을 기반으로 합니다.  
+The methods applied are based on the design reported by @Hripcsak7329. 
+이 방법은 ATLAS의 Cohort Pathways를 통해 이용해 일반화되고 체계화 됩니다. 
+These methods were generalized and codified into a feature called Cohort Pathways in ATLAS.
 
-Cohort pathways aims to provide analytic capabilities to summarize the events following the cohort start date of one or more target cohorts. To do this, we create a set of cohorts to identify the clinical events of interest for the target population called event cohort. Focusing on how this might look for a person in the target cohort:
+Cohort pathways는 하나 이상의 분석하고자 하는 대상 코호트 (target cohort)의 코호트 시작 날짜 이후 발생한 사건들을 요약하는 분석 기능을 제공 하고자 합니다. 
+Cohort pathways aims to provide analytic capabilities to summarize the events following the cohort start date of one or more target cohorts. 
+이를 위해 대상 집단에 대해 관심있는 임상적 사건들을 식별하기 위한 사건 코호트 (event cohort) 세트를 생성해야 합니다. 
+To do this, we create a set of cohorts to identify the clinical events of interest for the target population called event cohort. 
+
+대상 코호트 (target cohort)에서 사람을 찾는 방법에 대해 초점을 맞춥니다: 
+Focusing on how this might look for a person in the target cohort:
 
 ```{r pathwaysPersonEventView, fig.cap='Pathways analysis in the context of a single person.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/pathwaysPersonEventView.png")
 ```
 
-In figure \@ref(fig:pathwaysPersonEventView), the person is part of the target cohort with a defined start and end date. Then, the numbered line segments represent where that person also is identified in an event cohort for a duration of time. Event cohorts allow us to describe any clinical event of interest that is represented in the CDM such that we are not constrained to creating a pathway for a single domain or concept. 
+그림 \@ref(fig:pathwaysPersonEventView)에서는 대상 코호트에 속한 사람의 정의된 시작과 마지막 날짜를 그린 그림입니다. 
+In figure \@ref(fig:pathwaysPersonEventView), the person is part of the target cohort with a defined start and end date. 
+숫자가 매겨진 조각난 선들은 해당 사람에게서 해당 구간 동안 사건 코호트이 식별된 위치를 표현한 것입니다.  
+Then, the numbered line segments represent where that person also is identified in an event cohort for a duration of time. 
+사건 코호트를 통해 CDM에서 표현되는 관심 있는 모든 임상적 사건을 설명 할 수 있기 때문에 단일 도메인 혹은 컨셉에 대한 경로를 만드는 데 제한을 받지 않습니다. 
+Event cohorts allow us to describe any clinical event of interest that is represented in the CDM such that we are not constrained to creating a pathway for a single domain or concept. 
 
-To start, click on ![](images/Characterization/atlasPathwaysMenuItem.png) in the left bar of ATLAS to create a new cohort pathways study. Provide a descriptive name and press the save button. 
+분석을 시작하기 위해서는 ATLAS 왼쪽 파에 있는 ![](images/Characterization/atlasPathwaysMenuItem.png)를 눌러 새로운 코호트 경로 분석 연구를 생성합니다.
+To start, click on ![](images/Characterization/atlasPathwaysMenuItem.png) in the left bar of ATLAS to create a new cohort pathways study. 
+분석의 이름을 적고 저장 버튼을 눌러 저장합니다. 
+Provide a descriptive name and press the save button. 
 
-### Design
+### 디자인 (Design)
 
-To start, we will continue to use the cohorts initiating a first-line therapy for hypertension with 1 and 3 years follow up (Appendix \@ref(HTN1yrFO), \@ref(HTN3yrFO)). Use the  button to import the 2 cohorts.
+사용할 코호트는 고혈압 1차 치료를 시작하고 환자 1년간 관찰 된 환자 코호트와 3년간 관찰된 환자 코호트로 이전 분석에서 사용된 코호트를 지속적으로 사용하도록 하겠습니다 (Appendix \@ref(HTN1yrFO), \@ref(HTN3yrFO)).  
+To start, we will continue to use the cohorts initiating a first-line therapy for hypertension with 1 and 3 years follow up (Appendix \@ref(HTN1yrFO), \@ref(HTN3yrFO)). 
+버튼을 사용해 두 개의 코호트를 불러오세요. 
+Use the  button to import the 2 cohorts.
 
 
 ```{r atlasPathwaysTargetCohorts, fig.cap='Pathways analysis with target cohorts selected.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasPathwaysTargetCohorts.png")
 ```
 
-Next we’ll define the event cohorts by creating a cohort for each first-line hypertensive drug of interest. For this, we’ll start by creating a cohort of ACE inhibitor users and define the cohort end date as the end of continuous exposure. We’ll do the same for 8 other hypertensive medications and note that these definitions are found in Appendix \@ref(ACEiUse)-\@ref(A1BUse). Once complete use the ![](images/Characterization/atlasImportButton.png) button to import these into the Event Cohort section of the pathway design:
+그 다음 각각의 분석하고자 하는 일차 고혈압 치료 약제에 대한 코호트를 사건 코호트로 정의합니다. 
+Next we’ll define the event cohorts by creating a cohort for each first-line hypertensive drug of interest. 
+예시의 연구에서는 ACE inhibitor 사용에 대한 코호트를 생성하고 코호트 마지막 날짜를 약물의 마지막 노출이 끝나는 날짜로 정의합니다. 
+For this, we’ll start by creating a cohort of ACE inhibitor users and define the cohort end date as the end of continuous exposure. 
+여덟가지 다른 고혈압 약제애 대하여 동일한 방식으로 코호트를 생성했고, 코호트 생성에 필요한 여러 정의들은 Appendix \@ref(ACEiUse)-\@ref(A1BUse)에 있습니다. 
+We’ll do the same for 8 other hypertensive medications and note that these definitions are found in Appendix \@ref(ACEiUse)-\@ref(A1BUse). 
+완료한 후 ![](images/Characterization/atlasImportButton.png) 버튼을 눌러 경로 분석 디자인의 Event Cohort 섹션에 삽입합니다: 
+Once complete use the ![](images/Characterization/atlasImportButton.png) button to import these into the Event Cohort section of the pathway design:
 
 
 ```{r atlasPathwaysEventCohorts, fig.cap='Event cohorts for pathway design for initiating a first-line antihypertensive therapy.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasPathwaysEventCohorts.png")
 ```
 
-When complete, your design should look like the one above. Next, we’ll need to decide on a few additional analysis settings:
+모든 과정을 완료하고 나면 다음과 같이 됩니다. 
+When complete, your design should look like the one above. 
+그 이후에 약간의 추가적인 분석 세팅을 해야 합니다:
+Next, we’ll need to decide on a few additional analysis settings:
 
+* **Combination window**: 이 세팅을 사용하면 사건 간 겹침이 사건의 조합으로 간주될 수 있도록 하는 시간의 구간을 일(days) 단위로 정의할 수 있도록 합니다. 예를 들어, 만약 두 개의 사건 코호트로 표시되는 (사건 코호트 1와 사건 코호트 2) 두 가지 약물이 조합 구간 내에서 겹치는 경우 경로 알고리즘은 두 사건 코호트를 조합해 "사건 코호트 1 + 사건 코호트 2"로 만듭니다.  
 * **Combination window**: This setting allows you to define a window of time, in days, in which overlap between events is considered a combination of events. For example, if two drugs represented by 2 event cohorts (event cohort 1 and event cohort 2) overlap within the combination window the pathways algorithm will combine them into "event cohort 1 + event cohort 2".
+* **Minimum cell count**: 이 수보다 작은 수의 사건 코호트는 중단 (제거)되어 결과 값에서 프라이버시를 보호할 수 있게 합니다. 
 * **Minimum cell count**: Event cohorts with less than this number of people will be censored (removed) from the output to protect privacy.
+* **Max path length**: 분석을 위해 고려해야 할 최대 순차적인 이벤트 수를 나타냅니다. 
 * **Max path length**: This refers to the maximum number of sequential events to consider for the analysis. 
   
-### Executions
+### 실행 (Executions)
 
-Once we have our pathway analysis designed, we can execute this design against one or more databases in our environment. This works the same way as we described for cohort characterization in ATLAS. Once complete, we can review the results of the analysis.
+경로 분석의 디자인이 완료된 후, 사용할 수 있는 하나 이상의 데이터베이스 내에서 해당 분석 디자인을 실행할 수 있다. 
+Once we have our pathway analysis designed, we can execute this design against one or more databases in our environment. 
+이 작업은 ATLAS의 코호트 특성 분석에서 설명한 것과 같은 방식으로 진행된다. 
+This works the same way as we described for cohort characterization in ATLAS. 
+분석이 끝나면 분석 결과를 확인할 수 있다. 
+Once complete, we can review the results of the analysis.
 
-### Viewing Results
+### 결과 확인 (Viewing Results)
 
 ```{r atlasPathwaysResults, fig.cap='Pathways results legend and sunburst visualization.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasPathwaysResults.png")
 ```
 
-The results of a pathway analysis are broken into 3 sections: The legend section displays the total number of persons in the target cohort along with the number of persons that had 1 or more events in the pathway analysis. Below that summary are the color designations for each of the cohorts that appear in the sunburst plot in the center section.
+경로 분석에 대한 결과는 3개의 섹션으로 나누어진다: 범례 섹션은 경로 분석에서 하나 이상의 사건이 있는 사람의 수와 함께 대상 코호트의 전체 사람 수를 보여줍니다.  
+The results of a pathway analysis are broken into 3 sections: The legend section displays the total number of persons in the target cohort along with the number of persons that had 1 or more events in the pathway analysis. 
+아래의 요약에는 색으로 구분된 각각의 코호트를 보여주고 가운데 섹션의 햇살 그래프에서 볼 수 있습니다. 
+Below that summary are the color designations for each of the cohorts that appear in the sunburst plot in the center section.
 
-The sunburst plot is a visualization that represents the various event pathways taken by persons over time. The center of the plot represents the cohort entry and the first color-coded ring shows the proportion of persons in each event cohort. In our example, the center of the circle represents hypertensive persons initiating a first line therapy. Then, the first ring in the sunburst plot shows the proportion of persons that initiated a type of first-line therapy defined by the event cohorts (i.e. ACE inhibitors, Angiotensin receptor blockers, etc). The second set of rings represents the 2nd event cohort for persons. In certain event sequences, a person may never have a 2nd event cohort observed in the data and that proportion is represented by the grey portion of the ring. 
+햇살 그래프는 시간에 따라 사람들이 겪는 다양한 사건 경로를 시각화 합니다. 그래프의 가운데는 코호트의 시작부분을 나타내고 첫 번째 색으로 구분된 고리는 각 사건 코호트의 비율을 나타냅니다. 
+The sunburst plot is a visualization that represents the various event pathways taken by persons over time. The center of the plot represents the cohort entry and the first color-coded ring shows the proportion of persons in each event cohort. 
+본 예시에서는 가장 가운데의 원은 고혈압 환자가 처음으로 시작한 일차 약제를 나타냅니다. 
+In our example, the center of the circle represents hypertensive persons initiating a first line therapy. 
+그리고 햇살 그래프에서 첫 번째 고리는 사건 코호트에서 정의한 것과 같이 시작한 일차 약제의 유형별 비율을 나타냅니다 (예를 들어, ACE inhibitor, Angiotensin receptor blocker, 등).   
+Then, the first ring in the sunburst plot shows the proportion of persons that initiated a type of first-line therapy defined by the event cohorts (i.e. ACE inhibitors, Angiotensin receptor blockers, etc). 
+두 번째 고리는 사람들의 두 번째 사건 코호트를 나타냅니다. 
+The second set of rings represents the 2nd event cohort for persons. 
+특정 사건 순서에서, 어떤 사람들은 관찰된 데이터 내에서 두 번째 사건 코호트를 가지지 않을 수 있으며 그 비율은 고리의 회색 부분으로 표현됩니다.  
+In certain event sequences, a person may never have a 2nd event cohort observed in the data and that proportion is represented by the grey portion of the ring. 
 
 
 ```{r atlasPathwaysResultsPathDetails, fig.cap='Pathways results displaying path details.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasPathwaysResultsPathDetails.png")
 ```
 
-Clicking on a section of the sunburst plot will display the path details on the right. Here we can see that the largest proportion of people in our target cohort initiated a first-line therapy with ACE inhibitors and from that group, a smaller proportion started a Thiazide or thiazide diuretics. 
+햇살 그래프 부분을 클릭하면 오른편에 경로에 대해 더 자세하게 보여줍니다. 
+Clicking on a section of the sunburst plot will display the path details on the right. 
+이를 통해 대상 코호트에서 가장 많은 비율을 차지하고 있는 사람들은 일차 약제로 ACE inhibitor을 시작한 사람들이며, 가작 작은 비율을 차지하는 약제는 thiazide와 thiazide diuretics임을 알 수 있습니다. 
+Here we can see that the largest proportion of people in our target cohort initiated a first-line therapy with ACE inhibitors and from that group, a smaller proportion started a Thiazide or thiazide diuretics. 
 
-## Incidence Analysis in ATLAS
+## ATLAS에서 발생 분석 (Incidence Analysis in ATLAS)
 
-In an incidence calculation, we describe: amongst the persons in the target cohort, who experienced the outcome cohort during the time at risk period. Here we will design an incidence analysis to characterize angioedema and acute myocardial infarction outcomes amongst new users of ACE inhibitors (ACEi) and Thiazides and thiazide-like diuretics (THZ). We will assess these outcomes during the TAR that a person was exposed to the drug. Additionally, we will add an outcome of drug exposure to Angiotensin receptor blockers (ARBs) to measure the incidence of new use of ARBs during exposure to the target cohorts (ACEi and THZ). This outcome definition provides an understanding of how ARBs are utilized amongst the target populations.
+발생의 계산은 우리는 다음과 같이 설명했습니다: 대상 코호트의 사람들 중 위험 발생 구간 동안 outcome 코호트를 경험한 사람. 
+In an incidence calculation, we describe: amongst the persons in the target cohort, who experienced the outcome cohort during the time at risk period. 
+예를 들어, ACE inhibitor (ACEi)를 시작한 사람들과 Thiazides와 tiazide-like diuretics (THZ)를 시작한 사람들 중 혈관 부종과 급성 심근 경색의 outcomes의 발생을 분석하는 발생 분석을 디자인 했다고 합시다. 
+Here we will design an incidence analysis to characterize angioedema and acute myocardial infarction outcomes amongst new users of ACE inhibitors (ACEi) and Thiazides and thiazide-like diuretics (THZ). 
+일단 약물에 노출된 사람들의 위험 관찰 기간 (TAR) 동안 이들 outcome을 평가해야 합니다. 
+We will assess these outcomes during the TAR that a person was exposed to the drug. 
+더불어, 대상 코호트들 (ACEi와 THZ)에 속하는 동안 Angiotensin receptor blockers (ARBs)의 새로운 발생도 측정하기 위해 ARBs의 약물 노출을 outcome으로 추가합니다. 
+Additionally, we will add an outcome of drug exposure to Angiotensin receptor blockers (ARBs) to measure the incidence of new use of ARBs during exposure to the target cohorts (ACEi and THZ). 
+이 outcome의 정의는 대상 코호트 내에서 얼마나 ARBs가 사용됐는지를 알기 위해 주어집니다. 
+This outcome definition provides an understanding of how ARBs are utilized amongst the target populations.
 
 
-To start, click on ![](images/Characterization/atlasIncidenceMenuItem.png) in the left bar of ATLAS to create a new incidence analysis. Provide a descriptive name and press the save button ![](images/PopulationLevelEstimation/save.png). 
+발생 분석을 시작하기 위해서는 ATLAS의 왼쪽 바에 있는 ![](images/Characterization/atlasIncidenceMenuItem.png) 버튼을 누릅니다. 
+To start, click on ![](images/Characterization/atlasIncidenceMenuItem.png) in the left bar of ATLAS to create a new incidence analysis. 
+분석의 이름을 적고 저장 버튼을 눌러 저장합니다 ![](images/PopulationLevelEstimation/save.png).
+Provide a descriptive name and press the save button ![](images/PopulationLevelEstimation/save.png). 
 
-### Design
+### 디자인 (Design)
 
-We assume the cohorts used in this example have already been created in ATLAS as described in Chapter \@ref(Cohorts). The Appendix provides the full definitions of the target cohorts (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)), and outcomes (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) cohorts.
+이미 이전 챕터 \@ref(Cohorts)에서 ATLAF를 이용해 생성한 코호트를 이용해 분석을 진행할 것입니다. 
+We assume the cohorts used in this example have already been created in ATLAS as described in Chapter \@ref(Cohorts). 
+부록을 통해 대상 코호트의 전체 정의를 확인할 수 있습니다 (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)), and outcomes (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)). 
+The Appendix provides the full definitions of the target cohorts (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)), and outcomes (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) cohorts.
 
 
 ```{r atlasIncidenceCohortSelection, fig.cap='Incidence Rate target and outcome definition.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceCohortSelection.png")
 ```
 
-On the definition tab, click to choose the *New users of ACE inhibitors* cohort and the *New users of Thiazide or Thiazide-like diuretics* cohort. Close the dialog to view that these cohorts are added to the design. Next we add our outcome cohorts by clicking on and from the dialog box, select the outcome cohorts of *acute myocardial infarction events*, *angioedema events* and *Angiotensin receptor blocker (ARB) use*. Again, close the window to view that these cohorts are added to the outcome cohorts section of the design. 
+definition 탭에 클릭해서 *New users of ACE inhibitors* 코호트와 *New users of Thiazide or Thiazide-like diuretics* 코호트를 선택합니다. 
+On the definition tab, click to choose the *New users of ACE inhibitors* cohort and the *New users of Thiazide or Thiazide-like diuretics* cohort. 
+선택한 코호트들이 분석 디자인에 추가되었는지 확인하기 위해 대화 상자를 닫으십시오.
+Close the dialog to view that these cohorts are added to the design. 
+그 다음 대화 상자에서 클릭을 통해 outcome 코호트들을 추가합니다. *acute myocardial infarction events*, *angioedema events* 와 *Angiotensin receptor blocker (ARB) use* 코호트를 선택해 추가할 수 있습니다. 
+Next we add our outcome cohorts by clicking on and from the dialog box, select the outcome cohorts of *acute myocardial infarction events*, *angioedema events* and *Angiotensin receptor blocker (ARB) use*. 
+분석 디자인에 outcome 코호트들이 추가되었는지 확인하기 위해 대화 상자를 닫습니다. 
+Again, close the window to view that these cohorts are added to the outcome cohorts section of the design. 
 
 ```{r atlasIncidenceTimeAtRisk, fig.cap='Incidence Rate target and outcome definition.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceTimeAtRisk.png")
 ```
 
-Next, we will define the time at risk window for the analysis. As shown above, the time at risk window is defined relative to the cohort start and end dates. Here we will define the time at risk start as 1 day after cohort start for our target cohorts. Next, we’ll define the time at risk to end at the cohort end date. In this case, the definition of the ACEi and THZ cohorts have a cohort end date when the drug exposure ends.
+이후 분석에 필요한 위험 관찰 기간을 정의해야 합니다. 
+Next, we will define the time at risk window for the analysis. 
+위에서 보이는 바와 같이 위험 관찰 기간은 코호트 시작과 마지막 날짜와 연관되어 정해집니다. 
+As shown above, the time at risk window is defined relative to the cohort start and end dates. 
+이 분석에서는 위험 관찰 기간의 시작일을 대상 코호트의 코호트 시작일보다 1일 후로 정의했습니다. 
+Here we will define the time at risk start as 1 day after cohort start for our target cohorts. 
+위험 관찰 기간의 마지막 날짜는 코호트 마지막 날짜로 정의했습니다. 
+Next, we’ll define the time at risk to end at the cohort end date. 
+이 경우, ACEi와 THZ 코호트의 코호트 마지막 날짜는 약물 노출이 끝나는 날짜입니다. 
+In this case, the definition of the ACEi and THZ cohorts have a cohort end date when the drug exposure ends.
 
+ATLAS는 또한 분석의 일부로 대상 코호트의 층화를 제공합니다:
 ATLAS also provides a way to stratify the target cohorts as part of the analysis specification:
 
 
@@ -709,75 +803,113 @@ ATLAS also provides a way to stratify the target cohorts as part of the analysis
 knitr::include_graphics("images/Characterization/atlasIncidenceStratifyFemale.png")
 ```
 
-To do this, click the New Stratify Criteria button and follow the same steps described in Chapter 11. Now that we have completed the design, we can move to executing our design against one or more databases.
+이를 위해 New Stratify Criteria 버튼을 누르고 Chapter 11에서 설명한 것과 같은 방식으로 진행합니다. 
+To do this, click the New Stratify Criteria button and follow the same steps described in Chapter 11. 
+디자인을 완성한 이후 하나 이상의 데이터베이스에서 실행하는 단계로 들어갈 수 있습니다. 
+Now that we have completed the design, we can move to executing our design against one or more databases.
 
-### Executions
+### 실행 (Executions)
 
+Generation 탭을 누르고 난 후 ![](images/Characterization/atlasIncidenceGenerate.png) 버튼을 클릭해 분석을 실행하는 데 사용할 데이터베이스 목록을 표시하십시오:
 Click the Generation tab and then the ![](images/Characterization/atlasIncidenceGenerate.png) button to reveal a list of databases to use to execute the analysis:
 
 ```{r atlasIncidenceSourceSelection, fig.cap='Incidence Rate analysis execution.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceSourceSelection.png")
 ```
 
+하나 이상의 데이터베이스를 선택하고 Generate 버튼을 누르면 주어진 디자인의 대상과 outcome의 모든 조합을 분석하는 발생 분석이 시작됩니다. 
 Select one or more databases and click the Generate button to start the analysis to analyze all combinations of targets and outcomes specified in the design.
 
-### Viewing Results
+### 결과 확인 (Viewing Results)
 
-On the Generation tab, the top portion of the screen allows you to select a target and outcome to use when viewing the results. Just below this a summary of the incidence is shown for each database used in the analysis. 
+Generation 탭에서 위 부분의 화면은 결과를 확인할 때 대상과 outcome을 선택할 수 있도록 해줍니다. 
+On the Generation tab, the top portion of the screen allows you to select a target and outcome to use when viewing the results. 
+바로 아래에는 분석에 사용된 각 데이터베이스에 대하여 발생에 대한 요약을 표시해줍니다.
+Just below this a summary of the incidence is shown for each database used in the analysis. 
 
-Select the target cohort of ACEi users and the Acute Myocardial Infarction (AMI) from the respective dropdown lists. Click the ![](images/Characterization/atlasIncidenceReportButton.png) button to reveal the incidence analysis results:
+대상 코호트 중 ACEi 사용자와 outcome 코호트 중에서 Acute Myocardial Infarction (AMI)를 드롭다운 목록에서 선택해 봅시다. 
+Select the target cohort of ACEi users and the Acute Myocardial Infarction (AMI) from the respective dropdown lists. 
+![](images/Characterization/atlasIncidenceReportButton.png) 버튼을 누르면 발생 분석의 결과가 나옵니다:
+Click the ![](images/Characterization/atlasIncidenceReportButton.png) button to reveal the incidence analysis results:
 
 
 ```{r atlasIncidenceResults, fig.cap='Incidence Rate analysis output - New ACEi users with AMI outcome.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceResults.png")
 ```
 
-A summary for the database shows the total persons in the cohort that were observed during the TAR along with the total number of cases. The proportion shows the number of cases per 1000 people. The time at risk, in years, is calculated for the target cohort. The incidence rate is expressed as the number of cases per 1000 person-years. 
+데이터베이스의 해당 코호트에서 전체 건수와 함께 위험 관찰 기간 동안 관찰된 전체 사람 수를 요약해 보여줍니다. 
+A summary for the database shows the total persons in the cohort that were observed during the TAR along with the total number of cases. 
+1000명 당 발생 건수의 비율로 표시합니다. 
+The proportion shows the number of cases per 1000 people. 
+위험 관찰 기간 (년)은 대상 코호트에서 계산됩니다. 
+The time at risk, in years, is calculated for the target cohort. 
+발생률은 1000 인-년 당 발생 건수로 표현됩니다. 
+The incidence rate is expressed as the number of cases per 1000 person-years. 
 
-We can also view the incidence metrics for the strata that we defined in the design. The same metrics mentioned above are calculated for each stratum. Additionally, a treemap visualization provides a representation of the proportion of each stratum represented by the boxed areas. The color represents the incidence rate as shown in the scale along the bottom.
+또한 분석 디자인에서 정의 한 계층에 대해 발생(incidence metrics)을 볼 수 있습니다. 
+We can also view the incidence metrics for the strata that we defined in the design. 
+동일한 지표(metrics)에서는 위에서 설명한 바와 같이 각각의 계층에 대해 계산됩니다. 
+The same metrics mentioned above are calculated for each stratum. 
+상자 영역으로 표시된 각각의 계층의 비율은 treemap을 통해 시각화 됩니다.  
+Additionally, a treemap visualization provides a representation of the proportion of each stratum represented by the boxed areas. 
+아래 눈금에 표시된 대로 색상은 발생률을 나타냅니다. 
+The color represents the incidence rate as shown in the scale along the bottom.
 
-We can gather the same information to see the incidence of new use of ARBs amongst the ACEi population. Using the dropdown at the top, change the outcome to ARBs use and click the ![](images/Characterization/atlasIncidenceReportButton.png) button to reveal the details. 
+ACEi 환자군 내에서 ARBs의 새로운 사용의 발생을 보기 위한 새로운 정보가 수집될 수 있습니다. 
+We can gather the same information to see the incidence of new use of ARBs amongst the ACEi population. 
+상단의 드롭 다운을 사용하여 ARCs의 사용으로 outcome을 바꾸고, ![](images/Characterization/atlasIncidenceReportButton.png)버튼을 누르면 자세한 내용이 나타납니다.
+Using the dropdown at the top, change the outcome to ARBs use and click the ![](images/Characterization/atlasIncidenceReportButton.png) button to reveal the details. 
 
 ```{r atlasIncidenceResultsARB, fig.cap='Incidence Rate - New users of ACEi receiving ARBs treatment during ACEi exposure.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 ```
 
+보시다시피 계산된 항목들은 동일하지만 입력된 (ARB 사용) 것이 건강에 대한 outcome보다는 약물 사용을 참조하기 때문에 해석의 결과는 상이합니다. 
 As shown, the metrics calculated are the same but the interpretation is different since the input (ARB use) references a drug utilization estimate instead of a health outcome.
 
-## Summary
+## 요약 (Summary)
 
 ```{block2, type='rmdsummary'}
+- OHDSI는 전체 데이터베이스 혹은 관심있는 코호트의 특성을 분석하는 툴을 제공합니다.
 - OHDSI offers tools to characterize an entire database, or a cohort of interest.
 
+- 코호트의 특성 분석은 관심 있는 코호트를 인덱스 날짜 이전 (**기저 (baseline)**)과 이후 (**index 후 (post-index)**) 동안을 설명해 줍니다. 
 - Cohort characterization describes a cohort of interest during the time preceding the index date (**baseline**) and the time after index (**post-index**).
 
+- ATLAS의 특성 분석 모듈과 OHDSI Methods Library는 기저 특성에 대해 다양한 시간 구간에서 계산 할 수 있도록 제공합니다. 
 - ATLAS's characterization module and the OHDSI Methods Library provide the capability to calculate baseline characteristics for multiple time windows.
 
+- ATLAS의 경로와 발생률 모듈은 index 후 시간 동안의 서술 통계를 제공합니다.
 - ATLAS's pathways and incidence rate modules provide descriptive statistics during the post-index time period.
 
 ```
 
 
-## Exercises
+## 실습 (Exercises)
 
-#### Prerequisites {-}
+#### 필요한 항목들 (Prerequisites) {-}
 
+본 실습을 위해 ATLAS에 직접 접근할 수 있어야 합니다. 다음의 ATLAS를 사용하시거나 [http://atlas-demo.ohdsi.org](http://atlas-demo.ohdsi.org), 혹은 다른 접근이 가능한 ATLAS가 있다면 사용하셔도 좋습니다.
 For these exercises, access to an ATLAS instance is required. You can use the instance at [http://atlas-demo.ohdsi.org](http://atlas-demo.ohdsi.org), or any other instance you have acces to. 
 
 ```{exercise, exerciseCharacterization1}
+실제 임상에서 celecoxib이 얼마나 사용되는지를 알고 싶다. 시작하기에 앞서 데이터베이스에 약물에 대한 데이터베이스의 데이터를 이해햐아 합니다. ATLAS의 Data Sources를 이용해 celecoxib에 대한 정보를 찾아보십시오. 
 We would like to understand how celecoxib is used in the real world. To start, we would like to understand what data a database has on this drug. Use the ATLAS Data Sources module to find information on celecoxib.
 
 ```
 
 ```{exercise, exerciseCharacterization2}
+celecoxib 사용자의 질병 자연사에 대해 더 알고싶습니다. celecoxib의 새로운 사용자들에 대한 간단한 코호트를 만드십시오. 이 때, 365일의 washout 기간을 주십시오 (어떻게 해야 하는지 자세히 알고 싶다면 챕터 Chapter \@ref(Cohorts)를 보십시오). 그리고 ATLAS에서 이 코호트의 characterization을 생성하고, 동병상병 질환과 약물 노출을 찾아보십시오.
 We would like to better understand the disease natural history of celecoxib users. Create a simple cohort of new users of celecoxib using a 365-day washout period (see Chapter \@ref(Cohorts) for details on how to do this), and use ATLAS to create a characterization of this cohort, showing co-morbid conditions and drug-exposures.
 
 ```
 
 ```{exercise, exerciseCharacterization3}
+우리는 celecoxib 치료를 받는 사람들이 이후 언제라도 gastrointestinal (GI) bleeds가 얼마나 자주 발생하는지를 알고 싶습니다. GI bleed의 사건 코호트를 생성해야합니다. 해당 코호트의 정의를 위해 [192671](http://athena.ohdsi.org/search-terms/terms/192671) ("Gastrointestinal hemorrhage")으로 정의된 것이나 혹은 그 하위 컨셉을 사용합니다. 이전 실습에서 사용한 약물 노출 코호트를 이용해, celecoxib을 시작한 이후 GI bleed의 발생률을 계산합니다. 
 We are interested in understand how often gastrointestinal (GI) bleeds occur any time after people initiate celecoxib treatment. Create a cohort of GI bleed events, simply defined as any occurrence of concept [192671](http://athena.ohdsi.org/search-terms/terms/192671) ("Gastrointestinal hemorrhage") or any of its descendants. Compute the incidence rate of these GI events after celecoxib initiation, using the exposure cohort defined in the previous exercise.
 
 ```
 
+답변은 부록에서 찾을 수 있습니다 \@ref(Characterizationanswers).
 Suggested answers can be found in Appendix \@ref(Characterizationanswers).
 
