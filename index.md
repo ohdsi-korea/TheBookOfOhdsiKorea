@@ -1,7 +1,7 @@
 --- 
 title: "The Book of OHDSI Korea"
 author: "Observational Health Data Sciences and Informatics"
-date: "2019-10-02"
+date: "2019-10-07"
 classoption: 11pt      
 geometry:
 - paperheight=10in 
