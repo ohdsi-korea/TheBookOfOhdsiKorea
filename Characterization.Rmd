@@ -365,69 +365,134 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationResultsSum
 The results provide a tabular view of the different features for each cohort selected in the design. 
 그림 \@ref(fig:atlasCharacterizationResultsSummary)에서는 코호트 시작 일로부터 365일 이전에 두 코호트에 존재하는 모든 질환을 요약한 표이다. 
 In figure \@ref(fig:atlasCharacterizationResultsSummary), a table provides a summary of all conditions present in the two cohorts in the preceding 365 days from the cohort start. 
-각각 변수들은 개별 코호트와 우리가 코호트내에서 정의한 여성 하위그룹에 대한 수 (count)와 백붑율 (percentage)를 갖습니다.  
+각각 변수들은 개별 코호트와 우리가 코호트내에서 정의한 여성 하위그룹에 대한 수 (count)와 백분율 (percentage)를 갖습니다.  
 Each covariate has a count and percentage for each cohort and the female subgroup we defined within each cohort. 
 
-We used the search box to filter the results to see what proportion of persons have a `cardiac arrhythmia` in their history in an effort to understand what cardiovascular-related diagnoses are observed in the populations. We can use the `Explore` link next to the cardiac arrhythmia concept to open a new window with more details about the concept for a single cohort as shown in figure \@ref(fig:atlasCharacterizationResultsExplore):
+인구 집단에서 어떤 심혈관 관련 진단명들을 병력으로 갖는지를 이해하고자 `cardiac arrhythmia`를 갖는 환자의 비율이 얼마인지를 알아보려 검색 상자로 결과를 필터링했습니다.  
+We used the search box to filter the results to see what proportion of persons have a `cardiac arrhythmia` in their history in an effort to understand what cardiovascular-related diagnoses are observed in the populations. 
+cardiac arrythmia 컨셉 옆의  `Explore` 링크는 그림 \@ref(fig:atlasCharacterizationResultsExplore)에 보여지는 것과 같이 하나의 코호트에 대하여 컨셉을 더 자세하게 보여주는 새로운 창을 열어 확인할 수 있게 해줍니다: 
+We can use the `Explore` link next to the cardiac arrhythmia concept to open a new window with more details about the concept for a single cohort as shown in figure \@ref(fig:atlasCharacterizationResultsExplore):
 
 ```{r atlasCharacterizationResultsExplore, fig.cap='Characterization results - exploring a single concept.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsExplore.png")
 ```
 
-Since we have characterized all condition concepts for our cohorts, the explore option enables a view of all ancestor and descendant concepts for the selected concept, in this case cardiac arrhythmia. This exploration allows us to navigate the hierarchy of concepts to explore other cardiac diseases that may appear for our hypertensive persons. Like in the summary view, the count and percentage are displayed.
+본 분석에서는 분석에 사용한 코호트들에 대하여 모든 질병에 대한 컨셉을 분석했기 때문에, 탐색 옵션은 선택된 모든 컨셉에 대하여 모든 상위 그리고 하위 컨셉을 보여줍니다. 본 연구의 경우 cardiac arrythmia에 대하여 보여줍니다.
+Since we have characterized all condition concepts for our cohorts, the explore option enables a view of all ancestor and descendant concepts for the selected concept, in this case cardiac arrhythmia. 
+이와 같은 탐색 기능은 컨셉의 계층 구조를 탐색 할 수 있도록 하며, 고혈압 환자들에서 나타날 수 있는 다른 심장 질환들을 탐색할 수 있도록 합니다.  
+This exploration allows us to navigate the hierarchy of concepts to explore other cardiac diseases that may appear for our hypertensive persons. 
+이 요약된 결과처럼 (갯)수와 백분율로써 보여집니다. 
+Like in the summary view, the count and percentage are displayed.
 
-We can also use the same characterization results to find conditions that are contraindicated for some anti-hypertensive treatment such as angioedema. To do this, we’ll follow the same steps above but this time search for ‘edema’ as shown in figure \@ref(fig:atlasCharacterizationResultsContra):
+뿐만 아니라 동일한 특성 분석을 혈관 부종과 같은 항 고혈압 제제의 부작용에 의한 상태를 찾는 분석에도 사용할 수 있습니다.  
+We can also use the same characterization results to find conditions that are contraindicated for some anti-hypertensive treatment such as angioedema. 
+이를 위해 위의 분석과 동일하게 그림 \@ref(fig:atlasCharacterizationResultsContra)와 같이'edema'를 검색하여 진행합니다:
+To do this, we’ll follow the same steps above but this time search for ‘edema’ as shown in figure \@ref(fig:atlasCharacterizationResultsContra):
 
 ```{r atlasCharacterizationResultsContra, fig.cap='Characterization results - exploring a contraindicated condition.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContra.png")
 ```
+
+다시 한 번, 고혈압 환자에서 혈관 부종의 발병률을 알아보기 위해 Edema의 특성을 보는 탐색 기능을 사용합니다:
 Once again, we’ll use the explore feature to see the characteristics of Edema in the hypertension population to find the prevalence of angioedema:
 
 ```{r atlasCharacterizationResultsContraExplore, fig.cap='Characterization results - exploring a contraindicated condition details.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContraExplore.png")
 ```
 
+분석을 통해 항 고혈압 제제를 시작하기 1년 전, 혈관 부종의 기록이 있었던 사람들의 비율을 알 수 있습니다. 
 Here we find that a portion of this population has a record of angioedema in the year prior to starting an anti-hypertensive medication. 
 
 ```{r atlasCharacterizationResultsContinuous, fig.cap='Characterization results of age for each cohort and sub group.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContinuous.png")
 ```
 
-While domain covariates are computed using a binary indicator (i.e. was a record of the code present in the prior timeframe), some variables provide a continuous value such as the age of persons at cohort start. In the example above, we show the age for the 2 cohorts characterized expressed with the count of persons, mean age, median age and standard deviation. 
+도메인 변수는 이분법적인 표지자를 사용해 계산되는 반면 (즉, 이전 시간대에 존재하는 코드의 기록임), 코호트 시작 시점의 연력과 같은 일부 변수들은 연속적인 값을 갖습니다. 
+While domain covariates are computed using a binary indicator (i.e. was a record of the code present in the prior timeframe), some variables provide a continuous value such as the age of persons at cohort start. 
+위의 예시와 같이 두 코호트에서 연령에 대한 특성 분석 결과는 사람의 총 수, 연령의 평균, 연령의 중앙값 그리고 표준 편차를 통해 나타냅니다. 
+In the example above, we show the age for the 2 cohorts characterized expressed with the count of persons, mean age, median age and standard deviation. 
 
-### Defining Custom Features
+### 사용자 정의한 특성의 정의 (Defining Custom Features)
 
-In addition to the preset features, ATLAS supports the ability to allow for user-defined custom features. To do this, click the **Characterization** left-hand menu item, then click the **Feature Analysis** tab and click the **New Feature Analysis** button. Provide a name for the custom feature and save it using the ![](images/PopulationLevelEstimation/save.png) button. \index{ATLAS!characterization features}
+제공되는 특성들 뿐 아니라 ATLAS에서는 사용자가 정의해 커스터마이즈 하는 특성들에 대한 분석도 제공합니다. 
+In addition to the preset features, ATLAS supports the ability to allow for user-defined custom features. 
+왼쪽 메뉴에서 **characterization**를 클릭하고, **Feature Analysis**탭을 클릭 한 후, **New Feature Analysis** 버튼을 클릭하면 사용자 정의 특성에 대한 분석을 할 수 있습니다. 
+To do this, click the **Characterization** left-hand menu item, then click the **Feature Analysis** tab and click the **New Feature Analysis** button. 
+사용자가 정의하는 특성의 이름을 지정하고 ![](images/PopulationLevelEstimation/save.png) 버튼을 통해 저장할 수 있습니다. 
+Provide a name for the custom feature and save it using the ![](images/PopulationLevelEstimation/save.png) button. \index{ATLAS!characterization features}
 
+아래의 예시는 코호트 시작 이후에 ACE inhibitors의 drug era를 갖는 각각의 코호트에 속하는 사람 수를 알아보도록 정의한 사용자 정의 특성입니다. 
 In this example, we will define a custom feature that will identify the count of persons in each cohort that have a drug era of ACE inhibitors in their history after cohort start:
 
 ```{r atlasCharacterizationCustomFeature, fig.cap='Custom feature definition in ATLAS.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationCustomFeature.png")
 ```
 
-The criteria defined above assumes that it will be applied to a cohort start date. Once we have defined the criteria and saved it, we can apply it to the characterization design we created in the previous section. To do this, open the characterization design and navigate to the Feature Analysis section. Click the ![](images/Characterization/atlasImportButton.png) button and from the menu select the new custom features. They will now appear in the feature list for the characterization design. As described earlier, we can execute this design against a database to produce the characterization for this custom feature:
+위에서 정의한 기준 (criteria)은 코호트 시작 날짜에 적용된다고 가정합니다.  
+The criteria defined above assumes that it will be applied to a cohort start date. 
+기준 (criteria)을 정의하고 저장하면, 이전 섹션에서 우리가 만든 특성 분석 디자인에 사용자 정의 특성을 적용할 수 있습니다.  
+Once we have defined the criteria and saved it, we can apply it to the characterization design we created in the previous section. 
+characterization design을 열고, Feature Analysis로 이동함으로써 시행할 수 있습니다. 
+To do this, open the characterization design and navigate to the Feature Analysis section. 
+![](images/Characterization/atlasImportButton.png) 버튼을 누르고 메뉴에서 new custom features를 선택하면 됩니다.
+Click the ![](images/Characterization/atlasImportButton.png) button and from the menu select the new custom features. 
+characterization design의 분석할 특성 목록에 사용자 정의 특성이 올라간 것이 보일 것입니다. 
+They will now appear in the feature list for the characterization design. 
+이전에 설명한 것과 같이 사용자 정의 특성에 대한 분석 또한 데이터베이스 내에서 실행 시킬 수 있습니다: 
+As described earlier, we can execute this design against a database to produce the characterization for this custom feature:
 
 ```{r atlasCharacterizationCustomFeatureResults, fig.cap='Custom feature results display.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationCustomFeatureResults.png")
 ```
 
-## Cohort Characterization in R
+## R에서 코호트 특성 분석 (Cohort Characterization in R)
 
-We may also choose to characterize cohorts using R. Here we’ll describe how to use the OHDSI R package FeatureExtraction to generate baseline features (covariates) for our hypertension cohorts. FeatureExtraction provides users with the ability to construct covariates in three ways: \index{FeatureExtraction}
+코호트의 특성 분석은 R을 이용해서 진행할 수도 있습니다.  
+We may also choose to characterize cohorts using R. 
+이어지는 내용에서는 고혈압 코호트에서 기저 특성 (변수)를 생성하기 위해 OHDSI의 FeatureExtraction이라는 R package를 사용하는 방법을 알아볼 것입니다. 
+Here we’ll describe how to use the OHDSI R package FeatureExtraction to generate baseline features (covariates) for our hypertension cohorts. 
+FeatureExtraction은 세 가지 방법으로 변수를 구성할 수 있는 기능을 제공합니다. 
+FeatureExtraction provides users with the ability to construct covariates in three ways: \index{FeatureExtraction}
 
+* 기본 설정된 변수 세트를 선택
 * Choose the default set of covariates
+* 사전 지정된 분석 세트 중에서 선택 
 * Choose from a set of pre-specified analyses
+* 사용자가 분석 세트를 생성
 * Create a set of custom analyses
 
-FeatureExtraction creates covariates in two distinct ways: person-level features and aggregate features. Person-level features are useful for machine learning applications. In this section, we’ll focus on using aggregate features that are useful for generating baseline covariates that describe the cohort of interest. Additionally, we’ll focus on the second two ways of constructing covariates: pre-specified and custom analyses and leave using the default set as an exercise for the reader.
+FeatureExtraction은 개인 수준 특성 (person-level feature) 그리고 집계 특성이라는 두 가지 방법으로 변수를 만듭니다.  
+FeatureExtraction creates covariates in two distinct ways: person-level features and aggregate features. 
+개인 수준의 특성은 기계 학습에 적용할 때 유용합니다. 
+Person-level features are useful for machine learning applications. 
+이 섹션에서는 관심있는 코호트를 설명하기 위한 기저 변수를 생성하는 데 유용한 집계 특성의 사용 방법을 집중적으로 설명할 예정입니다. 
+In this section, we’ll focus on using aggregate features that are useful for generating baseline covariates that describe the cohort of interest. 
+더불어 사전 지정된 분석과 사용자가 정의하는 분석의 두 가지 변수를 구성 방법에 대해 알아보겠습니다. (기본 설정 세트에 대해서는 독자의 연습을 위해 남겨두도록 하겠습니다.)  
+Additionally, we’ll focus on the second two ways of constructing covariates: pre-specified and custom analyses and leave using the default set as an exercise for the reader.
 
-### Cohort Instantiation
+### 코호트 인스턴트화 (Cohort Instantiation)
 
-We first need to instantiate the cohort to characterize it. Instantiating cohorts is described in Chapter \@ref(Cohorts). In this example, we’ll use the persons initiating a first-line therapy for hypertension with 1 year follow up (Appendix \@ref(HTN1yrFO)). We leave characterizing the other cohorts in Appendix \@ref(CohortDefinitions) as an exercise for the reader. We will assume the cohort has been instantiated in a table called `scratch.my_cohorts` with cohort definition ID equal to 1.
+먼저, 우리는 코호트를 인스턴트화하여 특성화해야합니다. 
+We first need to instantiate the cohort to characterize it. 
+코호트의 인스턴트화는 Chapter \@ref(Cohorts) 에서 배울 수 있습니다. 
+Instantiating cohorts is described in Chapter \@ref(Cohorts). 
+연습을 위해 고혈압의 1차 약물 치료를 시작한 사람들 중 1년 간 관찰된 사람들을 사용할 예정입니다 (Appendix \@ref(HTN1yrFO)). 
+In this example, we’ll use the persons initiating a first-line therapy for hypertension with 1 year follow up (Appendix \@ref(HTN1yrFO)).
+부록 \@ref(CohortDefinitions) 의 다른 코호트들은 독자의 연습을 위해 남겨두도록 하겠습니다. 
+We leave characterizing the other cohorts in Appendix \@ref(CohortDefinitions) as an exercise for the reader. 
+인스턴트화 된 코호트를 `scratch.my_cohorts` 라는 테이블의 cohort Definition ID가 1이라고 가정하겠습니다.  
+We will assume the cohort has been instantiated in a table called `scratch.my_cohorts` with cohort definition ID equal to 1.
 
-### Data Extraction
+### 데이터 추출 (Data Extraction)
 
-We first need to tell R how to connect to the server. FeatureExtraction uses the DatabaseConnector package, which provides a function called `createConnectionDetails`. Type `?createConnectionDetails` for the specific settings required for the various database management systems (DBMS). For example, one might connect to a PostgreSQL database using this code:
+우리는 먼저 서버에 연결하는 방법을 R로 실행해야 합니다. 
+We first need to tell R how to connect to the server. 
+FeatureExtraction은 DatabaseConnector package의 `createConnectionDetails` 함수를 이용해 서버와 연결할 수 있습니다. 
+FeatureExtraction uses the DatabaseConnector package, which provides a function called `createConnectionDetails`. 
+`?createConnectionDetails`를 입력하면 다양한 데이터베이스 관리 시스템 (DBMS)에서 필요로 하는 특정 세팅에 대해 알 수 있습니다. 
+Type `?createConnectionDetails` for the specific settings required for the various database management systems (DBMS). 
+예를 들어, PostgreSql의 데이터베이스와 연결해야 한다면 다음과 같은 코드를 사용해야 합니다:
+For example, one might connect to a PostgreSQL database using this code:
 
 ```{r tidy=FALSE,eval=FALSE}
 library(FeatureExtraction)
@@ -442,11 +507,19 @@ cohortsDbTable <- "my_cohorts"
 cdmVersion <- "5"
 ```
 
-The last four lines define the `cdmDbSchema`, `cohortsDbSchema`, and `cohortsDbTable` variables, as well as the CDM version. We will use these later to tell R where the data in CDM format live, where the cohorts of interest have been created, and what version CDM is used. Note that for Microsoft SQL Server, database schemas need to specify both the database and the schema, so for example `cdmDbSchema <- "my_cdm_data.dbo"`.
+마지막 네 줄은  `cdmDbSchema`, `cohortsDbSchema`, and `cohortsDbTable` 변수들을 CDM 버전과 함께 지정하기 위함입니다.   
+The last four lines define the `cdmDbSchema`, `cohortsDbSchema`, and `cohortsDbTable` variables, as well as the CDM version. 
+나중에 이를 이용해 CDM 형식의 데이터가 있는 위치, 관심있는 코호트가 작성된 위치, 어떤 CDM 버전이 사용되었는지 에 대해 R에 입력하는데 사용됩니다. 
+We will use these later to tell R where the data in CDM format live, where the cohorts of interest have been created, and what version CDM is used. 
+Microsofe SQL Server에서 주의할 점은, 데이터베이스 스키마는 데이터베이스와 스키마 둘 다를 필요로 한다는 점이다. 예를 들어 다음과 같이 지정해야 한다 `cdmDbSchema <- "my_cdm_data.dbo"`. 
+Note that for Microsoft SQL Server, database schemas need to specify both the database and the schema, so for example `cdmDbSchema <- "my_cdm_data.dbo"`.
 
-### Using Prespecified Analyses
+### 사전 지정 분석의 사용 (Using Prespecified Analyses)
 
-The function `createCovariateSettings` allow the user to choose from a large set of predefined covariates. Type `?createCovariateSettings` to get an overview of the available options. For example: 
+`createCovariateSettings` 함수는 미리 정의된 대규모 변수들의 세트를 선택할 수 있도록 합니다.  
+The function `createCovariateSettings` allow the user to choose from a large set of predefined covariates. 
+`?createCovariateSettings`를 입력하면 전반적으로 사용 가능한 옵션들을 볼 수 있습니다. 예를 들어:
+Type `?createCovariateSettings` to get an overview of the available options. For example: 
 
 ```{r tidy=FALSE,eval=FALSE}
 settings <- createCovariateSettings(
@@ -455,14 +528,22 @@ settings <- createCovariateSettings(
   useConditionOccurrenceAnyTimePrior = TRUE) 
 ```
 
+다음의 코드는 성별, 연령 (5년 단위의 연령 그룹), 그리고 코호트 시작 날짜를 포함한 이전의 모든 condition_occurrence 테이블에서 관찰된 각각의 컨셉들에 대하여 이분법적인 변수를 생성해 줄 수 있습니다. 
 This will create binary covariates for gender, age (in 5 year age groups), and each concept observed in the condition_occurrence table any time prior to (and including) the cohort start date. 
 
-Many of the prespecified analyses refer to a short, medium, or long term time window. By default, these windows are defined as: 
+사전에 지정된 분석의 많은 부분은 단기 (short term), 중기 (medium term), 혹은 장기(long term) 구간 (time window)을 지정할 수 있습니다. 
+Many of the prespecified analyses refer to a short, medium, or long term time window. 
+기본적으로 구간들은 다음과 같이 정의됩니다:
+By default, these windows are defined as: 
 
-* **Long term**: 365 days prior up to and including the cohort start date. 
+* **Long term**: 코호트 시작 날짜를 포함한 365일 이전까지의 구간
+* **Long term**: 365 days prior up to and including the cohort start date.
+* **Medium term**: 코호트 시작 날짜를 포함한 180일 이전까지의 구간
 * **Medium term**: 180 days prior up to and including the cohort start date. 
+* **short term**: 코호트 시작 날짜를 포함한 30일 이전까지의 구간.
 * **Short term**: 30 days prior up to and including the cohort start date. 
 
+하지만 아래의 예시와 같이 사용자가 시간 구간을 바꿀 수 있습니다:
 However, the user can change these values. For example: 
 
 ```{r tidy=FALSE,eval=FALSE}
@@ -475,7 +556,9 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
                                     endDays = -1) 
 ```
 
+이 새로운 정의에서 long-term 구간은은 코호트 시작 날짜를 포함하지 않고 180일 이전까지의 구간을 나타내고, short-term 구간은 코호트 시작 날짜를 포함하지 않고 14일 이전까지의 구간을 나태냅니다.   
 This redefines the long-term window as 180 days prior up to (but not including) the cohort start date, and redefines the short term window as 14 days prior up to (but not including) the cohort start date. 
+
 
 Again, we can also specify which concept IDs should or should not be used to construct covariates: 
 
