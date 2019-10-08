@@ -1,7 +1,7 @@
 --- 
 title: "The Book of OHDSI Korea"
 author: "Observational Health Data Sciences and Informatics"
-date: "2019-10-07"
+date: "2019-10-08"
 classoption: 11pt      
 geometry:
 - paperheight=10in 
@@ -11,7 +11,7 @@ geometry:
 - outer=0.65in
 - top=0.8in
 - bottom=0.8in
-mainfont: Times New Roman
+mainfont: NanumBarunGothic
 bibliography:
 - book.bib
 - packages.bib
@@ -23,7 +23,7 @@ link-citations: yes
 cover-image: images/Cover/Cover.png
 site: bookdown::bookdown_site
 biblio-style: apalike
-url: https://ohdsi.github.io/TheBookOfOhdsi/
+url: https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/
 ---
 
 
