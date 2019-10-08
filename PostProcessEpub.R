@@ -5,7 +5,7 @@ if (system.file(package = "DatabaseConnector") == '') install.packages("Database
 # Unpackage Epub -----------------------------------------------------------------------------------
 writeLines("- Unpackaging Epub")
 tempFolder <- tempfile()
-unzip(file.path("_book", "TheBookOfOhdsi.epub"), exdir = tempFolder)
+unzip(file.path("_book", "TheBookOfOhdsiKorea.epub"), exdir = tempFolder)
 
 # Remove dead links -----------------------------------------------------------------------------------
 htmlFiles <- list.files(path = file.path(tempFolder, "EPUB", "text"), pattern = ".*xhtml", full.names = TRUE)
