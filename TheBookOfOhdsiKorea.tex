@@ -26,7 +26,7 @@
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={The Book of OHDSI Korea},
-            pdfauthor={Observational Health Data Sciences and Informatics},
+            pdfauthor={OHDSI-Korea},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -121,7 +121,7 @@
   \title{The Book of OHDSI Korea}
     \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-    \author{Observational Health Data Sciences and Informatics}
+    \author{OHDSI-Korea}
     \preauthor{\centering\large\emph}
   \postauthor{\par}
       \predate{\centering\large\emph}
@@ -313,69 +313,68 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter*{Preface}\label{preface}
-\addcontentsline{toc}{chapter}{Preface}
+\chapter*{서문}
+\addcontentsline{toc}{chapter}{서문}
 
- This is a book about the Observational Health Data Sciences and
-Informatics (OHDSI) collaborative. The OHDSI community wrote the book to
-serve as a central knowledge repository for all things OHDSI. The Book
-is a living document, community-maintained through open-source
-development tools, and evolves continuously. The online version,
-available for free at \url{http://book.ohdsi.org}, always represents the
-latest version. A physical copy of the book is available from
+ 이 책은 관찰 보건 데이터 과학 및 정보학 (Observational Health Data
+Sicence and Informatics : OHDSI) 공동작업에 대한 내용을 담고있다. OHDSI
+커뮤니티에 의해 작성된 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역활을
+담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해
+관리되는 생명력있는 문서로 계속 진화하고 있다. 또한
+\url{http://book.ohdsi.org}에서 온라인으로 항상 최신 버전의 책을 무료로
+받아 볼 수 있으며 실물로 구입을 원할 경우
 \href{https://www.amazon.com/OHDSI-Observational-Health-Sciences-Informatics/dp/1088855199}{Amazon}
-at cost price.
+등에서 구입이 가능하다.
 
-\section*{Goals of this Book}\label{goals-of-this-book}
-\addcontentsline{toc}{section}{Goals of this Book}
+\section*{이 책의 목표}\label{--}
+\addcontentsline{toc}{section}{이 책의 목표}
 
-This book aims to be a central knowledge repository for OHDSI, and it
-focuses on describing the OHDSI community, OHDSI data standards, and
-OHDSI tools. It is intended both for both OHDSI newcomers and veterans
-alike, and aims to be practical, providing the necessary theory and
-subsequent instructions on how to do things. After reading this book you
-will understand what OHDSI is, and how you can join the journey. You
-will learn what the common data model and standard vocabularies are, and
-how they can be used to standardize an observational healthcare
-database. You will learn the three main use cases for these data:
-characterization, population-level estimation, and patient-level
-prediction. You will read about OHDSI's open-source tools that support
-all three activities and how to use those tools. Chapters on data
-quality, clinical validity, software validity, and method validity will
-explain how to establish the quality of the generated evidence. Lastly,
-you will learn how to use the OHDSI tools to execute these studies in a
-distributed research network.
+이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며
+OHDSI 커뮤니티, OHDSI 데이타 기준과 OHDSI 도구들에 중점을 두었다.
+OHDSI의 초보자와 숙련자 모두를 위해 현실적으로 필요 이론과 사용방법에
+대한 교육을 제공하는 실용적인 부분에 목표를 두고 있다. 이 책을 읽은 뒤
+당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여
+이해하게 될 것이다. 또한 공통 데이터 모델(CDM)과 표준화된 용어들이
+무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게
+사용되는지 알게 될 것이다. 이 데이터에 대해 Clinical characterization,
+Population-level estimation, Population-level prediction, 이 3가지 주요
+이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는
+OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다. 데이터 품질,
+임상적 타당성, 소프트웨어 타당성, 방법의 타당성 등에 관한 chapter들에서
+CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할 것이다.
+마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를
+어떻게 사용하는지를 배우게 될 것이다.
 
-\section*{Structure of the Book}\label{structure-of-the-book}
-\addcontentsline{toc}{section}{Structure of the Book}
+\section*{이 책의 구성}\label{--}
+\addcontentsline{toc}{section}{이 책의 구성}
 
-This book is organized in five major sections:
+이 책은 5개의 주요 섹션으로 정리되어있다:
 
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi})}
 \tightlist
 \item
-  The OHDSI Community
+  OHDSI 커뮤니티
 \item
-  Uniform data representation
+  획일적 데이터 표현
 \item
-  Data Analytics
+  데이터 분석
 \item
-  Evidence Quality
+  근거 품질
 \item
-  OHDSI Studies
+  OHDSI 연구
 \end{enumerate}
 
-Each section has multiple chapters, and, as appropriate, each chapter
-follows the sequence: Introduction, Theory, Practice, Summary, and
-Exercises.
+각각의 섹션은 다수의 chapter로 구성되어 있으며 각각의 chapter는 아래의
+순서대로 해당 chapter에 맞게 구성되어 있다: 도입, 이론, 실행, 요약,
+예제.
 
-\section*{Contributors}\label{contributors}
-\addcontentsline{toc}{section}{Contributors}
+\section*{기여자}
+\addcontentsline{toc}{section}{기여자}
 
-Each chapter lists one or more chapter leads. These are the people who
-lead the writing of the chapter. However, there are many others that
-have contributed to the book, whom we would like to acknowledge here:
+각각의 chapter는 해당 chapter를 이끈 주요 작성자들을 표기하고 있다.
+그러나 주요작성자 외에도 이 책을 완성하는데 기여를 한 많은 사람들이
+있으며 아래의 기여자들에게 감사를 표한다:
 
 \begin{tabular}{l|l|l}
 \hline
@@ -419,18 +418,17 @@ Seng Chan You &  & \\
 \hline
 \end{tabular}
 
-\section*{Software Versions}\label{software-versions}
-\addcontentsline{toc}{section}{Software Versions}
+\section*{소프트웨어 버전}\label{-}
+\addcontentsline{toc}{section}{소프트웨어 버전}
 
-A large part of this book is about the open-source software of OHDSI,
-and this software will evolve over time. Although the developers do
-their best to offer a consistent and stable experience to the users, it
-is inevitable that over time improvements to the software will render
-some of the instructions in this book outdated. The community will
-update the online version of the book to reflect those changes, and new
-editions of the hard copy will be released over time. For reference,
-these are the version numbers of the software used in this version of
-the book:
+이 책의 많은 부분은 OHDSI의 오픈소스 소프트웨어를 다루고 있으며 이
+소프트웨어는 시간이 지나면서 계속 진화해 나갈 것이다. 개발자들은
+사용들에게 일관되고 안정적인 경험을 제공하고자 최선을 다할 것이나,
+시간이 지나면서 소프트웨어의 개선으로 인해 불가피하게 이 책의 내용이
+더이상 맞지 않는 경우가 발생할 것이다. 이를 보완하기 위해 커뮤니티는
+온라인 버전을 통해 변화를 계속 업데이트할 예정이며 새로운 에디션의 실물
+책을 출간할 예정이다. 이 책이 쓰여진 버전의 소프트웨어 버전은 아래를
+참고하면 된다 :
 
 \begin{itemize}
 \tightlist
@@ -441,7 +439,7 @@ the book:
 \item
   EUNOMIA: version 1.0.0
 \item
-  Methods Library packages: see Table \ref{tab:packageVersions}
+  Methods Library packages: 테이블 참조 \ref{tab:packageVersions}
 \end{itemize}
 
 \begin{table}[t]
@@ -472,12 +470,12 @@ SqlRender & 1.6.2\\
 \end{tabular}
 \end{table}
 
-\section*{License}\label{license}
-\addcontentsline{toc}{section}{License}
+\section*{라이선스}
+\addcontentsline{toc}{section}{라이선스}
 
-This book is licensed under the
+이 책은
 \href{http://creativecommons.org/publicdomain/zero/1.0/}{Creative
-Commons Zero v1.0 Universal license}.
+Commons Zero v1.0 Universal license}.로 인가되었다.
 
 \begin{figure}
 \centering
@@ -485,17 +483,16 @@ Commons Zero v1.0 Universal license}.
 \caption{}
 \end{figure}
 
-\section*{How the Book Is Developed}\label{how-the-book-is-developed}
-\addcontentsline{toc}{section}{How the Book Is Developed}
+\section*{이 책이 쓰여진 과정}\label{---}
+\addcontentsline{toc}{section}{이 책이 쓰여진 과정}
 
-The book is written in \href{https://rmarkdown.rstudio.com}{RMarkdown}
-using the \href{https://bookdown.org}{bookdown} package. The online
-version is automatically rebuilt from the source repository at
-\url{https://github.com/OHDSI/TheBookOfOhdsi} through the continuous
-integration system \href{http://travis-ci.org/}{``travis''}. At regular
-intervals a snapshot is taken of the state of the book and marked as an
-``edition.'' These editions will be available as physical copies from
-Amazon.
+이 책은 \href{https://bookdown.org}{bookdown} 패키지를 사용한
+\href{https://rmarkdown.rstudio.com}{RMarkdown}으로 쓰여졌다. 온라인
+버전은 지속적 통합 시스템인 \href{http://travis-ci.org/}{``travis''}를
+통해서 \url{https://github.com/OHDSI-Korea/TheBookOfOhdsiKorea}의
+저장소를 사용해 자동작성 되었다. 이러한 온라인 버전은 정기적으로 스냅샷
+형식으로 저장되며 이렇게 저장된 파일을 ``에디션''이라 표기한다. 이
+에디션들의 실물 책자들은 아마존에서 구입이 가능하다.
 
 \mainmatter
 
@@ -7422,7 +7419,7 @@ For example:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.hz81gb0xchildren ;"
+## [1] "SELECT * FROM temp_schema.mzypgoo3children ;"
 \end{verbatim}
 
 Note that the user will need to have write privileges on
