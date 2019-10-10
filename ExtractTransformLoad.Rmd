@@ -15,7 +15,7 @@
 
 In order to get from the native/raw data to the OMOP Common Data Model (CDM) we have to create an extract, transform, and load (ETL) process. This process should restructure the data to the CDM, and add mappings to the Standardized Vocabularies, and is typically implemented as a set of automated scripts, for example SQL scripts. It is important that this ETL process is repeatable, so that it can be rerun whenever the source data is refreshed. \index{ETL|see {extract, transform and load (ETL)}} \index{raw data} \index{native data|see {raw data}} \index{source data|see{raw data}}
 
-ETL을 진행한다는 것은 많은 작업들을 필요로 한다. 몇 년 동안의 과정을 통해 우리는 4가지 단계들로 이루어진 최상의 절차를 개발하였다.
+ETL을 진행한다는 것은 많은 일들을 필요로 한다. 몇 년 동안의 과정을 통해 우리는 4가지 단계들로 이루어진 최상의 단계들을 개발하였다.
 
 Creating an ETL is usually a large undertaking. Over the years, we have developed best practices, consisting of four major steps:
 
@@ -29,7 +29,7 @@ Creating an ETL is usually a large undertaking. Over the years, we have develope
 3. A technical person implements the ETL.
 4. All are involved in quality control.
 
-이 챕터에서는 우리는 각 단계들을 세부적으로 살펴볼 것이다. 이러한 절차들을 보조하기 위해 다양한 도구들이 OHDSI 커뮤니티에 의해 개발되었으며, 이 도구들에 대해서도 다룰 것이다. 마지막으로 CDM과 ETL의 유지에 관해 이야기하며 마무리할 것이다.
+이 챕터에서 우리는 각 단계들을 세부적으로 살펴볼 것이다. 각 절차들을 보조하기 위해 다양한 도구들이 OHDSI 커뮤니티에 의해 개발되어왔고, 이 도구들에 대해서도 다룰 것이다. 마지막으로 CDM과 ETL의 유지에 관해 이야기하며 마무리할 것이다.
 
 In this chapter we will discuss each of these steps in detail. Several tools have been developed by the OHDSI community to support some of these steps, and these will be discussed as well. We close this chapter with a discussion of CDM and ETL maintenance.
 
@@ -37,7 +37,7 @@ In this chapter we will discuss each of these steps in detail. Several tools hav
 
 ## Step 1: Design the ETL
 
-ETL 설계와 ETL의 수행을 명확하게 분리하는 것은 중요하다. ETL을 설계하는 것은 원천 데이터와 CDM 모두에 대한 넓은 지식을 필요로 한다. 반대로 ETL을 수행하는 것은 일반적으로 ETL을 기술적으로 효율적인 방법으로 수행하는 것에 대해 기술 전문가들에게 의존하게 된다. 만약 동시에 두 가지 모두를 진행하려 한다면, 전체적인 그림에 집중할 때보다 세부적인 사항에서 막히게 될 가능성이 높다.
+ETL 설계와 ETL 수행을 명확하게 분리하는 것은 중요하다. ETL을 설계하는 것은 원천 데이터와 CDM 모두에 대한 넓은 지식을 필요로 한다. 반대로 ETL을 수행할 때는 ETL을 기술적인 측면에서 효율적으로 수행하는 방법에 대해 기술 전문가들에게 의존하게 된다. 만약 동시에 두 가지 모두를 진행하려 한다면, 전체적인 그림에 집중할 때보다 세부적인 사항에서 막히게 될 가능성이 높다.
 
 It is important to clearly separate the design of the ETL from the implementation of the ETL. Designing the ETL requires extensive knowledge of both the source data, as well as the CDM. Implementing the ETL on the other hand typically relies mostly on technical expertise on how to make the ETL computationally efficient. If we try to do both at once, we are likely to get stuck in nitty-gritty details, while we should be focusing on the overall picture.
 
@@ -59,7 +59,7 @@ To initiate an ETL process on a database you need to understand your data, inclu
 
 #### Scope and Purpose  {-}
 
-White Rabbit의 주요 기능은 원천 데이터에 대한 탐색을 수행하고, 테이블, 필드, 필드값들에 대한 세부적인 정보를 제공하는 것이다. 원천 데이터는 comma-seperated 텍스트 파일일 수도 있고, 데이터베이스(MySQL, SQL Server, Oracle, PostgreSQL, Microsoft APS, Microsoft Access, Amazon RedShift) 내부에 적재되어 있을 수도 있다. 탐색 과정에서  Rabbit-In-a-Hat 도구와 함께 쓴다면 ETL을 설계할 때 참고할 수 있는 보고서를 생성할 수 있다. White Rabbit은 다른 표준 데이터 프로파일링 도구들과는 달리 개인 식별 정보(Personally Identifiable Information, PII)가 결과 데이터 파일에서 보여지는 것을 방지한다.
+White Rabbit의 주요 기능은 원천 데이터에 대한 탐색을 수행하고, 테이블, 필드, 필드값들에 대한 세부적인 정보를 제공하는 것이다. 원천 데이터는 comma-seperated 텍스트 파일일 수도 있고, 데이터베이스(MySQL, SQL Server, Oracle, PostgreSQL, Microsoft APS, Microsoft Access, Amazon RedShift)에 적재되어 있을 수도 있다. 탐색 과정에서  Rabbit-In-a-Hat 도구와 함께 쓴다면 ETL을 설계할 때 참고할 수 있는 보고서를 생성할 수 있다. White Rabbit은 다른 표준 데이터 프로파일링 도구들과는 달리 개인 식별 정보(Personally Identifiable Information, PII)가 결과 데이터 파일에서 보여지는 것을 방지한다.
 
 White Rabbit’s main function is to perform a scan of the source data, providing detailed information on the tables, fields, and values that appear in a field. The source data can be in comma-separated text files, or in a database (MySQL, SQL Server, Oracle, PostgreSQL, Microsoft APS, Microsoft Access, Amazon RedShift). The scan will generate a report that can be used as a reference when designing the ETL, for instance by using it in conjunction with the Rabbit-In-a-Hat tool. White Rabbit differs from standard data profiling tools in that it attempts to prevent the display of personally identifiable information (PII) data values in the generated output data file.
 
@@ -105,7 +105,7 @@ White Rabbit supports delimited text files and various database platforms. Hover
 
 #### Scanning the Tables in a Database {-}
 
-데이터베이스에 연결한 이후에는 데이터베이스에 적재되어있는 테이블들을 탐색할 수 있다. 탐색은 ETL을 설계하는데 도움을 되는 원천 데이터에 대한 정보를 담은 보고서를 생성할 수 있다. 그림 \@ref(fig:WhiteRabbitAddTables)에 보이는  Scan 탭의 “Add” (Ctrl + mouse click) 버튼을 눌러서 선택된 원천 데이터베이스의 각 테이블들을 선택하거나, “Add all in DB” 누름으로써 모든 테이블들을 자동적으로 선택할 수 있다.
+데이터베이스에 연결한 이후에는 데이터베이스에 적재되어있는 테이블들을 탐색할 수 있다. 탐색 과정은 ETL을 설계하는데 도움을 되는 원천 데이터에 대한 정보를 담은 보고서를 생성할 수 있다. 그림 \@ref(fig:WhiteRabbitAddTables)에 보이는  Scan 탭의 “Add” (Ctrl + mouse click) 버튼을 눌러서 선택된 원천 데이터베이스의 각 테이블들을 선택하거나, “Add all in DB” 누름으로써 모든 테이블들을 자동적으로 선택할 수 있다.
 
 After connecting to a database, you can scan the tables contained therein. A scan generates a report containing information on the source data that can be used to help design the ETL. Using the Scan tab shown in Figure \@ref(fig:WhiteRabbitAddTables) you can either select individual tables in the selected source database by clicking on “Add” (Ctrl + mouse click), or automatically select all tables in the database by clicking on “Add all in DB”.
 
@@ -119,7 +119,7 @@ There are a few setting options as well with the scan:
 
 * “Scan field values” 는 컬럼에 어떠한 값들을 나타나는지 보고싶을때 사용한다.
 * “Min cell count” 는 필드값을 탐색할 때 쓰이는 옵션이다. 기본값은 5로 설정되어 있으며, 이는 원천 데이터에서 5번 이하로 나타나는 값들은 보고서에 나타내지 않는 것을 의미한다. 각 데이터셋들은 각각의 고유한 규칙에 따라 minimal cell count가 정해져야할 것이다.
-* “Rows per table” 는 필드값을 탐색할 때 쓰이는 옵션이다. 기본값으로 흰 토끼는 테이블에서 무작위로 100,000개의 행렬을 선택하여 탐색할 것이다. 
+* “Rows per table” 는 필드값을 탐색할 때 쓰이는 옵션이다. 기본값으로 White Rabbit은 테이블에서 무작위로 100,000개의 행렬을 선택하여 탐색할 것이다. 
 
 * Checking the “Scan field values” tells WhiteRabbit that you would like to investigate which values appear in the columns. 
 * “Min cell count” is an option when scanning field values. By default, this is set to 5, meaning values in the source data that appear less than 5 times will not appear in the report. Individual data sets may have their own rules about what this minimum cell count can be. 
@@ -141,7 +141,7 @@ Once the scan is complete, an Excel file is generated in the selected folder wit
 knitr::include_graphics("images/ExtractTransformLoad/ScanOverviewTab.png")
 ```
 
-각 테이블들의 탭들은 각각의 필드, 필드의 값들, 그리고 값들의 빈도를 나타낸다. 각 원천 테이블의 컬럼들은 엑셀에서 두 개의 변수들로 생성된다. 하나는 탐색 시 설정한 “Min cell count” 보다 큰 값들의 고유한 값을 보여준다. 만약 고유한 값 목록이 잘려있다면, 목록의 마지막 값은 “List truncated” 가 될 것이다; 이는 하나 혹은 그 이상의 값들이 “Min cell count” 보다 작은 고유한 값이 있음을 나타낸다. 각각의 고유한 값 옆에는 빈도를 나타내는 두 번째 컬럼이 있다(표본에서 값이 발생하는 횟수). 이 두 컬럼들(고유한 값과 빈도 수)은 작업책(workbook)의 프로파일링된 테이블의 모든 원천 변수들에 대해 반복되서 나타난다.
+각 테이블들의 탭들은 각각의 필드, 필드의 값들, 그리고 값들의 빈도를 나타낸다. 각 원천 테이블의 컬럼들은 엑셀에서 두 개의 컬럼들로 생성된다. 하나는 탐색 시 설정한 “Min cell count” 보다 큰 값들의 고유한 값을 보여준다. 만약 고유한 값 목록이 잘려있다면, 목록의 마지막 값은 “List truncated” 가 될 것이다; 이는 하나 혹은 그 이상의 값들이 “Min cell count” 보다 작은 고유한 값이 있음을 나타낸다. 각각의 고유한 값 옆에는 빈도를 나타내는 두 번째 컬럼이 있다(표본에서 값이 발생하는 횟수). 이 두 컬럼들(고유한 값과 빈도 수)은 작업책(workbook)의 프로파일링된 테이블의 모든 원천 변수들에 대해 반복되서 나타난다.
 
 The tabs for each of the tables show each field, the values in each field, and the frequency of each value. Each source table column will generate two columns in the Excel. One column will list all distinct values that have a “Min cell count” greater than what was set at time of the scan. If a list of unique values was truncated, the last value in the list will be “List truncated”; this indicates that there are one or more additional unique source values that appear less than the number entered in the “Min cell count”. Next to each distinct value will be a second column that contains the frequency (the number of times that value occurs in the sample). These two columns (distinct values and frequency) will repeat for all the source columns in the table profiled in the workbook. 
 
@@ -149,7 +149,7 @@ The tabs for each of the tables show each field, the values in each field, and t
 knitr::include_graphics("images/ExtractTransformLoad/ScanSex.png")
 ```
 
-보고서는 원천 데이터에 무엇이 있는지를 강조함으로써 데이터를 이해하는데 강력한 도움을 준다. 예를 들면, 그림 \@ref(fig:scanSex)에 나타난 결과가 탐색된 테이블 컬럼 중 하나인 "Sex"에 반환될 경우, 우리는 각각 61,491번과 35,401번 나타난 공통된 값들(1과 2)이 있음을 알 수 있다. White Rabbit은 1을 남성으로, 2를 여성으로 정의하지는 않을 것이다; 데이터 소유자가 일반적으로 원천 시스템에 고유한 원천 코드를 정의해야한다. 하지만 이 두 가지 값(1 & 2)들은 데이터에 있는 유일한 값들이 아니기 때문에 우리는 잘린 목록을 확인해야한다. 이 값들은 (“Min cell count” 정의에 따라) 매우 낮은 빈도로 나타나게 되고, 종종 부정확하거나 매우 의심스러운 값들로 표현된다. ETL 수행을 계획할 때 우리는 높은 빈도의 성별 개념로써 1과 2만 다루는 것이 아니라, 컬럼에 존재하는 낮은 빈도의 값들도 다뤄야한다. 예를 들어 만약 낮은 빈도의 성별들이 “NULL”일 경우 우리는 ETL 진행 시 이러한 데이터에 대해 어떻게 가공할 것인지 확실히 해야한다. 
+보고서는 원천 데이터에 무엇이 있는지를 강조함으로써 데이터를 이해하는데 강력한 도움을 준다. 예를 들면, 그림 \@ref(fig:scanSex)에 나타난 결과가 탐색된 테이블 컬럼 중 하나인 "Sex"에 반환될 경우, 우리는 각각 61,491번과 35,401번 나타난 공통된 값들(1과 2)이 있음을 알 수 있다. White Rabbit은 1을 남성으로, 2를 여성으로 정의하지는 않을 것이다; 데이터 소유자가 일반적으로 원천 시스템에 고유한 원천 코드를 정의해야한다. 하지만 이 두 가지 값(1 & 2)들은 데이터에 있는 유일한 값들이 아니기 때문에 우리는 잘린 목록을 확인해야한다. 이 값들은 (“Min cell count” 정의에 따라) 매우 낮은 빈도로 나타나게 되고, 종종 부정확하거나 매우 의심스러운 값들로 표현된다. ETL 수행을 계획할 때 우리는 높은 빈도의 성별 개념로써 1과 2만 다루는 것이 아니라, 컬럼에 존재하는 낮은 빈도의 값들도 고려해야한다. 예를 들어 만약 낮은 빈도의 성별들이 “NULL”일 경우 ETL 진행 시 이러한 데이터에 대해 어떻게 처리할 것인지 확실히 해야한다. 
 
 The report is powerful in understanding your source data by highlighting what exists. For example, if the results shown in Figure \@ref(fig:scanSex) were given back on the “Sex” column within one of the tables scanned, we can see that there were two common values (1 and 2) that appeared 61,491 and 35,401 times respectively. White Rabbit will not define 1 as male and 2 as female; the data holder will typically need to define source codes unique to the source system. However, these two values (1 & 2) are not the only values present in the data because we see this list was truncated. These other values appear with very low frequency (defined by “Min cell count”) and often represent incorrect or highly suspicious values. When generating an ETL we should not only plan to handle the high-frequency gender concepts 1 and 2 but the other low-frequency values that exist within this column. For example, if those lower frequency genders were “NULL” we want to make sure the ETL can handle processing that data and knows what to do in that situation. 
 
@@ -157,7 +157,7 @@ The report is powerful in understanding your source data by highlighting what ex
 
 ### Rabbit-In-a-Hat
 
-White Rabbit과 함께 우리는 원천 데이터에 대한 분명한 그림을 그릴 수 있다. 또한 우리는 CDM에 대한 전체 명세서를 알고 있다. 이제 우리는 하나에서 다른 하나로 넘어갈 로직을 정의해야한다. 이 설계 활동은 원천 데이터와 CDM 모두에 대한 온전한 지식을 요구로 한다. White Rabbit 소프트웨어와 함께 사용되는  Rabbit-in-a-Hat 도구는 명확하게 이 분야의 전문가들을 위해 개발되었다. 일반적으로 ETL 설계팀은 회의실에 같이 앉아 Rabbit-in-a-Hat을 프로젝터 화면으로 같이 보곤 한다. 첫 번째로 테이블 간의 매핑은 협력적으로 결정될 수 있으며, 그 후에는 필드 간의 매핑이 설계되는 동시에 어떤한 값들을 변환시킬지 로직을 정의할 수 있다. \index{Rabbit-In-A-Hat} \index{ETL design|see {Rabbit-In-A-Hat}}
+White Rabbit과 함께 우리는 원천 데이터에 대한 분명한 그림을 그릴 수 있다. 또한 우리는 CDM에 대한 전체 명세서를 알고 있다. 이제 우리는 하나에서 다른 하나로 넘어갈 로직을 정의해야한다. 이 설계 활동은 원천 데이터와 CDM 모두에 대한 온전한 지식을 요구한다. White Rabbit 소프트웨어와 함께 사용되는  Rabbit-in-a-Hat 도구는 명확하게 이 분야의 전문가들을 위해 개발되었다. 일반적으로 ETL 설계팀은 회의실에 같이 앉아 Rabbit-in-a-Hat을 프로젝터 화면으로 같이 보면서 작업을 한다. 첫 번째로 테이블 간의 매핑은 협력적으로 결정될 수 있으며, 그 후에는 필드 간의 매핑이 설계되는 동시에 어떤한 값들을 변환시킬지 로직을 정의할 수 있다. \index{Rabbit-In-A-Hat} \index{ETL design|see {Rabbit-In-A-Hat}}
 
 With the White Rabbit scan in hand, we have a clear picture of the source data. We also know the full specification of the CDM. Now we need to define the logic to go from one to the other. This design activity requires thorough knowledge of both the source data and the CDM. The Rabbit-in-a-Hat tools that comes with the White Rabbit software is specifically designed to support a team of experts in these areas. In a typical setting, the ETL design team sits together in a room, while Rabbit-in-a-Hat is projected on a screen. In a first round, the table-to-table mappings can be collaboratively decided, after which field-to-field mappings can be designed, while defining the logic by which values will be transformed. \index{Rabbit-In-A-Hat} \index{ETL design|see {Rabbit-In-A-Hat}}
 
@@ -199,7 +199,7 @@ Once you have opened your White Rabbit scan report in Rabbit-In-a-Hat you are re
 
 [^syntheaWiki]: Synthea^TM^ is a patient generator that aims to model real patients. Data are created based on parameters passed to the application.The structure of the data can be found here: https://github.com/synthetichealth/synthea/wiki.
 
-#### ETL의 일반적은 흐름 {-}
+#### ETL의 일반적인 흐름 {-}
 
 #### General Flow of an ETL {-}
 
@@ -264,7 +264,9 @@ For more examples on how the Synthea dataset was mapped to the CDM please see th
 
 ## Step 2: Create the Code Mappings
 
-점점 더 많은 원천 코드들이 OMOP 용어에 추가되어지고 있다. 이것은 CDM으로 변환된 데이터의 코딩 체계가 이미 CDM에 포함되고 매핑되었을 수도 있다는 것을 의미한다. OMOP 용어의 VOCABULARY 테이블을 통해 어떤 용어들이 포함되었는지 확인할 수 있다. non-standard인 원천 코드들(e.g. ICD-10CM codes)에서 standard concepts (e.g. SNOMED codes) 로의 매핑을 확인하려면 CONCEPT_RELATIONSHIP 테이블 내의 relationship_id = “Maps to” 인 값들을 찾으면 확인할 수 있다. 예를 들면 ICD-10CM 코드 ‘I21’ (“Acute Myocardial Infarction”)의 standard concept ID를 확인하기 위해 다음과 같은 SQL을 사용할 수 있다:
+
+## 수정 필요
+점점 더 많은 원천 코드들이 OMOP 용어에 추가되어지고 있다. 이것은 CDM으로 변환된 데이터의 코딩 체계가 이미 CDM에 포함되고 매핑되었을 수도 있다는 것을 의미한다. OMOP Vocabulary의 VOCABULARY 테이블을 통해 어떤 용어들이 포함되었는지 확인할 수 있다. non-standard인 원천 코드들(e.g. ICD-10CM codes)에서 standard concepts (e.g. SNOMED codes) 로의 매핑을 확인하려면 CONCEPT_RELATIONSHIP 테이블 내의 relationship_id = “Maps to” 인 값들을 찾으면 확인할 수 있다. 예를 들면 ICD-10CM 코드 ‘I21’ (“Acute Myocardial Infarction”)의 standard concept ID를 확인하기 위해 다음과 같은 SQL을 사용할 수 있다:
 
 More and more source codes are being added to the OMOP Vocabulary all the time. This means that the coding systems in the data being transformed to the CDM may already be included and mapped. Check the VOCABULARY table in the OMOP Vocabulary to see which vocabularies are included. To extract the mapping from non-standard source codes (e.g. ICD-10CM codes) to standard concepts (e.g. SNOMED codes), we can use the records in the CONCEPT_RELATIONSHIP table having relationship_id = “Maps to”. For example, to find the standard concept ID for the ICD-10CM code ‘I21’ (“Acute Myocardial Infarction”), we can use the following SQL: 
 
@@ -281,10 +283,10 @@ WHERE concept_code = 'I21'
 | -------------------:|
 | 312327              |
 
-하지만 안탑깝게도, 가끔은 원천 데이터가 Vocabulary에 없는 코딩 시스템을 사용할 수도 있다. 이러한 경우에는 원천 코딩 시스템의 Standard Concept으로의 매핑을 정의하여야한다. 코드 매핑은 어려울 수 있는데, 특히 원천 코딩 시스템에 많은 용어들이 있을 경우 그러하다. 이러한 일을 쉽게 하기 위해 몇 가지 참고사항이 있다.
+하지만 안탑깝게도, 가끔은 원천 데이터가 Vocabulary에 없는 코딩 시스템을 사용할 수도 있다. 이러한 경우에는 원천 코딩 시스템의 Standard Concept으로의 매핑을 정의하여야한다. 하지만 원천 코딩 시스템에 많은 수의 용어들이 있을 경우 코드 매핑이 어려울 수도 있다. 이를 쉽게 진행하기 위한 몇 가지 참고사항들이 있다.
 
-- 가장 높은 빈도의 코드들에 집중하라. 절대 쓰이지 않는 코드나 거의 안 쓰이는 코드들은 실제 연구에 안 쓰이기 때문에 매핑에 많은 노력을 할 필요가 없다.
-- 가능하면 기존의 정보들을 활용하라. 예를 들면 많은 범국가적인 약물 코딩 시스템은 이미 ATC로 매핑되어있다. 비록 ATC가 많은 목적에 세부적으로 부합하지는 않지만, ATC와 RxNorm의 관계를 통해 어떤 RxNorm 코드들이이 사용되는지 추측할 수 있다. 
+- 가장 높은 빈도의 코드들에 집중하라. 절대 쓰이지 않는 코드나 거의 안 쓰이는 코드들은 실제 연구에서도 안 쓰이기 때문에 많은 노력을 들여서 매핑을 진행할 필요가 없다.
+- 가능하면 기존의 정보들을 활용하라. 예를 들어서 많은 국가 약물 코딩 시스템은 이미 ATC로 매핑되어있다. 비록 ATC가 많은 목적에 대해 세부적으로 부합하지는 않지만, ATC와 RxNorm의 관계를 통해 어떤 RxNorm 코드들이 사용되는지 추측할 수는 있다. 
 - 우사기(Usagi)를 사용하라.
 
 Unfortunately, sometimes the source data uses coding systems that are not in the Vocabulary. In this case, a mapping must be created from the source coding system to the Standard Concepts. Code mapping can be a daunting task, especially when there are many codes in the source coding system. There are several things that can be done to make the task easier: 
