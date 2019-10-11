@@ -6,7 +6,7 @@
 
 \index{evidence quality}
 
-## Attributes of Reliable Evidence
+## Attributes of Reliable Evidence (신뢰성을 위한 근거의 속성)
 
 Before embarking on any journey, it can be helpful to envision what the ideal destination might look like. To support our journey from data to evidence, we highlight desired attributes that can underlie what makes evidence quality reliable. 
 

@@ -15,12 +15,12 @@ bookdown::pdf_book:
   includes:
     in_header: preamble.tex
     after_body: after_body.tex
-  latex_engine: xelatex
+  latex_engine: pdflatex
   citation_package: natbib
   keep_tex: yes
   toc_appendix: yes
   pandoc_args: --top-level-division=chapter
 bookdown::epub_book:
   stylesheet: style.css
-  pandoc_args: --webtex=https://latex.codecogs.com/svg.latex? 
+  pandoc_args: --webtex=https://latex.codecogs.com/svg.latex?
   epub_version: epub3
