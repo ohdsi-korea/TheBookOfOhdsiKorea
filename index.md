@@ -1,7 +1,7 @@
 --- 
 title: "The Book of OHDSI Korea"
 author: "OHDSI-Korea"
-date: "2019-10-08"
+date: "2019-10-11"
 classoption: 11pt      
 geometry:
 - paperheight=10in 
@@ -30,7 +30,7 @@ url: https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/
 
 # 서문 {-}
 
-<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 관찰 보건 데이터 과학 및 정보학 (Observational Health Data Sicence and Informatics : OHDSI) 공동작업에 대한 내용을 담고있다.  OHDSI 커뮤니티에 의해 작성된 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역활을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 또한  [http://book.ohdsi.org](http://book.ohdsi.org)에서 온라인으로 항상 최신 버전의 책을 무료로 받아 볼 수 있으며 실물로 구입을 원할 경우  [Amazon](https://www.amazon.com/OHDSI-Observational-Health-Sciences-Informatics/dp/1088855199) 등에서 구입이 가능하다.
+<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 관찰 보건 데이터 과학 및 정보학 (Observational Health Data Sicence and Informatics : OHDSI) 공동작업에 대한 내용을 담고있다.  OHDSI 커뮤니티에 의해 작성된 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역활을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 또한  [ohdsi-korea.github.io/TheBookOfOhdsiKorea/](https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/)에서 온라인으로 항상 최신 버전의 책을 무료로 받아 볼 수 있으며 실물로 구입을 원할 경우  [Amazon](https://www.amazon.com/OHDSI-Observational-Health-Sciences-Informatics/dp/1088855199) 등에서 구입이 가능하다.
 
 ## 이 책의 목표 {-}
 
