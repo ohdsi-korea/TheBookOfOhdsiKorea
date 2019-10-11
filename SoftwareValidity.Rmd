@@ -1,9 +1,4 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-# 소프트웨어의 타당성 {#SoftwareValidity}
+# Software Validity {#SoftwareValidity}
 
 *Chapter lead: Martijn Schuemie*
 
