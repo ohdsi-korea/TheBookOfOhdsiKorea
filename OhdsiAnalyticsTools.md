@@ -2,229 +2,267 @@
 
 *Chapter leads: Martijn Schuemie & Frank DeFalco*
 
-OHDSI offers a wide range of open source tools to support various data-analytics use cases on observational patient-level data. What these tools have in common is that they can all interact with one or more databases using the Common Data Model (CDM). Furthermore, these tools standardize the analytics for various use cases; Rather than having to start from scratch, an analysis can be implemented by filling in standard templates. This makes performing analysis easier, and also improves reproducibility and transparency. For example, there appear to be a near-infinite number of ways to compute an incidence rate, but these can be specified in the OHDSI tools with a few choices, and anyone making those same choices will compute incidence rates the same way. 
+OHDSI는 관찰 환자 수준 데이터에 대한 다양한 데이터 분석 사용 사례를 지원하는 광범위한 오픈 소스 도구를 제공한다. 이러한 도구의 공통점은 공통 데이터 모델(CDM)을 사용하여 하나 이상의 데이터베이스와 상호 작용할 수 있다는 것이다. 또한, 이러한 도구는 다양한 사용 사례에 대한 분석을 표준화한다. 처음부터 시작하는 것이 아니라 표준 템플릿을 작성함으로써 분석을 구현할 수 있다. 이렇게 하면 분석을 더 쉽게 수행할 수 있고, 재현성과 투명성을 향상시킬 수 있다. 예를 들어, 발생률을 계산하는 방법은 무한에 가까운 수가 있는 것처럼 보이지만, 이러한 방법은 몇 가지 선택사항으로 OHDSI 도구에 지정할 수 있으며, 동일한 선택을 하는 사람은 동일한 방법으로 발병률을 계산할 것이다.
 
-In this chapter we first describe various ways in which we can choose to implement an analysis, and what strategies the analysis can employ. We then review the various OHDSI tools and how they fit the various use cases.
+이 장에서는 먼저 분석을 실행하기 위해 선택할 수 있는 다양한 방법과 분석에서 어떤 전략을 사용할 수 있는지 설명한다. 그런 다음 다양한 OHDSI 툴과 다양한 사용 사례에 적합한 방법을 검토한다.
 
 ## Analysis Implementation {#analysisImplementation}
 
-Figure \@ref(fig:implementations) shows the various ways in which we can choose to implement a study against a database using the CDM. \index{analysis implementation}
+그림 \@ref(fig:implementations) 은 CDM을 사용하여 데이터베이스에 대한 연구를 구현하도록 선택할 수 있는 다양한 방법을 보여준다. \index{analysis implementation}
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/implementations.png" alt="Different ways to implement an analysis against data in the CDM." width="90%" />
-<p class="caption">(\#fig:implementations)Different ways to implement an analysis against data in the CDM.</p>
+<img src="images/OhdsiAnalyticsTools/implementations.png" alt="CDM의 데이터에 대한 분석을 구현하는 다양한 방법" width="90%" />
+<p class="caption">(\#fig:implementations)CDM의 데이터에 대한 분석을 구현하는 다양한 방법</p>
 </div>
 
-There are three main approaches to implementing a study.  The first is to write custom code that does not make use of any of the tools OHDSI has to offer. One could write a de novo analysis in R, SAS, or any other language. This provides the maximum flexibility, and may in fact be the only option if the specific analysis is not supported by any of our tools. However, this path requires a lot of technical skill, time, and effort, and as the analysis increases in complexity it becomes harder to avoid errors in the code.
+연구를 이행하는 데는 세 가지 주요 접근법이 있다. 첫 번째는 OHDSI가 제공해야 하는 도구를 사용하지 않는 사용자 정의 코드를 작성하는 것이다. R, SAS 또는 다른 언어로 de novo 분석을 쓸 수 있다. 이는 최대의 유연성을 제공하며, 특정 분석이 우리의 툴에 의해 뒷받침되지 않는 경우 사실상 유일한 선택사항이 될 수 있다. 그러나 이러한 경로에는 많은 기술적 스킬과 시간, 노력이 필요하며, 분석이 복잡성이 증가함에 따라 코드의 오류를 피하기 어려워진다.
 
-The second approach involves developing the analysis in R, and making use of the packages in the [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/). At a minimum, one could use the [SqlRender](https://ohdsi.github.io/SqlRender/) and [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) packages described in more detail in Chapter \@ref(SqlAndR) that allow the same code to be executed on various database platforms, such as PostgreSQL, SQL Server, and Oracle. Other packages such as [CohortMethod](https://ohdsi.github.io/CohortMethod/) and [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) offer R functions for advanced analytics against the CDM that can be called on in one's code. This still requires a lot of technical expertise, but by re-using the validated components of the Methods Library we can be more efficient and less prone to error than when using completely custom code.
+두 번째 접근방식은 R의 분석 개발과 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)의 패키지 사용을 포함한다. 최소한 \@ref(SqlAndR)장에 설명되어 있는 [SqlRender](https://ohdsi.github.io/SqlRender/) 및 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용하여 PostgreSQL, SQL Server, 그리고 Oracle과 같은 다양한 데이터베이스 플랫폼에서 동일한 코드를 실행할 수 있다. [CohortMethod](https://ohdsi.github.io/CohortMethod/)와 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)과 같은 다른 패키지는 자신의 코드로 호출할 수 있는 CDM에 대한 고급 분석을 위한 R 기능을 제공한다. 이것은 여전히 많은 기술적 전문지식을 필요로 하지만, Methods Library의 검증된 구성요소를 다시 사용함으로써 우리는 완전한 사용자 정의 코드를 사용할 때보다 더 효율적이고 오류가 덜 발생할 수 있다.
 
-The third approach relies on our interactive analysis platform [ATLAS](https://github.com/OHDSI/Atlas/wiki), a web-based tool that allows non-programmers to perform a wide range of analyses efficiently. ATLAS makes use of the Methods Libraries but provides a simple graphical interface to design analyses and in many cases generate the necessary R code to run the analysis. However, ATLAS does not support all options available in the Methods Library. While it is expected that the majority of studies can be performed through ATLAS, some studies may require the flexibility offered by the second approach.
+세 번째 접근법은 프로그래머가 아닌 사람들이 다양한 분석을 효율적으로 수행할 수 있도록 해주는 웹 기반 툴인 우리의 대화형 분석 플랫폼 [ATLAS](https://github.com/OHDSI/Atlas/wiki)에 의존한다. ATLAS는 Method Libraries를 사용하지만 분석을 설계하기 위한 간단한 그래픽 인터페이스를 제공하며 많은 경우 분석을 실행하는 데 필요한 R 코드를 생성한다. 그러나 ATLAS는 Methods Library에서 사용할 수 있는 모든 옵션을 지원하지 않는다. 대부분의 연구가 ATLAS를 통해 수행될 수 있을 것으로 예상되지만, 일부 연구는 두 번째 접근방식이 제공하는 유연성을 요구할 수 있다.
 
-ATLAS and the Methods Library are not independent. Some of the more complicated analytics that can be invoked in ATLAS are executed through calls to the packages in the Methods Library. Similarly, cohorts used in the Methods Library are often designed in ATLAS.
+ATLAS와 Methods Library는 독립적이지 않다. ATLAS에서 호출할 수 있는 더 복잡한 분석 중 일부는 Methods Library의 패키지에 대한 호출을 통해 실행된다. 마찬가지로 Methods Library에 사용되는 코호트는 ATLAS에서 설계되는 경우가 많다.
+
+
 
 ## Analysis Strategies
 
-In addition to the strategy used to implement our analysis against the CDM, for example through custom coding or use of standard analytic code in the Methods Library, there are also multiple strategies for using those analytic techniques to generate evidence. Figure \@ref(fig:strategies) highlights three strategies that are employed in OHDSI.
+사용자 정의 코드를 사용하거나 Methods Library의 표준 분석 코드를 사용하여 CDM에 대한 분석을 구현하는 것 외에도, 그러한 분석 기법을 사용하여 근거를 생성하는 데에는 여러 가지 전략이 있다. 그림 \@ref(fig:strategies)는 OHDSI에 채택된 세 가지 전략을 강조한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/strategies.png" alt="Strategies for generating evidence for (clinical) questions." width="90%" />
-<p class="caption">(\#fig:strategies)Strategies for generating evidence for (clinical) questions.</p>
+<img src="images/OhdsiAnalyticsTools/strategies.png" alt="(임상적) 질문에 대한 근거를 생성하기 위한 전략" width="90%" />
+<p class="caption">(\#fig:strategies)(임상적) 질문에 대한 근거를 생성하기 위한 전략</p>
 </div>
 
-The first strategy views every analysis as a single individual study. The analysis must be pre-specified in a protocol, implemented as code, executed against the data, after which the result can be compiled and interpreted. For every question, all steps must be repeated. An example of such an analysis is the OHDSI study into the risk of angioedema associated with levetiracetam compared with phenytoin. [@duke_2017] Here, a protocol was first written, analysis code using the OHDSI Methods Library was developed and executed across the OHDSI network, and results were compiled and disseminated in a journal publication.
+첫 번째 전략은 모든 분석을 하나의 개별적인 연구로 본다. 분석은 프로토콜에 미리 지정되어야 하고, 코드로 구현되어야 하며, 데이터에 대해 실행되어야 하며, 그 후에 결과를 컴파일하고 해석할 수 있어야 한다. 모든 질문에 대해 모든 단계를 반복해야 한다. 그러한 분석의 예로는 phenytoin과 비교하여 levetiracetam과 관련된 혈관부종(angioedema)의 위험에 대한 OHDSI 연구가 있다. [@duke_2017] 이 연구에서, 프로토콜이 처음으로 작성되었고, OHDSI Methods Library를 이용한 분석 코드가 OHDSI 네트워크를 통해 개발되어 실행되었으며, 결과를 편집하여 저널 간행물에 배포하였다.
 
-The second strategy develops an application that allows users to answer a specific class of questions in real time or near-real time. Once the application has been developed, users can interactively define queries, submit them, and view the results. An example of this strategy is the cohort definition and generation tool in ATLAS. This tool allows users to specify cohort definitions of varying complexity, and execute the definition against a database to see how many people meet the various inclusion and exclusion criteria. 
+두 번째 전략은 사용자가 특정 종류의 질문에 실시간으로 또는 거의 실시간으로 답할 수 있는 애플리케이션을 개발한다. 애플리케이션이 개발되면 사용자는 상호 작용적으로 쿼리를 정의하고 제출하고 결과를 볼 수 있다. 이 전략의 예로는 ATLAS의 코호트 정의 및 생성 도구가 있다. 이 도구는 사용자가 다양한 복잡성에 대한 코호트 정의를 지정하고, 다양한 포함 및 제외 기준을 충족하는 사용자 수를 확인하기 위해 데이터베이스에 대한 정의를 실행할 수 있도록 한다.
 
-The third strategy similarly focuses on a class of questions, but then attempts to exhaustively generate all the evidence for the questions within the class. Users can then explore the evidence as needed through a variety of interfaces. One example is the OHDSI study into the effects of depression treatments. [@schuemie_2018b] In this study all depression treatments are compared for a large set of outcomes of interest across four large observational databases. The full set of results, including 17,718 empirically calibrated hazard ratios along with extensive study diagnostics, is available in an interactive web app.[^systematicEvidenceUrl]
+세 번째 전략은 비슷하게 질문의 종류에 초점을 맞추지만, 그 다음 클래스 내의 질문에 대한 모든 근거를 남김없이 생성하려고 시도한다. 사용자는 다양한 인터페이스를 통해 필요에 따라 근거를 탐색할 수 있다. 한 예로 우울증 치료의 영향에 대한 OHDSI 연구가 있다. [@schuemie_2018b] 이 연구에서 모든 우울증 치료는 4개의 큰 관찰 데이터베이스에서 관심 있는 큰 결과 집합에 대해 비교된다. 광범위한 연구 진단과 함께 경험적으로 보정된 위험 비율 17,718을 포함한 전체 결과는 대화형 웹 앱에서 이용할 수 있다.[^systematicEvidenceUrl]
 
 [^systematicEvidenceUrl]: http://data.ohdsi.org/SystematicEvidence/
 
+
+
 ## ATLAS
 
-ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.  ATLAS is deployed as a web application in combination with the OHDSI WebAPI and is typically hosted on Apache Tomcat.  Performing real time analyses requires access to the patient-level data in the CDM and is therefore typically installed behind an organization's firewall. However, there is also a public ATLAS[^atlasUrl], and although this ATLAS instance only has access to a few small simulated datasets, it can still be used for many purposes including testing and training. It is even possible to fully define an effect estimation or prediction study using the public instance of ATLAS, and automatically generate the R code for executing the study. That code can then be run in any environment with an available CDM without needing to install ATLAS and the WebAPI. \index{ATLAS} 
+ATLAS는 CDM 형식으로 표준화된 환자 수준 관측 데이터에 대한 분석의 설계와 실행을 촉진하는 OHDSI 커뮤니티에서 개발한 무료 웹 기반 툴이다. ATLAS는 OHDSI WebAPI와 함께 웹 애플리케이션으로 배포되며 일반적으로 Apache Tomcat에서 호스팅된다. 실시간 분석을 수행하려면 CDM에 있는 환자 수준 데이터에 액세스해야 하므로 일반적으로 조직의 방화벽 뒤에 설치된다. 그러나 공용 ATLAS[^atlasUrl]도 있으며, 이 ATLAS 인스턴스는 몇 개의 소규모 시뮬레이션 데이터셋에만 액세스할 수 있지만, 여전히 테스트와 훈련을 포함한 여러 용도로 사용할 수 있다. ATLAS의 공개 인스턴스를 사용하여 효과 추정 또는 예측 연구를 완전히 정의하고, 연구를 실행하기 위한 R 코드를 자동으로 생성할 수도 있다. 이 코드는 ATLAS와 WebAPI를 설치할 필요 없이 사용 가능한 CDM이 있는 모든 환경에서 실행될 수 있다. \index{ATLAS}
 
 [^atlasUrl]: http://www.ohdsi.org/web/atlas
 
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/atlas.png" alt="ATLAS user interface." width="100%" />
-<p class="caption">(\#fig:atlas)ATLAS user interface.</p>
+<img src="images/OhdsiAnalyticsTools/atlas.png" alt="ATLAS 사용자 인터페이스" width="100%" />
+<p class="caption">(\#fig:atlas)ATLAS 사용자 인터페이스</p>
 </div>
 
-A screenshot of ATLAS is provided in Figure \@ref(fig:atlas). On the left is a navigation bar showing the various functions provided by ATLAS:
+ATLAS 스크린샷은 그림 \@ref(fig:atlas) 에 제공된다. 왼쪽에는 ATLAS에서 제공하는 다양한 기능을 보여주는 내비게이션 바가 있다:
+
+
 
 Data Sources \index{ATLAS!Data Sources} \index{Achilles|see {ATLAS!data sources}}
-: Data sources provides the capability review descriptive, standardized reporting for each of the data sources that you have configured within your Atlas platform. This feature uses the large-scale analytics strategy: all descriptives have been pre-computed. Data sources is discussed in Chapter \@ref(Characterization).
+: 데이터 원본(Data sources)은 Atlas 플랫폼 내에서 구성한 각 데이터 원본에 대해 기술적이고 표준화된 보고 기능을 제공한다. 이 기능은 대규모 분석 전략을 사용한다. 모든 서술은 사전에 계산된 것이다. 데이터 출처는 \@ref(Characterization)장에서 논한다.
 
 Vocabulary Search \index{ATLAS!vocabulary search} 
-: Atlas provides the ability to search and explore the OMOP standardized vocabulary to understand what concepts exist within those vocabularies and how to apply those concepts in your standardized analysis against your data sources. This feature is discussed in Chapter \@ref(StandardizedVocabularies).
+: Atlas는 OMOP 표준화된 어휘를 검색하고 탐색하여 그러한 어휘 안에 존재하는 개념과 데이터 소스에 대한 표준화된 분석에서 그러한 개념을 적용하는 방법을 이해할 수 있는 능력을 제공한다. 이 특성은 \@ref(StandardizedVocabularies)장에서 논한다.
 
 Concept Sets \index{ATLAS!concept sets}
-: Concept sets provides the ability to create collections of logical expressions that can be used to identify a set of concepts to be used throughout your standardized analyses.  Concept sets provide more sophistication than a simple list of codes or values.  A concept set is comprised of multiple concepts from the standardized vocabulary in combination with logical indicators that allow a user to specify that they are interested in including or excluding related concepts in the vocabulary hierarchy.  Searching the vocabulary, identifying the set of concepts, and specifying the logic to be used to resolve a concept set provides a powerful mechanism for defining the often obscure medical language used in analysis plans.  These concept sets can be saved within ATLAS and then used throughout your analysis as part of cohort definitions or analysis specifications.
+: 개념 집합은 표준화된 분석에서 사용할 개념 집합을 식별하는 데 사용할 수 있는 논리 표현식의 집합을 만들 수 있는 능력을 제공한다. 개념 집합은 단순한 코드나 값 리스트보다 더 정교하게 만들어 준다. 개념 집합은 사용자가 어휘 계층에 관련 개념을 포함하거나 배제하는 것에 관심이 있다는 것을 명시할 수 있도록 하는 논리적 지표와 함께 표준화된 어휘에서 나온 여러 개념으로 구성되어 있다. 어휘를 검색하고, 개념 집합을 식별하며, 개념 집합을 해결하기 위해 사용할 논리를 명시하는 것은 분석 계획에 자주 사용되는 모호한 의학 언어를 정의하는 강력한 메커니즘을 제공한다. 이러한 개념 집합은 ATLAS 내에 저장한 다음 코호트 정의 또는 분석 규격의 일부로 분석 내내 사용할 수 있다.
 
 Cohort Definitions \index{ATLAS!cohort definitions}
-: Cohort definitions is the ability to construct a set of persons who satisfy one or more criteria for a duration of time and these cohorts can then serve as the basis of inputs for all of your subsequent analyses. This feature is discussed in Chapter \@ref(Cohorts).
+: 코호트 정의는 일정 기간 동안 하나 이상의 기준을 충족하는 일련의 사람들을 구성할 수 있는 능력이며, 이러한 코호트는 이후 모든 분석에 대한 입력의 기초가 될 수 있다. 이 특성은 \@ref(Cohorts)장에서 논한다.
 
 Characterizations \index{ATLAS!cohort characterization}
-: Characterizations is an analytic capability that allows you to look at one or more cohorts that you've defined and to summarize characteristics about those patient populations. This feature uses the real-time query strategy, and is discussed in Chapter \@ref(Characterization).
+: 특성은 당신이 정의한 하나 이상의 코호트를 보고 그 환자군에 대한 특성을 요약할 수 있는 분석 능력이다. 이 기능은 실시간 쿼리 전략을 사용하며, \@ref(Characterization)장에서 논한다.
 
 Cohort Pathways \index{ATLAS!cohort pathways}
-: Cohort pathways is an analytic tool that allows you to look at the sequence of clinical events that occur within one or more populations. This feature uses the real-time query strategy, and is discussed in Chapter \@ref(Characterization).
+: 코호트 경로(Cohort pathways)는 하나 이상의 인구 내에서 발생하는 임상 사건의 순서를 살펴볼 수 있는 분석 툴이다. 이 기능은 실시간 쿼리 전략을 사용하며, \@ref(Characterization)장에서 논한다.
 
 Incidence Rates \index{ATLAS!incidence rates}
-: Incidence rates is a tool that allows you to estimate the incidence of outcomes within target populations of interest. This feature uses the real-time query strategy, and is discussed in Chapter \@ref(Characterization).
+: 발생률은 관심 대상 인구 내에서 예후의 발생률을 추정할 수 있는 도구다. 이 기능은 실시간 쿼리 전략을 사용하며, \@ref(Characterization)장에서 논한다.
 
 Profiles \index{ATLAS!profiles}
-: Profiles is a tool that allows you to explore an individual patients longitudinal observational data to summarize what is going on within a given individual. This feature uses the real-time query strategy.
+: 프로필은 개별 환자에 대해 종적 관찰 데이터를 탐색하여 특정 개인 내에서 일어나는 일을 요약할 수 있는 도구다. 이 기능은 실시간 쿼리 전략을 사용한다.
 
 Population Level Estimation \index{ATLAS!population level estimation}
-: Estimation is a capability to allow you to define a population level effect estimation study using a comparative cohort design whereby comparisons between one or more target and comparator cohorts can be explored for a series of outcomes. This feature can be said to implement the real-time query strategy, as no coding is required, and is discussed in Chapter \@ref(PopulationLevelEstimation).
+: 추정은 비교 코호트 설계를 사용하여 인구 수준 효과 추정 연구를 정의할 수 있는 능력이며, 여기서 하나 이상의 대상과 비교기 코호트 간의 비교를 통해 일련의 결과에 대해 탐색할 수 있다. 이 특징은 코딩이 필요하지 않으므로 실시간 쿼리 전략을 구현한다고 말할 수 있으며, \@ref(PopulationLevelEstimation)장에서 논의한다.
 
 Patient Level Prediction \index{ATLAS!patient level prediction}
-: Prediction is a capability to allow you to apply machine learning algorithms to conduct patient level prediction analyses whereby you can predict an outcome within any given target exposures. This feature can be said to implement the real-time query strategy, as no coding is required, and is discussed in Chapter \@ref(PatientLevelPrediction).
+: 예측은 주어진 목표 노출 내에서 결과를 예측할 수 있는 환자 수준 예측 분석을 수행하기 위해 기계 학습 알고리즘을 적용할 수 있는 기능이다. 이 특성은 코딩이 필요하지 않으므로 실시간 쿼리 전략을 구현한다고 할 수 있으며, \@ref(PatientLevelPrediction)장에서 논한다.
 
 Jobs \index{ATLAS!jobs}
-: Select the Jobs menu item to explore the state of processes that are running through the WebAPI. Jobs are often long running processes such as generating a cohort or computing cohort characterization reports. 
+: WebAPI를 통해 실행 중인 프로세스의 상태를 탐색하려면 작업 메뉴 항목을 선택하십시오. 작업은 종종 코호트 특성 보고서를 생성하거나 컴퓨팅 코호트 특성화 보고서를 생성하는 것과 같은 장기 실행 과정이다.
 
 Configuration \index{ATLAS!configuration}
-: Select the Configuration menu item to review the data sources that have been configured in the source configuration section. 
+: 소스 구성 섹션에 구성된 데이터 소스를 검토하려면 구성 메뉴 항목을 선택하십시오.
 
 Feedback \index{ATLAS!feedback}
-: The Feedback link will take you to the issue log for Atlas so that you can log a new issue or to search through existing issues. If you have ideas for new features or enhancements, this is also a place note these for the development community.
+: 피드백 링크는 Atlas의 이슈 로그로 이동시켜 새로운 이슈를 기록하거나 기존 이슈를 검색할 수 있도록 해준다. 새로운 기능이나 개선사항에 대한 아이디어가 있다면, 이것은 개발 커뮤니티에 대한 참고 사항이기도 하다.
+
+
 
 ### Security
 
-ATLAS and the WebAPI provide a granular security model to control access to features or data sources within the overall platform. The security system is built leveraging the Apache Shiro library. Additional information on the security system can be found in the online WebAPI security wiki.[^webApiSecurityWikiUrl] \index{ATLAS!security}
+ATLAS와 WebAPI는 전체 플랫폼 내의 기능 또는 데이터 소스에 대한 액세스를 제어하기 위한 세분화된 보안 모델을 제공한다. 이 보안 시스템은 Apache Shiro 라이브러리를 활용하여 구축된다. 보안 시스템에 대한 추가 정보는 온라인 WebAPI 보안 위키에서 찾을 수 있다.[^webApiSecurityWikiUrl] \index{ATLAS!security}
 
 [^webApiSecurityWikiUrl]: https://github.com/OHDSI/WebAPI/wiki/Security-Configuration
 
+
+
 ### Documentation 
 
-Documentation for ATLAS can be found online in the ATLAS GitHub repository wiki.[^atlasRepoWikiUrl] This wiki includes information on the various application features as well as links to online video tutorials.  \index{ATLAS!documentation}
+ATLAS에 대한 설명서는 ATLAS GitHub repository wiki.[^atlasRepoWikiUrl] 이 위키에는 온라인 비디오 튜토리얼에 대한 링크뿐만 아니라 다양한 애플리케이션 기능에 대한 정보가 포함되어 있다. \index{ATLAS!documentation}
 
 [^atlasRepoWikiUrl]: https://github.com/OHDSI/ATLAS/wiki 
 
+
+
 ### How to Install
 
-Installation of ATLAS is done in combination with the OHDSI WebAPI. Installation guides for each component are available online in the ATLAS GitHub repository Setup Guide[^atlasSetupGuideUrl] and WebAPI GitHub repository Installation Guide.[^webApiInstallationGuideUrl] \index{ATLAS!installation}
+ATLAS 설치는 OHDSI WebAPI와 함께 수행된다. 각 구성 요소의 설치 가이드는 ATLAS GitHub 저장소 설정 가이드[^atlasSetupGuideUrl] 및 WebAPI GitHub 저장소 설치 가이드[^webApiInstallationGuideUrl] \index{ATLAS!installation}
 
 [^atlasSetupGuideUrl]: https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
 [^webApiInstallationGuideUrl]: https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide
 
+
+
+
 ## Methods Library
 
-The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/) is the collection of open source R packages show in Figure \@ref(fig:methodsLibrary). \index{methods library}
+The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)는 그림 \@ref(fig:methodsLibrary)에 표시된 오픈 소스 R 패키지의 모음입니다. \index{methods library}
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/methodsLibrary.png" alt="Packages in the OHDSI Methods Library." width="100%" />
-<p class="caption">(\#fig:methodsLibrary)Packages in the OHDSI Methods Library.</p>
+<img src="images/OhdsiAnalyticsTools/methodsLibrary.png" alt="The OHDSI Methods Library의 패키지" width="100%" />
+<p class="caption">(\#fig:methodsLibrary)The OHDSI Methods Library의 패키지</p>
 </div>
 
-The packages offer R functions that together can be used to perform a complete observational study, starting from data in the CDM, and resulting in estimates and supporting statistics, figures, and tables. The packages interact directly with observational data in the CDM, and can be used simply to provide cross-platform compatibility to completely custom analyses as described in Chapter \@ref(SqlAndR), or can provide advanced standardized analytics for population characterization (Chapter \@ref(Characterization)), population-level effect estimation (Chapter \@ref(PopulationLevelEstimation)), and patient-level prediction (Chapter \@ref(PatientLevelPrediction)). The Methods Library supports best practices for use of observational data and observational study design as learned from previous and ongoing research, such as transparency, reproducibility, as well as measuring of the operating characteristics of methods in a particular context and subsequent empirical calibration of estimates produced by the methods. 
+패키지는 완전한 관찰 연구를 수행하기 위해 함께 사용할 수 있는 R 기능을 제공하며, CDM의 데이터에서 시작하여 결과 추정치와 이를 뒷받침하는 통계, 수치 및 표를 제공한다. 패키지는 CDM의 관측 데이터와 직접 상호작용하며, 단순히 \@ref(SqlAndR)장에서 설명한 대로 완전한 사용자 정의 분석에 대한 플랫폼 간 호환성을 제공하는 데 사용하거나, 인구 특성화를 위한 고급 표준화 분석(제 \@ref(Characterization)장), 인구 수준 효과 추정(제 \@ref(PopulationLevelEstimation)장) 및 환자 수준 예측(제 \@ref(PatientLevelPrediction)장)을 제공할 수 있다. The Methods Library는 (이전 또는 진행 중인 연구에서 학습한) 투명성, 재현성, 뿐만 아니라 “특정 맥락에서 methods의 작동 특성(operating characteristics) 측정” 및 이어지는 “methods로부터 생성된 측정치의 경험적 교정(empirical calibration)”과 같은 관찰 데이터 및 관찰 연구 설계의 사용을 위한 모범 사례를 지원한다.
 
-The Methods Library has already been used in many published clinical studies [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019], as well as methodological studies. [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019] The validity of the implementations of methods in the Methods library is described in Chapter \@ref(SoftwareValidity).
+Method Library는 이미 발표된 많은 임상 연구 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019]와 방법론 연구에 사용되어 왔다. [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019] The Methods Library에서 방법 구현의 타당성은 \@ref(SoftwareValidity)장에 설명되어 있다.
+
+
 
 ### Support for Large-Scale Analytics
 
-One key feature incorporated in all packages is the ability to efficiently run many analyses. For example, when performing population-level estimation, the CohortMethod package allows for computing effect-size estimates for many exposures and outcomes, using various analysis settings, and the package will automatically choose the optimal way to compute all the required intermediary and final data sets. Steps that can be re-used, such as extraction of covariates, or fitting a propensity model that is used for one target-comparator pair but multiple outcomes, will be executed only once. Where possible, computations will take place in parallel to maximize the use of computational resources.
+모든 패키지에 통합된 한 가지 주요 특징은 많은 분석을 효율적으로 실행할 수 있는 능력이다. 예를 들어 인구 수준 추정을 수행할 때 CohortMethod 패키지는 다양한 분석 설정을 사용하여 많은 노출(exposure) 및 결과(outcome)에 대한 효과 크기 추정치(effect-size estimates)를 계산할 수 있도록 하며, 패키지는 필요한 모든 중간 및 최종 데이터 세트를 계산하는 최적의 방법을 자동으로 선택한다. “공변량 추출(extraction of covariates)”이나 하나의 대상 비교기 쌍(target-comparator pair)과 복수의 결과에 사용되는 “성향 모델 장착(fitting a propensity model)”과 같이 재사용할 수 있는 단계는 한 번만 실행된다. 가능한 경우 계산 자원의 사용을 극대화하기 위해 연산은 병행으로 수행될 것이다.
 
-This computational efficiency allows for large-scale analytics, answering many questions at once, and is also essential for including control hypotheses (e.g. negative controls) to measure the operating characteristics of our methods, and perform empirical calibration as described in Chapter \@ref(MethodValidity). \index{control hypotheses} 
+이러한 계산 효율은 대규모 분석을 가능하게 하여 한꺼번에 많은 질문에 답할 수 있으며, 또한 제어 가설(예: 음성 제어(negative controls)을 포함시켜 우리 방법의 작동 특성(operating characteristics)을 측정하고 \@ref(MethodValidity)장에 기술된 경험적 교정(empirical calibration)을 수행하는 데 필수적이다. \index{control hypotheses}
+
+
 
 ### Support for Big Data {#BigDataSupport}
 
-The Methods Library is also designed to run against very large databases and be able to perform computations involving large amounts of data. This achieved in three ways:
+The Methods Library는 또한 매우 큰 데이터베이스에 대해 실행하고 대량의 데이터를 포함하는 계산을 수행할 수 있도록 설계되었다. 이는 다음과 같은 세 가지 방법으로 달성되었다:
 
-1. Most data manipulation is performed on the database server. An analysis usually only requires a small fraction of the entire data in the database, and the Methods Library, through the SqlRender and DatabaseConnector packages, allows for advanced operations to be performed on the server to preprocess and extract the relevant data.
-2. Large local data objects are stored in a memory-efficient manner. For the data that is downloaded to the local machine, the Methods Library uses the [ff](https://cran.r-project.org/web/packages/ff) package to store and work with large data objects. This allows us to work with data much larger than fits in memory.
-3. High-performance computing is applied where needed. For example, the [Cyclops](https://ohdsi.github.io/Cyclops/) package implements a highly efficient regression engine that is used throughout the Methods Library to perform large-scale regressions (large number of variables, large number of observations) that would not be possible to fit otherwise.
+1. 대부분의 데이터 조작은 데이터베이스 서버에서 수행된다. 분석은 일반적으로 데이터베이스에 있는 전체 데이터의 극히 일부만 필요로 하며 Methods Library는 SqlRender 및 DatabaseConnector 패키지를 통해 서버에서 고급 작업을 수행하여 관련 데이터를 사전 처리하고 추출할 수 있도록 한다.
+2. 대용량 로컬 데이터 객체는 메모리 효율적인 방식으로 저장된다. 로컬 시스템으로 다운로드 되는 데이터의 경우 Method Library는 [ff](https://cran.r-project.org/web/packages/ff) 패키지를 사용하여 대용량 데이터 객체를 저장하고 작업한다. 이것은 우리가 메모리를 직접적으로 사용하는 것보다 훨씬 더 큰 데이터로 작업할 수 있게 해준다.
+3. 필요한 곳에 고성능 컴퓨팅을 적용한다. 예를 들어, [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지는 Methods Library 전체에서 대량의 변수, 관측치로 인해 달리 방법이 없는 경우 대규모 회귀를 수행하기 위해 사용되는 매우 효율적인 회귀 엔진을 구현한다.
+
+
 
 ### Documentation
 
-R provides a standard way to document packages. Each package has a *package manual* that documents every function and data set contained in the package. All package manuals are available online through the Methods Library website[^methodsLibraryUrl], through the package GitHub repositories, and for those packages available through CRAN they can be found in CRAN. Furthermore, from within R the package manual can be consulted by using the question mark. For example, after loading the DatabaseConnector package, typing the command `?connect` brings up the documentation on the "connect" function.
+R은 패키지를 문서화하는 표준화된 방법을 제공한다. 각 패키지에는 패키지에 포함된 모든 기능과 데이터 세트를 문서화하는 *패키지 설명서*가 있다. 모든 패키지 매뉴얼은 the Methods Library 웹 사이트[^methodsLibraryUrl]를 통해 온라인으로, 패키지 GitHub 저장소를 통해 사용할 수 있으며 CRAN을 통해 사용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. 또한, R 내에서 물음표를 사용하여 패키지 설명서를 참조할 수 있다. 예를 들어 DatabaseConnector 패키지를 로드한 후 `?connect` 명령을 입력하면 "연결(connect)" 기능에 대한 문서가 나타난다.
 
 [^methodsLibraryUrl]: https://ohdsi.github.io/MethodsLibrary
 
-In addition to the package manual, many packages provide *vignettes*. Vignettes are long-form documentation that describe how a package can be used to perform certain tasks. For example, one vignette[^vignetteUrl] describes how to perform multiple analyses efficiently using the CohortMethod package. Vignettes can also be found through the Methods Library website, through the package GitHub repositories, and for those packages available through CRAN they can be found in CRAN. \index{vignette}
+패키지 설명서 외에도 많은 패키지가 *vignette*를 제공한다. Vignettes는 특정 작업을 수행하기 위해 어떻게 패키지를 사용할 수 있는지 설명하는 긴 형식의 문서다. 예를 들어, 하나의 vignette[^vignetteUrl]은 CohortMethod 패키지를 사용하여 여러 가지 분석을 효율적으로 수행하는 방법을 설명한다. 또한 Vignettes는 Methods Library 웹 사이트, 패키지 GitHub 저장소를 통해 찾을 수 있으며, CRAN을 통해 이용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. Vignettes는 the Methods Library 웹 사이트를 통해 온라인으로, 패키지 GitHub 저장소를 통해 사용할 수 있으며 CRAN을 통해 사용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. \index{vignette}
 
 [^vignetteUrl]: https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html
 
+
+
+
 ###  System Requirements
 
-Two computing environments are relevant when discussing the system requirements: The database server, and the analytics workstation. \index{system requirements}
+시스템 요구 사항을 논의할 때 두 가지 컴퓨팅 환경이 적합하다: 데이터베이스 서버 및 분석 워크스테이션  \index{system requirements}
 
-The database server must hold the observational healthcare data in CDM format. The Methods Library supports a wide array of database management systems including traditional database systems (PostgreSQL, Microsoft SQL Server, and Oracle), parallel data warehouses (Microsoft APS, IBM Netezza, and Amazon RedShift), as well as Big Data platforms (Hadoop through Impala, and Google BigQuery). 
+데이터베이스 서버는 관찰 의료 데이터를 CDM 형식으로 보관해야 한다. Method Library는 전통적인 데이터베이스 시스템(PostgreSQL, Microsoft SQL Server, 그리고 Oracle), 병렬 데이터 웨어하우스(Microsoft APS, IBM Netezza, 그리고 Amazon RedShift) 및 빅데이터 플랫폼(Impala를 통한 Hadoop, 그리고 Google BigQuery)을 포함한 광범위한 데이터베이스 관리 시스템을 지원한다.
 
-The analytics workstation is where the Methods Library is installed and run. This can either be a local machine, such as someone's laptop, or a remote server running RStudio Server. In all cases the requirements are that R is installed, preferably together with RStudio. The Methods Library also requires that Java is installed. The analytics workstation should also be able to connect to the database server, specifically, any firewall between them should have the database server access ports opened the workstation. Some of the analytics can be computationally intensive, so having multiple processing cores and ample memory can help speed up the analyses. We recommend having at least four cores and 16 gigabytes of memory.
+분석 워크스테이션은 Methods Library가 설치되고 실행되는 곳이다. 이것은 누군가의 랩톱과 같은 로컬 시스템이나 RStudio Server를 실행하는 원격 서버일 수 있다. 모든 경우에, R은 RStudio와 함께 설치되어야 한다. Methods Library는 또한 Java를 설치할 것을 요구한다. 또한 분석 워크스테이션은 데이터베이스 서버에 연결할 수 있어야 하며, 특히 이들 사이의 방화벽은 데이터베이스 서버 액세스 포트를 워크스테이션에 개방해야 한다. 일부 분석은 계산 집약적일 수 있으므로 여러 개의 처리 코어와 충분한 메모리를 갖는 것이 분석 속도를 높이는 데 도움이 될 수 있다. 적어도 4개의 코어와 16GB의 메모리를 가질 것을 추천한다.
+
+
 
 ### How to Install {#installR}
 
-Here are the steps for installing the required environment to run the OHDSI R packages. Four things need to be installed: \index{R!installation}
+다음은 OHDSI R 패키지를 실행하는 데 필요한 환경을 설치하는 단계다. 다음 네 가지를 설치해야 한다: \index{R!installation}
 
-1. **R** is a statistical computing environment. It comes with a basic user interface that is primarily a command-line interface.
-2. **RTools** is a set of programs that is required on Windows to build R packages from source.
-3. **RStudio** is an IDE (Integrated Development Environment) that makes R easier to use. It includes a code editor, debugging and visualization tools. Please use it to obtain a nice R experience.
-4. **Java** is a computing environment that is needed to run some of the components in the OHDSI R packages, for example those needed to connect to a database.
+1. **R**은 통계 컴퓨팅 환경이다. 그것은 주로 명령어 인터페이스인 기본 사용자 인터페이스와 함께 제공된다.
+2. **RTools**는 Windows에서 소스로부터 R 패키지를 만드는 데 필요한 프로그램들의 모음이다.
+3. **RStudio**는 R을 사용하기 쉽게 하는 통합 개발 환경(IDE, Integrated Development Environment)이다. 여기에는 코드 편집기, 디버깅 및 시각화 도구가 포함되어 있다. 좋은 R 경험을 얻기 위해 그것을 사용하라.
+4. **Java**는 OHDSI R 패키지의 일부 구성 요소(예: 데이터베이스에 연결하는 데 필요한 구성 요소)를 실행하는 데 필요한 컴퓨팅 환경이다.
 
-Below we describe how to install each of these in a Windows environment.
+아래에서는 Windows 환경에 이러한 각 항목을 설치하는 방법에 대해 설명한다.
 
-\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">In Windows, both R and Java come in 32-bit and 64-bits architectures. If you install R in both architectures, you **must** also install Java in both architectures. It is recommended to only install the 64-bit version of R.</div>\EndKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">윈도우즈에서 R과 Java는 모두 32-bit 및 64-bit 아키텍처로 제공된다. 두 아키텍처에 R을 설치하는 경우, **반드시** 두 아키텍처에 모두 Java를 설치해야 한다. R의 64-bit 버전만 설치하는 것을 추천한다.</div>\EndKnitrBlock{rmdimportant}
+
+
+
 
 #### Installing R {-}
 
-1. Go to [https://cran.r-project.org/](https://cran.r-project.org/), click on "Download R for Windows", then "base", then click the Download link indicated in Figure \@ref(fig:downloadR).  
+1. [https://cran.r-project.org/](https://cran.r-project.org/)으로 이동하여, "Download R for Windows"를 클릭한 다음 "base"를 클릭한 다음 그림 \@ref(fig:downloadR)에 표시된 다운로드 링크를 클릭하십시오.
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/downloadR.png" alt="Downloading R from CRAN." width="100%" />
-<p class="caption">(\#fig:downloadR)Downloading R from CRAN.</p>
+<img src="images/OhdsiAnalyticsTools/downloadR.png" alt="CRAN으로부터 R 다운로드" width="100%" />
+<p class="caption">(\#fig:downloadR)CRAN으로부터 R 다운로드</p>
 </div>
 
-2. After the download has completed, run the installer. Use the default options everywhere, with two exceptions: First, it is better not to install into program files. Instead, just make R a subfolder of your C drive as shown in Figure \@ref(fig:rDestination). Second, to avoid problems due to differing architectures between R and Java, disable the 32-bit architecture as shown in Figure \@ref(fig:no32Bits).
+2. 다운로드가 완료된 후 설치 프로그램을 실행하십시오. 다음 두 가지 예외를 제외하고 모든 곳에서 기본 옵션을 사용하십시오. 첫째, 프로그램 파일에 설치하지 않는 것이 좋다. 대신 R을 그림 \@ref(fig:rDestination)과 같이 C 드라이브의 하위 폴더로 만드십시오. 둘째, R과 Java 간의 아키텍처 차이로 인한 문제를 방지하려면 그림 \@ref(fig:no32Bits)과 같이 32-bit 아키텍처를 비활성화 하십시오.
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/rDestination.png" alt="Settings the destination folder for R." width="80%" />
-<p class="caption">(\#fig:rDestination)Settings the destination folder for R.</p>
+<img src="images/OhdsiAnalyticsTools/rDestination.png" alt="R의 대상 폴더를 설정하시오." width="80%" />
+<p class="caption">(\#fig:rDestination)R의 대상 폴더를 설정하시오.</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/no32Bits.png" alt="Disabling the 32-bit version of R." width="80%" />
-<p class="caption">(\#fig:no32Bits)Disabling the 32-bit version of R.</p>
+<img src="images/OhdsiAnalyticsTools/no32Bits.png" alt="32-bit 버전의 R을 사용하지 않도록 설정" width="80%" />
+<p class="caption">(\#fig:no32Bits)32-bit 버전의 R을 사용하지 않도록 설정</p>
 </div>
 
-Once completed, you should be able to select R from your Start Menu. 
+완료되면 시작 메뉴에서 R을 선택할 수 있어야 한다.
+
+
 
 #### Installing RTools {-}
 
-1. Go to [https://cran.r-project.org/](https://cran.r-project.org/), click on "Download R for Windows", then "Rtools", and select the very latest version of RTools to download.
+1. [https://cran.r-project.org/](https://cran.r-project.org/),으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하십시오. 
 
-2. After downloading has completed run the installer. Select the default options everywhere.
+2. 다운로드가 완료된 후 설치 프로그램을 실행하십시오. 어디에서나 기본 옵션을 선택하십시오.
+
+
 
 #### Installing RStudio {-}
 
-1. Go to [https://www.rstudio.com/](https://www.rstudio.com/), select "Download RStudio" (or the "Download" button under "RStudio"), opt for the free version, and download the installer for Windows as shown in Figure \@ref(fig:downloadRStudio).
+1. [https://www.rstudio.com/](https://www.rstudio.com/)으로 이동하여, "Download RStudio"을 선택(또는 "RStudio"에서 "Download" 버튼을 선택)하고, 무료 버전을 선택한 후, 그림 \@ref(fig:downloadRStudio)과 같이 Windows용 설치 프로그램을 다운로드하십시오.
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/downloadRStudio.png" alt="Downloading RStudio." width="100%" />
-<p class="caption">(\#fig:downloadRStudio)Downloading RStudio.</p>
+<img src="images/OhdsiAnalyticsTools/downloadRStudio.png" alt="RStudio 다운로드" width="100%" />
+<p class="caption">(\#fig:downloadRStudio)RStudio 다운로드</p>
 </div>
 
-2. After downloading, start the installer, and use the default options everywhere.
+2. 다운로드한 후, 설치 관리자를 시작하고, 모든 곳에서 기본 옵션을 선택하십시오.
+
+
+
 
 #### Installing Java {-}
 
-1. Go to [https://java.com/en/download/manual.jsp](https://java.com/en/download/manual.jsp), and select the Windows 64-bit installer as shown in Figure \@ref(fig:downloadJava). If you also installed the 32-bit version of R, you *must* also install the other (32-bit) version of Java.
-
+1. [https://java.com/en/download/manual.jsp](https://java.com/en/download/manual.jsp)으로 이동하여, 그림 \@ref(fig:downloadJava)와 같이 Windows 64-bit installer를 선택하십시오. 32-bit 버전의 R도 설치한 경우 *반드시* 다른 32-bit 버전의 Java도 설치해야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/downloadJava.png" alt="Downloading Java." width="100%" />
-<p class="caption">(\#fig:downloadJava)Downloading Java.</p>
+<img src="images/OhdsiAnalyticsTools/downloadJava.png" alt="Java 다운로드" width="100%" />
+<p class="caption">(\#fig:downloadJava)Java 다운로드</p>
 </div>
 
-2. After downloading just run the installer.
+2. 다운로드한 후 설치 프로그램을 실행하십시오.
+
+
 
 #### Verifying the Installation {-}
 
-You should now be ready to go, but we should make sure. Start RStudio, and type
+이제 시작할 준비를 해야 하지만, 그 전에 확실히 해야 한다. RStudio를 시작하고 및 아래의 내용을 입력하자.
+
 
 
 ```r
@@ -237,9 +275,11 @@ translate("SELECT TOP 10 * FROM person;", "postgresql")
 ## [1] "SELECT  * FROM person LIMIT 10;"
 ```
 
-This function uses Java, so if all goes well we know both R and Java have been installed correctly!
+이 기능은 Java를 사용하기 때문에, 만약 모든 것이 잘 된다면, R과 Java가 모두 올바르게 설치되었다는 것을 알 수 있다!
 
-Another test is to see if source packages can be built. Run the following R code to install the `CohortMethod` package from the OHDSI GitHub repository:
+또 다른 테스트는 소스 패키지를 제대로 구축할 수 있는지 확인하는 것이다. 다음 R 코드를 실행하여 OHDSI GitHub 저장소에서 `CohortMethod` 패키지를 설치하십시오:
+
+
 
 ```r
 install.packages("drat")
@@ -248,58 +288,65 @@ install.packages("CohortMethod")
 ```
 
 
+
+
 ## Deployment Strategies
 
-Deploying the entire OHDSI tool stack, including ATLAS and the Methods Library, in an organization is a daunting task. There are many components with dependencies that have to be considered, and configurations to set. For this reason, two initiatives have developed integrated deployment strategies that allow the entire stack to be installed as one package, using some forms of virtualization: Broadsea and Amazon Web Services (AWS).  \index{tools deployment}
+ATLAS 및 Method Library를 포함한 전체 OHDSI 도구 스택을 조직에 배치하는 것은 어려운 작업이다. 의존성 높은 구성 요소들을 많이 고려해야 하고, 설정해야 할 환경이 많다. 이 때문에 두 이니셔티브(Broadsea와 AWS(Amazon Web Services))는 일부 가상화 형태를 이용해 전체 스택을 하나의 패키지로 설치할 수 있는 통합 배치 전략을 개발했다. \index{tools deployment}
+
 
 ### Broadsea
 
-Broadsea[^broadseaUrl] uses Docker container technology.[^dockerUrl] The OHDSI tools are packaged along with dependencies into a single portable binary file called a Docker Image. This image can then be run on a Docker engine service, creating a virtual machine with all the software installed and ready to run. Docker engines are available for most operating systems, including Microsoft Windows, MacOS, and Linux. The Broadsea Docker image contains the main OHDSI tools, including the Methods Library and ATLAS. \index{tools deployment!Broadsea}
+Broadsea[^broadseaUrl]은 Docker 컨테이너 기술을 사용한다.[^dockerUrl] OHDSI 도구는 의존성과 함께 Docker Image라는 단일 휴대용 이진 파일로 패키징된다. 그러면 이 이미지는 Docker 엔진 서비스에서 실행되고, 모든 소프트웨어가 설치되어 실행 준비가 된 가상 시스템(virtual machine)을 생성할 수 있다. Docker 엔진은 마이크로소프트 윈도우, 맥OS, 리눅스를 포함한 대부분의 운영 체제에 사용할 수 있다. Broadsea Docker 이미지에는 Methods Library와 ATLAS를 포함한 주요 OHDSI 도구가 포함되어 있다. \index{tools deployment!Broadsea}
 
 [^broadseaUrl]: https://github.com/OHDSI/Broadsea
 [^dockerUrl]: https://www.docker.com/
 
+
 ### Amazon AWS
 
-Amazon has prepared two environments that can be instantiated in the AWS cloud computing environment with a click of the button: OHDSI-in-a-Box[^ohdsiInaBoxUrl] and OHDSIonAWS.[^ohdsiOnAwsUrl] \index{tools deployment!Amazon AWS}
+Amazon은 버튼 클릭 한 번으로 AWS 클라우드 컴퓨팅 환경에서 인스턴스화할 수 있는 두 가지 환경, 즉 OHDSI-in-a-Box[^ohdsiInaBoxUrl]와 OHDSIonAWS.[^ohdsiOnAwsUrl]을 준비했다. \index{tools deployment!Amazon AWS}
 
 OHDSI-in-a-Box is specifically created as a learning environment, and is used in most of the tutorials provided by the OHDSI community. It includes many OHDSI tools, sample data sets, RStudio and other supporting software in a single, low cost Windows virtual machine.  A PostgreSQL database is used to store the CDM and also to store the intermediary results from ATLAS. The OMOP CDM data mapping and ETL tools are also included in OHDSI-in-a-Box. The architecture for OHDSI-in-a-Box is depicted in Figure \@ref(fig:ohdsiinaboxDiagram).
+
+OHDSI-in-a-Box는 특별히 학습 환경으로 만들어졌으며, OHDSI 커뮤니티에서 제공하는 대부분의 튜토리얼에 사용된다. 그것은 많은 OHDSI 도구, 샘플 데이터 세트, RStudio 및 기타 지원 소프트웨어를 저렴한 단일 윈도우즈 가상 머신에 포함한다. PostgreSQL 데이터베이스는 CDM을 저장하고 ATLAS의 중간 결과를 저장하는 데 사용된다. OMOP CDM 데이터 매핑과 ETL 툴도 OHDSI-in-a-Box에 포함되어 있다. OHDSI-in-a-Box 아키텍처는 그림 \@ref(fig:ohdsiinaboxDiagram)에 나타나 있다.
 
 [^ohdsiInaBoxUrl]: https://github.com/OHDSI/OHDSI-in-a-Box
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/OHDSI-in-a-BoxDiagram.png" alt="The Amazon Web Services architecture for OHDSI-in-a-Box." width="100%" />
-<p class="caption">(\#fig:ohdsiinaboxDiagram)The Amazon Web Services architecture for OHDSI-in-a-Box.</p>
+<img src="images/OhdsiAnalyticsTools/OHDSI-in-a-BoxDiagram.png" alt="OHDSI-in-a-Box용 Amazon Web Services 아키텍처" width="100%" />
+<p class="caption">(\#fig:ohdsiinaboxDiagram)OHDSI-in-a-Box용 Amazon Web Services 아키텍처</p>
 </div>
 
-OHDSIonAWS is a reference architecture for enterprise class, multi-user, scalable and fault tolerant OHDSI environments that can be used by organizations to perform their data analytics. It includes several sample datasets and can also automatically load your organization's real healthcare data. The data is placed in the Amazon Redshift database platform, which is supported by the OHDSI tools. Intermediary results of ATLAS are stored in a PostgreSQL database. On the front end, users have access to ATLAS and to RStudio through a web interface (leveraging RStudio Server). In RStudio the OHDSI Methods Library has already been installed, and can be used to connect to the databases. The automation to deploy OHDSIonAWS is open-source, and can be customized to include your organization's management tools and best practices.  The architecture for OHDSIonAWS is depicted in Figure \@ref(fig:ohdsionawsDiagram).
+OHDSIonAWS는 조직이 그들의 데이터 분석을 수행하는 데 사용할 수 있는 엔터프라이즈급, 다중 사용자, 확장 가능하고 내결함성 OHDSI 환경을 위한 참조 아키텍처다. 여기에는 몇 가지 샘플 데이터 세트가 포함되어 있으며 조직의 실제 의료 데이터를 자동으로 적재할 수도 있다. 데이터는 OHDSI 도구에 의해 지원되는 Amazon Redshift 데이터베이스 플랫폼에 배치된다. ATLAS의 중간 결과는 PostgreSQL 데이터베이스에 저장된다. 프런트 엔드에서 사용자는 웹 인터페이스(leveraging RStudio Server)를 통해 ATLAS와 RStudio에 접근할 수 있다. RStudio에는 OHDSI Methods Library가 이미 설치되어 있으며, 데이터베이스에 연결하는 데 사용할 수 있다. OHDSIonAWS를 배포하는 자동화는 오픈 소스로, 조직의 관리 툴과 모범 사례를 포함하도록 사용자 정의할 수 있다. OHDSIonAWS에 대한 아키텍처는 그림 \@ref(fig:ohdsionawsDiagram)에 설명되어 있다.
 
 [^ohdsiOnAwsUrl]: https://github.com/OHDSI/OHDSIonAWS
 
 <div class="figure" style="text-align: center">
-<img src="images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png" alt="The Amazon Web Services architecure for OHDSIonAWS." width="100%" />
-<p class="caption">(\#fig:ohdsionawsDiagram)The Amazon Web Services architecure for OHDSIonAWS.</p>
+<img src="images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png" alt="OHDSIonAWS를 위한 Amazon Web Services 아카이브" width="100%" />
+<p class="caption">(\#fig:ohdsionawsDiagram)OHDSIonAWS를 위한 Amazon Web Services 아카이브</p>
 </div>
+
+
+
 
 ## Summary
 
-\BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- We can perform analyses against data in the CDM by 
-    - writing custom code
-    - writing code that uses the R packages in the OHDSI Methods Library
-    - using the interactive analysis platform ATLAS
+\BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- 다음을 통해 CDM의 데이터에 대한 분석을 수행할 수 있다.
+    - 사용자 지정 코드 작성
+    - OHDSI Method Library에서 R 패키지를 사용하는 코드 작성
+    - 대화형 분석 플랫폼 ATLAS 사용
 
-- OHDSI tools use different analysis strategies
-    - Single studies
-    - Real-time queries
-    - Large-scale analytics
+- OHDSI 툴은 다양한 분석 전략을 사용한다.
+    - 단일 연구
+    - 실시간 쿼리
+    - 대규모 분석
 
-- The majority of OHDSI analytics tool are embedded in
-    - The interactive analysis platform ATLAS
-    - The OHDSI Methods Library R packages
+- 대부분의 OHDSI 분석 툴이 다음에 내장되어 있다.
+    - 대화형 분석 플랫폼 ATLAS
+    - OHDSI Methods Library R 패키지
 
-- Several strategies exist facilitating the deployment of the OHDSI tools.
+- OHDSI 툴의 구축을 촉진하는 몇 가지 전략이 존재한다.
 </div>\EndKnitrBlock{rmdsummary}
-
-
 
 
