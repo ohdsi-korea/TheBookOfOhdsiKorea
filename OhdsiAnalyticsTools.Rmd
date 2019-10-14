@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: pdf_document
-  html_document: html_document
----
 # OHDSI Analytics Tools {#OhdsiAnalyticsTools}
 
 *Chapter leads: Martijn Schuemie & Frank DeFalco*
