@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Defining Cohorts | The Book of OHDSI Korea</title>
+  <meta name="description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Defining Cohorts | The Book of OHDSI Korea" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/" />
+  <meta property="og:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
+  <meta property="og:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="github-repo" content="OHDSI-Korea/TheBookOfOhdsiKorea" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Defining Cohorts | The Book of OHDSI Korea" />
+  
+  <meta name="twitter:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="twitter:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
+
+<meta name="author" content="OHDSI-Korea" />
+
+
+<meta name="date" content="2019-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="SqlAndR.html">
+<link rel="next" href="Characterization.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104086677-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104086677-2');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Book of OHDSI</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>서문</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i>이 책의 목표</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i>이 책의 구성</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#eab8b0ec97acec9e90"><i class="fa fa-check"></i>기여자</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>소프트웨어 버전</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#eb9dbcec9db4ec84a0ec8aa4"><i class="fa fa-check"></i>라이선스</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i>이 책이 쓰여진 과정</a></li>
+</ul></li>
+<li class="part"><span><b>I The OHDSI Community</b></span></li>
+<li class="chapter" data-level="1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html"><i class="fa fa-check"></i><b>1</b> The OHDSI Community</a><ul>
+<li class="chapter" data-level="1.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#---the-journey-from-data-to-evidence"><i class="fa fa-check"></i><b>1.1</b> 데이터에서 근거로의 여정 (The Journey from Data to Evidence)</a></li>
+<li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#-observational-medical-outcomes-partnership-omop"><i class="fa fa-check"></i><b>1.2</b> 오몹 (Observational Medical Outcomes Partnership, OMOP)</a></li>
+<li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#----ohdsi-as-an-open-science-collaborative"><i class="fa fa-check"></i><b>1.3</b> 개방형 협업 공동체로서의 오딧세이 (OHDSI as an Open-Science Collaborative)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-mission"><i class="fa fa-check"></i><b>1.3.1</b> OHDSI의 사명 (Our Mission)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-vision"><i class="fa fa-check"></i><b>1.3.2</b> OHDSI의 이상 (Our Vision)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi---our-objectives"><i class="fa fa-check"></i><b>1.3.3</b> OHDSI의 핵심 가치 (Our Objectives)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#--ohdsis-progress"><i class="fa fa-check"></i><b>1.4</b> 오딧세이의 진척 (OHDSI’s Progress)</a></li>
+<li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#collaborating-in-ohdsi"><i class="fa fa-check"></i><b>1.5</b> Collaborating in OHDSI</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.6</b> 한국 오딧세이의 역사</a></li>
+<li class="chapter" data-level="1.7" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#summary"><i class="fa fa-check"></i><b>1.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> Where to Begin</a><ul>
+<li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#join-the-journey"><i class="fa fa-check"></i><b>2.1</b> Join the Journey</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-forums"><i class="fa fa-check"></i><b>2.1.1</b> OHDSI Forums</a></li>
+<li class="chapter" data-level="2.1.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-events"><i class="fa fa-check"></i><b>2.1.2</b> OHDSI Events</a></li>
+<li class="chapter" data-level="2.1.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-community-calls"><i class="fa fa-check"></i><b>2.1.3</b> OHDSI Community Calls</a></li>
+<li class="chapter" data-level="2.1.4" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-workgroups"><i class="fa fa-check"></i><b>2.1.4</b> OHDSI Workgroups</a></li>
+<li class="chapter" data-level="2.1.5" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-regional-chapters"><i class="fa fa-check"></i><b>2.1.5</b> OHDSI Regional Chapters</a></li>
+<li class="chapter" data-level="2.1.6" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-research-network"><i class="fa fa-check"></i><b>2.1.6</b> OHDSI Research Network</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#where-you-fit-in"><i class="fa fa-check"></i><b>2.2</b> Where You Fit In</a></li>
+<li class="chapter" data-level="2.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#summary-1"><i class="fa fa-check"></i><b>2.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> Open Science</a><ul>
+<li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#open-science"><i class="fa fa-check"></i><b>3.1</b> Open Science</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#open-science-in-action-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> Open-Science in Action: the Study-a-Thon</a></li>
+<li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#open-standards"><i class="fa fa-check"></i><b>3.3</b> Open Standards</a></li>
+<li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#open-source"><i class="fa fa-check"></i><b>3.4</b> Open Source</a></li>
+<li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#open-data"><i class="fa fa-check"></i><b>3.5</b> Open Data</a></li>
+<li class="chapter" data-level="3.6" data-path="OpenScience.html"><a href="OpenScience.html#open-discourse"><i class="fa fa-check"></i><b>3.6</b> Open Discourse</a></li>
+<li class="chapter" data-level="3.7" data-path="OpenScience.html"><a href="OpenScience.html#ohdsi-and-the-fair-guiding-principles"><i class="fa fa-check"></i><b>3.7</b> OHDSI and the FAIR Guiding Principles</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="OpenScience.html"><a href="OpenScience.html#introduction"><i class="fa fa-check"></i><b>3.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.7.2" data-path="OpenScience.html"><a href="OpenScience.html#findability"><i class="fa fa-check"></i><b>3.7.2</b> Findability</a></li>
+<li class="chapter" data-level="3.7.3" data-path="OpenScience.html"><a href="OpenScience.html#accessibility"><i class="fa fa-check"></i><b>3.7.3</b> Accessibility</a></li>
+<li class="chapter" data-level="3.7.4" data-path="OpenScience.html"><a href="OpenScience.html#interoperability"><i class="fa fa-check"></i><b>3.7.4</b> Interoperability</a></li>
+<li class="chapter" data-level="3.7.5" data-path="OpenScience.html"><a href="OpenScience.html#reusability"><i class="fa fa-check"></i><b>3.7.5</b> Reusability</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Uniform Data Representation</b></span></li>
+<li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 공통 데이터 모델</a><ul>
+<li class="chapter" data-level="4.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>4.1</b> 설계 원리</a></li>
+<li class="chapter" data-level="4.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2</b> 데이터 모델 규칙</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.2.1</b> 모델의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2.2</b> 스키마의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>4.2.3</b> 데이터 테이블의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#domains"><i class="fa fa-check"></i><b>4.2.4</b> 도메인의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concept---"><i class="fa fa-check"></i><b>4.2.5</b> Concept을 통한 내용의 표현</a></li>
+<li class="chapter" data-level="4.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2.6</b> 필드 명명 규칙</a></li>
+<li class="chapter" data-level="4.2.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concepts-Sources"><i class="fa fa-check"></i><b>4.2.7</b> concept과 원본 값과의 차이</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-cdm-"><i class="fa fa-check"></i><b>4.3</b> 표준화된 CDM 테이블</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.3.1</b> 실행 예제: 자궁내막증</a></li>
+<li class="chapter" data-level="4.3.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.3.2</b> PERSON 테이블</a></li>
+<li class="chapter" data-level="4.3.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.3.3</b> OBSERVATION_PERIOD 테이블</a></li>
+<li class="chapter" data-level="4.3.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.3.4</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#conditionOccurrence"><i class="fa fa-check"></i><b>4.3.5</b> CONDITION_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#drugExposure"><i class="fa fa-check"></i><b>4.3.6</b> DRUG_EXPOSURE</a></li>
+<li class="chapter" data-level="4.3.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#procedureOccurrence"><i class="fa fa-check"></i><b>4.3.7</b> PROCEDURE_OCCURRENCE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>4.4</b> 부가 정보</a></li>
+<li class="chapter" data-level="4.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#section-4.5"><i class="fa fa-check"></i><b>4.5</b> 요약</a></li>
+<li class="chapter" data-level="4.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabularies</a><ul>
+<li class="chapter" data-level="5.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#why-vocabularies-and-why-standardizing"><i class="fa fa-check"></i><b>5.1</b> Why Vocabularies, and Why Standardizing</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#building-the-standardized-vocabularies"><i class="fa fa-check"></i><b>5.1.1</b> Building the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.1.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#accessVocabularies"><i class="fa fa-check"></i><b>5.1.2</b> Access to the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.1.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#source-of-vocabularies-adopt-versus-build"><i class="fa fa-check"></i><b>5.1.3</b> Source of Vocabularies: Adopt Versus Build</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concepts"><i class="fa fa-check"></i><b>5.2</b> Concepts</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-ids"><i class="fa fa-check"></i><b>5.2.1</b> Concept IDs</a></li>
+<li class="chapter" data-level="5.2.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-names"><i class="fa fa-check"></i><b>5.2.2</b> Concept Names</a></li>
+<li class="chapter" data-level="5.2.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptDomains"><i class="fa fa-check"></i><b>5.2.3</b> Domains</a></li>
+<li class="chapter" data-level="5.2.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#vocabularies"><i class="fa fa-check"></i><b>5.2.4</b> Vocabularies</a></li>
+<li class="chapter" data-level="5.2.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-classes"><i class="fa fa-check"></i><b>5.2.5</b> Concept Classes</a></li>
+<li class="chapter" data-level="5.2.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#standardConcepts"><i class="fa fa-check"></i><b>5.2.6</b> Standard Concepts</a></li>
+<li class="chapter" data-level="5.2.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#non-standard-concepts"><i class="fa fa-check"></i><b>5.2.7</b> Non-Standard Concepts</a></li>
+<li class="chapter" data-level="5.2.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#classification-concepts"><i class="fa fa-check"></i><b>5.2.8</b> Classification Concepts</a></li>
+<li class="chapter" data-level="5.2.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-codes"><i class="fa fa-check"></i><b>5.2.9</b> Concept Codes</a></li>
+<li class="chapter" data-level="5.2.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptLifeCycle"><i class="fa fa-check"></i><b>5.2.10</b> Life-Cycle</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships"><i class="fa fa-check"></i><b>5.3</b> Relationships</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptMapping"><i class="fa fa-check"></i><b>5.3.1</b> Mapping Relationships</a></li>
+<li class="chapter" data-level="5.3.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#hierarchical-relationships"><i class="fa fa-check"></i><b>5.3.2</b> Hierarchical Relationships</a></li>
+<li class="chapter" data-level="5.3.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships-between-concepts-of-different-vocabularies"><i class="fa fa-check"></i><b>5.3.3</b> Relationships Between Concepts of Different Vocabularies</a></li>
+<li class="chapter" data-level="5.3.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships-between-concepts-of-the-same-vocabulary"><i class="fa fa-check"></i><b>5.3.4</b> Relationships Between Concepts of the Same Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptAncestor"><i class="fa fa-check"></i><b>5.4</b> Hierarchy</a></li>
+<li class="chapter" data-level="5.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#internal-reference-tables"><i class="fa fa-check"></i><b>5.5</b> Internal Reference Tables</a></li>
+<li class="chapter" data-level="5.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#specialSituations"><i class="fa fa-check"></i><b>5.6</b> Special Situations</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#gender"><i class="fa fa-check"></i><b>5.6.1</b> Gender</a></li>
+<li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#race-and-ethnicity"><i class="fa fa-check"></i><b>5.6.2</b> Race and Ethnicity</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#diagnostic-coding-schemes-and-omop-conditions"><i class="fa fa-check"></i><b>5.6.3</b> Diagnostic Coding Schemes and OMOP Conditions</a></li>
+<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#procedure-coding-systems"><i class="fa fa-check"></i><b>5.6.4</b> Procedure Coding Systems</a></li>
+<li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#devices"><i class="fa fa-check"></i><b>5.6.5</b> Devices</a></li>
+<li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#visits-and-services"><i class="fa fa-check"></i><b>5.6.6</b> Visits and Services</a></li>
+<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#providers-and-specialties"><i class="fa fa-check"></i><b>5.6.7</b> Providers and Specialties</a></li>
+<li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#therapeutic-areas-with-special-requirements"><i class="fa fa-check"></i><b>5.6.8</b> Therapeutic Areas With Special Requirements</a></li>
+<li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> Standard Concepts in the Drug Domain</a></li>
+<li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#flavors-of-null"><i class="fa fa-check"></i><b>5.6.10</b> Flavors of NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#summary-2"><i class="fa fa-check"></i><b>5.7</b> Summary</a></li>
+<li class="chapter" data-level="5.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#exercises"><i class="fa fa-check"></i><b>5.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> Extract Transform Load</a><ul>
+<li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-1-design-the-etl"><i class="fa fa-check"></i><b>6.2</b> Step 1: Design the ETL</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#white-rabbit"><i class="fa fa-check"></i><b>6.2.1</b> White Rabbit</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.2.2</b> Rabbit-In-a-Hat</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-2-create-the-code-mappings"><i class="fa fa-check"></i><b>6.3</b> Step 2: Create the Code Mappings</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.3.1</b> Usagi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-3-implement-the-etl"><i class="fa fa-check"></i><b>6.4</b> Step 3: Implement the ETL</a></li>
+<li class="chapter" data-level="6.5" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#step-4-quality-control"><i class="fa fa-check"></i><b>6.5</b> Step 4: Quality Control</a></li>
+<li class="chapter" data-level="6.6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etl-conventions-and-themis"><i class="fa fa-check"></i><b>6.6</b> ETL Conventions and THEMIS</a></li>
+<li class="chapter" data-level="6.7" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#CDMandETLMaintenance"><i class="fa fa-check"></i><b>6.7</b> CDM and ETL Maintenance</a></li>
+<li class="chapter" data-level="6.8" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#final-thoughts-on-etl"><i class="fa fa-check"></i><b>6.8</b> Final Thoughts on ETL</a></li>
+<li class="chapter" data-level="6.9" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#summary-3"><i class="fa fa-check"></i><b>6.9</b> Summary</a></li>
+<li class="chapter" data-level="6.10" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#exercises-1"><i class="fa fa-check"></i><b>6.10</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Analytics</b></span></li>
+<li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> 데이터 분석 이용 사례</a><ul>
+<li class="chapter" data-level="7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.1</b> 특성 분석</a></li>
+<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.2</b> 인구 수준 추정</a></li>
+<li class="chapter" data-level="7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.3</b> 환자 수준 예측</a></li>
+<li class="chapter" data-level="7.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4</b> 고혈압 이용 사례 예</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.4.1</b> 특성 분석 질문</a></li>
+<li class="chapter" data-level="7.4.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4.2</b> 인구 수준 추정 질문</a></li>
+<li class="chapter" data-level="7.4.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4.3</b> 환자 수준 예측 질문</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.5</b> 관찰 연구의 한계</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.5.1</b> 잘못된 데이터</a></li>
+<li class="chapter" data-level="7.5.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.5.2</b> 결측 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#-1"><i class="fa fa-check"></i><b>7.6</b> 요약</a></li>
+<li class="chapter" data-level="7.7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#section-7.7"><i class="fa fa-check"></i><b>7.7</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html"><i class="fa fa-check"></i><b>8</b> OHDSI Analytics Tools</a><ul>
+<li class="chapter" data-level="8.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysisImplementation"><i class="fa fa-check"></i><b>8.1</b> Analysis Implementation</a></li>
+<li class="chapter" data-level="8.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysis-strategies"><i class="fa fa-check"></i><b>8.2</b> Analysis Strategies</a></li>
+<li class="chapter" data-level="8.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#atlas"><i class="fa fa-check"></i><b>8.3</b> ATLAS</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#security"><i class="fa fa-check"></i><b>8.3.1</b> Security</a></li>
+<li class="chapter" data-level="8.3.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#documentation"><i class="fa fa-check"></i><b>8.3.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.3.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#how-to-install"><i class="fa fa-check"></i><b>8.3.3</b> How to Install</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#methods-library"><i class="fa fa-check"></i><b>8.4</b> Methods Library</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#support-for-large-scale-analytics"><i class="fa fa-check"></i><b>8.4.1</b> Support for Large-Scale Analytics</a></li>
+<li class="chapter" data-level="8.4.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#BigDataSupport"><i class="fa fa-check"></i><b>8.4.2</b> Support for Big Data</a></li>
+<li class="chapter" data-level="8.4.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#documentation-1"><i class="fa fa-check"></i><b>8.4.3</b> Documentation</a></li>
+<li class="chapter" data-level="8.4.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#system-requirements"><i class="fa fa-check"></i><b>8.4.4</b> System Requirements</a></li>
+<li class="chapter" data-level="8.4.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.4.5</b> How to Install</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#deployment-strategies"><i class="fa fa-check"></i><b>8.5</b> Deployment Strategies</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.5.1</b> Broadsea</a></li>
+<li class="chapter" data-level="8.5.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.5.2</b> Amazon AWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#summary-4"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="SqlAndR.html"><a href="SqlAndR.html"><i class="fa fa-check"></i><b>9</b> SQL and R</a><ul>
+<li class="chapter" data-level="9.1" data-path="SqlAndR.html"><a href="SqlAndR.html#SqlRender"><i class="fa fa-check"></i><b>9.1</b> SqlRender</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sql-parameterization"><i class="fa fa-check"></i><b>9.1.1</b> SQL Parameterization</a></li>
+<li class="chapter" data-level="9.1.2" data-path="SqlAndR.html"><a href="SqlAndR.html#translation-to-other-sql-dialects"><i class="fa fa-check"></i><b>9.1.2</b> Translation to Other SQL Dialects</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="SqlAndR.html"><a href="SqlAndR.html#DatabaseConnector"><i class="fa fa-check"></i><b>9.2</b> DatabaseConnector</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="SqlAndR.html"><a href="SqlAndR.html#creating-a-connection"><i class="fa fa-check"></i><b>9.2.1</b> Creating a Connection</a></li>
+<li class="chapter" data-level="9.2.2" data-path="SqlAndR.html"><a href="SqlAndR.html#querying"><i class="fa fa-check"></i><b>9.2.2</b> Querying</a></li>
+<li class="chapter" data-level="9.2.3" data-path="SqlAndR.html"><a href="SqlAndR.html#querying-using-ffdf-objects"><i class="fa fa-check"></i><b>9.2.3</b> Querying Using Ffdf Objects</a></li>
+<li class="chapter" data-level="9.2.4" data-path="SqlAndR.html"><a href="SqlAndR.html#querying-different-platforms-using-the-same-sql"><i class="fa fa-check"></i><b>9.2.4</b> Querying Different Platforms Using the Same SQL</a></li>
+<li class="chapter" data-level="9.2.5" data-path="SqlAndR.html"><a href="SqlAndR.html#inserting-tables"><i class="fa fa-check"></i><b>9.2.5</b> Inserting Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="SqlAndR.html"><a href="SqlAndR.html#QueryTheCdm"><i class="fa fa-check"></i><b>9.3</b> Querying the CDM</a></li>
+<li class="chapter" data-level="9.4" data-path="SqlAndR.html"><a href="SqlAndR.html#using-the-vocabulary-when-querying"><i class="fa fa-check"></i><b>9.4</b> Using the Vocabulary When Querying</a></li>
+<li class="chapter" data-level="9.5" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>9.5</b> QueryLibrary</a></li>
+<li class="chapter" data-level="9.6" data-path="SqlAndR.html"><a href="SqlAndR.html#designing-a-simple-study"><i class="fa fa-check"></i><b>9.6</b> Designing a Simple Study</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="SqlAndR.html"><a href="SqlAndR.html#problem-definition"><i class="fa fa-check"></i><b>9.6.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="SqlAndR.html"><a href="SqlAndR.html#exposure"><i class="fa fa-check"></i><b>9.6.2</b> Exposure</a></li>
+<li class="chapter" data-level="9.6.3" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome"><i class="fa fa-check"></i><b>9.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="9.6.4" data-path="SqlAndR.html"><a href="SqlAndR.html#time-at-risk"><i class="fa fa-check"></i><b>9.6.4</b> Time-At-Risk</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="SqlAndR.html"><a href="SqlAndR.html#implementing-the-study-using-sql-and-r"><i class="fa fa-check"></i><b>9.7</b> Implementing the Study Using SQL and R</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#exposure-cohort"><i class="fa fa-check"></i><b>9.7.1</b> Exposure Cohort</a></li>
+<li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome-cohort"><i class="fa fa-check"></i><b>9.7.2</b> Outcome Cohort</a></li>
+<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#incidence-rate-calculation"><i class="fa fa-check"></i><b>9.7.3</b> Incidence Rate Calculation</a></li>
+<li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#clean-up"><i class="fa fa-check"></i><b>9.7.4</b> Clean Up</a></li>
+<li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#compatibility"><i class="fa fa-check"></i><b>9.7.5</b> Compatibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="SqlAndR.html"><a href="SqlAndR.html#summary-5"><i class="fa fa-check"></i><b>9.8</b> Summary</a></li>
+<li class="chapter" data-level="9.9" data-path="SqlAndR.html"><a href="SqlAndR.html#exercises-2"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> Defining Cohorts</a><ul>
+<li class="chapter" data-level="10.1" data-path="Cohorts.html"><a href="Cohorts.html#what-is-a-cohort"><i class="fa fa-check"></i><b>10.1</b> What Is a Cohort?</a></li>
+<li class="chapter" data-level="10.2" data-path="Cohorts.html"><a href="Cohorts.html#rule-based-cohort-definitions"><i class="fa fa-check"></i><b>10.2</b> Rule-Based Cohort Definitions</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.3</b> Concept Sets</a></li>
+<li class="chapter" data-level="10.4" data-path="Cohorts.html"><a href="Cohorts.html#probabilistic-cohort-definitions"><i class="fa fa-check"></i><b>10.4</b> Probabilistic Cohort Definitions</a></li>
+<li class="chapter" data-level="10.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-definition-validity"><i class="fa fa-check"></i><b>10.5</b> Cohort Definition Validity</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-gold-standard-phenotype-library"><i class="fa fa-check"></i><b>10.5.1</b> OHDSI Gold Standard Phenotype Library</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="Cohorts.html"><a href="Cohorts.html#defining-a-cohort-for-hypertension"><i class="fa fa-check"></i><b>10.6</b> Defining a Cohort for Hypertension</a></li>
+<li class="chapter" data-level="10.7" data-path="Cohorts.html"><a href="Cohorts.html#implementing-a-cohort-using-atlas"><i class="fa fa-check"></i><b>10.7</b> Implementing a Cohort Using ATLAS</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="Cohorts.html"><a href="Cohorts.html#initial-event-criteria"><i class="fa fa-check"></i><b>10.7.1</b> Initial Event Criteria</a></li>
+<li class="chapter" data-level="10.7.2" data-path="Cohorts.html"><a href="Cohorts.html#defining-the-concept-set"><i class="fa fa-check"></i><b>10.7.2</b> Defining the Concept Set</a></li>
+<li class="chapter" data-level="10.7.3" data-path="Cohorts.html"><a href="Cohorts.html#additional-initial-event-criteria"><i class="fa fa-check"></i><b>10.7.3</b> Additional Initial Event Criteria</a></li>
+<li class="chapter" data-level="10.7.4" data-path="Cohorts.html"><a href="Cohorts.html#inclusion-criteria"><i class="fa fa-check"></i><b>10.7.4</b> Inclusion Criteria</a></li>
+<li class="chapter" data-level="10.7.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-exit-criteria"><i class="fa fa-check"></i><b>10.7.5</b> Cohort Exit Criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#implementing-the-cohort-using-sql"><i class="fa fa-check"></i><b>10.8</b> Implementing the Cohort Using SQL</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="Cohorts.html"><a href="Cohorts.html#connecting-to-the-database"><i class="fa fa-check"></i><b>10.8.1</b> Connecting to the Database</a></li>
+<li class="chapter" data-level="10.8.2" data-path="Cohorts.html"><a href="Cohorts.html#specifying-the-concepts"><i class="fa fa-check"></i><b>10.8.2</b> Specifying the Concepts</a></li>
+<li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#finding-first-use"><i class="fa fa-check"></i><b>10.8.3</b> Finding First Use</a></li>
+<li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#require-365-days-of-prior-observation"><i class="fa fa-check"></i><b>10.8.4</b> Require 365 Days of Prior Observation</a></li>
+<li class="chapter" data-level="10.8.5" data-path="Cohorts.html"><a href="Cohorts.html#require-prior-hypertension"><i class="fa fa-check"></i><b>10.8.5</b> Require Prior Hypertension</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#no-prior-treatment"><i class="fa fa-check"></i><b>10.8.6</b> No Prior Treatment</a></li>
+<li class="chapter" data-level="10.8.7" data-path="Cohorts.html"><a href="Cohorts.html#monotherapy"><i class="fa fa-check"></i><b>10.8.7</b> Monotherapy</a></li>
+<li class="chapter" data-level="10.8.8" data-path="Cohorts.html"><a href="Cohorts.html#cohort-exit"><i class="fa fa-check"></i><b>10.8.8</b> Cohort Exit</a></li>
+<li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#cleanup"><i class="fa fa-check"></i><b>10.8.9</b> Cleanup</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="Cohorts.html"><a href="Cohorts.html#summary-6"><i class="fa fa-check"></i><b>10.9</b> Summary</a></li>
+<li class="chapter" data-level="10.10" data-path="Cohorts.html"><a href="Cohorts.html#exercises-3"><i class="fa fa-check"></i><b>10.10</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> 환자 특성 분석 Characterization</a><ul>
+<li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#----database-level-characterization"><i class="fa fa-check"></i><b>11.1</b> 데이터베이스 수준의 특성 분석 (Database Level Characterization)</a></li>
+<li class="chapter" data-level="11.2" data-path="Characterization.html"><a href="Characterization.html#---cohort-characterization"><i class="fa fa-check"></i><b>11.2</b> 코호트 특성 분석 (Cohort Characterization)</a></li>
+<li class="chapter" data-level="11.3" data-path="Characterization.html"><a href="Characterization.html#--treatment-pathways"><i class="fa fa-check"></i><b>11.3</b> 치료 경로 (Treatment Pathways)</a></li>
+<li class="chapter" data-level="11.4" data-path="Characterization.html"><a href="Characterization.html#-incidence"><i class="fa fa-check"></i><b>11.4</b> 발생 (Incidence)</a></li>
+<li class="chapter" data-level="11.5" data-path="Characterization.html"><a href="Characterization.html#----characterizing-hypertensive-persons"><i class="fa fa-check"></i><b>11.5</b> 고혈압 환자의 특성 분석 (Characterizing Hypertensive Persons)</a></li>
+<li class="chapter" data-level="11.6" data-path="Characterization.html"><a href="Characterization.html#atlas-----database-characterization-in-atlas"><i class="fa fa-check"></i><b>11.6</b> ATLAS를 활용한 데이터베이스의 특성 분석 (Database Characterization in ATLAS)</a></li>
+<li class="chapter" data-level="11.7" data-path="Characterization.html"><a href="Characterization.html#atlas-----cohort-characterization-in-atlas"><i class="fa fa-check"></i><b>11.7</b> ATLAS를 이용한 코호트 특성 분석 (Cohort Characterization in ATLAS)</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#-design"><i class="fa fa-check"></i><b>11.7.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#-executions"><i class="fa fa-check"></i><b>11.7.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#-results"><i class="fa fa-check"></i><b>11.7.3</b> 결과 (Results)</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#---defining-custom-features"><i class="fa fa-check"></i><b>11.7.4</b> 사용자 정의 속성 (Defining Custom Features)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#r-----cohort-characterization-in-r"><i class="fa fa-check"></i><b>11.8</b> R을 이용한 코호트 특성 분석 (Cohort Characterization in R)</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#cohort-instantiation"><i class="fa fa-check"></i><b>11.8.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#--data-extraction"><i class="fa fa-check"></i><b>11.8.2</b> 데이터 추출 (Data Extraction)</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#----using-prespecified-analyses"><i class="fa fa-check"></i><b>11.8.3</b> 사전 지정 분석의 사용 (Using Prespecified Analyses)</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#---creating-aggregated-covariates"><i class="fa fa-check"></i><b>11.8.4</b> 통합된 변수의 생성 (Creating Aggregated Covariates)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#--output-format"><i class="fa fa-check"></i><b>11.8.5</b> 결과 형식 (Output Format)</a></li>
+<li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#---custom-covariates"><i class="fa fa-check"></i><b>11.8.6</b> 사용자 정의 변수 (Custom Covariates)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Characterization.html"><a href="Characterization.html#atlas---cohort-pathways-in-atlas"><i class="fa fa-check"></i><b>11.9</b> ATLAS에서 코호트 경로 (Cohort Pathways in ATLAS)</a><ul>
+<li class="chapter" data-level="11.9.1" data-path="Characterization.html"><a href="Characterization.html#-design-1"><i class="fa fa-check"></i><b>11.9.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.9.2" data-path="Characterization.html"><a href="Characterization.html#-executions-1"><i class="fa fa-check"></i><b>11.9.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.9.3" data-path="Characterization.html"><a href="Characterization.html#--viewing-results"><i class="fa fa-check"></i><b>11.9.3</b> 결과 확인 (Viewing Results)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.10" data-path="Characterization.html"><a href="Characterization.html#atlas----incidence-analysis-in-atlas"><i class="fa fa-check"></i><b>11.10</b> ATLAS를 이용한 발생 분석 (Incidence Analysis in ATLAS)</a><ul>
+<li class="chapter" data-level="11.10.1" data-path="Characterization.html"><a href="Characterization.html#-design-2"><i class="fa fa-check"></i><b>11.10.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.10.2" data-path="Characterization.html"><a href="Characterization.html#-executions-2"><i class="fa fa-check"></i><b>11.10.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.10.3" data-path="Characterization.html"><a href="Characterization.html#--viewing-results-1"><i class="fa fa-check"></i><b>11.10.3</b> 결과 확인 (Viewing Results)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.11" data-path="Characterization.html"><a href="Characterization.html#-summary"><i class="fa fa-check"></i><b>11.11</b> 요약 (Summary)</a></li>
+<li class="chapter" data-level="11.12" data-path="Characterization.html"><a href="Characterization.html#-exercises"><i class="fa fa-check"></i><b>11.12</b> 실습 (Exercises)</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> Population-Level Estimation</a><ul>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> The Cohort Method Design</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores"><i class="fa fa-check"></i><b>12.1.1</b> Propensity Scores</a></li>
+<li class="chapter" data-level="12.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.1.2</b> Variable Selection</a></li>
+<li class="chapter" data-level="12.1.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#caliper"><i class="fa fa-check"></i><b>12.1.3</b> Caliper</a></li>
+<li class="chapter" data-level="12.1.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#overlap-preference-scores"><i class="fa fa-check"></i><b>12.1.4</b> Overlap: Preference Scores</a></li>
+<li class="chapter" data-level="12.1.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#balance"><i class="fa fa-check"></i><b>12.1.5</b> Balance</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-----the-self-controlled-cohort-design"><i class="fa fa-check"></i><b>12.2</b> 자가 통제 코호트 연구 설계 (The Self-Controlled Cohort Design)</a></li>
+<li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----the-case-control-design"><i class="fa fa-check"></i><b>12.3</b> 환자-대조군 연구 설계 (The Case-Control Design)</a></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----the-case-crossover-design"><i class="fa fa-check"></i><b>12.4</b> 환자-교차 연구 설계 (The Case-Crossover Design)</a></li>
+<li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-----the-self-controlled-case-series-design"><i class="fa fa-check"></i><b>12.5</b> 자기 대조군 환자군 연구 설계 (The Self-Controlled Case Series Design)</a></li>
+<li class="chapter" data-level="12.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#designing-a-hypertension-study"><i class="fa fa-check"></i><b>12.6</b> Designing a Hypertension Study</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#problem-definition-1"><i class="fa fa-check"></i><b>12.6.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="12.6.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#target-and-comparator"><i class="fa fa-check"></i><b>12.6.2</b> Target and Comparator</a></li>
+<li class="chapter" data-level="12.6.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-1"><i class="fa fa-check"></i><b>12.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="12.6.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#time-at-risk-1"><i class="fa fa-check"></i><b>12.6.4</b> Time-At-Risk</a></li>
+<li class="chapter" data-level="12.6.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#model"><i class="fa fa-check"></i><b>12.6.5</b> Model</a></li>
+<li class="chapter" data-level="12.6.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#study-summary"><i class="fa fa-check"></i><b>12.6.6</b> Study Summary</a></li>
+<li class="chapter" data-level="12.6.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#control-questions"><i class="fa fa-check"></i><b>12.6.7</b> Control Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#PleAtlas"><i class="fa fa-check"></i><b>12.7</b> Implementing the Study Using ATLAS</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>12.7.1</b> Comparative Cohort Settings</a></li>
+<li class="chapter" data-level="12.7.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-estimation-analysis-settings"><i class="fa fa-check"></i><b>12.7.2</b> Effect Estimation Analysis Settings</a></li>
+<li class="chapter" data-level="12.7.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#evaluationSettings"><i class="fa fa-check"></i><b>12.7.3</b> Evaluation Settings</a></li>
+<li class="chapter" data-level="12.7.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--running-the-study-package"><i class="fa fa-check"></i><b>12.7.4</b> 연구 패키지 실행(Running the study package)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#pleR"><i class="fa fa-check"></i><b>12.8</b> Implementing the Study Using R</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--cohort-instantiation"><i class="fa fa-check"></i><b>12.8.1</b> 코호트 실체화 (Cohort Instantiation)</a></li>
+<li class="chapter" data-level="12.8.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--data-extraction-1"><i class="fa fa-check"></i><b>12.8.2</b> 데이터 추출 (Data Extraction)</a></li>
+<li class="chapter" data-level="12.8.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----defining-the-study-population"><i class="fa fa-check"></i><b>12.8.3</b> 연구 대상 집단 정의 (Defining the Study Population)</a></li>
+<li class="chapter" data-level="12.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--propensity-scores"><i class="fa fa-check"></i><b>12.8.4</b> 성향 점수 (Propensity Scores)</a></li>
+<li class="chapter" data-level="12.8.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-models"><i class="fa fa-check"></i><b>12.8.5</b> Outcome Models</a></li>
+<li class="chapter" data-level="12.8.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>12.8.6</b> Running Multiple Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#studyOutputs"><i class="fa fa-check"></i><b>12.9</b> 연구 결과 (Study Outputs)</a><ul>
+<li class="chapter" data-level="12.9.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----propensity-scores-and-model"><i class="fa fa-check"></i><b>12.9.1</b> 성향 점수 및 모델 (Propensity Scores and Model)</a></li>
+<li class="chapter" data-level="12.9.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#covariate-balance"><i class="fa fa-check"></i><b>12.9.2</b> Covariate Balance</a></li>
+<li class="chapter" data-level="12.9.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#follow-up-and-power"><i class="fa fa-check"></i><b>12.9.3</b> Follow Up and Power</a></li>
+<li class="chapter" data-level="12.9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#kaplan-meier"><i class="fa fa-check"></i><b>12.9.4</b> Kaplan-Meier</a></li>
+<li class="chapter" data-level="12.9.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-size-estimate"><i class="fa fa-check"></i><b>12.9.5</b> Effect Size Estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="12.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#summary-7"><i class="fa fa-check"></i><b>12.10</b> Summary</a></li>
+<li class="chapter" data-level="12.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#exercises-4"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> Patient-Level Prediction</a><ul>
+<li class="chapter" data-level="13.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#the-prediction-problem"><i class="fa fa-check"></i><b>13.1</b> The Prediction Problem</a></li>
+<li class="chapter" data-level="13.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction"><i class="fa fa-check"></i><b>13.2</b> Data Extraction</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-example"><i class="fa fa-check"></i><b>13.2.1</b> Data Extraction Example</a></li>
+<li class="chapter" data-level="13.2.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#missingness"><i class="fa fa-check"></i><b>13.2.2</b> Missingness</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#modelFitting"><i class="fa fa-check"></i><b>13.3</b> Fitting the Model</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#regularized-logistic-regression"><i class="fa fa-check"></i><b>13.3.1</b> Regularized Logistic Regression</a></li>
+<li class="chapter" data-level="13.3.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#gradient-boosting-machines"><i class="fa fa-check"></i><b>13.3.2</b> Gradient Boosting Machines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#random-forest"><i class="fa fa-check"></i><b>13.3.3</b> Random Forest</a></li>
+<li class="chapter" data-level="13.3.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>13.3.4</b> K-Nearest Neighbors</a></li>
+<li class="chapter" data-level="13.3.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#naive-bayes"><i class="fa fa-check"></i><b>13.3.5</b> Naive Bayes</a></li>
+<li class="chapter" data-level="13.3.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.3.6</b> AdaBoost</a></li>
+<li class="chapter" data-level="13.3.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#decision-tree"><i class="fa fa-check"></i><b>13.3.7</b> Decision Tree</a></li>
+<li class="chapter" data-level="13.3.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#multilayer-perceptron"><i class="fa fa-check"></i><b>13.3.8</b> Multilayer Perceptron</a></li>
+<li class="chapter" data-level="13.3.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#deep-learning"><i class="fa fa-check"></i><b>13.3.9</b> Deep Learning</a></li>
+<li class="chapter" data-level="13.3.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#other-algorithms"><i class="fa fa-check"></i><b>13.3.10</b> Other Algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#evaluating-prediction-models"><i class="fa fa-check"></i><b>13.4</b> Evaluating Prediction Models</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#evaluation-types"><i class="fa fa-check"></i><b>13.4.1</b> Evaluation Types</a></li>
+<li class="chapter" data-level="13.4.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#performance"><i class="fa fa-check"></i><b>13.4.2</b> Performance Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#designing-a-patient-level-prediction-study"><i class="fa fa-check"></i><b>13.5</b> Designing a Patient-Level Prediction Study</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#problem-definition-3"><i class="fa fa-check"></i><b>13.5.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="13.5.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#study-population-definition"><i class="fa fa-check"></i><b>13.5.2</b> Study Population Definition</a></li>
+<li class="chapter" data-level="13.5.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-development-settings"><i class="fa fa-check"></i><b>13.5.3</b> Model Development Settings</a></li>
+<li class="chapter" data-level="13.5.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-evaluation"><i class="fa fa-check"></i><b>13.5.4</b> Model Evaluation</a></li>
+<li class="chapter" data-level="13.5.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#study-summary-1"><i class="fa fa-check"></i><b>13.5.5</b> Study Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#implementing-the-study-in-atlas"><i class="fa fa-check"></i><b>13.6</b> Implementing the Study in ATLAS</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#prediction-problem-settings"><i class="fa fa-check"></i><b>13.6.1</b> Prediction Problem Settings</a></li>
+<li class="chapter" data-level="13.6.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#analysis-settings"><i class="fa fa-check"></i><b>13.6.2</b> Analysis Settings</a></li>
+<li class="chapter" data-level="13.6.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#execution-settings"><i class="fa fa-check"></i><b>13.6.3</b> Execution Settings</a></li>
+<li class="chapter" data-level="13.6.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#training-settings"><i class="fa fa-check"></i><b>13.6.4</b> Training Settings</a></li>
+<li class="chapter" data-level="13.6.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#importing-and-exporting-a-study"><i class="fa fa-check"></i><b>13.6.5</b> Importing and Exporting a Study</a></li>
+<li class="chapter" data-level="13.6.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#downloading-the-study-package"><i class="fa fa-check"></i><b>13.6.6</b> Downloading the Study Package</a></li>
+<li class="chapter" data-level="13.6.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#running-the-study"><i class="fa fa-check"></i><b>13.6.7</b> Running the Study</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#implementing-the-study-in-r"><i class="fa fa-check"></i><b>13.7</b> Implementing the Study in R</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#cohort-instantiation-1"><i class="fa fa-check"></i><b>13.7.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-1"><i class="fa fa-check"></i><b>13.7.2</b> Data Extraction</a></li>
+<li class="chapter" data-level="13.7.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-inclusion-criteria"><i class="fa fa-check"></i><b>13.7.3</b> Additional Inclusion Criteria</a></li>
+<li class="chapter" data-level="13.7.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-development"><i class="fa fa-check"></i><b>13.7.4</b> Model Development</a></li>
+<li class="chapter" data-level="13.7.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#internal-validation"><i class="fa fa-check"></i><b>13.7.5</b> Internal Validation</a></li>
+<li class="chapter" data-level="13.7.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#external-validation"><i class="fa fa-check"></i><b>13.7.6</b> External Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#results-dissemination"><i class="fa fa-check"></i><b>13.8</b> Results Dissemination</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-performance"><i class="fa fa-check"></i><b>13.8.1</b> Model Performance</a></li>
+<li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#comparing-models"><i class="fa fa-check"></i><b>13.8.2</b> Comparing Models</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-patient-level-prediction-features"><i class="fa fa-check"></i><b>13.9</b> Additional Patient-Level Prediction Features</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#journal-paper-generation"><i class="fa fa-check"></i><b>13.9.1</b> Journal Paper Generation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#summary-8"><i class="fa fa-check"></i><b>13.10</b> Summary</a></li>
+<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises-5"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Evidence Quality</b></span></li>
+<li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> Evidence Quality</a><ul>
+<li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#attributes-of-reliable-evidence----"><i class="fa fa-check"></i><b>14.1</b> Attributes of Reliable Evidence (신뢰성을 위한 근거의 속성)</a></li>
+<li class="chapter" data-level="14.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>14.2</b> 근거의 질에 대한 이해</a></li>
+<li class="chapter" data-level="14.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>14.3</b> 근거 품질의 전달</a></li>
+<li class="chapter" data-level="14.4" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#summary-9"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> Data Quality</a><ul>
+<li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#sources-of-data-quality-problems"><i class="fa fa-check"></i><b>15.1</b> Sources of Data Quality Problems</a></li>
+<li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#data-quality-in-general"><i class="fa fa-check"></i><b>15.2</b> Data Quality in General</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#data-quality-checks"><i class="fa fa-check"></i><b>15.2.1</b> Data Quality Checks</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#study-specific-checks"><i class="fa fa-check"></i><b>15.3</b> Study-Specific Checks</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="DataQuality.html"><a href="DataQuality.html#checking-mappings"><i class="fa fa-check"></i><b>15.3.1</b> Checking Mappings</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES in Practice</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard in Practice</a></li>
+<li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#study-specific-checks-in-practice"><i class="fa fa-check"></i><b>15.6</b> Study-Specific Checks in Practice</a></li>
+<li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#summary-10"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
+<li class="chapter" data-level="15.8" data-path="DataQuality.html"><a href="DataQuality.html#exercises-6"><i class="fa fa-check"></i><b>15.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> Clinical Validity</a><ul>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> Characteristics of Health Care Databases</a></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CohortValidation"><i class="fa fa-check"></i><b>16.2</b> Cohort Validation</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#cohort-evaluation-metrics"><i class="fa fa-check"></i><b>16.2.1</b> Cohort Evaluation Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#source-record-verification"><i class="fa fa-check"></i><b>16.3</b> Source Record Verification</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#example-of-source-record-verification"><i class="fa fa-check"></i><b>16.3.1</b> Example of Source Record Verification</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluator"><i class="fa fa-check"></i><b>16.4</b> PheValuator</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#example-validation-by-phevaluator"><i class="fa fa-check"></i><b>16.4.1</b> Example Validation By PheValuator</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> Generalizability of the Evidence</a></li>
+<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#summary-11"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> Software Validity</a><ul>
+<li class="chapter" data-level="17.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1</b> 분석 코드의 타당성</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#automation"><i class="fa fa-check"></i><b>17.1.1</b> 재현성 충족을 위한 자동화</a></li>
+<li class="chapter" data-level="17.1.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1.2</b> 프로그래밍 모범 사례</a></li>
+<li class="chapter" data-level="17.1.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.1.3</b> 코드 검증</a></li>
+<li class="chapter" data-level="17.1.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>17.1.4</b> 연구 방법론 라이브러리의 활용</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#-----"><i class="fa fa-check"></i><b>17.2</b> 연구 방법론 라이브러리 소프트웨어의 개발 과정</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.1</b> 소스 코드 관리</a></li>
+<li class="chapter" data-level="17.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.2.2"><i class="fa fa-check"></i><b>17.2.2</b> 문서화</a></li>
+<li class="chapter" data-level="17.2.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>17.2.3</b> 현재 및 과거 버전으로의 접근</a></li>
+<li class="chapter" data-level="17.2.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>17.2.4</b> 유지 보수, 지원 및 중단</a></li>
+<li class="chapter" data-level="17.2.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.5</b> 검증된 인력</a></li>
+<li class="chapter" data-level="17.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.6</b> 물리적, 논리적 보안체계</a></li>
+<li class="chapter" data-level="17.2.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.7</b> 복구 체계</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>17.3</b> 연구방법론 라이브러리 기능 검사</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.3.1</b> 단위 검사</a></li>
+<li class="chapter" data-level="17.3.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.3.2"><i class="fa fa-check"></i><b>17.3.2</b> 모의시행</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.4"><i class="fa fa-check"></i><b>17.4</b> 정리</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MethodValidity.html"><a href="MethodValidity.html"><i class="fa fa-check"></i><b>18</b> Method Validity</a><ul>
+<li class="chapter" data-level="18.1" data-path="MethodValidity.html"><a href="MethodValidity.html#design-specific-diagnostics"><i class="fa fa-check"></i><b>18.1</b> Design-Specific Diagnostics</a></li>
+<li class="chapter" data-level="18.2" data-path="MethodValidity.html"><a href="MethodValidity.html#diagnostics-for-all-estimation"><i class="fa fa-check"></i><b>18.2</b> Diagnostics for All Estimation</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="MethodValidity.html"><a href="MethodValidity.html#NegativeControls"><i class="fa fa-check"></i><b>18.2.1</b> Negative Controls</a></li>
+<li class="chapter" data-level="18.2.2" data-path="MethodValidity.html"><a href="MethodValidity.html#PositiveControls"><i class="fa fa-check"></i><b>18.2.2</b> Positive Controls</a></li>
+<li class="chapter" data-level="18.2.3" data-path="MethodValidity.html"><a href="MethodValidity.html#metrics"><i class="fa fa-check"></i><b>18.2.3</b> Empirical Evaluation</a></li>
+<li class="chapter" data-level="18.2.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-calibration"><i class="fa fa-check"></i><b>18.2.4</b> P-Value Calibration</a></li>
+<li class="chapter" data-level="18.2.5" data-path="MethodValidity.html"><a href="MethodValidity.html#confidence-interval-calibration"><i class="fa fa-check"></i><b>18.2.5</b> Confidence Interval Calibration</a></li>
+<li class="chapter" data-level="18.2.6" data-path="MethodValidity.html"><a href="MethodValidity.html#replication-across-sites"><i class="fa fa-check"></i><b>18.2.6</b> Replication Across Sites</a></li>
+<li class="chapter" data-level="18.2.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses"><i class="fa fa-check"></i><b>18.2.7</b> Sensitivity Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="MethodValidity.html"><a href="MethodValidity.html#method-validation-in-practice"><i class="fa fa-check"></i><b>18.3</b> Method Validation in Practice</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="MethodValidity.html"><a href="MethodValidity.html#selecting-negative-controls"><i class="fa fa-check"></i><b>18.3.1</b> Selecting Negative Controls</a></li>
+<li class="chapter" data-level="18.3.2" data-path="MethodValidity.html"><a href="MethodValidity.html#including-controls"><i class="fa fa-check"></i><b>18.3.2</b> Including Controls</a></li>
+<li class="chapter" data-level="18.3.3" data-path="MethodValidity.html"><a href="MethodValidity.html#empirical-performance"><i class="fa fa-check"></i><b>18.3.3</b> Empirical Performance</a></li>
+<li class="chapter" data-level="18.3.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-calibration-1"><i class="fa fa-check"></i><b>18.3.4</b> P-Value Calibration</a></li>
+<li class="chapter" data-level="18.3.5" data-path="MethodValidity.html"><a href="MethodValidity.html#confidence-interval-calibration-1"><i class="fa fa-check"></i><b>18.3.5</b> Confidence Interval Calibration</a></li>
+<li class="chapter" data-level="18.3.6" data-path="MethodValidity.html"><a href="MethodValidity.html#between-database-heterogeneity"><i class="fa fa-check"></i><b>18.3.6</b> Between-Database Heterogeneity</a></li>
+<li class="chapter" data-level="18.3.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses-1"><i class="fa fa-check"></i><b>18.3.7</b> Sensitivity Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsi-methods-benchmark"><i class="fa fa-check"></i><b>18.4</b> OHDSI Methods Benchmark</a></li>
+<li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#summary-12"><i class="fa fa-check"></i><b>18.5</b> Summary</a></li>
+</ul></li>
+<li class="part"><span><b>V OHDSI Studies</b></span></li>
+<li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> Study steps</a><ul>
+<li class="chapter" data-level="19.1" data-path="StudySteps.html"><a href="StudySteps.html#general-best-practice-guidelines"><i class="fa fa-check"></i><b>19.1</b> General Best Practice Guidelines</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="StudySteps.html"><a href="StudySteps.html#observational-study-definition"><i class="fa fa-check"></i><b>19.1.1</b> Observational Study Definition</a></li>
+<li class="chapter" data-level="19.1.2" data-path="StudySteps.html"><a href="StudySteps.html#pre-specification-of-study-design"><i class="fa fa-check"></i><b>19.1.2</b> Pre-Specification of Study Design</a></li>
+<li class="chapter" data-level="19.1.3" data-path="StudySteps.html"><a href="StudySteps.html#protocol"><i class="fa fa-check"></i><b>19.1.3</b> Protocol</a></li>
+<li class="chapter" data-level="19.1.4" data-path="StudySteps.html"><a href="StudySteps.html#standardized-analyses"><i class="fa fa-check"></i><b>19.1.4</b> Standardized Analyses</a></li>
+<li class="chapter" data-level="19.1.5" data-path="StudySteps.html"><a href="StudySteps.html#study-packages"><i class="fa fa-check"></i><b>19.1.5</b> Study Packages</a></li>
+<li class="chapter" data-level="19.1.6" data-path="StudySteps.html"><a href="StudySteps.html#the-data-underlying-the-cdm"><i class="fa fa-check"></i><b>19.1.6</b> The Data Underlying the CDM</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="StudySteps.html"><a href="StudySteps.html#study-steps-in-detail"><i class="fa fa-check"></i><b>19.2</b> Study Steps in Detail</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="StudySteps.html"><a href="StudySteps.html#define-question"><i class="fa fa-check"></i><b>19.2.1</b> Define Question</a></li>
+<li class="chapter" data-level="19.2.2" data-path="StudySteps.html"><a href="StudySteps.html#review-data-availability-and-quality"><i class="fa fa-check"></i><b>19.2.2</b> Review Data Availability and Quality</a></li>
+<li class="chapter" data-level="19.2.3" data-path="StudySteps.html"><a href="StudySteps.html#study-populations"><i class="fa fa-check"></i><b>19.2.3</b> Study Populations</a></li>
+<li class="chapter" data-level="19.2.4" data-path="StudySteps.html"><a href="StudySteps.html#Feasibility"><i class="fa fa-check"></i><b>19.2.4</b> Feasibility and Diagnostics</a></li>
+<li class="chapter" data-level="19.2.5" data-path="StudySteps.html"><a href="StudySteps.html#finalize-protocol-and-study-package"><i class="fa fa-check"></i><b>19.2.5</b> Finalize Protocol and Study Package</a></li>
+<li class="chapter" data-level="19.2.6" data-path="StudySteps.html"><a href="StudySteps.html#execute-study"><i class="fa fa-check"></i><b>19.2.6</b> Execute Study</a></li>
+<li class="chapter" data-level="19.2.7" data-path="StudySteps.html"><a href="StudySteps.html#interpretation-and-write-up"><i class="fa fa-check"></i><b>19.2.7</b> Interpretation and Write-Up</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="StudySteps.html"><a href="StudySteps.html#summary-13"><i class="fa fa-check"></i><b>19.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI Network Research</a><ul>
+<li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#--ohdsi"><i class="fa fa-check"></i><b>20.1</b> 연구 네트워크로서의 OHDSI</a></li>
+<li class="chapter" data-level="20.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi--"><i class="fa fa-check"></i><b>20.2</b> OHDSI 네트워크 연구</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi----"><i class="fa fa-check"></i><b>20.2.1</b> OHDSI 네트워크 연구가 필요한 이유</a></li>
+<li class="chapter" data-level="20.2.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.2.2</b> OHDSI 네트워크 연구의 정의</a></li>
+<li class="chapter" data-level="20.2.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi------"><i class="fa fa-check"></i><b>20.2.3</b> OHDSI 네트워크 연구 설계를 위한 고려 사항</a></li>
+<li class="chapter" data-level="20.2.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-----"><i class="fa fa-check"></i><b>20.2.4</b> OHDSI 네트워크 연구를 위한 논리적 관점</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.3</b> OHDSI 네트워크 연구 수행하기</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.1</b> 연구 설계와 타당성</a></li>
+<li class="chapter" data-level="20.3.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>20.3.2</b> 연구 실행</a></li>
+<li class="chapter" data-level="20.3.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.3</b> 결과의 보급와 출판</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>20.4</b> 미래의 모습: 네트워크 연구의 자동화</a></li>
+<li class="chapter" data-level="20.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.5</b> OHDSI 네트워크 연구의 정석</a></li>
+<li class="chapter" data-level="20.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#-2"><i class="fa fa-check"></i><b>20.6</b> 요약</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>A</b> Glossary</a></li>
+<li class="chapter" data-level="B" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html"><i class="fa fa-check"></i><b>B</b> Cohort definitions</a><ul>
+<li class="chapter" data-level="B.1" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitors"><i class="fa fa-check"></i><b>B.1</b> ACE Inhibitors</a></li>
+<li class="chapter" data-level="B.2" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitorsMono"><i class="fa fa-check"></i><b>B.2</b> New Users of ACE Inhibitors Monotherapy</a></li>
+<li class="chapter" data-level="B.3" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Ami"><i class="fa fa-check"></i><b>B.3</b> Acute Myocardial Infarction (AMI)</a></li>
+<li class="chapter" data-level="B.4" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Angioedema"><i class="fa fa-check"></i><b>B.4</b> Angioedema</a></li>
+<li class="chapter" data-level="B.5" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ThiazidesMono"><i class="fa fa-check"></i><b>B.5</b> New Users of Thiazide-Like Diuretics Monotherapy</a></li>
+<li class="chapter" data-level="B.6" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN1yrFO"><i class="fa fa-check"></i><b>B.6</b> Patients Initiating First-Line Therapy for Hypertension</a></li>
+<li class="chapter" data-level="B.7" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN3yrFO"><i class="fa fa-check"></i><b>B.7</b> Patients Initiating First-Line Therapy for Hypertension With &gt;3 Yr Follow-Up</a></li>
+<li class="chapter" data-level="B.8" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ACEiUse"><i class="fa fa-check"></i><b>B.8</b> ACE Inhibitor Use</a></li>
+<li class="chapter" data-level="B.9" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ARBUse"><i class="fa fa-check"></i><b>B.9</b> Angiotensin Receptor Blocker (ARB) Use</a></li>
+<li class="chapter" data-level="B.10" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#THZUse"><i class="fa fa-check"></i><b>B.10</b> Thiazide Or Thiazide-Like Diuretic Use</a></li>
+<li class="chapter" data-level="B.11" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#dCCBUse"><i class="fa fa-check"></i><b>B.11</b> Dihydropyridine Calcium Channel Blocker (dCCB) Use</a></li>
+<li class="chapter" data-level="B.12" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ndCCBUse"><i class="fa fa-check"></i><b>B.12</b> Non-Dihydropyridine Calcium Channel Blocker (ndCCB) Use</a></li>
+<li class="chapter" data-level="B.13" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#BBUse"><i class="fa fa-check"></i><b>B.13</b> Beta-Blocker Use</a></li>
+<li class="chapter" data-level="B.14" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DLoopUse"><i class="fa fa-check"></i><b>B.14</b> Diuretic-Loop Use</a></li>
+<li class="chapter" data-level="B.15" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DPUse"><i class="fa fa-check"></i><b>B.15</b> Diuretic-Potassium Sparing Use</a></li>
+<li class="chapter" data-level="B.16" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#A1BUse"><i class="fa fa-check"></i><b>B.16</b> Alpha-1 Blocker Use</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html"><i class="fa fa-check"></i><b>C</b> Negative controls</a><ul>
+<li class="chapter" data-level="C.1" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html#AceiThzNsc"><i class="fa fa-check"></i><b>C.1</b> ACEi and THZ</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="ProtocolTemplate.html"><a href="ProtocolTemplate.html"><i class="fa fa-check"></i><b>D</b> Protocol template</a></li>
+<li class="chapter" data-level="E" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>E</b> Suggested Answers</a><ul>
+<li class="chapter" data-level="E.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>E.1</b> The Common Data Model</a></li>
+<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> Standardized Vocabularies</a></li>
+<li class="chapter" data-level="E.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>E.3</b> Extract Transform Load</a></li>
+<li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> Data Analytics Use Cases</a></li>
+<li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQL and R</a></li>
+<li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> Defining Cohorts</a></li>
+<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> Characterization</a></li>
+<li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> Population-Level Estimation</a></li>
+<li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> Patient-Level Prediction</a></li>
+<li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> Data Quality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Book of OHDSI Korea</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Cohorts" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Defining Cohorts</h1>
+<p><em>Chapter lead: Kristin Kostka</em></p>
+<p>Observational health data, also referred to <em>real world data</em>, are the data related to patient health status and/or the delivery of health care routinely collected from a variety of sources. As such, OHDSI data stewards (OHDSI collaborators who maintain data in CDM for their sites) may capture data from a number of sources including Electronic Health Records (EHR), health insurance claims and billing activities, product and disease registries, patient-generated data including in home-use settings, and data gathered from other sources that can inform on health status, such as mobile devices. As these data were not collected for research purposes, the data may not explicitly capture the clinical data elements we are interested in.</p>
+<p>For example, a health insurance claims database is designed to capture all care provided for some condition (e.g. angioedema) so the associated costs can appropriately be reimbursed, and information on the actual condition is captured only as part of this aim. If we wish to use such observational data for research purposes, we will often have to write some logic that uses <em>what is captured in the data</em> to infer <em>what we are really interested in</em>. In other words, we often need to create a cohort using some definition of how a clinical event manifests. Thus, if we want to identify angioedema events in an insurance claims database, we may define logic requiring an angioedema diagnose code recorded in an emergency room setting, to distinguish from claims that merely describe follow-up care for some past angioedema occurrence. Similar considerations may apply for data captured during routine healthcare interactions logged in an EHR. As data are being used for a secondary purpose, we must be cognizant of what each database was originally designed to do. Each time we design a study, we must think through the nuances of how our cohort exists in a variety of healthcare settings.</p>
+<p>The chapter serves to explain what is meant by creating and sharing cohort definitions, the methods for developing cohorts, and how to build your own cohorts using ATLAS or SQL.</p>
+<div id="what-is-a-cohort" class="section level2">
+<h2><span class="header-section-number">10.1</span> What Is a Cohort?</h2>
+<p>In OHDSI research, we define a cohort as a set of persons who satisfy one or more inclusion criteria for a duration of time. The term cohort is often interchanged with the term <em>phenotype</em>. Cohorts are used throughout OHDSI analytical tools and network studies as the primary building blocks for executing a research question. For instance, in a study aiming to predict the risk of angioedema in a group of people initiation ACE inhibitors, we define two cohorts: the outcome cohort (angioedema), and the target cohort (people initiating ACE inhibitors). An important aspect of cohorts in OHDSI is that they are typically defined independently from the other cohorts in the study, thus allowing re-use. For example, in our example the angioedema cohort would identify all angioedema events in the population, including those outside the target population. Our analytics tools will take the intersection of these two cohorts when needed at analysis time. The advantage of this is that the same angioedema cohort definition can now also be used in other analyses, for example an estimation study comparing ACE inhibitors to some other exposure. Cohort definitions can vary from study to study depending on the research question of interest.</p>
+
+<div class="rmdimportant">
+<p>A cohort is a set of persons who satisfy one or more inclusion criteria for a duration of time.</p>
+</div>
+
+<p>  It is important to realize that this definition of a cohort used in OHDSI might differ from that used by others in the field. For example, in many peer-reviewed scientific manuscripts, a cohort is suggested to be analogous to a code set of specific clinical codes (e.g. ICD-9/ICD-10, NDC, HCPCS, etc). While code sets are an important piece in assembling a cohort, a cohort is not defined by code set. A cohort requires specific logic for how to use the code set for the criteria (e.g. is it the first occurrence of the ICD-9/ICD-10 code? any occurrence?). A well-defined cohort specifies how a patient enters a cohort and how a patient exits a cohort. </p>
+<p> There are unique nuances to utilizing OHDSI’s definition of a cohort, including:</p>
+<ul>
+<li>One person may belong to multiple cohorts</li>
+<li>One person may belong to the same cohort for multiple different time periods</li>
+<li>One person may not belong to the same cohort multiple times during the same period of time</li>
+<li>A cohort may have zero or more members</li>
+</ul>
+<p>There are two main approaches to constructing a cohort:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Rule-based cohort definitions</strong> use explicit rules to describe when a patient is in the cohort. Defining these rules typically relies heavily on the domain expertise of the individual designing the cohort to use their knowledge of the therapeutic area of interest to build rules for cohort inclusion criteria.</li>
+<li><strong>Probabilistic cohort definitions</strong> use a probabilistic model to compute a probability between 0 and 100% of the patient being in the cohort. This probability can be turned into a yes-no classification using some threshold, or in some study designs can be used as is. The probabilistic model is typically trained using machine learning (e.g. logistic regression) on some example data to automatically identify the relevant patient characteristics that are predictive.</li>
+</ol>
+<p>The next sections will discuss these approaches in further detail.</p>
+</div>
+<div id="rule-based-cohort-definitions" class="section level2">
+<h2><span class="header-section-number">10.2</span> Rule-Based Cohort Definitions</h2>
+<p>A rule-based cohort definition begins with explicitly stating one or more inclusion criteria (e.g. “people with angioedema”) in a specific duration of time (e.g. “who developed this condition within the last 6 months”). </p>
+<p>The standard components we use to assemble these criteria are:</p>
+<ul>
+<li><p><strong>Domain</strong>: The CDM domain(s) where the data are stored (e.g. “Procedure Occurrence”, “Drug Exposure”) define the type of clinical information and the allowable concepts that can be represented inside that CDM table. Domains are discussed in more detail in Section <a href="CommonDataModel.html#domains">4.2.4</a>.</p></li>
+<li><p><strong>Concept set</strong>: A data-agnostic expression that defines one or more Standard Concepts encompassing the clinical entity of interest. These concept sets are interoperable across different observational health data as they represent the standard terms the clinical entity maps to in the Vocabulary. Concept sets are discussed in Section <a href="Cohorts.html#conceptSets">10.3</a>.</p></li>
+<li><p><strong>Domain-specific attribute</strong>: Additional attributes related to the clinical entity of interest (E.g. DAYS_SUPPLY for a DRUG_EXPOSURE, or VALUE_AS_NUMBER or RANGE_HIGH for a MEASUREMENT.)</p></li>
+<li><p><strong>Temporal logic</strong>: The time intervals within which the relationship between an inclusion criteria and an event is evaluated (E.g. Indicated condition must occur during 365 days prior to or on exposure start.)</p></li>
+</ul>
+<p>As you are building your cohort definition, you may find it helpful to think of Domains analogous to building blocks (see Figure <a href="Cohorts.html#fig:cohortLegos">10.1</a>) that represent cohort attributes. If you are confused about allowable content in each domain, you can always refer to the Common Data Model chapter (Chapter <a href="CommonDataModel.html#CommonDataModel">4</a>) for help.</p>
+<div class="figure" style="text-align: center"><span id="fig:cohortLegos"></span>
+<img src="images/Cohorts/cohort-legos.png" alt="Building Blocks of Cohort definitions." width="50%" />
+<p class="caption">
+Figure 10.1: Building Blocks of Cohort definitions.
+</p>
+</div>
+<p>When creating a cohort definition, you need to ask yourself the following questions:</p>
+<ul>
+<li><em>What initial event defines the time of cohort entry?</em></li>
+<li><em>What inclusion criteria are applied to the initial events?</em></li>
+<li><em>What defines the time of cohort exit?</em></li>
+</ul>
+<p><strong>Cohort entry event</strong>: The cohort entry event (initial event) defines the time when people enter the cohort, called the <strong>cohort index date</strong>. A cohort entry event can be any event recorded in the CDM such as drug exposures, conditions, procedures, measurements and visits. Initial events are defined by the CDM domain where the data are stored (e.g. PROCEDURE_OCCURRENCE, DRUG_EXPOSURE, etc), the concept sets built to identify the clinical activity (e.g. SNOMED codes for conditions, RxNorm codes for drugs) as well as any other specific attributes (e.g. age at occurrence, first diagnosis/procedure/etc, specifying start and end date, specifying visit type or criteria, days supply, etc). The set of people having an entry event is referred to as the <strong>initial event cohort</strong>. </p>
+<p><strong>Inclusion criteria</strong>: Inclusion criteria are applied to the initial event cohort to further restrict the set of people. Each inclusion criterion is defined by the CDM domain(s) where the data are stored, concept set(s) representing the clinical activity, domain-specific attributes (e.g. days supply, visit type, etc), and the temporal logic relative to the cohort index date. Each inclusion criterion can be evaluated to determine the impact of the criteria on the attrition of persons from the initial event cohort. The <strong>qualifying cohort</strong> is defined as all people in the initial event cohort that satisfy all inclusion criteria. </p>
+<p><strong>Cohort exit criteria</strong>: The cohort exit event signifies when a person no longer qualifies for cohort membership. Cohort exit can be defined in multiple ways such as the end of the observation period, a fixed time interval relative to the initial entry event, the last event in a sequence of related observations (e.g. persistent drug exposure) or through other censoring of observation period. Cohort exit strategy will impact whether a person can belong to the cohort multiple times during different time intervals.</p>
+
+<div class="rmdimportant">
+<p>In the OHDSI tools there is no distinction between inclusion and exclusion criteria. All criteria are formulated as inclusion criteria. For example, the exclusion criterium “Exclude people with prior hypertension” can be formulated as the inclusion criterium “Include people with 0 occurrences of prior hypertension”.</p>
+</div>
+
+</div>
+<div id="conceptSets" class="section level2">
+<h2><span class="header-section-number">10.3</span> Concept Sets</h2>
+
+<p>A concept set is an expression representing a list of concepts that can be used as a reusable component in various analyses. It can be thought of as a standardized, computer-executable equivalent of the code lists often used in observational studies. A concept set expression consists of a list of concepts with the following attributes:</p>
+<ul>
+<li><strong>Exclude</strong>: Exclude this concept (and any of its descendants if selected) from the concept set.</li>
+<li><strong>Descendants</strong>: Consider not only this concept, but also all of its descendants.</li>
+<li><strong>Mapped</strong>: Allow to search for non-standard concepts.</li>
+</ul>
+<p>For example, a concept set expression could contains two concepts as depicted in Table <a href="Cohorts.html#tab:conceptSetExpression">10.1</a>. Here we include concept <a href="http://athena.ohdsi.org/search-terms/terms/4329847">4329847</a> (“Myocardial infarction”) and all of its descendants, but exclude concept <a href="http://athena.ohdsi.org/search-terms/terms/314666">314666</a> (“Old myocardial infarction”) and all of its descendants.</p>
+<table>
+<caption><span id="tab:conceptSetExpression">Table 10.1: </span> An example concept set expression.</caption>
+<thead>
+<tr class="header">
+<th>Concept Id</th>
+<th align="left">Concept Name</th>
+<th>Excluded</th>
+<th>Descendants</th>
+<th>Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4329847</td>
+<td align="left">Myocardial infarction</td>
+<td>NO</td>
+<td>YES</td>
+<td>NO</td>
+</tr>
+<tr class="even">
+<td>314666</td>
+<td align="left">Old myocardial infarction</td>
+<td>YES</td>
+<td>YES</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<p>As shown in Figure <a href="Cohorts.html#fig:conceptSet">10.2</a>, this will include “Myocardial infarction” and all of its descendants except “Old myocardial infarction” and its descendants. In total, this concept set expression implies nearly a hundred Standard Concepts. These Standard Concepts in turn reflect hundreds of source codes (e.g. ICD-9 and ICD-10 codes) that may appear in the various databases.</p>
+<div class="figure" style="text-align: center"><span id="fig:conceptSet"></span>
+<img src="images/Cohorts/conceptSet.png" alt="A concept set including &quot;Myocardial infaction&quot; (with descendants), but excluding &quot;Old myocardial infarction&quot; (with descendants)." width="100%" />
+<p class="caption">
+Figure 10.2: A concept set including “Myocardial infaction” (with descendants), but excluding “Old myocardial infarction” (with descendants).
+</p>
+</div>
+</div>
+<div id="probabilistic-cohort-definitions" class="section level2">
+<h2><span class="header-section-number">10.4</span> Probabilistic Cohort Definitions</h2>
+<p>Rule-based cohort definitions are a popular method for assembling cohort definitions. However, assembling necessary expert consensus to create a study cohort can be prohibitively time consuming. Probabilistic cohort design is an alternative, machine-driven method to expedite the selection of cohort attributes. In this approach, supervised machine learning allows a phenotyping algorithm to learn from a set of labeled examples (cases) of what attributes contribute to cohort membership. This algorithm can then be used to better ascertain the defining characteristics of a phenotype and what trade-offs occur in overall study accuracy when choosing to modify phenotype criteria. </p>
+<p>An example of applying this approach on data in the CDM is the APHRODITE (Automated PHenotype Routine for Observational Definition, Identification, Training and Evaluation) R-package<a href="#fn54" class="footnoteRef" id="fnref54"><sup>54</sup></a> . This package provides a cohort building framework that combines the ability of learning from imperfectly labeled data. <span class="citation">(Banda et al. <a href="#ref-Banda2017APHRODITE">2017</a>)</span> </p>
+</div>
+<div id="cohort-definition-validity" class="section level2">
+<h2><span class="header-section-number">10.5</span> Cohort Definition Validity</h2>
+<p>When you are building a cohort, you should consider which of these is more important to you: <em>finding all the eligible patients?</em> versus <em>Getting only the ones you are confident about?</em></p>
+<p>Your strategy to construct your cohort will depend on the clinical stringency of how your expert consensus defines the disease. This is to say, the right cohort design will depend on the question you’re trying to answer. You may opt to build a cohort definition that uses everything you can get, uses the lowest common denominator so you can share it across OHDSI sites or is a compromise of the two. It is ultimately at the researcher’s discretion what threshold of stringency is necessary to adequately study the cohort of interest.</p>
+<p>As mentioned at the beginning of the chapter, a cohort definition is an attempt to infer something we would like to observe from the data that is recorded. This begs the question how well we succeeded in that attempt. In general, the validation of a rule-based cohort definition or probabilistic algorithm can be thought of as a test of the proposed cohort compared to some form of “gold standard” reference (e.g. manual chart review of cases). This is discussed in detail in Chapter <a href="ClinicalValidity.html#ClinicalValidity">16</a> (“Clinical Validity”).</p>
+<div id="ohdsi-gold-standard-phenotype-library" class="section level3">
+<h3><span class="header-section-number">10.5.1</span> OHDSI Gold Standard Phenotype Library</h3>
+<p>To assist the community in the inventory and overall evaluation of existing cohort definitions and algorithms, the OHDSI Gold Standard Phenotype Library (GSPL) Workgroup was formed. The purpose of the GSPL workgroup is to develop a community-backed phenotype library from rules-based and probabilistic methods. The GSPL enable members of the OHDSI community to find, evaluate, and utilize community-validated cohort definitions for research and other activities. These “gold standard” definitions will reside in a library, the entries of which are held to specific standards of design and evaluation. For additional information related to the GSPL, consult the OHDSI workgroup page.<a href="#fn55" class="footnoteRef" id="fnref55"><sup>55</sup></a> Research within this workgroup includes APHRODITE <span class="citation">(Banda et al. <a href="#ref-Banda2017APHRODITE">2017</a>)</span> and the PheValuator tool <span class="citation">(Swerdel, Hripcsak, and Ryan <a href="#ref-Swerdel2019phevaluator">2019</a>)</span> , discussed in the prior section, as well as work done to share the Electronic Medical Records and Genomics <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> across the OHDSI network <span class="citation">(Hripcsak et al. <a href="#ref-Hripcsak2019eMERGE">2019</a>)</span>. If phenotype curation is your interest, consider contributing to this workgroup. </p>
+</div>
+</div>
+<div id="defining-a-cohort-for-hypertension" class="section level2">
+<h2><span class="header-section-number">10.6</span> Defining a Cohort for Hypertension</h2>
+<p>We begin to practice our cohort skills by putting together a cohort definition using a rule-based approach. In this example, we want to find <em>patients who initiate ACE inhibitors monotherapy as first-line treatments for hypertension</em></p>
+<p>With this context in mind, we are now going to build our cohort. As we go through this exercise, we will approach building our cohort similar to standard attrition chart. Figure <a href="Cohorts.html#fig:CohortPractice">10.3</a> shows the logical framework for how we want to build this cohort.</p>
+<div class="figure" style="text-align: center"><span id="fig:CohortPractice"></span>
+<img src="images/Cohorts/CohortPractice.png" alt="Logical Diagram of Intended Cohort" width="100%" />
+<p class="caption">
+Figure 10.3: Logical Diagram of Intended Cohort
+</p>
+</div>
+<p>You can build a cohort in the user interface of ATLAS or you can write a query directly against your CDM. We will briefly discuss both in this chapter.</p>
+</div>
+<div id="implementing-a-cohort-using-atlas" class="section level2">
+<h2><span class="header-section-number">10.7</span> Implementing a Cohort Using ATLAS</h2>
+<p>To begin in ATLAS, click on the <img src="images/Cohorts/cohortdefinition.png" /> module. When the module loads, click on “New cohort”. The next screen you will see will be an empty cohort definition. Figure <a href="Cohorts.html#fig:ATLASdefineacohort">10.4</a> shows what you will see on your screen.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASdefineacohort"></span>
+<img src="images/Cohorts/ATLAS-defineacohort.png" alt="New Cohort Definition" width="100%" />
+<p class="caption">
+Figure 10.4: New Cohort Definition
+</p>
+</div>
+<p>Before you do anything else, you are encouraged to change the name of the cohort from “New Cohort Definition” to your own unique name for this cohort. You may opt for a name like “New users of ACE inhibitors as first-line monotherapy for hypertension”.</p>
+
+<div class="rmdimportant">
+ATLAS will not allow two cohorts to have the same exact names. ATLAS will give you a pop-up error message if you choose a name already used by another ATLAS cohort.
+</div>
+
+<p>Once you have chosen a name, you can save the cohort by clicking <img src="images/Cohorts/save.png" />.</p>
+<div id="initial-event-criteria" class="section level3">
+<h3><span class="header-section-number">10.7.1</span> Initial Event Criteria</h3>
+<p>Now we can proceed with defining the initial cohort event. You will click “Add initial event”. You now have to pick which domain you are building a criteria around. You may ask yourself, “how do I know which domain is the initial cohort event?” Let’s figure that out.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASinitialevent"></span>
+<img src="images/Cohorts/ATLAS-initialevent.png" alt="Adding an Initial Event" width="100%" />
+<p class="caption">
+Figure 10.5: Adding an Initial Event
+</p>
+</div>
+<p>As we see in Figure <a href="Cohorts.html#fig:ATLASinitialevent">10.5</a>, ATLAS provides descriptions below each criteria to help you. If we were building a CONDITION_OCCURRENCE based criteria, our question would be looking for patients with a specific diagnosis. If we were building a DRUG_EXPOSURE based criteria, our question would be looking for patients with a specific drug or drug class. Since we want to find patients who initiate ACE inhibitors monotherapy as first-line treatments for hypertension, we want to choose a DRUG_EXPOSURE criteria. You may say, “but we also care about hypertension as a diagnosis”. You are correct. Hypertension is another criterion we will build. However, the cohort start date is defined by the initiation of the ACE inhibitor treatment, which is therefore the initial event. The diagnosis of hypertension is what we call an <em>additional qualifying criteria</em>. We will return to this once we build this criteria. We will click “Add Drug Exposure”.</p>
+<p>The screen will update with your selected criteria but you are not done yet. As we see in Figure <a href="Cohorts.html#fig:ATLASdrugexposure">10.6</a>, ATLAS does not know what drug we are looking for. We need to tell ATLAS which concept set is associated to ACE inhibitors.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASdrugexposure"></span>
+<img src="images/Cohorts/ATLAS-drugexposure.png" alt="Defining a Drug Exposure" width="100%" />
+<p class="caption">
+Figure 10.6: Defining a Drug Exposure
+</p>
+</div>
+</div>
+<div id="defining-the-concept-set" class="section level3">
+<h3><span class="header-section-number">10.7.2</span> Defining the Concept Set</h3>
+<p>You will need to click <img src="images/Cohorts/downarrow.png" /> to open the dialogue box that will allow you to retrieve a concept set to define ACE Inhibitors.</p>
+<div id="scenario-1-you-have-not-built-a-concept-set" class="section level4 unnumbered">
+<h4>Scenario 1: You Have Not Built a Concept Set</h4>
+<p>If you have not assembled your concept sets to apply to your criteria, you will need to do so before you move forward. You may build a concept set within the cohort definition by navigating to the “Concept set” tab and clicking “New Concept Set”. You will need to rename the concept set from “Unnamed Concept Set” to a name of your choosing. From there you can use the <img src="images/Cohorts/search-2.png" /> module to look for clinical concepts that represent ACE inhibitors (Figure <a href="Cohorts.html#fig:aceinhibitors">10.7</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:aceinhibitors"></span>
+<img src="images/Cohorts/aceinhibitors.png" alt="Searching the Vocabulary - ACE Inhibitors" width="100%" />
+<p class="caption">
+Figure 10.7: Searching the Vocabulary - ACE Inhibitors
+</p>
+</div>
+<p>When you have found terms that you would like to use to define this drug exposure, you can select the concept by clicking on <img src="images/Cohorts/shoppingcart.png" />. You can return to your cohort definition by using the left arrow in the top left of Figure <a href="Cohorts.html#fig:aceinhibitors">10.7</a>. You can refer back to Chapter <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a> (Standardized Vocabularies) on how to navigate the vocabularies to find clinical concepts of interest.</p>
+<p>Figure <a href="Cohorts.html#fig:aceConceptSetExpression">10.8</a> shows our concept set expression. We selected all ACE inhibitor ingredients we are interested in, and include all their descendants, thus including all drugs that contain any of these ingredients. We can click on “Included concepts” to see all 21,536 concepts implied by this expression, or we can click on “Included Source Codes” to explore all source codes in the various coding systems that are implied.</p>
+<div class="figure" style="text-align: center"><span id="fig:aceConceptSetExpression"></span>
+<img src="images/Cohorts/aceConceptSetExpression.png" alt="A concept set containing ACE inhibitor drugs." width="100%" />
+<p class="caption">
+Figure 10.8: A concept set containing ACE inhibitor drugs.
+</p>
+</div>
+</div>
+<div id="scenario-2-you-have-already-built-a-concept-set" class="section level4 unnumbered">
+<h4>Scenario 2: You Have Already Built a Concept Set</h4>
+<p>If you have already created a concept set and saved it in ATLAS, you can click to “Import Concept Set”. A dialogue box will open that will be prompt you to find your concept in the concept set repository of your ATLAS as shown in Figure <a href="Cohorts.html#fig:ATLASfindyourconcept">10.9</a>. In the example figure the user is retrieving concept sets stored in ATLAS. The user typed in the name given to this concept set “ace inhibitors” in the right hand search. This shortened the concept set list to only concepts with matching names. From there, the user can click on the row of the concept set to select it. (Note: the dialogue box will disappear once you have selected a concept set.) You will know this action is successful when the Any Drug box is updated with the name of the concept set you selected.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASfindyourconcept"></span>
+<img src="images/Cohorts/ATLAS-findingyourconcept.png" alt="Importing a Concept Set from ATLAS Repository" width="100%" />
+<p class="caption">
+Figure 10.9: Importing a Concept Set from ATLAS Repository
+</p>
+</div>
+</div>
+</div>
+<div id="additional-initial-event-criteria" class="section level3">
+<h3><span class="header-section-number">10.7.3</span> Additional Initial Event Criteria</h3>
+<p>Now that you’ve attached a concept set, you are not done yet. Your question is looking for new users or the first time in someone’s history they are exposed to ACE inhibitors. This translates to the <em>first exposure</em> of ACE inhibitors in the patient’s record. To specify this, you need to click “+Add attribute”. You will want to select the “Add first exposure criteria”. Notice, you could specify other attributes of a criteria you build. You could specify an attribute of age at occurrence, the date of occurrence, gender or other attributes related to the drug. Criteria available for selection will look different for each domain.</p>
+<p>From there, the window will automatically close. Once selected, this additional attribute will show up in the same box as the initial criteria (see Figure <a href="Cohorts.html#fig:initialEventAce">10.10</a>).</p>
+
+<div class="rmdimportant">
+<p>The current design of ATLAS may confuse some. Despite its appearance, the <img src="images/Cohorts/redX.png" /> is not intended to mean “No”. It is an actionable feature to allow the user to delete the criteria. If you click <img src="images/Cohorts/redX.png" />, this criteria will go away. Thus, you need to leave the criteria with the <img src="images/Cohorts/redX.png" /> to keep the criteria active.</p>
+</div>
+
+<p>Now you have built an initial qualifying event. To ensure you are capturing the first observed drug exposure, you will want to add a look-back window to know that you are looking at enough of the patient’s history to know what comes first. It is possible that a patient with a short observation period may have received an exposure elsewhere that we do not see. We cannot control this but we can mandate a minimum amount of time the patient must be in the data prior to the index date You can do this by adjusting the continuous observation drop downs. You could also click the box and type in a value to these windows. We will require 365 days of continuous observation prior to the initial event. You will update your observation period to: <em>with continuous observation of 365 days before</em>, as shown in Figure <a href="Cohorts.html#fig:initialEventAce">10.10</a>. This look-back window is the discretion of your study team. You may choose differently in other cohorts. This creates, as best as we are able, a minimum period of time we see the patient to ensure we are capturing the first record. This criteria is about prior history and does not involve time after the index event. Therefore, we require 0 days after the index event. Our qualifying event is the first-ever use of ACE inhibitors. Thus, we limit initial events to the “earliest event” per person.</p>
+<div class="figure" style="text-align: center"><span id="fig:initialEventAce"></span>
+<img src="images/Cohorts/initialEventAce.png" alt="Setting the required continuous observation before the index date." width="100%" />
+<p class="caption">
+Figure 10.10: Setting the required continuous observation before the index date.
+</p>
+</div>
+<p>To further explain how this logic comes together, you can think about assembling patient timelines.</p>
+<div class="figure" style="text-align: center"><span id="fig:EarliestEventExplained"></span>
+<img src="images/Cohorts/EarliestEventExplained.png" alt="Explaining patient eligibility by criteria applied" width="100%" />
+<p class="caption">
+Figure 10.11: Explaining patient eligibility by criteria applied
+</p>
+</div>
+<p>In Figure <a href="Cohorts.html#fig:EarliestEventExplained">10.11</a>, each line represents a single patient that may be eligible to join the cohort. The filled in stars represent a time the patient fulfills the specified criteria. As additional criteria is applied, you may see some stars are a lighter shade. This means that these patients have other records that satisfy the criteria but there is another record that proceeds that. By the time we get to the last criteria, we are looking at the cumulative view of patients who have ACE inhibitors for the first time and have 365 days prior to the first-time occurrence. Logically, limiting to the initial event is redundant though it is helpful to maintain our explicit logic in every selection we make. When you are building your own cohorts, you may opt to engage the Researchers section of the <a href="http://forums.ohdsi.org">OHDSI Forum</a> to get a second opinion on how to construct your cohort logic.</p>
+</div>
+<div id="inclusion-criteria" class="section level3">
+<h3><span class="header-section-number">10.7.4</span> Inclusion Criteria</h3>
+<p>Once we have specified a cohort entry event, you could proceed to one of two places to add your additional qualifying events: “Restrict initial events” and “New inclusion criteria”. The fundamental difference between these two options is what interim information you want ATLAS to serve back to you. If you add additional qualifying criteria into the Cohort Entry Event box by selecting “Restrict initial events”, when you choose to generate a count in ATLAS, you will only get back the number of people who meet ALL of these criteria. If you opt to add criteria into the “New inclusion criteria”, you will get an attrition chart to show you how many patients are lost by applying additional inclusion criteria. It is highly encouraged to utilize the Inclusion Criteria section so you can understand the impact of each rule on the overall success of the cohort definition. You may find a certain inclusion criteria severely limits the number of people who end up in the cohort. You may choose to relax this criterion to get a larger cohort. This will ultimately be at the discretion of the expert consensus assembling this cohort.</p>
+<p>You will now want to click “New inclusion criteria” to add a subsequent piece of logic about membership to this cohort. The functionality in this section is identical to the way we discussed building cohort criteria above. You may specific the criteria and add specific attributes. Our first additional criteria is to subset the cohort to only patients: <em>With at least 1 occurrence of hypertension disorder between 365 and 0 days after index date (first initiation of an ACE inhibitor)</em>. You will click “New inclusion criteria” to add a new criteria. You should name your criteria and, if desired, put a little description of what you are looking for. This is for your own purposes to recall what you build – it will not impact the integrity of the cohort you are defining.</p>
+<p>Once you have annotated this new criteria, you will click on the “+Add criteria to group” button to build your actual criteria for this rule. This button functions similar to the “Add Initial Event” except we are no longer specifying an initial event. We could add multiple criteria to this – which is why it specifies “add criteria to group”. An example would be if you have multiple ways of finding a disease (e.g. logic for a CONDITION_OCCURRENCE, logic using a DRUG_EXPOSURE as a proxy for this condition, logic for using a MEASUREMENT as a proxy for this condition). These would be separate domains and require different criteria but can be grouped into one criteria looking for this condition. In this case, we want to find a diagnosis of hypertension so we “Add condition occurrence”. We will follow similar steps as we did with the initial event by attaching a concept set to this record. We also want to specify the event starts between 365 days before and 0 days after the index date (the occurrence of the first ACE inhibitor use). Now check your logic against Figure <a href="Cohorts.html#fig:ATLASIC1">10.12</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASIC1"></span>
+<img src="images/Cohorts/ATLAS-IC1.png" alt="Additional Inclusion criteria 1" width="100%" />
+<p class="caption">
+Figure 10.12: Additional Inclusion criteria 1
+</p>
+</div>
+<p>You will then want to add another criterion to look for patients: <em>with exactly 0 occurrences of hypertension drugs ALL days before and 1 day before index start date (no exposure to HT drugs before an ACE inhibitor)</em>. This process begins as we did before by clicking the “New inclusion criteria” button, adding your annotations to this criterion and then clicking “+Add criteria to group”. This is a DRUG_EXPOSURE so you will click “Add Drug Exposure”, attach a concept set for hypertensive drugs, and will specify ALL days before and 0 days after the index date. Make sure to confirm you have <em>exactly 0</em> occurrence selected. Now check your logic against Figure <a href="Cohorts.html#fig:ATLASIC2">10.13</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASIC2"></span>
+<img src="images/Cohorts/ATLAS-IC2.png" alt="Additional Inclusion Criteria 2" width="100%" />
+<p class="caption">
+Figure 10.13: Additional Inclusion Criteria 2
+</p>
+</div>
+<p>You may be confused why “having no occurrences” is coded as “exactly 0 occurrences.” This is a nuance of how ATLAS consumes knowledge. ATLAS only consumes inclusion criteria. You must use logical operators to indicate when you want the absence of a specific attribute such as: “Exactly 0.” Over time you will become more familiar with the logical operators available in ATLAS criteria.</p>
+<p>Lastly, you will want to add your another criterion to look for patients: <em>with exactly 1 occurrence of hypertension drugs between 0 days before and 7 days after index start date AND can only start one HT drug (an ACE inhibitor)</em> . This process begins as we did before by clicking the “New inclusion criteria” button, adding your annotations to this criterion and then clicking “+Add criteria to group”. This is a DRUG_EXPOSURE so you will click “Add Drug Exposure”, attach a concept set for hypertensive drugs, and will specify 0 days before and 7 days after the index date. Now check your logic against Figure <a href="Cohorts.html#fig:ATLASIC3">10.14</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLASIC3"></span>
+<img src="images/Cohorts/ATLAS-IC3.png" alt="Additional Inclusion Criteria 3" width="100%" />
+<p class="caption">
+Figure 10.14: Additional Inclusion Criteria 3
+</p>
+</div>
+</div>
+<div id="cohort-exit-criteria" class="section level3">
+<h3><span class="header-section-number">10.7.5</span> Cohort Exit Criteria</h3>
+<p>You have now added all of your qualifying inclusion criteria. You must now specify your cohort exit criteria. You will ask yourself, “when are people no longer eligible to be included in this cohort?” In this cohort, we are following new-users of a drug exposure. We want to look at continuous observation period as it relates to the drug exposure. As such, the exit criterion is specified to follow for the entirety of the continuous drug exposure. If there is a subsequent break in the drug exposure, the patient will exit the cohort at this time. We do this as we cannot determine what happened to the person during the break in the drug exposure. We can also set a criteria on the persistence window to specify an allowable gap between drug exposures. In this case, our experts leading this study concluded that a maximum of 30 days between exposure records is allowable when inferring the era of persistence exposure.</p>
+<p><strong>Why are gaps allowed?</strong> In some data sets, we see only portions of clinical interactions. Drug exposures, in particular, may represent a dispense of a prescription that can cover a certain period of time. Thus, we allow a certain amount of time between drug exposures as we know the patient may logically still have access to the initial drug exposure because the unit of dispense exceeded one day.</p>
+<p>We can configure this by selecting the Event will persist “end of a continuous drug exposure”. We then will add our persistence window to “allow for a maximum of 30 days” and append the concept set for “ACE inhibitors”. Now check your logic against Figure <a href="Cohorts.html#fig:ATLAScohortexit">10.15</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:ATLAScohortexit"></span>
+<img src="images/Cohorts/cohort-exit.png" alt="Cohort Exit Criteria" width="100%" />
+<p class="caption">
+Figure 10.15: Cohort Exit Criteria
+</p>
+</div>
+<p>In the case of this cohort, there are no other censoring events. However, you may build other cohorts where you need to specify this criteria. You would proceed similarly to the way we have added other attributes to this cohort definition. You have now successfully finished creating your cohort. Make sure to hit the <img src="images/Cohorts/save.png" /> button. Congratulations! Building a cohort is the most important building block of answering a question in the OHDSI tools. You can now use the “Export” tab to share your cohort definition to other collaborators in the form of SQL code or JSON files to load into ATLAS.</p>
+</div>
+</div>
+<div id="implementing-the-cohort-using-sql" class="section level2">
+<h2><span class="header-section-number">10.8</span> Implementing the Cohort Using SQL</h2>
+<p>Here we describe how to create the same cohort, but using SQL and R. As discussed in Chapter <a href="SqlAndR.html#SqlAndR">9</a>, OHDSI provides two R packages, called SqlRender and DatabaseConnector, which together allow writing SQL code that can be automatically translated and executed against a wide variety of database platforms.</p>
+<p>For clarity, we will split the SQL into several chunks, each chunk generating a temp table that is used in the next. This is likely not the most computationally efficient way to do it, but it is easier to read than a single very long statement.</p>
+<div id="connecting-to-the-database" class="section level3">
+<h3><span class="header-section-number">10.8.1</span> Connecting to the Database</h3>
+<p>We first need to tell R how to connect to the server. We use the <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> package, which provides a function called <code>createConnectionDetails</code>. Type <code>?createConnectionDetails</code> for the specific settings required for the various database management systems (DBMS). For example, one might connect to a PostgreSQL database using this code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CohortMethod)
+connDetails &lt;-<span class="st"> </span><span class="kw">createConnectionDetails</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
+                                       <span class="dt">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,
+                                       <span class="dt">user =</span> <span class="st">&quot;joe&quot;</span>,
+                                       <span class="dt">password =</span> <span class="st">&quot;supersecret&quot;</span>)
+
+cdmDbSchema &lt;-<span class="st"> &quot;my_cdm_data&quot;</span>
+cohortDbSchema &lt;-<span class="st"> &quot;scratch&quot;</span>
+cohortTable &lt;-<span class="st"> &quot;my_cohorts&quot;</span></code></pre></div>
+<p>The last three lines define the <code>cdmDbSchema</code>, <code>cohortDbSchema</code>, and <code>cohortTable</code> variables. We will use these later to tell R where the data in CDM format live, and where the cohorts of interest have to be created. Note that for Microsoft SQL Server, database schemas need to specify both the database and the schema, so for example <code>cdmDbSchema &lt;- &quot;my_cdm_data.dbo&quot;</code>.</p>
+</div>
+<div id="specifying-the-concepts" class="section level3">
+<h3><span class="header-section-number">10.8.2</span> Specifying the Concepts</h3>
+<p>For readability we will define the concept IDs we need in R, and pass them to the SQL:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aceI &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1308216</span>, <span class="dv">1310756</span>, <span class="dv">1331235</span>, <span class="dv">1334456</span>, <span class="dv">1335471</span>, <span class="dv">1340128</span>, <span class="dv">1341927</span>,
+          <span class="dv">1342439</span>, <span class="dv">1363749</span>, <span class="dv">1373225</span>)
+
+hypertension &lt;-<span class="st"> </span><span class="dv">316866</span>
+
+allHtDrugs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">904542</span>, <span class="dv">907013</span>, <span class="dv">932745</span>, <span class="dv">942350</span>, <span class="dv">956874</span>, <span class="dv">970250</span>, <span class="dv">974166</span>,
+                  <span class="dv">978555</span>, <span class="dv">991382</span>, <span class="dv">1305447</span>, <span class="dv">1307046</span>, <span class="dv">1307863</span>, <span class="dv">1308216</span>,
+                  <span class="dv">1308842</span>, <span class="dv">1309068</span>, <span class="dv">1309799</span>, <span class="dv">1310756</span>, <span class="dv">1313200</span>, <span class="dv">1314002</span>,
+                  <span class="dv">1314577</span>, <span class="dv">1317640</span>, <span class="dv">1317967</span>, <span class="dv">1318137</span>, <span class="dv">1318853</span>, <span class="dv">1319880</span>,
+                  <span class="dv">1319998</span>, <span class="dv">1322081</span>, <span class="dv">1326012</span>, <span class="dv">1327978</span>, <span class="dv">1328165</span>, <span class="dv">1331235</span>,
+                  <span class="dv">1332418</span>, <span class="dv">1334456</span>, <span class="dv">1335471</span>, <span class="dv">1338005</span>, <span class="dv">1340128</span>, <span class="dv">1341238</span>,
+                  <span class="dv">1341927</span>, <span class="dv">1342439</span>, <span class="dv">1344965</span>, <span class="dv">1345858</span>, <span class="dv">1346686</span>, <span class="dv">1346823</span>,
+                  <span class="dv">1347384</span>, <span class="dv">1350489</span>, <span class="dv">1351557</span>, <span class="dv">1353766</span>, <span class="dv">1353776</span>, <span class="dv">1363053</span>,
+                  <span class="dv">1363749</span>, <span class="dv">1367500</span>, <span class="dv">1373225</span>, <span class="dv">1373928</span>, <span class="dv">1386957</span>, <span class="dv">1395058</span>,
+                  <span class="dv">1398937</span>, <span class="dv">40226742</span>, <span class="dv">40235485</span>)</code></pre></div>
+</div>
+<div id="finding-first-use" class="section level3">
+<h3><span class="header-section-number">10.8.3</span> Finding First Use</h3>
+<p>We will first find first use of ACE inhibitors for each patient:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conn &lt;-<span class="st"> </span><span class="kw">connect</span>(connectionDetails)
+
+sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
+<span class="st">  MIN(drug_exposure_start_date) AS cohort_start_date</span>
+<span class="st">INTO #first_use</span>
+<span class="st">FROM @cdm_db_schema.drug_exposure</span>
+<span class="st">INNER JOIN @cdm_db_schema.concept_ancestor</span>
+<span class="st">  ON descendant_concept_id = drug_concept_id</span>
+<span class="st">WHERE ancestor_concept_id IN (@ace_i)</span>
+<span class="st">GROUP BY person_id;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, 
+                          sql, 
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+                          <span class="dt">ace_i =</span> aceI)</code></pre></div>
+<p>Note that we join the DRUG_EXPOSURE table to the CONCEPT_ANCESTOR table to find all drugs that contain an ACE inhibitor.</p>
+</div>
+<div id="require-365-days-of-prior-observation" class="section level3">
+<h3><span class="header-section-number">10.8.4</span> Require 365 Days of Prior Observation</h3>
+<p>Next, we require 365 of continuous prior observation by joining to the OBSERVATION_PERIOD table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT subject_id,</span>
+<span class="st">  cohort_start_date</span>
+<span class="st">INTO #has_prior_obs</span>
+<span class="st">FROM #first_use</span>
+<span class="st">INNER JOIN @cdm_db_schema.observation_period</span>
+<span class="st">  ON subject_id = person_id</span>
+<span class="st">    AND observation_period_start_date &lt;= cohort_start_date</span>
+<span class="st">    AND observation_period_end_date &gt;= cohort_start_date</span>
+<span class="st">WHERE DATEADD(DAY, 365, observation_period_start_date) &lt; cohort_start_date;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, sql, <span class="dt">cdm_db_schema =</span> cdmDbSchema)</code></pre></div>
+</div>
+<div id="require-prior-hypertension" class="section level3">
+<h3><span class="header-section-number">10.8.5</span> Require Prior Hypertension</h3>
+<p>We require a hypertension diagnosis in the 365 days prior:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT DISTINCT subject_id,</span>
+<span class="st">  cohort_start_date</span>
+<span class="st">INTO #has_ht</span>
+<span class="st">FROM #has_prior_obs</span>
+<span class="st">INNER JOIN @cdm_db_schema.condition_occurrence</span>
+<span class="st">  ON subject_id = person_id</span>
+<span class="st">    AND condition_start_date &lt;= cohort_start_date</span>
+<span class="st">    AND condition_start_date &gt;= DATEADD(DAY, -365, cohort_start_date)</span>
+<span class="st">INNER JOIN @cdm_db_schema.concept_ancestor</span>
+<span class="st">  ON descendant_concept_id = condition_concept_id</span>
+<span class="st">WHERE ancestor_concept_id = @hypertension;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, 
+                          sql, 
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+                          <span class="dt">hypertension =</span> hypertension)</code></pre></div>
+<p>Note that we <code>SELECT DISTINCT</code>, because else if a person has multiple hypertension diagnoses in their past, we would create duplicate cohort entries.</p>
+</div>
+<div id="no-prior-treatment" class="section level3">
+<h3><span class="header-section-number">10.8.6</span> No Prior Treatment</h3>
+<p>We require no prior exposure to any hypertension treatment:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT subject_id,</span>
+<span class="st">  cohort_start_date</span>
+<span class="st">INTO #no_prior_ht_drugs</span>
+<span class="st">FROM #has_ht</span>
+<span class="st">LEFT JOIN (</span>
+<span class="st">  SELECT *</span>
+<span class="st">  FROM @cdm_db_schema.drug_exposure</span>
+<span class="st">  INNER JOIN @cdm_db_schema.concept_ancestor</span>
+<span class="st">    ON descendant_concept_id = drug_concept_id</span>
+<span class="st">  WHERE ancestor_concept_id IN (@all_ht_drugs)</span>
+<span class="st">) ht_drugs</span>
+<span class="st">  ON subject_id = person_id</span>
+<span class="st">    AND drug_exposure_start_date &lt; cohort_start_date</span>
+<span class="st">WHERE person_id IS NULL;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, 
+                          sql, 
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+                          <span class="dt">all_ht_drugs =</span> allHtDrugs)</code></pre></div>
+<p>Note that we use a left join, and only allow rows where the person_id, which comes from the DRUG_EXPOSURE table is NULL, meaning no matching record was found.</p>
+</div>
+<div id="monotherapy" class="section level3">
+<h3><span class="header-section-number">10.8.7</span> Monotherapy</h3>
+<p>We require there to be only one exposure to hypertension treatment in the first seven days of the cohort entry:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT subject_id,</span>
+<span class="st">  cohort_start_date</span>
+<span class="st">INTO #monotherapy</span>
+<span class="st">FROM #no_prior_ht_drugs</span>
+<span class="st">INNER JOIN @cdm_db_schema.drug_exposure</span>
+<span class="st">  ON subject_id = person_id</span>
+<span class="st">    AND drug_exposure_start_date &gt;= cohort_start_date</span>
+<span class="st">    AND drug_exposure_start_date &lt;= DATEADD(DAY, 7, cohort_start_date)</span>
+<span class="st">INNER JOIN @cdm_db_schema.concept_ancestor</span>
+<span class="st">  ON descendant_concept_id = drug_concept_id</span>
+<span class="st">WHERE ancestor_concept_id IN (@all_ht_drugs)</span>
+<span class="st">GROUP BY subject_id,</span>
+<span class="st">  cohort_start_date</span>
+<span class="st">HAVING COUNT(*) = 1;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, 
+                          sql, 
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+                          <span class="dt">all_ht_drugs =</span> allHtDrugs)</code></pre></div>
+</div>
+<div id="cohort-exit" class="section level3">
+<h3><span class="header-section-number">10.8.8</span> Cohort Exit</h3>
+<p>We have now fully specified our cohort except the cohort end date. The cohort is defined to end when the exposure stops, allowing for a maximum 30-day gap between subsequent exposures. This means we need to not only consider the first drug exposure, but also subsequent drug exposures to ACE inhibitors. The SQL for combining subsequent exposures into eras can be highly complex. Luckily, standard code has been defined that can efficiently create eras. (This code was written by Chris Knoll, and is often referred to within OHDSI as ‘the magic’). We first create a temp table containing all exposures we wish to merge:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
+<span class="st">  SELECT person_id,</span>
+<span class="st">    CAST(1 AS INT) AS concept_id,</span>
+<span class="st">    drug_exposure_start_date AS exposure_start_date,</span>
+<span class="st">    drug_exposure_end_date AS exposure_end_date</span>
+<span class="st">  INTO #exposure</span>
+<span class="st">  FROM @cdm_db_schema.drug_exposure</span>
+<span class="st">  INNER JOIN @cdm_db_schema.concept_ancestor</span>
+<span class="st">    ON descendant_concept_id = drug_concept_id</span>
+<span class="st">  WHERE ancestor_concept_id IN (@ace_i);&quot;</span>
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql, 
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+                          <span class="dt">ace_i =</span> aceI)</code></pre></div>
+<p>We then run the standard code for merging sequential exposures:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
+<span class="st">SELECT ends.person_id AS subject_id,</span>
+<span class="st">    ends.concept_id AS cohort_definition_id,</span>
+<span class="st">  MIN(exposure_start_date) AS cohort_start_date,</span>
+<span class="st">  ends.era_end_date AS cohort_end_date</span>
+<span class="st">INTO #exposure_era</span>
+<span class="st">FROM (</span>
+<span class="st">  SELECT exposure.person_id,</span>
+<span class="st">    exposure.concept_id,</span>
+<span class="st">    exposure.exposure_start_date,</span>
+<span class="st">    MIN(events.end_date) AS era_end_date</span>
+<span class="st">  FROM #exposure exposure</span>
+<span class="st">  JOIN (</span>
+<span class="st">--cteEndDates</span>
+<span class="st">    SELECT person_id,</span>
+<span class="st">      concept_id,</span>
+<span class="st">      DATEADD(DAY, - 1 * @max_gap, event_date) AS end_date</span>
+<span class="st">    FROM (</span>
+<span class="st">      SELECT person_id,</span>
+<span class="st">        concept_id,</span>
+<span class="st">        event_date,</span>
+<span class="st">        event_type,</span>
+<span class="st">        MAX(start_ordinal) OVER (</span>
+<span class="st">          PARTITION BY person_id ,concept_id ORDER BY event_date,</span>
+<span class="st">              event_type ROWS UNBOUNDED PRECEDING</span>
+<span class="st">          ) AS start_ordinal,</span>
+<span class="st">        ROW_NUMBER() OVER (</span>
+<span class="st">          PARTITION BY person_id, concept_id ORDER BY event_date,</span>
+<span class="st">            event_type</span>
+<span class="st">          ) AS overall_ord</span>
+<span class="st">      FROM (</span>
+<span class="st">-- select the start dates, assigning a row number to each</span>
+<span class="st">        SELECT person_id,</span>
+<span class="st">          concept_id,</span>
+<span class="st">          exposure_start_date AS event_date,</span>
+<span class="st">          0 AS event_type,</span>
+<span class="st">          ROW_NUMBER() OVER (</span>
+<span class="st">            PARTITION BY person_id, concept_id ORDER BY exposure_start_date</span>
+<span class="st">            ) AS start_ordinal</span>
+<span class="st">        FROM #exposure exposure</span>
+
+<span class="st">        UNION ALL</span>
+<span class="st">-- add the end dates with NULL as the row number, padding the end dates by</span>
+<span class="st">-- @max_gap to allow a grace period for overlapping ranges.</span>
+
+<span class="st">        SELECT person_id,</span>
+<span class="st">          concept_id,</span>
+<span class="st">          DATEADD(day, @max_gap, exposure_end_date),</span>
+<span class="st">          1 AS event_type,</span>
+<span class="st">          NULL</span>
+<span class="st">        FROM #exposure exposure</span>
+<span class="st">        ) rawdata</span>
+<span class="st">    ) events</span>
+<span class="st">  WHERE 2 * events.start_ordinal - events.overall_ord = 0</span>
+<span class="st">  ) events</span>
+<span class="st">  ON exposure.person_id = events.person_id</span>
+<span class="st">      AND exposure.concept_id = events.concept_id</span>
+<span class="st">      AND events.end_date &gt;= exposure.exposure_end_date</span>
+<span class="st">  GROUP BY exposure.person_id,</span>
+<span class="st">      exposure.concept_id,</span>
+<span class="st">      exposure.exposure_start_date</span>
+<span class="st">  ) ends</span>
+<span class="st">GROUP BY ends.person_id,</span>
+<span class="st">  concept_id,</span>
+<span class="st">  ends.era_end_date;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql, 
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema,
+                          <span class="dt">max_gap =</span> <span class="dv">30</span>)</code></pre></div>
+<p>This code merges all subsequent exposures, allowing for a gap between exposures as defined by the <code>max_gap</code> argument. The resulting drug exposure eras are written to a temp table called <code>#exposure_era</code>.</p>
+<p>Next, we simply join these ACE inhibitor exposure eras to our original cohort to use the era end dates as our cohort end dates:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT ee.subject_id,</span>
+<span class="st">  CAST(1 AS INT) AS cohort_definition_id,</span>
+<span class="st">  ee.cohort_start_date,</span>
+<span class="st">  ee.cohort_end_date</span>
+<span class="st">INTO @cohort_db_schema.@cohort_table</span>
+<span class="st">FROM #monotherapy mt</span>
+<span class="st">INNER JOIN #exposure_era ee</span>
+<span class="st">  ON mt.subject_id = ee.subject_id</span>
+<span class="st">    AND mt.cohort_start_date = ee.cohort_start_date;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, 
+                          sql, 
+                          <span class="dt">cohort_db_schema =</span> cohortDbSchema, 
+                          <span class="dt">cohort_table =</span> cohortTable)</code></pre></div>
+<p>Here we store the final cohort in schema and table we defined earlier. We assign it a cohort definition ID of 1, to distinguish it from other cohorts we may wish to store in the same table.</p>
+</div>
+<div id="cleanup" class="section level3">
+<h3><span class="header-section-number">10.8.9</span> Cleanup</h3>
+<p>Finally, it is always recommend to clean up any temp tables that were created, and disconnect from the database server:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;TRUNCATE TABLE #first_use;</span>
+<span class="st">DROP TABLE #first_use;</span>
+
+<span class="st">TRUNCATE TABLE #has_prior_obs;</span>
+<span class="st">DROP TABLE #has_prior_obs;</span>
+
+<span class="st">TRUNCATE TABLE #has_ht;</span>
+<span class="st">DROP TABLE #has_ht;</span>
+
+<span class="st">TRUNCATE TABLE #no_prior_ht_drugs;</span>
+<span class="st">DROP TABLE #no_prior_ht_drugs;</span>
+
+<span class="st">TRUNCATE TABLE #monotherapy;</span>
+<span class="st">DROP TABLE #monotherapy;</span>
+
+<span class="st">TRUNCATE TABLE #exposure;</span>
+<span class="st">DROP TABLE #exposure;</span>
+
+<span class="st">TRUNCATE TABLE #exposure_era;</span>
+<span class="st">DROP TABLE #exposure_era;&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, sql)
+
+<span class="kw">disconnect</span>(conn)</code></pre></div>
+</div>
+</div>
+<div id="summary-6" class="section level2">
+<h2><span class="header-section-number">10.9</span> Summary</h2>
+
+<div class="rmdsummary">
+<ul>
+<li><p>A cohort is set of persons who satisfy one or more inclusion criteria for a duration of time.</p></li>
+<li><p>A cohort definition is the description of logic used for identifying a particular cohort.</p></li>
+<li><p>Cohorts are used (and re-used) throughout the OHDSI analytics tools to define for example the exposures and outcomes of interest.</p></li>
+<li><p>There are two major approaches to building a cohort: rule-based and probabilistic.</p></li>
+<li>Rule-based cohort definitions can be created in ATLAS, or using SQL</li>
+</ul>
+</div>
+
+</div>
+<div id="exercises-3" class="section level2">
+<h2><span class="header-section-number">10.10</span> Exercises</h2>
+<div id="prerequisites-2" class="section level4 unnumbered">
+<h4>Prerequisites</h4>
+<p>For the first exercise, access to an ATLAS instance is required. You can use the instance at <a href="http://atlas-demo.ohdsi.org" class="uri">http://atlas-demo.ohdsi.org</a>, or any other instance you have acces to.</p>
+
+<div class="exercise">
+<p><span id="exr:exerciseCohortsAtlas" class="exercise"><strong>Exercise 10.1  </strong></span>Use ATLAS to create a cohort definition following these criteria:</p>
+<ul>
+<li>New users of diclofenac</li>
+<li>Ages 16 or older</li>
+<li>With at least 365 days of continuous observation prior to exposure</li>
+<li>Without prior exposure to any NSAID (Non-Steroidal Anti-Inflammatory Drug)</li>
+<li>Without prior diagnosis of cancer</li>
+<li>With cohort exit defined as discontinuation of exposure (allowing for a 30-day gap)</li>
+</ul>
+</div>
+
+</div>
+<div id="prerequisites-3" class="section level4 unnumbered">
+<h4>Prerequisites</h4>
+<p>For the second exercise we assume R, R-Studio and Java have been installed as described in Section <a href="OhdsiAnalyticsTools.html#installR">8.4.5</a>. Also required are the <a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>, <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>, and <a href="https://ohdsi.github.io/Eunomia/">Eunomia</a> packages, which can be installed using:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;devtools&quot;</span>))
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="dt">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</code></pre></div>
+<p>The Eunomia package provides a simulated dataset in the CDM that will run inside your local R session. The connection details can be obtained using:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">connectionDetails &lt;-<span class="st"> </span>Eunomia<span class="op">::</span><span class="kw">getEunomiaConnectionDetails</span>()</code></pre></div>
+<p>The CDM database schema is “main”.</p>
+
+<div class="exercise">
+<p><span id="exr:exerciseCohortsSql" class="exercise"><strong>Exercise 10.2  </strong></span>Use SQL and R to create a cohort for acute myocardial infarction (AMI) in the existing COHORT table, following these criteria:</p>
+<ul>
+<li>An occurrence of a myocardial infarction diagnose (concept 4329847 “Myocardial infarction” and all of its descendants, excluding concept 314666 “Old myocardial infarction” and any of its descendants).</li>
+<li>During an inpatient or ER visit (concepts 9201, 9203, and 262 for “Inpatient visit”, “Emergency Room Visit”, and “Emergency Room and Inpatient Visit”, respectively).</li>
+</ul>
+</div>
+
+<p>Suggested answers can be found in Appendix <a href="SuggestedAnswers.html#Cohortsanswers">E.6</a>.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Banda2017APHRODITE">
+<p>Banda, J. M., Y. Halpern, D. Sontag, and N. H. Shah. 2017. “Electronic phenotyping with APHRODITE and the Observational Health Sciences and Informatics (OHDSI) data network.” <em>AMIA Jt Summits Transl Sci Proc</em> 2017: 48–57.</p>
+</div>
+<div id="ref-Hripcsak2019eMERGE">
+<p>Hripcsak, G., N. Shang, P. L. Peissig, L. V. Rasmussen, C. Liu, B. Benoit, R. J. Carroll, et al. 2019. “Facilitating phenotype transfer using a common data model.” <em>J Biomed Inform</em>, July, 103253.</p>
+</div>
+<div id="ref-Swerdel2019phevaluator">
+<p>Swerdel, J. N., G. Hripcsak, and P. B. Ryan. 2019. “PheValuator: Development and Evaluation of a Phenotype Algorithm Evaluator.” <em>J Biomed Inform</em>, July, 103258.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="54">
+<li id="fn54"><p><a href="https://github.com/OHDSI/Aphrodite" class="uri">https://github.com/OHDSI/Aphrodite</a><a href="Cohorts.html#fnref54">↩</a></p></li>
+<li id="fn55"><p><a href="https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg" class="uri">https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg</a><a href="Cohorts.html#fnref55">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="SqlAndR.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Characterization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/OHDSI/TheBookOfOhdsi/edit/master/Cohorts.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsiKorea.pdf", "TheBookOfOhdsiKorea.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
