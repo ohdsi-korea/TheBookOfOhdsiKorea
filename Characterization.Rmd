@@ -1,7 +1,6 @@
 # 환자 특성 분석 Characterization {#Characterization}
 
 *작성자 : Anthony Sena & Daniel Prieto-Alhambra*
-*번역 : 박유진*
 
 관찰형 보건의료데이터는 다양한 특성을 바탕으로 인구집단의 변화를 이해할 수 있는 귀중한 자원이다. 기술통계를 통해 인구집단의 특성을 확인하는 것은 건강과 질병에 영향을 주는 요인에 대한 가설 설정을 위한 중요한 첫번째 단계이다. 이번 장에서는 특성 분석 (characterization)을 위한 방법들에 대해 살펴보기로 한다. :
 
@@ -24,7 +23,8 @@
 
 * 이 데이터베이스의 총 사람 수는 몇인가?
 * 환자들의 연령 분포는 어떠한가?
-* 환자들의 관찰 기간은 얼마나 오래되었는가? * 시간이 지남에 따라 기록/처방된 {치료, 질병, 처치 등}을 받은 사람의 비율은 어떠한가? 
+* 환자들의 관찰 기간은 얼마나 오래되었는가? 
+* 시간이 지남에 따라 기록/처방된 {치료, 질병, 처치 등}을 받은 사람의 비율은 어떠한가? 
 
 데이터베이스 수준의 기술 통계는 연구자로 하여금 어떠한 데이터에서 손실이 있을 수 있는지와 같이 확인할 수 없는 부분을 이해하는데 도움을 주며 \@ref(DataQuality) 장 데이터 품질을 설명할 때 자세히 다룬다. \index{characterization!database level}
 
@@ -36,7 +36,7 @@
 
 ## 치료 경로 (Treatment Pathways)
 
-인구 집단의 특성을 분석하는 또 하나의 방법은 index 후(post-index) 시간 동안의 치료 순서를 기술하는 것이다. @Hripcsak7329의 경우 OHDSI의 공통 데이터 표준을 활용해 제 2형 당뇨, 고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를 고안하였다. 이러한 분석 방법을 표준화 함으로써, Hripcsak과 그 연구팀은 관심집단의 특성 분석을 OHDSI 네트워크 상에서 동일한 통계방법으로 실행하였다. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
+인구 집단의 특성을 분석하는 또 하나의 방법은 index 후(post-index) 시간 동안의 치료 순서를 기술하는 것이다. 예를들어, 이전 연구[@Hripcsak7329]에서 OHDSI의 공통 데이터 표준을 활용해 제 2형 당뇨, 고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를 고안하였다. 이러한 분석 방법을 표준화 함으로써, Hripcsak과 그 연구팀은 관심집단의 특성 분석을 OHDSI 네트워크 상에서 동일한 통계방법으로 실행하였다. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
 
 치료 경로 분석은 가장 처음 처방/조제된 약물 이후 특정 상태에 있는 환자에 대한 치료행위(events)를 요약하기 위해 시행한다. 이 연구에서는 제 2형 당뇨, 고혈압, 우울증의 진단 이후의 치료행위들을 기술했다. 개개인이 받은 치료행위들(events)은 이후 요약 통계량으로 합쳐지고 각의 질병과 각각의 데이터베이스에서 별로 시각화되었다. 
 
@@ -46,7 +46,7 @@ knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.p
 
 figure \@ref(fig:treatmentPathwaysSunburstDataViz)에서 제시된 사례는 고혈압 치료를 시작한 환자집단을 나타낸다. 가운데 위치한 첫번쨰 고리는 1차 요법(first-line therapy)에 대한 환자의 비율을 나타낸다. 이 사례의 경우 Hydrochlorothiazide는 고혈압 환자군의 1차 요법으로 가장 흔하게 사용되는 약물이라는 것을 알 수 있다. Hydrochlorothiazide에서 파생된 상자들은 해당 코호트 대상자에서 기록된 두번째(2nd), 세번째(3rd) 요법을 의미한다.  
 
-치료 경로 분석은 인구집단 내의 치료 이용 현황에 대한 중요한 근거를 제공한다. 이 분석을 통해 우리는 가장 빈번히 사용되는 1차 요법을 기술할 수 있고, 치료가 중단/변경/확대된 사람들의 비율을 알 수 있다. 경로 분석을 통해 @Hripcsak7329 은 metformin이 당뇨에서 가장 일반적으로 처방된 1차 치료제임을 밝혔고, 이를 통해 미국 내분비학회의 당뇨 치료 알고리즘의 일차 요법이 일반적으로 잘 적용되고 있음을 확인했다. 더불어 당뇨 환자의 10%, 고혈압 환자의 24%, 그리고 우울증 환자의 11%는 다른 데이터베이스와 비교했을 때 공유된 적 없는 치료 경로를 따르고 있는 것을 확인했다.
+치료 경로 분석은 인구집단 내의 치료 이용 현황에 대한 중요한 근거를 제공한다. 이 분석을 통해 우리는 가장 빈번히 사용되는 1차 요법을 기술할 수 있고, 치료가 중단/변경/확대된 사람들의 비율을 알 수 있다. 경로 분석을 통해 metformin이 당뇨에서 가장 일반적으로 처방된 1차 치료제임을 밝혔고, 이를 통해 미국 내분비학회의 당뇨 치료 알고리즘의 일차 요법이 일반적으로 잘 적용되고 있음을 확인했다. 더불어 당뇨 환자의 10%, 고혈압 환자의 24%, 그리고 우울증 환자의 11%는 다른 데이터베이스와 비교했을 때 공유된 적 없는 치료 경로를 따르고 있는 것을 확인했다.
 
 고전적인 약물 사용 연구 (DUS) 개념에서, 치료 경로 분석은 특정 집단에서 하나 이상의 약물 사용율과 같은 집단 수준의 약물 사용 연구 (population-level DUS) 뿐 아니라 치료 방법의 지속률, 서로 다른 치료 간의 전환률과 같은 개인 수준의 약물 사용 연구 (person-level DUS)가 포함된다.
 
@@ -344,7 +344,7 @@ FeatureExtraction은 또한 변수를 사용자가 정의하고 사용할 수 �
 
 ## ATLAS에서 코호트 경로 (Cohort Pathways in ATLAS)
 
-경로 분석은 하나 이상의 관심 코호트에서 치료 과정의 순서를 이해하기 위해 시행한다. 분석 방법은 @Hripcsak7329의 디자인을 기반으로 합니다. 이 방법은 ATLAS의 Cohort Pathways기능으로 일반화되고 체계화되었다.
+경로 분석은 하나 이상의 관심 코호트에서 치료 과정의 순서를 이해하기 위해 시행한다. 분석 방법은 Hripcsak의 연구 [@Hripcsak7329] 의 디자인을 기반으로 합니다. 이 방법은 ATLAS의 Cohort Pathways기능으로 일반화되고 체계화되었다.
 
 Cohort pathways는 하나 이상의 분석하고자 하는 대상 코호트(target cohort)의 코호트 시작 날짜 이후 발생한 사건들을 요약하는 분석 기능을 제공하는 것을 목표로 한다. 이를 위해 분석 대상 집단에서 관심 임상적 사건들을 식별하기 위한 사건 코호트(event cohort) 셋를 정의하고 생성해야 한다.
 
@@ -474,6 +474,7 @@ knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 - ATLAS의 특성 분석 모듈과 OHDSI Methods Library는 다양한 관찰 기간에 대한 기저 특성에 대해 계산 할 수 있는 기능을 제공한다. 
 
 - ATLAS의 경로와 발생률 모듈은 index 후 시간 동안의 기술 통계를 제공한다.
+
 ```
 
 
@@ -485,14 +486,17 @@ knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 
 ```{exercise, exerciseCharacterization1}
 실제 임상에서 celecoxib이 얼마나 사용되는지를 알고 싶다. 시작하기에 앞서 데이터베이스에 약물에 대한 데이터베이스의 데이터를 이해해야 합니다. ATLAS의 Data Sources를 이용해 celecoxib에 대한 정보를 찾아보자.
+
 ```
 
 ```{exercise, exerciseCharacterization2}
 celecoxib 사용자의 질병 자연 경과에 대해 더 알고 싶다. celecoxib의 새로운 사용자들에 대한 간단한 코호트를 만들어라. 이 때, 365일의 washout 기간을 주어라 (어떻게 해야 하는지 자세히 알고 싶다면 \@ref(Cohorts)장을 참고하자). 그리고 ATLAS에서 이 코호트의 characterization을 생성하고, 동병상병 질환과 약물 노출을 찾아보자.
+
 ```
 
 ```{exercise, exerciseCharacterization3}
 celecoxib 치료를 받는 사람들이 이후 기간에 상관없이 gastrointestinal(GI) bleeds가 얼마나 자주 발생하는지를 알고 싶다. 우선 GI bleed의 사건 코호트를 생성해야 한다. 해당 코호트의 정의를 위해 [192671](http://athena.ohdsi.org/search-terms/terms/192671) ("Gastrointestinal hemorrhage")으로 정의된 concept이나 그 하위 concept을 사용하자. 이전 실습에서 정의한 약물 노출 코호트를 이용해, celecoxib을 시작한 이후 GI bleed의 발생률을 계산하자.
+
 ```
 
 답변은 부록 \@ref(Characterizationanswers) 에서 찾을 수 있다.
