@@ -1,245 +1,253 @@
-# Characterization {#Characterization}
+# 환자 특성 분석 Characterization {#Characterization}
 
-*Chapter leads: Anthony Sena & Daniel Prieto-Alhambra*
+*작성자 : Anthony Sena & Daniel Prieto-Alhambra*
 
-Observational healthcare databases provide a valuable resource to understand variations in populations based on a host of characteristics. Characterizing populations through the use of descriptive statistics is an important first step in generating hypotheses about the determinants of health and disease. In this chapter we cover methods for characterization:
+관찰형 보건의료데이터는 다양한 특성을 바탕으로 인구집단의 변화를 이해할 수 있는 귀중한 자원이다. 기술통계를 통해 인구집단의 특성을 확인하는 것은 건강과 질병에 영향을 주는 요인에 대한 가설 설정을 위한 중요한 첫번째 단계이다. 이번 장에서는 특성 분석 (characterization)을 위한 방법들에 대해 살펴보기로 한다. :
 
-* **Database-level characterization**: provides a top-level set of summary statistics to understand the data profile of a database in its totality.
-* **Cohort characterization**: describes a population in terms of its aggregate medical history.
-* **Treatment pathways**: describes the sequence of interventions a person received for a duration of time.
-* **Incidence**: measures the occurrence rate of an outcome in a population for a time at risk.
+* **데이터베이스 수준의 특성 분석 (Database-level characterization)**: 
+상위 수준 (top-level)의 요약 통계량을 제공하여 데이터베이스 전체에 대한 이해를 돕는다. 
+* **코호트의 특성 분석 (Cohort characterization)**: 
+통합된 의무기록 측면에서 인구집단을 기술한다.
+* **치료 경로 (Treatment pathways)**:
+특정 기간동안 한 사람에 대하여 행해진 중재 (intervention) 순서를 기술한다. 
+* **발생 (Incidence)**: 
+위험 관찰 기간(time at risk, TAR)동안의 outcome의 발생율을 계산한다. 
 
-With the exception of database-level characterization, these methods aim to describe a population relative to an event referred to as the index date. This population of interest is defined as a cohort as described in chapter \@ref(Cohorts). The cohort defines the index date for each person in the population of interest. Using the index date as an anchor, we define the time preceding the index date as **baseline** time. The index date and all time after is called the **post-index** time. 
+데이터베이스 수준의 특성 분석을 제외하고 이 방법들은 index date라고 하는 시점과 관련된 인구 집단에 대해 설명하는데 목적이 있다. 이와 같은 관심 집단은 코호트라고 정의되며 \@ref(Cohorts) 장에 기술되어 있다. 코호트는 관심집단의 개개인에 대한 index date를 정의한다. Index date를 기준으로 index date이전의 시간을 **기저 시간(baseline time)**이라 정의한다. Index date를 포함한 그 이후의 시간들은 **index 후 시간(post-index time)**이라고 부른다.
 
-Use-cases for characterization include disease natural history, treatment utilization and quality improvement. In this chapter will describe the methods for characterization. We will use a population of hypertensive persons to demonstrate how to use ATLAS and R to perform these characterization tasks.\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
+특성 분석은 질병의 자연 경과, 치료 이용, 진료 질 개선 등과 같은 것에 활용될 수 있다. 이번 장에서는 특성 분석 방법에 대해 기술하며, ATLAS와 R을 이용한 고혈압 환자군에 대한 특성 분석을 해 볼 것이다.\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
 
-## Database Level Characterization
+## 데이터베이스 수준의 특성 분석 (Database Level Characterization)
 
-Before we can answer any characterization question about a population of interest, we must first understand the characteristics of the database we intend to utilize. Database level characterization seeks to describe the totality of a database in terms of the temporal trends and distributions. This quantitative assessment of a database will typically include questions such as: 
+관심집단에 대한 특성 분석을 시행하기 전, 사용하고자 하는 데이터베이스의 특성을 이해하는 것이 선행되어야 한다. 데이터베이스 수준의 특성 분석은 전체 데이터베이스에 대한 시간의 흐름에 따른 경향과 분포 측면에서 데이터 번체를 설명하기 위해 사용한다. 데이터베이스의 정량적 분석은 일반적으로 다음과 같은 질문을 포함한다:
 
-* What is the total count of persons in this database?
-* What is the distribution of age for persons?
-* How long are persons in this database observed for?
-* What is the proportion of persons having a {treatment, condition, procedure, etc} recorded/prescribed over time?
+* 이 데이터베이스의 총 사람 수는 몇인가?
+* 환자들의 연령 분포는 어떠한가?
+* 환자들의 관찰 기간은 얼마나 오래되었는가? 
+* 시간이 지남에 따라 기록/처방된 {치료, 질병, 처치 등}을 받은 사람의 비율은 어떠한가? 
 
-These database-level descriptive statistics also help a researcher to understand what data may be missing in a database. Chapter \@ref(DataQuality) goes into further detail on data quality. \index{characterization!database level}
+데이터베이스 수준의 기술 통계는 연구자로 하여금 어떠한 데이터에서 손실이 있을 수 있는지와 같이 확인할 수 없는 부분을 이해하는데 도움을 주며 \@ref(DataQuality) 장 데이터 품질을 설명할 때 자세히 다룬다. \index{characterization!database level}
 
-## Cohort Characterization
+## 코호트 특성 분석 (Cohort Characterization)
 
-Cohort characterization describes the baseline and post-index characteristics of people in a cohort. OHDSI approaches characterization through descriptive statistics of all conditions, drug and device exposures, procedures and other clinical observations that are present in the person’s history. We also summarize the socio-demographics of members of the cohort at the index date. This approach provides a complete summary of the cohort of interest. Importantly, this enables a full exploration of the cohort with an eye towards variation in the data while also allowing for identification of potentially missing values. 
+코호트 특성 분석은 기저 시점과 index 후 코호트 구성원의 특징들을 기술한다. OHDSI는 상태(condition), 약물(drug), 치료재료(device), 시술(procedure), 임상적 관찰(clinical observation) 등 개인의 의무기록에 존재하는 모든 것에 대한 기술 통계량을 바탕으로 특성 분석을 접근한다. 또한, index 시점에서 코호트 구성원에 대한 사회인구학적 내용에 대해 요약해준다. 이와 같은 접근 방식을 통해 관심 코호트에 대한 완벽한 요약을 제공한다. 특히, 이러한 접근을 통해 데이터의 변화에 대한 안목을 가지고 코호트에 대한 전체적인 탐색을 가능하게 하는 한편, 잠재적인 결측 값을 찾을 수 있도록 한다.
 
-Cohort characterization methods can be used for person-level drug utilization studies (DUS) to estimate the prevalence of indications and contraindications amongst users of a given treatment. The dissemination of this cohort characterization is a recommended best practice for observational studies as detailed in the Strengthening the Reporting of Observation Studies in Epidemiology (STROBE) guidelines. [@VONELM2008344] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
+코호트 특성 분석 방법은 이미 치료를 받은 사람에서 치료의 적응증 유발율과 금기를 추정하는 개인 수준의 개인 수준의 약물 사용 연구 (person-level drug utilization studies : DUS)에 이용될 수 있다. 코호트 특성 분석의 보급은 역학 관찰연구 보고 강화(Strengthening the Reporting of Observational Studies in Epidemiology, STROBE) 가이드라인에 자세히 제시된 관찰 연구에 권장되는 모범사례이다. [@VONELM2008344] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
 
-## Treatment Pathways
+## 치료 경로 (Treatment Pathways)
 
-Another method to characterize a population is to describe the treatment sequence during the post-index time window. For example, @Hripcsak7329 utilized the OHDSI common data standards to create descriptive statistics to characterize treatment pathways for type 2 diabetes, hypertension and depression. By standardizing this analytic approach, Hripcsak and colleagues were able to run the same analysis across the OHDSI network to describe the characteristics of these populations of interest. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
+인구 집단의 특성을 분석하는 또 하나의 방법은 index 후(post-index) 시간 동안의 치료 순서를 기술하는 것이다. 예를들어, 이전 연구[@Hripcsak7329]에서 OHDSI의 공통 데이터 표준을 활용해 제 2형 당뇨, 고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를 고안하였다. 이러한 분석 방법을 표준화 함으로써, Hripcsak과 그 연구팀은 관심집단의 특성 분석을 OHDSI 네트워크 상에서 동일한 통계방법으로 실행하였다. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
 
-The pathway analysis aims to summarize the treatments (events) received by persons diagnosed with a specific condition from the first drug prescription/dispensation. In this study, treatments were described after the diagnosis of type 2 diabetes, hypertension and depression respectively. The events for each person were then aggregated to a set of summary statistics and visualized for each condition and for each database.
-
-<div class="figure" style="text-align: center">
-<img src="images/Characterization/pnasTreatmentPathwaysSunburst.png" alt="OHDSI Treatment Pathways &quot;sunburst&quot; visualization for hypertension" width="100%" />
-<p class="caption">(\#fig:treatmentPathwaysSunburstDataViz)OHDSI Treatment Pathways "sunburst" visualization for hypertension</p>
-</div>
-
-As an example, figure \@ref(fig:treatmentPathwaysSunburstDataViz) represents a population of persons initiating treatment for hypertension. The first ring in the center shows the proportion of persons based on their first-line therapy. In this example, Hydrochlorothiazide is the most common first-line therapy for this population. The boxes that extend from the Hydrochlorothiazide section represent the 2nd and 3rd line therapies recorded for persons in the cohort. 
-
-A pathways analysis provides important evidence about treatment utilization amongst a population. From this analysis we can describe the most prevalent first-line therapies utilized, the proportion of persons that discontinue treatment, switch treatments or augment their therapy. Using the pathway analysis, @Hripcsak7329 found that metformin is the most commonly prescribed medication for diabetes thus confirming general adoption of the first-line recommendation of the American Association of Clinical Endocrinologists diabetes treatment algorithm. Additionally, they noted that 10% of diabetes patients, 24% of hypertension patients, and 11% of depression patients followed a treatment pathway that was shared with no one else in any of the data sources. 
-
-In classic DUS terminology, treatment pathway analyses include some population-level DUS estimates such as prevalence of use of one or more medications in a specified population, as well as some person-level DUS including measures of persistence and switching between different therapies.
-
-## Incidence
-
-Incidence rates and proportions are statistics that are used in public health to assess the occurrence of a new outcome in a population during a time-at-risk (TAR). Figure \@ref(fig:incidenceTimeline) aims to show the components of an incidence calculation for a single person: \index{incidence}
+치료 경로 분석은 가장 처음 처방/조제된 약물 이후 특정 상태에 있는 환자에 대한 치료행위(events)를 요약하기 위해 시행한다. 이 연구에서는 제 2형 당뇨, 고혈압, 우울증의 진단 이후의 치료행위들을 기술했다. 개개인이 받은 치료행위들(events)은 이후 요약 통계량으로 합쳐지고 각의 질병과 각각의 데이터베이스에서 별로 시각화되었다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/incidenceTimeline.png" alt="Person-level view of incidence calculation components. In this example, time-at-risk is defined to start one day after cohort start, and end at cohort end." width="100%" />
-<p class="caption">(\#fig:incidenceTimeline)Person-level view of incidence calculation components. In this example, time-at-risk is defined to start one day after cohort start, and end at cohort end.</p>
+<img src="images/Characterization/pnasTreatmentPathwaysSunburst.png" alt="고혈압 환자의 OHDSI 치료 경로 &quot;sunburst&quot; 시각화 사례" width="100%" />
+<p class="caption">(\#fig:treatmentPathwaysSunburstDataViz)고혈압 환자의 OHDSI 치료 경로 "sunburst" 시각화 사례</p>
 </div>
 
-In figure \@ref(fig:incidenceTimeline), a person has a period of time where they are observed in the data denoted by their observation start and end time. Next, the person has a point in time where they enter and exit a cohort by meeting some eligibility criteria. The time at risk window then denotes when we seek to understand the occurrence of an outcome. If the outcome falls into the TAR, we count that as an incidence of the outcome. 
+figure \@ref(fig:treatmentPathwaysSunburstDataViz)에서 제시된 사례는 고혈압 치료를 시작한 환자집단을 나타낸다. 가운데 위치한 첫번쨰 고리는 1차 요법(first-line therapy)에 대한 환자의 비율을 나타낸다. 이 사례의 경우 Hydrochlorothiazide는 고혈압 환자군의 1차 요법으로 가장 흔하게 사용되는 약물이라는 것을 알 수 있다. Hydrochlorothiazide에서 파생된 상자들은 해당 코호트 대상자에서 기록된 두번째(2nd), 세번째(3rd) 요법을 의미한다.  
 
-There are two metrics for calculating incidence:
+치료 경로 분석은 인구집단 내의 치료 이용 현황에 대한 중요한 근거를 제공한다. 이 분석을 통해 우리는 가장 빈번히 사용되는 1차 요법을 기술할 수 있고, 치료가 중단/변경/확대된 사람들의 비율을 알 수 있다. 경로 분석을 통해 metformin이 당뇨에서 가장 일반적으로 처방된 1차 치료제임을 밝혔고, 이를 통해 미국 내분비학회의 당뇨 치료 알고리즘의 일차 요법이 일반적으로 잘 적용되고 있음을 확인했다. 더불어 당뇨 환자의 10%, 고혈압 환자의 24%, 그리고 우울증 환자의 11%는 다른 데이터베이스와 비교했을 때 공유된 적 없는 치료 경로를 따르고 있는 것을 확인했다.
+
+고전적인 약물 사용 연구 (DUS) 개념에서, 치료 경로 분석은 특정 집단에서 하나 이상의 약물 사용율과 같은 집단 수준의 약물 사용 연구 (population-level DUS) 뿐 아니라 치료 방법의 지속률, 서로 다른 치료 간의 전환률과 같은 개인 수준의 약물 사용 연구 (person-level DUS)가 포함된다.
+
+## 발생 (Incidence)
+
+발생률과 발생비는 공중 보건에서 위험 관찰 기간(time-at-risk, TAR)동안 인구집단 내 새로운 outcome의 발생의 평가에 사용되는 통계적 지표이다. Figure \@ref(fig:incidenceTimeline) 는 한 사람에게서 발생률 계산에 필요한 구성요소를 보여주고 있다: \index{incidence}
+
+<div class="figure" style="text-align: center">
+<img src="images/Characterization/incidenceTimeline.png" alt="개인 수준에서의 발생률 계산의 구성 성분. 본 예시에서는 위험 관찰 기간은 코호트가 시작하고 하루 이후부터 코호트가 끝나는 시점으로 정의됨." width="100%" />
+<p class="caption">(\#fig:incidenceTimeline)개인 수준에서의 발생률 계산의 구성 성분. 본 예시에서는 위험 관찰 기간은 코호트가 시작하고 하루 이후부터 코호트가 끝나는 시점으로 정의됨.</p>
+</div>
+
+figure \@ref(fig:incidenceTimeline)에서 한 사람은 데이터 내에서 관찰이 시작되고 끝나는 시점이 표시된 기간을 갖는다. 그 다음, 그 사람은 몇몇 연구 기준 (eligibility criteria)에 의해 코호트에 들어가는(enter) 시점과 나오는(exit) 시점을 갖게 된다. 위험을 관찰하는 기간(time at risk, TAR)은 우리가 outcome의 발생을 보고자 하는 기간을 의미한다. 만일 outcome이 위험 관찰 기간(time at risk, TAR) 내에서 발생한다면, outcome이 발생된 것으로 간주한다.
+
+발생을 계산하기 위해서는 두 가지 측정법이 있다:
 
 $$ 
-Incidence\;Proportion = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{\#\;persons\;in\;cohort\;with\;TAR}
+발생\;분율 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{\#\;TAR을\;가지면서\;코호트에\;포함된\;사람}
 $$
 
-An incidence proportion provides a measure of the new outcomes per person in the population during the time-at-risk. Stated another way, this is the proportion of the population of interest that developed the outcome in a defined timeframe.\index{incidence!proportion}
+발생 분율은 위험 관찰 기간동안 집단 내 새로운 outcome의 발생을 측정하는 방법이다. 다시 말해, 관심집단에서 정해진 시간의 틀 안에서 발생한 outcome의 비율이다. \index{incidence!proportion}
+
+$$
+발생률 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{코호트에\;포함된\;사람들의\;위험\;노출\;기간\;(TAR)로\;구한\;인-시\;(person\;time\;at\;risk)}
+$$
 
 $$
 Incidence\;Rate = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{person\;time\;at\;risk\;contributed\;by\;persons\;in\;cohort}
 $$
 
-An incidence rate is a measure of the number of new outcomes during the cumulative TAR for the population. When a person experiences the outcome in the TAR, their contribution to the total person-time stops at the occurrence of the outcome event. The cumulative TAR is referred to as **person-time** and is expressed in days, months or years.\index{incidence!rate} \index{person-time}
+발생률은 인구집단에서 누적되는 위험 관찰 기간 동안의 새로 발생한 outcome의 횟수를 측정한 것이다. 만일 한 환자가 위험 관찰 기간 (TAR) 내에서 outcome을 경험했을 때, 그 환자가 전체의 인-시(person-time)에 outcome이 발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 관찰 기간은 **인-시(person-time)**라고 하고, 단위는 일, 월, 혹은 연으로 표현된다. \index{incidence!rate} \index{person-time}
 
-When calculated for therapies, incidence proportions and incidence rates of use of a given therapy are classic population-level DUS.
+치료 요법에 대하여 계산할 때, 정해진 치료 요법의 사용 비율 혹은 발생률을 계산하는 것은 전형적인 인구 집단 수준의 약물 사용 연구(population-level DUS)라 할 수 있다.
 
-## Characterizing Hypertensive Persons
+## 고혈압 환자의 특성 분석 (Characterizing Hypertensive Persons)
 
-Per the World Health Organization’s (WHO) global brief on hypertension [@WHOHypertension], there are significant health and economic gains attached to early detection, adequate treatment and good control of hypertension. The WHO brief provides an overview of hypertension and characterizes the burden of the disease across different countries. The WHO provides descriptive statistics around hypertension for geographic regions, socio-economic class and gender. 
+세계보건기구(WHO)의 고혈압에 대한 보고서[@WHOHypertension]에 따르면, 고혈압의 초기 발견과 적절한 치료 및 양호한 혈압 조절은 건강과 경제적인 면에서 상당한 이득이 있다. WHO의 보고서에는 고혈압의 개요 및 여러 국가들의 질병 부담의 특징들을 보여주고 있다. WHO는 지경과 사회 경제적 계급 및 성별 별 고혈압에 대한 기술통계를 제공하고 있다.
 
-Observational data sources provide a way to characterize hypertensive populations as was done by the WHO. In the subsequent sections of this chapter, we’ll explore the ways that we make use of ATLAS and R to explore a database to understand its composition for studying hypertensive populations. Then, we will use these same tools to describe the natural history and treatment patterns of hypertensive populations.
+WHO가 수행한 고혈압 환자의 특성 분석과 동일한 분석은 관찰형 데이터 소스를 이용해 할 수 있다. 이 장의 다음 절에서는 고혈압 환자 집단의 구성을 이해하기 위한 데이터베이스의 탐색을 ATLAS와 R을 이용해 시행하는 방법을 살펴볼 것이다. 또한, 동일한 툴을 사용해 고혈압 집단의 자연 경과와 치료 패턴을 알아 설명하려고 한다.
 
-## Database Characterization in ATLAS
- 
-Here we demonstrate how to use the data sources module in ATLAS to explore database characterization statistics created with [ACHILLES](https://github.com/OHDSI/Achilles) to find database level characteristics related to hypertensive persons. Start by clicking on ![](images/Characterization/atlasDataSourcesMenuItem.png) in the left bar of ATLAS to start. In the first drop down list shown in ATLAS, select the database to explore. Next, use the drop down below the database to start exploring reports. To do this, select the Condition Occurrence from the report drop down which will reveal a treemap visualization of all conditions present in the database:
+## ATLAS를 활용한 데이터베이스의 특성 분석 (Database Characterization in ATLAS)
+
+여기서는 ATLAS에 탑재된 데이터 소스 모듈을 사용하여 [ACHILLES](https://github.com/OHDSI/Achilles)로 생성된 데이터베이스의 특성을 살펴보고, 고혈압 환자와 관련된 데이터베이스 수준의 특성을 찾아내는 방법을 설명하고자 한다. 시작하기 위해 ATLAS의 왼쪽 바에 위치한 ![](images/Characterization/atlasDataSourcesMenuItem.png)을 클릭하자. ATLAS의 첫번째 드롭 다운 목록에서 데이터 탐색(database to explore)을 선택한다. 그리고, 데이터베이스 아래의 드롭 다운 목록을 통해 보고서를 탐색을 시작할 수 있다. 고혈압 환자에 대한 데이터베이스 수준의 특성 분석을 위해 두 번째 드롭 다운 목록인 report 드롭 다운 목록에서 Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병에 대한 treemap 시각화 결과가 표시된다:
 
 <div class="figure" style="text-align: center">
 <img src="images/Characterization/atlasDataSourcesConditionTreemap.png" alt="Atlas Data Sources: Condition Occurrence Treemap" width="100%" />
 <p class="caption">(\#fig:atlasDataSourcesConditionTreemap)Atlas Data Sources: Condition Occurrence Treemap</p>
 </div>
 
-To search for a specific condition of interest, click on the Table tab to reveal the full list of conditions in the database with person count, prevalence and records per person. Using the filter box on the top, we can filter down the entries in the table based on concept name containing the term "hypertension":
+특정 관심 질환을 검색하기 위해 Table탭을 클릭하면 환자 수, 유병률, 환자 별 기록들을 포함하는 데이터베이스의 전체 condition 목록이 나타난다. 상단의 filter 상자를 이용해 "hypertension"을 포함하는 concept name만을 걸러낼 수 있다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasDataSourcesConditionFiltered.png" alt="Atlas Data Sources: Conditions with &quot;hypertension&quot; found in the concept name" width="100%" />
-<p class="caption">(\#fig:atlasDataSourcesConditionFiltered)Atlas Data Sources: Conditions with "hypertension" found in the concept name</p>
+<img src="images/Characterization/atlasDataSourcesConditionFiltered.png" alt="Atlas Data Sources: concept name에서 &quot;hypertension&quot;이라는 단어를 이용해 걸러낸 결과" width="100%" />
+<p class="caption">(\#fig:atlasDataSourcesConditionFiltered)Atlas Data Sources: concept name에서 "hypertension"이라는 단어를 이용해 걸러낸 결과</p>
 </div>
 
-We can explore a detailed drill-down report of a condition by clicking on a row. In this case, we will select "essential hypertension" to get a breakdown of the trends of the selected condition over time and by gender, the prevalence of the condition by month, the type recorded with the condition and the age at first occurrence of the diagnosis:
+하나의 행을 클릭하면 해당 condition에 대한 자세한 드릴다운 보고서를 확인할 수 있다. 이 경우 "essential hypertension"을 선택한 결과이며, 선택된 condition의 시간에 따른 경향과 성별, 월별 유병률, 기록 유형 (주상병 혹은 부상병 등) 그리고 최초 진단 시 나이의 경향을 알 수 있다:
 
 <div class="figure" style="text-align: center">
 <img src="images/Characterization/atlasDataSourcesDrillDownReport.png" alt="Atlas Data Sources: Essential hypertension drill down report" width="100%" />
 <p class="caption">(\#fig:atlasDataSourcesDrillDownReport)Atlas Data Sources: Essential hypertension drill down report</p>
 </div>
 
-Now that we have reviewed the database’s characteristics for the presence of hypertension concepts and the trends over time, we can also explore drugs used to treat hypertensive persons. The process to do this follows the same steps except we use the Drug Era report to review characteristics of drugs summarized to their RxNorm Ingredient. Once we have explored the database characteristics to review items of interest, we are ready to move forward with constructing cohorts to identify the hypertensive persons to characterize.
+지금까지 고혈압이라는 concept에 대한 데이터의 특징과 시간에 따른 경향을 살펴보았다. 데이터베이스 수준의 특성 분석을 통해 고혈압 환자의 치료에 사용된 약물에 대하여도 확인할 수 있다. 이는 RxNorm Ingredient에 요약된 약물의 특성을 검토를 위해 Drug Era report을 사용한 것 외에는 위와 동일하게 진행된다. 관심있는 항목에 대한 데이터베이스 특성 탐색을 마쳤다면, 이제는 특성화 하고자 하는 고혈압 환자의 특성 분석을 위한 코호트를 설계하는 단계로 나아갈 준비를 마친 것이다.
 
-## Cohort Characterization in ATLAS
+## ATLAS를 이용한 코호트 특성 분석 (Cohort Characterization in ATLAS)
 
-Here we demonstrate how to use ATLAS to perform large-scale cohort characterization for several cohorts. Click on the ![](images/Characterization/atlasCharacterizationMenuItem.png) in the left bar of ATLAS and create a new characterization analysis. Give the analysis a name a save using the ![](images/PopulationLevelEstimation/save.png) button.
+이 장에서는 ATLAS를 이용한 대규모의 코호트 특성 분석 방법에 대해 설명할 것이다. ATLAS의 왼쪽 바에 있는 ![](images/Characterization/atlasCharacterizationMenuItem.png)를 클릭하면, 새로운 특성 분석을 만들 수 있다. 분석을 명명하고 ![](images/PopulationLevelEstimation/save.png) 버튼을 눌러 저장한다.
 
-### Design
+### 디자인 (Design)
 
-A characterization analysis requires at least one cohort and at least one feature to characterize. For this example, we will use two cohorts. The first cohort will define persons initiating a treatment for hypertension as their index date with at least one diagnosis of hypertension in the year prior. We will also require that persons in this cohort have at least one year of observation after initiating the hypertensive drug (Appendix \@ref(HTN1yrFO)). The second cohort is identical to the first cohort described with a requirement having at least three years of observation instead of one (Appendix \@ref(HTN3yrFO)).
+특성 분석은 하나 이상의 코호트와 분석하고자 하는 하나 이상의 속성이 필요하다. 예시의 경우, 두 개의 코호트를 사용할 것이다. 첫번째 코호트는 고혈압 치료를 시작한 환자로 index date 이전 1년 간 한번이라도 고혈압 진단을 받은 환자로 정의한다고 하자. 또한 이 코호트에 속한 사람들은 고혈압 치료제를 복용하기 시작한 후 최소 1년의 관찰 기간을 갖는다고 하자 (Appendix \@ref(HTN1yrFO)). 두번째 코호트는 첫 번째 코호트와 모든 조건이 동일하지만 최소 관찰기간을 1년 대신 3년을 갖는다고 하자 (Appendix \@ref(HTN3yrFO)). 
 
-#### Cohort Definitions {-}
+#### 코호트 정의 (Cohort Definitions) {-}
 
 <div class="figure" style="text-align: center">
 <img src="images/Characterization/atlasCharacterizationCohortSelection.png" alt="Characterization design tab - cohort definition selection" width="100%" />
 <p class="caption">(\#fig:atlasCharacterizationCohortSelection)Characterization design tab - cohort definition selection</p>
 </div>
 
-We assume the cohorts have already been created in ATLAS as described in Chapter \@ref(Cohorts). Click on ![](images/Characterization/atlasImportButton.png) and select the cohorts as shown in figure \@ref(fig:atlasCharacterizationCohortSelection). Next, we’ll define the features to use for characterizing these two cohorts.
+해당 코호트들은 \@ref(Cohorts) 장에서 이미 만들어 져 있다고 가정한다. ![](images/Characterization/atlasImportButton.png)을 클릭하고 figure \@ref(fig:atlasCharacterizationCohortSelection)에서 보이는 바와 같이 코호트를 선택한다. 그 다음, 두 코호트 특성 분석을 위해 사용할 속성을 설정한다.
 
-#### Feature Selection {-}
+#### 속성 선택 (Feature Selection) {-}
 
-ATLAS comes with nearly 100 preset feature analyses that are used to perform characterization across the clinical domains modeled in the OMOP CDM. Each of these preset feature analyses perform aggregation and summarization functions on clinical observations for the selected target cohorts. These calculations provide potentially thousands of features to describe the cohorts baseline and post-index characteristics. Under the hood, ATLAS is utilizing the OHDSI FeatureExtraction R package to perform the characterization for each cohort. We will cover the use of FeatureExtraction and R in more detail in the next section. \index{feature analyses}
+ATLAS는 OMOP CDM에서 모델링 된 임상 도메인에서 특성 분석을 수행하기 위한 속성들이 100개 이상 사전에 정의되어 있다. 각 사전에 정의된 분석은 선택된 분석 대상 코호트들에 대한 임상 관찰들을 집계하고 요약하는 기능을 수행한다. 이와 같은 계산은 코호트의 기저 그리고 index 후 특징들을 설명하기 위해 수천 가지의 속성을 제공한다. ATLAS는 OHDSI에서 제공하는 FeatureExtraction R package를 이용해 개별 코호트에 대한 특성 분석을 시행하며, 이 FeatureExtraction이라는 R package을 사용하는 방법에 대하여 다음 절에서 더 자세하게 다룰 것이다. \index{feature analyses}
 
-Click on ![](images/Characterization/atlasImportButton.png) to select the feature to characterize. Below is a list of features we will use to characterize these cohorts:
+분석하고자 하는 속성들을 선택하기 위해 ![](images/Characterization/atlasImportButton.png) 를 클릭한다. 아래에는 코호트의 특성 분석을 위해 사용할 속성들의 리스트가 있다:
 
 <div class="figure" style="text-align: center">
 <img src="images/Characterization/atlasCharacterizationFeatureSelection.png" alt="Characterization design tab - feature selection." width="100%" />
 <p class="caption">(\#fig:atlasCharacterizationFeatureSelection)Characterization design tab - feature selection.</p>
 </div>
 
-The figure above shows the list of features selected along with a description of what each feature will characterize for each cohort. The features that start with the name "Demographics" will calculate the demographic information for each person at the cohort start date. For the features that start with a domain name (i.e. Visit, Procedure, Condition, Drug, etc), these will characterize all recorded observations in that domain. Each domain feature has four options of time window preceding the cohort star, namely:
+위 그림은 각의 코호트에서 분석할 속성들에 어떤 것들이 있는지를 설명과 함께 목록을 나타낸 것이다. "Demographics"라고 시작하는 속성은 각 환자의 인구 통계학적인 정보를 코호트의 시작 시점에서 계산한다. 도메인 이름으로 시작한 속성들 (예를 들어, Visit, Procedure, Condition, Drug 등)은 해당 도메인에 기록된 모든 관찰 값들의 특성을 나타낸 것이다. 각각의 도메인의 특성들은 코호트 시작 지점에 앞서 네 가지의 시간대의 옵션이 있다:
 
-* **Any time prior**: uses all available time prior to cohort start that fall into the person’s observation period
-* **Long term**: 365 days prior up to and including the cohort start date. 
-* **Medium term**: 180 days prior up to and including the cohort start date. 
-* **Short term**: 30 days prior up to and including the cohort start date. 
+* **Any time prior**: 환자의 관찰 기간 내에서 코호트 시작 지점 이전의 모든 시간대를 사용
 
-#### Subgroup Analysis {-}
+* **Long term**: 코호트 시작 지점을 포함하여 365일 이전까지
 
-What if we were interested in creating different characteristics based on gender? We can use the "subgroup analyses" section to define new subgroups of interest to use in our characterization.
+* **Medium term**: 코호트 시작 지점을 포함하여 180일 이전까지
 
-To create a subgroup, click on and add your criteria for subgroup membership. This step is similar to the criteria used to identify cohort enrollment. In this example, we’ll define a set of criteria to identify females amongst our cohorts:
+* **short term**: 코호트 시작 지점을 포함하여 30일 이전까지
+
+#### 하위 집단 분석 (Subgroup Analysis) {-}
+
+만일 성별에 따라 특성에 차이가 있는지가 알고싶다면 어떻게 해야할까? 이때 우리는 "하위 집단 분석 (subgroup analyses)"을 이용할 수 있다. 이는 특성 분석 안에서 새로운 관심 하위 집단에 대한 정의를 할 수 있도록 해준다. 하위 집단을 만들기 위해 하위 그룹에 대한 기준 (criteria)을 클릭해 더하면 된다. 이 단계는 코호트 정의에 사용되는 기준 (criteria)과 유사하다. 이 사례에서 우리는 코호트 내의 여성을 확인할 수 있는 기준 (criteria) 셋를 정의할 것이다:
   
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationSubgroup.png" alt="Characterization design with female sub group analysis." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationSubgroup)Characterization design with female sub group analysis.</p>
+<img src="images/Characterization/atlasCharacterizationSubgroup.png" alt="여성에 대한 하위 그룹 분석을 위한 특성 분석 디자인." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationSubgroup)여성에 대한 하위 그룹 분석을 위한 특성 분석 디자인.</p>
 </div>
 
-\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">Subgroup analyses in ATLAS are not the same as strata. Strata are mutually exclusive while subgroups may include the same persons based on the criteria chosen.</div>\EndKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">ATLAS의 하위 그룹 분석은 층화(strata)와 같지 않다. 층화(strata)는 상호배제하는 반면, 하위그룹은 선택된 기준(criteria)에 따라 동일한 사람이 하위그룹에 포함될 수 있다.</div>\EndKnitrBlock{rmdimportant}
 
-### Executions
-Once we have our characterization designed, we can execute this design against one or more databases in our environment.  Navigate to the Executions tab and click on the Generate button to start the analysis on a database:
-
+### 실행 (Executions)
+특성 분석의 설계가 끝났다면, 우리의 환경 내에서 사용할 수 있는 하나 이상의 데이터베이스에 대하여 설계한 특성 분석을 시행할 수 있다. Execution 탭으로 이동하여 Generate 버튼을 클릭하면 선택된 데이터베이스에서 분석이 시작된다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationExecutions.png" alt="Characterization design execution - CDM source selection." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationExecutions)Characterization design execution - CDM source selection.</p>
+<img src="images/Characterization/atlasCharacterizationExecutions.png" alt="설계한 특성 분석의 실행 - CDM source 선택." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationExecutions)설계한 특성 분석의 실행 - CDM source 선택.</p>
 </div>
 
-Once the analysis is complete, we can view reports by clicking on the "All Executions" button and from the list of executions, select "View Reports". Alternatively, you can click "View latest result" to view the last execution performed.
+분석이 완료되면, "All Executions" 버튼을 클릭하고 실행 목록에서 "View Reports"를 선택하면 보고서를 볼 수 있다. 이와 별도로 "view latest result"를 클릭하면 가장 최근에 시행된 분석의 결과를 확인할 수 있다.
 
-### Results
-
+### 결과 (Results)
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationResultsSummary.png" alt="Characterization results - condition occurrence long term." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationResultsSummary)Characterization results - condition occurrence long term.</p>
+<img src="images/Characterization/atlasCharacterizationResultsSummary.png" alt="특성 분석 결과 - condition occurrence long term." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationResultsSummary)특성 분석 결과 - condition occurrence long term.</p>
 </div>
 
-The results provide a tabular view of the different features for each cohort selected in the design. In figure \@ref(fig:atlasCharacterizationResultsSummary), a table provides a summary of all conditions present in the two cohorts in the preceding 365 days from the cohort start. Each covariate has a count and percentage for each cohort and the female subgroup we defined within each cohort. 
+설계 시 선택된 각 코호트의 다른 속성들은 표의 형식으로 나타난다. 그림 \@ref(fig:atlasCharacterizationResultsSummary)에서 보이는 것 처럼 코호트 시작 일로부터 365일 이전에 두 코호트에 존재하는 모든 질환을 요약하여 확인할 수 있다. 각 변수들은 개별 코호트와 우리가 코호트 내에서 정의한 여성 하위그룹에 대한 수 (count)와 백분율 (percentage)를 갖는다.
 
-We used the search box to filter the results to see what proportion of persons have a `cardiac arrhythmia` in their history in an effort to understand what cardiovascular-related diagnoses are observed in the populations. We can use the `Explore` link next to the cardiac arrhythmia concept to open a new window with more details about the concept for a single cohort as shown in figure \@ref(fig:atlasCharacterizationResultsExplore):
+어떤 심혈관 질환들이 모집단에서 관찰되는지 이해하고자 `cardiac arrhythmia` 과거력을 갖는 환자의 비율이 얼마인지를 알아보기 위해 겁색창에서 필터를 사용하였다. cardiac arrythmia concept 옆의 `Explore` 링크를 이용하면 그림 \@ref(fig:atlasCharacterizationResultsExplore)에 보여지는 것과 같이 하나의 코호트에 대하여 더 자세한 내용이 들어있는 새로운 창을 띄울 수 있다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationResultsExplore.png" alt="Characterization results - exploring a single concept." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationResultsExplore)Characterization results - exploring a single concept.</p>
+<img src="images/Characterization/atlasCharacterizationResultsExplore.png" alt="특성 분석 결과 - 하나의 concept에 대하여 자세한 내용이 들어있는 새로운 창." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationResultsExplore)특성 분석 결과 - 하나의 concept에 대하여 자세한 내용이 들어있는 새로운 창.</p>
 </div>
 
-Since we have characterized all condition concepts for our cohorts, the explore option enables a view of all ancestor and descendant concepts for the selected concept, in this case cardiac arrhythmia. This exploration allows us to navigate the hierarchy of concepts to explore other cardiac diseases that may appear for our hypertensive persons. Like in the summary view, the count and percentage are displayed.
+분석하고자 하는 코호트들에 대하여 모든 conition에 대한 컨셉을 분석하고 나면, 탐색 옵션을 통해 선택된 모든 컨셉의 모든 상, 하위 관계에 있는 컨셉을 확인할 수 있다. 본 연구의 경우 cardiac arrythmia에 대하여 확인했다. 이와 같은 탐색 기능은 컨셉의 계층 구조를 탐색 할 수 있도록 하며, 고혈압 환자들에서 나타날 수 있는 다른 심장 질환들을 확인할 수 있도록 한다. 요약된 결과처럼 (갯)수와 백분율로써 화면에 출력된다.
 
-We can also use the same characterization results to find conditions that are contraindicated for some anti-hypertensive treatment such as angioedema. To do this, we’ll follow the same steps above but this time search for ‘edema’ as shown in figure \@ref(fig:atlasCharacterizationResultsContra):
+동일한 특성 분석은 혈관 부종과 같은 항 고혈압 제제의 부작용에 의한 상태를 찾는 분석에도 사용할 수 있다. 방법은 위의 분석과 동일하게 그림 \@ref(fig:atlasCharacterizationResultsContra)에 나온 것 처럼 'edema'를 검색하여 진행할 수 있다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationResultsContra.png" alt="Characterization results - exploring a contraindicated condition." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationResultsContra)Characterization results - exploring a contraindicated condition.</p>
+<img src="images/Characterization/atlasCharacterizationResultsContra.png" alt="특성 분석 결과 - 금기되는 상태 이상을 탐색한 결과." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationResultsContra)특성 분석 결과 - 금기되는 상태 이상을 탐색한 결과.</p>
 </div>
-Once again, we’ll use the explore feature to see the characteristics of Edema in the hypertension population to find the prevalence of angioedema:
+
+다시 한 번, 고혈압 환자에서 혈관 부종의 발병률을 알아보기 위해 Edema의 특성을 보는 탐색 기능을 사용할 것이다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationResultsContraExplore.png" alt="Characterization results - exploring a contraindicated condition details." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationResultsContraExplore)Characterization results - exploring a contraindicated condition details.</p>
+<img src="images/Characterization/atlasCharacterizationResultsContraExplore.png" alt="특성 분석 결과 - 금기되는 상태 이상에 대한 자세한 결과." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationResultsContraExplore)특성 분석 결과 - 금기되는 상태 이상에 대한 자세한 결과.</p>
 </div>
 
-Here we find that a portion of this population has a record of angioedema in the year prior to starting an anti-hypertensive medication. 
+항 고혈압 제제를 시작하기 1년 전부터 혈관 부종의 기록이 있었던 사람들의 비율을 확인하 수 있었다.
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationResultsContinuous.png" alt="Characterization results of age for each cohort and sub group." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationResultsContinuous)Characterization results of age for each cohort and sub group.</p>
+<img src="images/Characterization/atlasCharacterizationResultsContinuous.png" alt="각 코호트와 하위 집단의 연령 관련 특성 분석 결과." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationResultsContinuous)각 코호트와 하위 집단의 연령 관련 특성 분석 결과.</p>
 </div>
 
-While domain covariates are computed using a binary indicator (i.e. was a record of the code present in the prior timeframe), some variables provide a continuous value such as the age of persons at cohort start. In the example above, we show the age for the 2 cohorts characterized expressed with the count of persons, mean age, median age and standard deviation. 
+도메인 변수는 이분법적인 표지자를 사용해 계산되는 반면 (즉, 이전 시간대에 존재했던 코드의 기록), 코호트 시작 시점의 연력과 같은 일부 변수들은 연속적인 값을 갖는다. 위의 예시와 같이 두 코호트에서 연령에 대한 특성 분석 결과는 사람의 총 수, 연령의 평균, 연령의 중앙값 그리고 표준 편차를 통해 확인할 수 있었다.
 
-### Defining Custom Features
+### 사용자 정의 속성 (Defining Custom Features)
 
-In addition to the preset features, ATLAS supports the ability to allow for user-defined custom features. To do this, click the **Characterization** left-hand menu item, then click the **Feature Analysis** tab and click the **New Feature Analysis** button. Provide a name for the custom feature and save it using the ![](images/PopulationLevelEstimation/save.png) button. \index{ATLAS!characterization features}
+사전에 정의되어 제공되는 속성들 뿐 아니라 ATLAS에서는 사용자가 필요에 따라 속성들을 커스터마이즈 하고 정의할 수 있는 기능을 지원한다. 왼쪽 메뉴에서 **characterization**를 클릭하고, **Feature Analysis**탭을 클릭 한 후, **New Feature Analysis** 버튼을 클릭하면 사용자가 정의한 속성 분석을 할 수 있다. 사용자가 정의하는 속성을 명명하고, ![](images/PopulationLevelEstimation/save.png) 버튼을 통해 저장할 수 있다. \index{ATLAS!characterization features}
 
-In this example, we will define a custom feature that will identify the count of persons in each cohort that have a drug era of ACE inhibitors in their history after cohort start:
+예를 들어, 코호트 시작 이후에 ACE inhibitors의 drug era를 갖는 각각의 코호트에 속하는 사람 수를 알아본다고 하자:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationCustomFeature.png" alt="Custom feature definition in ATLAS." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationCustomFeature)Custom feature definition in ATLAS.</p>
+<img src="images/Characterization/atlasCharacterizationCustomFeature.png" alt="ATLAS를 이용한 사용자가 정의하는 속성." width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationCustomFeature)ATLAS를 이용한 사용자가 정의하는 속성.</p>
 </div>
 
-The criteria defined above assumes that it will be applied to a cohort start date. Once we have defined the criteria and saved it, we can apply it to the characterization design we created in the previous section. To do this, open the characterization design and navigate to the Feature Analysis section. Click the ![](images/Characterization/atlasImportButton.png) button and from the menu select the new custom features. They will now appear in the feature list for the characterization design. As described earlier, we can execute this design against a database to produce the characterization for this custom feature:
+위에서 정의한 기준(criteria)은 코호트 시작 날짜에 적용된다고 가정하자. 이전에 정의한 기준(criteria)을 저장했다면, 이전 절에서 우리가 디자인한 특성 분석에 이를 적용할 수 있다. 이는 위해 characterization을 열고, Feature Analysis로 이동 해 보자. ![](images/Characterization/atlasImportButton.png) 버튼을 누르고 메뉴에서 new custom features를 선택하자. 그러면 분석할 속성 목록에 사용자 정의 속성이 올라간 것이 보일 것이다. 앞 절에서 설명한 것과 같이 사용자 정의 속성에 대한 분석을 데이터베이스에 적용하여 시행할 수 있다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasCharacterizationCustomFeatureResults.png" alt="Custom feature results display." width="100%" />
-<p class="caption">(\#fig:atlasCharacterizationCustomFeatureResults)Custom feature results display.</p>
+<img src="images/Characterization/atlasCharacterizationCustomFeatureResults.png" alt="사용자 정의 속성을 적용하여 특성 분석을 진행한 결과 창" width="100%" />
+<p class="caption">(\#fig:atlasCharacterizationCustomFeatureResults)사용자 정의 속성을 적용하여 특성 분석을 진행한 결과 창</p>
 </div>
 
-## Cohort Characterization in R
+## R을 이용한 코호트 특성 분석 (Cohort Characterization in R)
 
-We may also choose to characterize cohorts using R. Here we’ll describe how to use the OHDSI R package FeatureExtraction to generate baseline features (covariates) for our hypertension cohorts. FeatureExtraction provides users with the ability to construct covariates in three ways: \index{FeatureExtraction}
+코호트의 특성 분석은 R을 통해서도 가능하다. R에서 고혈압 코호트에서 기저 속성(변수)을 생성하기 위해 OHDSI의 FeatureExtraction이라고 하는 R package를 사용하는 방법을 알아보기로 한다. FeatureExtraction은 세 가지 방법으로 변수를 구성할 수 있는 기능을 제공한다. 그 방법은 다음과 같다: \index{FeatureExtraction}
 
-* Choose the default set of covariates
-* Choose from a set of pre-specified analyses
-* Create a set of custom analyses
+* 기본 설정된 변수 셋을 선택
+* 사전 지정된 분석 셋 중에서 선택 
+* 사용자 정의 분석 셋을 생성
 
-FeatureExtraction creates covariates in two distinct ways: person-level features and aggregate features. Person-level features are useful for machine learning applications. In this section, we’ll focus on using aggregate features that are useful for generating baseline covariates that describe the cohort of interest. Additionally, we’ll focus on the second two ways of constructing covariates: pre-specified and custom analyses and leave using the default set as an exercise for the reader.
+FeatureExtraction은 개인 수준 속성 (person-level feature)과 통합된 속성의 두가지 방법으로 변수를 만든다. 개인 수준의 특성은 기계 학습에 적용할 때 유용하다. 이 절에서는 관심 코호트를 설명하는 기저 변수를 생성할 때 유용한 통합된 속성의 사용 방법을 집중적으로 설명할 것이다. 더불어 사전 지정된 분석과 사용자가 정의하는 분석의 두 가지 변수를 구성 방법에 대해 알아볼 것이다. (기본 설정 세트에 대해서는 독자의 연습을 위해 남겨두도록 하겠다.)
 
 ### Cohort Instantiation
 
-We first need to instantiate the cohort to characterize it. Instantiating cohorts is described in Chapter \@ref(Cohorts). In this example, we’ll use the persons initiating a first-line therapy for hypertension with 1 year follow up (Appendix \@ref(HTN1yrFO)). We leave characterizing the other cohorts in Appendix \@ref(CohortDefinitions) as an exercise for the reader. We will assume the cohort has been instantiated in a table called `scratch.my_cohorts` with cohort definition ID equal to 1.
+특성 분석을 위해 우선 코호트를 예시를 들어 설명하겠다. 코호트 예시는 \@ref(Cohorts) 장에서 실습 했었다. 본 실습에서는 고혈압의 1차 약물 치료를 시작한 사람들 중 1년 간 관찰된 사람들을 사용할 것이다 (Appendix \@ref(HTN1yrFO)). 부록 \@ref(CohortDefinitions) 의 다른 코호트들은 독자의 연습을 위해 남겨두었다. cohort definition ID가 1인 `scratch.my_cohorts` 라는 테이블에 실습에 사용할 코호트가 있다고 가정하자. 
 
-### Data Extraction
+### 데이터 추출 (Data Extraction)
 
-We first need to tell R how to connect to the server. FeatureExtraction uses the DatabaseConnector package, which provides a function called `createConnectionDetails`. Type `?createConnectionDetails` for the specific settings required for the various database management systems (DBMS). For example, one might connect to a PostgreSQL database using this code:
+먼저 R이 서버에 접속할 수 있도록 해야한다. FeatureExtraction은 DatabaseConnector package의 `createConnectionDetails` 함수를 이용해 서버와 연결할 수 있다. `?createConnectionDetails`를 입력하면 다양한 데이터베이스 관리 시스템 (DBMS)이 요구하는 설정 값이 어떤것 들이 있는지 확인할 수 있다. 예를 들어, PostgreSql 데이터베이스와 연결해야 하는 경우 다음과 같이 연결 설정을 해야 한다:
 
 
 ```r
@@ -255,11 +263,11 @@ cohortsDbTable <- "my_cohorts"
 cdmVersion <- "5"
 ```
 
-The last four lines define the `cdmDbSchema`, `cohortsDbSchema`, and `cohortsDbTable` variables, as well as the CDM version. We will use these later to tell R where the data in CDM format live, where the cohorts of interest have been created, and what version CDM is used. Note that for Microsoft SQL Server, database schemas need to specify both the database and the schema, so for example `cdmDbSchema <- "my_cdm_data.dbo"`.
+마지막 네 줄의 코드는  `cdmDbSchema`, `cohortsDbSchema`, `cohortsDbTable` 변수들을 정의하고 CDM 버전 또한 정의하기 위함이다. 이러한 정의는 나중에 R에게 CDM 형식의 데이터가의 위치, 관심 코호트가 만들어진 위치, 어떤 버전의 CDM이 사용되었는지를 확인할 수 있도록 해준다. Microsofe SQL Server에서 주의할 점은, 데이터베이스 스키마는 데이터베이스와 스키마 정보를 둘 다 필요로 한다는 것이다. 예를 들면 다음과 같다. `cdmDbSchema <- "my_cdm_data.dbo"`.
 
-### Using Prespecified Analyses
+### 사전 지정 분석의 사용 (Using Prespecified Analyses)
 
-The function `createCovariateSettings` allow the user to choose from a large set of predefined covariates. Type `?createCovariateSettings` to get an overview of the available options. For example: 
+`createCovariateSettings` 함수는 사전에 미리 정의된 대규모 변수들의 셋을 선택할 수 있도록 한다. `?createCovariateSettings`를 입력하면 사용 가능한 옵션들을 확인할 수 있다. 예를 들어:
 
 
 ```r
@@ -269,15 +277,15 @@ settings <- createCovariateSettings(
   useConditionOccurrenceAnyTimePrior = TRUE) 
 ```
 
-This will create binary covariates for gender, age (in 5 year age groups), and each concept observed in the condition_occurrence table any time prior to (and including) the cohort start date. 
+다음과 같이 입력하면 성별, 연령 (5년 단위의 연령 그룹), 그리고 코호트 시작 날짜를 포함한 이전의 모든 condition_occurrence 테이블에서 관찰된 각각의 컨셉들에 대하여 이분법적인 변수를 생성할 수 있다. 
 
-Many of the prespecified analyses refer to a short, medium, or long term time window. By default, these windows are defined as: 
+많은 사전 정의 분석은 단기(short term), 중기(medium term), 혹은 장기(long term) 구간(time window)을 지정할 수 있다. 기본적으로 구간들은 다음과 같이 정의 되어 있다:
 
-* **Long term**: 365 days prior up to and including the cohort start date. 
-* **Medium term**: 180 days prior up to and including the cohort start date. 
-* **Short term**: 30 days prior up to and including the cohort start date. 
+* **Long term**: 코호트 시작 날짜를 포함한 365일 이전까지의 구간.
+* **Medium term**: 코호트 시작 날짜를 포함한 180일 이전까지의 구간. 
+* **short term**: 코호트 시작 날짜를 포함한 30일 이전까지의 구간. 
 
-However, the user can change these values. For example: 
+그러나 아래의 예시와 같이 사용자가 시간 구간을 변경 할 수 있다:
 
 
 ```r
@@ -290,9 +298,7 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
                                     endDays = -1) 
 ```
 
-This redefines the long-term window as 180 days prior up to (but not including) the cohort start date, and redefines the short term window as 14 days prior up to (but not including) the cohort start date. 
-
-Again, we can also specify which concept IDs should or should not be used to construct covariates: 
+이 코드에서 새로 정의된 long-term 구간은 코호트 시작 날짜를 포함하지 않고 180일 이전까지의 구간을 나타내고, short-term 구간은 코호트 시작 날짜를 포함하지 않고 14일 이전까지의 구간을 나타낸다. 또한, 변수 구성에서 필수적으로 들어가야 할 것과 빠져야 할 concept ID를 지정할 수 있다:
 
 
 ```r
@@ -308,12 +314,12 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
                                     aggregated = TRUE) 
 ```
 
-\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">The use of `aggregated = TRUE` for all of the examples above indicate to FeatureExtraction to provide summary statistics. Excluding this flag will compute covariates for each person in the cohort.</div>\EndKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">`aggregated = TRUE`로 바꾸면 위에 표시된 모든 사례에 대하여 FeatureExtraction로 하여금 모든 요약 통계치를 표시하도록 한다. 이 지표를 제외하면 코호트 내의 각의 사람에 대한 변수 값이 계산 될 것이다.</div>\EndKnitrBlock{rmdimportant}
 
 
-### Creating Aggregated Covariates
+### 통합된 변수의 생성 (Creating Aggregated Covariates)
 
-The following code block will generate aggregated statistics for a cohort: 
+다음의 코드는 코호트에 대한 통합 변수를 생성하도록 한다: 
 
 
 ```r
@@ -331,7 +337,7 @@ covariateData2 <- getDbCovariateData(
 summary(covariateData2) 
 ```
 
-And the output will look similar to the following:
+그 결과값은 다음과 비슷하게 보일 것이다:
 
 ```
 ## CovariateData Object Summary 
@@ -340,9 +346,9 @@ And the output will look similar to the following:
 ## Number of Non-Zero Covariate Values: 41330
 ```
 
-### Output Format
+### 결과 형식 (Output Format)
 
-The two main components of the aggregated `covariateData` object are `covariates` and `covariatesContinuous` for binary and continuous covariates respectively:
+통합된 `변수 데이터 (covariateData)`에서 주요한 두 가지 구성요소는 이분법적인 혹은 연속적 변수에 대한 `변수 (covariates)`와 `변수 량 (covariatesContinuous)`이다:
 
 
 ```r
@@ -350,170 +356,168 @@ covariateData2$covariates
 covariateData2$covariatesContinuous
 ```
 
-### Custom Covariates
+### 사용자 정의 변수 (Custom Covariates)
 
-FeatureExtraction also provides the ability to define and utilize custom covariates. These details are an advanced topic and covered in the user documentation: http://ohdsi.github.io/FeatureExtraction/. 
+FeatureExtraction은 또한 변수를 사용자가 정의하고 사용할 수 있도록 사용자 정의 변수 기능을 제공한다. 이는 고급 주제로 다음 링크를 통해 사용자 문서에서 자세히 볼 수 있다. http://ohdsi.github.io/FeatureExtraction/.
 
-## Cohort Pathways in ATLAS
+## ATLAS에서 코호트 경로 (Cohort Pathways in ATLAS)
 
-The goal with a pathway analysis is to understand the sequencing of treatments along in one or more cohorts of interest. The methods applied are based on the design reported by @Hripcsak7329. These methods were generalized and codified into a feature called Cohort Pathways in ATLAS.
+경로 분석은 하나 이상의 관심 코호트에서 치료 과정의 순서를 이해하기 위해 시행한다. 분석 방법은 Hripcsak의 연구 [@Hripcsak7329] 의 디자인을 기반으로 합니다. 이 방법은 ATLAS의 Cohort Pathways기능으로 일반화되고 체계화되었다.
 
-Cohort pathways aims to provide analytic capabilities to summarize the events following the cohort start date of one or more target cohorts. To do this, we create a set of cohorts to identify the clinical events of interest for the target population called event cohort. Focusing on how this might look for a person in the target cohort:
+Cohort pathways는 하나 이상의 분석하고자 하는 대상 코호트(target cohort)의 코호트 시작 날짜 이후 발생한 사건들을 요약하는 분석 기능을 제공하는 것을 목표로 한다. 이를 위해 분석 대상 집단에서 관심 임상적 사건들을 식별하기 위한 사건 코호트(event cohort) 셋를 정의하고 생성해야 한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/Characterization/pathwaysPersonEventView.png" alt="Pathways analysis in the context of a single person." width="100%" />
-<p class="caption">(\#fig:pathwaysPersonEventView)Pathways analysis in the context of a single person.</p>
-</div>
-
-In figure \@ref(fig:pathwaysPersonEventView), the person is part of the target cohort with a defined start and end date. Then, the numbered line segments represent where that person also is identified in an event cohort for a duration of time. Event cohorts allow us to describe any clinical event of interest that is represented in the CDM such that we are not constrained to creating a pathway for a single domain or concept. 
-
-To start, click on ![](images/Characterization/atlasPathwaysMenuItem.png) in the left bar of ATLAS to create a new cohort pathways study. Provide a descriptive name and press the save button. 
-
-### Design
-
-To start, we will continue to use the cohorts initiating a first-line therapy for hypertension with 1 and 3 years follow up (Appendix \@ref(HTN1yrFO), \@ref(HTN3yrFO)). Use the  button to import the 2 cohorts.
-
+대상 코호트(target cohort)에서 한 환자를 어떻게 찾는지를 보면 다음과 같다: 
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasPathwaysTargetCohorts.png" alt="Pathways analysis with target cohorts selected." width="100%" />
-<p class="caption">(\#fig:atlasPathwaysTargetCohorts)Pathways analysis with target cohorts selected.</p>
+<img src="images/Characterization/pathwaysPersonEventView.png" alt="한 환자의 경로 분석의 내용." width="100%" />
+<p class="caption">(\#fig:pathwaysPersonEventView)한 환자의 경로 분석의 내용.</p>
 </div>
 
-Next we’ll define the event cohorts by creating a cohort for each first-line hypertensive drug of interest. For this, we’ll start by creating a cohort of ACE inhibitor users and define the cohort end date as the end of continuous exposure. We’ll do the same for 8 other hypertensive medications and note that these definitions are found in Appendix \@ref(ACEiUse)-\@ref(A1BUse). Once complete use the ![](images/Characterization/atlasImportButton.png) button to import these into the Event Cohort section of the pathway design:
+그림 \@ref(fig:pathwaysPersonEventView)에서 대상 코호트에 속한 환자의 정의된 시작과 마지막 날짜를 볼 수 있다. 숫자가 매겨진 조각난 선들은 해당 환자에게서 해당 구간 동안 사건 코호트가 식별된 위치를 표현한 것이다. 사건 코호트를 통해 CDM에서 표현되는 관심 있는 모든 임상적 사건을 설명 할 수 있기 때문에 단일 도메인 혹은 컨셉에 대한 경로를 만드는 데 제한을 받지 않는다.
 
+경로 분석을 시작하기 위해서는 ATLAS 왼쪽 바에 있는 ![](images/Characterization/atlasPathwaysMenuItem.png)를 눌러 새로운 코호트 경로 분석 연구를 생성한다. 분석을 명명하고 저장 버튼을 눌러 저장한다.
+
+### 디자인 (Design)
+
+사용할 코호트는 고혈압 1차 치료를 시작하고 환자 1년간 관찰 된 환자 코호트와 3년 간 추적 관찰된 환자 코호트로 이전 분석에서 사용된 코호트를 지속적으로 사용할 것이다 (Appendix \@ref(HTN1yrFO), \@ref(HTN3yrFO)). import 버튼을 사용해 두 개의 코호트를 불러오자.
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasPathwaysEventCohorts.png" alt="Event cohorts for pathway design for initiating a first-line antihypertensive therapy." width="100%" />
-<p class="caption">(\#fig:atlasPathwaysEventCohorts)Event cohorts for pathway design for initiating a first-line antihypertensive therapy.</p>
+<img src="images/Characterization/atlasPathwaysTargetCohorts.png" alt="선택된 대상 코호트들을 이용한 경로 분석." width="100%" />
+<p class="caption">(\#fig:atlasPathwaysTargetCohorts)선택된 대상 코호트들을 이용한 경로 분석.</p>
 </div>
 
-When complete, your design should look like the one above. Next, we’ll need to decide on a few additional analysis settings:
+그 다음, 각각의 분석하고자 하는 일차 고혈압 치료 약제에 대한 코호트를 사건 코호트로 정의한다. 이를 위해 ACE inhibitor 사용에 대한 코호트를 생성하고 코호트 마지막 날짜를 약물의 마지막 노출이 끝나는 날짜로 정의한다. 여덟개의 다른 고혈압 약제애 대하여 동일한 방식으로 코호트를 생성하고, 코호트 생성에 필요한 여러 정의들은 Appendix \@ref(ACEiUse)-\@ref(A1BUse)에서 찾아볼 수 있다. 완료한 후 ![](images/Characterization/atlasImportButton.png) 버튼을 눌러 경로 분석 디자인의 Event Cohort 부분에 삽입한다:
 
-* **Combination window**: This setting allows you to define a window of time, in days, in which overlap between events is considered a combination of events. For example, if two drugs represented by 2 event cohorts (event cohort 1 and event cohort 2) overlap within the combination window the pathways algorithm will combine them into "event cohort 1 + event cohort 2".
-* **Minimum cell count**: Event cohorts with less than this number of people will be censored (removed) from the output to protect privacy.
-* **Max path length**: This refers to the maximum number of sequential events to consider for the analysis. 
+<div class="figure" style="text-align: center">
+<img src="images/Characterization/atlasPathwaysEventCohorts.png" alt="고혈압 일차 치료 시작의 경로 분석을 위한 사건 코호트들." width="100%" />
+<p class="caption">(\#fig:atlasPathwaysEventCohorts)고혈압 일차 치료 시작의 경로 분석을 위한 사건 코호트들.</p>
+</div>
+
+모든 과정을 완료하고 나면 다음과 같이 된다. 그 이후에 몇 가지 추가 설정을 해야 한다:
+
+* **Combination window**: 이 세팅을 사용하면 사건이 겹쳐질 경우 사건을 조합(combination)으로 간주될 수 있도록 하는 시간의 구간설정할 수 있도록 해주며, 일(days) 단위로 정의할 수 있도록 한다. 예를 들어, 만약 두 개의 약물 노출에 대하여 두 개의 사건 코호트로 표시했을 때 (사건 코호트 1와 사건 코호트 2), 조합 구간 내에서 사건 코호트가 겹치는 경우 경로 알고리즘은 두 사건 코호트를 조합해 "사건 코호트 1 + 사건 코호트 2"로 만든다.
+* **Minimum cell count**: 사건 코호트가 이 수보다 작으면 개인정보 보호를 위해 결과에서 제외된다. 
+* **Max path length**: 분석에 사용되는 최대 연속 사건의 수를 나타낸다. 
   
-### Executions
+### 실행 (Executions)
 
-Once we have our pathway analysis designed, we can execute this design against one or more databases in our environment. This works the same way as we described for cohort characterization in ATLAS. Once complete, we can review the results of the analysis.
+경로 분석의 디자인이 완료된 후, 하나 이상의 데이터베이스 내에서 분석 실행할 수 있다. 방법은 ATLAS의 코호트 특성 분석에서 진행한 것과 같은 방식으로 진행된다. 실행이 끝나면 분석 결과를 확인할 수 있다.
 
-### Viewing Results
-
-<div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasPathwaysResults.png" alt="Pathways results legend and sunburst visualization." width="100%" />
-<p class="caption">(\#fig:atlasPathwaysResults)Pathways results legend and sunburst visualization.</p>
-</div>
-
-The results of a pathway analysis are broken into 3 sections: The legend section displays the total number of persons in the target cohort along with the number of persons that had 1 or more events in the pathway analysis. Below that summary are the color designations for each of the cohorts that appear in the sunburst plot in the center section.
-
-The sunburst plot is a visualization that represents the various event pathways taken by persons over time. The center of the plot represents the cohort entry and the first color-coded ring shows the proportion of persons in each event cohort. In our example, the center of the circle represents hypertensive persons initiating a first line therapy. Then, the first ring in the sunburst plot shows the proportion of persons that initiated a type of first-line therapy defined by the event cohorts (i.e. ACE inhibitors, Angiotensin receptor blockers, etc). The second set of rings represents the 2nd event cohort for persons. In certain event sequences, a person may never have a 2nd event cohort observed in the data and that proportion is represented by the grey portion of the ring. 
-
+### 결과 확인 (Viewing Results)
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasPathwaysResultsPathDetails.png" alt="Pathways results displaying path details." width="100%" />
-<p class="caption">(\#fig:atlasPathwaysResultsPathDetails)Pathways results displaying path details.</p>
+<img src="images/Characterization/atlasPathwaysResults.png" alt="경로 분석 결과의 범례와 sunburst 그래프를 통한 시각화." width="100%" />
+<p class="caption">(\#fig:atlasPathwaysResults)경로 분석 결과의 범례와 sunburst 그래프를 통한 시각화.</p>
 </div>
 
-Clicking on a section of the sunburst plot will display the path details on the right. Here we can see that the largest proportion of people in our target cohort initiated a first-line therapy with ACE inhibitors and from that group, a smaller proportion started a Thiazide or thiazide diuretics. 
+경로 분석에 대한 결과는 3개의 부분으로 나누어진다. 범례(legend) 부분은 대상 코호트의 총 환자수를 나타내는데, 이는 하나 이상의 사건이 있는 환자 수를 나타낸다. 아래의 요약은 sunburst plot의 가운데 부분을 각 코호트에 색을 지정해 표현하였다.
 
-## Incidence Analysis in ATLAS
+sunburst plot은 시간에 따라 한 사람이 겪는 다양한 사건 경로를 시각화한다. 그래프의 가운데 부분은 코호트의 시작부분을 나타내고 첫번째 색으로 구분된 고리는 전체 코호트에서 각 사건 코호트의 환자 비율을 보여준다. 본 예시에서 가장 가운데의 원은 고혈압 환자가 처음으로 시작한 일차 약제를 의미한다. 그리고 sunburst plot의 첫번째 고리는 사건 코호트에서 정의한 것과 같이 시작한 일차 약제의 유형별 비율을 나타낸다 (예를 들어, ACE inhibitor, Angiotensin receptor blocker, 등). 
 
-In an incidence calculation, we describe: amongst the persons in the target cohort, who experienced the outcome cohort during the time at risk period. Here we will design an incidence analysis to characterize angioedema and acute myocardial infarction outcomes amongst new users of ACE inhibitors (ACEi) and Thiazides and thiazide-like diuretics (THZ). We will assess these outcomes during the TAR that a person was exposed to the drug. Additionally, we will add an outcome of drug exposure to Angiotensin receptor blockers (ARBs) to measure the incidence of new use of ARBs during exposure to the target cohorts (ACEi and THZ). This outcome definition provides an understanding of how ARBs are utilized amongst the target populations.
-
-
-To start, click on ![](images/Characterization/atlasIncidenceMenuItem.png) in the left bar of ATLAS to create a new incidence analysis. Provide a descriptive name and press the save button ![](images/PopulationLevelEstimation/save.png). 
-
-### Design
-
-We assume the cohorts used in this example have already been created in ATLAS as described in Chapter \@ref(Cohorts). The Appendix provides the full definitions of the target cohorts (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)), and outcomes (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) cohorts.
-
+두 번째 고리는 환자들의 두 번째 사건 코호트를 의미한다. 특정 사건의 과정에서, 어떤 환자들은 두 번째 사건 코호트를 가지지 않을 수 있는데, 그럴 경우 그 비중은 고리에서 회색으로 표현되어 있다.
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasIncidenceCohortSelection.png" alt="Incidence Rate target and outcome definition." width="100%" />
-<p class="caption">(\#fig:atlasIncidenceCohortSelection)Incidence Rate target and outcome definition.</p>
+<img src="images/Characterization/atlasPathwaysResultsPathDetails.png" alt="더 자세한 경로 분석의 결과 창." width="100%" />
+<p class="caption">(\#fig:atlasPathwaysResultsPathDetails)더 자세한 경로 분석의 결과 창.</p>
 </div>
 
-On the definition tab, click to choose the *New users of ACE inhibitors* cohort and the *New users of Thiazide or Thiazide-like diuretics* cohort. Close the dialog to view that these cohorts are added to the design. Next we add our outcome cohorts by clicking on and from the dialog box, select the outcome cohorts of *acute myocardial infarction events*, *angioedema events* and *Angiotensin receptor blocker (ARB) use*. Again, close the window to view that these cohorts are added to the outcome cohorts section of the design. 
+sunburst plot의 세션을 클릭하면 오른편에 세부 경로가 나타난다.
+
+이를 통해 대상 코호트에서 가장 많은 비율을 차지하는 환자가 일차 약제로 ACE inhibitor을 시작한 환자임을 알 수 있고, 가장 작은 비율을 차지하는 약제는 thiazide나 thiazide diuretics임을 알 수 있었다.
+
+## ATLAS를 이용한 발생 분석 (Incidence Analysis in ATLAS)
+
+발생률의 계산 시, 우리는 대상 코호트의 사람들 중 위험 관찰 기간 동안 outcome 코호트를 경험한 환자들에 대하여 설명하기로 했다. 예를 들어, ACE inhibitor (ACEi)를 시작한 사람들과 Thiazides와 tiazide-like diuretics (THZ)를 시작한 사람들 중 혈관 부종과 급성 심근 경색의 outcomes의 발생을 분석하는 발생 분석을 디자인 했다고 하자. 이를 위해 약물에 노출된 사람들의 위험 관찰 기간 동안 이들 outcome을 평가해야 한다. 더불어, Angiotensin receptor blockers (ARBs)에 대한 약물 노출 결과를 추가하기 위해 대상 코호트들(ACEi와 THZ)에 속해 있는 동안 ARBs 약물 사용의 발생을 outcome으로 추가한다. 이 outcome은 대상 코호트에 속해있는 동안 얼마나 ARBs 사용이 발생됐는지를 측정 해 줄 수 있다.
+
+발생률 분석을 시작하기 위해서는 ATLAS의 왼쪽 바에서 ![](images/Characterization/atlasIncidenceMenuItem.png) 버튼을 누른다. 분석의 이름을 적고 ![](images/PopulationLevelEstimation/save.png) 버튼을 눌러 저장한다.
+
+### 디자인 (Design)
+
+이미 이전 \@ref(Cohorts)장에서 ATLAS로 예제에 사용할 코호트를 만들었다고 해 보자. 부록에서 예제에 사용할 대상 코호트의 모든 정의를 확인할 수 있다 (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)), and outcomes (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)).
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasIncidenceTimeAtRisk.png" alt="Incidence Rate target and outcome definition." width="100%" />
-<p class="caption">(\#fig:atlasIncidenceTimeAtRisk)Incidence Rate target and outcome definition.</p>
+<img src="images/Characterization/atlasIncidenceCohortSelection.png" alt="발생률 분석에 사용할 대상 코호트와 outcome코호트의 정의." width="100%" />
+<p class="caption">(\#fig:atlasIncidenceCohortSelection)발생률 분석에 사용할 대상 코호트와 outcome코호트의 정의.</p>
 </div>
 
-Next, we will define the time at risk window for the analysis. As shown above, the time at risk window is defined relative to the cohort start and end dates. Here we will define the time at risk start as 1 day after cohort start for our target cohorts. Next, we’ll define the time at risk to end at the cohort end date. In this case, the definition of the ACEi and THZ cohorts have a cohort end date when the drug exposure ends.
-
-ATLAS also provides a way to stratify the target cohorts as part of the analysis specification:
-
+definition 탭을 클릭해서 *New users of ACE inhibitors* 코호트와 *New users of Thiazide or Thiazide-like diuretics* 코호트를 선택한다. 선택한 코호트들이 분석 디자인에 추가되었는지 확인하기 위해 대화 상자를 닫아야 한다. 그 다음 대화 상자에서 클릭해 outcome 코호트들을 추가한다. *acute myocardial infarction events*, *angioedema events* 와 *Angiotensin receptor blocker (ARB) use* 코호트 등이 outcome 코호트로 선택되어야 한다. 분석 디자인에 outcome 코호트들이 추가되었는지 확인하기 위해 대화 상자를 닫아야 한다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasIncidenceStratifyFemale.png" alt="Incidence Rate strata definition for females." width="100%" />
-<p class="caption">(\#fig:atlasIncidenceStratifyFemale)Incidence Rate strata definition for females.</p>
+<img src="images/Characterization/atlasIncidenceTimeAtRisk.png" alt="발생률 분석에 사용할 대상 코호트와 outcome코호트의 정의." width="100%" />
+<p class="caption">(\#fig:atlasIncidenceTimeAtRisk)발생률 분석에 사용할 대상 코호트와 outcome코호트의 정의.</p>
 </div>
 
-To do this, click the New Stratify Criteria button and follow the same steps described in Chapter 11. Now that we have completed the design, we can move to executing our design against one or more databases.
+이후 분석에 필요한 위험 관찰 기간을 정의해야 한다. 위에서 보이는 바와 같이 위험 관찰 기간은 코호트 시작과 마지막 날짜에 기반하여 정해진다. 예제에서는 위험 관찰 기간의 시작일을 대상 코호트의 코호트 시작일보다 1일 후로 정의했다. 위험 관찰 기간의 마지막 날짜는 코호트 마지막 날짜로 정의했다. 이 경우, ACEi와 THZ 코호트의 코호트의 정의에 따라 약물 노출이 끝나면 코호트 또한 종료된다.
 
-### Executions
-
-Click the Generation tab and then the ![](images/Characterization/atlasIncidenceGenerate.png) button to reveal a list of databases to use to execute the analysis:
+ATLAS는 또한 분석의 선택 사항의 일부분으로 대상 코호트의 층화 기능을 제공한다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasIncidenceSourceSelection.png" alt="Incidence Rate analysis execution." width="100%" />
-<p class="caption">(\#fig:atlasIncidenceSourceSelection)Incidence Rate analysis execution.</p>
+<img src="images/Characterization/atlasIncidenceStratifyFemale.png" alt="여성에 대한 틍화를 정의한 발생률." width="100%" />
+<p class="caption">(\#fig:atlasIncidenceStratifyFemale)여성에 대한 틍화를 정의한 발생률.</p>
 </div>
 
-Select one or more databases and click the Generate button to start the analysis to analyze all combinations of targets and outcomes specified in the design.
+분석을 위해서 New Stratify Criteria 버튼을 누르고 11장에서 설명한 것과 같은 단계로 진행한다. 분석 디자인이 완성되면 하나 이상의 데이터베이스를 이용해 실행할 수 있다.
 
-### Viewing Results
+### 실행 (Executions)
 
-On the Generation tab, the top portion of the screen allows you to select a target and outcome to use when viewing the results. Just below this a summary of the incidence is shown for each database used in the analysis. 
-
-Select the target cohort of ACEi users and the Acute Myocardial Infarction (AMI) from the respective dropdown lists. Click the ![](images/Characterization/atlasIncidenceReportButton.png) button to reveal the incidence analysis results:
-
+Generation 탭을 누르고 ![](images/Characterization/atlasIncidenceGenerate.png) 버튼을 클릭하면, 분석에 사용할 데이터베이스 목록을 볼 수 있다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasIncidenceResults.png" alt="Incidence Rate analysis output - New ACEi users with AMI outcome." width="100%" />
-<p class="caption">(\#fig:atlasIncidenceResults)Incidence Rate analysis output - New ACEi users with AMI outcome.</p>
+<img src="images/Characterization/atlasIncidenceSourceSelection.png" alt="발생률 분석의 실행." width="100%" />
+<p class="caption">(\#fig:atlasIncidenceSourceSelection)발생률 분석의 실행.</p>
 </div>
 
-A summary for the database shows the total persons in the cohort that were observed during the TAR along with the total number of cases. The proportion shows the number of cases per 1000 people. The time at risk, in years, is calculated for the target cohort. The incidence rate is expressed as the number of cases per 1000 person-years. 
+하나 이상의 데이터베이스를 선택하고 Generate 버튼을 누르면 주어진 분석 디자인의 대상과 outcome의 모든 조합에 대하여 발생 분석이 실행된다.
 
-We can also view the incidence metrics for the strata that we defined in the design. The same metrics mentioned above are calculated for each stratum. Additionally, a treemap visualization provides a representation of the proportion of each stratum represented by the boxed areas. The color represents the incidence rate as shown in the scale along the bottom.
+### 결과 확인 (Viewing Results)
 
-We can gather the same information to see the incidence of new use of ARBs amongst the ACEi population. Using the dropdown at the top, change the outcome to ARBs use and click the ![](images/Characterization/atlasIncidenceReportButton.png) button to reveal the details. 
+Generation 탭의 상단의 화면은 결과를 확인할 때 대상과 outcome을 선택할 수 있도록 해준다. 바로 아래에는 분석에 사용된 각 데이터베이스에 대한 요약과 발생에 관한 내용이 표시된다.
+
+대상 코호트 중 ACEi 사용자와 outcome 코호트 중에서 Acute Myocardial Infarction (AMI)를 드롭다운 목록에서 선택해 보자. 그리고 ![](images/Characterization/atlasIncidenceReportButton.png) 버튼을 누르면 발생 분석의 결과가 나온다:
 
 <div class="figure" style="text-align: center">
-<img src="images/Characterization/atlasIncidenceResultsARB.png" alt="Incidence Rate - New users of ACEi receiving ARBs treatment during ACEi exposure." width="100%" />
-<p class="caption">(\#fig:atlasIncidenceResultsARB)Incidence Rate - New users of ACEi receiving ARBs treatment during ACEi exposure.</p>
+<img src="images/Characterization/atlasIncidenceResults.png" alt="ACEi 의 새로운 사용자에서 AMI의 발생률을 분석한 결과." width="100%" />
+<p class="caption">(\#fig:atlasIncidenceResults)ACEi 의 새로운 사용자에서 AMI의 발생률을 분석한 결과.</p>
 </div>
 
-As shown, the metrics calculated are the same but the interpretation is different since the input (ARB use) references a drug utilization estimate instead of a health outcome.
+결과를 통해 데이터베이스의 해당 코호트에서 위험 관찰 기간 동안 발생한 모든 case에 해당하는 전체 환자 수를 요약해 보여준다. 발생 비율은 1000명 당 발생 건수로 표시한다. 위험 관찰 기간은 대상 코호트에서 연 단위로 계산된다. 발생률은 1000 인-년 당 발생 건수로 표현된다. 
 
-## Summary
+또한 분석 디자인에서 층화를 위해 정의 한 계층에 대한 발생률을 확인할 수 있다. 각 계층에 대해 위에 언급한 바와 동일한 방식으로 계산되었다. 더불어, treemap 시각화 방법을 통해 각 계층의 비율을 상자 공간으로 표현했다. 아래 눈금에 표시된 대로 색상은 발생률을 나타낸다.
 
-\BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- OHDSI offers tools to characterize an entire database, or a cohort of interest.
+ACEi 환자군 내에서 ARBs를 새롭게 사용하기 시작한 신규 환자군의 발생을 확인하기 위한 정보도 얻을 수 있다. 상단의 드롭 다운을 사용하여 ARBs의 사용으로 outcome을 바꾸고, ![](images/Characterization/atlasIncidenceReportButton.png)버튼을 누르면 자세한 내용이 나타난다.
 
-- Cohort characterization describes a cohort of interest during the time preceding the index date (**baseline**) and the time after index (**post-index**).
+<div class="figure" style="text-align: center">
+<img src="images/Characterization/atlasIncidenceResultsARB.png" alt="발생률 - ACEi 노출 기간 중 ARBs 치료를 새로 시작한 ACEi 사용 환자군." width="100%" />
+<p class="caption">(\#fig:atlasIncidenceResultsARB)발생률 - ACEi 노출 기간 중 ARBs 치료를 새로 시작한 ACEi 사용 환자군.</p>
+</div>
 
-- ATLAS's characterization module and the OHDSI Methods Library provide the capability to calculate baseline characteristics for multiple time windows.
+위에 보이는 것처럼, 지금까지 사용한 방법과 동일한 방식으로 계산되었지만, 입력 값이 (ARB 사용)이 건강에 대한 outcome에서 약물 사용에 대한 평가로 바뀌었기 때문에 해석이 달라지게 됩니다. 
 
-- ATLAS's pathways and incidence rate modules provide descriptive statistics during the post-index time period.
+## 요약 (Summary)
+
+\BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- OHDSI는 모든 데이터베이스 혹은 관심 코호트에 대한 특성을 분석하는 툴을 제공합니다.
+
+- 코호트의 특성 분석은 index 날짜 이전 (**기저 (baseline)**)와 이후 (**index 후 (post-index)**) 시간 동안의 관심 코호트를 설명해 준다. 
+
+- ATLAS의 특성 분석 모듈과 OHDSI Methods Library는 다양한 관찰 기간에 대한 기저 특성에 대해 계산 할 수 있는 기능을 제공한다. 
+
+- ATLAS의 경로와 발생률 모듈은 index 후 시간 동안의 기술 통계를 제공한다.
 </div>\EndKnitrBlock{rmdsummary}
 
 
-## Exercises
+## 실습 (Exercises)
 
-#### Prerequisites {-}
+#### 사전 준비사항 (Prerequisites) {-}
 
-For these exercises, access to an ATLAS instance is required. You can use the instance at [http://atlas-demo.ohdsi.org](http://atlas-demo.ohdsi.org), or any other instance you have acces to. 
+본 실습을 위해 ATLAS에 접근할 수 있어야 합니다. 다음의 ATLAS를 사용하시거나 [http://atlas-demo.ohdsi.org](http://atlas-demo.ohdsi.org), 혹은 개별적으로 구축하여 접속 가능한 ATLAS가 있다면 사용하셔도 좋습니다.
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCharacterization1"><strong>(\#exr:exerciseCharacterization1) </strong></span>We would like to understand how celecoxib is used in the real world. To start, we would like to understand what data a database has on this drug. Use the ATLAS Data Sources module to find information on celecoxib.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCharacterization1"><strong>(\#exr:exerciseCharacterization1) </strong></span>실제 임상에서 celecoxib이 얼마나 사용되는지를 알고 싶다. 시작하기에 앞서 데이터베이스에 약물에 대한 데이터베이스의 데이터를 이해해야 합니다. ATLAS의 Data Sources를 이용해 celecoxib에 대한 정보를 찾아보자.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCharacterization2"><strong>(\#exr:exerciseCharacterization2) </strong></span>We would like to better understand the disease natural history of celecoxib users. Create a simple cohort of new users of celecoxib using a 365-day washout period (see Chapter \@ref(Cohorts) for details on how to do this), and use ATLAS to create a characterization of this cohort, showing co-morbid conditions and drug-exposures.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCharacterization2"><strong>(\#exr:exerciseCharacterization2) </strong></span>celecoxib 사용자의 질병 자연 경과에 대해 더 알고 싶다. celecoxib의 새로운 사용자들에 대한 간단한 코호트를 만들어라. 이 때, 365일의 washout 기간을 주어라 (어떻게 해야 하는지 자세히 알고 싶다면 \@ref(Cohorts)장을 참고하자). 그리고 ATLAS에서 이 코호트의 characterization을 생성하고, 동병상병 질환과 약물 노출을 찾아보자.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCharacterization3"><strong>(\#exr:exerciseCharacterization3) </strong></span>We are interested in understand how often gastrointestinal (GI) bleeds occur any time after people initiate celecoxib treatment. Create a cohort of GI bleed events, simply defined as any occurrence of concept [192671](http://athena.ohdsi.org/search-terms/terms/192671) ("Gastrointestinal hemorrhage") or any of its descendants. Compute the incidence rate of these GI events after celecoxib initiation, using the exposure cohort defined in the previous exercise.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCharacterization3"><strong>(\#exr:exerciseCharacterization3) </strong></span>celecoxib 치료를 받는 사람들이 이후 기간에 상관없이 gastrointestinal(GI) bleeds가 얼마나 자주 발생하는지를 알고 싶다. 우선 GI bleed의 사건 코호트를 생성해야 한다. 해당 코호트의 정의를 위해 [192671](http://athena.ohdsi.org/search-terms/terms/192671) ("Gastrointestinal hemorrhage")으로 정의된 concept이나 그 하위 concept을 사용하자. 이전 실습에서 정의한 약물 노출 코호트를 이용해, celecoxib을 시작한 이후 GI bleed의 발생률을 계산하자.
 </div>\EndKnitrBlock{exercise}
 
-Suggested answers can be found in Appendix \@ref(Characterizationanswers).
-
+답변은 부록 \@ref(Characterizationanswers) 에서 찾을 수 있다.
