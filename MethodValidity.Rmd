@@ -1,17 +1,12 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 # Method Validity {#MethodValidity}
 
 \index{method validity}
 
 *Chapter lead: Martijn Schuemie*
 
-When considering method validity we aim to answer the question
+이번 챕터에서 우리는 다음의 질문에 대해 답하려 했다. 
 
-> Is this method valid for answering this question?
+> 우리의 방법론은 연구 질문에 대해 답하기에 유효한가?
 
 “방법”에는 연구 설계뿐만 아니라 데이터와 설계의 시행도 포함됩니다. 따라서, 방법의 타당성은 다소 포괄적입니다. 좋은 자료의 질, 임상적 타당성 및 software 타당성 없이 좋은 방법의 유효성을 논하는 것은 때때로 불가능합니다. 근거의 질적 측면은 이미 방법론적 타당성을 고려하기 전에 별도로 다루어져야 합니다. 
 
@@ -46,7 +41,7 @@ knitr::include_graphics("images/MethodValidity/timeToObsEnd.png")
 
 \index{negative controls}
 
-음성 대조군은 인과적 효과가 없을 것으로 생각되는 노출-결과 쌍이며, 교란, [@lipsitch_2010] 선택 편향, 그리고 측정 오류를 감지하기 위한 수단으로 권장되어온 음성 대조군 혹은 “falsification endpoints”[@prased_2013] 을 포함합니다. [@arnold_2016] 예를 들어, 소아기 질병과 후기 다발성 경화증 (MS)의 관계를 조사하는 한 연구에서 [@zaadstra_2008], 저자는 MS를 유발하지 않는 것으로 생각되는 세 가지 음성 대조군을 포함한다: 팔 골절, 뇌진탕, 편도선 절제술. 이 세 가지 대조군 중 두 가지는 MS와 통계적으로 유의한 연관성을 나타내므로 연구가 편향 될 수 있음을 시사합니다. 
+음성 대조군은 인과적 효과가 없을 것으로 생각되는 노출-결과 쌍이며, 교란, [@lipsitch_2010] 선택 편향, 그리고 측정 오류를 감지하기 위한 수단으로 권장되어온 음성 대조군 혹은 “falsification endpoints”[@prased_2013] 을 포함합니다. [@arnold_2016] 예를 들어, 소아기 질병과 후기 다발성 경화증 (multiple sclerosis)의 관계를 조사하는 한 연구에서 [@zaadstra_2008], 저자는 다발성 경화증을 유발하지 않는 것으로 생각되는 세 가지 음성 대조군을 포함한다: 팔 골절, 뇌진탕, 편도선 절제술. 이 세 가지 대조군 중 두 가지는 다발성 경화증과 통계적으로 유의한 연관성을 나타내므로 연구가 편향 될 수 있음을 시사합니다. 
 
 우리는 관심 가설과 비교 가능한 음성 대조군을 선택해야 합니다. 즉, 일반적으로 관심 가설과 동일한 결과 (“outcome controls” 라고 함) 또는 동일한 노출(“exposure controls”)를 갖는 노출-결과 쌍을 선택합니다. 부정적인 통제는 다음 기준을 충족해야 합니다:
 
@@ -394,5 +389,6 @@ Method Library의 설계에 평가에서 경험적 교정은 종종 type 2 error
 - 이러한 특성은 경험적 보정을 사용하여 공칭으로 복원 될 수 있습니다.
 
 - 연구자가 p-hacking을 피하기 위해 관심 있는 효과에 대해 눈가림된 분석 설계 선택을 안내하고 프로토콜을 개선하는 데 사용될 수 있습니다.
+
 ```
 
