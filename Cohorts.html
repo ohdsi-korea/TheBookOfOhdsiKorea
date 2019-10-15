@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Defining Cohorts | The Book of OHDSI Korea</title>
+  <title>Chapter 10 코호트 만들기 | The Book of OHDSI Korea</title>
   <meta name="description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Defining Cohorts | The Book of OHDSI Korea" />
+  <meta property="og:title" content="Chapter 10 코호트 만들기 | The Book of OHDSI Korea" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/" />
   <meta property="og:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="OHDSI-Korea/TheBookOfOhdsiKorea" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Defining Cohorts | The Book of OHDSI Korea" />
+  <meta name="twitter:title" content="Chapter 10 코호트 만들기 | The Book of OHDSI Korea" />
   
   <meta name="twitter:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
   <meta name="twitter:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
@@ -24,7 +24,7 @@
 <meta name="author" content="OHDSI-Korea" />
 
 
-<meta name="date" content="2019-10-14" />
+<meta name="date" content="2019-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,35 +313,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.8" data-path="SqlAndR.html"><a href="SqlAndR.html#summary-4"><i class="fa fa-check"></i><b>9.8</b> Summary</a></li>
 <li class="chapter" data-level="9.9" data-path="SqlAndR.html"><a href="SqlAndR.html#exercises-1"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> Defining Cohorts</a><ul>
-<li class="chapter" data-level="10.1" data-path="Cohorts.html"><a href="Cohorts.html#what-is-a-cohort"><i class="fa fa-check"></i><b>10.1</b> What Is a Cohort?</a></li>
-<li class="chapter" data-level="10.2" data-path="Cohorts.html"><a href="Cohorts.html#rule-based-cohort-definitions"><i class="fa fa-check"></i><b>10.2</b> Rule-Based Cohort Definitions</a></li>
-<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.3</b> Concept Sets</a></li>
-<li class="chapter" data-level="10.4" data-path="Cohorts.html"><a href="Cohorts.html#probabilistic-cohort-definitions"><i class="fa fa-check"></i><b>10.4</b> Probabilistic Cohort Definitions</a></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> 코호트 만들기</a><ul>
+<li class="chapter" data-level="10.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.1</b> 코호트란 무엇인가?</a></li>
+<li class="chapter" data-level="10.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.2</b> 규칙 기반 코호트 정의</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.3</b> 컨셉 모음</a></li>
+<li class="chapter" data-level="10.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.4</b> 확률적 코호트 정의</a></li>
 <li class="chapter" data-level="10.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-definition-validity"><i class="fa fa-check"></i><b>10.5</b> Cohort Definition Validity</a><ul>
-<li class="chapter" data-level="10.5.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-gold-standard-phenotype-library"><i class="fa fa-check"></i><b>10.5.1</b> OHDSI Gold Standard Phenotype Library</a></li>
+<li class="chapter" data-level="10.5.1" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>10.5.1</b> 오디시의 골드 스탠다드 코호트 라이브러리</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="Cohorts.html"><a href="Cohorts.html#defining-a-cohort-for-hypertension"><i class="fa fa-check"></i><b>10.6</b> Defining a Cohort for Hypertension</a></li>
-<li class="chapter" data-level="10.7" data-path="Cohorts.html"><a href="Cohorts.html#implementing-a-cohort-using-atlas"><i class="fa fa-check"></i><b>10.7</b> Implementing a Cohort Using ATLAS</a><ul>
-<li class="chapter" data-level="10.7.1" data-path="Cohorts.html"><a href="Cohorts.html#initial-event-criteria"><i class="fa fa-check"></i><b>10.7.1</b> Initial Event Criteria</a></li>
-<li class="chapter" data-level="10.7.2" data-path="Cohorts.html"><a href="Cohorts.html#defining-the-concept-set"><i class="fa fa-check"></i><b>10.7.2</b> Defining the Concept Set</a></li>
-<li class="chapter" data-level="10.7.3" data-path="Cohorts.html"><a href="Cohorts.html#additional-initial-event-criteria"><i class="fa fa-check"></i><b>10.7.3</b> Additional Initial Event Criteria</a></li>
-<li class="chapter" data-level="10.7.4" data-path="Cohorts.html"><a href="Cohorts.html#inclusion-criteria"><i class="fa fa-check"></i><b>10.7.4</b> Inclusion Criteria</a></li>
-<li class="chapter" data-level="10.7.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-exit-criteria"><i class="fa fa-check"></i><b>10.7.5</b> Cohort Exit Criteria</a></li>
+<li class="chapter" data-level="10.6" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.6</b> 고혈압 환자 코호트 작성하기</a></li>
+<li class="chapter" data-level="10.7" data-path="Cohorts.html"><a href="Cohorts.html#atlas---"><i class="fa fa-check"></i><b>10.7</b> ATLAS를 이용해 코호트 작성하기</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.1</b> 초기 이벤트 기준</a></li>
+<li class="chapter" data-level="10.7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.2</b> 컨셉 모음 정의하기</a></li>
+<li class="chapter" data-level="10.7.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.7.3</b> 추가적 초기 이벤트 기준</a></li>
+<li class="chapter" data-level="10.7.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.7.4</b> 포함 기준</a></li>
+<li class="chapter" data-level="10.7.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.5</b> 코호트 종료 기준</a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#implementing-the-cohort-using-sql"><i class="fa fa-check"></i><b>10.8</b> Implementing the Cohort Using SQL</a><ul>
-<li class="chapter" data-level="10.8.1" data-path="Cohorts.html"><a href="Cohorts.html#connecting-to-the-database"><i class="fa fa-check"></i><b>10.8.1</b> Connecting to the Database</a></li>
-<li class="chapter" data-level="10.8.2" data-path="Cohorts.html"><a href="Cohorts.html#specifying-the-concepts"><i class="fa fa-check"></i><b>10.8.2</b> Specifying the Concepts</a></li>
-<li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#finding-first-use"><i class="fa fa-check"></i><b>10.8.3</b> Finding First Use</a></li>
-<li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#require-365-days-of-prior-observation"><i class="fa fa-check"></i><b>10.8.4</b> Require 365 Days of Prior Observation</a></li>
-<li class="chapter" data-level="10.8.5" data-path="Cohorts.html"><a href="Cohorts.html#require-prior-hypertension"><i class="fa fa-check"></i><b>10.8.5</b> Require Prior Hypertension</a></li>
-<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#no-prior-treatment"><i class="fa fa-check"></i><b>10.8.6</b> No Prior Treatment</a></li>
-<li class="chapter" data-level="10.8.7" data-path="Cohorts.html"><a href="Cohorts.html#monotherapy"><i class="fa fa-check"></i><b>10.8.7</b> Monotherapy</a></li>
-<li class="chapter" data-level="10.8.8" data-path="Cohorts.html"><a href="Cohorts.html#cohort-exit"><i class="fa fa-check"></i><b>10.8.8</b> Cohort Exit</a></li>
-<li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#cleanup"><i class="fa fa-check"></i><b>10.8.9</b> Cleanup</a></li>
+<li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#sql---"><i class="fa fa-check"></i><b>10.8</b> SQL을 사용하여 코호트 구현하기</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.1</b> 데이터베이스에 연결하기</a></li>
+<li class="chapter" data-level="10.8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.2</b> 컨셉 결정하기</a></li>
+<li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>10.8.3</b> 약물을 처음 복용한 환자 찾기</a></li>
+<li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#----365----"><i class="fa fa-check"></i><b>10.8.4</b> 약물 복용 이전 최소 365일동안 관찰될 수 있었던 환자</a></li>
+<li class="chapter" data-level="10.8.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.8.5</b> 이전에 고혈압을 진단받은 환자</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>10.8.6</b> 사전에 받은 치료가 없어야 함</a></li>
+<li class="chapter" data-level="10.8.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.7</b> 단독 요법</a></li>
+<li class="chapter" data-level="10.8.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.8</b> 코호트 종료</a></li>
+<li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#section-10.8.9"><i class="fa fa-check"></i><b>10.8.9</b> 정리하기</a></li>
 </ul></li>
-<li class="chapter" data-level="10.9" data-path="Cohorts.html"><a href="Cohorts.html#summary-5"><i class="fa fa-check"></i><b>10.9</b> Summary</a></li>
-<li class="chapter" data-level="10.10" data-path="Cohorts.html"><a href="Cohorts.html#exercises-2"><i class="fa fa-check"></i><b>10.10</b> Exercises</a></li>
+<li class="chapter" data-level="10.9" data-path="Cohorts.html"><a href="Cohorts.html#-3"><i class="fa fa-check"></i><b>10.9</b> 요약</a></li>
+<li class="chapter" data-level="10.10" data-path="Cohorts.html"><a href="Cohorts.html#section-10.10"><i class="fa fa-check"></i><b>10.10</b> 실습</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> 환자 특성 분석 Characterization</a><ul>
 <li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#----database-level-characterization"><i class="fa fa-check"></i><b>11.1</b> 데이터베이스 수준의 특성 분석 (Database Level Characterization)</a></li>
@@ -419,8 +419,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#kaplan-meier"><i class="fa fa-check"></i><b>12.9.4</b> Kaplan-Meier</a></li>
 <li class="chapter" data-level="12.9.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-size-estimate"><i class="fa fa-check"></i><b>12.9.5</b> Effect Size Estimate</a></li>
 </ul></li>
-<li class="chapter" data-level="12.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#summary-6"><i class="fa fa-check"></i><b>12.10</b> Summary</a></li>
-<li class="chapter" data-level="12.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#exercises-3"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+<li class="chapter" data-level="12.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#summary-5"><i class="fa fa-check"></i><b>12.10</b> Summary</a></li>
+<li class="chapter" data-level="12.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#exercises-2"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> Patient-Level Prediction</a><ul>
 <li class="chapter" data-level="13.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#the-prediction-problem"><i class="fa fa-check"></i><b>13.1</b> The Prediction Problem</a></li>
@@ -475,15 +475,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-patient-level-prediction-features"><i class="fa fa-check"></i><b>13.9</b> Additional Patient-Level Prediction Features</a><ul>
 <li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#journal-paper-generation"><i class="fa fa-check"></i><b>13.9.1</b> Journal Paper Generation</a></li>
 </ul></li>
-<li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#summary-7"><i class="fa fa-check"></i><b>13.10</b> Summary</a></li>
-<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises-4"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
+<li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#summary-6"><i class="fa fa-check"></i><b>13.10</b> Summary</a></li>
+<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises-3"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>IV Evidence Quality</b></span></li>
 <li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> Evidence Quality</a><ul>
 <li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#attributes-of-reliable-evidence----"><i class="fa fa-check"></i><b>14.1</b> Attributes of Reliable Evidence (신뢰성을 위한 근거의 속성)</a></li>
 <li class="chapter" data-level="14.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>14.2</b> 근거의 질에 대한 이해</a></li>
 <li class="chapter" data-level="14.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>14.3</b> 근거 품질의 전달</a></li>
-<li class="chapter" data-level="14.4" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#summary-8"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
+<li class="chapter" data-level="14.4" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#summary-7"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> Data Quality</a><ul>
 <li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#sources-of-data-quality-problems"><i class="fa fa-check"></i><b>15.1</b> Sources of Data Quality Problems</a></li>
@@ -497,8 +497,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES in Practice</a></li>
 <li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard in Practice</a></li>
 <li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#study-specific-checks-in-practice"><i class="fa fa-check"></i><b>15.6</b> Study-Specific Checks in Practice</a></li>
-<li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#summary-9"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
-<li class="chapter" data-level="15.8" data-path="DataQuality.html"><a href="DataQuality.html#exercises-5"><i class="fa fa-check"></i><b>15.8</b> Exercises</a></li>
+<li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#summary-8"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
+<li class="chapter" data-level="15.8" data-path="DataQuality.html"><a href="DataQuality.html#exercises-4"><i class="fa fa-check"></i><b>15.8</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> Clinical Validity</a><ul>
 <li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> Characteristics of Health Care Databases</a></li>
@@ -512,7 +512,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="16.4.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#example-validation-by-phevaluator"><i class="fa fa-check"></i><b>16.4.1</b> Example Validation By PheValuator</a></li>
 </ul></li>
 <li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> Generalizability of the Evidence</a></li>
-<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#summary-10"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
+<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#summary-9"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> Software Validity</a><ul>
 <li class="chapter" data-level="17.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1</b> 분석 코드의 타당성</a><ul>
@@ -524,8 +524,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="17.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#-----"><i class="fa fa-check"></i><b>17.2</b> 연구 방법론 라이브러리 소프트웨어의 개발 과정</a><ul>
 <li class="chapter" data-level="17.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.1</b> 소스 코드 관리</a></li>
 <li class="chapter" data-level="17.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.2.2"><i class="fa fa-check"></i><b>17.2.2</b> 문서화</a></li>
-<li class="chapter" data-level="17.2.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>17.2.3</b> 현재 및 과거 버전으로의 접근</a></li>
-<li class="chapter" data-level="17.2.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>17.2.4</b> 유지 보수, 지원 및 중단</a></li>
+<li class="chapter" data-level="17.2.3" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>17.2.3</b> 현재 및 과거 버전으로의 접근</a></li>
+<li class="chapter" data-level="17.2.4" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>17.2.4</b> 유지 보수, 지원 및 중단</a></li>
 <li class="chapter" data-level="17.2.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.5</b> 검증된 인력</a></li>
 <li class="chapter" data-level="17.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.6</b> 물리적, 논리적 보안체계</a></li>
 <li class="chapter" data-level="17.2.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.7</b> 복구 체계</a></li>
@@ -557,7 +557,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.3.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses-1"><i class="fa fa-check"></i><b>18.3.7</b> Sensitivity Analyses</a></li>
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsi-methods-benchmark"><i class="fa fa-check"></i><b>18.4</b> OHDSI Methods Benchmark</a></li>
-<li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#summary-11"><i class="fa fa-check"></i><b>18.5</b> Summary</a></li>
+<li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#summary-10"><i class="fa fa-check"></i><b>18.5</b> Summary</a></li>
 </ul></li>
 <li class="part"><span><b>V OHDSI Studies</b></span></li>
 <li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> 연구단계</a><ul>
@@ -571,14 +571,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="19.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.2</b> 세부 연구 단계</a><ul>
 <li class="chapter" data-level="19.2.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.1</b> 질문 정의</a></li>
-<li class="chapter" data-level="19.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>19.2.2</b> 데이터 가용성 및 품질 검토</a></li>
+<li class="chapter" data-level="19.2.2" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>19.2.2</b> 데이터 가용성 및 품질 검토</a></li>
 <li class="chapter" data-level="19.2.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.3</b> 연구 집단</a></li>
 <li class="chapter" data-level="19.2.4" data-path="StudySteps.html"><a href="StudySteps.html#Feasibility"><i class="fa fa-check"></i><b>19.2.4</b> 실행 가능성 및 진단</a></li>
-<li class="chapter" data-level="19.2.5" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>19.2.5</b> 프로토콜 및 연구 패키지 마무리</a></li>
+<li class="chapter" data-level="19.2.5" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>19.2.5</b> 프로토콜 및 연구 패키지 마무리</a></li>
 <li class="chapter" data-level="19.2.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.6</b> 연구 수행</a></li>
 <li class="chapter" data-level="19.2.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.2.7</b> 해석 및 작성</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="StudySteps.html"><a href="StudySteps.html#-3"><i class="fa fa-check"></i><b>19.3</b> 요약</a></li>
+<li class="chapter" data-level="19.3" data-path="StudySteps.html"><a href="StudySteps.html#-4"><i class="fa fa-check"></i><b>19.3</b> 요약</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI Network Research</a><ul>
 <li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#--ohdsi"><i class="fa fa-check"></i><b>20.1</b> 연구 네트워크로서의 OHDSI</a></li>
@@ -593,9 +593,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.3.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>20.3.2</b> 연구 실행</a></li>
 <li class="chapter" data-level="20.3.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.3</b> 결과의 보급와 출판</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#----"><i class="fa fa-check"></i><b>20.4</b> 미래의 모습: 네트워크 연구의 자동화</a></li>
+<li class="chapter" data-level="20.4" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>20.4</b> 미래의 모습: 네트워크 연구의 자동화</a></li>
 <li class="chapter" data-level="20.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.5</b> OHDSI 네트워크 연구의 정석</a></li>
-<li class="chapter" data-level="20.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#-4"><i class="fa fa-check"></i><b>20.6</b> 요약</a></li>
+<li class="chapter" data-level="20.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#-5"><i class="fa fa-check"></i><b>20.6</b> 요약</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>A</b> Glossary</a></li>
@@ -655,78 +655,78 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="Cohorts" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> Defining Cohorts</h1>
+<h1><span class="header-section-number">Chapter 10</span> 코호트 만들기</h1>
 <p><em>Chapter lead: Kristin Kostka</em></p>
-<p>Observational health data, also referred to <em>real world data</em>, are the data related to patient health status and/or the delivery of health care routinely collected from a variety of sources. As such, OHDSI data stewards (OHDSI collaborators who maintain data in CDM for their sites) may capture data from a number of sources including Electronic Health Records (EHR), health insurance claims and billing activities, product and disease registries, patient-generated data including in home-use settings, and data gathered from other sources that can inform on health status, such as mobile devices. As these data were not collected for research purposes, the data may not explicitly capture the clinical data elements we are interested in.</p>
-<p>For example, a health insurance claims database is designed to capture all care provided for some condition (e.g. angioedema) so the associated costs can appropriately be reimbursed, and information on the actual condition is captured only as part of this aim. If we wish to use such observational data for research purposes, we will often have to write some logic that uses <em>what is captured in the data</em> to infer <em>what we are really interested in</em>. In other words, we often need to create a cohort using some definition of how a clinical event manifests. Thus, if we want to identify angioedema events in an insurance claims database, we may define logic requiring an angioedema diagnose code recorded in an emergency room setting, to distinguish from claims that merely describe follow-up care for some past angioedema occurrence. Similar considerations may apply for data captured during routine healthcare interactions logged in an EHR. As data are being used for a secondary purpose, we must be cognizant of what each database was originally designed to do. Each time we design a study, we must think through the nuances of how our cohort exists in a variety of healthcare settings.</p>
-<p>The chapter serves to explain what is meant by creating and sharing cohort definitions, the methods for developing cohorts, and how to build your own cohorts using ATLAS or SQL.</p>
-<div id="what-is-a-cohort" class="section level2">
-<h2><span class="header-section-number">10.1</span> What Is a Cohort?</h2>
-<p>In OHDSI research, we define a cohort as a set of persons who satisfy one or more inclusion criteria for a duration of time. The term cohort is often interchanged with the term <em>phenotype</em>. Cohorts are used throughout OHDSI analytical tools and network studies as the primary building blocks for executing a research question. For instance, in a study aiming to predict the risk of angioedema in a group of people initiation ACE inhibitors, we define two cohorts: the outcome cohort (angioedema), and the target cohort (people initiating ACE inhibitors). An important aspect of cohorts in OHDSI is that they are typically defined independently from the other cohorts in the study, thus allowing re-use. For example, in our example the angioedema cohort would identify all angioedema events in the population, including those outside the target population. Our analytics tools will take the intersection of these two cohorts when needed at analysis time. The advantage of this is that the same angioedema cohort definition can now also be used in other analyses, for example an estimation study comparing ACE inhibitors to some other exposure. Cohort definitions can vary from study to study depending on the research question of interest.</p>
+<p><em>실제 데이터(Real world data)</em> 라고도 불리는 관찰 건강 정보(Observational health data)는 다양한 출처에서 꾸준하게 수집되는 환자의 건강 상태나 제공되는 의료서비스에 관한 정보이다. CDM 데이터 유지를 위해 노력하는 OHDSI 공동 연구자들은 전자의무기록, 보험청구자료, 결제 자료, 제품 및 질병 등록 정보 등을 포함하는 다양한 출처의 데이터를 활용하며, 환자 개인이 가정 내에서, 혹은 핸드폰 등의 다른 소스로 발생시킨 건강 정보들을 활용하기도 한다. 이러한 데이터들은 연구 목적으로 수집된 데이터가 아니기 때문에 우리가 보고자 하는 임상정보를 명료하게 담고 있지 못할 수도 있다.</p>
+<p>예를 들어, 건강 보험 청구 자료 데이터베이스는 특정 질병 (예: 혈관성부종)을 가진 환자에게 제공된 의료 서비스를 파악하여 적절한 돈을 상환해주기 위해 설립되었기 때문에, 이 목적에 맞는 정보만 부분적으로 담고 있다. 우리가 그런 데이터를 연구 목적으로 사용하기를 원한다면, 우리가 데이터를 사용 할 때 실제로 관심있는 것을 추론해야 하며, 타당한 추론을 가능케 하는 적절한 코호트를 설정해서 연구를 진행해야 한다. 그러므로 만약 우리가 보험 청구 자료 데이터베이스에서 혈관성 부종이 발생한 환자를 확인하고 싶다면, 코호트를 만들 때 추적관찰 중인 혈관성 부종 환자를 제외하기 위해 응급실에서 혈관성 부종으로 진단된 환자만 포함시킨다는 논리를 세워야 할 것이다. 전자 의무 기록에 담긴 임상 정보를 사용할 경우에도 비슷하다. 데이터를 이차적인 목적으로 사용하는 것이기 때문에 데이터베이스가 설립된 일차적인 목적을 인식하고 있어야 한다. 연구를 설계할 때마다 다양한 데이터베이스 환경에서 우리가 설정한 코호트가 어떻게 존재하고 있는지에 대한 뉘앙스를 항상 생각해야 한다.</p>
+<p>이 챕터는 코호트를 생성하고 공유하는 것이 가지는 의미와, 코호트를 개발하는 방법들, 그리고 ATLAS와 SQL을 이용해 당신만의 코호트를 생성하는 방법에 관해서 설명할 것이다.</p>
+<div id="-" class="section level2">
+<h2><span class="header-section-number">10.1</span> 코호트란 무엇인가?</h2>
+<p>오디시 연구에서는 특정 기간 안에 하나 이상의 포함 기준에 속하는 사람들의 집단을 코호트라고 정의한다. 코호트는 때로 <em>표현형(phenotype)</em> 이라는 용어로 대신 사용하기도 한다. 코호트는 오디시 분석 도구를 사용하거나 연구를 시작하기 위한 첫 단계로 사용된다. 예를 들어 ACE inhibitor를 복용하기 시작한 사람들 중에서 혈관성 부종을 일으킬 위험을 예측하기 위한 연구를 진행할 때 우리는 두 개의 코호트를 지정한다 : 결과 코호트(혈관성 부종이 발생한 사람들), 그리고 타겟 코호트(ACE inhibitor를 복용하기 시작한 사람들). 오디시에서 사용되는 코호트라는 개념이 가지는 중요한 특성은, 연구 내에서 지정된 하나의 코호트가 다른 코호트와는 독립적으로 지정되기 때문에 재사용이 가능하다는 것이다. 앞서 제시된 우리의 혈관성 부종 코호트를 예로 들어 보면, 이 코호트는 관찰되는 인구 내의 모든 혈관성 부종 발생을 담으며, 이는 타겟 코호트 외의 사람들도 포함될 수 있다는 것을 의미한다. 우리의 분석 툴은 두 코호트의 교집합을 분석할 것이다. 이것이 가지는 장점은, ACE inhibiter를 복용함으로써 발생하는 다른 결과를 분석할 때에도 동일한 혈관성 부종 코호트를 사용할 수 있다는 것이다.</p>
 
 <div class="rmdimportant">
-<p>A cohort is a set of persons who satisfy one or more inclusion criteria for a duration of time.</p>
+<p>코호트는 특정 시간 내에 하나 이상의 포함 기준을 만족시키는 사람들의 집합이다.</p>
 </div>
 
-<p>  It is important to realize that this definition of a cohort used in OHDSI might differ from that used by others in the field. For example, in many peer-reviewed scientific manuscripts, a cohort is suggested to be analogous to a code set of specific clinical codes (e.g. ICD-9/ICD-10, NDC, HCPCS, etc). While code sets are an important piece in assembling a cohort, a cohort is not defined by code set. A cohort requires specific logic for how to use the code set for the criteria (e.g. is it the first occurrence of the ICD-9/ICD-10 code? any occurrence?). A well-defined cohort specifies how a patient enters a cohort and how a patient exits a cohort. </p>
-<p> There are unique nuances to utilizing OHDSI’s definition of a cohort, including:</p>
+<p>  오디시에서 사용되는 코호트의 정의가 다른 분야에서 사용되는 코호트의 정의와 다를 수 있다는 것을 인지하는 것이 중요하다. 예를 들어 동료 심사를 마친 많은 과학 원고들에서, 코호트는 특정 임상 코드 집합 (예: ICD-9/ICD-10, NDC, HCPCS 등)과 동일한 의미로 사용되었다. 코드 집합들은 코호트를 설정하는 데 중요한 부분을 담당하지만, 코호트는 코드 집합에 의해서만 정의되는 것은 아니다. 코호트는 기준에 맞도록 코드 집합을 사용하는 특정 논리를 필요로 한다(ICD-9/ICD-10 코드의 첫 번째 발생인가? 등). 잘 정의된 코호트는 환자가 어떻게 코호트에 포함되고 제외되는지에 관해 구체적으로 설명한다. </p>
+<p> OHDSI가 코호트를 정의하는 방식에는 다음과 같은 독특한 특징이 있다:</p>
 <ul>
-<li>One person may belong to multiple cohorts</li>
-<li>One person may belong to the same cohort for multiple different time periods</li>
-<li>One person may not belong to the same cohort multiple times during the same period of time</li>
-<li>A cohort may have zero or more members</li>
+<li>한 사람은 여러 개의 코호트에 속할 수 있다.</li>
+<li>한 사람이 여러 다른 기간 동안 동일한 코호트에 속할 수 있다.</li>
+<li>한 사람이 같은 기간 동안 같은 코호트에 여러 번 속할 수 없다.</li>
+<li>코호트에는 0명 혹은 그 이상의 구성원들을 가질 수 있다.</li>
 </ul>
-<p>There are two main approaches to constructing a cohort:</p>
+<p>코호트를 만드는 방법에는 두 가지 주요 방법이 있다:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Rule-based cohort definitions</strong> use explicit rules to describe when a patient is in the cohort. Defining these rules typically relies heavily on the domain expertise of the individual designing the cohort to use their knowledge of the therapeutic area of interest to build rules for cohort inclusion criteria.</li>
-<li><strong>Probabilistic cohort definitions</strong> use a probabilistic model to compute a probability between 0 and 100% of the patient being in the cohort. This probability can be turned into a yes-no classification using some threshold, or in some study designs can be used as is. The probabilistic model is typically trained using machine learning (e.g. logistic regression) on some example data to automatically identify the relevant patient characteristics that are predictive.</li>
+<li><strong>규칙 기반 코호트 정의</strong> 는 언제 환자가 코호트 내에 속하는 지에 관한 명확한 포함규칙을 가진다. 이 포함 규칙을 정하는 것은 코호트를 디자인하는 사람들의 전문가적인 지식에 상당히 의존한다.</li>
+<li><strong>확률적 코호트 정의</strong> 는 확률 모델을 사용하여 환자들이 코호트에 속할 확률 (0~100%)을 계산한다. 이 확률은 역치값을 사용하여 ‘예-아니오’ 분류로 전환할 수도 있고, 그대로 사용할 수도 있다. 확률 모델은 일반적으로 예측 가능한 관련 환자 특성을 자동적으로 식별하기 위해 일부 머신 러닝모델 (예 : 로지스틱 회귀)의 학습을 위해 사용된다.</li>
 </ol>
-<p>The next sections will discuss these approaches in further detail.</p>
+<p>다음으로 이 두 가지의 방법들에 대해서 구체적으로 알아보겠다.</p>
 </div>
-<div id="rule-based-cohort-definitions" class="section level2">
-<h2><span class="header-section-number">10.2</span> Rule-Based Cohort Definitions</h2>
-<p>A rule-based cohort definition begins with explicitly stating one or more inclusion criteria (e.g. “people with angioedema”) in a specific duration of time (e.g. “who developed this condition within the last 6 months”). </p>
-<p>The standard components we use to assemble these criteria are:</p>
+<div id="---" class="section level2">
+<h2><span class="header-section-number">10.2</span> 규칙 기반 코호트 정의</h2>
+<p>규칙 기반 코호트 정의는 특정 기간 내에 (예 : “지난 6 개월 이내 해당 질병이 발생한 사람”) 하나 혹은 그 이상의 포함 기준 (예 : “혈관 부종을 앓는 환자들”)을 명확히 제시함으로써 시작한다. </p>
+<p>이러한 기준을 만드는데 사용되는 표준 구성 요소는 다음과 같다:</p>
 <ul>
-<li><p><strong>Domain</strong>: The CDM domain(s) where the data are stored (e.g. “Procedure Occurrence”, “Drug Exposure”) define the type of clinical information and the allowable concepts that can be represented inside that CDM table. Domains are discussed in more detail in Section <a href="CommonDataModel.html#domains">4.2.4</a>.</p></li>
-<li><p><strong>Concept set</strong>: A data-agnostic expression that defines one or more Standard Concepts encompassing the clinical entity of interest. These concept sets are interoperable across different observational health data as they represent the standard terms the clinical entity maps to in the Vocabulary. Concept sets are discussed in Section <a href="Cohorts.html#conceptSets">10.3</a>.</p></li>
-<li><p><strong>Domain-specific attribute</strong>: Additional attributes related to the clinical entity of interest (E.g. DAYS_SUPPLY for a DRUG_EXPOSURE, or VALUE_AS_NUMBER or RANGE_HIGH for a MEASUREMENT.)</p></li>
-<li><p><strong>Temporal logic</strong>: The time intervals within which the relationship between an inclusion criteria and an event is evaluated (E.g. Indicated condition must occur during 365 days prior to or on exposure start.)</p></li>
+<li><p><strong>도메인</strong>: CDM 도메인 (예 : “Procedure Occurrence”, “Drug Exposure”)은 데이터가 저장되는 곳인데, 도메인의 종류에 따라 어떤 유형의 임상 정보가 담길 지, 어떤 개념들이 담길 지가 결정된다. 도메인에 관한 세부사항은 <a href="CommonDataModel.html#domains">4.2.4</a>절에서 확인할 수 있다.</p></li>
+<li><p><strong>컨셉 모음(Concept set)</strong>: 우리가 관심을 가지는 임상적 개념을 대변하는 하나 이상의 표준화된 컨셉의 모음을 의미 한다. 컨셉 모음은 표준 용어들(임상에서 쓰이는 용어들은 국가나 병원, 사람에 따라 동일한 개념도 조금씩 다른 용어로 사용되는데 이를 표준 용어로 매핑함)로 구성되어 있기 때문에 다양한 관찰 의료 데이터에서 상호 운용이 가능하다. Concept set에 관하여 <a href="Cohorts.html#conceptSets">10.3</a>절에 자세한 설명이 있다.</p></li>
+<li><p><strong>도메인 별 속성</strong>: 관심 있는 임상 실체와 연관된 추가적인 속성들 (예: DRUG_EXPOSURE의 DAYS_SUPPLY, MEASUREMENT의 VALUE_AS_NUMBER 와 RANGE_HIGH)</p></li>
+<li><p><strong>시간의 설정</strong>: 포함 기준과 이벤트 발생 간의 시간 간격 (예 : 노출 시작 또는 노출 시작 후 365일 이내에 특정 조건이 발생해야 함)</p></li>
 </ul>
-<p>As you are building your cohort definition, you may find it helpful to think of Domains analogous to building blocks (see Figure <a href="Cohorts.html#fig:cohortLegos">10.1</a>) that represent cohort attributes. If you are confused about allowable content in each domain, you can always refer to the Common Data Model chapter (Chapter <a href="CommonDataModel.html#CommonDataModel">4</a>) for help.</p>
+<p>코호트 정의를 작성할 때, 코호트 속성을 나타내는 도메인을 빌딩 블록(그림 <a href="Cohorts.html#fig:cohortLegos">10.1</a> 참조)과 유사하게 생각하면 도움이 될 수 있다. 각 도메인에서 허용 가능한 구성 요소에 대해 혼란스럽다면 언제든지 공통 데이터 모델 챕터 (<a href="CommonDataModel.html#CommonDataModel">4</a>장)을 참조하라.</p>
 <div class="figure" style="text-align: center"><span id="fig:cohortLegos"></span>
-<img src="images/Cohorts/cohort-legos.png" alt="Building Blocks of Cohort definitions." width="50%" />
+<img src="images/Cohorts/cohort-legos.png" alt="코호트 정의를 위한 빌딩 블록" width="50%" />
 <p class="caption">
-Figure 10.1: Building Blocks of Cohort definitions.
+Figure 10.1: 코호트 정의를 위한 빌딩 블록
 </p>
 </div>
-<p>When creating a cohort definition, you need to ask yourself the following questions:</p>
+<p>코호트 정의를 작성할 때, 다음과 같은 질문에 답할 수 있어야 한다:</p>
 <ul>
-<li><em>What initial event defines the time of cohort entry?</em></li>
-<li><em>What inclusion criteria are applied to the initial events?</em></li>
-<li><em>What defines the time of cohort exit?</em></li>
+<li><em>코호트 진입 시간을 정의하는 초기 이벤트는 무엇인가?</em></li>
+<li><em>초기 이벤트에는 어떤 포함 기준이 적용되는가?</em></li>
+<li><em>코호트 종료 시간을 정의하는 것은 무엇인가?</em></li>
 </ul>
-<p><strong>Cohort entry event</strong>: The cohort entry event (initial event) defines the time when people enter the cohort, called the <strong>cohort index date</strong>. A cohort entry event can be any event recorded in the CDM such as drug exposures, conditions, procedures, measurements and visits. Initial events are defined by the CDM domain where the data are stored (e.g. PROCEDURE_OCCURRENCE, DRUG_EXPOSURE, etc), the concept sets built to identify the clinical activity (e.g. SNOMED codes for conditions, RxNorm codes for drugs) as well as any other specific attributes (e.g. age at occurrence, first diagnosis/procedure/etc, specifying start and end date, specifying visit type or criteria, days supply, etc). The set of people having an entry event is referred to as the <strong>initial event cohort</strong>. </p>
-<p><strong>Inclusion criteria</strong>: Inclusion criteria are applied to the initial event cohort to further restrict the set of people. Each inclusion criterion is defined by the CDM domain(s) where the data are stored, concept set(s) representing the clinical activity, domain-specific attributes (e.g. days supply, visit type, etc), and the temporal logic relative to the cohort index date. Each inclusion criterion can be evaluated to determine the impact of the criteria on the attrition of persons from the initial event cohort. The <strong>qualifying cohort</strong> is defined as all people in the initial event cohort that satisfy all inclusion criteria. </p>
-<p><strong>Cohort exit criteria</strong>: The cohort exit event signifies when a person no longer qualifies for cohort membership. Cohort exit can be defined in multiple ways such as the end of the observation period, a fixed time interval relative to the initial entry event, the last event in a sequence of related observations (e.g. persistent drug exposure) or through other censoring of observation period. Cohort exit strategy will impact whether a person can belong to the cohort multiple times during different time intervals.</p>
+<p><strong>코호트 진입 이벤트</strong>: 코호트 진입 이벤트(초기 이벤트)는 사람들이 코호트에 진입하는 <strong>코호트 색인 날짜(cohort index date)</strong> 로 정의된다. 코호트 진입 이벤트는 약물 노출(Drug exposure), 질병 상태(conditions), 절차(procedures), 측정(measurements) 및 방문(visits)과 같은 CDM에 기록된 모든 사건일 수 있다. 초기 이벤트는 데이터가 저장되는 CDM 도메인(예: PROCEDURS_OCCURRENCE, DRUG_EXPOSURE 등), 임상 활동을 식별하기 위해 구축된 개념 모음(예 : 질병 상태에 대한 SNOMED 코드, 약물에 대한 RxNorm 코드) 및 기타 특정 속성들(예 : 발생 연령, 첫 진단 / 절차 등, 지정된 시작 및 종료 날짜, 방문 유형 등)에 의해 정의된다. 진입 이벤트를 가진 사람들의 집합을 <strong>초기 이벤트 코호트</strong> 라고 한다. </p>
+<p><strong>포함 기준</strong>: 포함 기준은 초기 이벤트 코호트에 적용되어 코호트에 진입할 사람들을 추가적으로 제한한다. 각 포함 기준을 만들 때는 데이터가 저장되는 CDM 도메인, 컨셉 모음, 도메인 별 속성(예 : days supply, 방문 유형) 및 코호트 색인 날짜에 관한 시간 논리를 결정해야 한다. <strong>적격 코호트(qualifying cohort)</strong> 는 초기 이벤트 코호트에서 모든 포함 기준을 충족하는 사람들의 집합으로 정의한다. </p>
+<p><strong>코호트 종료 기준</strong>: 코호트 종료 이벤트는 한 사람이 더 이상 코호트 자격 요건을 갖추지 못했을 때를 의미한다. 코호트 종료는 관찰 기간이 끝났을 때, 초기 진입 이벤트로부터 일정한 시간이 경과했을 때 혹은 마지막 이벤트가 발생했을 때 등 여러 방법으로 정의할 수 있다. 코호트 종료 기준에 따라 한 사람이 다른 시간 간격 동안 코호트에 여러 번 속할 수 있다.</p>
 
 <div class="rmdimportant">
-<p>In the OHDSI tools there is no distinction between inclusion and exclusion criteria. All criteria are formulated as inclusion criteria. For example, the exclusion criterium “Exclude people with prior hypertension” can be formulated as the inclusion criterium “Include people with 0 occurrences of prior hypertension”.</p>
+<p>OHDSI 도구에는 포함기준과 제외 기준이 구분되지 않는다. 모든 기준은 포함 기준으로 설정해야 한다. 예를 들어 ‘사전 고혈압 환자 제외’라는 제외 기준을 ‘사전 고혈압 발생이 0인 사람들 포함’이라는 포함기준으로 설정해야 한다.</p>
 </div>
 
 </div>
 <div id="conceptSets" class="section level2">
-<h2><span class="header-section-number">10.3</span> Concept Sets</h2>
+<h2><span class="header-section-number">10.3</span> 컨셉 모음</h2>
 
-<p>A concept set is an expression representing a list of concepts that can be used as a reusable component in various analyses. It can be thought of as a standardized, computer-executable equivalent of the code lists often used in observational studies. A concept set expression consists of a list of concepts with the following attributes:</p>
+<p>컨셉 모음을 구성하는 컨셉들은 다양한 다른 분석들에서 재사용이 가능하다. 컨셉 모음은 관찰 연구들에서 종종 사용되는 표준화된 컴퓨터 코드라고 생각해도 된다. 컨셉 모음은 다음 특성들을 포함하고 있다:</p>
 <ul>
-<li><strong>Exclude</strong>: Exclude this concept (and any of its descendants if selected) from the concept set.</li>
-<li><strong>Descendants</strong>: Consider not only this concept, but also all of its descendants.</li>
-<li><strong>Mapped</strong>: Allow to search for non-standard concepts.</li>
+<li><strong>Exclude</strong>: 컨셉 모음으로부터 해당 컨셉과 해당 컨셉의 하위 컨셉들을 제외하라.</li>
+<li><strong>Descendants</strong>: 이 컨셉 뿐만 아니라 모든 하위 항목 컨셉들을 고려하라.</li>
+<li><strong>Mapped</strong>: 표준화되지 않은 컨셉들도 검색하라.</li>
 </ul>
-<p>For example, a concept set expression could contains two concepts as depicted in Table <a href="Cohorts.html#tab:conceptSetExpression">10.1</a>. Here we include concept <a href="http://athena.ohdsi.org/search-terms/terms/4329847">4329847</a> (“Myocardial infarction”) and all of its descendants, but exclude concept <a href="http://athena.ohdsi.org/search-terms/terms/314666">314666</a> (“Old myocardial infarction”) and all of its descendants.</p>
+<p>예를 들어 표 <a href="Cohorts.html#tab:conceptSetExpression">10.1</a>과 같이 컨셉 모음은 두 개의 컨셉들을 포함할 수 있다. 여기서 우리는 <a href="http://athena.ohdsi.org/search-terms/terms/4329847">4329847</a> (“Myocardial infarction”) 과 그 모든 하위 컨셉들을 포함했고, <a href="http://athena.ohdsi.org/search-terms/terms/314666">314666</a> (“Old myocardial infarction”) 과 그 모든 하위 컨셉들은 제외했다.</p>
 <table>
-<caption><span id="tab:conceptSetExpression">Table 10.1: </span> An example concept set expression.</caption>
+<caption><span id="tab:conceptSetExpression">Table 10.1: </span> 컨셉 모음의 예시</caption>
 <thead>
 <tr class="header">
 <th>Concept Id</th>
@@ -753,180 +753,180 @@ Figure 10.1: Building Blocks of Cohort definitions.
 </tr>
 </tbody>
 </table>
-<p>As shown in Figure <a href="Cohorts.html#fig:conceptSet">10.2</a>, this will include “Myocardial infarction” and all of its descendants except “Old myocardial infarction” and its descendants. In total, this concept set expression implies nearly a hundred Standard Concepts. These Standard Concepts in turn reflect hundreds of source codes (e.g. ICD-9 and ICD-10 codes) that may appear in the various databases.</p>
+<p>그림 <a href="Cohorts.html#fig:conceptSet">10.2</a>에서 볼 수 있다시피, “Myocardial infarction” 과 그 모든 하위 컨셉들을 포함할 것이고, 하위 컨셉들 중에서 “Old myocardial infarction” 와 그 모든 하위 컨셉들은 제외할 것이다. 결과적으로 거의 100개 정도의 표준 컨셉들을 포함한 컨셉 모음이 만들어졌다. 이 표준 컨셉들은 다양한 데이터베이스에서 사용되는 수백 개의 소스 코드(예 : ICD-9, ICD-10)를 반영한다.</p>
 <div class="figure" style="text-align: center"><span id="fig:conceptSet"></span>
-<img src="images/Cohorts/conceptSet.png" alt="A concept set including &quot;Myocardial infaction&quot; (with descendants), but excluding &quot;Old myocardial infarction&quot; (with descendants)." width="100%" />
+<img src="images/Cohorts/conceptSet.png" alt="&quot;Myocardial infaction&quot;와 그 하위 컨셉을 포함하지만 &quot;Old myocardial infarction&quot;과 그 하위 컨셉은 제외하는 컨셉 모음" width="100%" />
 <p class="caption">
-Figure 10.2: A concept set including “Myocardial infaction” (with descendants), but excluding “Old myocardial infarction” (with descendants).
+Figure 10.2: “Myocardial infaction”와 그 하위 컨셉을 포함하지만 “Old myocardial infarction”과 그 하위 컨셉은 제외하는 컨셉 모음
 </p>
 </div>
 </div>
-<div id="probabilistic-cohort-definitions" class="section level2">
-<h2><span class="header-section-number">10.4</span> Probabilistic Cohort Definitions</h2>
-<p>Rule-based cohort definitions are a popular method for assembling cohort definitions. However, assembling necessary expert consensus to create a study cohort can be prohibitively time consuming. Probabilistic cohort design is an alternative, machine-driven method to expedite the selection of cohort attributes. In this approach, supervised machine learning allows a phenotyping algorithm to learn from a set of labeled examples (cases) of what attributes contribute to cohort membership. This algorithm can then be used to better ascertain the defining characteristics of a phenotype and what trade-offs occur in overall study accuracy when choosing to modify phenotype criteria. </p>
-<p>An example of applying this approach on data in the CDM is the APHRODITE (Automated PHenotype Routine for Observational Definition, Identification, Training and Evaluation) R-package<a href="#fn54" class="footnoteRef" id="fnref54"><sup>54</sup></a> . This package provides a cohort building framework that combines the ability of learning from imperfectly labeled data. <span class="citation">(Banda et al. <a href="#ref-Banda2017APHRODITE">2017</a>)</span> </p>
+<div id="--" class="section level2">
+<h2><span class="header-section-number">10.4</span> 확률적 코호트 정의</h2>
+<p>규칙 기반 코호트 정의는 코호트 정의를 수행할 때 널리 사용되는 방법이다. 그러나 코호트를 만들기 위해 전문가끼리의 합의를 이루는 것은 매우 많은 시간이 소요되는 일이다. 확률적 코호트 정의는 코호트 속성의 효율적인 선택을 위한 대안적인 기계 구동 방식이다. 이 접근법에서, 지도 기계학습은 코호트를 설계하는 알고리즘이 레이블이 붙은 케이스로부터 학습할 수 있게 한다. 이 알고리즘은 더 나은 코호트 설계를 위해 사용될 것이다. </p>
+<p>A이 접근 방법을 CDM의 데이터에 적용한 예는 아프로디테 (APHRODITE: Automated PHenotype Routine for Observational Definition, Identification, Training and Evaluation) R 패키지이다. 이 패키지는 불완전하게 레이블이 붙은 데이터로부터 학습하는 능력을 결합한 코호트 구축 프레임워크를 제공한다. <span class="citation">(Banda et al. <a href="#ref-Banda2017APHRODITE">2017</a>)</span> </p>
 </div>
 <div id="cohort-definition-validity" class="section level2">
 <h2><span class="header-section-number">10.5</span> Cohort Definition Validity</h2>
-<p>When you are building a cohort, you should consider which of these is more important to you: <em>finding all the eligible patients?</em> versus <em>Getting only the ones you are confident about?</em></p>
-<p>Your strategy to construct your cohort will depend on the clinical stringency of how your expert consensus defines the disease. This is to say, the right cohort design will depend on the question you’re trying to answer. You may opt to build a cohort definition that uses everything you can get, uses the lowest common denominator so you can share it across OHDSI sites or is a compromise of the two. It is ultimately at the researcher’s discretion what threshold of stringency is necessary to adequately study the cohort of interest.</p>
-<p>As mentioned at the beginning of the chapter, a cohort definition is an attempt to infer something we would like to observe from the data that is recorded. This begs the question how well we succeeded in that attempt. In general, the validation of a rule-based cohort definition or probabilistic algorithm can be thought of as a test of the proposed cohort compared to some form of “gold standard” reference (e.g. manual chart review of cases). This is discussed in detail in Chapter <a href="ClinicalValidity.html#ClinicalValidity">16</a> (“Clinical Validity”).</p>
-<div id="ohdsi-gold-standard-phenotype-library" class="section level3">
-<h3><span class="header-section-number">10.5.1</span> OHDSI Gold Standard Phenotype Library</h3>
-<p>To assist the community in the inventory and overall evaluation of existing cohort definitions and algorithms, the OHDSI Gold Standard Phenotype Library (GSPL) Workgroup was formed. The purpose of the GSPL workgroup is to develop a community-backed phenotype library from rules-based and probabilistic methods. The GSPL enable members of the OHDSI community to find, evaluate, and utilize community-validated cohort definitions for research and other activities. These “gold standard” definitions will reside in a library, the entries of which are held to specific standards of design and evaluation. For additional information related to the GSPL, consult the OHDSI workgroup page.<a href="#fn55" class="footnoteRef" id="fnref55"><sup>55</sup></a> Research within this workgroup includes APHRODITE <span class="citation">(Banda et al. <a href="#ref-Banda2017APHRODITE">2017</a>)</span> and the PheValuator tool <span class="citation">(Swerdel, Hripcsak, and Ryan <a href="#ref-Swerdel2019phevaluator">2019</a>)</span> , discussed in the prior section, as well as work done to share the Electronic Medical Records and Genomics <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> across the OHDSI network <span class="citation">(Hripcsak et al. <a href="#ref-Hripcsak2019eMERGE">2019</a>)</span>. If phenotype curation is your interest, consider contributing to this workgroup. </p>
+<p>당신이 코호트를 구축할 때, 다음 중 당신에게 더 중요한 것이 무엇인지 고려하는 것이 필요하다: <em>코호트 조건에 해당하는 환자를 모두 찾는 것이 더 중요한가? 아니면 당신이 확신할 수 있는 환자들만 찾는 것이 더 중요한가?</em></p>
+<p>코호트를 구축할 때 당신의 전략은 전문가가 질병을 얼마나 엄격하게 정의하는지에 의존할 것이다. 얻을 수 있는 모든 것을 사용하거나, 최저 공통 분모를 사용하거나 이 둘을 절충하는 코호트 정의를 작성할 수 있다. 관심 코호트를 적절하게 연구하기 위해 얼마나 엄격한 임계값을 사용할 지는 궁극적으로 연구원의 재량에 달려 있다.</p>
+<p>이 장의 시작 부분에서 언급했듯이 코호트 정의는 데이터로부터 관찰하고자 하는 것을 유추하려는 시도이다. 우리는 코호트 정의를 통한 다음의 시도에 성공하였는가? 일반적으로, ‘골드 스탠다드 기준’과 비교함으로써 규칙 기반의 코호트 정의와 확률적 알고리즘의 유효성을 검증할 수 있다. 이에 대해서는 <a href="ClinicalValidity.html#ClinicalValidity">16</a> 장 (“임상 유효성”)에서 자세히 설명한다.</p>
+<div id="----" class="section level3">
+<h3><span class="header-section-number">10.5.1</span> 오디시의 골드 스탠다드 코호트 라이브러리</h3>
+<p>커뮤니티를 지원하기 위해서 OHDSI Gold Standard Phenotype Library (GSPL) 그룹이 형성되었다. GSPL 그룹의 목표는 규칙 기반 및 확률적 방법으로 커뮤니티 기반의 코호트 라이브러리를 개발하는 것이다. GSPL은 OHDSI 커뮤니티의 멤버들이 각자의 연구를 위해 커뮤니티가 검증한 코호트를 찾아서 실행시킬 수 있게 하였다. 이 ‘gold standard’ 코호트들은 라이브러리 안에 들어 있다. GSPL과 관련된 추가적인 정보를 얻으려면 OHDSI 작업 그룹 페이지에 문의하라. 이전에 소개되었던 APHRODITE <span class="citation">(Banda et al. <a href="#ref-Banda2017APHRODITE">2017</a>)</span> 와 PheValuator tool <span class="citation">(Swerdel, Hripcsak, and Ryan <a href="#ref-Swerdel2019phevaluator">2019</a>)</span> 뿐만 아니라 OHDSI 네트워크에서 전자 의무 기록과 유전 정보를 공유하기 위해 만들어진 eMERGE Phenotype Library <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> <span class="citation">(Hripcsak et al. <a href="#ref-Hripcsak2019eMERGE">2019</a>)</span> 도 해당 작업 그룹에서 다루고 있다. 당신이 코호트를 설계하는 데 관심이 많다면, 이 작업 그룹에 참여해 보아라. </p>
 </div>
 </div>
-<div id="defining-a-cohort-for-hypertension" class="section level2">
-<h2><span class="header-section-number">10.6</span> Defining a Cohort for Hypertension</h2>
-<p>We begin to practice our cohort skills by putting together a cohort definition using a rule-based approach. In this example, we want to find <em>patients who initiate ACE inhibitors monotherapy as first-line treatments for hypertension</em></p>
-<p>With this context in mind, we are now going to build our cohort. As we go through this exercise, we will approach building our cohort similar to standard attrition chart. Figure <a href="Cohorts.html#fig:CohortPractice">10.3</a> shows the logical framework for how we want to build this cohort.</p>
+<div id="---" class="section level2">
+<h2><span class="header-section-number">10.6</span> 고혈압 환자 코호트 작성하기</h2>
+<p>규칙 기반의 접근 방법으로 코호트를 작성해보자. 이번 예제에서는, <em>고혈압의 초기 치료를 위해 ACE inhibitors 단일 치료를 시작한 환자들</em> 을 찾을 것이다.</p>
+<p>이 연습을 진행하면서 표준 감소 차트와 비슷한 코호트를 작성하게 될 것이다. 그림 <a href="Cohorts.html#fig:CohortPractice">10.3</a>은 우리가 어떤 논리로 코호트를 작성할 지 보여준다.</p>
 <div class="figure" style="text-align: center"><span id="fig:CohortPractice"></span>
-<img src="images/Cohorts/CohortPractice.png" alt="Logical Diagram of Intended Cohort" width="100%" />
+<img src="images/Cohorts/CohortPractice.png" alt="만들고자 하는 코호트의 논리적 구성도" width="100%" />
 <p class="caption">
-Figure 10.3: Logical Diagram of Intended Cohort
+Figure 10.3: 만들고자 하는 코호트의 논리적 구성도
 </p>
 </div>
-<p>You can build a cohort in the user interface of ATLAS or you can write a query directly against your CDM. We will briefly discuss both in this chapter.</p>
+<p>ATLAS 유저 인터페이스를 사용해서 코호트를 작성해도 되고, 쿼리를 직접 짜도 된다. 이 장에서는 두 가지 방법 모두에 대해 간단히 소개하겠다.</p>
 </div>
-<div id="implementing-a-cohort-using-atlas" class="section level2">
-<h2><span class="header-section-number">10.7</span> Implementing a Cohort Using ATLAS</h2>
-<p>To begin in ATLAS, click on the <img src="images/Cohorts/cohortdefinition.png" /> module. When the module loads, click on “New cohort”. The next screen you will see will be an empty cohort definition. Figure <a href="Cohorts.html#fig:ATLASdefineacohort">10.4</a> shows what you will see on your screen.</p>
+<div id="atlas---" class="section level2">
+<h2><span class="header-section-number">10.7</span> ATLAS를 이용해 코호트 작성하기</h2>
+<p>ATLAS를 시작하기 위해 <img src="images/Cohorts/cohortdefinition.png" /> 버튼을 클릭하라. 다음으로 ‘New cohort’ 버튼을 클릭하라. 다음 화면에서 비어 있는 코호트를 확인할 수 있을 것이다. 그림 <a href="Cohorts.html#fig:ATLASdefineacohort">10.4</a>에서 당신이 현재 보고 있는 화면을 확인하라.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASdefineacohort"></span>
 <img src="images/Cohorts/ATLAS-defineacohort.png" alt="New Cohort Definition" width="100%" />
 <p class="caption">
 Figure 10.4: New Cohort Definition
 </p>
 </div>
-<p>Before you do anything else, you are encouraged to change the name of the cohort from “New Cohort Definition” to your own unique name for this cohort. You may opt for a name like “New users of ACE inhibitors as first-line monotherapy for hypertension”.</p>
+<p>먼저 “New Cohort Definition”로 지정되어 있는 코호트 이름을 다른 이름으로 바꾸어 지어주기를 추천한다. ‘New users of ACE inhibitors as first-line monotherapy for hypertension’ 라고 지으면 적당할 것이다.</p>
 
 <div class="rmdimportant">
-ATLAS will not allow two cohorts to have the same exact names. ATLAS will give you a pop-up error message if you choose a name already used by another ATLAS cohort.
+ATLAS는 동일한 이름을 가진 두 개의 코호트가 존재하는 것을 허락하지 않는다. 기존에 있던 이름을 사용하려고 하면 에러 메시지가 뜰 것이다.
 </div>
 
-<p>Once you have chosen a name, you can save the cohort by clicking <img src="images/Cohorts/save.png" />.</p>
-<div id="initial-event-criteria" class="section level3">
-<h3><span class="header-section-number">10.7.1</span> Initial Event Criteria</h3>
-<p>Now we can proceed with defining the initial cohort event. You will click “Add initial event”. You now have to pick which domain you are building a criteria around. You may ask yourself, “how do I know which domain is the initial cohort event?” Let’s figure that out.</p>
+<p>이름을 정했으면, <img src="images/Cohorts/save.png" />을 눌러서 코호트를 저장하여라.</p>
+<div id="--" class="section level3">
+<h3><span class="header-section-number">10.7.1</span> 초기 이벤트 기준</h3>
+<p>이제 우리는 초기 코호트 이벤트를 정의해야 한다. “Add initial event”를 클릭하라. 어떤 도메인 내에서 기준을 설정할지 결정해야 한다. 초기 코호트 이벤트를 정의하기 위해 어떤 도메인이 필요한지 어떻게 알 수 있을까? 함께 알아보자.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASinitialevent"></span>
-<img src="images/Cohorts/ATLAS-initialevent.png" alt="Adding an Initial Event" width="100%" />
+<img src="images/Cohorts/ATLAS-initialevent.png" alt="초기 이벤트 추가하기" width="100%" />
 <p class="caption">
-Figure 10.5: Adding an Initial Event
+Figure 10.5: 초기 이벤트 추가하기
 </p>
 </div>
-<p>As we see in Figure <a href="Cohorts.html#fig:ATLASinitialevent">10.5</a>, ATLAS provides descriptions below each criteria to help you. If we were building a CONDITION_OCCURRENCE based criteria, our question would be looking for patients with a specific diagnosis. If we were building a DRUG_EXPOSURE based criteria, our question would be looking for patients with a specific drug or drug class. Since we want to find patients who initiate ACE inhibitors monotherapy as first-line treatments for hypertension, we want to choose a DRUG_EXPOSURE criteria. You may say, “but we also care about hypertension as a diagnosis”. You are correct. Hypertension is another criterion we will build. However, the cohort start date is defined by the initiation of the ACE inhibitor treatment, which is therefore the initial event. The diagnosis of hypertension is what we call an <em>additional qualifying criteria</em>. We will return to this once we build this criteria. We will click “Add Drug Exposure”.</p>
-<p>The screen will update with your selected criteria but you are not done yet. As we see in Figure <a href="Cohorts.html#fig:ATLASdrugexposure">10.6</a>, ATLAS does not know what drug we are looking for. We need to tell ATLAS which concept set is associated to ACE inhibitors.</p>
+<p>그림 <a href="Cohorts.html#fig:ATLASinitialevent">10.5</a>에서 볼 수 있듯이 ATLAS는 각 기준들 아래에 설명을 제공한다. 우리가 만약 특정 질병을 진단받은 환자들을 찾으려 한다면 CONDITION_OCCURRENCE 도메인에서 기준을 만들어야 한다. 특정 약물이나 특정 계열의 약물을 복용한 환자를 찾고 싶다면, DRUG_EXPOSURE 도메인에서 기준을 만들어야 한다. 우리는 고혈압의 초치료로 ACE inhibitors 단독요법을 시행한 환자들을 찾고 싶기 때문에, DRUG_EXPOSURE 도메인에서 기준을 만들어야 한다. 그런데 고혈압을 진단받은 환자도 찾아야 하지 않는가? 고혈압과 관련해서는 다른 기준을 만들 것이다. 하지만 고혈압 약물을 복용하기 시작한 날짜가 코호트 시작 날짜로 설정되며, 고혈압 약물을 복용하기 시작한 것이 코호트의 시작 이벤트가 될 것이다. 고혈압의 진단은 <em>추가적 적격 기준(additional qualifying criteria)</em> 이라고 부른다. 이에 관해서는 뒤에서 다시 설명하겠다. 이제 ‘Add Drug Exposure’를 클릭하라.</p>
+<p>화면은 당신이 선택한 기준에 따라 업데이트 되겠지만, 아직 끝난 것은 아니다. 그림 <a href="Cohorts.html#fig:ATLASdrugexposure">10.6</a>에서 볼 수 있다시피 ATLAS는 우리가 어떤 약물을 찾고자 하는 지 아직 모른다. 우리는 ATLAS에게 어떤 컨셉 모음이 ACE inhibitors와 연관이 있는지 알려주어야 한다.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASdrugexposure"></span>
-<img src="images/Cohorts/ATLAS-drugexposure.png" alt="Defining a Drug Exposure" width="100%" />
+<img src="images/Cohorts/ATLAS-drugexposure.png" alt="약물 복용에 관하여 정의하기" width="100%" />
 <p class="caption">
-Figure 10.6: Defining a Drug Exposure
+Figure 10.6: 약물 복용에 관하여 정의하기
 </p>
 </div>
 </div>
-<div id="defining-the-concept-set" class="section level3">
-<h3><span class="header-section-number">10.7.2</span> Defining the Concept Set</h3>
-<p>You will need to click <img src="images/Cohorts/downarrow.png" /> to open the dialogue box that will allow you to retrieve a concept set to define ACE Inhibitors.</p>
-<div id="scenario-1-you-have-not-built-a-concept-set" class="section level4 unnumbered">
-<h4>Scenario 1: You Have Not Built a Concept Set</h4>
-<p>If you have not assembled your concept sets to apply to your criteria, you will need to do so before you move forward. You may build a concept set within the cohort definition by navigating to the “Concept set” tab and clicking “New Concept Set”. You will need to rename the concept set from “Unnamed Concept Set” to a name of your choosing. From there you can use the <img src="images/Cohorts/search-2.png" /> module to look for clinical concepts that represent ACE inhibitors (Figure <a href="Cohorts.html#fig:aceinhibitors">10.7</a>).</p>
+<div id="--" class="section level3">
+<h3><span class="header-section-number">10.7.2</span> 컨셉 모음 정의하기</h3>
+<p>ACE inhibitors를 정의하기 위한 대화 상자를 열기 위해 <img src="images/Cohorts/downarrow.png" />을 클릭하라.</p>
+<div id="-1------" class="section level4 unnumbered">
+<h4>시나리오 1: 당신은 아직 컨셉 모음을 만들지 않았다</h4>
+<p>아직 당신의 코호트에 추가할 컨셉 모음을 만들지 않았다면, 이것을 먼저 진행해야 한다. ‘Concept set’ 탭의 ‘New Concept Set’을 클릭하여 코호트를 작성하는 데 쓰일 컨셉 모음을 만들 수 있다. 컨셉 모음의 이름을 ‘Unnamed Concept Set’에서 새로 지어 주어야 한다. 이제 <img src="images/Cohorts/search-2.png" /> 모듈을 통해 ACE inhibitors를 나타내는 컨셉들을 찾아보자. (그림 <a href="Cohorts.html#fig:aceinhibitors">10.7</a>)</p>
 <div class="figure" style="text-align: center"><span id="fig:aceinhibitors"></span>
-<img src="images/Cohorts/aceinhibitors.png" alt="Searching the Vocabulary - ACE Inhibitors" width="100%" />
+<img src="images/Cohorts/aceinhibitors.png" alt="용어 찾기 - ACE Inhibitors" width="100%" />
 <p class="caption">
-Figure 10.7: Searching the Vocabulary - ACE Inhibitors
+Figure 10.7: 용어 찾기 - ACE Inhibitors
 </p>
 </div>
-<p>When you have found terms that you would like to use to define this drug exposure, you can select the concept by clicking on <img src="images/Cohorts/shoppingcart.png" />. You can return to your cohort definition by using the left arrow in the top left of Figure <a href="Cohorts.html#fig:aceinhibitors">10.7</a>. You can refer back to Chapter <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a> (Standardized Vocabularies) on how to navigate the vocabularies to find clinical concepts of interest.</p>
-<p>Figure <a href="Cohorts.html#fig:aceConceptSetExpression">10.8</a> shows our concept set expression. We selected all ACE inhibitor ingredients we are interested in, and include all their descendants, thus including all drugs that contain any of these ingredients. We can click on “Included concepts” to see all 21,536 concepts implied by this expression, or we can click on “Included Source Codes” to explore all source codes in the various coding systems that are implied.</p>
+<p>필요한 용어들을 찾았다면, <img src="images/Cohorts/shoppingcart.png" />을 클릭함으로써 그 컨셉을 선택할 수 있다. 그림 <a href="Cohorts.html#fig:aceinhibitors">10.7</a>의 좌상단의 왼쪽을 향하는 화살표버튼을 클릭하여 코호트 작성 페이지로 돌아갈 수 있다. 적절한 용어를 찾기 위한 방법은 <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>장 (표준 용어)을 참고하라.</p>
+<p>그림 <a href="Cohorts.html#fig:aceConceptSetExpression">10.8</a>에서 우리가 선택한 컨셉 모음의 구성을 확인할 수 있다. 우리는 모든 ACE inhibitors 성분들을 선택했으며, 그것들의 하위 개념들도 포함시켰다. ‘Included concepts’를 클릭하여 포함된 21,536개의 모든 컨셉들을 확인할 수 있고, ‘Included Source Codes’를 클릭하여 모든 소스 코드들을 확인할 수도 있다.</p>
 <div class="figure" style="text-align: center"><span id="fig:aceConceptSetExpression"></span>
-<img src="images/Cohorts/aceConceptSetExpression.png" alt="A concept set containing ACE inhibitor drugs." width="100%" />
+<img src="images/Cohorts/aceConceptSetExpression.png" alt="ACE inhibitor를 포함한 약물들의 컨셉 모음" width="100%" />
 <p class="caption">
-Figure 10.8: A concept set containing ACE inhibitor drugs.
+Figure 10.8: ACE inhibitor를 포함한 약물들의 컨셉 모음
 </p>
 </div>
 </div>
-<div id="scenario-2-you-have-already-built-a-concept-set" class="section level4 unnumbered">
-<h4>Scenario 2: You Have Already Built a Concept Set</h4>
-<p>If you have already created a concept set and saved it in ATLAS, you can click to “Import Concept Set”. A dialogue box will open that will be prompt you to find your concept in the concept set repository of your ATLAS as shown in Figure <a href="Cohorts.html#fig:ATLASfindyourconcept">10.9</a>. In the example figure the user is retrieving concept sets stored in ATLAS. The user typed in the name given to this concept set “ace inhibitors” in the right hand search. This shortened the concept set list to only concepts with matching names. From there, the user can click on the row of the concept set to select it. (Note: the dialogue box will disappear once you have selected a concept set.) You will know this action is successful when the Any Drug box is updated with the name of the concept set you selected.</p>
+<div id="-2-----" class="section level4 unnumbered">
+<h4>시나리오 2: 당신은 이미 컨셉 모음을 만들었다</h4>
+<p>만약 당신이 이미 컨셉 모음을 만들었고, ATLAS에 저장했다면, ‘Import Concept Set’을 클릭하라. 그러면 그림 <a href="Cohorts.html#fig:ATLASfindyourconcept">10.9</a>에서 볼 수 있다시피 ATLAS의 컨셉 모음 저장소에서 당신의 컨셉 모음을 찾을 수 있는 대화창이 뜬다. 이번 예시에서는 사용자가 ATLAS에 저장되어 있던 컨셉 모음을 이용한다고 가정하자. 사용자는 검색 창에 ‘ace inhibitors’를 검색하였고, 검색 내용이 이름에 포함된 컨셉 모음들을 볼 수 있을 것이다. 사용자는 해당하는 컨셉 모음을 클릭하여 선택할 수 있다(참고 : 당신이 컨셉 모음을 선택하면 대화창은 사라진다). Any Drug 칸이 당신이 선택한 컨셉 모음의 이름으로 바뀌어 있다면 성공한 것이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASfindyourconcept"></span>
-<img src="images/Cohorts/ATLAS-findingyourconcept.png" alt="Importing a Concept Set from ATLAS Repository" width="100%" />
+<img src="images/Cohorts/ATLAS-findingyourconcept.png" alt="ATLAS 저장소에서 컨셉 모음을 가져오기" width="100%" />
 <p class="caption">
-Figure 10.9: Importing a Concept Set from ATLAS Repository
+Figure 10.9: ATLAS 저장소에서 컨셉 모음을 가져오기
 </p>
 </div>
 </div>
 </div>
-<div id="additional-initial-event-criteria" class="section level3">
-<h3><span class="header-section-number">10.7.3</span> Additional Initial Event Criteria</h3>
-<p>Now that you’ve attached a concept set, you are not done yet. Your question is looking for new users or the first time in someone’s history they are exposed to ACE inhibitors. This translates to the <em>first exposure</em> of ACE inhibitors in the patient’s record. To specify this, you need to click “+Add attribute”. You will want to select the “Add first exposure criteria”. Notice, you could specify other attributes of a criteria you build. You could specify an attribute of age at occurrence, the date of occurrence, gender or other attributes related to the drug. Criteria available for selection will look different for each domain.</p>
-<p>From there, the window will automatically close. Once selected, this additional attribute will show up in the same box as the initial criteria (see Figure <a href="Cohorts.html#fig:initialEventAce">10.10</a>).</p>
+<div id="---" class="section level3">
+<h3><span class="header-section-number">10.7.3</span> 추가적 초기 이벤트 기준</h3>
+<p>이제 코호트에 컨셉 모음을 만들어 붙였지만, 아직 끝난 것이 아니다. 당신은 ACE inhibitors를 태어나서 처음 복용한 사람들을 찾고 있다. 이는 ACE inhibitors을 처음 복용한 환자 기록을 찾는 것을 의미한다. 이를 지정하기 위해 당신은 ‘+Add attribute’를 클릭하여 ‘Add first exposure criteria’를 선택해야 한다. 당신이 만든 기준의 다른 특성들을 지정할 수 있다는 것을 참고하라. 약물을 복용한 날짜나 나이, 성별 혹은 약물과 관련한 다른 특성들을 지정할 수 있다. 각 도메인에 따라 선택할 수 있는 특성들이 다르다.</p>
+<p>선택을 했으면, 창은 자동적으로 닫힌다. 선택된 특성은 초기 기준과 같은 칸 안에서 볼 수 있을 것이다(그림 <a href="Cohorts.html#fig:initialEventAce">10.10</a>을 보라).</p>
 
 <div class="rmdimportant">
-<p>The current design of ATLAS may confuse some. Despite its appearance, the <img src="images/Cohorts/redX.png" /> is not intended to mean “No”. It is an actionable feature to allow the user to delete the criteria. If you click <img src="images/Cohorts/redX.png" />, this criteria will go away. Thus, you need to leave the criteria with the <img src="images/Cohorts/redX.png" /> to keep the criteria active.</p>
+<p>현재 ATLAS 디자인은 활용하기에 약간 혼란스러울 수 있다. 생긴 모양과는 다르게 버튼 <img src="images/Cohorts/redX.png" />는 ‘NO’를 의미하는 것이 아니다. 이는 사용자에게 해당 기준을 삭제할 수 있도록 만들어진 버튼이다. 만약 당신이 <img src="images/Cohorts/redX.png" />를 클릭한다면, 해당 기준은 사라질 것이다. 그러므로 당신의 기준을 사라지지 않은 채 그대로 보존시키고 싶다면, 옆에 <img src="images/Cohorts/redX.png" /> 버튼을 그대로 놔 두어야 한다.</p>
 </div>
 
-<p>Now you have built an initial qualifying event. To ensure you are capturing the first observed drug exposure, you will want to add a look-back window to know that you are looking at enough of the patient’s history to know what comes first. It is possible that a patient with a short observation period may have received an exposure elsewhere that we do not see. We cannot control this but we can mandate a minimum amount of time the patient must be in the data prior to the index date You can do this by adjusting the continuous observation drop downs. You could also click the box and type in a value to these windows. We will require 365 days of continuous observation prior to the initial event. You will update your observation period to: <em>with continuous observation of 365 days before</em>, as shown in Figure <a href="Cohorts.html#fig:initialEventAce">10.10</a>. This look-back window is the discretion of your study team. You may choose differently in other cohorts. This creates, as best as we are able, a minimum period of time we see the patient to ensure we are capturing the first record. This criteria is about prior history and does not involve time after the index event. Therefore, we require 0 days after the index event. Our qualifying event is the first-ever use of ACE inhibitors. Thus, we limit initial events to the “earliest event” per person.</p>
+<p>이제 당신은 만족스러운 초기 이벤트를 설정했다. 환자가 처음으로 약물을 복용했다는 사실을 보증하기 위해, 환자 기록을 확인할 수 있는 충분한 기간을 설정해 주면 좋을 것이다. 짧은 관찰 기간을 가진 환자들은 우리가 확인할 수 없는 다른 곳에서 약물을 복용하였을 수도 있다. 우리가 이것을 강제적으로 막을 수는 없지만 index date 이전에 관찰 기간을 설정함으로써 최소한 해당 관찰 기간 동안에는 약물 복용이 이루어지지 않았음을 보증할 수 있다. 이를 위해 관찰 기간을 설정하는 부분이 있으며, 구체적인 관찰 기간을 직접 설정할 수도 있다. 우리는 초기 이벤트 이전에 365일 동안 관찰된 환자를 필요로 한다. 그림 <a href="Cohorts.html#fig:initialEventAce">10.10</a>처럼 관찰 기간을 다음과 같이 설정하라: <em>with continuous observation of 365 days before.</em> 당신 연구 팀의 재량껏 관찰 기간을 설정하면 된다. 다른 코호트에서는 관찰 기간을 다르게 설정해서 다양한 시도들을 해볼 수 있다. 이는 환자의 과거력에 관한 기간이며, index date 이후의 시간은 포함하지 않는다. 그러므로 우리는 0 dates after index date 라고 설정해야 한다. 우리는 생에 처음 ACE inhibitors를 복용한 환자를 찾고 싶기 때문에 <em>limit initial events to the “earliest event” per person</em> (한 환자에서 발생한 여러 번의 ACE inhibitor 복용 중, 첫 번째 복용을 초기 이벤트로 설정하는 것)으로 설정한다.</p>
 <div class="figure" style="text-align: center"><span id="fig:initialEventAce"></span>
-<img src="images/Cohorts/initialEventAce.png" alt="Setting the required continuous observation before the index date." width="100%" />
+<img src="images/Cohorts/initialEventAce.png" alt="Index date 이전에 필요로 하는 관찰 기간 설정하기." width="100%" />
 <p class="caption">
-Figure 10.10: Setting the required continuous observation before the index date.
+Figure 10.10: Index date 이전에 필요로 하는 관찰 기간 설정하기.
 </p>
 </div>
-<p>To further explain how this logic comes together, you can think about assembling patient timelines.</p>
+<p>지금껏 설정한 논리를 한 눈에 보기 위해서 환자의 타임라인을 설정해볼 수 있다.</p>
 <div class="figure" style="text-align: center"><span id="fig:EarliestEventExplained"></span>
-<img src="images/Cohorts/EarliestEventExplained.png" alt="Explaining patient eligibility by criteria applied" width="100%" />
+<img src="images/Cohorts/EarliestEventExplained.png" alt="기준들이 적용됨에 따라 환자가 코호트에 적합한지 살펴보기" width="100%" />
 <p class="caption">
-Figure 10.11: Explaining patient eligibility by criteria applied
+Figure 10.11: 기준들이 적용됨에 따라 환자가 코호트에 적합한지 살펴보기
 </p>
 </div>
-<p>In Figure <a href="Cohorts.html#fig:EarliestEventExplained">10.11</a>, each line represents a single patient that may be eligible to join the cohort. The filled in stars represent a time the patient fulfills the specified criteria. As additional criteria is applied, you may see some stars are a lighter shade. This means that these patients have other records that satisfy the criteria but there is another record that proceeds that. By the time we get to the last criteria, we are looking at the cumulative view of patients who have ACE inhibitors for the first time and have 365 days prior to the first-time occurrence. Logically, limiting to the initial event is redundant though it is helpful to maintain our explicit logic in every selection we make. When you are building your own cohorts, you may opt to engage the Researchers section of the <a href="http://forums.ohdsi.org">OHDSI Forum</a> to get a second opinion on how to construct your cohort logic.</p>
+<p>그림 <a href="Cohorts.html#fig:EarliestEventExplained">10.11</a>에서 각 행은 코호트에 들어올 자격을 갖출 수 있는 환자 개개인을 나타낸다. 그리고 색칠이 된 별들은 환자가 특정 기준을 만족했던 시간을 나타낸다. 추가적인 기준들이 설정될수록 색칠이 된 별들 대신 그 자리에 색칠되지 않은 별들이 그려진 것을 볼 수 있다. 이는 환자가 조건들을 모두 만족하는 이벤트도 가지고 있지만, 그렇지 않은 이벤트도 가지고 있음을 의미한다. 마지막 기준을 그린 그림을 보면 우리는 ACE inhibitors를 처음으로 복용하였으며, 복용 이전에 최소 365일의 관찰 기간을 가진 환자들을 확인할 수 있다. 당신의 코호트를 설계할 때 <a href="http://forums.ohdsi.org">OHDSI Forum</a>에 참여하는 연구자들의 의견을 참고하면 더 좋을 것이다.</p>
 </div>
-<div id="inclusion-criteria" class="section level3">
-<h3><span class="header-section-number">10.7.4</span> Inclusion Criteria</h3>
-<p>Once we have specified a cohort entry event, you could proceed to one of two places to add your additional qualifying events: “Restrict initial events” and “New inclusion criteria”. The fundamental difference between these two options is what interim information you want ATLAS to serve back to you. If you add additional qualifying criteria into the Cohort Entry Event box by selecting “Restrict initial events”, when you choose to generate a count in ATLAS, you will only get back the number of people who meet ALL of these criteria. If you opt to add criteria into the “New inclusion criteria”, you will get an attrition chart to show you how many patients are lost by applying additional inclusion criteria. It is highly encouraged to utilize the Inclusion Criteria section so you can understand the impact of each rule on the overall success of the cohort definition. You may find a certain inclusion criteria severely limits the number of people who end up in the cohort. You may choose to relax this criterion to get a larger cohort. This will ultimately be at the discretion of the expert consensus assembling this cohort.</p>
-<p>You will now want to click “New inclusion criteria” to add a subsequent piece of logic about membership to this cohort. The functionality in this section is identical to the way we discussed building cohort criteria above. You may specific the criteria and add specific attributes. Our first additional criteria is to subset the cohort to only patients: <em>With at least 1 occurrence of hypertension disorder between 365 and 0 days after index date (first initiation of an ACE inhibitor)</em>. You will click “New inclusion criteria” to add a new criteria. You should name your criteria and, if desired, put a little description of what you are looking for. This is for your own purposes to recall what you build – it will not impact the integrity of the cohort you are defining.</p>
-<p>Once you have annotated this new criteria, you will click on the “+Add criteria to group” button to build your actual criteria for this rule. This button functions similar to the “Add Initial Event” except we are no longer specifying an initial event. We could add multiple criteria to this – which is why it specifies “add criteria to group”. An example would be if you have multiple ways of finding a disease (e.g. logic for a CONDITION_OCCURRENCE, logic using a DRUG_EXPOSURE as a proxy for this condition, logic for using a MEASUREMENT as a proxy for this condition). These would be separate domains and require different criteria but can be grouped into one criteria looking for this condition. In this case, we want to find a diagnosis of hypertension so we “Add condition occurrence”. We will follow similar steps as we did with the initial event by attaching a concept set to this record. We also want to specify the event starts between 365 days before and 0 days after the index date (the occurrence of the first ACE inhibitor use). Now check your logic against Figure <a href="Cohorts.html#fig:ATLASIC1">10.12</a>.</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">10.7.4</span> 포함 기준</h3>
+<p>코호트 진입 이벤트를 설정했으면, 다음 두 옵션을 통해 추가적 이벤트를 설정할 수 있다: ‘Restrict initial events’, 그리고 ‘New inclusion criteria’. 이 두 옵션 사이에는 ATLAS가 사용자에게 어떤 임시 정보를 제공하는가의 차이가 있다. 만약 당신이 기준을 추가하기 위해 ‘Restrict initial events’를 사용한다면, ATLAS에서 카운트를 생성(generate)할 때, 모든 기준들을 충족시키는 사람의 수를 얻게 될 것이다. ‘New inclusion criteria’를 통해 기준을 추가한다면, 추가 포함 기준을 적용하여 손실된 환자 수를 보여주는 감소 차트를 확인할 수 있을 것이다. 당신이 추가한 기준에 의해 얼마나 많은 손실이 발생하는지 보여주는 감소 차트를 확인하는 것은 중요하기 때문에 ‘New inclusion criteria’를 통해 기준을 추가하는 것이 권장된다. 이를 통해 코호트에 포함되는 환자 수를 급격하게 감소시키는 기준이 무엇인지 확인할 수 있게 된다. 당신은 해당 기준을 완화하여 보다 큰 코호트를 얻을 수 있다. 이것은 궁극적으로 이 코호트를 설계하는 전문가의 재량에 달려있다.</p>
+<p>이제 ‘New inclusion criteria’를 통해 기준들을 추가해보자. 이는 위에서 코호트 기준을 설정한 것과 동일한 방법으로 하면 된다. 특정 기준들을 만들어서 넣은 다음, 특정 속성들을 추가할 수 있을 것이다. 우리가 첫 번째로 추가할 기준은 다음과 같다: <em>ACE inhibitors 약물을 복용한 시점 이후 0~365일 이내에 최소 1회 고혈압이 발생한 사람.</em> ‘New inclusion criteria’를 클릭한 다음, 그 기준을 설명해줄 수 있는 이름을 정하라. 그래야 나중에 이 코호트를 다시 보았을 때 자신이 무엇을 만들었는지 헷갈리지 않을 것이다.</p>
+<p>이 새로운 기준에 이름을 달고 난 다음, “+Add criteria to group” 버튼을 클릭하여 여러 규칙을 담은 기준을 설계하라. 이 버튼은 “Add Initial Event”과 비슷한데, 다만 “+Add criteria to group”의 버튼은 초기 이벤트를 설계하고, 수정하는 버튼이 아니다. 우리는 여기서 여러 개의 기준을 추가할 수 있다. 예를 들어 만약 당신이 질병의 발생을 확인하는 여러가지 방법을 가지고 있다고 가정하자(예: CONDITION_OCCURRENCE, 혹은 DRUG_EXPOSURE, 혹은 MEASUREMENT을 사용한 방법). 모두 다른 도메인들이고 각각 다른 기준들을 필요로 하겠지만 특정 조건을 찾는 하나의 기준으로 그룹화할 수 있다. 이 경우에는, 우리는 고혈압의 진단을 찾고 싶기 때문에 “Add condition occurrence”를 선택한다. 여기에 적절한 컨셉 모음을 붙이는 등 초기 이벤트를 설정할 때와 비슷하게 하면 된다. 또한 ACE inhibitor 첫 복용한 날(index date)로 이후 0~365일의 기간을 설정하라. 그림 <a href="Cohorts.html#fig:ATLASIC1">10.12</a>와 같이 작성될 수 있을 것이다.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASIC1"></span>
-<img src="images/Cohorts/ATLAS-IC1.png" alt="Additional Inclusion criteria 1" width="100%" />
+<img src="images/Cohorts/ATLAS-IC1.png" alt="추가적 포함 기준 1" width="100%" />
 <p class="caption">
-Figure 10.12: Additional Inclusion criteria 1
+Figure 10.12: 추가적 포함 기준 1
 </p>
 </div>
-<p>You will then want to add another criterion to look for patients: <em>with exactly 0 occurrences of hypertension drugs ALL days before and 1 day before index start date (no exposure to HT drugs before an ACE inhibitor)</em>. This process begins as we did before by clicking the “New inclusion criteria” button, adding your annotations to this criterion and then clicking “+Add criteria to group”. This is a DRUG_EXPOSURE so you will click “Add Drug Exposure”, attach a concept set for hypertensive drugs, and will specify ALL days before and 0 days after the index date. Make sure to confirm you have <em>exactly 0</em> occurrence selected. Now check your logic against Figure <a href="Cohorts.html#fig:ATLASIC2">10.13</a>.</p>
+<p>그리고 당신은 환자들을 탐색할 또다른 기준을 추가하고 싶을 것이다: <em>with exactly 0 occurrences of hypertension drugs ALL days before and 1 day before index start date (ACE inhibitor 이전에 어떠한 고혈압 약물도 복용하지 않은 사람).</em> 먼저 “New inclusion criteria”를 클릭해 당신의 기준을 설정한 다음, “+Add criteria to group”을 클릭한다. 이는 DRUG_EXPOSURE의 영역이니 “Add Drug Exposure”를 클릭한 다음, 고혈압 약물의 컨셉 모음을 붙인다. 그리고, index date로부터 ALL days before and 0 days after라는 시간을 설정해준다. exactly 0 occurrence를 선택하였는지 다시 한 번 확인하고 그림 <a href="Cohorts.html#fig:ATLASIC2">10.13</a>과 같이 잘 만들어졌는지 확인하라.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASIC2"></span>
-<img src="images/Cohorts/ATLAS-IC2.png" alt="Additional Inclusion Criteria 2" width="100%" />
+<img src="images/Cohorts/ATLAS-IC2.png" alt="추가적 포함 기준 1" width="100%" />
 <p class="caption">
-Figure 10.13: Additional Inclusion Criteria 2
+Figure 10.13: 추가적 포함 기준 1
 </p>
 </div>
-<p>You may be confused why “having no occurrences” is coded as “exactly 0 occurrences.” This is a nuance of how ATLAS consumes knowledge. ATLAS only consumes inclusion criteria. You must use logical operators to indicate when you want the absence of a specific attribute such as: “Exactly 0.” Over time you will become more familiar with the logical operators available in ATLAS criteria.</p>
-<p>Lastly, you will want to add your another criterion to look for patients: <em>with exactly 1 occurrence of hypertension drugs between 0 days before and 7 days after index start date AND can only start one HT drug (an ACE inhibitor)</em> . This process begins as we did before by clicking the “New inclusion criteria” button, adding your annotations to this criterion and then clicking “+Add criteria to group”. This is a DRUG_EXPOSURE so you will click “Add Drug Exposure”, attach a concept set for hypertensive drugs, and will specify 0 days before and 7 days after the index date. Now check your logic against Figure <a href="Cohorts.html#fig:ATLASIC3">10.14</a>.</p>
+<p>“having no occurrences” (발생하지 않았다)라는 말이 왜 “exactly 0 occurrences” (발생 횟수 0회) 라고 쓰이는 지 혼란스러울 수 있다. 이는 ATLAS 가 사용하는 규칙이다. ATLAS는 오직 포함 기준만을 사용하고, 제외 기준을 사용하지 않는다. 만약 당신이 어떤 특성을 가진 환자들을 제외하고 싶다면 해당 특성을 0회 가지는 환자들을 포함한다는 말로 대체하여야 한다. 처음에는 헷갈릴 수 있지만 계속 사용하다 보면 이러한 논리가 익숙해질 것이다.</p>
+<p>마지막으로 목표 환자군 설정을 위한 기준을 하나 더 추가해야 한다: <em>with exactly 1 occurrence of hypertension drugs between 0 days before and 7 days after index start date AND can only start one HT drug (an ACE inhibitor) – index date 이후 0~7일 동안 정확히 1회의 고혈압 약물을 복용했으며, 반드시 ACE inhibitor로 고혈압 약물치료를 시작해야 한다.</em> 먼저 “New inclusion criteria”를 클릭해 당신의 기준을 설정한 다음, “+Add criteria to group”을 클릭한다. 이는 DRUG_EXPOSURE의 영역이니 “Add Drug Exposure”를 클릭한 다음, 고혈압 약물의 컨셉 모음을 붙인다. 그리고 index date 이후 0~7일이라는 시간을 설정해준다. 그림 <a href="Cohorts.html#fig:ATLASIC3">10.14</a>를 통해 진행된 모습을 확인하라.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLASIC3"></span>
-<img src="images/Cohorts/ATLAS-IC3.png" alt="Additional Inclusion Criteria 3" width="100%" />
+<img src="images/Cohorts/ATLAS-IC3.png" alt="추가적 포함 기준 3" width="100%" />
 <p class="caption">
-Figure 10.14: Additional Inclusion Criteria 3
+Figure 10.14: 추가적 포함 기준 3
 </p>
 </div>
 </div>
-<div id="cohort-exit-criteria" class="section level3">
-<h3><span class="header-section-number">10.7.5</span> Cohort Exit Criteria</h3>
-<p>You have now added all of your qualifying inclusion criteria. You must now specify your cohort exit criteria. You will ask yourself, “when are people no longer eligible to be included in this cohort?” In this cohort, we are following new-users of a drug exposure. We want to look at continuous observation period as it relates to the drug exposure. As such, the exit criterion is specified to follow for the entirety of the continuous drug exposure. If there is a subsequent break in the drug exposure, the patient will exit the cohort at this time. We do this as we cannot determine what happened to the person during the break in the drug exposure. We can also set a criteria on the persistence window to specify an allowable gap between drug exposures. In this case, our experts leading this study concluded that a maximum of 30 days between exposure records is allowable when inferring the era of persistence exposure.</p>
-<p><strong>Why are gaps allowed?</strong> In some data sets, we see only portions of clinical interactions. Drug exposures, in particular, may represent a dispense of a prescription that can cover a certain period of time. Thus, we allow a certain amount of time between drug exposures as we know the patient may logically still have access to the initial drug exposure because the unit of dispense exceeded one day.</p>
-<p>We can configure this by selecting the Event will persist “end of a continuous drug exposure”. We then will add our persistence window to “allow for a maximum of 30 days” and append the concept set for “ACE inhibitors”. Now check your logic against Figure <a href="Cohorts.html#fig:ATLAScohortexit">10.15</a>.</p>
+<div id="--" class="section level3">
+<h3><span class="header-section-number">10.7.5</span> 코호트 종료 기준</h3>
+<p>이제 모든 적절한 포함 기준을 추가했다. 다음으로 코호트 종료 기준을 정해야 한다. 사람들이 더 이상 이 코호트에 포함될 자격이 없어질 때는 언제일지 생각해보아야 할 것이다. 이 코호트에서 우리는 약물을 처음 복용한 사람들을 추적한다. 즉, 약물 복용을 중단한 시점에 환자는 코호트에서 나오게 하면 된다. 약물 복용이 중단되는 동안에는 해당 환자에게 무슨 일이 일어나는지 확인할 수 없기 때문이다. 또한 약물 복용 사이에 허용되는 공백기간을 지정하기 위해 persistence 창에서 기준을 설정할 수 있다. 이 연구에서 전문가들은 약물 복용 사이에 최대 30일의 공백기간은 허용된다고 결론지었다.</p>
+<p><strong>왜 공백기간이 허용되는가?</strong> 우리는 데이터 세트에서 실제로 이루어지는 일들의 일부만 관찰할 수 있을 뿐이다. 특히 환자의 약물 복용에 관한 정보는 처방전의 기록으로 확인한다. 그리고 처방전을 통해 하루 치 이상의 약을 처방하기 때문에 기록이 비어 있는 시간 동안에도 환자가 약을 복용하고 있다는 합리적 추론이 가능하다.</p>
+<p>Event will persist “end of a continuous drug exposure” 를 선택하고, persistence 창에 “allow for a maximum of 30 days”를 추가한 다음 ‘ACE inhibitor’ 컨셉 모음을 추가로 지정해 주면 된다. 그림 <a href="Cohorts.html#fig:ATLAScohortexit">10.15</a>를 통해 이를 확인하라.</p>
 <div class="figure" style="text-align: center"><span id="fig:ATLAScohortexit"></span>
-<img src="images/Cohorts/cohort-exit.png" alt="Cohort Exit Criteria" width="100%" />
+<img src="images/Cohorts/cohort-exit.png" alt="코호트 종료 기준" width="100%" />
 <p class="caption">
-Figure 10.15: Cohort Exit Criteria
+Figure 10.15: 코호트 종료 기준
 </p>
 </div>
-<p>In the case of this cohort, there are no other censoring events. However, you may build other cohorts where you need to specify this criteria. You would proceed similarly to the way we have added other attributes to this cohort definition. You have now successfully finished creating your cohort. Make sure to hit the <img src="images/Cohorts/save.png" /> button. Congratulations! Building a cohort is the most important building block of answering a question in the OHDSI tools. You can now use the “Export” tab to share your cohort definition to other collaborators in the form of SQL code or JSON files to load into ATLAS.</p>
+<p>이 코호트의 경우 다른 Censoring event는 선택되지 않았다. 하지만 Censoring event를 추가해야 하는 다른 코호트를 만들어야 할 때, 코호트 정의 할 때 다른 속성들을 추가했던 것과 비슷하게 진행하면 된다. 당신은 이제 당신의 코호트를 성공적으로 만들었다. 반드시 <img src="images/Cohorts/save.png" /> 버튼을 눌러라. 축하한다! 코호트를 만드는 것은 OHDSI가 제공하는 툴을 이용하기 위해 가장 중요한 부분이다. 이제 ‘Export’ 탭을 클릭하면 ATLAS에 당신이 정의한 코호트가 SQL코드와 JSON 파일로 저장되어 다른 연구자들과 공유할 수 있다.</p>
 </div>
 </div>
-<div id="implementing-the-cohort-using-sql" class="section level2">
-<h2><span class="header-section-number">10.8</span> Implementing the Cohort Using SQL</h2>
-<p>Here we describe how to create the same cohort, but using SQL and R. As discussed in Chapter <a href="SqlAndR.html#SqlAndR">9</a>, OHDSI provides two R packages, called SqlRender and DatabaseConnector, which together allow writing SQL code that can be automatically translated and executed against a wide variety of database platforms.</p>
-<p>For clarity, we will split the SQL into several chunks, each chunk generating a temp table that is used in the next. This is likely not the most computationally efficient way to do it, but it is easier to read than a single very long statement.</p>
-<div id="connecting-to-the-database" class="section level3">
-<h3><span class="header-section-number">10.8.1</span> Connecting to the Database</h3>
-<p>We first need to tell R how to connect to the server. We use the <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> package, which provides a function called <code>createConnectionDetails</code>. Type <code>?createConnectionDetails</code> for the specific settings required for the various database management systems (DBMS). For example, one might connect to a PostgreSQL database using this code:</p>
+<div id="sql---" class="section level2">
+<h2><span class="header-section-number">10.8</span> SQL을 사용하여 코호트 구현하기</h2>
+<p>여기서는 동일한 코호트를 SQL과 R을 통하여 작성하는 방법을 설명할 것이다. 9장에서 설명하였듯이 OHDSI는 SqlRender, DatabaseConnector라는 두 개의 R 패키지를 제공하는데, 이는 SQL의 코드가 다양한 플랫폼에서 실행될 수 있게끔 자동적으로 번역해준다.</p>
+<p>구체적인 설명을 위해 우리는 SQL 코드를 여러 개의 단계로 나눌 것이고, 각 단계에서는 다음 단계에 필요한 임시 테이블이 생성될 것이다. 이런 설명 방법이 가장 효율적이지는 않겠지만 매우 긴 단일 명령문을 읽는 것보단 쉬울 것이다.</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">10.8.1</span> 데이터베이스에 연결하기</h3>
+<p>처음으로 우리는 R에 서버에 어떻게 접속하는 지 알려주어야 한다. <code>createConnectionDetails</code>라는 기능을 가진 <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> 패키지를 사용할 것이다. <code>?createConnectionDetails</code>를 기입하여 다양한 데이터베이스 관리 시스템 (DBMS) 에 연결하기 위해 필요한 설정들을 확인할 수 있다. 예를 들어 아래의 코드를 이용해 PostgreSQL에 연결할 수 있다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CohortMethod)
 connDetails &lt;-<span class="st"> </span><span class="kw">createConnectionDetails</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
                                        <span class="dt">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,
@@ -936,11 +936,11 @@ connDetails &lt;-<span class="st"> </span><span class="kw">createConnectionDetai
 cdmDbSchema &lt;-<span class="st"> &quot;my_cdm_data&quot;</span>
 cohortDbSchema &lt;-<span class="st"> &quot;scratch&quot;</span>
 cohortTable &lt;-<span class="st"> &quot;my_cohorts&quot;</span></code></pre></div>
-<p>The last three lines define the <code>cdmDbSchema</code>, <code>cohortDbSchema</code>, and <code>cohortTable</code> variables. We will use these later to tell R where the data in CDM format live, and where the cohorts of interest have to be created. Note that for Microsoft SQL Server, database schemas need to specify both the database and the schema, so for example <code>cdmDbSchema &lt;- &quot;my_cdm_data.dbo&quot;</code>.</p>
+<p>마지막 3 줄은 변수 <code>cdmDbSchema</code>, <code>cohortDbSchema</code>, 그리고 <code>cohortTable</code> 들을 정의한다. 우리는 나중에 이 변수들을 R에게 CDM 포멧의 데이터가 어디에 위치해 있으며, 우리가 만든 코호트가 어디에 생성되어야 하는지 알려주기 위해 사용할 것이다. Microsoft SQL Server에서는 <code>cdmDbSchema &lt;- &quot;my_cdm_data.dbo&quot;</code>의 예시와 같이 데이터베이스와 스키마 모두를 지정해 주어야 함을 참고하라.</p>
 </div>
-<div id="specifying-the-concepts" class="section level3">
-<h3><span class="header-section-number">10.8.2</span> Specifying the Concepts</h3>
-<p>For readability we will define the concept IDs we need in R, and pass them to the SQL:</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">10.8.2</span> 컨셉 결정하기</h3>
+<p>가독성을 위해 R에 필요한 컨셉 아이디들을 정의하고 SQL에 전달한다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aceI &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1308216</span>, <span class="dv">1310756</span>, <span class="dv">1331235</span>, <span class="dv">1334456</span>, <span class="dv">1335471</span>, <span class="dv">1340128</span>, <span class="dv">1341927</span>,
           <span class="dv">1342439</span>, <span class="dv">1363749</span>, <span class="dv">1373225</span>)
 
@@ -957,9 +957,9 @@ allHtDrugs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="
                   <span class="dv">1363749</span>, <span class="dv">1367500</span>, <span class="dv">1373225</span>, <span class="dv">1373928</span>, <span class="dv">1386957</span>, <span class="dv">1395058</span>,
                   <span class="dv">1398937</span>, <span class="dv">40226742</span>, <span class="dv">40235485</span>)</code></pre></div>
 </div>
-<div id="finding-first-use" class="section level3">
-<h3><span class="header-section-number">10.8.3</span> Finding First Use</h3>
-<p>We will first find first use of ACE inhibitors for each patient:</p>
+<div id="----" class="section level3">
+<h3><span class="header-section-number">10.8.3</span> 약물을 처음 복용한 환자 찾기</h3>
+<p>먼저 각 환자에 대한 ACE inhibitor의 첫 복용을 찾을 것이다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conn &lt;-<span class="st"> </span><span class="kw">connect</span>(connectionDetails)
 
 sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
@@ -971,15 +971,15 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">WHERE ancestor_concept_id IN (@ace_i)</span>
 <span class="st">GROUP BY person_id;&quot;</span>
 
-<span class="kw">renderTranslateExecuteSql</span>(conn, 
-                          sql, 
-                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema,
                           <span class="dt">ace_i =</span> aceI)</code></pre></div>
-<p>Note that we join the DRUG_EXPOSURE table to the CONCEPT_ANCESTOR table to find all drugs that contain an ACE inhibitor.</p>
+<p>DRUG_EXPOSURE 테이블을 CONCEPT_ANCESTOR 테이블에 조인함으로서 ACE inhibitor를 포함하는 모든 약물을 찾았다는 것을 참고하라.</p>
 </div>
-<div id="require-365-days-of-prior-observation" class="section level3">
-<h3><span class="header-section-number">10.8.4</span> Require 365 Days of Prior Observation</h3>
-<p>Next, we require 365 of continuous prior observation by joining to the OBSERVATION_PERIOD table:</p>
+<div id="----365----" class="section level3">
+<h3><span class="header-section-number">10.8.4</span> 약물 복용 이전 최소 365일동안 관찰될 수 있었던 환자</h3>
+<p>OBSERVATION_PERIOD 테이블을 조인하여 약물 복용 이전 최소 365일동안 관찰될 수 있었던 환자를 선택해야 한다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT subject_id,</span>
 <span class="st">  cohort_start_date</span>
 <span class="st">INTO #has_prior_obs</span>
@@ -992,9 +992,9 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 
 <span class="kw">renderTranslateExecuteSql</span>(conn, sql, <span class="dt">cdm_db_schema =</span> cdmDbSchema)</code></pre></div>
 </div>
-<div id="require-prior-hypertension" class="section level3">
-<h3><span class="header-section-number">10.8.5</span> Require Prior Hypertension</h3>
-<p>We require a hypertension diagnosis in the 365 days prior:</p>
+<div id="---" class="section level3">
+<h3><span class="header-section-number">10.8.5</span> 이전에 고혈압을 진단받은 환자</h3>
+<p>index date로부터 365일 이내에 고혈압 진단을 받은 환자여야 한다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT DISTINCT subject_id,</span>
 <span class="st">  cohort_start_date</span>
 <span class="st">INTO #has_ht</span>
@@ -1007,15 +1007,15 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">  ON descendant_concept_id = condition_concept_id</span>
 <span class="st">WHERE ancestor_concept_id = @hypertension;&quot;</span>
 
-<span class="kw">renderTranslateExecuteSql</span>(conn, 
-                          sql, 
-                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema,
                           <span class="dt">hypertension =</span> hypertension)</code></pre></div>
-<p>Note that we <code>SELECT DISTINCT</code>, because else if a person has multiple hypertension diagnoses in their past, we would create duplicate cohort entries.</p>
+<p><code>SELECT DISTINCT</code>를 사용하여 과거에 여러 번의 고혈압 진단을 받은 환자들이 여러 번의 코호트 진입을 하지 않도록 했다.</p>
 </div>
-<div id="no-prior-treatment" class="section level3">
-<h3><span class="header-section-number">10.8.6</span> No Prior Treatment</h3>
-<p>We require no prior exposure to any hypertension treatment:</p>
+<div id="----" class="section level3">
+<h3><span class="header-section-number">10.8.6</span> 사전에 받은 치료가 없어야 함</h3>
+<p>이전에 어떠한 고혈압 약물이라도 복용해서는 안 된다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT subject_id,</span>
 <span class="st">  cohort_start_date</span>
 <span class="st">INTO #no_prior_ht_drugs</span>
@@ -1031,15 +1031,15 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">    AND drug_exposure_start_date &lt; cohort_start_date</span>
 <span class="st">WHERE person_id IS NULL;&quot;</span>
 
-<span class="kw">renderTranslateExecuteSql</span>(conn, 
-                          sql, 
-                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema,
                           <span class="dt">all_ht_drugs =</span> allHtDrugs)</code></pre></div>
-<p>Note that we use a left join, and only allow rows where the person_id, which comes from the DRUG_EXPOSURE table is NULL, meaning no matching record was found.</p>
+<p>Left join을 사용했으며, DRUG_EXPOSURE 테이블의 person_id 행만 NULL의 값(일치하는 기록이 없음을 의미)을 가질 수 있도록 허용했다는 것을 참고하라.</p>
 </div>
-<div id="monotherapy" class="section level3">
-<h3><span class="header-section-number">10.8.7</span> Monotherapy</h3>
-<p>We require there to be only one exposure to hypertension treatment in the first seven days of the cohort entry:</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">10.8.7</span> 단독 요법</h3>
+<p>코호트에 진입하고 첫 1주일 동안은 고혈압 치료 약물을 단 1회만 복용하도록 설정한다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT subject_id,</span>
 <span class="st">  cohort_start_date</span>
 <span class="st">INTO #monotherapy</span>
@@ -1055,14 +1055,14 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">  cohort_start_date</span>
 <span class="st">HAVING COUNT(*) = 1;&quot;</span>
 
-<span class="kw">renderTranslateExecuteSql</span>(conn, 
-                          sql, 
-                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema,
                           <span class="dt">all_ht_drugs =</span> allHtDrugs)</code></pre></div>
 </div>
-<div id="cohort-exit" class="section level3">
-<h3><span class="header-section-number">10.8.8</span> Cohort Exit</h3>
-<p>We have now fully specified our cohort except the cohort end date. The cohort is defined to end when the exposure stops, allowing for a maximum 30-day gap between subsequent exposures. This means we need to not only consider the first drug exposure, but also subsequent drug exposures to ACE inhibitors. The SQL for combining subsequent exposures into eras can be highly complex. Luckily, standard code has been defined that can efficiently create eras. (This code was written by Chris Knoll, and is often referred to within OHDSI as ‘the magic’). We first create a temp table containing all exposures we wish to merge:</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">10.8.8</span> 코호트 종료</h3>
+<p>이제 코호트 종료 일자를 제외하고 코호트를 완전히 지정했다. 코호트는 노출이 중단되면 종료되도록 정의되며, 노출 사이에 최대 30일의 간격까지는 허용된다. 즉, 약물의 복용 시작 뿐만 아니라 ACE inhibitor의 후속 복용에 대해서도 고려한다는 말이다. SQL을 통해 약물의 후속 복용을 고려하여 약물 복용 기간을 정의하는 것은 매우 복잡하다. 운이 좋게도 약물 복용 기간을 효율적으로 만들 수 있는 표준 코드가 작성되었다. 이 코드는 Chris Knoll이 작성했으며 OHDSI 내에서 종종 마법이라고 불리는 코드이기도 하다. 먼저 병합하려는 모든 약물 복용을 포함하는 임시 테이블을 만든다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
 <span class="st">  SELECT person_id,</span>
 <span class="st">    CAST(1 AS INT) AS concept_id,</span>
@@ -1074,10 +1074,10 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">    ON descendant_concept_id = drug_concept_id</span>
 <span class="st">  WHERE ancestor_concept_id IN (@ace_i);&quot;</span>
 <span class="kw">renderTranslateExecuteSql</span>(conn,
-                          sql, 
-                          <span class="dt">cdm_db_schema =</span> cdmDbSchema, 
+                          sql,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema,
                           <span class="dt">ace_i =</span> aceI)</code></pre></div>
-<p>We then run the standard code for merging sequential exposures:</p>
+<p>그런 다음 순차적 복용을 병합하기 위한 표준 코드를 실행한다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
 <span class="st">SELECT ends.person_id AS subject_id,</span>
 <span class="st">    ends.concept_id AS cohort_definition_id,</span>
@@ -1145,11 +1145,10 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">  ends.era_end_date;&quot;</span>
 
 <span class="kw">renderTranslateExecuteSql</span>(conn,
-                          sql, 
+                          sql,
                           <span class="dt">cdm_db_schema =</span> cdmDbSchema,
                           <span class="dt">max_gap =</span> <span class="dv">30</span>)</code></pre></div>
-<p>This code merges all subsequent exposures, allowing for a gap between exposures as defined by the <code>max_gap</code> argument. The resulting drug exposure eras are written to a temp table called <code>#exposure_era</code>.</p>
-<p>Next, we simply join these ACE inhibitor exposure eras to our original cohort to use the era end dates as our cohort end dates:</p>
+<p>이 코드는 모든 후속 복용들을 병합하며, <code>max_gap</code>의 변수를 통해 약물 복용 사이에 허용되는 최대기간을 정의할 수 있다. 그 결과로 작성된 약물 복용 기간은 임시 테이블 <code>#exposure_era</code>라고 불리는 임시 테이블에 기록된다. 다음으로 ACE inhibitor 복용 기간을 우리의 기존 코호트에 조인하기만 하면, ACE inhibitor 복용 종료 날짜를 우리의 코호트 종료 날짜로써 사용할 수 있게 된다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT ee.subject_id,</span>
 <span class="st">  CAST(1 AS INT) AS cohort_definition_id,</span>
 <span class="st">  ee.cohort_start_date,</span>
@@ -1160,15 +1159,15 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="st">  ON mt.subject_id = ee.subject_id</span>
 <span class="st">    AND mt.cohort_start_date = ee.cohort_start_date;&quot;</span>
 
-<span class="kw">renderTranslateExecuteSql</span>(conn, 
-                          sql, 
-                          <span class="dt">cohort_db_schema =</span> cohortDbSchema, 
+<span class="kw">renderTranslateExecuteSql</span>(conn,
+                          sql,
+                          <span class="dt">cohort_db_schema =</span> cohortDbSchema,
                           <span class="dt">cohort_table =</span> cohortTable)</code></pre></div>
-<p>Here we store the final cohort in schema and table we defined earlier. We assign it a cohort definition ID of 1, to distinguish it from other cohorts we may wish to store in the same table.</p>
+<p>이제 우리가 정의한 최종 코호트를 스키마와 테이블에 저장해야 한다. 우리는 코호트 정의 ID를 1로 설정하여 동일한 테이블에 저장된 다른 코호트들과 구별할 것이다.</p>
 </div>
-<div id="cleanup" class="section level3">
-<h3><span class="header-section-number">10.8.9</span> Cleanup</h3>
-<p>Finally, it is always recommend to clean up any temp tables that were created, and disconnect from the database server:</p>
+<div id="section-10.8.9" class="section level3">
+<h3><span class="header-section-number">10.8.9</span> 정리하기</h3>
+<p>마지막으로, 작성된 임시 테이블을 정리하고 데이터베이스 서버와의 연결을 끊는 것이 좋다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;TRUNCATE TABLE #first_use;</span>
 <span class="st">DROP TABLE #first_use;</span>
 
@@ -1195,57 +1194,57 @@ sql &lt;-<span class="st"> &quot;SELECT person_id AS subject_id,</span>
 <span class="kw">disconnect</span>(conn)</code></pre></div>
 </div>
 </div>
-<div id="summary-5" class="section level2">
-<h2><span class="header-section-number">10.9</span> Summary</h2>
+<div id="-3" class="section level2">
+<h2><span class="header-section-number">10.9</span> 요약</h2>
 
 <div class="rmdsummary">
 <ul>
-<li><p>A cohort is set of persons who satisfy one or more inclusion criteria for a duration of time.</p></li>
-<li><p>A cohort definition is the description of logic used for identifying a particular cohort.</p></li>
-<li><p>Cohorts are used (and re-used) throughout the OHDSI analytics tools to define for example the exposures and outcomes of interest.</p></li>
-<li><p>There are two major approaches to building a cohort: rule-based and probabilistic.</p></li>
-<li>Rule-based cohort definitions can be created in ATLAS, or using SQL</li>
+<li><p>코호트는 일정 기간 동안 하나 이상의 포함 기준을 만족시키는 사람들의 집합이다.</p></li>
+<li><p>코호트 정의는 특정 코호트를 식별하는 데 사용되는 논리에 대한 설명이다.</p></li>
+<li><p>코호트는 OHDSI 분석 도구 전체에서 사용(및 재사용)될 수 있다.</p></li>
+<li><p>코호트를 작성하기 위한 두 가지 주요 접근 방법이 있다: 규칙 기반 정의, 확률적 정의</p></li>
+<li>규칙 기반의 코호트 정의는 ATLAS나 SQL을 통해 작성될 수 있다.</li>
 </ul>
 </div>
 
 </div>
-<div id="exercises-2" class="section level2">
-<h2><span class="header-section-number">10.10</span> Exercises</h2>
-<div id="prerequisites-2" class="section level4 unnumbered">
-<h4>Prerequisites</h4>
-<p>For the first exercise, access to an ATLAS instance is required. You can use the instance at <a href="http://atlas-demo.ohdsi.org" class="uri">http://atlas-demo.ohdsi.org</a>, or any other instance you have acces to.</p>
+<div id="section-10.10" class="section level2">
+<h2><span class="header-section-number">10.10</span> 실습</h2>
+<div id="--2" class="section level4 unnumbered">
+<h4>전제 조건</h4>
+<p>첫 번째 실습으로, ATLAS에 접근이 필요하다. <a href="http://atlas-demo.ohdsi.org" class="uri">http://atlas-demo.ohdsi.org</a>를 통해 접속하거나, 다른 접속방법을 이용해도 된다.</p>
 
 <div class="exercise">
-<p><span id="exr:exerciseCohortsAtlas" class="exercise"><strong>Exercise 10.1  </strong></span>Use ATLAS to create a cohort definition following these criteria:</p>
+<p><span id="exr:exerciseCohortsAtlas" class="exercise"><strong>Exercise 10.1  </strong></span>ATLAS를 이용하여 아래의 기준에 따라 코호트를 작성하라:</p>
 <ul>
-<li>New users of diclofenac</li>
-<li>Ages 16 or older</li>
-<li>With at least 365 days of continuous observation prior to exposure</li>
-<li>Without prior exposure to any NSAID (Non-Steroidal Anti-Inflammatory Drug)</li>
-<li>Without prior diagnosis of cancer</li>
-<li>With cohort exit defined as discontinuation of exposure (allowing for a 30-day gap)</li>
+<li>diclofenac을 복용하기 시작한 환자들</li>
+<li>16세 이상의 환자들</li>
+<li>약물 복용 이전 최소 365일 간 관찰이 되어 있던 환자들</li>
+<li>이전에 NSAID (Non-Steroidal Anti-Inflammatory Drug) 를 복용하지 않은 환자들</li>
+<li>이전에 암을 진단받지 않은 환자들</li>
+<li>약물 복용 중단을 코호트 종료로 정의 (30일 이하의 약물 미복용 기간은 허용)</li>
 </ul>
 </div>
 
 </div>
-<div id="prerequisites-3" class="section level4 unnumbered">
-<h4>Prerequisites</h4>
-<p>For the second exercise we assume R, R-Studio and Java have been installed as described in Section <a href="OhdsiAnalyticsTools.html#installR">8.4.5</a>. Also required are the <a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>, <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>, and <a href="https://ohdsi.github.io/Eunomia/">Eunomia</a> packages, which can be installed using:</p>
+<div id="--3" class="section level4 unnumbered">
+<h4>전제 조건</h4>
+<p>두 번째 실습을 수행하기 위해서 <a href="OhdsiAnalyticsTools.html#installR">8.4.5</a>절에서 설명된 것처럼 R과 R-Studio, 그리고 자바가 설치되어 있다고 가정한다. 또한 아래의 코드를 사용하여 <a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>, <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>, 그리고 <a href="https://ohdsi.github.io/Eunomia/">Eunomia</a> 패키지를 설치하라:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;devtools&quot;</span>))
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="dt">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</code></pre></div>
-<p>The Eunomia package provides a simulated dataset in the CDM that will run inside your local R session. The connection details can be obtained using:</p>
+<p>Eunomia 패키지는 당신의 로컬 R 세션에서 수행될 CDM의 데이터를 제공한다. 아래의 코드를 이용하여 연결할 수 있다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">connectionDetails &lt;-<span class="st"> </span>Eunomia<span class="op">::</span><span class="kw">getEunomiaConnectionDetails</span>()</code></pre></div>
-<p>The CDM database schema is “main”.</p>
+<p>CDM 데이터베이스 스키마는 ‘main’ 이다.</p>
 
 <div class="exercise">
-<p><span id="exr:exerciseCohortsSql" class="exercise"><strong>Exercise 10.2  </strong></span>Use SQL and R to create a cohort for acute myocardial infarction (AMI) in the existing COHORT table, following these criteria:</p>
+<p><span id="exr:exerciseCohortsSql" class="exercise"><strong>Exercise 10.2  </strong></span>다음 기준에 따르도록 현재 존재하는 코호트 테이블 안에서 급성 심근경색(Acute Myocardial Infarction) 코호트를 SQL과 R을 이용하여 만들어 보자:</p>
 <ul>
-<li>An occurrence of a myocardial infarction diagnose (concept 4329847 “Myocardial infarction” and all of its descendants, excluding concept 314666 “Old myocardial infarction” and any of its descendants).</li>
-<li>During an inpatient or ER visit (concepts 9201, 9203, and 262 for “Inpatient visit”, “Emergency Room Visit”, and “Emergency Room and Inpatient Visit”, respectively).</li>
+<li>심근 경색을 진단받은 사람들 (컨셉 4329847 ’Myocardial infarction’과 이것의 그 하위 컨셉들에서 컨셉 314666 ’Old myocardial infarction’과 그 모든 하위 컨셉들을 제외하기)</li>
+<li>입원환자 혹은 응급실 방문 환자만 선택 (컨셉 9201’Inpatient Visit’, 9203 ‘Emergency Room Visit’), 262 ‘Emergency Room and Inpatient Visit’)</li>
 </ul>
 </div>
 
-<p>Suggested answers can be found in Appendix <a href="SuggestedAnswers.html#Cohortsanswers">E.6</a>.</p>
+<p>해답은 부록 <a href="SuggestedAnswers.html#Cohortsanswers">E.6</a>에 있다.</p>
 
 </div>
 </div>
@@ -1261,13 +1260,6 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <div id="ref-Swerdel2019phevaluator">
 <p>Swerdel, J. N., G. Hripcsak, and P. B. Ryan. 2019. “PheValuator: Development and Evaluation of a Phenotype Algorithm Evaluator.” <em>J Biomed Inform</em>, July, 103258.</p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="54">
-<li id="fn54"><p><a href="https://github.com/OHDSI/Aphrodite" class="uri">https://github.com/OHDSI/Aphrodite</a><a href="Cohorts.html#fnref54">↩</a></p></li>
-<li id="fn55"><p><a href="https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg" class="uri">https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg</a><a href="Cohorts.html#fnref55">↩</a></p></li>
-</ol>
 </div>
             </section>
 
