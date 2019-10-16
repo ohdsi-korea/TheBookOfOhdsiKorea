@@ -79,17 +79,19 @@ knitr::include_graphics("images/ClinicalValidity/matrix.png")
 
 원천 기록 확인, 차트 검토를 통한 임상적 판단에는 여러 가지 한계가 있다. 앞서 언급했듯이, 차트 검토는 양성예측도와 같은 단일 지표의 평가에도 매우 많은 시간이 소요되고 자원이 많이 소요되는 과정이 될 수 있다. 이러한 한계는 혼동 행렬을 완전히 채우기 위해서 전체 모집단을 평가해야 하기 때문에 실용성을 크게 저해한다. 또한 상기 프로세스의 다중 단계는 연구의 결과를 편향시킬 수 있는 잠재력을 가지고 있다. 예를 들어, EHR에서 기록에 동일하게 접근할 수 없거나, EHR이 없거나, 개별적인 환자 동의가 필요한 경우, 추출된 평가 대상의 표본은 정말로 무작위적이지 않을 수 있으며, 선택 편향을 야기할 수 있다. 또한 수동적인 프로세스는 인간의 실수나 잘못된 분류에 취약하므로 완벽하게 정확한 측정 기준을 나타내지 못할 수 있다. 환자의 기록이 불충분하거나, 결정이 주관적이거나, 충분한 전문성이 없는 등의 이유로 종종 임상 전문가들 사이에 의견 불일치가 있을 수 있다. 많은 연구에서, 전문가들 사이의 불일치에 대해 충분히 고려하지 않는 다수결의 원칙을 통해 일방적으로 해결된다.
 
-### Example of Source Record Verification
+### 원천 기록 검증에 대한 예시
 
-An example of the process to conduct a cohort definition validation using chart review is provided from a study by the Columbia University Irving Medical Center (CUIMC), which validated a cohort definition for multiple cancers as part of a feasibility study for the National Cancer Institute (NCI). The steps used to conduct the validation for the example of one of these cancers—prostate cancer—are as follows:
 
-1. Submitted proposal and obtained IRB consent for OHDSI cancer phenotyping study.
-2. Developed a cohort definition for prostate cancer: Using ATHENA and ATLAS to explore the vocabulary, we created a cohort definition to include all patients with a condition occurrence for Malignant Tumor of Prostate (concept ID 4163261), excluding Secondary Neoplasm of Prostate (concept ID 4314337) or Non-Hodgkin’s Lymphoma of Prostate (concept ID 4048666).
-3. Generated cohort using ATLAS and randomly selected 100 patients for manual review, mapping each PERSON_ID back to patient MRN using mapping tables. 100 patients were selected in order to achieve our desired level of statistical precision for the performance metric of PPV.
-4. Manually reviewed records in the various EHRs—both inpatient and outpatient—in order to determine whether each person in the random subset was a true or false positive.
-5. Manual review and clinical adjudication were performed by one physician (although ideally in future more rigorous validation studies would be done by a higher number of reviewers to assess for consensus and inter-rater reliability).
-6. Determination of a reference standard was based on clinical documentation, pathology reports, labs, medications and procedures as documented in the entirety of the available electronic patient record.
-7. Patients were labeled as 1) prostate cancer 2) no prostate cancer or 3) unable to determine.
+차트 검토를 활용한 코호트 정의 유효성을 검사하는 과정의 예시는 CUIMC(Columbia University Irving Medical Center)에 수행하는 연구로부터 제공되어지는데, 그 연구는 NCI(National Cancer Institute)에 행하는 타당성 연구의 일환인 다수의 암에 대한 코호트 정의를 검수하는 것이다. 이 과정은 이러한 암 중 하나인 전립선 암을 검증하는데 사용되었는데, 과정은 다음과 같다.
+
+1. 제안서를 제출하고, OHDSI 암 표현형 연구를 위한 IRB의 동의를 얻었다.
+2.전립선 암에 대한 코호트 정의를 개발하였다: 어휘를 탐구하기 위해 ATHENA와 ATLAS를 사용해서, 우리는 전립선 2차 신경세포(concept ID 4314337) 또는 Non-Hodgkin’s의 전립선 림프종(concept ID 4048666)을 제외한 전립선 악성 종양(concept ID 4163261)을 가지고 있는 모든 환자를 포함한 코호트 정의를 생성했다.
+3. ATLAS를 사용하여 코호트를 생성하고, 수동 검토를 위한 100명의 임의 환자를 지정하여 개개인의 PERSON_ID를 환자 MRN을 매핑테이블을 사용하여 매핑하였다. PPV의 성능 측정 기준에 맞는 원하는 통계적 정밀도를 달성하기 위하여 100명의 환자가 선정되었다.
+4. 위의 임의로 선정한 각각의 환자가 참 혹은 거짓 양성 반응을 보이는지 밝히기 위하여 입원 환자와 외래 환자를 모두 포함한 다양한 EHRs의 기록을 수동으로 검토하였다.
+5. 한 의사가 수동 검토와 임상 판정을 실행하였다. (비록 이상적으로는 미래에 합의와 계층간의 신뢰성을 평가하기 위해 더욱 엄격한 검증 연구가 더욱 많은 검토자에 의해 실행되어야 할 것이다.)
+6. 참고 기준의 결정은 임상 문서, 병리학 보고서, 실험실, 의약품, 사용 가능한 전자 환자기록 전체 문서가 기반이 되었다.
+7. 환자들은 1)전립선 암 2)비 전립선 암 3)인식불가 로 분류되었다.
+
 8. A conservative estimate of PPV was calculated using the following: prostate cancer/ (no prostate cancer + unable to determine).
 9. Then, using the tumor registry as an additional gold standard to identify a reference standard across the entire CUIMC population, we counted the number of persons in the tumor registry which were and were not accurately identified by the cohort definition, which allowed us to estimate sensitivity using these values as true positives and false negatives.
 10. Using the estimated sensitivity, PPV, and prevalence, we could then estimate specificity for this cohort definition.
