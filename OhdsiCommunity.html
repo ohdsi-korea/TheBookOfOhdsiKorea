@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 The OHDSI Community | The Book of OHDSI Korea</title>
+  <meta name="description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 The OHDSI Community | The Book of OHDSI Korea" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/" />
+  <meta property="og:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
+  <meta property="og:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="github-repo" content="OHDSI-Korea/TheBookOfOhdsiKorea" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 The OHDSI Community | The Book of OHDSI Korea" />
+  
+  <meta name="twitter:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="twitter:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
+
+<meta name="author" content="OHDSI-Korea" />
+
+
+<meta name="date" content="2019-10-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="index.html">
+<link rel="next" href="WhereToBegin.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104086677-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104086677-2');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Book of OHDSI</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>서문</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i>이 책의 목표</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i>이 책의 구성</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#eab8b0ec97acec9e90"><i class="fa fa-check"></i>기여자</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>소프트웨어 버전</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#eb9dbcec9db4ec84a0ec8aa4"><i class="fa fa-check"></i>라이선스</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i>이 책이 쓰여진 과정</a></li>
+</ul></li>
+<li class="part"><span><b>I The OHDSI Community</b></span></li>
+<li class="chapter" data-level="1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html"><i class="fa fa-check"></i><b>1</b> The OHDSI Community</a><ul>
+<li class="chapter" data-level="1.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#---the-journey-from-data-to-evidence"><i class="fa fa-check"></i><b>1.1</b> 데이터에서 근거로의 여정 (The Journey from Data to Evidence)</a></li>
+<li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#-observational-medical-outcomes-partnership-omop"><i class="fa fa-check"></i><b>1.2</b> 오몹 (Observational Medical Outcomes Partnership, OMOP)</a></li>
+<li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#----ohdsi-as-an-open-science-collaborative"><i class="fa fa-check"></i><b>1.3</b> 개방형 협업 공동체로서의 오딧세이 (OHDSI as an Open-Science Collaborative)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-mission"><i class="fa fa-check"></i><b>1.3.1</b> OHDSI의 사명 (Our Mission)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-vision"><i class="fa fa-check"></i><b>1.3.2</b> OHDSI의 이상 (Our Vision)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi---our-objectives"><i class="fa fa-check"></i><b>1.3.3</b> OHDSI의 핵심 가치 (Our Objectives)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#--ohdsis-progress"><i class="fa fa-check"></i><b>1.4</b> 오딧세이의 진척 (OHDSI’s Progress)</a></li>
+<li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#collaborating-in-ohdsi"><i class="fa fa-check"></i><b>1.5</b> Collaborating in OHDSI</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.6</b> 한국 오딧세이의 역사</a></li>
+<li class="chapter" data-level="1.7" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#summary"><i class="fa fa-check"></i><b>1.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> 어디서부터 시작할 것 인가 (Where to Begin)</a><ul>
+<li class="chapter" data-level="2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>2.1</b> 여정에 동참 하십시오</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-"><i class="fa fa-check"></i><b>2.1.1</b> OHDSI 포럼</a></li>
+<li class="chapter" data-level="2.1.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-"><i class="fa fa-check"></i><b>2.1.2</b> OHDSI 이벤트</a></li>
+<li class="chapter" data-level="2.1.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi--"><i class="fa fa-check"></i><b>2.1.3</b> OHDSI 커뮤니티 콜</a></li>
+<li class="chapter" data-level="2.1.4" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi-"><i class="fa fa-check"></i><b>2.1.4</b> OHDSI 워크그룹</a></li>
+<li class="chapter" data-level="2.1.5" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi--"><i class="fa fa-check"></i><b>2.1.5</b> OHDSI 지역 지부</a></li>
+<li class="chapter" data-level="2.1.6" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi--"><i class="fa fa-check"></i><b>2.1.6</b> OHDSI 리서치 네트워크</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.2</b> 적합한 위치</a></li>
+<li class="chapter" data-level="2.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> 오픈 사이언스</a><ul>
+<li class="chapter" data-level="3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.1</b> 오픈 사이언스</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#---study-a-thon"><i class="fa fa-check"></i><b>3.2</b> 실천의 오픈 사이언스: Study-a-Thon</a></li>
+<li class="chapter" data-level="3.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.3</b> 오픈 스탠다드</a></li>
+<li class="chapter" data-level="3.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.4</b> 오픈 소스</a></li>
+<li class="chapter" data-level="3.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.5</b> 오픈 데이터</a></li>
+<li class="chapter" data-level="3.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.6</b> 열린 담론</a></li>
+<li class="chapter" data-level="3.7" data-path="OpenScience.html"><a href="OpenScience.html#ohdsi-fair--"><i class="fa fa-check"></i><b>3.7</b> OHDSI와 FAIR 가이드 원칙</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="OpenScience.html"><a href="OpenScience.html#section-3.7.1"><i class="fa fa-check"></i><b>3.7.1</b> 도입</a></li>
+<li class="chapter" data-level="3.7.2" data-path="OpenScience.html"><a href="OpenScience.html#section-3.7.2"><i class="fa fa-check"></i><b>3.7.2</b> 검색성</a></li>
+<li class="chapter" data-level="3.7.3" data-path="OpenScience.html"><a href="OpenScience.html#section-3.7.3"><i class="fa fa-check"></i><b>3.7.3</b> 접근성</a></li>
+<li class="chapter" data-level="3.7.4" data-path="OpenScience.html"><a href="OpenScience.html#section-3.7.4"><i class="fa fa-check"></i><b>3.7.4</b> 상호운용성</a></li>
+<li class="chapter" data-level="3.7.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.7.5</b> 재사용 가능성</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Uniform Data Representation</b></span></li>
+<li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 공통 데이터 모델</a><ul>
+<li class="chapter" data-level="4.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>4.1</b> 설계 원리</a></li>
+<li class="chapter" data-level="4.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2</b> 데이터 모델 규칙</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.2.1</b> 모델의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2.2</b> 스키마의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>4.2.3</b> 데이터 테이블의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#domains"><i class="fa fa-check"></i><b>4.2.4</b> 도메인의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concept---"><i class="fa fa-check"></i><b>4.2.5</b> Concept을 통한 내용의 표현</a></li>
+<li class="chapter" data-level="4.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2.6</b> 필드 명명 규칙</a></li>
+<li class="chapter" data-level="4.2.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concepts-Sources"><i class="fa fa-check"></i><b>4.2.7</b> concept과 원본 값과의 차이</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-cdm-"><i class="fa fa-check"></i><b>4.3</b> 표준화된 CDM 테이블</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.3.1</b> 실행 예제: 자궁내막증</a></li>
+<li class="chapter" data-level="4.3.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.3.2</b> PERSON 테이블</a></li>
+<li class="chapter" data-level="4.3.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.3.3</b> OBSERVATION_PERIOD 테이블</a></li>
+<li class="chapter" data-level="4.3.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.3.4</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#conditionOccurrence"><i class="fa fa-check"></i><b>4.3.5</b> CONDITION_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#drugExposure"><i class="fa fa-check"></i><b>4.3.6</b> DRUG_EXPOSURE</a></li>
+<li class="chapter" data-level="4.3.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#procedureOccurrence"><i class="fa fa-check"></i><b>4.3.7</b> PROCEDURE_OCCURRENCE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>4.4</b> 부가 정보</a></li>
+<li class="chapter" data-level="4.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-1"><i class="fa fa-check"></i><b>4.5</b> 요약</a></li>
+<li class="chapter" data-level="4.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabularies</a><ul>
+<li class="chapter" data-level="5.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#why-vocabularies-and-why-standardizing"><i class="fa fa-check"></i><b>5.1</b> Why Vocabularies, and Why Standardizing</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#building-the-standardized-vocabularies"><i class="fa fa-check"></i><b>5.1.1</b> Building the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.1.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#accessVocabularies"><i class="fa fa-check"></i><b>5.1.2</b> Access to the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.1.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#source-of-vocabularies-adopt-versus-build"><i class="fa fa-check"></i><b>5.1.3</b> Source of Vocabularies: Adopt Versus Build</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concepts"><i class="fa fa-check"></i><b>5.2</b> Concepts</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-ids"><i class="fa fa-check"></i><b>5.2.1</b> Concept IDs</a></li>
+<li class="chapter" data-level="5.2.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-names"><i class="fa fa-check"></i><b>5.2.2</b> Concept Names</a></li>
+<li class="chapter" data-level="5.2.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptDomains"><i class="fa fa-check"></i><b>5.2.3</b> Domains</a></li>
+<li class="chapter" data-level="5.2.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#vocabularies"><i class="fa fa-check"></i><b>5.2.4</b> Vocabularies</a></li>
+<li class="chapter" data-level="5.2.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-classes"><i class="fa fa-check"></i><b>5.2.5</b> Concept Classes</a></li>
+<li class="chapter" data-level="5.2.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#standardConcepts"><i class="fa fa-check"></i><b>5.2.6</b> Standard Concepts</a></li>
+<li class="chapter" data-level="5.2.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#non-standard-concepts"><i class="fa fa-check"></i><b>5.2.7</b> Non-Standard Concepts</a></li>
+<li class="chapter" data-level="5.2.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#classification-concepts"><i class="fa fa-check"></i><b>5.2.8</b> Classification Concepts</a></li>
+<li class="chapter" data-level="5.2.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#concept-codes"><i class="fa fa-check"></i><b>5.2.9</b> Concept Codes</a></li>
+<li class="chapter" data-level="5.2.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptLifeCycle"><i class="fa fa-check"></i><b>5.2.10</b> Life-Cycle</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships"><i class="fa fa-check"></i><b>5.3</b> Relationships</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptMapping"><i class="fa fa-check"></i><b>5.3.1</b> Mapping Relationships</a></li>
+<li class="chapter" data-level="5.3.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#hierarchical-relationships"><i class="fa fa-check"></i><b>5.3.2</b> Hierarchical Relationships</a></li>
+<li class="chapter" data-level="5.3.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships-between-concepts-of-different-vocabularies"><i class="fa fa-check"></i><b>5.3.3</b> Relationships Between Concepts of Different Vocabularies</a></li>
+<li class="chapter" data-level="5.3.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#relationships-between-concepts-of-the-same-vocabulary"><i class="fa fa-check"></i><b>5.3.4</b> Relationships Between Concepts of the Same Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptAncestor"><i class="fa fa-check"></i><b>5.4</b> Hierarchy</a></li>
+<li class="chapter" data-level="5.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#internal-reference-tables"><i class="fa fa-check"></i><b>5.5</b> Internal Reference Tables</a></li>
+<li class="chapter" data-level="5.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#specialSituations"><i class="fa fa-check"></i><b>5.6</b> Special Situations</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#gender"><i class="fa fa-check"></i><b>5.6.1</b> Gender</a></li>
+<li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#race-and-ethnicity"><i class="fa fa-check"></i><b>5.6.2</b> Race and Ethnicity</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#diagnostic-coding-schemes-and-omop-conditions"><i class="fa fa-check"></i><b>5.6.3</b> Diagnostic Coding Schemes and OMOP Conditions</a></li>
+<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#procedure-coding-systems"><i class="fa fa-check"></i><b>5.6.4</b> Procedure Coding Systems</a></li>
+<li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#devices"><i class="fa fa-check"></i><b>5.6.5</b> Devices</a></li>
+<li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#visits-and-services"><i class="fa fa-check"></i><b>5.6.6</b> Visits and Services</a></li>
+<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#providers-and-specialties"><i class="fa fa-check"></i><b>5.6.7</b> Providers and Specialties</a></li>
+<li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#therapeutic-areas-with-special-requirements"><i class="fa fa-check"></i><b>5.6.8</b> Therapeutic Areas With Special Requirements</a></li>
+<li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> Standard Concepts in the Drug Domain</a></li>
+<li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#flavors-of-null"><i class="fa fa-check"></i><b>5.6.10</b> Flavors of NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#summary-1"><i class="fa fa-check"></i><b>5.7</b> Summary</a></li>
+<li class="chapter" data-level="5.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#exercises"><i class="fa fa-check"></i><b>5.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 추출 변환 적재</a><ul>
+<li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 서론</a></li>
+<li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-etl-"><i class="fa fa-check"></i><b>6.2</b> 1단계 : ETL 설계</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#--white-rabbit"><i class="fa fa-check"></i><b>6.2.1</b> 흰 토끼 (White Rabbit)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#---rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.2.2</b> 모자 속 토끼 (Rabbit-In-a-Hat)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>6.3</b> 2 단계: 코드 매핑 생성</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.3.1</b> 우사기(Usagi)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-etl-"><i class="fa fa-check"></i><b>6.4</b> 3 단계: ETL 수행</a></li>
+<li class="chapter" data-level="6.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>6.5</b> 4 단계: 질 관리</a></li>
+<li class="chapter" data-level="6.6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etl--themis"><i class="fa fa-check"></i><b>6.6</b> ETL 협약과 THEMIS</a></li>
+<li class="chapter" data-level="6.7" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#CDMandETLMaintenance"><i class="fa fa-check"></i><b>6.7</b> CDM과 ETL의 유지</a></li>
+<li class="chapter" data-level="6.8" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etl---"><i class="fa fa-check"></i><b>6.8</b> ETL에 대한 마지막 생각</a></li>
+<li class="chapter" data-level="6.9" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-2"><i class="fa fa-check"></i><b>6.9</b> 요약</a></li>
+<li class="chapter" data-level="6.10" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-1"><i class="fa fa-check"></i><b>6.10</b> 예제</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Analytics</b></span></li>
+<li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> 데이터 분석 이용 사례</a><ul>
+<li class="chapter" data-level="7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.1</b> 특성 분석</a></li>
+<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.2</b> 인구 수준 추정</a></li>
+<li class="chapter" data-level="7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.3</b> 환자 수준 예측</a></li>
+<li class="chapter" data-level="7.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4</b> 고혈압 이용 사례 예</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.4.1</b> 특성 분석 질문</a></li>
+<li class="chapter" data-level="7.4.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4.2</b> 인구 수준 추정 질문</a></li>
+<li class="chapter" data-level="7.4.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4.3</b> 환자 수준 예측 질문</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.5</b> 관찰 연구의 한계</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.5.1</b> 잘못된 데이터</a></li>
+<li class="chapter" data-level="7.5.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.5.2</b> 결측 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#-3"><i class="fa fa-check"></i><b>7.6</b> 요약</a></li>
+<li class="chapter" data-level="7.7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#section-7.7"><i class="fa fa-check"></i><b>7.7</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html"><i class="fa fa-check"></i><b>8</b> OHDSI Analytics Tools</a><ul>
+<li class="chapter" data-level="8.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysisImplementation"><i class="fa fa-check"></i><b>8.1</b> Analysis Implementation</a></li>
+<li class="chapter" data-level="8.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysis-strategies"><i class="fa fa-check"></i><b>8.2</b> Analysis Strategies</a></li>
+<li class="chapter" data-level="8.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#atlas"><i class="fa fa-check"></i><b>8.3</b> ATLAS</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#security"><i class="fa fa-check"></i><b>8.3.1</b> Security</a></li>
+<li class="chapter" data-level="8.3.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#documentation"><i class="fa fa-check"></i><b>8.3.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.3.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#how-to-install"><i class="fa fa-check"></i><b>8.3.3</b> How to Install</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#methods-library"><i class="fa fa-check"></i><b>8.4</b> Methods Library</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#support-for-large-scale-analytics"><i class="fa fa-check"></i><b>8.4.1</b> Support for Large-Scale Analytics</a></li>
+<li class="chapter" data-level="8.4.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#BigDataSupport"><i class="fa fa-check"></i><b>8.4.2</b> Support for Big Data</a></li>
+<li class="chapter" data-level="8.4.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#documentation-1"><i class="fa fa-check"></i><b>8.4.3</b> Documentation</a></li>
+<li class="chapter" data-level="8.4.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#system-requirements"><i class="fa fa-check"></i><b>8.4.4</b> System Requirements</a></li>
+<li class="chapter" data-level="8.4.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.4.5</b> How to Install</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#deployment-strategies"><i class="fa fa-check"></i><b>8.5</b> Deployment Strategies</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.5.1</b> Broadsea</a></li>
+<li class="chapter" data-level="8.5.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.5.2</b> Amazon AWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#summary-2"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="SqlAndR.html"><a href="SqlAndR.html"><i class="fa fa-check"></i><b>9</b> SQL and R</a><ul>
+<li class="chapter" data-level="9.1" data-path="SqlAndR.html"><a href="SqlAndR.html#SqlRender"><i class="fa fa-check"></i><b>9.1</b> SqlRender</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sql-parameterization"><i class="fa fa-check"></i><b>9.1.1</b> SQL Parameterization</a></li>
+<li class="chapter" data-level="9.1.2" data-path="SqlAndR.html"><a href="SqlAndR.html#translation-to-other-sql-dialects"><i class="fa fa-check"></i><b>9.1.2</b> Translation to Other SQL Dialects</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="SqlAndR.html"><a href="SqlAndR.html#DatabaseConnector"><i class="fa fa-check"></i><b>9.2</b> DatabaseConnector</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="SqlAndR.html"><a href="SqlAndR.html#creating-a-connection"><i class="fa fa-check"></i><b>9.2.1</b> Creating a Connection</a></li>
+<li class="chapter" data-level="9.2.2" data-path="SqlAndR.html"><a href="SqlAndR.html#querying"><i class="fa fa-check"></i><b>9.2.2</b> Querying</a></li>
+<li class="chapter" data-level="9.2.3" data-path="SqlAndR.html"><a href="SqlAndR.html#querying-using-ffdf-objects"><i class="fa fa-check"></i><b>9.2.3</b> Querying Using Ffdf Objects</a></li>
+<li class="chapter" data-level="9.2.4" data-path="SqlAndR.html"><a href="SqlAndR.html#querying-different-platforms-using-the-same-sql"><i class="fa fa-check"></i><b>9.2.4</b> Querying Different Platforms Using the Same SQL</a></li>
+<li class="chapter" data-level="9.2.5" data-path="SqlAndR.html"><a href="SqlAndR.html#inserting-tables"><i class="fa fa-check"></i><b>9.2.5</b> Inserting Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="SqlAndR.html"><a href="SqlAndR.html#QueryTheCdm"><i class="fa fa-check"></i><b>9.3</b> Querying the CDM</a></li>
+<li class="chapter" data-level="9.4" data-path="SqlAndR.html"><a href="SqlAndR.html#using-the-vocabulary-when-querying"><i class="fa fa-check"></i><b>9.4</b> Using the Vocabulary When Querying</a></li>
+<li class="chapter" data-level="9.5" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>9.5</b> QueryLibrary</a></li>
+<li class="chapter" data-level="9.6" data-path="SqlAndR.html"><a href="SqlAndR.html#designing-a-simple-study"><i class="fa fa-check"></i><b>9.6</b> Designing a Simple Study</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="SqlAndR.html"><a href="SqlAndR.html#problem-definition"><i class="fa fa-check"></i><b>9.6.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="SqlAndR.html"><a href="SqlAndR.html#exposure"><i class="fa fa-check"></i><b>9.6.2</b> Exposure</a></li>
+<li class="chapter" data-level="9.6.3" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome"><i class="fa fa-check"></i><b>9.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="9.6.4" data-path="SqlAndR.html"><a href="SqlAndR.html#time-at-risk"><i class="fa fa-check"></i><b>9.6.4</b> Time-At-Risk</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="SqlAndR.html"><a href="SqlAndR.html#implementing-the-study-using-sql-and-r"><i class="fa fa-check"></i><b>9.7</b> Implementing the Study Using SQL and R</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#exposure-cohort"><i class="fa fa-check"></i><b>9.7.1</b> Exposure Cohort</a></li>
+<li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome-cohort"><i class="fa fa-check"></i><b>9.7.2</b> Outcome Cohort</a></li>
+<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#incidence-rate-calculation"><i class="fa fa-check"></i><b>9.7.3</b> Incidence Rate Calculation</a></li>
+<li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#clean-up"><i class="fa fa-check"></i><b>9.7.4</b> Clean Up</a></li>
+<li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#compatibility"><i class="fa fa-check"></i><b>9.7.5</b> Compatibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="SqlAndR.html"><a href="SqlAndR.html#summary-3"><i class="fa fa-check"></i><b>9.8</b> Summary</a></li>
+<li class="chapter" data-level="9.9" data-path="SqlAndR.html"><a href="SqlAndR.html#exercises-1"><i class="fa fa-check"></i><b>9.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> 코호트 만들기</a><ul>
+<li class="chapter" data-level="10.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.1</b> 코호트란 무엇인가?</a></li>
+<li class="chapter" data-level="10.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.2</b> 규칙 기반 코호트 정의</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.3</b> 컨셉 모음</a></li>
+<li class="chapter" data-level="10.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.4</b> 확률적 코호트 정의</a></li>
+<li class="chapter" data-level="10.5" data-path="Cohorts.html"><a href="Cohorts.html#cohort-definition-validity"><i class="fa fa-check"></i><b>10.5</b> Cohort Definition Validity</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>10.5.1</b> 오디시의 골드 스탠다드 코호트 라이브러리</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.6</b> 고혈압 환자 코호트 작성하기</a></li>
+<li class="chapter" data-level="10.7" data-path="Cohorts.html"><a href="Cohorts.html#atlas---"><i class="fa fa-check"></i><b>10.7</b> ATLAS를 이용해 코호트 작성하기</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.1</b> 초기 이벤트 기준</a></li>
+<li class="chapter" data-level="10.7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.2</b> 컨셉 모음 정의하기</a></li>
+<li class="chapter" data-level="10.7.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.7.3</b> 추가적 초기 이벤트 기준</a></li>
+<li class="chapter" data-level="10.7.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.7.4</b> 포함 기준</a></li>
+<li class="chapter" data-level="10.7.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.5</b> 코호트 종료 기준</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#sql---"><i class="fa fa-check"></i><b>10.8</b> SQL을 사용하여 코호트 구현하기</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.1</b> 데이터베이스에 연결하기</a></li>
+<li class="chapter" data-level="10.8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.2</b> 컨셉 결정하기</a></li>
+<li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>10.8.3</b> 약물을 처음 복용한 환자 찾기</a></li>
+<li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#----365----"><i class="fa fa-check"></i><b>10.8.4</b> 약물 복용 이전 최소 365일동안 관찰될 수 있었던 환자</a></li>
+<li class="chapter" data-level="10.8.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.8.5</b> 이전에 고혈압을 진단받은 환자</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>10.8.6</b> 사전에 받은 치료가 없어야 함</a></li>
+<li class="chapter" data-level="10.8.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.7</b> 단독 요법</a></li>
+<li class="chapter" data-level="10.8.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.8</b> 코호트 종료</a></li>
+<li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#section-10.8.9"><i class="fa fa-check"></i><b>10.8.9</b> 정리하기</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="Cohorts.html"><a href="Cohorts.html#-4"><i class="fa fa-check"></i><b>10.9</b> 요약</a></li>
+<li class="chapter" data-level="10.10" data-path="Cohorts.html"><a href="Cohorts.html#section-10.10"><i class="fa fa-check"></i><b>10.10</b> 실습</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> 환자 특성 분석 Characterization</a><ul>
+<li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#----database-level-characterization"><i class="fa fa-check"></i><b>11.1</b> 데이터베이스 수준의 특성 분석 (Database Level Characterization)</a></li>
+<li class="chapter" data-level="11.2" data-path="Characterization.html"><a href="Characterization.html#---cohort-characterization"><i class="fa fa-check"></i><b>11.2</b> 코호트 특성 분석 (Cohort Characterization)</a></li>
+<li class="chapter" data-level="11.3" data-path="Characterization.html"><a href="Characterization.html#--treatment-pathways"><i class="fa fa-check"></i><b>11.3</b> 치료 경로 (Treatment Pathways)</a></li>
+<li class="chapter" data-level="11.4" data-path="Characterization.html"><a href="Characterization.html#-incidence"><i class="fa fa-check"></i><b>11.4</b> 발생 (Incidence)</a></li>
+<li class="chapter" data-level="11.5" data-path="Characterization.html"><a href="Characterization.html#----characterizing-hypertensive-persons"><i class="fa fa-check"></i><b>11.5</b> 고혈압 환자의 특성 분석 (Characterizing Hypertensive Persons)</a></li>
+<li class="chapter" data-level="11.6" data-path="Characterization.html"><a href="Characterization.html#atlas-----database-characterization-in-atlas"><i class="fa fa-check"></i><b>11.6</b> ATLAS를 활용한 데이터베이스의 특성 분석 (Database Characterization in ATLAS)</a></li>
+<li class="chapter" data-level="11.7" data-path="Characterization.html"><a href="Characterization.html#atlas-----cohort-characterization-in-atlas"><i class="fa fa-check"></i><b>11.7</b> ATLAS를 이용한 코호트 특성 분석 (Cohort Characterization in ATLAS)</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#-design"><i class="fa fa-check"></i><b>11.7.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#-executions"><i class="fa fa-check"></i><b>11.7.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#-results"><i class="fa fa-check"></i><b>11.7.3</b> 결과 (Results)</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#---defining-custom-features"><i class="fa fa-check"></i><b>11.7.4</b> 사용자 정의 속성 (Defining Custom Features)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#r-----cohort-characterization-in-r"><i class="fa fa-check"></i><b>11.8</b> R을 이용한 코호트 특성 분석 (Cohort Characterization in R)</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#cohort-instantiation"><i class="fa fa-check"></i><b>11.8.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#--data-extraction"><i class="fa fa-check"></i><b>11.8.2</b> 데이터 추출 (Data Extraction)</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#----using-prespecified-analyses"><i class="fa fa-check"></i><b>11.8.3</b> 사전 지정 분석의 사용 (Using Prespecified Analyses)</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#---creating-aggregated-covariates"><i class="fa fa-check"></i><b>11.8.4</b> 통합된 변수의 생성 (Creating Aggregated Covariates)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#--output-format"><i class="fa fa-check"></i><b>11.8.5</b> 결과 형식 (Output Format)</a></li>
+<li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#---custom-covariates"><i class="fa fa-check"></i><b>11.8.6</b> 사용자 정의 변수 (Custom Covariates)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Characterization.html"><a href="Characterization.html#atlas---cohort-pathways-in-atlas"><i class="fa fa-check"></i><b>11.9</b> ATLAS에서 코호트 경로 (Cohort Pathways in ATLAS)</a><ul>
+<li class="chapter" data-level="11.9.1" data-path="Characterization.html"><a href="Characterization.html#-design-1"><i class="fa fa-check"></i><b>11.9.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.9.2" data-path="Characterization.html"><a href="Characterization.html#-executions-1"><i class="fa fa-check"></i><b>11.9.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.9.3" data-path="Characterization.html"><a href="Characterization.html#--viewing-results"><i class="fa fa-check"></i><b>11.9.3</b> 결과 확인 (Viewing Results)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.10" data-path="Characterization.html"><a href="Characterization.html#atlas----incidence-analysis-in-atlas"><i class="fa fa-check"></i><b>11.10</b> ATLAS를 이용한 발생 분석 (Incidence Analysis in ATLAS)</a><ul>
+<li class="chapter" data-level="11.10.1" data-path="Characterization.html"><a href="Characterization.html#-design-2"><i class="fa fa-check"></i><b>11.10.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.10.2" data-path="Characterization.html"><a href="Characterization.html#-executions-2"><i class="fa fa-check"></i><b>11.10.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.10.3" data-path="Characterization.html"><a href="Characterization.html#--viewing-results-1"><i class="fa fa-check"></i><b>11.10.3</b> 결과 확인 (Viewing Results)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.11" data-path="Characterization.html"><a href="Characterization.html#-summary"><i class="fa fa-check"></i><b>11.11</b> 요약 (Summary)</a></li>
+<li class="chapter" data-level="11.12" data-path="Characterization.html"><a href="Characterization.html#-exercises"><i class="fa fa-check"></i><b>11.12</b> 실습 (Exercises)</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> Population-Level Estimation</a><ul>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> The Cohort Method Design</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#propensity-scores"><i class="fa fa-check"></i><b>12.1.1</b> Propensity Scores</a></li>
+<li class="chapter" data-level="12.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.1.2</b> Variable Selection</a></li>
+<li class="chapter" data-level="12.1.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#caliper"><i class="fa fa-check"></i><b>12.1.3</b> Caliper</a></li>
+<li class="chapter" data-level="12.1.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#overlap-preference-scores"><i class="fa fa-check"></i><b>12.1.4</b> Overlap: Preference Scores</a></li>
+<li class="chapter" data-level="12.1.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#balance"><i class="fa fa-check"></i><b>12.1.5</b> Balance</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-----the-self-controlled-cohort-design"><i class="fa fa-check"></i><b>12.2</b> 자가 통제 코호트 연구 설계 (The Self-Controlled Cohort Design)</a></li>
+<li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----the-case-control-design"><i class="fa fa-check"></i><b>12.3</b> 환자-대조군 연구 설계 (The Case-Control Design)</a></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----the-case-crossover-design"><i class="fa fa-check"></i><b>12.4</b> 환자-교차 연구 설계 (The Case-Crossover Design)</a></li>
+<li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-----the-self-controlled-case-series-design"><i class="fa fa-check"></i><b>12.5</b> 자기 대조군 환자군 연구 설계 (The Self-Controlled Case Series Design)</a></li>
+<li class="chapter" data-level="12.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#designing-a-hypertension-study"><i class="fa fa-check"></i><b>12.6</b> Designing a Hypertension Study</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#problem-definition-1"><i class="fa fa-check"></i><b>12.6.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="12.6.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#target-and-comparator"><i class="fa fa-check"></i><b>12.6.2</b> Target and Comparator</a></li>
+<li class="chapter" data-level="12.6.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-1"><i class="fa fa-check"></i><b>12.6.3</b> Outcome</a></li>
+<li class="chapter" data-level="12.6.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#time-at-risk-1"><i class="fa fa-check"></i><b>12.6.4</b> Time-At-Risk</a></li>
+<li class="chapter" data-level="12.6.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#model"><i class="fa fa-check"></i><b>12.6.5</b> Model</a></li>
+<li class="chapter" data-level="12.6.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#study-summary"><i class="fa fa-check"></i><b>12.6.6</b> Study Summary</a></li>
+<li class="chapter" data-level="12.6.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#control-questions"><i class="fa fa-check"></i><b>12.6.7</b> Control Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#PleAtlas"><i class="fa fa-check"></i><b>12.7</b> Implementing the Study Using ATLAS</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>12.7.1</b> Comparative Cohort Settings</a></li>
+<li class="chapter" data-level="12.7.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-estimation-analysis-settings"><i class="fa fa-check"></i><b>12.7.2</b> Effect Estimation Analysis Settings</a></li>
+<li class="chapter" data-level="12.7.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#evaluationSettings"><i class="fa fa-check"></i><b>12.7.3</b> Evaluation Settings</a></li>
+<li class="chapter" data-level="12.7.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--running-the-study-package"><i class="fa fa-check"></i><b>12.7.4</b> 연구 패키지 실행(Running the study package)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#pleR"><i class="fa fa-check"></i><b>12.8</b> Implementing the Study Using R</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--cohort-instantiation"><i class="fa fa-check"></i><b>12.8.1</b> 코호트 실체화 (Cohort Instantiation)</a></li>
+<li class="chapter" data-level="12.8.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--data-extraction-1"><i class="fa fa-check"></i><b>12.8.2</b> 데이터 추출 (Data Extraction)</a></li>
+<li class="chapter" data-level="12.8.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----defining-the-study-population"><i class="fa fa-check"></i><b>12.8.3</b> 연구 대상 집단 정의 (Defining the Study Population)</a></li>
+<li class="chapter" data-level="12.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--propensity-scores"><i class="fa fa-check"></i><b>12.8.4</b> 성향 점수 (Propensity Scores)</a></li>
+<li class="chapter" data-level="12.8.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#outcome-models"><i class="fa fa-check"></i><b>12.8.5</b> Outcome Models</a></li>
+<li class="chapter" data-level="12.8.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>12.8.6</b> Running Multiple Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#studyOutputs"><i class="fa fa-check"></i><b>12.9</b> 연구 결과 (Study Outputs)</a><ul>
+<li class="chapter" data-level="12.9.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----propensity-scores-and-model"><i class="fa fa-check"></i><b>12.9.1</b> 성향 점수 및 모델 (Propensity Scores and Model)</a></li>
+<li class="chapter" data-level="12.9.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#covariate-balance"><i class="fa fa-check"></i><b>12.9.2</b> Covariate Balance</a></li>
+<li class="chapter" data-level="12.9.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#follow-up-and-power"><i class="fa fa-check"></i><b>12.9.3</b> Follow Up and Power</a></li>
+<li class="chapter" data-level="12.9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#kaplan-meier"><i class="fa fa-check"></i><b>12.9.4</b> Kaplan-Meier</a></li>
+<li class="chapter" data-level="12.9.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#effect-size-estimate"><i class="fa fa-check"></i><b>12.9.5</b> Effect Size Estimate</a></li>
+</ul></li>
+<li class="chapter" data-level="12.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#summary-4"><i class="fa fa-check"></i><b>12.10</b> Summary</a></li>
+<li class="chapter" data-level="12.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#exercises-2"><i class="fa fa-check"></i><b>12.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> Patient-Level Prediction</a><ul>
+<li class="chapter" data-level="13.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#the-prediction-problem"><i class="fa fa-check"></i><b>13.1</b> The Prediction Problem</a></li>
+<li class="chapter" data-level="13.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction"><i class="fa fa-check"></i><b>13.2</b> Data Extraction</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-example"><i class="fa fa-check"></i><b>13.2.1</b> Data Extraction Example</a></li>
+<li class="chapter" data-level="13.2.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#missingness"><i class="fa fa-check"></i><b>13.2.2</b> Missingness</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#modelFitting"><i class="fa fa-check"></i><b>13.3</b> Fitting the Model</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#regularized-logistic-regression"><i class="fa fa-check"></i><b>13.3.1</b> Regularized Logistic Regression</a></li>
+<li class="chapter" data-level="13.3.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#gradient-boosting-machines"><i class="fa fa-check"></i><b>13.3.2</b> Gradient Boosting Machines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#random-forest"><i class="fa fa-check"></i><b>13.3.3</b> Random Forest</a></li>
+<li class="chapter" data-level="13.3.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>13.3.4</b> K-Nearest Neighbors</a></li>
+<li class="chapter" data-level="13.3.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#naive-bayes"><i class="fa fa-check"></i><b>13.3.5</b> Naive Bayes</a></li>
+<li class="chapter" data-level="13.3.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.3.6</b> AdaBoost</a></li>
+<li class="chapter" data-level="13.3.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#decision-tree"><i class="fa fa-check"></i><b>13.3.7</b> Decision Tree</a></li>
+<li class="chapter" data-level="13.3.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#multilayer-perceptron"><i class="fa fa-check"></i><b>13.3.8</b> Multilayer Perceptron</a></li>
+<li class="chapter" data-level="13.3.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#deep-learning"><i class="fa fa-check"></i><b>13.3.9</b> Deep Learning</a></li>
+<li class="chapter" data-level="13.3.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#other-algorithms"><i class="fa fa-check"></i><b>13.3.10</b> Other Algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#evaluating-prediction-models"><i class="fa fa-check"></i><b>13.4</b> Evaluating Prediction Models</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#evaluation-types"><i class="fa fa-check"></i><b>13.4.1</b> Evaluation Types</a></li>
+<li class="chapter" data-level="13.4.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#performance"><i class="fa fa-check"></i><b>13.4.2</b> Performance Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#designing-a-patient-level-prediction-study"><i class="fa fa-check"></i><b>13.5</b> Designing a Patient-Level Prediction Study</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#problem-definition-3"><i class="fa fa-check"></i><b>13.5.1</b> Problem Definition</a></li>
+<li class="chapter" data-level="13.5.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#study-population-definition"><i class="fa fa-check"></i><b>13.5.2</b> Study Population Definition</a></li>
+<li class="chapter" data-level="13.5.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-development-settings"><i class="fa fa-check"></i><b>13.5.3</b> Model Development Settings</a></li>
+<li class="chapter" data-level="13.5.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-evaluation"><i class="fa fa-check"></i><b>13.5.4</b> Model Evaluation</a></li>
+<li class="chapter" data-level="13.5.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#study-summary-1"><i class="fa fa-check"></i><b>13.5.5</b> Study Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#implementing-the-study-in-atlas"><i class="fa fa-check"></i><b>13.6</b> Implementing the Study in ATLAS</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#prediction-problem-settings"><i class="fa fa-check"></i><b>13.6.1</b> Prediction Problem Settings</a></li>
+<li class="chapter" data-level="13.6.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#analysis-settings"><i class="fa fa-check"></i><b>13.6.2</b> Analysis Settings</a></li>
+<li class="chapter" data-level="13.6.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#execution-settings"><i class="fa fa-check"></i><b>13.6.3</b> Execution Settings</a></li>
+<li class="chapter" data-level="13.6.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#training-settings"><i class="fa fa-check"></i><b>13.6.4</b> Training Settings</a></li>
+<li class="chapter" data-level="13.6.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#importing-and-exporting-a-study"><i class="fa fa-check"></i><b>13.6.5</b> Importing and Exporting a Study</a></li>
+<li class="chapter" data-level="13.6.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#downloading-the-study-package"><i class="fa fa-check"></i><b>13.6.6</b> Downloading the Study Package</a></li>
+<li class="chapter" data-level="13.6.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#running-the-study"><i class="fa fa-check"></i><b>13.6.7</b> Running the Study</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#implementing-the-study-in-r"><i class="fa fa-check"></i><b>13.7</b> Implementing the Study in R</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#cohort-instantiation-1"><i class="fa fa-check"></i><b>13.7.1</b> Cohort Instantiation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#data-extraction-1"><i class="fa fa-check"></i><b>13.7.2</b> Data Extraction</a></li>
+<li class="chapter" data-level="13.7.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-inclusion-criteria"><i class="fa fa-check"></i><b>13.7.3</b> Additional Inclusion Criteria</a></li>
+<li class="chapter" data-level="13.7.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-development"><i class="fa fa-check"></i><b>13.7.4</b> Model Development</a></li>
+<li class="chapter" data-level="13.7.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#internal-validation"><i class="fa fa-check"></i><b>13.7.5</b> Internal Validation</a></li>
+<li class="chapter" data-level="13.7.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#external-validation"><i class="fa fa-check"></i><b>13.7.6</b> External Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#results-dissemination"><i class="fa fa-check"></i><b>13.8</b> Results Dissemination</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-performance"><i class="fa fa-check"></i><b>13.8.1</b> Model Performance</a></li>
+<li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#comparing-models"><i class="fa fa-check"></i><b>13.8.2</b> Comparing Models</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-patient-level-prediction-features"><i class="fa fa-check"></i><b>13.9</b> Additional Patient-Level Prediction Features</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#journal-paper-generation"><i class="fa fa-check"></i><b>13.9.1</b> Journal Paper Generation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#summary-5"><i class="fa fa-check"></i><b>13.10</b> Summary</a></li>
+<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises-3"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>IV Evidence Quality</b></span></li>
+<li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> Evidence Quality</a><ul>
+<li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#attributes-of-reliable-evidence----"><i class="fa fa-check"></i><b>14.1</b> Attributes of Reliable Evidence (신뢰성을 위한 근거의 속성)</a></li>
+<li class="chapter" data-level="14.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>14.2</b> 근거의 질에 대한 이해</a></li>
+<li class="chapter" data-level="14.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>14.3</b> 근거 품질의 전달</a></li>
+<li class="chapter" data-level="14.4" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#summary-6"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> Data Quality</a><ul>
+<li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#-----sources-of-data-quality-problems"><i class="fa fa-check"></i><b>15.1</b> 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)</a></li>
+<li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#---data-quality-in-general"><i class="fa fa-check"></i><b>15.2</b> 보편적인 데이터 품질 (Data Quality in General)</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#--checks-data-qualityintegrate-checks"><i class="fa fa-check"></i><b>15.2.1</b> 데이터 품질 checks (Data Qualityintegrate Checks)</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#--checks-study-specific-checks"><i class="fa fa-check"></i><b>15.3</b> 연구 목적 checks (Study-Specific Checks)</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="DataQuality.html"><a href="DataQuality.html#checking-mappings"><i class="fa fa-check"></i><b>15.3.1</b> Checking Mappings</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES 실습 (ACHILLES in Practice)</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard 실습 (Data Quality Dashboard in Practice)</a></li>
+<li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#--checks--study-specific-checks-in-practice"><i class="fa fa-check"></i><b>15.6</b> 연구 목적 checks 실습 (Study-Specific Checks in Practice)</a></li>
+<li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#summary-7"><i class="fa fa-check"></i><b>15.7</b> Summary</a></li>
+<li class="chapter" data-level="15.8" data-path="DataQuality.html"><a href="DataQuality.html#exercises-4"><i class="fa fa-check"></i><b>15.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> Clinical Validity</a><ul>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> 보건의료 데이터의 특성 (Characteristics of Health Care Databases)</a></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CohortValidation"><i class="fa fa-check"></i><b>16.2</b> Cohort Validation</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>16.2.1</b> 코호트 판단 측정기준</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>16.3</b> 원천 기록 검증</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>16.3.1</b> 원천 기록 검증에 대한 예시</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluator"><i class="fa fa-check"></i><b>16.4</b> PheValuator</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#example-validation-by-phevaluator"><i class="fa fa-check"></i><b>16.4.1</b> Example Validation By PheValuator</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> 근거의 일반화</a></li>
+<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#summary-8"><i class="fa fa-check"></i><b>16.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> Software Validity</a><ul>
+<li class="chapter" data-level="17.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1</b> 분석 코드의 타당성</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#automation"><i class="fa fa-check"></i><b>17.1.1</b> 재현성 충족을 위한 자동화</a></li>
+<li class="chapter" data-level="17.1.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1.2</b> 프로그래밍 모범 사례</a></li>
+<li class="chapter" data-level="17.1.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.1.3</b> 코드 검증</a></li>
+<li class="chapter" data-level="17.1.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>17.1.4</b> 연구 방법론 라이브러리의 활용</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#-----"><i class="fa fa-check"></i><b>17.2</b> 연구 방법론 라이브러리 소프트웨어의 개발 과정</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.1</b> 소스 코드 관리</a></li>
+<li class="chapter" data-level="17.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.2.2"><i class="fa fa-check"></i><b>17.2.2</b> 문서화</a></li>
+<li class="chapter" data-level="17.2.3" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>17.2.3</b> 현재 및 과거 버전으로의 접근</a></li>
+<li class="chapter" data-level="17.2.4" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>17.2.4</b> 유지 보수, 지원 및 중단</a></li>
+<li class="chapter" data-level="17.2.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.5</b> 검증된 인력</a></li>
+<li class="chapter" data-level="17.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.6</b> 물리적, 논리적 보안체계</a></li>
+<li class="chapter" data-level="17.2.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.7</b> 복구 체계</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>17.3</b> 연구방법론 라이브러리 기능 검사</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.3.1</b> 단위 검사</a></li>
+<li class="chapter" data-level="17.3.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.3.2"><i class="fa fa-check"></i><b>17.3.2</b> 모의시행</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.4"><i class="fa fa-check"></i><b>17.4</b> 정리</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MethodValidity.html"><a href="MethodValidity.html"><i class="fa fa-check"></i><b>18</b> Method Validity</a><ul>
+<li class="chapter" data-level="18.1" data-path="MethodValidity.html"><a href="MethodValidity.html#design-specific-diagnostics"><i class="fa fa-check"></i><b>18.1</b> Design-Specific Diagnostics</a></li>
+<li class="chapter" data-level="18.2" data-path="MethodValidity.html"><a href="MethodValidity.html#diagnostics-for-all-estimation"><i class="fa fa-check"></i><b>18.2</b> Diagnostics for All Estimation</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="MethodValidity.html"><a href="MethodValidity.html#NegativeControls"><i class="fa fa-check"></i><b>18.2.1</b> Negative Controls</a></li>
+<li class="chapter" data-level="18.2.2" data-path="MethodValidity.html"><a href="MethodValidity.html#PositiveControls"><i class="fa fa-check"></i><b>18.2.2</b> Positive Controls</a></li>
+<li class="chapter" data-level="18.2.3" data-path="MethodValidity.html"><a href="MethodValidity.html#metrics"><i class="fa fa-check"></i><b>18.2.3</b> Empirical Evaluation</a></li>
+<li class="chapter" data-level="18.2.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-calibration"><i class="fa fa-check"></i><b>18.2.4</b> P-Value Calibration</a></li>
+<li class="chapter" data-level="18.2.5" data-path="MethodValidity.html"><a href="MethodValidity.html#confidence-interval-calibration"><i class="fa fa-check"></i><b>18.2.5</b> Confidence Interval Calibration</a></li>
+<li class="chapter" data-level="18.2.6" data-path="MethodValidity.html"><a href="MethodValidity.html#replication-across-sites"><i class="fa fa-check"></i><b>18.2.6</b> Replication Across Sites</a></li>
+<li class="chapter" data-level="18.2.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses"><i class="fa fa-check"></i><b>18.2.7</b> Sensitivity Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="MethodValidity.html"><a href="MethodValidity.html#method-validation-in-practice"><i class="fa fa-check"></i><b>18.3</b> Method Validation in Practice</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="MethodValidity.html"><a href="MethodValidity.html#selecting-negative-controls"><i class="fa fa-check"></i><b>18.3.1</b> Selecting Negative Controls</a></li>
+<li class="chapter" data-level="18.3.2" data-path="MethodValidity.html"><a href="MethodValidity.html#including-controls"><i class="fa fa-check"></i><b>18.3.2</b> Including Controls</a></li>
+<li class="chapter" data-level="18.3.3" data-path="MethodValidity.html"><a href="MethodValidity.html#empirical-performance"><i class="fa fa-check"></i><b>18.3.3</b> Empirical Performance</a></li>
+<li class="chapter" data-level="18.3.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-calibration-1"><i class="fa fa-check"></i><b>18.3.4</b> P-Value Calibration</a></li>
+<li class="chapter" data-level="18.3.5" data-path="MethodValidity.html"><a href="MethodValidity.html#confidence-interval-calibration-1"><i class="fa fa-check"></i><b>18.3.5</b> Confidence Interval Calibration</a></li>
+<li class="chapter" data-level="18.3.6" data-path="MethodValidity.html"><a href="MethodValidity.html#between-database-heterogeneity"><i class="fa fa-check"></i><b>18.3.6</b> Between-Database Heterogeneity</a></li>
+<li class="chapter" data-level="18.3.7" data-path="MethodValidity.html"><a href="MethodValidity.html#sensitivity-analyses-1"><i class="fa fa-check"></i><b>18.3.7</b> Sensitivity Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsi-methods-benchmark"><i class="fa fa-check"></i><b>18.4</b> OHDSI Methods Benchmark</a></li>
+<li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#summary-9"><i class="fa fa-check"></i><b>18.5</b> Summary</a></li>
+</ul></li>
+<li class="part"><span><b>V OHDSI Studies</b></span></li>
+<li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> 연구단계</a><ul>
+<li class="chapter" data-level="19.1" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>19.1</b> 일반 모범 사례 지침</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.1.1</b> 관찰 연구 정의</a></li>
+<li class="chapter" data-level="19.1.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>19.1.2</b> 연구 설계의 사전 지정</a></li>
+<li class="chapter" data-level="19.1.3" data-path="StudySteps.html"><a href="StudySteps.html#section-19.1.3"><i class="fa fa-check"></i><b>19.1.3</b> 프로토콜</a></li>
+<li class="chapter" data-level="19.1.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.1.4</b> 표준화된 분석</a></li>
+<li class="chapter" data-level="19.1.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.1.5</b> 연구 패키지</a></li>
+<li class="chapter" data-level="19.1.6" data-path="StudySteps.html"><a href="StudySteps.html#cdm---"><i class="fa fa-check"></i><b>19.1.6</b> CDM의 기초가 되는 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.2</b> 세부 연구 단계</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.1</b> 질문 정의</a></li>
+<li class="chapter" data-level="19.2.2" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>19.2.2</b> 데이터 가용성 및 품질 검토</a></li>
+<li class="chapter" data-level="19.2.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.3</b> 연구 집단</a></li>
+<li class="chapter" data-level="19.2.4" data-path="StudySteps.html"><a href="StudySteps.html#Feasibility"><i class="fa fa-check"></i><b>19.2.4</b> 실행 가능성 및 진단</a></li>
+<li class="chapter" data-level="19.2.5" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>19.2.5</b> 프로토콜 및 연구 패키지 마무리</a></li>
+<li class="chapter" data-level="19.2.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.6</b> 연구 수행</a></li>
+<li class="chapter" data-level="19.2.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.2.7</b> 해석 및 작성</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="StudySteps.html"><a href="StudySteps.html#-5"><i class="fa fa-check"></i><b>19.3</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI Network Research</a><ul>
+<li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#--ohdsi"><i class="fa fa-check"></i><b>20.1</b> 연구 네트워크로서의 OHDSI</a></li>
+<li class="chapter" data-level="20.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi--"><i class="fa fa-check"></i><b>20.2</b> OHDSI 네트워크 연구</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi----"><i class="fa fa-check"></i><b>20.2.1</b> OHDSI 네트워크 연구가 필요한 이유</a></li>
+<li class="chapter" data-level="20.2.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.2.2</b> OHDSI 네트워크 연구의 정의</a></li>
+<li class="chapter" data-level="20.2.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi------"><i class="fa fa-check"></i><b>20.2.3</b> OHDSI 네트워크 연구 설계를 위한 고려 사항</a></li>
+<li class="chapter" data-level="20.2.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-----"><i class="fa fa-check"></i><b>20.2.4</b> OHDSI 네트워크 연구를 위한 논리적 관점</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.3</b> OHDSI 네트워크 연구 수행하기</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.1</b> 연구 설계와 타당성</a></li>
+<li class="chapter" data-level="20.3.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>20.3.2</b> 연구 실행</a></li>
+<li class="chapter" data-level="20.3.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.3</b> 결과의 보급와 출판</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="Cohorts.html"><a href="Cohorts.html#----"><i class="fa fa-check"></i><b>20.4</b> 미래의 모습: 네트워크 연구의 자동화</a></li>
+<li class="chapter" data-level="20.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.5</b> OHDSI 네트워크 연구의 정석</a></li>
+<li class="chapter" data-level="20.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#-6"><i class="fa fa-check"></i><b>20.6</b> 요약</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>A</b> Glossary</a></li>
+<li class="chapter" data-level="B" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html"><i class="fa fa-check"></i><b>B</b> Cohort definitions</a><ul>
+<li class="chapter" data-level="B.1" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitors"><i class="fa fa-check"></i><b>B.1</b> ACE Inhibitors</a></li>
+<li class="chapter" data-level="B.2" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitorsMono"><i class="fa fa-check"></i><b>B.2</b> New Users of ACE Inhibitors Monotherapy</a></li>
+<li class="chapter" data-level="B.3" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Ami"><i class="fa fa-check"></i><b>B.3</b> Acute Myocardial Infarction (AMI)</a></li>
+<li class="chapter" data-level="B.4" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Angioedema"><i class="fa fa-check"></i><b>B.4</b> Angioedema</a></li>
+<li class="chapter" data-level="B.5" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ThiazidesMono"><i class="fa fa-check"></i><b>B.5</b> New Users of Thiazide-Like Diuretics Monotherapy</a></li>
+<li class="chapter" data-level="B.6" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN1yrFO"><i class="fa fa-check"></i><b>B.6</b> Patients Initiating First-Line Therapy for Hypertension</a></li>
+<li class="chapter" data-level="B.7" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN3yrFO"><i class="fa fa-check"></i><b>B.7</b> Patients Initiating First-Line Therapy for Hypertension With &gt;3 Yr Follow-Up</a></li>
+<li class="chapter" data-level="B.8" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ACEiUse"><i class="fa fa-check"></i><b>B.8</b> ACE Inhibitor Use</a></li>
+<li class="chapter" data-level="B.9" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ARBUse"><i class="fa fa-check"></i><b>B.9</b> Angiotensin Receptor Blocker (ARB) Use</a></li>
+<li class="chapter" data-level="B.10" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#THZUse"><i class="fa fa-check"></i><b>B.10</b> Thiazide Or Thiazide-Like Diuretic Use</a></li>
+<li class="chapter" data-level="B.11" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#dCCBUse"><i class="fa fa-check"></i><b>B.11</b> Dihydropyridine Calcium Channel Blocker (dCCB) Use</a></li>
+<li class="chapter" data-level="B.12" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ndCCBUse"><i class="fa fa-check"></i><b>B.12</b> Non-Dihydropyridine Calcium Channel Blocker (ndCCB) Use</a></li>
+<li class="chapter" data-level="B.13" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#BBUse"><i class="fa fa-check"></i><b>B.13</b> Beta-Blocker Use</a></li>
+<li class="chapter" data-level="B.14" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DLoopUse"><i class="fa fa-check"></i><b>B.14</b> Diuretic-Loop Use</a></li>
+<li class="chapter" data-level="B.15" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DPUse"><i class="fa fa-check"></i><b>B.15</b> Diuretic-Potassium Sparing Use</a></li>
+<li class="chapter" data-level="B.16" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#A1BUse"><i class="fa fa-check"></i><b>B.16</b> Alpha-1 Blocker Use</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html"><i class="fa fa-check"></i><b>C</b> Negative controls</a><ul>
+<li class="chapter" data-level="C.1" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html#AceiThzNsc"><i class="fa fa-check"></i><b>C.1</b> ACEi and THZ</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="ProtocolTemplate.html"><a href="ProtocolTemplate.html"><i class="fa fa-check"></i><b>D</b> Protocol template</a></li>
+<li class="chapter" data-level="E" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>E</b> Suggested Answers</a><ul>
+<li class="chapter" data-level="E.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>E.1</b> The Common Data Model</a></li>
+<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> Standardized Vocabularies</a></li>
+<li class="chapter" data-level="E.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>E.3</b> Extract Transform Load</a></li>
+<li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> Data Analytics Use Cases</a></li>
+<li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQL and R</a></li>
+<li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> Defining Cohorts</a></li>
+<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> Characterization</a></li>
+<li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> Population-Level Estimation</a></li>
+<li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> Patient-Level Prediction</a></li>
+<li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> Data Quality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Book of OHDSI Korea</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="OhdsiCommunity" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> The OHDSI Community</h1>
+<p><em>Chapter leads: Patrick Ryan &amp; George Hripcsak</em></p>
+<blockquote>
+<p>함께 모이면 시작되고, 함께 지내면 진보하고, 함께 일하면 성공한다. -헨리 포드</p>
+</blockquote>
+<div id="---the-journey-from-data-to-evidence" class="section level2">
+<h2><span class="header-section-number">1.1</span> 데이터에서 근거로의 여정 (The Journey from Data to Evidence)</h2>
+<p>의료 연구 기관 및 사설 의료 기관, 규제 기관 및 의료 제품 제조업체, 보험 회사 및 정책 기관, 그리고 환자와 의료 제공자 간의 모든 상호관계를 포함하는 전 세계 보건 의료의 어느 곳에서나 공통적인 과제가 있다. 어떻게 우리가 과거에서 배운 것을 토대로 미래를 위해 더 나은 결정을 내릴 수 있을 것인가?</p>
+<p>10년이 넘도록, 많은 사람들이 <strong>보건의료 체계 학습 (learning healthcare system)</strong> 의 비전에 대해서 논의해 왔다. “그것은, 환자와 의료 제공자의 협력적인 보건 의료 선택에 있어 최상의 근거를 생성하고 적용하기 위함입니다. 또한 환자 치료의 자연스러운 발전을 도모하고, 보건의료의 혁신, 질, 안전 및 가치를 보장하기 위함입니다.”<span class="citation">(Olsen et al. <a href="#ref-olsen2007learning">2007</a>)</span> 이 원대한 계획의 주요한 요소는 일상적인 임상 치료 과정에서 수집된 환자 수준 (patient-level) 데이터를 분석하여 <strong>실세계 근거 (real-world evidence)</strong> 를 생성할 수 있으며, 의료 시스템에 전파되어 실제의 임상에 정보를 제공 할 수 있으리라는 흥미로운 전망에 있다. 의학 연구소 (Institute of Medicine) 의 근거 중심 의학 원탁회 (Roundtable on Evidence-Based Medicine) 가 발간한 2007년 보고서에서 “2020년까지 90%의 임상 결정이 정확하고, 시기 적절하고, 최신의 임상 정보에 의해 뒷받침 될 것이며, 그것은 가능한 최선의 근거를 반영할 것이다.”라고 예측했다.<span class="citation">(Olsen et al. <a href="#ref-olsen2007learning">2007</a>)</span> 비록 여러가지면에서 엄청난 발전이 있었지만, 우리는 여전히 이 위대한 열망에는 한참 미치지 못하고 있다.</p>
+<p>무엇때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거까지의 여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는데에는 정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지 않는다. 사실, “데이터 (data)” 가 무엇인지, 그리고 “근거 (evidence)”가 무엇인지에 대한 통일된 관념도 존재하지 않는다.</p>
+<div class="figure" style="text-align: center"><span id="fig:datajourney"></span>
+<img src="images/OhdsiCommunity/datajourney.png" alt="The journey from data to evidence" width="100%" />
+<p class="caption">
+Figure 1.1: The journey from data to evidence
+</p>
+</div>
+<p>원본 시스템에서 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰 데이터베이스 (observational database)가 있다. 이 데이터베이스는 서로 다른 의료 시스템 내부의 인구, 치료 설정 및 데이터 수집 프로세스의 이질성만큼 다양하다. 의사 결정에 도움이 될 수있는 다양한 유형의 근거가 있으며, 환자 특성 분석 (clinical characterization), 인구 수준 추정 (population-level estimation) 및 환자 수준 예측 (patient-level prediction) 으로 분류할 수 있다. 모집단 수준 영향 추정 및 환자 수준 예측의 분석 사용 사례로 분류 할 수 있습니다. 출발지 (원본 데이터) 및 원하는 목적지 (근거)와는 별도로, 여정을 수행하는 데 필요한 광범위한 임상, 과학 및 기술 역량들은 문제를 더욱 복잡하게 만든다. 보험 청구나 진료 과정이 데이터로 수집되면서 보건 정책이나 보험 환급과 관련된 행동 동기들로 인해 데이터 수집 및 정제 과정에서 발생할 수 있는 편향을 비롯하여, 환자와 의료 제공자간의 접점으로부터 원본 데이터가 발생하는 전반적인 과정에 대한 철저한 이해도 필요하다. 임상적 의문을 관련 해답을 도출하는 데 적합한 관찰 연구 설계으로 변환하기 위해선 역학 원칙과 통계적 방법을 숙지해야 한다. 수백만 명의 환자의 수년간의 종적 추적에 걸친 수십억 건의 임상 관찰을 가진 데이터셋에 대해 계산적으로 효율적인 데이터 과학 알고리즘을 구현하고 실행할 수 있는 기술적 능력 역시 필요하다. 관찰형 연구 통해 습득한 내용을 다른 종류의 근거와 통합하고, 이 새로운 지식이 건강 정책 및 임상 관행에 어떤 영향을 미칠지 결정하기 위해 임상 지식 또한 필요하다. 따라서, 한 개인이 데이터에서 근거를 성공적으로 만들어 내는 데 필요한 기술과 자원을 모두 보유하는 것은 매우 드문 일이다. 그보다는 이용 가능한 최선의 데이터를 가장 적절한 방법으로 분석하여 모든 이해당사자들이 의사결정 과정에 신뢰하고 사용할 수 있는 근거를 생산하는, 데이터에서 근거까지의 이 여정을 위해서는 보통 여러 개인과 조직의 협력이 필요하다.</p>
+</div>
+<div id="-observational-medical-outcomes-partnership-omop" class="section level2">
+<h2><span class="header-section-number">1.2</span> 오몹 (Observational Medical Outcomes Partnership, OMOP)</h2>
+<p>협력 관찰형 연구 모델로써 주목할만한 예시로 오몹 (Observational Medical Outcomes Partnership, OMOP)이 있었다. 오몹은 미국의 식품의약국 (FDA)이 주관하고, 미국 국립 보건원 (National Institutes of Health) 관리하에 학술 연구자 및 보건 데이터 파트너와 협력하는 제약 회사의 컨소시엄로 구성되었으며, 관찰형 보건의료 데이터를 이용하여 능동적 의료 제품 안전성 감시의 발전을 꾀하는 민관 협력체였다. <span class="citation">(Stang et al. <a href="#ref-stang2010omop">2010</a>)</span> OMOP은 다수의 이해관계자 간의 거버넌스 구조를 확립했고, 다수의 청구자료 및 전자 의무 기록 데이터베이스에 적용하여 진정한 약물 안전성 연관성과 거짓 양성 소견을 식별할 수 있는 대안적인 역학 설계 및 통계 방법의 성능을 경험적으로 검증하는 일련의 방법론적 실험을 설계하였다. 분산되어 있는 관찰형 데이터 베이스를 통해 연구릴 진행함에 있어 기술적인 난제를 인식하고, 연구진들은 데이터의 구조, 내용 및 용어를 표준화하여 하나의 통계 분석 코드가 모든 데이터 파트너에서 사용될 수 있도록, OMOP 공통 데이터 모델 (Common Data Model, CDM) 을 설계하였다. <span class="citation">(Overhage et al. <a href="#ref-overhage2012cdm">2012</a>)</span> OMOP 실험은 공통 데이터 모델과 표준화된 어휘를 확립하는 것이 가능하다는 것을 증명했다. 이는 서로 다른 관리 설정으로부터, 다른 용어 체계를 통해 다른 데이터 유형을 수용하고 하여 기관 간 협업과 효율적인 분석을 용이하게 할 수 있는 방식으로 구현되었다.</p>
+<p>OMOP는 처음부터 연구 설계, 데이터 표준, 분석 코드, 경험적 결과 등 모든 작업 제품을 공공에 배포하여 투명성을 증진하고, OMOP가 수행하고 있는 연구에 대한 신뢰도를 쌓을 뿐 아니라, 또한 다른 이들의 연구 목적을 위하여 발전할 수 있도록 개방형 과학 (open science) 정책을 채택하였다. OMOP의 원래 초점은 약물 안전성이었지만, OMOP-CDM은 의료 처치와 보건 시스템 정책의 비교 효과성을 포함한 확대된 분석 사용 사례를 지원하기 위해 지속적으로 발전했다.</p>
+<p>비록 OMOP이 대규모의 경험적 실험을 완성하는 데 성공하였고, <span class="citation">(Ryan et al. <a href="#ref-ryan2012omop">2012</a>; Ryan et al. <a href="#ref-ryan2013omop">2013</a>)</span> 방법론적인 혁신을 만들고, <span class="citation">(Schuemie et al. <a href="#ref-schuemie_2014">2014</a>)</span> 관찰형 데이터를 이용하여 안정성에 관련되어 의사결정에 유용한 지식 생성을 위한 적절한 방법론을 제시하였지만, <span class="citation">(Madigan et al. <a href="#ref-madigan_2013">2013</a>; Madigan, Ryan, and Schuemie <a href="#ref-madigan2013design">2013</a>)</span> 이제 OMOP의 유산은 OHDSI 커뮤니티의 형성에 동기를 부여한 자극과 개방형 과학 원칙을 조기에 채택한 것으로 더 기억될 수 있다.</p>
+<p>OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 숭 있는 관찰론적 연구를 완료하고 종료된 이후, 사람들은 OMOP 여정의 끝이, 새로운 여정의 시작이 되어야 된다고 생각했다. OMOP의 방법론적 연구가 관찰 데이터에서 생성되는 근거의 품질을 명시적으로 개선할 수 있는 과학적 모범 사례에 대한 가시적 통찰력을 제공함에도 불구하고, 그러한 모범 사례의 채택은 느렸다. 몇 가지 장애물들을 있었는데, 1) 방법론적의 혁신 이전에 관찰형 데이터 품질에 대한 근본적인 우려 2) 방법론적 문제와 해결책에 대한 불충분한 개념적 이해 3) 개별 데이터 파트너의 로컬 환경 내에서 솔루션을 독립적으로 구현할 수 없다는 점 4) 이러한 접근방식이 그들의 관심 임상 문제에 적용 가능한지에 대한 불확실성 등이었다. 이러한 모든 장애물에 대한 하나의 공통된 실마리는 한 사람만이 스스로 변화를 만드는 데 필요한 모든 것을 가지고 있지는 않지만, 여러 사람이 협력하면 이러한 문제들을 극복할 수 있다는 것이었다.</p>
+<ul>
+<li>기초 데이터 품질에 대한 신뢰도를 높이며 구조, 콘텐츠 및 의미론의 일관성을 촉진하여 표준화된 분석이 가능하도록 개방형 커뮤니티의 (open community) 데이터 구조, 어휘 및 추출 변환 적재 (Extract-Transform-Load, ETL)의 표준 규약 구축을 위한 협업</li>
+<li>약물 안전성 연구 외에도 clinical characterization, population-level effect estimation, patient-level prediction을 위한 보다 광범위한 모범 사례 (best practice)을 확립하기 위한 협업. 방법론적 연구를 통해 입증된 과학적 모범 사례 구현을 코드화하고 연구자들이 쉽게 채택할 수 있는 오픈 소스 분석 소프트웨어 개발에 대한 협업.</li>
+<li>데이터에서 근거로의 여정을 인도해줄, 주요한 보건 문제에 대한 공동체 공통의 질문에 대한 임상적 적용에 대한 협업</li>
+</ul>
+<p>이러한 통찰을 통해, 오딧세이 (OHDSI)가 태어났다.</p>
+</div>
+<div id="----ohdsi-as-an-open-science-collaborative" class="section level2">
+<h2><span class="header-section-number">1.3</span> 개방형 협업 공동체로서의 오딧세이 (OHDSI as an Open-Science Collaborative)</h2>
+<p>OHDSI (Observational Health data Sciences and Informatics, 오딧세이) 는 보다 더 나은 의료 결정과 더 나은 보건 관리를 촉진할 수 있는 과학적 근거를 공동으로 생성하도록 함으로써 보건 수준을 향상시키는 것을 목표로 하는 개방형 과학 공동체다. <span class="citation">(Hripcsak et al. <a href="#ref-Hripcsak2015">2015</a>)</span> OHDSI는 관찰 건강 데이터의 적절한 사용에 대한 과학적 모범 사례를 확립하기 위한 방법론적 연구를 수행하고, 이러한 연구방법론을 일관되고 투명하며 재현 가능한 솔루션으로 코드화하는 오픈 소스 분석 소프트웨어를 개발하여, 보건의료 정책 및 환자 치료에 도움이 될 수 있는 임상적 근거를 마련하는 데에 적용할 수 있도록 노력한다.</p>
+<div id="ohdsi--our-mission" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> OHDSI의 사명 (Our Mission)</h3>
+<p>참여 공동체의 상호협력 하에 의료 발전을 촉진하는 근거를 생성하는 능력을 부여한다.</p>
+<blockquote>
+<p>To improve health by empowering a community to collaboratively generate the evidence that promotes better health decisions and better care. </p>
+</blockquote>
+</div>
+<div id="ohdsi--our-vision" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> OHDSI의 이상 (Our Vision)</h3>
+<p>의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를 제공한다.</p>
+<blockquote>
+<p>A world in which observational research produces a comprehensive understanding of health and disease. </p>
+</blockquote>
+</div>
+<div id="ohdsi---our-objectives" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> OHDSI의 핵심 가치 (Our Objectives)</h3>
+<ul>
+<li><strong>혁신성 Innovation</strong>: 우리는 적극적으로 의료 빅데이터 분석 및 연구에 대한 혁신적인 방법론과 접근법을 찾고 격려한다.</li>
+</ul>
+<blockquote>
+<p>Observational research is a field which will benefit greatly from disruptive thinking. We actively seek and encourage fresh methodological approaches in our work.</p>
+</blockquote>
+<ul>
+<li><strong>재현성 Reproducibility</strong>: 우리는 보건 증진을 위하여 정확하고, 재현 가능하며, 잘 보정된 근거를 찾도록 노력한다.</li>
+</ul>
+<blockquote>
+<p>Accurate, reproducible, and well-calibrated evidence is necessary for health improvement.</p>
+</blockquote>
+<ul>
+<li><strong>공동체 정신 Community</strong>: 우리는 모든 참여자들을 환영하며 동등하게 우리의 활동에 참여할 수 있도록 돕는다.</li>
+</ul>
+<blockquote>
+<p>Everyone is welcome to actively participate in OHDSI, whether you are a patient, a health professional, a researcher, or someone who simply believes in our cause.</p>
+</blockquote>
+<ul>
+<li><strong>개방성 Openness</strong>: 우리는 의사 결정 과정의 투명성을 지향하며, 우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 근거를 가능한 공개적으로 접근 가능하게 한다.</li>
+</ul>
+<blockquote>
+<p>We strive to make all our community’s proceeds open and publicly accessible, including the methods, tools and the evidence that we generate.</p>
+</blockquote>
+<ul>
+<li><strong>협력 정신 Collaboration</strong>: 우리는 참여자들의 실제적 요구를 우선적으로 다루고, 그것을 위해 공동으로 노력한다.</li>
+</ul>
+<blockquote>
+<p>We work collectively to prioritize and address the real world needs of our community’s participants.</p>
+</blockquote>
+<ul>
+<li><strong>선행의 정신 Beneficence</strong>: 우리는 고통 받는 환자를 비롯하여 참여자 및 참여기관의 권리를 보호하기 위해 노력한다.</li>
+</ul>
+<blockquote>
+<p>We seek to protect the rights of individuals and organizations within our community at all times.</p>
+</blockquote>
+
+</div>
+</div>
+<div id="--ohdsis-progress" class="section level2">
+<h2><span class="header-section-number">1.4</span> 오딧세이의 진척 (OHDSI’s Progress)</h2>
+<p>OHDSI는 2014년 설립된 이래 성장을 지속하여 컴퓨터 과학, 역학, 통계, 생물 의학 정보학, 보건 정책 및 임상 의학 등 다양한 분야를 대표하는 학계, 의료 제품 산업, 규제 기관, 정부, 보험자, 기술 제공자, 의료 시스템, 임상의사 및 환자 집단 2,500명 이상의 다양한 이해관계자이 온라인 포럼에서 활동하고 있다. OHDSI 협력체로써 자발적으로 보고한 기관 및 데이터베이스의 리스트는 OHDSI 웹사이트에서 확인할 수 있다.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> 오딧세이 협력 지도 (Figure <a href="OhdsiCommunity.html#fig:collaboratormap">1.2</a>) 는 폭넓은 국제 공동체로써의 다양성을 상기시킨다.</p>
+<div class="figure" style="text-align: center"><span id="fig:collaboratormap"></span>
+<img src="images/OhdsiCommunity/mapOfCollaborators.png" alt="Map of OHDSI collaborators as of August, 2019" width="100%" />
+<p class="caption">
+Figure 1.2: Map of OHDSI collaborators as of August, 2019
+</p>
+</div>
+<p>OHDSI는 OMOP-CDM이라는 개방형 공동체 데이터 표준 기반으로 2019년 8월 기준으로 20여개국, 100개 이상의 의료 데이터베이스들로 구성된 분산형 연구망 (distributed research network, DRN)을 구축했다. 분산형 연구망이란 환자 수준의 데이터를 개인이나 조직 간에 공유할 필요가 없다는 것을 의미한다. 분산연구망에서는, 데이터를 기관 폐쇄망 안에 두고 연구자는 프로토콜 형태의 분석코드/프로그램을 공유한다. 데이터 파트너들은 연구자의 요청에 따라 기관 안에서 연구 프로토콜을 실행해 자동으로 생성되는 요약 집합정보(평균, 합, 표준편차, 오즈비, 위험도 등)만 연구자에게 회신하는 방식으로, 연구자는 폐쇄망 안에 있는 환자의 개별 정보를 보거나 취득하지 않는다. OHDSI 분산망에서 각 데이터 파트너는 환자 수준 데이터의 사용에 대한 완전한 자율성을 유지하고, 각 기관의 데이터 거버넌스 정책을 지속적으로 준수한다.</p>
+<p>OHDSI 개발자 커뮤니티는 3가지의 사용 사례를 지원하기 위해 OMOP CDM 위에 다음 3가지의 강력한 오픈 소스 분석 소프트웨어 라이브러리를 구축하였다.</p>
+<ol style="list-style-type: decimal">
+<li>Clinical characterization: 질병의 자연 경과, 치료 행태 및 질 향상을 위한 임상 특성 분석</li>
+<li>Population-level effect estimation: 의약품 안전성 감시 및 비교 효과 연구에서의 인과성 분석</li>
+<li>Patient-level prediction: 머신러닝 알고리즘을 활용한 정밀 의학 또는 의료 개입</li>
+</ol>
+<p>OHDSI 개발자들은 또한 OMOP CDM의 채택, 데이터 품질 평가, OHDSI 네트워크 연구의 촉진을 지원하는 애플리케이션을 개발했다. 이러한 소프트웨어에는 R과 Python에 내장된 백엔드 통계 패키지 및 HTML과 Javascript로 개발된 프론트엔드 웹 어플리케이션이 포함된다. 모든 OHDSI 소프트웨어들은 오픈 소스 정책을 채택하여 Github을 통해 공개된다.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>오픈 소스 소프트웨어들과 함께, OHDSI의 개방형 과학 공동체적 접근은 관찰형 연구의 발전을 가능하게 했다. 첫번째 OHDSI 네트워크 연구는 당뇨, 우울증, 고혈압의 3가지 만성 질병에 대한 치료 패턴을 분석하는 것이었다. PNAS(Proceedings of the National Academy of Science) 에 출판된 연구는, 그 때까지 수행된 최대 규모의 관찰형 연구로써 11개의 데이터베이스에서 2억 5천만명의 환자 데이터를 이용하여 이전에 보고된 적 없는 치료 패턴의 지역적 차이 및 환자별 치료선택에 대한 이질성에 대해 발표하였다. <span class="citation">(Hripcsak et al. <a href="#ref-Hripcsak7329">2016</a>)</span> OHDSI는 교란변수를 통제하는 새로운 통계적 방법론을 제시하였고, <span class="citation">(Tian, Schuemie, and Suchard <a href="#ref-tian_2018">2018</a>)</span> 인과성 검증 능력에 대해 검증하였고, <span class="citation">(Schuemie, Hripcsak, et al. <a href="#ref-schuemie_2018">2018</a>)</span> 이러한 방법론을 뇌전증 약제의 개별 안전성 연구 <span class="citation">(Duke et al. <a href="#ref-duke_2017">2017</a>)</span> 및 당뇨병의 이차 약제의 비교 효과 연구 <span class="citation">(Vashisht et al. <a href="#ref-vashisht_2018">2018</a>)</span> 및 우울증 치료의 대규모 비교 효과 연구 <span class="citation">(Schuemie, Ryan, et al. <a href="#ref-schuemie_2018b">2018</a>)</span>에 활용하였다. OHDSI 공동체는 또한 관찰형 보건의료 데이터의 머신러닝 알고리즘을 활용 프레임 워크를 구축 <span class="citation">(Reps et al. <a href="#ref-reps2018">2018</a>)</span> 하여 다양한 치료 분야에 활용하였다. <span class="citation">(Johnston et al. <a href="#ref-johnston_2019">2019</a>; Cepeda et al. <a href="#ref-cepeda_2018">2018</a>; Reps, Rijnbeek, and Ryan <a href="#ref-reps_2019">2019</a>)</span></p>
+</div>
+<div id="collaborating-in-ohdsi" class="section level2">
+<h2><span class="header-section-number">1.5</span> Collaborating in OHDSI</h2>
+<p>OHDSI는 근거를 생성하기 위해 협업을 강화하는 것을 목표로 하는 공동체인데, OHDSI 참가자가 된다는 것은 무엇을 의미하는가? 만약 당신이 OHDSI의 사명을 믿고 데이터에서 근거에 이르는 여정의 어디든지 기여를 하는 데 관심이 있다면, OHDSI는 당신을 위한 공동체가 될 수 있다. OHDSI 참가자는 보건 의료 데이터에 접근이 가능하고, 이를 활용해 의학적 근거를 생성하고 싶은 개인일 수 있다. OHDSI 참가자는 과학적 모범 사례를 수립하고 대안적 접근법을 평가하는 데 관심이 있는 방법론 연구자일 수 있다. OHDSI 참가자는 OHDSI의 타 연구자들이 사용할 수 있는 도구를 만들기 위해 프로그래밍 기술을 적용하는 데 관심이 있는 소프트웨어 개발자일 수 있다. OHDSI 참가자는 중요한 의학보건학적 질문을 가지고 있고 논문 발표 등을 통해 그러한 질문들에 대한 근거를 보다 더 큰 의료 커뮤니티에 제공하고자 하는 임상 연구자일 수 있다. OHDSI 참가자는 공공 보건을 위해 이러한 공통적인 사명과 가치를 믿고 해당 지역의 공동체가 OHDSI 관련 교육과 심포지엄 개최를 포함하여, 그 임무를 지속할 수 있도록 자원을 제공하는 개인 또는 단체일 수도 있다. 당신의 배경이나 소속과 관계없이, OHDSI는 개개인이 공통의 목적을 위해 함께 일할 수 있는 공동체가 되기를 추구하고 있으며, 각 개인이 공동으로 의료 서비스를 발전시킬 수 있는 기여를 하고 있다. 이 여정에 함께하고 싶다면, 챕터 <a href="WhereToBegin.html#WhereToBegin">2</a> (“Where To Begin”) 를 통해 어떻게 시작하는 지 배울 수 있다.</p>
+</div>
+<div id="--" class="section level2">
+<h2><span class="header-section-number">1.6</span> 한국 오딧세이의 역사</h2>
+<p>아주대학교 박래웅 교수가 아주대 병원의 전자의무기록을 이용하여 2014년 OMOP-CDM 도입을 시작하였고, 2015년 첫 연례 심포지엄에서 활용 결과를 발표하면서 한국의 OHDSI 참여가 시작되었다. 이후 계속적으로 한국에서 OMOP-CDM, OHDSI 전파를 위해 노력하였고, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 <a href="http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean">Korean chapter</a>을 개설하고, 한국의 OHDSI 참여를 독려하였다. 첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.</p>
+<div class="figure"><span id="fig:OHDSIInternationalSymposium2017inKorea1"></span>
+<img src="images/OhdsiCommunity/DSC01956.png" alt="OHDSI International Symposium 2017 in Korea" width="80%" />
+<p class="caption">
+Figure 1.3: OHDSI International Symposium 2017 in Korea
+</p>
+</div>
+<div class="figure"><span id="fig:OHDSIInternationalSymposium2017inKorea1"></span>
+<img src="images/OhdsiCommunity/DSC01861.png" alt="OHDSI International Symposium 2017 in Korea" width="80%" />
+<p class="caption">
+Figure 1.3: OHDSI International Symposium 2017 in Korea
+</p>
+</div>
+<div class="figure"><span id="fig:OHDSIInternationalSymposium2017inKorea2"></span>
+<img src="images/OhdsiCommunity/DSC02166.png" alt="Tutorial in the OHDSI International Symposium 2017" width="80%" />
+<p class="caption">
+Figure 1.4: Tutorial in the OHDSI International Symposium 2017
+</p>
+</div>
+<p>한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.</p>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">1.7</span> Summary</h2>
+
+<div class="rmdsummary">
+<ul>
+<li><p>OHDSI의 사명은 참여 공동체의 상호협력 하에 의료 발전을 촉진하는 근거를 생성하는 능력을 부여하는 것이다.</p></li>
+<li><p>OHDSI의 이상은 혁신성, 재현성, 공동체 정신, 개방성, 협력 정신, 선행의 정신을 바탕으로 의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를 제공하는 것이다.</p></li>
+<li>OHDSI 참가자들은 개방형 공동체로서의 데이터 표준, 방법론 연구, 오픈소스 분석 소프트웨어 개발 및 임상적 적용을 통해 데이터로부터 근거로의 여정을 발전시키고자 노력한다.</li>
+</ul>
+</div>
+
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-cepeda_2018">
+<p>Cepeda, M. S., J. Reps, D. Fife, C. Blacketer, P. Stang, and P. Ryan. 2018. “Finding treatment-resistant depression in real-world data: How a data-driven approach compares with expert-based heuristics.” <em>Depress Anxiety</em> 35 (3): 220–28.</p>
+</div>
+<div id="ref-duke_2017">
+<p>Duke, J. D., P. B. Ryan, M. A. Suchard, G. Hripcsak, P. Jin, C. Reich, M. S. Schwalm, et al. 2017. “Risk of angioedema associated with levetiracetam compared with phenytoin: Findings of the observational health data sciences and informatics research network.” <em>Epilepsia</em> 58 (8): e101–e106.</p>
+</div>
+<div id="ref-Hripcsak2015">
+<p>Hripcsak, George, Jon D Duke, Nigam H Shah, Christian G Reich, Vojtech Huser, Martijn J Schuemie, Marc A Suchard, et al. 2015. “Observational Health Data Sciences and Informatics (OHDSI): Opportunities for Observational Researchers.” <em>Studies in Health Technology and Informatics</em> 216: 574–78. <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4815923/" class="uri">http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4815923/</a>.</p>
+</div>
+<div id="ref-Hripcsak7329">
+<p>Hripcsak, George, Patrick B. Ryan, Jon D. Duke, Nigam H. Shah, Rae Woong Park, Vojtech Huser, Marc A. Suchard, et al. 2016. “Characterizing treatment pathways at scale using the OHDSI network.” <em>Proceedings of the National Academy of Sciences</em> 113 (27). National Academy of Sciences: 7329–36. doi:<a href="https://doi.org/10.1073/pnas.1510502113">10.1073/pnas.1510502113</a>.</p>
+</div>
+<div id="ref-johnston_2019">
+<p>Johnston, S. S., J. M. Morton, I. Kalsekar, E. M. Ammann, C. W. Hsiao, and J. Reps. 2019. “Using Machine Learning Applied to Real-World Healthcare Data for Predictive Analytics: An Applied Example in Bariatric Surgery.” <em>Value Health</em> 22 (5): 580–86.</p>
+</div>
+<div id="ref-madigan2013design">
+<p>Madigan, D., P. B. Ryan, and M. Schuemie. 2013. “Does design matter? Systematic evaluation of the impact of analytical choices on effect estimates in observational studies.” <em>Ther Adv Drug Saf</em> 4 (2): 53–62.</p>
+</div>
+<div id="ref-madigan_2013">
+<p>Madigan, D., P. B. Ryan, M. Schuemie, P. E. Stang, J. M. Overhage, A. G. Hartzema, M. A. Suchard, W. DuMouchel, and J. A. Berlin. 2013. “Evaluating the impact of database heterogeneity on observational study results.” <em>Am. J. Epidemiol.</em> 178 (4): 645–51.</p>
+</div>
+<div id="ref-olsen2007learning">
+<p>Olsen, LeighAnne, Dara Aisner, J Michael McGinnis, and others. 2007. <em>The Learning Healthcare System: Workshop Summary</em>. Natl Academy Pr.</p>
+</div>
+<div id="ref-overhage2012cdm">
+<p>Overhage, J. M., P. B. Ryan, C. G. Reich, A. G. Hartzema, and P. E. Stang. 2012. “Validation of a common data model for active safety surveillance research.” <em>J Am Med Inform Assoc</em> 19 (1): 54–60.</p>
+</div>
+<div id="ref-reps_2019">
+<p>Reps, J. M., P. R. Rijnbeek, and P. B. Ryan. 2019. “Identifying the DEAD: Development and Validation of a Patient-Level Model to Predict Death Status in Population-Level Claims Data.” <em>Drug Saf</em>, May.</p>
+</div>
+<div id="ref-reps2018">
+<p>Reps, J. M., M. J. Schuemie, M. A. Suchard, P. B. Ryan, and P. R. Rijnbeek. 2018. “Design and implementation of a standardized framework to generate and evaluate patient-level prediction models using observational healthcare data.” <em>Journal of the American Medical Informatics Association</em> 25 (8): 969–75. doi:<a href="https://doi.org/10.1093/jamia/ocy032">10.1093/jamia/ocy032</a>.</p>
+</div>
+<div id="ref-ryan2012omop">
+<p>Ryan, P. B., D. Madigan, P. E. Stang, J. M. Overhage, J. A. Racoosin, and A. G. Hartzema. 2012. “Empirical assessment of methods for risk identification in healthcare data: results from the experiments of the Observational Medical Outcomes Partnership.” <em>Stat Med</em> 31 (30): 4401–15.</p>
+</div>
+<div id="ref-ryan2013omop">
+<p>Ryan, P. B., P. E. Stang, J. M. Overhage, M. A. Suchard, A. G. Hartzema, W. DuMouchel, C. G. Reich, M. J. Schuemie, and D. Madigan. 2013. “A comparison of the empirical performance of methods for a risk identification system.” <em>Drug Saf</em> 36 Suppl 1 (October): S143–158.</p>
+</div>
+<div id="ref-schuemie_2018">
+<p>Schuemie, M. 2018. “Empirical confidence interval calibration for population-level effect estimation studies in observational healthcare data.” <em>Proc. Natl. Acad. Sci. U.S.A.</em> 115 (11): 2571–7.</p>
+</div>
+<div id="ref-schuemie_2014">
+<p>Schuemie, M. J., P. B. Ryan, W. DuMouchel, M. A. Suchard, and D. Madigan. 2014. “Interpreting observational studies: why empirical calibration is needed to correct p-values.” <em>Stat Med</em> 33 (2): 209–18.</p>
+</div>
+<div id="ref-schuemie_2018b">
+<p>Schuemie, M. J., P. B. Ryan, G. Hripcsak, D. Madigan, and M. A. Suchard. 2018. “Improving reproducibility by using high-throughput observational studies with empirical calibration.” <em>Philos Trans A Math Phys Eng Sci</em> 376 (2128).</p>
+</div>
+<div id="ref-stang2010omop">
+<p>Stang, P. E., P. B. Ryan, J. A. Racoosin, J. M. Overhage, A. G. Hartzema, C. Reich, E. Welebob, T. Scarnecchia, and J. Woodcock. 2010. “Advancing the science for active surveillance: rationale and design for the Observational Medical Outcomes Partnership.” <em>Ann. Intern. Med.</em> 153 (9): 600–606.</p>
+</div>
+<div id="ref-tian_2018">
+<p>Tian, Y., M. J. Schuemie, and M. A. Suchard. 2018. “Evaluating large-scale propensity score performance through real-world and synthetic data experiments.” <em>Int J Epidemiol</em> 47 (6): 2005–14.</p>
+</div>
+<div id="ref-vashisht_2018">
+<p>Vashisht, R., K. Jung, A. Schuler, J. M. Banda, R. W. Park, S. Jin, L. Li, et al. 2018. “Association of Hemoglobin A1c Levels With Use of Sulfonylureas, Dipeptidyl Peptidase 4 Inhibitors, and Thiazolidinediones in Patients With Type 2 Diabetes Treated With Metformin: Analysis From the Observational Health Data Sciences and Informatics Initiative.” <em>JAMA Netw Open</em> 1 (4): e181755.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><a href="https://www.ohdsi.org/who-we-are/collaborators/" class="uri">https://www.ohdsi.org/who-we-are/collaborators/</a><a href="OhdsiCommunity.html#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://github.com/OHDSI" class="uri">https://github.com/OHDSI</a><a href="OhdsiCommunity.html#fnref2">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="WhereToBegin.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/OHDSI/TheBookOfOhdsi/edit/master/OhdsiCommunity.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsiKorea.pdf", "TheBookOfOhdsiKorea.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

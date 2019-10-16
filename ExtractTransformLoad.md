@@ -1,0 +1,436 @@
+# 추출 변환 적재 {#ExtractTransformLoad}
+
+*챕터 작성자 : Clair Blacketer & Erica Voss*
+
+## 서론
+
+원천 데이터에서 OMOP 공통 데이터 모델(Common Data Model, CDM)을 얻기 위해서는 추출, 변환, 적재(Extract Transform Load, ETL) 절차가 필요하다. 이 절차는 데이터를 CDM으로 재구축 과정이며, 표준용어로의 매핑, SQL 코드들을 이용한 자동화된 절차로 이루어지게 된다. ETL 절차는 원천 데이터가 갱신될 때마다 언제든지 재수행 가능하게끔 반복 가능하게 구축하는 것이 중요하다. \index{ETL|see {extract, transform and load (ETL)}} \index{raw data} \index{native data|see {raw data}} \index{source data|see{raw data}}
+
+ETL을 진행한다는 것은 많은 일들을 필요로 한다. 몇 년 동안의 과정을 통해 우리는 4가지 단계들로 이루어진 최상의 단계들을 개발하였다.
+
+1. 데이터 전문가와 CDM 전문가가 함게 ETL을 설계할 것.
+2. 의학 지식이 있는 사람들이 코드 매핑을 작업할 것.
+3. 기술자가 ETL을 수행할 것.
+4. 모든 사람이 질 관리에 참여할 것.
+
+이 챕터에서 우리는 각 단계들을 세부적으로 살펴볼 것이다. 각 절차들을 보조하기 위해 다양한 도구들이 OHDSI 커뮤니티에 의해 개발되어왔고, 이 도구들에 대해서도 다룰 것이다. 마지막으로 CDM과 ETL의 유지에 관해 이야기하며 마무리할 것이다.
+
+## 1단계 : ETL 설계
+
+ETL 설계와 ETL 수행을 명확하게 분리하는 것은 중요하다. ETL을 설계하는 것은 원천 데이터와 CDM 모두에 대한 넓은 지식을 필요로 한다. 반대로 ETL을 수행할 때는 ETL을 기술적인 측면에서 효율적으로 수행하는 방법에 대해 기술 전문가들에게 의존하게 된다. 만약 동시에 두 가지 모두를 진행하려 한다면, 전체적인 그림에 집중할 때보다 세부적인 사항에서 막히게 될 가능성이 높다.
+
+두 가지의 밀접하게 연관된 도구들이 ETL 설계를 위해 개발되었다: 흰 토끼 (White Rabbit), 모자 속 토끼 (Rabbit-in-a-Hat)
+
+### 흰 토끼 (White Rabbit)
+
+ETL 절차를 시작하기 위해서는 테이블, 필드, 내용을 포함한 데이터에 대한 이해가 필요하다. 하단의 링크에 [White Rabbit](https://github.com/OHDSI/WhiteRabbit)에 대한 정보가 기록되어 있다. White Rabbit은 장기적인 보건의료 데이터베이스의 [OMOP CDM](https://github.com/OHDSI/CommonDataModel)으로의 ETL 작업 준비를 도와주기 위한 소프트웨어이다. White Rabbit은 데이터를 탐색하고 ETL 설계를 시작하기 위한 필수적인 정보들에 대한 보고서를 생성해준다. 모든 소스 코드와 설치 방법 뿐만 아니라 설명서는 깃헙(Github)에서 확인 가능하다.[^whiteRabbitGithubUrl] \index{White Rabbit} \index{data profiling|see {White Rabbit}}
+
+[^whiteRabbitGithubUrl]: https://github.com/OHDSI/WhiteRabbit.
+
+#### 범위와 목표 {-}
+
+White Rabbit의 주요 기능은 원천 데이터에 대한 탐색을 수행하고, 테이블, 필드, 필드값들에 대한 세부적인 정보를 제공하는 것이다. 원천 데이터는 comma-seperated 텍스트 파일일 수도 있고, 데이터베이스(MySQL, SQL Server, Oracle, PostgreSQL, Microsoft APS, Microsoft Access, Amazon RedShift)에 적재되어 있을 수도 있다. 탐색 과정에서  Rabbit-In-a-Hat 도구와 함께 쓴다면 ETL을 설계할 때 참고할 수 있는 보고서를 생성할 수 있다. White Rabbit은 다른 표준 데이터 프로파일링 도구들과는 달리 개인 식별 정보(Personally Identifiable Information, PII)가 결과 데이터 파일에서 보여지는 것을 방지한다.
+
+#### 절차 개요 {-}
+
+원천 데이터를 탐색하기 위해 소프트웨어를 사용하는 일반적인 순서:
+
+1. 로컬 컴퓨터에서의 결과를 내보낼 작업 폴더를 설정.
+2. 데이터베이스 혹은 CSV 텍스트 파일과의 연결 및 연결 확인.
+3. 탐색 대상 테이블 선택 및 탐색.
+4. White Rabbit의 원천 데이터에 대한 정보 생성 및 내보내기.
+
+#### 작업 폴더 설정 {-}
+
+White Rabbit 어플리케이션의 다운로드 및 설치 이후, 처음으로 할 일은 작업 폴더를 설정하는 것이다. White Rabbit이 생성하는 모든 파일들은 설정한 로컬 폴더에 생성될 것이다. 그림 \@ref(fig:WhiteRabbitLocation)에서 보여지는 "Pick Folder" 버튼을 사용하여 탐색 문서들이 저장될 로컬 환경을 탐색할 수 있다. 
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/WhiteRabbitLocation.png" alt="The &quot;Pick Folder&quot; button allows the specification of a working folder for the White Rabbit application." width="100%" />
+<p class="caption">(\#fig:WhiteRabbitLocation)The "Pick Folder" button allows the specification of a working folder for the White Rabbit application.</p>
+</div>
+
+#### 데이터베이스 연결 {-}
+
+White Rabbit은 구분된 텍스트 파일들과 데이터베이스를 지원한다. 다양한 필드들에 대한 필요 항목들의 설명을 보려면 마우스를 올려야한다. 더욱 자세한 설명은 설명서에서 확인할 수 있다.
+
+#### 데이터베이스의 테이블 탐색 {-}
+
+데이터베이스에 연결한 이후에는 데이터베이스에 적재되어있는 테이블들을 탐색할 수 있다. 탐색 과정은 ETL을 설계하는데 도움을 되는 원천 데이터에 대한 정보를 담은 보고서를 생성할 수 있다. 그림 \@ref(fig:WhiteRabbitAddTables)에 보이는  Scan 탭의 “Add” (Ctrl + mouse click) 버튼을 눌러서 선택된 원천 데이터베이스의 각 테이블들을 선택하거나, “Add all in DB” 누름으로써 모든 테이블들을 자동적으로 선택할 수 있다.
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/WhiteRabbitAddTables.png" alt="White Rabbit Scan tab." width="100%" />
+<p class="caption">(\#fig:WhiteRabbitAddTables)White Rabbit Scan tab.</p>
+</div>
+
+탐색에 사용될 몇 가지 옵션들:
+
+* “Scan field values” 는 열에 어떠한 값들을 나타나는지 보고싶을때 사용한다.
+* “Min cell count” 는 필드값을 탐색할 때 쓰이는 옵션이다. 기본값은 5로 설정되어 있으며, 이는 원천 데이터에서 5번 이하로 나타나는 값들은 보고서에 나타내지 않는 것을 의미한다. 각 데이터셋들은 각각의 고유한 규칙에 따라 minimal cell count가 정해져야할 것이다.
+* “Rows per table” 는 필드값을 탐색할 때 쓰이는 옵션이다. 기본값으로 White Rabbit은 테이블에서 무작위로 100,000개의 행렬을 선택하여 탐색할 것이다. 
+
+모든 옵션들이 설정된 이후에는 “Scan tables”을 누르면 된다. 탐색이 완료된 이후에는 보고서가 작업 폴더에 생성될 것이다. 
+
+#### 탐색 보고서의 이해 {-}
+
+탐색이 완료된 이후에는 선택된 작업 폴더에 엑셀 파일이 생성될 것이며, 엑셀 파일에는 스캔한 각 테이블에 대한 하나의 탭과 개요 탭이 생성된다. 개요 탭은 탐색한 모든 테이블들이며, 각 테이블의 필드, 각 필드의 데이터 타입, 필드의 최대 길이, 테이블의 행의 수, 탐색한 행의 수, 그리고 얼마나 많은 필드들이 비어있었는지 보여준다. 그림 \@ref(fig:ScanOverviewTab)은 개요 탭의 예시를 보여준다. 
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/ScanOverviewTab.png" alt="Example overview tab from a scan report." width="100%" />
+<p class="caption">(\#fig:ScanOverviewTab)Example overview tab from a scan report.</p>
+</div>
+
+각 테이블들의 탭들은 각각의 필드, 필드의 값들, 그리고 값들의 빈도를 나타낸다. 각 원천 테이블의 컬럼들은 엑셀에서 두 개의 컬럼들로 생성된다. 하나는 탐색 시 설정한 “Min cell count” 보다 큰 값들의 고유한 값을 보여준다. 만약 고유한 값 목록이 잘려있다면, 목록의 마지막 값은 “List truncated” 가 될 것이다; 이는 하나 혹은 그 이상의 값들이 “Min cell count” 보다 작은 고유한 값이 있음을 나타낸다. 각각의 고유한 값 옆에는 빈도를 나타내는 두 번째 컬럼이 있다(표본에서 값이 발생하는 횟수). 이 두 컬럼들(고유한 값과 빈도 수)은 작업책(workbook)의 프로파일링된 테이블의 모든 원천 변수들에 대해 반복되서 나타난다.
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/ScanSex.png" alt="Example values for a single column." width="30%" />
+<p class="caption">(\#fig:scanSex)Example values for a single column.</p>
+</div>
+
+보고서는 원천 데이터에 무엇이 있는지를 강조함으로써 데이터를 이해하는데 강력한 도움을 준다. 예를 들면, 그림 \@ref(fig:scanSex)에 나타난 결과가 탐색된 테이블 컬럼 중 하나인 "Sex"에 반환될 경우, 우리는 각각 61,491번과 35,401번 나타난 공통된 값들(1과 2)이 있음을 알 수 있다. White Rabbit은 1을 남성으로, 2를 여성으로 정의하지는 않을 것이다; 데이터 소유자가 일반적으로 원천 시스템에 고유한 원천 코드를 정의해야한다. 하지만 이 두 가지 값(1 & 2)들은 데이터에 있는 유일한 값들이 아니기 때문에 우리는 잘린 목록을 확인해야한다. 이 값들은 (“Min cell count” 정의에 따라) 매우 낮은 빈도로 나타나게 되고, 종종 부정확하거나 매우 의심스러운 값들로 표현된다. ETL 수행을 계획할 때 우리는 높은 빈도의 성별 개념로써 1과 2만 다루는 것이 아니라, 컬럼에 존재하는 낮은 빈도의 값들도 고려해야한다. 예를 들어 만약 낮은 빈도의 성별들이 “NULL”일 경우 ETL 진행 시 이러한 데이터에 대해 어떻게 처리할 것인지 확실히 해야한다. 
+
+### 모자 속 토끼 (Rabbit-In-a-Hat)
+
+White Rabbit과 함께 우리는 원천 데이터에 대한 분명한 그림을 그릴 수 있다. 또한 우리는 CDM에 대한 전체 명세서를 알고 있다. 이제 우리는 하나에서 다른 하나로 넘어갈 로직을 정의해야한다. 이 설계 활동은 원천 데이터와 CDM 모두에 대한 온전한 지식을 요구한다. White Rabbit 소프트웨어와 함께 사용되는  Rabbit-in-a-Hat 도구는 명확하게 이 분야의 전문가들을 위해 개발되었다. 일반적으로 ETL 설계팀은 회의실에 같이 앉아 Rabbit-in-a-Hat을 프로젝터 화면으로 같이 보면서 작업을 한다. 첫 번째로 테이블 간의 매핑은 협력적으로 결정될 수 있으며, 그 후에는 필드 간의 매핑이 설계되는 동시에 어떤한 값들을 변환시킬지 로직을 정의할 수 있다. \index{Rabbit-In-A-Hat} \index{ETL design|see {Rabbit-In-A-Hat}}
+
+#### 범위와 목표 {-}
+
+Rabbit-In-a-Hat은 White Rabbit의 탐색 문서들을 읽고 나타내기 위해 설계되었다. White Rabbit은 원천 데이터에 대한 정보를 생성하는반면, Rabbit-In-a-Hat은 그 정보를 사용하고 그래픽 사용자 인터페이스를 통하여 사용자들로 하여금 원천 데이터의 테이블과 컬럼들을 CDM으로 연결시게끔 해준다. Rabbit-In-a-Hat은 ETL 절차에 대한 문서를 생성해주지만 ETL을 위한 코드는 생성하지 않는다. 
+
+#### 절차 개요 {-}
+
+소프트웨어를 이용한 ETL 문서 생성을 위한 일반적인 순서:
+
+1. WhiteRabbit의 탐색 완료 결과.
+2. 탐색 결과 확인; 인터페이스가 원천 테이블들과 CDM 테이블들을 보여줌.
+3. 원천 테이블들의 정보와 상응하는 CDM 테이블들의 연결.
+4. CDM 테이블에 상응하는 각 원천 테이블들에 대해서 세부적인 원천 컬럼과 CDM 컬럼의 연결을 정의.
+5. Rabbit-In-a-Hat 작업을 저장하고 MS 워드 문서로 내보내기.
+
+#### ETL 로직 작성 {-}
+
+일단 Rabbit-In-a-Hat 내의 White Rabbit 탐색 보고서를 확인한다면, 원천 데이터를 OMOP CDM으로 변환하는 설계와 로직 작성을 시작할 준비가 된다. 하나의 예시로써 하단의 챕터들에서 Synthea[^syntheaWiki] 데이터베이스의 일부 테이블들의 변환을 보여줄 것이다.
+
+[^syntheaWiki]: Synthea^TM^ is a patient generator that aims to model real patients. Data are created based on parameters passed to the application.The structure of the data can be found here: https://github.com/synthetichealth/synthea/wiki.
+
+#### ETL의 일반적인 흐름 {-}
+
+CDM이 사람 중심의 모델이기 때문에 PERSON 테이블 먼저 매핑을 시작하는 것이 좋다. 모든 임상적 사건과 관련있는 테이블들(CONDITION_OCCURRENCE, DRUG_EXPOSURE, PROCEDURE_OCCURRENCE 기타 등.)은 PERSON 테이블의 person_id를 참조하기에 PERSON 테이블에 대한 로직을 먼저 작성하는 것이 나중을 위해 좋다. PERSON 테이블을 변환한 다음에는 OBSERVATION_PERIOD를 변환하는 것이 좋은 선택이다. CDM 데이터베이스의 각 사람들은 최소한 하나의 OBSERVATION_PERIOD를 가져야하고, 일반적으로 한 사람에 대한 모든 사건들은 이 관측시기 내에 맞춰지게 된다. PERSON과 OBSERVATION_PERIOD 테이블들이 완료되면 보통 PROVIDER, CARE_SITE, 그리고 LOCATION과 같은 디멘션 테이블(dimensional table)들이 다음 대상이 된다. 임상 테이블 이전에 마지막으로 로직을 작성해야하는 테이블은 VISIT_OCCURRENCE이다. 한 사람의 환자로써의 여정에서 대부분의 사건들이 방문할 때 발생하기 때문에 종종 모든 ETL 과정에서 가장 복잡하고 중요한 부분이기도 하다. 일단 이 테이블들이 완료되면 어떤 CDM 테이블들 어떤 순서대로 매핑할 지는 선택하기 나름이다.
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/flowOfEtl.png" alt="General flow of an ETL and which tables to map first." width="100%" />
+<p class="caption">(\#fig:etlFlow)General flow of an ETL and which tables to map first.</p>
+</div>
+
+CDM 변환 과정에서 종종 중간 테이블들을 만들 필요가 있을 수 있다. 올바른 VISIT_OCCURRENCE_ID들을 해당 사건들에 부여하거나 아니면 원천 코드를 표준 코드로 매핑하는 경우들일 수도 있다(이 단계는 종종 매우 느리게 진행된다). 중간 테이블들은 100% 허용되고 장려된다. 하지만 이러한 중간 테이블들이 변환이 완료된 이후에도 남아있거나 사용되는 것은 장려되지 않는다.
+
+#### 매핑 예시: PERSON 테이블 {-}
+
+Synthea 데이터 구조에서 환자 테이블은 20개의 열들을 갖고 있지만 그림 \@ref(fig:syntheaPerson)에서 보이는 것처럼 모든 열들이 PERSON 테이블에 필요한 것은 아니다. 이런 일은 매우 흔한 일이고 문제가 되지 않는다. 이 예시에서는 환자 이름, 운전면허번호, 여권 번호 등 Synthea의 환자 테이블의 많은 데이터 포인트들이 CDM PERSON 테이블에 사용되지 않는 것을 알 수 있다.
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/syntheaPersonTable.png" alt="Mapping of Synthea Patients table to CDM PERSON table." width="100%" />
+<p class="caption">(\#fig:syntheaPerson)Mapping of Synthea Patients table to CDM PERSON table.</p>
+</div>
+
+하단의 표 \@ref(tab:syntheaEtlPerson)는 Synthea의 환자 테이블이 CDM PERSON 테이블로 변환되는 로직을 보여준다. ‘Destination Field’는 CDM 데이터의 어디에 매핑되는지를 나타낸다. ‘Source field’는 원천 테이블(예시에서는 환자 테이블)의 어느 열에서 CDM의 열로 변하는지 나타낸다. 마지막으로, ‘Logic & comments’는 로직에 대한 설명을 의미한다.
+
+Table: (\#tab:syntheaEtlPerson) ETL logic to convert the Synthea Patients table to CDM PERSON table.
+
+| Destination Field | Source field | Logic & comments |
+| :---------------------- | :--------- | :---------------------------------------- |
+| PERSON_ID                   |             |  Autogenerate. The PERSON_ID will be generated at the time of implementation. This is because the id value from the source is a varchar value while the PERSON_ID is an integer. The id field from the source is set as the PERSON_SOURCE_VALUE to preserve that value and allow for error-checking if necessary. |
+| GENDER_CONCEPT_ID           | gender      | When gender = ‘M’ then set GENDER_CONCEPT_ID to 8507, when gender = ‘F’ then set to 8532. Drop any rows with missing/unknown gender. These two concepts were chosen as they are the only two standard concepts in the gender domain. The choice to drop patients with unknown genders tends to be site-based, though it is recommended they are removed as people without a gender are excluded from analyses.|
+| YEAR_OF_BIRTH               | birthdate   | Take year from birthdate |
+| MONTH_OF_BIRTH              | birthdate   | Take month from birthdate |
+| DAY_OF_BIRTH                | birthdate   | Take day from birthdate |
+| BIRTH_DATETIME              | birthdate   | With midnight as time 00:00:00. Here, the source did not supply a time of birth so the choice was made to set it at midnight.  |
+| RACE_CONCEPT_ID             | race        | When race = 'WHITE' then set as 8527, when race = 'BLACK' then set as 8516, when race = 'ASIAN' then set as 8515, otherwise set as 0. These concepts were chosen because they are the standard concepts belonging to the race domain that most closely align with the race categories in the source.  |
+| ETHNICITY_ CONCEPT_ID        | race  ethnicity | When race = ‘HISPANIC’, or when ethnicity in (‘CENTRAL_AMERICAN’, ‘DOMINICAN’, ‘MEXICAN’, ‘PUERTO_RICAN’, ‘SOUTH_AMERICAN’) then set as 38003563, otherwise set as 0. This is a good example of how multiple source columns can contribute to one CDM column. In the CDM ethnicity is represented as either Hispanic or not Hispanic so values from both the source column race and source column ethnicity will determine this value. |
+| LOCATION_ID                 |             |   |
+| PROVIDER_ID                 |             |   |
+| CARE_SITE_ID                |             |   |
+| PERSON_SOURCE_ VALUE         | id          |   |
+| GENDER_SOURCE_ VALUE         | gender      |   |
+| GENDER_SOURCE_ CONCEPT_ID    |             |   |
+| RACE_SOURCE_ VALUE           | race        |   |
+| RACE_SOURCE_ CONCEPT_ID      |             |   |
+| ETHNICITY_ SOURCE_VALUE      | ethnicity   |  In this case the ETHNICITY_SOURCE_VALUE will have more granularity than the ETHNICITY_CONCEPT_ID.  |
+| ETHNICITY_ SOURCE_CONCEPT_ID |             |   |
+
+Synthea 데이터의 CDM으로의 변환에 대한 더 자세한 설명은 전체 명세서를 참고하면 된다.[^syntheaEtlUrl]
+
+[^syntheaEtlUrl]: https://ohdsi.github.io/ETL-Synthea/
+
+## 2 단계: 코드 매핑 생성
+
+점점 더 많은 원천 코드들이 OMOP 용어에 추가되어지고 있다. 이것은 CDM으로 변환된 데이터의 코딩 체계가 이미 CDM에 포함되거나 매핑되었을 수도 있다는 것을 의미한다. OMOP Vocabulary의 VOCABULARY 테이블을 통해 어떤 용어들이 포함되었는지 확인할 수 있다. 비표준인 원천 코드들(e.g. ICD-10CM codes)에서 표준용어들(e.g. SNOMED codes)로의 매핑을 확인하려면 CONCEPT_RELATIONSHIP 테이블 내의 relationship_id = “Maps to” 인 값들을 찾으면 확인할 수 있다. 예를 들면 ICD-10CM 코드 ‘I21’ (“Acute Myocardial Infarction”)의 표준용어 ID를 확인하기 위해 다음과 같은 SQL을 사용할 수 있다:
+
+```sql
+SELECT concept_id_2 standard_concept_id
+FROM concept_relationship
+INNER JOIN concept source_concept
+  ON concept_id = concept_id_1
+WHERE concept_code = 'I21'
+  AND vocabulary_id = 'ICD10CM'
+  AND relationship_id = 'Maps to'; 
+```
+| STANDARD_CONCEPT_ID |
+| -------------------:|
+| 312327              |
+
+하지만 가끔은 원천 데이터가 Vocabulary에 없는 코딩 시스템을 사용할 수도 있다. 이러한 경우에는 원천 코딩 시스템의 Standard Concept으로의 매핑을 정의하여야한다. 하지만 원천 코딩 시스템에 많은 수의 용어들이 있을 경우 코드 매핑이 어려울 수도 있다. 이를 쉽게 진행하기 위한 몇 가지 참고사항들이 있다.
+
+- 가장 높은 빈도의 코드들에 집중하라. 절대 쓰이지 않는 코드나 거의 안 쓰이는 코드들은 실제 연구에서도 안 쓰이기 때문에 많은 노력을 들여서 매핑을 진행할 필요가 없다.
+- 가능하면 기존의 정보들을 활용하라. 예를 들어서 많은 국가 약물 코딩 시스템은 이미 ATC로 매핑되어있다. 비록 ATC가 많은 목적에 대해 세부적으로 부합하지는 않지만, ATC와 RxNorm의 관계를 통해 어떤 RxNorm 코드들이 사용되는지 추측할 수는 있다. 
+- 우사기(Usagi)를 사용하라.
+
+### 우사기(Usagi)
+
+
+우사기(Usagi)는 코드 매핑의 절차를 도와주는 도구이다. Usagi는 코드 설명의 단어 유사도에 기반하여 매핑을 추천할 수 있다. 만약 원천 코드가 외국어로만 확인 가능하다면, Google Translate[^GoogleTranslateUrl]를 통해 종종 해당 용어들의 훌륭한 영어 번역을 확인할 수 있다. Usagi는 사용자들로 하여금 자동 추천이 정확하지 않을 경우 적절한 목표 개념을 찾을 수 있도록 하고 있다. 최종적으로 사용자는 어떤 매핑이 ETL에 사용될 수 있는지 지정할 수 있다. Usagi는 GitHub[^UsagiUrl]을 통해 사용할 수 있다. \index{Usagi} \index{source code mapping|see {Usagi}}
+
+[^GoogleTranslateUrl]: https://translate.google.com/
+[^UsagiUrl]: https://github.com/OHDSI/Usagi
+
+#### 범위와 목표 {-}
+
+매핑이 필요한 원천 코드들은 Usagi로 불러올 수 있다(만약 코드들이 영어가 아닐경우, 추가적으로 번역된 열들이 필요하다). 단어 유사도 접근법은 원천 코드와 Vocabulary 개념들을 연결시키기 위해 필요하다.하지만 이러한 코드 연결은 수동적으로 검토해야하고, Usagi는 이를 수행하기 위한 인터페이스를 제공한다. Usagi는 Vocabulary에 Standard인 concept들만을 제안한다.
+
+#### 절차 개요 {-}
+
+소프트웨어를 사용하기 위한 일반적인 순서:
+
+1. 원천 시스템("원천 코드")로부터 Vocabulary concepts들로의 매핑을 진행하고 싶은 코드들을 올림.
+2. Usagi 단어 유사도 접근법을 이용하여 Vocabulary concepts들로의 매핑을 진행.
+3. Usagi 인터페이스를 활용하여 제안된 매핑을 확인하고 필요할 경우 개선. 
+4. 매핑 결과를 Vocabulary의 SOURCE_TO_CONCEPT_MAP으로 내보냄.
+
+#### Usagi로의 원천 코드 가져오기
+
+원천 시스템에서 CSV나 엑셀(.xlsx) 파일로 원천 코드들을 내보낸다. 이 때 파일은 원천 코드와 영어 코드 설명에 대한 열들이 있어야하지만, 추가적인 정보들 역시 더해질 수 있다(e.g. 약물 용량, 번역되었을 경우 원래 언어로의 코드 설명). 게다가 원천 코드에 대한 정보 뿐만 아니라, 어떤 코드를 먼저 매핑해야할지 정하는데 도움이 되기 때문에 빈도 역시 포함되있는 것이 좋다(e.g. 1,000개의 원천 코드를 가져올 수 있지만, 100개만 실제 시스템에 정말로 사용되는 경우). 만약 원천 코드가 영어로의 번역이 필요할 경우, Google Translate이 도움이 될 수 있다.
+
+참고: 원천 코드는 도메인(domain)에 의해 분류되어야하며, 하나의 파일로 묶여서는 안됨.
+
+파일로부터 원천 코드를 Usagi로 올린다 -> 코드 메뉴를 가져온다. 여기서 “Import codes …”는 그림 \@ref(fig:usagiImport)과 같이 보일 것이다. 이 그림에서 원천 코드 용어들은 네덜란드어이고, 영어로 번역되어있다. Usagi는 표준용어로의 매핑을 위해 영어 번역을 이용할 것이다.
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/usagiImport.png" alt="Usagi source code input screen." width="100%" />
+<p class="caption">(\#fig:usagiImport)Usagi source code input screen.</p>
+</div>
+
+“Column mapping” 부분(왼쪽 아래)은 Usagi로 하여금 불러온 테이블을 어떻게 사용할 것인지 정하는 단계이다. 만약 마우스를 끌어다 놓으면, 각 컬럼들을 정의하는 팝업창이 나타날 것이다. Usagi는 원천 코드를 Vocaublary concept 코드에 연결시키는 정보로써 “Additional info” 컬럼을 사용하지 않을 것이다; 하지만 이 추가적인 정보는 개인이 원천 코드 매핑을 검토하는데 도움을 줄 수 있기에 포함되어야 한다.
+
+마지막으로 “Filters” 부분(아래 오른쪽)에서 Usagi로 매핑할 때의 몇 가지 제한을 설정할 수 있다. 예를 들어 그림 \@ref(fig:usagiImport)에서 사용자는 Condition 도메인에만 원천 코드를 매핑하고 있다. 기본적으로 Usagi는 Standard Ceoncepts에만 매핑을 진행하지만, 만약 “Filter standard concepts” 옵션이 아닐 경우, Usagi는 Classification Concepts 또한 검토할 것이다. 마우스를 다른 필터에 올려놓으면 해당 필터에 대한 추가적인 정보가 나타날 것이다.
+
+한 가지 특별한 필터는 “Filter by automatically selected concepts / ATC code”이다. 만약 검색에 조건을 걸어야 한다면, 자동 concept ID로 표시되는 컬럼(세미콜론으로 구분)에 CONCEPT_ID 목록이나 ATC 코드를을 제공하여 하면 된다. 예를 들어 약물의 경우 이미 각 약들에 ATC 코드가 이미 할당되어 있을 수 이따. 비록 ATC 코드가 하나의 RxNorm 약물 코드로 인지되지 않더라도, Vocabulary의 ATC 코드 한정으로 검색을 제한하는데 도와줄 수 있다. ATC 코드를 사용하려면 다음 절차를 따르면 된다:
+
+1. 컬럼 매핑 부분에서, "Auto concept ID column"을 "ATC column"로 바꾸어라.
+2. 컬럼 매핑 부분에서, ATC 코드가 포함된 열을 "ATC column"으로 선택하여라.
+3. "Filter by user selected concepts / ATC code" 필터를 눌러라.
+
+또한 ATC 코드 이외의 다른 것들로도 조건을 설정할 수 있다. 위의 그림 예시에서 보여지듯이 우리는 UMLS의 부분 매핑을 이용하여 Usagi의 검색을 설정하였다. 이런 경우에는 “Auto concept ID column”을 사용하여야 한다.
+
+일단 모든 설정을 마치고 나면, “Import” 버튼을 눌러서 파일을 불러와야한다. 파일 불러오기를 할 때 단어 유사도 알고리즘을 이용하여 원천 코드를 매핑하기 때문에 대략 몇 분 정도 소요될 수 있다.  
+
+#### 원천 코드의 Vocabulary Concept 매핑 검토 {-}
+
+일단 원천 코드의 파일을 불러오면, 매핑 절차가 시작된다. 그림 \@ref(fig:usagiOverview)에서 Usagi 화면이 3가지 주요 기능으로 구분된 것을 확인할 수 있다: 개요 테이블, 선택된 매핑 테이블, 검색 기능. 이 때, 오른 클릭을 하여 어떤 테이블에 대해서도 컬럼들을 선택하여 숨기거나 가려서 시각적 복잡성을 줄일 수 있다는 것을 참고하면 된다.
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/usagiOverview.png" alt="Usagi source code input screen." width="100%" />
+<p class="caption">(\#fig:usagiOverview)Usagi source code input screen.</p>
+</div>
+
+#### 제안된 매핑의 승인 {-}
+
+“Overview Table”은 현재의 원천 코드의 매핑을 보여준다. 원천 코드를 불러온 직후, 검색 설정과 단어 유사도를 기반으로 자동으로 생성되고 제안되는 매핑을 포함하고 있다. 그림 \@ref(fig:usagiOverview)에서 나타나듯이, 사용자가 검색 옵션을 Condition으로 설정했기에 네덜란드어 Condition 코드의 영어 이름은 Condition 도메인의 표준용어로 매핑되는 것을 볼 수 있다.  Usagi는 원천 코드 기술서의 컨셉 이름과 동의어를 비교함으로써 최적의 매칭을 수행한다. 사용자가 “Include source terms”를 선택하였기 때문에 Usagi는 vocabulary의 특정 코드로 매핑되는 모든 원천 코드의 이름과 동의어까지 검토하게 된다. 만약 Usagi가 매핑을 진행할 수 없을 경우, CONCEPT_ID = 0 으로 매핑될 것이다.
+
+코딩 시스템에 익숙한 사람이 원천 코드의 표준 용어로의 매핑을 도와주는 것이 권장된다. 각 개인은 “Overview Table” 탭에서 각 코드에 대하여 Usagi가 권장하는 매핑을 받아들이거나 아니면 새로운 매핑을 선택하는 작업을 하게 된다. 예를 들어 그림 \@ref(fig:usagiOverview)에서 우리는 네덜란드어 “Hoesten”가 영어 “Cough”로 번역되는 것을 볼 수 있다. Usagi는 “Cough”를 사용하고 Vocabualry 개념 “4158493-C/O - cough”로 매핑을 한다. 이 때의 매핑에 대하여 매칭 점수는 0.58(매칭 점수는 일반적으로 0에서 1의 값을 가짐)이였고, 이는 Usagi가 이 네덜란드어에 대하여 SNOMED에 대해 매핑한 결과에 대해 확실하게 제시하기 어렵다는 것을 의미한다. 이 예시에서는 해당 매핑 결과에 동의하였고, 화면의 하단 우측의 “Approve” 버튼을 클릭함으로써 승인하였다.
+
+#### 새로운 매핑의 탐색 {-}
+
+Usagi가 제시해주는 매핑에 대하여 사용자가 새로운 매핑을 찾거나 아니면 컨셉이 없도록(CONCEPT_ID = 0) 하는 경우들도 있을 것이다. 그림 \@ref(fig:usagiOverview)의 예시를 통해 네덜란드어 “Hoesten”가 영어 “Cough”로 번역되는 것을 확인할 수 있었다. Usagi의 제안은 UMLS에서 파생된 매핑으로 제한되기에, 그 결과가 적합하지 않을 수도 있다. 검색 기능을 통해서 실제 용어 자체 혹은 검색 상자 쿼리를 이용해서 다른 컨셉들을 찾을 수 있다. 
+
+메뉴얼 검색 상자를 이용할 때, Usagi는 구조화된 검색 쿼리를 지원하지 않고 fuzzy search를 한다는 것을 기억하여야 한다. 그리고 현재까지는 AND나 OR과 같은 Boolean 연산자에 대해서는 검색을 지원하지 않고 있다. 
+
+“Cough”에 대해서 더 나은 매핑을 찾는다고 가정해보자. 검색 기능의 오른편 쿼리 부분에 Vocabulary 검색을 할 때 결과를 정리해주는 기능을 제공하는 필터 부분이 있다. 이러한 경우에는 우리는 표준 용어만을 찾아야 하며, 표준 용어에 매핑되는 코드의 이름과 동의어를 기반으로 검색할 수 있다. 
+
+이러한 검색 기준을 적용한다면 “254761-Cough”과 같은 코드를 찾을 수 있으며, 이는 네덜란드어의 코드 매핑에 적합한 용어일 수도 있다. 이를 적용하기 위해 “Selected Source Code” 업데이트의 “Replace concept” 버튼을 누르고, “Approve” 버튼을 누르면 된다. 또한 “Add concept” 버튼이 있는데, 이는 하나의 원천 코드에 대한 다수의 표준 용어 개념 매핑을 할 수 있게 해준다(e.g.일부 원천 코드들은 표준 용어와는 달리 다양한 질병들을 함께 포함하고 있을 수 있다).
+
+#### 개념 정보 {-}
+
+적절한 개념을 찾아 매핑을 하려 할 때, 컨셉의 “social life”을 고려하는 것은 중요하다. 개념의 의미는 계층 구조에서의 위치에 따라 부분적으로 의존적일 수 있으며, 종종 계층적 지위와 거의 혹은 전혀 상관없고 대상 컨셉으로도 적절하지 않은 “orphan concepts”들도 있다. Usagi는 각 개념에 대해 얼마나 많은 부모, 자식 개념들이 있는지 알려주기도 하고, ALT + C를 누르거나 위쪽 메뉴바의 view -> Concept을 누르면 더 자세한 정보를 볼 수 있게 해준다. 
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/usagiConceptInfo.png" alt="Usagi concept information panel." width="100%" />
+<p class="caption">(\#fig:usagiConceptInfo)Usagi concept information panel.</p>
+</div>
+
+그림 \@ref(fig:usagiConceptInfo)은 개념 정보 패널을 보여준다. 개념의 일반적인 정보부터, 부모, 자식, 그리고 다른 원천 코드들과의 정보도 보여준다. 사용자는 이 패널을 이용해서 계층 구조를 탐색할 수 있고, 다른 목표 컨셉을 정할 수도 있다. 
+
+모든 코드가 끝날 때까지 코드를 따라 이 절차를 진행하면 된다. 화면의 맨 위의 원천 코드 목록에서, 열 머리글 별로 코드들을 정렬할 수 있다. 종종 최빈도부터 최저빈도의 코드까지 살펴보는 것을 권장한다. 화면의 하단 왼쪽 편에는 매핑을 허용한 코드들의 개수, 그리고 그에 따라 얼마나 많은 코드들이 발생했는지를 확인할 수 있다. 
+
+또한 매핑 결정에 대한 설명을 추가하여 문서화 시에 사용할 수도 있다.
+
+#### 최적의 절차 {-}
+
+* 코딩 스키마에 경험이 있는 사람이 할 것
+* “Overview Table”의 컬럼들을 컬럼 이름을 눌러서 정렬할 수 있다. “Match Score”를 눌러서 정렬하는 것이 중요할 수도 있다; Usagi가 가장 확실하게 제안하는 매핑 코드들을 검토하면 많은 코드들이의 작업이 빠르게 끝날 수도 있다. 그리고 빈도가 높은 단어와 낮은 단어들에 쓰이는 노력이 각각 다르기 때문에 “Frequency”로 정렬해서 작업하는 것도 중요하다. 
+* CONCEPT_ID= 0으로 매핑하는 것도 괜찮지만, 어떤 코드들은 최적의 매핑 코드들이 없을 수도 있고, 어떤 것들은 단지 마땅한 코드들이 없어서 일 수도 있다.
+* 특히 부모 계층과 자녀 계층에 대해서는 개념의 내용을 고려하는 것이 중요하다. 
+
+#### Usagi 매핑 내보내기 {-}
+
+일단 USAGI를 통해 매핑을 생성하였으면, 이를 사용하기 가장 좋은 방법은 매핑을 내보낸 다음 Vocabulary의 SOURCE_TO_CONCEPT_MAP 테이블에 추가하는 것이다. 
+
+매핑을 내보내기 위해서는, File -> Export source_to_concept_map으로 가면 된다. 이 때 어느 SOURCE_VOCABULARY_ID를 이용할 것인지 묻는 팝업창이 나타나는데 짧은 식별자를 입력하면 된다. Usagi는 입력된 식별자를 이용할 것이다. SOURCE_VOCABULARY_ID가 SOURCE_TO_CONCEPT_MAP 테이블의 특정 매핑을 식별할 수 있게끔 할 수 있다.
+
+SOURCE_VOCABULARY_ID를 선택한 후에는, 내보낼 CSV 파일의 이름과 파일 경로를 입력하게 된다. 내보내는 CSV 파일의 구조는 SOURCE_TO_CONCEPT_MAP 테이블과 동일하다. 이 매핑은 Vocabulary의 SOURCE_TO_CONCEPT 테이블로 추가될 수 있다. 그리고 앞선 단계에서 정의한 SOURCE_VOCABULARY_ID를 정의하는 VOCABULARY 테이블에 단일 행으로 추가하는 것이 좋다. 마지막으로, “Approved” 상태인 매핑들만을 CSV 파일로 내보내는 것이 중요하다; 매핑을 내보내기 위해서는 USAGI에서 매핑을 완료해야만 한다.
+
+#### Usagi 매핑 업데이트 {-}
+
+매핑은 종종 한 번에 끝나지 않는다. 원천 코드가 추가되는 식으로 데이터가 업데이트 되거나 용어가 정기적으로 업데이트되면 매핑 또한 업데이트 되어야 할 것이다.
+
+원천 코드가 업데이트될 때는 다음과 같은 단계들을 따르는 것이 좋다:
+
+1. 새로운 원천 코드 파일을 불러온다.
+2. 파일을 고른다 -> 이전의 매핑을 적용시키고, 예전의 Usagi 매핑 파일을 선택한다.
+3. 이전의 매핑 파일에서 매핑되지 않았던 코드들을 식별하고, 새롭게 매핑한다.
+
+용어가 업데이트 되면 아래의 단계를 따른다:
+
+1. Athena에서 새로운 용어 파일들을 다운받는다.
+2. Usagi 인덱스를 새로 빌딩한다(Help -> Rebuild index).
+3. 매핑 파일을 연다.
+4. 새로운 용어 버전에 따라 표준 용어가 아닌 코드들을 식별하여 적절한 목표 컨셉들을 찾는다.
+
+## 3 단계: ETL 수행
+
+일단 설계와 코드 매핑이 완료된다면, ETL 절차는 소프트웨어를 통해 수행 가능하다. ETL이 설계될 때, CDM과 원천 데이터 둘 다에 대해 잘 아는 사람이 참여하기를 권장하였다. 마찬가지로 ETL이 수행될 때도, 데이터(특히 빅데이터)와 ETL 수행 경험이 있는 사람이 참여하는 것이 바람직하다. 즉, 이건 그룹 외부의 기술 전문가를 고용하거나 초청하여 ETL 수행을 시키는 것일 수도 있다. 또한 이건 한 번에 끝나는 작업이 아니라는 점을 참고하기 바란다. 그렇기에 앞으로는 ETL 수행 및 유지에 일정 시간 이상을 할애할 수 있는 사람이나 팀이 있는 것이 좋을 것이다(\@ref(CDMandETLMaintenance)에서 더 명확히 설명할 것이다). 
+
+수행은 각 기관에 따라 다양한 양상을 보이며 특히 인프라, 데이터베이스의 크기, ETL의 복잡성, 기술 전문가의 능력 등의 요소에 따라 많이 달라진다. 많은 요소들에 따라 달라지기 때문에 OHDSI는 ETL을 수행하기 위한 최선의 방법에 대한 공식적인 권고를 하고 있지 않다. 그 동안 많은 그룹들이 SQL builders, SAS, C#, Java, Kettle들을 사용해왔다. 각각 장점들과 단점들이 있었고, 그 어느 것도 이러한 기술에 익숙한 사람이 없으면 아무것도 사용할 수 없었다. 
+
+각각 다른 ETL의 예시들 (복잡성에 따라 정렬됨):
+
+* ETL-Synthea - SQL을 이용한 Synthea 데이터베이스 변환
+  + [https://github.com/OHDSI/etl-synthea](https://github.com/OHDSI/etl-synthea)
+* ETL-CDMBuilder - 다수의 데이터베이스를 변환하기 위해 고안된 .NET application
+  + [https://github.com/OHDSI/etl-cdmbuilder](https://github.com/OHDSI/etl-cdmbuilder)
+* ETL-LambdaBuilder - AWS lamda 기능을 이용한 빌더 
+  + [https://github.com/OHDSI/etl-lambdabuilder](https://github.com/OHDSI/etl-lambdabuilder)
+
+그동안 많은 시도들이 있었지만, ‘ultimate’한 사용자 친화적인 ETL 도구를 개발하는데에는 포기했다. 항상 많은 경우에 이러한 도구들은 ETL 작업의 80%까지는 잘 수행하지만, 남은 20%에 있어서는 원천 데이터베이스에 따라 low-level에서의 코드 작성이 필요하다.
+
+일단 기술 전문가가 수행할 준비가 된다면, ETL 설계 문서가 그들과 공유되어야만 한다. 문서에는 수행을 시작할만한 충분한 정보가 있어야하지만, 항상 개발자들이 개발 과정 중에 ETL 설계자들에게 질문할 수 있는 환경 역시 마련되있어야한다. ETL 설계자들에게는 로직이 명확해 보일지라도 CDM이나 데이터에 친숙하지 않은 수행자들에게는 명확하지 않아 보일 수도 있다. 그렇기에 수행 단계는 팀으로써 수행하여야 한다. 설계자들과 수행자들 모두 로직이 올바르게 작동한다고 동의할 때까지, 둘 사이에서 CDM 생성과 검증을 수행하는 것으로 간주한다.
+
+## 4 단계: 질 관리
+
+추출, 변환, 적재의 절차 수행을 위해서 질 관리는 반복적으로 수행된다. 질 관리의 전형적인 패턴은 로직 작성 -> 로직 수행 -> 로직 검증 -> 로직 수정 및 작성 이다. CDM을 검증하기 위한 많은 방법들이 있지만, 아래의 단계들은 몇 년간의 ETL 수행을 통해 OHDSI 내부에서 권고하는 단계들이다. 
+\index{ETL!quality control}
+
+* ETL 설계 문서, 컴퓨터 코드, 코드 매핑을 검토하라. 어느 누구라도 실수를 할 수 있기 때문에, 항상 한 명 이상이  다른 사람이 어떤 작업을 수행하고 있는지 검토해야한다. 
+  + 컴퓨터 코드의 가장 큰 문제점은 원천 데이터의 원천 코드가 표준 용어에 어떻게 매핑되었는지에 따라 나타나는 경향이 있는 것이다. 특히 NDC처럼 날짜와 관련있을 경우에 매핑이 더욱 어려울 수 있다. 원천 용어가 항상 적절한 개념으로 변환되도록 매핑이 수행되는 부분을 두 번씩 봐야한다. 
+* 원천 데이터와 목표  데이터의 표본으로로써 한 사람의 모든 정보를 수작업으로 비교하라.
+  + 여러 개의 기록을 갖고 있는 한 사람의 데이터를 살펴보는 것이 큰 도움이 될 수 있다. 한 사람의 기록을 추적함으로써 CDM 데이터가 로직에 따라 기대했던 결과와 다른 경우들을 발견해낼 수도 있다. 
+* 원천 데이터와 목표 데이터의 전체 수를 비교하라.
+  + 특정 문제들을 어떻게 해결하는지 설명하기에 따라 몇 가지 차이점들이 있을 수 있다. 예를 들면, 연구자들에 따라 성별이 NULL로 기록된 사람들을 어차피 연구에 포함되지 않기 때문에 삭제하기로 결정할 수도 있다. 그리고 CDM에서의 방문이나 원천 데이터에서의 방문이 다르게 구성될 수도 있다. 따라서 CDM과 원천 데이터의 총합을 비교할 때는 이러한 차이점들 발생할 수 있다는 것을 예상하고 설명할 수 있어야한다. 
+* 해당 CDM 버전에 대해 수행된 기존의 연구를 수행해본다. 
+ + 비록 시간이 많이 들겠지만, 원천 데이터와 CDM 버전에 따른 큰 차이점들을 확인하기에 좋은 방법이다. 
+* ETL에서 다뤄야하는 원천 데이터들의 패턴을 따라하기 위한 단위 검정(Unit Test)을 작성하라. 예를 들어 만약 ETL 명세에서 성별 정보가 없는 환자들을 없애야 한다고 명시한다면, 성별이 없는 환자들에 대한 단위 검정을 작성하고 수행자가 처리하는 방안을 평가하라.
+ + 단위 검정은 ETL 변환의 정확도와 질을 평가하기 위한 편리한 방법이다. 보통은 변환하고자 하는 원천 데이터의 작은 표본을 사용한다. 데이터셋의 각 사람이나 기록은 ETL 문서에 기록된대로 로직의 특정 부분들로 검정해야한다. 이 방법을 쓴다면 issue를 파악하거나 로직 실패를 확인하기에 좋다. 작은 사이즈는 컴퓨터 코드가 훨씬 빠르고 여러 번 시행하기에도 좋고 에러를 빨리 확인하는데에도 좋다.
+
+ETL의 관점에서 고차원의 질 관리 접근법도 있다. 데이터 질 관리에 대한 더 구체적인 노력은 OHDSI에서 진행되고 있으며, 챕터 \@ref(DataQuality)를 확인해주기 바란다. 
+
+## ETL 협약과 THEMIS
+
+많은 그룹들이 데이터를 CDM으로 변환함에 따라 구체적인 협약의 필요성이 명확해졌다. 예를 들어 만약 한 사람의 기록에서 출생년도가 없을 경우의 ETL은 어떻게 할 것인가? CDM의 목적은 보건의료 데이터의 표준화이지만 만약 모든 그룹이 데이터의 특정 시나리오를 각각 다르게 다룬다면 network를 통해 systematically하게 데이터를 다루는 것이 더욱 어려워질 것이다. 
+
+OHDSI 공동체는 CDM의 일관성을 증진시키기 위해 협약 문서 작성을 시작하였다. OHDSI가 동의하는 이러한 협약의 정의에 대해서는 CDM wiki를 통해 확인 가능하다.[^cdmWikiUrl2] 각 CDM 테이블들은 ETL 설계시 참고될 수 있는 고유의 협약들을 가지고 있다. ETL을 설계할 때 이 협약들을 참고한다면 OHDSI와 동일한 일관성을 가질 수 있게끔 설계 디자인 결정을 내리게끔 도와줄 수 있다.   
+
+발생가능한 모든 데이터 시나리오에 대해서 어떻게 다뤄야할 지에 대한 문서를 작성하는 것은 불가능하지만, OHDSI working group을 통해 공통적인 시나리오들을 문서화하는 것은 가능하다. THEMIS[^themisUrl]는 협약들을 모으고, 명시하고, 공동체에 조언을 나눈 다음, 마지막으로 CDM wiki에 완성된 문서를 공개하는 일을 하는 각 개인들로 구성되어 있다. Themis는 고대 그리스의 질서, 공정함, 법, 자연법, 관습을 관장하는 티타니스로 이 그룹에 적합해보인다. ETL을 수행할 때, 만약 특정 시나리오에 대해 어떻게 할 지 모르겠다면, THEMIS는 OHDSI 포럼에 질문을 남기기를 권장한다.[^ohdsiForum] 대부분의 경우 질문에 대해 community의 다른 사람들 역시 고민하고 있을 수 있다. THEMIS는 이런 토론들과 work group 미팅과 대면 토론들을 통하여 어떤 협약들이 문서화될 필요가 있는지 알려주고는 한다.
+
+[^cdmWikiUrl2]: https://github.com/OHDSI/CommonDataModel/wiki].
+[^themisUrl]: https://github.com/OHDSI/Themis
+[^ohdsiForum]: http://forums.ohdsi.org/
+
+## CDM과 ETL의 유지 {#CDMandETLMaintenance}
+
+ETL을 설계하고, 매핑을 만들고, ETL을 수행하고, 질 관리 검증들을 만드는 것은은 절대 쉽지 않다 . 안타깝게도, 여기서 끝이 아니다. 첫 번째 CDM이 만들어진 후 지속적으로 이어지는 ETL 유지의 과정이 있다. 유지를 요구하는 몇몇 공통되는 trigger들은 다음과 같다: 원천 데이터의 변화, ETL 상의 bug, 새로운 OMOP Vocabulary의 출시. ETL 수행에 새용되는 소프트웨어, 예시 검정들과 질 관리. 
+
+보건의료 데이터들은 종종 영원이 바뀌고는 한다. 새로운 데이터의 출시(e.g. 데이터에 새로운 열의 추가). 기존에 존재하지 않았던 새로운 환자 시나리오의 출현(e.g.출생 전에 사망이 기록되어있는 새로운 환자). 데이터에 대한 이해도의 상승(e.g.입원 아동 환자의 출생 기록이 청구 과정으로 인해 외래에서 발견). 원천 데이터의 모든 변경 사항에 대해서는 아니지만, 최소한 ETL 절차를 망가뜨리는 변경 사항들은 다루어야만 할 것이다.
+
+만약 bugs들이 발견된다면 역시 다루어야할 것이다. 하지만 모든 bugs들이 동일하게 생성되는 것은 아니라는 것을 염두해 두어야한다. 예를 들어 COST 테이블에서 cost 한 자릿수에서 반올림 되었다고 가정해보자(원천 데이터에서 \$3.82이 CDM에서는 \$4.00이 됨). 만약 이 데이터를 사용하는 주요 연구자들이 환자 약물 노출과 진단들에 대한 characterizations을 주로 한다면, 이는 별로 중요하지 않으며 향후 해결하면 된다. 만약 이 데이터를 사용하는 주요 연구자들 중 보건경제학자들이 있다면, 이는 즉시 해결해야되는 주요 문제가 될 것이다. 
+
+OMOP Vocabulary 역시 원천 데이터처럼 지속적으로 변화한다. 사실 Vocabulary는 한 달 안에도 용어들이 업데이트 됨에 따라 여러 개의 버전들을 가질 수 있다.각 CDM은 특정 Vocabulary 버전 기반으로 운영되며, 새로운 Vocabulary 버전에 작동할 때 원천 코드들이 표준 용어로의 매핑 정도에 따라 다른 결과를 만들 수도 있다. Vocabulary들 간의 차이는 미미할 수도 있지만, Vocabulary가 새로 나올 때마다 CDM을 새로 만드는 것은 불필요하다. 하지만, 일 년에 한두 번 정도 새로 출시된 Vocabulary 기반으로 CDM을 재가공하는 것은 좋을 수 있다. ETL 코드 자체를 새로 업데이트해야 할 정도로 새로운 버전의 Vocabulary가 나오는 일은 매우 드물다.
+
+CDM 또는 ETL의 유지를 하게끔 하는 마지막 trigger는 공통 데이터 모델 자체의 업데이트이다. 공동체가 커져감에 따라 새로운 데이터의 필요성이 커지고, 이는 CDM의 추가적인 데이터로 이끌게 된다. 이는 이전의 CDM에 없었던 데이터가 새로운 버전의 CDM에 들어갈 수 있는 것을 의미한다. CDM 구조의 변화는 잘 생기지 않지만 충분히 가능한 일이다. 예를 들어 CDM은 원래의 DATE 필드에서 DATETIME 필드로 적응해갔고, 이는 ETL 절차에서 에러를 발생시킬 수 있는 일이다. CDM 버전은 자주 출시되지 않고, 각 기관은 데이터를 옮길 때 결정할 수 있다. 
+
+## ETL에 대한 마지막 생각
+
+ETL 절차는 여러 가지 이유로 완전히 통달하기 어려운 절차인데 단순히 최소한 각각의 고유한 원천 데이터에 대해 작업하고 있을 뿐만이 아니라 “one-size-fits-all” 방안을 만드는 것이 어려워지고 있다. 하지만, 수년간 시도에서 배운 몇 가지 교훈들이 있다. 
+
+- 80/20 규칙. 피할 수만 있다면 너무 많은 시간을 원천 코드의 개념으로의 수동? 매핑에 많은 시간을 할애하지 말아라. 데이터의 상당수를 차지하는 원천 코드들을 매핑하는 것이 이상적이다. 이건 시작하기에 충분할 것이고, 실제 사용 예시에 기반하여 남은 코드들도 다룰 수 있다. 
+- 연구 질에 맞지 않는 데이터를 잃어버리는 것은 괜찮다. 이런 기록들은 분석을 시작하기 전에 결국은 버려지게 되고, 우리는 대신 ETL 절차에서 삭제할 뿐이다.
+- CDM은 유지를 필요로 한다. 단순히 ETL을 완료했다는 것은 두 번 다시 손대지 않는 것을 의미하는 것은 아니다. 원천 데이터는 변할 수도 있고, 코드에 bug가 있을 수도 있고, 새로운 용어가 나오거나 CDM에 업데이트가 있을 수 있다. 이러한 변화에 대비하고 ETL을 최신 상태로 유지하기 위해 자원을 할당하는 것이 필요하다.
+- OHDSI CDM으로 시작하는 것을 돕고, 데이터베이스의 변환을 수행하거나 분석 도구를 사용하기 위해 Implementers Forum에 방문해주길 바란다.[^implementersForum]
+
+[^implementersForum]: https://forums.ohdsi.org/c/implementers
+
+## 요약
+
+\BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- ETL을 위해 접근하는 일반적으로 다음과 같은 동의되는 절차들이 있다,
+  - 데이터 전문가와 CDM 전문가가 함께 ETL을 설계한다.
+  - 의료 지식이 있는 사람들이 코드 매핑을 진행한다.
+  - 기술 전문가가 ETL을 수행한다.
+  - 모든 사람들이 질 관리에 참여한다.
+
+- 이러한 단계들을 돕기 위해 OHDSI 공동체에서 무료로 사용 가능한 도구들을 개발하였다.
+
+- 많은 ETL 예시들이 있으며, 가이드로 삼을만한 협약들이 있다.
+</div>\EndKnitrBlock{rmdsummary}
+
+## 예제
+
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseEtl1"><strong>(\#exr:exerciseEtl1) </strong></span>다음 ETL 절차들을 올바른 단계로 정렬하시요:
+  
+가) 데이터 전문가와 CDM 전문가가 함께 ETL을 설계한다.
+나) 지술 전문가가 ETL을 수행한다.
+다) 의료 지식이 있는 사람들이 코드 매핑을 진행한다.
+라) 모든 사람들이 질 관리에 참여한다.
+</div>\EndKnitrBlock{exercise}
+
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseEtl2"><strong>(\#exr:exerciseEtl2) </strong></span>선택한 OHDSI 자원을 활용하여, 테이블 \@ref(tab:exercisePersonTable)의 PERSON 기록에서 나타나는 4가지 문제들을 발견하시오(공간 상 축약된 형태의 표):
+
+Table: (\#tab:exercisePersonTable) A PERSON table.
+
+Column | Value
+:---------------- |:-----------
+PERSON_ID | A123B456
+GENDER_CONCEPT_ID | 8532
+YEAR_OF_BIRTH | NULL
+MONTH_OF_BIRTH | NULL
+DAY_OF_BIRTH | NULL
+RACE_CONCEPT_ID | 0
+ETHNICITY_CONCEPT_ID | 8527
+PERSON_SOURCE_VALUE | A123B456
+GENDER_SOURCE_VALUE | F
+RACE_SOURCE_VALUE | WHITE
+ETHNICITY_SOURCE_VALUE | NONE PROVIDED
+</div>\EndKnitrBlock{exercise}
+
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseEtl3"><strong>(\#exr:exerciseEtl3) </strong></span>VISIT_OCCURRENCE 기록들을 만들어보자. Synthea에 대한 예시 로직이 다음과 같이 있다:
+PATIENT, START, END에 따라 오름차순으로 데이터를 정렬하라. 그 다음 PERSON_ID 별로, 하나의 기록의 END 시간과 다음 기록의 START 시간의 차이가 1일 이하인 기록들을 하나로 만들어준다. 각 통합된 입원 환자 기록들은 하나의 입원 환자 방문으로 간주되며, 다음과 같이 설정된다:
+  
+- MIN(START) as VISIT_START_DATE
+- MAX(END) as VISIT_END_DATE
+- "IP" as PLACE_OF_SERVICE_SOURCE_VALUE
+
+만약 아래와 같은 그림 \@ref(fig:exerciseSourceData)의 방문 기록들이 원천 데이터라고 가정한다면, CDM에서의 VISIT_OCCURRENCE 기록은 어떻게 보여질 것인가? 
+</div>\EndKnitrBlock{exercise}
+
+<div class="figure" style="text-align: center">
+<img src="images/ExtractTransformLoad/exerciseSourceData.png" alt="Example source data." width="100%" />
+<p class="caption">(\#fig:exerciseSourceData)Example source data.</p>
+</div>
+
+예시 답안은 Appendix \@ref(Etlanswers)에서 확인할 수 있다.
