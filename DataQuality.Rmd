@@ -3,7 +3,7 @@
 
 *Chapter leads: Martijn Schuemie, Vojtech Huser & Clair Blacketer* 
 
-관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자건강기록 (Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터가 임상 연구에 적합한지 여부에 대해 의문을 가지고 있으며, @vanDerLei_1991은 "데이터는 수집된 목적으로만 사용되어야 한다 (Data shall be used only for the purpose for which they were collected.)"고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보자할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수 밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:
+관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자건강기록 (Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터가 임상 연구에 적합한지 여부에 대해 의문을 가지고 있으며, @vanDerLei_1991 은 "데이터는 수집된 목적으로만 사용되어야 한다 (Data shall be used only for the purpose for which they were collected.)"고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보자할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수 밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:
 
 > 연구 목적에 적합한 데이터인가 (Are the data of sufficient quality for our research purposes) ?
 
@@ -19,7 +19,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 ## 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)
 
-14장\@ref(EvidenceQuality)에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소들이 발생한다. @dasu_2003은 각 단계에 구성된 DQ를 제시하면서, 데이터의 수명주기에 따라  DQ를 구분하였다. 그들은 이를 DQ 연속체 (DQ continuum)라 하였다:
+14장\@ref(EvidenceQuality)에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소들이 발생한다. @dasu_2003 은 각 단계에 구성된 DQ를 제시하면서, 데이터의 수명주기에 따라  DQ를 구분하였다. 그들은 이를 DQ 연속체 (DQ continuum)라 하였다:
 
 1. **데이터 수집 및 통합 (Data gathering and integration)**. 발생 가능한 문제로 잘못된 수기 입력, 편향 (예. upcoding in claims), EHR에서 잘못된 테이블과의 결합, 누락값을 기본값으로 대체하는 것 등이 있다. 
 2. **데이터 저장 및 지식 공유 (Data storage and knowledge sharing)**. 데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이 잠재적인 문제로 여겨진다. 
@@ -34,7 +34,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 ## 보편적인 데이터 품질 (Data Quality in General)
 
-우리는 우리의 데이터가 관찰형 연구의 보편적인 목적에 적합한지 여부에 대해 의문을 가질 수 있다. @kahn_harmonized_2016은 보편적인 DQ가 3가지 구성요소로 구성되어있다고 정의하였다: 
+우리는 우리의 데이터가 관찰형 연구의 보편적인 목적에 적합한지 여부에 대해 의문을 가질 수 있다. @kahn_harmonized_2016 은 보편적인 DQ가 3가지 구성요소로 구성되어있다고 정의하였다: 
 
 1. **적합성(Conformance)**: 데이터 값이 지정된 표준과 형식을 준수하는가? 3가지 하위 유형으로 식별됨:
    - **Value**: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예. 모든 Provider의 의료 전문분야는 유효한 전문 분야인가? 
@@ -61,7 +61,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 Kahn은 데이터가 주어진 요구조건을 준수하는지 테스트하기 위해  *데이터 품질 check (data quality check)* (때로는 *데이터 품질 rule (data quality rule)*이라고도 함)라는 용어를 도입하였다 (예. 잘못된 출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할 수 없는 연령 표시). 우리는 자동화된 DQ 툴들을 만들어 소프트웨어에서 이러한 check들을 수행한다. 이러한 툴 중 하나가 [ACHILLES](https://github.com/OHDSI/Achilles) (Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems, ACHILLES)이다. [@huser_methods_2018] ACHILLES는 CDM에 부합하는 데이터베이스의 특성과 시각화를 제공하는 소프트웨어 툴이다.  데이터베이스 네트워크에서 DQ를 평가하는데 사용할 수 있다 [@huser_multisite_2016]. ACHILLES는 독립형 툴로서 사용 가능하며, "데이터 소스(Data Sources)" 기능으로 ATLAS에서도 통합되어 있다. \index{data quality!data quality check} \index{ACHILLES}
 
-ACHILLES는 각 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다. “715: DRUG_CONCEPT에 의한 DAYS_SUPPLY의 분포” and “506: 성별에 따른 사망 연령 분포”. 이러한 분석 결과는 데이터베이스에 저장되며, 웹 뷰어(web viewer) 또는 ATLAS에서 엑세스 할 수 있다. 
+ACHILLES는 각 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다. "715: DRUG_CONCEPT에 의한 DAYS_SUPPLY의 분포" and "506: 성별에 따른 사망 연령 분포". 이러한 분석 결과는 데이터베이스에 저장되며, 웹 뷰어(web viewer) 또는 ATLAS에서 엑세스 할 수 있다. 
 
 \index{Data Quality Dashboard}
 
@@ -150,13 +150,13 @@ knitr::include_graphics("images/DataQuality/testFramework.png")
 
 [^vocabIssueTrackerUrl]: https://github.com/OHDSI/Vocabulary-v5.0/issues
 
-소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스코드를 확인합니다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  “우울증 (Depression disorder)”이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 (“주요 우울 장애, 단일 에피소드, 불특정”)도 이 concept으로 매핑 되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스코드를 확인합니다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑 되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 ```{r sourceCodes, fig.cap='Example output of the checkCohortSourceCodes function. ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/DataQuality/sourceCodes.png")
 ```
 
-앞의 예시는 매핑되지 않은 소스 코드를 발견하는 것을 묘사한 것으로, 일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는 것보다 더 어렵다. 이는 어떤 소스 코드가 매핑되어야 하지만 매핑되지 않았는지 알아야 한다. 이를 평가하는 반-자동화된 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `findOrphanSourceCodes` 함수를 사용하는 것이다. 이 함수는 간단한 텍스트 검색을 통해 소스 코드에 대한 Vocabulary를 검색할 수 있게 하고, 이 소스 코드가 특정 concept이나 그 concept의 하위 concept 중 하나와 매핑되는지 여부를 확인한다. 소스 코드의 결과는 현재 CDM 데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, “괴저 장애 (Gangrenous disorder)”  ([439928](http://athena.ohdsi.org/search-terms/terms/439928)) 와 모든 하위 concept들은 모든 괴저 발생을 찾기 위해 사용되었다. 이것이 실제로 괴저를 나타내는 모든 소스 코드를 포함하는지 여부를 평가하기 위해, 소스 코드를 식별하기 위한 CONCEPT 테이블과 SOURCE_TO_CONCEPT_MAP 테이블의 설명을 검색하는데 몇 가지 용어(예. “괴저 (gangrene)”)가 사용되었다. 자동 검색은 데이터에 나타나는 각 괴저 코드가 “괴저 장애 (Gangrenous disorder)”라는 concept에 직접 또는 간접적으로 매핑 되었는지 여부를 평가하기 위해 사용된다. 이러한 평가의 결과는 그림 \@ref(fig:missingMapping)와 같으며, ICD-10 코드 J85.0 (“폐의 괴저 및 괴사”; Gangrene and necrosis of lung)은 “괴저 장애 (Gangrenous disorder)의 하위 컨셉이 아닌 컨셉 [4324261](http://athena.ohdsi.org/search-terms/terms/4324261)(“폐 괴사”; Pulmonary necrosis)에만 매핑 되었다.  \index{orphan codes}
+앞의 예시는 매핑되지 않은 소스 코드를 발견하는 것을 묘사한 것으로, 일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는 것보다 더 어렵다. 이는 어떤 소스 코드가 매핑되어야 하지만 매핑되지 않았는지 알아야 한다. 이를 평가하는 반-자동화된 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `findOrphanSourceCodes` 함수를 사용하는 것이다. 이 함수는 간단한 텍스트 검색을 통해 소스 코드에 대한 Vocabulary를 검색할 수 있게 하고, 이 소스 코드가 특정 concept이나 그 concept의 하위 concept 중 하나와 매핑되는지 여부를 확인한다. 소스 코드의 결과는 현재 CDM 데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, "괴저 장애 (Gangrenous disorder)"  ([439928](http://athena.ohdsi.org/search-terms/terms/439928)) 와 모든 하위 concept들은 모든 괴저 발생을 찾기 위해 사용되었다. 이것이 실제로 괴저를 나타내는 모든 소스 코드를 포함하는지 여부를 평가하기 위해, 소스 코드를 식별하기 위한 CONCEPT 테이블과 SOURCE_TO_CONCEPT_MAP 테이블의 설명을 검색하는데 몇 가지 용어(예. "괴저 (gangrene)")가 사용되었다. 자동 검색은 데이터에 나타나는 각 괴저 코드가 "괴저 장애 (Gangrenous disorder)"라는 concept에 직접 또는 간접적으로 매핑 되었는지 여부를 평가하기 위해 사용된다. 이러한 평가의 결과는 그림 \@ref(fig:missingMapping)와 같으며, ICD-10 코드 J85.0 ("폐의 괴저 및 괴사"; Gangrene and necrosis of lung)은 "괴저 장애 (Gangrenous disorder)의 하위 컨셉이 아닌 컨셉 [4324261](http://athena.ohdsi.org/search-terms/terms/4324261)("폐 괴사"; Pulmonary necrosis)에만 매핑 되었다.  \index{orphan codes}
 
 ```{r missingMapping, fig.cap='Example orphan source code. ',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/DataQuality/missingMapping.png")
@@ -256,7 +256,7 @@ knitr::include_graphics("images/DataQuality/dqdResults.png")
 
 ## 연구 목적 checks 실습 (Study-Specific Checks in Practice)
 
-다음으로, Appendix \@ref(Angioedema)dp 제공된 혈관 부종 cohort definition에 대한 몇 가지 checks를 수행할 것이다. 15.4 절\@ref(achillesInPractice)에 설명된 것처럼 연결 세부사항이 설정되어 있고, cohort definition JSON과 cohort definition에 대한 SQL이 각각 “cohort.json"과 ”cohort.sql" 파일에 저장되어있다고 가정한다. JSON 파일과 SQP 파일은 ATLAS cohort definition 기능의 내보내기 탭에서 얻을 수 있다.
+다음으로, Appendix \@ref(Angioedema)dp 제공된 혈관 부종 cohort definition에 대한 몇 가지 checks를 수행할 것이다. 15.4 절\@ref(achillesInPractice)에 설명된 것처럼 연결 세부사항이 설정되어 있고, cohort definition JSON과 cohort definition에 대한 SQL이 각각 "cohort.json"과 "cohort.sql" 파일에 저장되어있다고 가정한다. JSON 파일과 SQP 파일은 ATLAS cohort definition 기능의 내보내기 탭에서 얻을 수 있다.
 
 
 ```{r eval=FALSE}
@@ -271,13 +271,13 @@ checkCohortSourceCodes(connectionDetails,
 ```
 
 
-그림 \@ref(fig:sourceCodesAngioedema)과 같이 웹 브라우저에서 output(출력) 파일을 열 수 있다. 여기서 혈관 부종 cohort definition에 "Inpatient or ER visit"과 “Angioedema" 두 가지 concept이 있는 것을 확인할 수 있다. 이 예제 데이터베이스에서, 방문은 ETL 중에 표준 concept과 매핑되었지만, Vocabulary에는 없는, "ER"과 "IP"라는 데이터베이스 특정 소스코드를 통해 발견되었다. 혈관 부종은 하나의 ICD-9 코드와 두 개의 ICD-10 코드를 통해 발견되었다.개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두 가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만 전체적인 concept에서는 불연속성이 없다. 
+그림 \@ref(fig:sourceCodesAngioedema)과 같이 웹 브라우저에서 output(출력) 파일을 열 수 있다. 여기서 혈관 부종 cohort definition에 "Inpatient or ER visit"과 "Angioedema" 두 가지 concept이 있는 것을 확인할 수 있다. 이 예제 데이터베이스에서, 방문은 ETL 중에 표준 concept과 매핑되었지만, Vocabulary에는 없는, "ER"과 "IP"라는 데이터베이스 특정 소스코드를 통해 발견되었다. 혈관 부종은 하나의 ICD-9 코드와 두 개의 ICD-10 코드를 통해 발견되었다.개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두 가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만 전체적인 concept에서는 불연속성이 없다. 
 
 ```{r sourceCodesAngioedema, fig.cap='Source codes used in the angioedema cohort definition.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/DataQuality/sourceCodesAngioedema.png")
 ```
 
-다음으로, 표준 concept 코드에 매핑되지 않은 소스코드인 orphan 소스 코드를 검색할 수 있다. 표준 concept인 "혈관 부종 (Angioedema)"을 찾은 다음 “혈관 부종” 또는 그 이름이 일부 포함되어 있거나 동의어가 있는 concept과 코드를 찾는다:
+다음으로, 표준 concept 코드에 매핑되지 않은 소스코드인 orphan 소스 코드를 검색할 수 있다. 표준 concept인 "혈관 부종 (Angioedema)"을 찾은 다음 "혈관 부종" 또는 그 이름이 일부 포함되어 있거나 동의어가 있는 concept과 코드를 찾는다:
 
 ```{r eval=FALSE}
 orphans <- findOrphanSourceCodes(connectionDetails,
@@ -298,7 +298,7 @@ View(orphans)
 |232437009         |Angioneurotic edema of larynx                                          |SNOMED       |            0|
 |10002472          |Angioneurotic edema, not elsewhere classified                          |MedDRA       |            0|
 
-데이터에서 실제로 사용된 유일한 잠재적 orphan 코드는 “혈관신경성 부종, 후유증 (Angioneurotic edema, sequela)”이며, 이는 혈관 부종과 매핑 되어서는 안 된다. 따라서 이 분석에서는 누락된 코드가 발견되지 않았다.
+데이터에서 실제로 사용된 유일한 잠재적 orphan 코드는 "혈관신경성 부종, 후유증 (Angioneurotic edema, sequela)"이며, 이는 혈관 부종과 매핑 되어서는 안 된다. 따라서 이 분석에서는 누락된 코드가 발견되지 않았다.
 
 ## Summary
 
