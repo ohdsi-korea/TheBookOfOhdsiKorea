@@ -25,7 +25,7 @@ OHDSI는 관찰형 연구를 위한 글로벌 표준인 OMOP CDM을 개발했다
 - 커뮤니티에서 사용되는 모든 Vocabularies의 공통 저장 자료
 - 연구에 사용하기 위한 표준화와 매핑 
 
-Standardized Vocabularies는 커뮤니티에 무료로 제공되며, **필수 참조테이블로 OMOP CDM 실례에 사용되어야 한다.**
+표준화된 용어는 커뮤니티에 무료로 제공되며, **필수 참조테이블로 OMOP CDM 실례에 사용되어야 한다.**
 
 ### 표준화된 용어 구축
 
@@ -57,11 +57,11 @@ knitr::include_graphics("images/StandardizedVocabularies/concept.png")
 
 이 시스템은 포괄적이지 않으면 안된다.  즉, 환자의 의료 경험 (예: 진단명, 시술, 약물 노출 등) 및 의료시스템의 일부 관리 정보 (예: 병원 방문, 관리 부위 등)과 관련된 모든 이벤트를 포괄할 만큼 **충분히 많은 개념들이 있다.**
 
-### Concept IDs
+### 개념 ID (Concept IDs)
 
 각 concept에는 primary key로 사용할 concept ID가 할당된다.  vocabulary에서 나온 원 코드가 아닌, 의미가 없는 Integer ID 가 CDM event 테이블에 데이터를 기록하는데 사용된다. \index{concept!identifier}
 
-### Concept Names
+### 개념 이름 (Concept Names)
 
 각 개념에는 하나의 이름이 있다. 그 이름은 항상 영어로 되어있다. 개념들은 vocabulary의 source로부터 가져온다. source vocabulary에 둘 이상의 이름을 가지고 있을 경우, 가장 표현력이 높은 이름이 선택되고, 나머지 이름은 동일한 CONCEPT_KEY로 CONCEPT_SYNONYM 테이블에 저장된다. 영어 이외의 이름은 CONCEPT_SYNONYM에 기록되며, 적합한 language concept ID가 LANGUAGE_CONCEPT_ID 필드에 기록된다. 이름은 255자까지의 길이를 가지는데, 너무 긴 이름은 잘라내고 전체 길이 버전은 최대 1000자까지 저장 가능한 이름의 동의어로 기록된다는 의미이다.  
 
@@ -77,9 +77,9 @@ knitr::include_graphics("images/StandardizedVocabularies/domains.png")
 Heuristic(경험적 지식)을 이요한 도메인 할당 방법은 도메인의 정의를 따라 진행한다.
 이러한 정의는 CDM의 테이블 및 필드 정의에서 파생된다(\@ref(CommonDataModel)장 참조). heuristic(경험적 지식)은 완벽하지 않으며, 불분명하다(\@ref(specialSituations절의 “Special Situations” 참조). 만약 concept 도메인에 잘못 할당된 경우 [Forums](https://forums.ohdsi.org) 또는 [CDM issue](https://github.com/OHDSI/CommonDataModel/issues) 게시판을 통하여, 문제점을 보고하고 개선하도록 해야한다.
 
-### Vocabularies
+### 용어 (Vocabularies)
 
-각 vocabulary에는 대소문자를 구분하는 고유한 영 숫자 ID가 있으며, 일반적으로 vocabulary의 약어 이름을 쓰고, 대시는 생략한다.  예를 들자면, ICD-9-CM의 vocabulary ID는 “ICD9CM” 이다.  현재 OHDSI가 지원하는 vocabularies는 11개로, 그 중 78개가 외부 source에서 채택되었고, 나머지는 OMOP 내부 vocabularies이다.  이러한 vocabularies는 일반적으로 분기별 일정에 따라 갱신된다.  Vocabularies의 버전은 VOCABULARY reference file에 따라 정의되어 있다. \index{vocabulary}
+각 용어(vocabulary)에는 대소문자를 구분하는 고유한 영 숫자 ID가 있으며, 일반적으로 vocabulary의 약어 이름을 쓰고, 대시는 생략한다.  예를 들자면, ICD-9-CM의 vocabulary ID는 “ICD9CM” 이다.  현재 OHDSI가 지원하는 vocabularies는 11개로, 그 중 78개가 외부 source에서 채택되었고, 나머지는 OMOP 내부 vocabularies이다.  이러한 vocabularies는 일반적으로 분기별 일정에 따라 갱신된다.  Vocabularies의 버전은 VOCABULARY reference file에 따라 정의되어 있다. \index{vocabulary}
 
 ### 개념 계층 (Concept Classes)
 
@@ -101,13 +101,13 @@ None | APC, all Type Concepts, Ethnicity, OXMIS, Race, Revenue Code, Sponsor, Su
 
 각 clinical event의 의미를 나타내는 하나의 concept을 표준이라고 부른다. 예를 들면, MESH 코드 D001281, CIEL 코드 148203, SNOMED 코드 49436004, ICD9CM 코드 427.31 및 Read 코드 G573000은 모두 condition 도메인에서 “Atrial fibrillation”을 정의하지만, Condition 데이터에서 SNOMED의 concept만이 표준이고 그 데이터에서 질환을 나타낸다. 나머지는 비 표준 개념 또는 소스 개념 (source concepts) 으로 지정되고, 표준 개념에 매핑이 된다. Standard Concepts은 STANDARD_CONCEPT 필드에 “S”라고 표시한다. 그리고 이러한 Standard Concepts만이 “_CONCEPT_ID”로 끝나는 CDM 필드에 데이터를 기록하는데 사용된다. \index{standard concept}
 
-### Non-Standard Concepts
+### 비 표준 개념
 
 비 표준 개념은 clinical event를 나타내는데 사용되지 않으나, 여전히 표준화된 용어의 일부이고 소스데이터에서 흔히 발견된다. 이런 이유로, 그것들은 “source concepts”이라고 부른다. source concepts을 Standard Concepts으로 변환하는 과정을 “mapping”이라고 부른다. (\@ref(conceptMapping)절 참조) 비 표준 개념은 STANDARD_CONCEPT 필드에 값이 없다. (NULL)
 
-### Classification Concepts
+### 분류된 개념들 (Classification Concepts)
 
-Classification Concepts 은 표준이 아니므로 데이터를 나타내는데 사용할 수 없다. 그러나, 하지만 Standard Concepts을 사용하여, 계층 구조를 나타냄으로, 계층 쿼리를 수행하는데 사용할 수 있다. 예를 들어, MedDRA 코드 10037908의 모든 하위 항목에 대한 쿼리를 사용하면 (MedDRA license를 받지 않는 사용자에게는 보이지 않음, \@ref(accessVocabularies) 액세스 제한 참조) Atrial Fibrillation에 대한 Standard SNOMED concept이 검색된다. (CONCEPT_ANCESTOR 테이블을 사용한 계층 쿼리는\@ref(conceptAncestor)절 참조) - 그림 \@ref(fig:hierarchy) 참조. \index{classification concept}
+분류된 개념들(Classification Concepts)은 표준이 아니므로 데이터를 나타내는데 사용할 수 없다. 그러나, 하지만 Standard Concepts을 사용하여, 계층 구조를 나타냄으로, 계층 쿼리를 수행하는데 사용할 수 있다. 예를 들어, MedDRA 코드 10037908의 모든 하위 항목에 대한 쿼리를 사용하면 (MedDRA license를 받지 않는 사용자에게는 보이지 않음, \@ref(accessVocabularies) 액세스 제한 참조) Atrial Fibrillation에 대한 Standard SNOMED concept이 검색된다. (CONCEPT_ANCESTOR 테이블을 사용한 계층 쿼리는\@ref(conceptAncestor)절 참조) - 그림 \@ref(fig:hierarchy) 참조. \index{classification concept}
 
 ```{r hierarchy, fig.cap='Standard, non-standard source 및 분류 개념 및 condition 도메인에서의 계층적 관계.SNOMED는 대부분 standard condition concepts (일부 ICDO3에서 파생된 종양학 관련 개념)에 사용되고, MedDRA 개념은 계층 분류 개념에 사용되는데, 다른 모든 vocabularies는 비 표준 개념이나 소스 개념이 포함되어 있어서 계층 구조에는 포함하지 않는다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/hierarchy.png")
@@ -127,9 +127,9 @@ Device | SNOMED | Others, currently not normalized | None at this point
 Observation | SNOMED | Others | None at this point
 Visit | CMS Place of Service, ABMT, NUCC | SNOMED, HCPCS, CPT4, UB04 | None at this point
 
-### Concept Codes
+### 개념 코드 (Concept Codes)
 
-Concept 코드들은 source vocabularies에서 사용되는 식별자들이다. 예를 들어, ICD9CM 또는 NDC 코드는 해당 필드에 저장되는데, OMOP 테이블은 concept ID를 CONCEPT 테이블에 foreign key로 사용을 한다. 그 이유는, name space가 vocabularies에 걸쳐 겹치기 때문이고, 동일한 코드가 완전히 다른 의미로 다른 용어에 존재할 수 있기 때문이다. (표\@ref(tab:code1001)참조) \index{concept!code}
+개념 코드들은 source vocabularies에서 사용되는 식별자들이다. 예를 들어, ICD9CM 또는 NDC 코드는 해당 필드에 저장되는데, OMOP 테이블은 concept ID를 CONCEPT 테이블에 foreign key로 사용을 한다. 그 이유는, name space가 vocabularies에 걸쳐 겹치기 때문이고, 동일한 코드가 완전히 다른 의미로 다른 용어에 존재할 수 있기 때문이다. (표\@ref(tab:code1001)참조) \index{concept!code}
 
 Table: (\#tab:code1001) 동일한 concept 코드 1001을 사용하지만, vocabularies, 도메인, concept classes가 다른 개념.
 
