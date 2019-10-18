@@ -126,7 +126,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-10-17}
+    \date{2019-10-18}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -6920,7 +6920,7 @@ Server, PostgreSQL, RedShift 등에 적합합니다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.ne2o7bqbchildren ;"
+## [1] "SELECT * FROM temp_schema.tn1ybcwxchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 합니다.
@@ -14915,7 +14915,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 \section{데이터 품질 문제에 대한 원인 (Sources of Data Quality
 Problems)}\label{-----sources-of-data-quality-problems}
 
-14장\ref{EvidenceQuality}에서 언급한 바와 같이, 의사들이 본인의 생각을
+\ref{EvidenceQuality}장에서 언급한 바와 같이, 의사들이 본인의 생각을
 기록할 때 데이터 품질과 관련된 많은 위험요소들이 발생한다.
 \citet{dasu_2003} 은 각 단계에 구성된 DQ를 제시하면서, 데이터의
 수명주기에 따라 DQ를 구분하였다. 그들은 이를 DQ 연속체 (DQ continuum)라
@@ -15700,23 +15700,21 @@ Ryan}
 \begin{quote}
 질량을 에너지로 바꾸는 확률은 마치 몇 마리의 새만 존재하는 나라에서 눈을
 감고 총을 쏘아 나는 새를 맞출 확률과 비슷하다. \emph{알베르트
-아인슈타인, 1935}
+아인슈타인, 1935} OHDSI의 이상은 `관찰형 연구를 통하여 세계에 건강과
+질병에 대한 포괄적인 이해를 제공' 하는 것이다. 후향적 연구는 기존재하는
+데이터를 이용할 수 있다는 편리함이 있지만, 이전
+챕터\ref{EvidenceQuality}에서 기술한 바와 같이 다양한 타당성의 한계를
+지니고 있다. 데이터의 질과 통계적 방법론과 별개로 임상적 타당성
+(clinical validity)를 논하기는 쉽지 않지만 이번 챕터에서는 보건의료
+데이터의 특성, 코호트 정의 검증, 근거의 일반화, 이 세 가지에 집중해보려
+한다. poulation-level estimation 챕터\ref{PopulationLevelEstimation}의
+예제로 돌아가보자. 우리는 'ACE inhibitor가 thiazide 또는 thiazide-like
+diuretics 에 비해 혈관부종 위험성이 높은가?'에 대해 대답하려 했었고,
+우리는 ACE inhibitor 가 thiazide 또는 thiazide-like diuretics 에 비해
+혈관부종을 더 많이 야기함을 증명했었다. 이번 챕터는 다음의 질문에 대해
+답하기 위해 쓰여졌다. ``수행한 분석이 어느 정도로 임상적 의도와
+일치하는가?'' \index{clinical validity}
 \end{quote}
-
-OHDSI의 이상은 `관찰형 연구를 통하여 세계에 건강과 질병에 대한 포괄적인
-이해를 제공' 하는 것이다. 후향적 연구는 기존재하는 데이터를 이용할 수
-있다는 편리함이 있지만, 이전 챕터\ref{EvidenceQuality}에서 기술한 바와
-같이 다양한 타당성의 한계를 지니고 있다. 데이터의 질과 통계적 방법론과
-별개로 임상적 타당성 (clinical validity)를 논하기는 쉽지 않지만 이번
-챕터에서는 보건의료 데이터의 특성, 코호트 정의 검증, 근거의 일반화, 이
-세 가지에 집중해보려 한다. poulation-level estimation
-챕터\ref{PopulationLevelEstimation}의 예제로 돌아가보자. 우리는 'ACE
-inhibitor가 thiazide 또는 thiazide-like diuretics 에 비해 혈관부종
-위험성이 높은가?'에 대해 대답하려 했었고, 우리는 ACE inhibitor 가
-thiazide 또는 thiazide-like diuretics 에 비해 혈관부종을 더 많이
-야기함을 증명했었다. 이번 챕터는 다음의 질문에 대해 답하기 위해
-쓰여졌다. ``수행한 분석이 어느 정도로 임상적 의도와 일치하는가?''
-\index{clinical validity}
 
 \section{보건의료 데이터의 특성 (Characteristics of Health Care
 Databases)}\label{CharacteristicsOfDatabase}
@@ -15806,13 +15804,6 @@ prediction을 포함한 대부분의 관찰형 분석의 연구 프로세스의 
 있는가? 질병의 발생 시기가 약물 노출과 부작용 발생 간의 시계열적
 연관성을 도출하기에 확신을 가질 수 있을만큼 잘 포착되었는가? 이러한
 유형의 질문에 답하는 것이 임상적 타당성의 핵심이다.
-
-In this chapter, we will discuss the methods for validating cohort
-definitions. We first describe the metrics used to measure the validity
-of a cohort definition. Next, we describe two methods to estimate these
-metrics: 1) clinical adjudication through source record verification,
-and 2) PheValuator, a semi-automated method using diagnostic predictive
-modeling.
 
 이 장에서는 코호트 정의를 검증하는 방법에 대해 논의한다. 먼저 코호트
 정의의 타당성을 측정하는 데 사용되는 측정기준을 설명한다. 다음으로,
@@ -15913,11 +15904,11 @@ modeling.
 코호트 간의 오분류의 잠재적 가능성에 대한 시험을 하지 않았다.
 
 코호트 정의에 대한 성능 평가기준이 마련되면, 이러한 정의를 사용하여 연구
-결과를 조정하는 데 사용될 수 있습니다. 이론적으로, 이러한 측정 오차
-추정치를 이용해 연구 결과를 보정하는 방법은 잘 확립되어 있다. 그러나
-실제로는 성능 평가 점수를 얻기 어렵기 때문에, 이러한 보정은 거의
-고려되지 않고 있다. 골드 스탠다드를 결정하는 방법은 이 절의 나머지
-부분에 설명되어 있다.
+결과를 조정하는 데 사용될 수 있다. 이론적으로, 이러한 측정 오차 추정치를
+이용해 연구 결과를 보정하는 방법은 잘 확립되어 있다. 그러나 실제로는
+성능 평가 점수를 얻기 어렵기 때문에, 이러한 보정은 거의 고려되지 않고
+있다. 골드 스탠다드를 결정하는 방법은 이 절의 나머지 부분에 설명되어
+있다.
 
 \section{원천 기록 검증}\label{--}
 
@@ -15995,9 +15986,11 @@ CUIMC(Columbia University Irving Medical Center)에 수행하는 연구로부터
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   제안서를 제출하고, OHDSI 암 표현형 연구를 위한 IRB의 동의를 얻었다.
-  2.전립선 암에 대한 코호트 정의를 개발하였다: 어휘를 탐구하기 위해
+\item
+  전립선 암에 대한 코호트 정의를 개발하였다: 어휘를 탐구하기 위해
   ATHENA와 ATLAS를 사용해서, 우리는 전립선 2차 신경세포(concept ID
   4314337) 또는 Non-Hodgkin's의 전립선 림프종(concept ID 4048666)을
   제외한 전립선 악성 종양(concept ID 4163261)을 가지고 있는 모든 환자를
@@ -16021,157 +16014,130 @@ CUIMC(Columbia University Irving Medical Center)에 수행하는 연구로부터
 \item
   환자들은 1)전립선 암 2)비 전립선 암 3)인식불가 로 분류되었다.
 \item
-  A conservative estimate of PPV was calculated using the following:
-  prostate cancer/ (no prostate cancer + unable to determine).
+  PPV의 보수적인 추정치는 다음과 같이 계산되었다: 전립선 암/ (비 전립선
+  암 + 인식불가)
 \item
-  Then, using the tumor registry as an additional gold standard to
-  identify a reference standard across the entire CUIMC population, we
-  counted the number of persons in the tumor registry which were and
-  were not accurately identified by the cohort definition, which allowed
-  us to estimate sensitivity using these values as true positives and
-  false negatives.
+  그리고, CUIMC 전체 인구를 아우르는 참조 기준을 식별하기 위한 골드
+  스탠다드와 같은 종양 레지스트리를 사용하여, 우리는 코호트 정의에
+  정확히 식별되지 않은 종양 레지스트리 안의 환자 수를 세었다. 이 방법은
+  우리로 하여금 이 값을 진양성 혹은 위음성으로 사용하여 민감도를 측정할
+  수 있게 했다.
 \item
-  Using the estimated sensitivity, PPV, and prevalence, we could then
-  estimate specificity for this cohort definition. As noted previously,
-  this process was time-consuming and labor-intensive, as each cohort
-  definition had to be individually evaluated through manual chart
-  review as well as correlated with the CUIMC tumor registry in order to
-  identify all performance metrics. The IRB approval process itself took
-  weeks despite an expedited review while obtaining access to the tumor
-  registry, and the process of manual chart review itself took a few
-  weeks longer.
+  측정된 민감도, PPV, 유병률을 사용하여, 우리는 코호트 정의에 대한
+  특이도를 측정할 수 있었다. 위에서 언급한 바와 같이, 이 과정은 각각의
+  코호트 정의가 수동 차트 검토를 통하여 개별적으로 평가되어야 하고, 또한
+  모든 성능 지표를 확인하기 위해 CUIMC 종양 레지스트리와 연관되어야 하기
+  때문에 상당한 시간과 노동력이 필요하다. 최대한 신속히 종양
+  레지스트리의 접근 권한을 얻는 검토를 이행함에도 불구하고, IRB 승인
+  과정 만으로 몇 주가 소요되고, 수동 차트 검토의 과정 자체로도 몇 주가
+  더 소요된다.
 \end{enumerate}
 
-A review of validation efforts for myocardial infarction (MI) cohort
-definitions by \citet{Rubbo2015phenotypes} found that there was
-significant heterogeneity in the cohort definitions used in the studies
-as well as in the validation methods and the results reported. The
-authors concluded that for acute myocardial infarction there is no gold
-standard cohort definition available. They noted that the process was
-both costly and time-consuming. Due to that limitation, most studies had
-small sample sizes in their validation leading to wide variations in the
-estimates for the performance characteristics. They also noted that in
-the 33 studies, while all the studies reported positive predictive
-value, only 11 studies reported sensitivity and only five studies
-reported specificity. As mentioned previously, without estimates of
-sensitivity and specificity, statistical correction for
-misclassification bias cannot be performed.
+\citet{Rubbo2015phenotypes} 는 심근경색(MI) 코호트 정의에 대한 검증
+노력의 검토는 연구에 사용된 코호트 정의뿐만이 아니라 검증 방법과 보고된
+견론에서도 상당한 이질성이 존재한다는 것을 확인하였다. 그들은 급성
+심근경색에 대한 황금 기준의 코호트 정의가 존재하지 않다고 결론 지었다.
+그들은 이 과정이 상당한 비용과 시간이 소모되었다고 언급하였다. 이러한
+제약 때문에, 대부분의 연구는 그들의 검증에 대한 작은 표본 크기를 가졌고
+이는 곧 성능 특성에 대한 추정치의 큰 변화를 가져왔다. 그들은 또한 33개의
+연구 중에서, 모든 연구가 양성 예측도에 대해 보고하는 가운데 오직 11개의
+연구가 민감도에 대해 보고하였고, 오직 5개의 연구만이 특이도에 대해
+보고하였다. 위에서 언급한 바와 같이 민감도와 특이도의 예측 없이, 오분류
+편향에 대한 통계적 교정은 시행될 수 없다.
 
 \section{PheValuator}\label{phevaluator}
 
 \index{PheValuator}
 
-The OHDSI community has developed a different approach to constructing a
-gold standard by using diagnostic predictive models.
-\citep{Swerdel2019phevaluator} The general idea is to emulate the
-ascertainment of the health outcome similar to the way clinicians would
-in a source record validation, but in an automated way that can be
-applied at scale. The tool has been developed as an open-source R
-package called PheValuator.\footnote{\url{https://github.com/OHDSI/PheValuator}}
-PheValuator uses functions from the Patient Level Prediction package.
+OHDSI 공동체는 진단 예측 모델을 사용하여 황금 기준을 구축하는 다른
+접근방식을 개발하였다. \citep{Swerdel2019phevaluator} 일반적인 생각은
+건강 결과의 확인을 의료진이 원천 기록 검증을 수행하는 방식과 비슷하게
+모방하지만, 규모에 맞게 자동화된 방법으로 시행된다. 이 도구는
+PheValuator라고 불리는 오픈소스 R 패키지로 개발되었다.\footnote{\url{https://github.com/OHDSI/PheValuator}}
+PheValuator은 환자 수준 예측 패키지의 기능을 사용한다.
 
-The process is as follows:
+과정은 이 다음과 같다:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Create an extremely specific (``\textbf{xSpec}'') cohort: Determine a
-  set of persons with a very high likelihood of having the outcome of
-  interest to be used as noisy positive labels when training a
-  diagnostic predictive model.
+  극도로 특이도가 높은(``\textbf{xSpec}'') 코호트를 생성한다: 진단 예측
+  모델을 학습할 때 관심 결과를 noisy positive label로 사용할 가능성이
+  아주 높은 사람들의 집단을 결정한다.
 \item
-  Create an extremely sensitive (``\textbf{xSens}'') cohort: Determine a
-  set of persons that should include anyone who could possible have the
-  outcome. This cohort will be used to identify its inverse: the set of
-  people we are confident do not have the outcome, to be used as noisy
-  negative labels when training a diagnostic predictive model.
+  극도로 민감도가 높은(``\textbf{xSens}'') 코호트를 생성한다: 결과를
+  얻을 수 있는 가능성을 가진 모든 이를 포함하는 집단을 결정한다. 이
+  코호트는 그 집단의 상반되는 집단을 식별하는데 사용될 것이다. 이는 진단
+  예측 모델을 학습할 때 noisy negative labels로 사용될 결과를 갖지 않을
+  것이라고 확신하는 사람들의 집단이다.
 \item
-  Fit a predictive model using the xSpec and xSens cohort: As described
-  in Chapter \ref{PatientLevelPrediction}, we fit a model using a wide
-  array of patient features as predictors, and aim to predict whether a
-  person belongs to the xSpec cohort (those we believe have the outcome)
-  or the inverse of the xSens cohort (those we believe do not have the
-  outcome).
+  xSpec과 xSens 코호트를 사용하여 예측 모델을 학습시킨다: 챕터
+  \ref{PatientLevelPrediction}에서 설명된 바와 같이, 우리는 다양한
+  환자의 특징을 예측자로 사용하여 모델을 적합시키고, 어떤 개인이 xSpec
+  코호트에 포함되는지(결과가 있다고 생각되는 사람들) 혹은 xSens 코호트에
+  상반되는 집단(결과가 없다고 생각되는 사람들)에 포함되어 있는지에 대한
+  여부를 예측하는 것을 목표로 한다.
 \item
-  Apply the fitted model to estimate the probability of the outcome for
-  a hold-out set of persons who will be used to evaluate cohort
-  definition performance: The set of predictors from the model can be
-  applied to a person's data to estimate the predicted probability that
-  the person belongs to the phenotype. We use these predictions as a
-  \textbf{probabilistic gold standard}.
+  학습된 모델을 코호트 정의 성능을 평가하는데 사용될 홀드 아웃 집단
+  결과의 확률을 예측하는데 적용한다: 모델의 예측 집단은 개인이 표현형에
+  포함되는 예측된 확률을 추정하기 위해서 개인의 데이터로 적용될 수 있다.
+  우리는 이 예측을 \textbf{확률적 골드 스탠다드(probabilistic gold
+  standard)}으로 사용한다.
 \item
-  Evaluate the performance characteristics of the cohort definitions: We
-  compare the predicted probability to the binary classification of a
-  cohort definition (the test conditions for the confusion matrix).
-  Using the test conditions and the estimates for the true conditions,
-  we can fully populate the confusion matrix and estimate the entire set
-  of performance characteristics, i.e., sensitivity, specificity, and
-  predictive values.
+  코호트 정의의 성능 특성을 평가하라: 우리는 예측된 확률을 코호트 정의의
+  이진 분류로 비교한다(혼동 행렬의 시험 조건). 시험 조건과 참 조건의
+  예측을 사용하여, 우리는 혼동 행렬을 완전히 채울 수 있고 성능 특성,
+  다시 말하면 민감도, 특이도, 예측 값의 전체 집단을 예측할 수 있다. 이
+  접근 방식을 사용하는데 있어 주요 제약은 데이터베이스 내 건강 결과를
+  갖는 것이 데이터에 의해 제약된 사람들의 확률을 예측하는 것이다.
+  데이터베이스 혹은 의료기록과 같은 중요한 정보에 따라 유효하지 않을
+  수도 있다.
 \end{enumerate}
 
-The primary limitation to using this approach is that the estimation of
-the probability of a person having the health outcome is limited by the
-data in the database. Depending on the database, important information,
-such as clinician notes, may not be available.
+진단 예측 모델링에서, 우리는 병이 있는 사람들과 없는 사람들을 식별하는
+모델을 생성할 수 있다. 환자 수준 예측 장에서 언급된 바와 같이, 예측
+모델은 \emph{표적 코호트}와 \emph{결과 코호트}를 사용하여 개발되어졌다.
+표적 코호트는 건강 결과를 소유한 개인과 그렇지 않은 개인 모두를
+포함한다; 결과 코호트는 건강 결과와 함께 표적 코호트 안의 개인을
+식별한다. PheValuator 과정에서 우리는 극도의 명확한 코호트 정의,
+``xSpec'' 코호트를 예측 모델을 위한 결과 코호트를 결정하는데 사용한다.
+xSpec 코호트는 높은 가능성으로 관심 질병에 걸릴 확률을 가진 집단을 찾기
+위하여 정의를 사용한다. xSpec 코호트는 관심 건강 결과에 대해 다중 발병
+기록을 가진 개인의 집단으로 정의될 수 있다. 심방 세동을 예로 들자면,
+우리는 5번의 MI 발병을 이용할 수 있고, 입원 환자의 환경에서 최소 2번의
+발병을 가지는 요건을 포함할 수 있다. 예측 모델에 대한 표적 코호트는 관심
+건강 결과를 얻을 가능성이 낮은 집단의 그룹과 xSpec 코호트 안의 집단의
+통합으로부터 구축되었다. 관심 건강 결과를 얻을 가능성이 낮은 집단을
+결정하기 위해서, 우리는 전체 데이터베이스의 표본 조사를 하는데 있어
+표현형에 속함을 암시하는 증거를 가진 개인을 제외하는데 보통 xSpec
+코호트를 정의하는데 사용된 개념을 포함하고 있는 기록을 가진 개인을
+제외함으로써 이행된다. 이 방법에는 제약이 있다. 이 xSpec 코호트 사람들이
+병을 가진 이와 다른 특성을 가질 수도 있는 가능성이 있기 때문이다. 이것은
+또한 이 사람들이 첫 진단 후 보통의 환자들과 비교해 관찰 시간이 더욱
+길었을 수 있다. 우리는 확률적 황금 기준을 생성하는데 사용되는 예측
+모델을 생성하는데 LASSO 로지스틱 회귀를 사용한다. \citep{suchard_2013}
+이 알고리즘은 간명한 모델을 생성하고 일반적으로 테이터 집합 전체에서
+존재할 수 있는 많은 공변량을 제거한다. 현재 PheValuator 소프트웨어
+버전에서, 결과 상태 (예/아니오) 는 개인에 대한 모든 데이터에 근거하여
+평가되고 (모든 관측 시간), 코호트 시작 날짜의 정확도를 평가하지 않는다.
 
-In diagnostic predictive modeling we create a model that discriminates
-between those with the disease and those without the disease. As
-described in the Patient-Level Prediction chapter (Chapter
-\ref{PatientLevelPrediction}), prediction models are developed using a
-\emph{target cohort} and an \emph{outcome cohort}. The target cohort
-includes persons with and without the health outcome; the outcome cohort
-identifies those persons in the target cohort with the health outcome.
-For the PheValuator process, we use an extremely specific cohort
-definition, the ``xSpec'' cohort, to determine the outcome cohort for
-the prediction model. The xSpec cohort uses a definition to find those
-with a very high probability of having the disease of interest. The
-xSpec cohort may be defined as those persons who have multiple condition
-occurrence records for the health outcome of interest. For example, for
-atrial fibrillation, we may have persons who have 10 or more records
-with the atrial fibrillation diagnosis code. For MI, an acute outcome,
-we may use 5 occurrences of MI and include the requirement of having at
-least two occurrences from an inpatient setting. The target cohort for
-the predictive model is constructed from the union of persons with a low
-likelihood of having the health outcome of interest and those persons in
-the xSpec cohort. To determine those persons with a low likelihood of
-having the health outcome of interest, we sample from the entire
-database and exclude persons who have some evidence suggestive of
-belonging to the phenotype, typically by removing persons with any
-records containing the concepts used to define the xSpec cohort. There
-are limitations to this method. It is possible that these xSpec cohort
-persons may have different characteristics than others with the disease.
-It may also be that these persons had longer observation time after
-initial diagnosis than the average patient. We use LASSO logistic
-regression to create the prediction model used to generate the
-probabilistic gold standard. \citep{suchard_2013} This algorithm
-produces a parsimonious model and typically removes many of the
-collinear covariates which may be present across the dataset. In the
-current version of the PheValuator software, outcome status (yes/no) is
-evaluated based on all data for a person (all observation time), and
-does not evaluate the accuracy of the cohort start date.
+\subsection{PheValuator에 의한 검증 예시}\label{phevaluator---}
 
-\subsection{Example Validation By
-PheValuator}\label{example-validation-by-phevaluator}
+우리는 PheValuator를 완전한 성능 특성을 평가하는데 사용할 수 있는데 이는
+코호트 정의가 심근 경색을 가졌던 이력이 있는 개인을 확진하는데 필요한
+연구에 사용될 수 있게 한다.
 
-We may use PheValuator to assess the complete performance
-characteristics for a cohort definition to be used in a study where it
-is necessary to determine those persons who have had an acute myocardial
-infarction.
+다음은 PheValuator를 사용하여 심근경색 코호트 정의를 검토하는 과정이다:
 
-The following are the steps for testing cohort definitions for MI using
-PheValuator:
+\subsubsection*{첫번째 과정: xSpec 코호트 정의}\label{--xspec--}
+\addcontentsline{toc}{subsubsection}{첫번째 과정: xSpec 코호트 정의}
 
-\subsubsection*{Step 1: Define the xSpec
-Cohort}\label{step-1-define-the-xspec-cohort}
-\addcontentsline{toc}{subsubsection}{Step 1: Define the xSpec Cohort}
-
-Determine those with MI with a high probability. We required a condition
-occurrence record with a concept for myocardial infarction or any of its
-descendants, with one or more occurrences of MI recorded from a hospital
-in-patient visit within 5 days, and 4 or more occurrences of MI in the
-patient record within 365 days. Figure \ref{fig:xSpec} illustrates this
-cohort definition for MI in ATLAS. \index{xSpec cohort}
+높은 확률(높은 민감도)로 심근경색을 가지고 있을 환자를 정의하자(xSpec).
+심근경색을 뜻하는 컨셉 또는 그것의 하위 컨셉이 입원 5일 이내에
+발생하거나, 1년 이내 4번 이상 condition occurrence 테이블에 기록된
+환자들이 필요하다. \ref{fig:xSpec} 그림이 ATLAS에서 해당 코호트의 정의가
+어떻게 표현되는지 보여준다. \index{xSpec cohort}
 
 \begin{figure}
 
@@ -16182,9 +16148,8 @@ cohort definition for MI in ATLAS. \index{xSpec cohort}
 \caption{An extremely specific cohort definition (xSpec) for myocardial infarction.}\label{fig:xSpec}
 \end{figure}
 
-\subsubsection*{Step 2: Define the xSens
-Cohort}\label{step-2-define-the-xsens-cohort}
-\addcontentsline{toc}{subsubsection}{Step 2: Define the xSens Cohort}
+\subsubsection*{두번째 과정 : xSens 코호트 정의}\label{--xsens--}
+\addcontentsline{toc}{subsubsection}{두번째 과정 : xSens 코호트 정의}
 
 We then develop an extremely sensitive cohort (xSens). This cohort may
 be defined for MI as those persons with at least one condition
@@ -16201,9 +16166,8 @@ cohort definition for MI in ATLAS. \index{xSens cohort}
 \caption{An extremely sensitive cohort definition (xSens) for myocardial infarction.}\label{fig:xSens}
 \end{figure}
 
-\subsubsection*{Step 3: Fit the Predictive
-Model}\label{step-3-fit-the-predictive-model}
-\addcontentsline{toc}{subsubsection}{Step 3: Fit the Predictive Model}
+\subsubsection*{세번째 과정 : 예측 모델에 적합}\label{----}
+\addcontentsline{toc}{subsubsection}{세번째 과정 : 예측 모델에 적합}
 
 The function \texttt{createPhenoModel} develops the diagnostic
 predictive model for assessing the probability of having the health
@@ -16275,7 +16239,6 @@ lower. For example:
   \DataTypeTok{server =} \StringTok{"localhost/ohdsi"}\NormalTok{,}
   \DataTypeTok{user =} \StringTok{"joe"}\NormalTok{,}
   \DataTypeTok{password =} \StringTok{"supersecret"}\NormalTok{)}
-
 \NormalTok{phenoTest <-}\StringTok{ }\KeywordTok{createPhenoModel}\NormalTok{(}
   \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails,}
   \DataTypeTok{xSpecCohort =} \DecValTok{10934}\NormalTok{,}
@@ -16312,10 +16275,8 @@ visit will be between 18 and 90. With the parameters above, the name of
 the predictive model output from this step will be:
 ``c:/temp/lr\_results\_5XMI\_train\_myCDM\_ePPV0.75\_20181206V1.rds''
 
-\subsubsection*{Step 4: Creating the Evaluation
-Cohort}\label{step-4-creating-the-evaluation-cohort}
-\addcontentsline{toc}{subsubsection}{Step 4: Creating the Evaluation
-Cohort}
+\subsubsection*{네번째 과정 : 평가용 코호트 생성}\label{----}
+\addcontentsline{toc}{subsubsection}{네번째 과정 : 평가용 코호트 생성}
 
 The function \texttt{createEvalCohort} uses the PatientLevelPrediction
 package function \texttt{applyModel} to produce a large cohort of
@@ -16343,7 +16304,6 @@ For example:
   \DataTypeTok{server =} \StringTok{"localhost/ohdsi"}\NormalTok{,}
   \DataTypeTok{user =} \StringTok{"joe"}\NormalTok{,}
   \DataTypeTok{password =} \StringTok{"supersecret"}\NormalTok{)}
-
 \NormalTok{evalCohort <-}\StringTok{ }\KeywordTok{createEvalCohort}\NormalTok{(}
   \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails,}
   \DataTypeTok{xSpecCohort =} \DecValTok{10934}\NormalTok{,}
@@ -16373,10 +16333,9 @@ produce the evaluation cohort file:
 model and the evaluation cohort files created in this step will be used
 in the evaluation of the cohort definitions provided in the next step.
 
-\subsubsection*{Step 5: Creating and Testing Cohort
-Definitions}\label{step-5-creating-and-testing-cohort-definitions}
-\addcontentsline{toc}{subsubsection}{Step 5: Creating and Testing Cohort
-Definitions}
+\subsubsection*{다섯번째 과정 : 코호트 정의 생성 및 검증}\label{------}
+\addcontentsline{toc}{subsubsection}{다섯번째 과정 : 코호트 정의 생성 및
+검증}
 
 The next step is to create and test the cohort definitions to be
 evaluated. The desired performance characteristics may depend on the
@@ -16489,7 +16448,6 @@ probability of 0.5 were considered negative, we would add ``0.5'' to the
   \DataTypeTok{server =} \StringTok{"localhost/ohdsi"}\NormalTok{,}
   \DataTypeTok{user =} \StringTok{"joe"}\NormalTok{,}
   \DataTypeTok{password =} \StringTok{"supersecret"}\NormalTok{)}
-
 \NormalTok{phenoResult <-}\StringTok{ }\KeywordTok{testPhenotype}\NormalTok{(}
   \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails,}
   \DataTypeTok{cutPoints =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.4}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\StringTok{"EV"}\NormalTok{, }\FloatTok{0.6}\NormalTok{, }\FloatTok{0.7}\NormalTok{, }\FloatTok{0.8}\NormalTok{, }\FloatTok{0.9}\NormalTok{),}

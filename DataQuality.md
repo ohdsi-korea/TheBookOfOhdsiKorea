@@ -19,7 +19,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 ## 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)
 
-14장\@ref(EvidenceQuality)에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소들이 발생한다. @dasu_2003 은 각 단계에 구성된 DQ를 제시하면서, 데이터의 수명주기에 따라  DQ를 구분하였다. 그들은 이를 DQ 연속체 (DQ continuum)라 하였다:
+\@ref(EvidenceQuality)장에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소들이 발생한다. @dasu_2003 은 각 단계에 구성된 DQ를 제시하면서, 데이터의 수명주기에 따라  DQ를 구분하였다. 그들은 이를 DQ 연속체 (DQ continuum)라 하였다:
 
 1. **데이터 수집 및 통합 (Data gathering and integration)**. 발생 가능한 문제로 잘못된 수기 입력, 편향 (예. upcoding in claims), EHR에서 잘못된 테이블과의 결합, 누락값을 기본값으로 대체하는 것 등이 있다. 
 2. **데이터 저장 및 지식 공유 (Data storage and knowledge sharing)**. 데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이 잠재적인 문제로 여겨진다. 
