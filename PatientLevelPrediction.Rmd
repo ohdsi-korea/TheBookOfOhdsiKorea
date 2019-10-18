@@ -532,7 +532,7 @@ install.packages("PatientLevelPrediction")
 
 일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 설명을 따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경 해야 한다.
 
-# R에서의 연구 실행
+## R에서의 연구 실행
 
 ATLAS 사용하여 연구디자인을 실행하는 방법은 R에서 코드를 직접 작성하는 것이다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)패키지에서 제공하는 함수를 사용할 수 있다. 패키지는 OMOP CDM으로 변환된 데이터로부터 데이터 추출, 모형 구축 및 모형 평가를 가능하게 한다.
 
