@@ -284,7 +284,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.knxbk0cmchildren ;"
+## [1] "SELECT * FROM temp_schema.dhzy9hbmchildren ;"
 ```
 
 사용자는 `temp_schema`에 대한 쓰기 권한이 있어야 합니다.
