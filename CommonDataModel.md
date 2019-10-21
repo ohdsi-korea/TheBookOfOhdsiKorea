@@ -8,9 +8,9 @@
 
 관찰형 의료 데이터 (Observational healthcare data)에 공통 데이터 모델이 필요한 이유는 무엇일까?
 
-일차적인 목적에 의해 모든 임상적인 사건들을 동일하게 포착하는  관찰형 데이터베이스 (Observational database)는 없다. 따라서, 여러 다른 데이터 출처에서 연구 결과를 도출하고 데이터를 포착하는 과정에서 발생하는 잠재적인 치우침 (bias)의 영향을 이해하기 위해 이를 비교 및 대조해야 한다. 또한 통계적 검증력을 갖춘 결론을 도출하려면 많은 수의 관찰 환자가 필요하다. 이는 여러 데이터 출처를 동시에 평가하고 분석해야 할 필요성을 설명한다. 그러기 위해서는 데이터를 공통 데이터 표준 (common data standard)으로 화합할 필요가 있다. 게다가 환자 데이터는 높은 수준의 보안이 필요하다. 기존에 그래왔듯이 분석을 목적으로 하는 데이터 추출은 엄격한 데이터 사용 계약 및 복잡한 접근 제어 방식이 필요하다. 공통 데이터 표준은 추출 단계를 생략하고 기본 환경의 데이터에 대해 표준화된 분석을 실행할 수 있도록 하여 이러한 필요성을 줄여 줄 수 있다- 분석을 위한 데이터가 아닌 데이터를 위한 분석적 접근(the analytic comes to the data instead of the data to the analytic).
+일차적인 목적에 의해 모든 임상적인 사건들을 동일하게 포착하는  관찰형 데이터베이스(Observational database)는 없다. 따라서, 여러 다른 데이터 출처에서 연구 결과를 도출하고 데이터를 포착하는 과정에서 발생하는 잠재적 편향(bias)의 영향을 이해하기 위해 이를 비교 및 대조해야 한다. 또한 통계적 검증력을 갖춘 결론을 도출하려면 많은 수의 관찰 환자가 필요하다. 이는 여러 데이터 출처를 동시에 평가하고 분석해야 할 필요성을 설명한다. 그러기 위해서는 데이터를 공통 데이터 표준(common data standard)으로 화합할 필요가 있다. 게다가 환자 데이터는 높은 수준의 보안이 필요하다. 기존에 그래왔듯이 분석을 목적으로 하는 데이터 추출은 엄격한 데이터 사용 계약 및 복잡한 접근 제어 방식이 필요하다. 공통 데이터 표준은 추출 단계를 생략하고 기본 환경의 데이터에 대해 표준화된 분석을 실행할 수 있도록 하여 이러한 필요성을 줄여 줄 수 있다- 분석을 위한 데이터가 아닌 데이터를 위한 분석적 접근(the analytic comes to the data instead of the data to the analytic).
 
-이러한 표준은 공통 데이터 모델 (Common Data Model, CDM)에 의해 제공된다. CDM은 표준화된 내용을 기반으로(\@ref(StandardizedVocabularies)장 참조) 연구 방법들이 효과적으로 비교 가능하고 재현 가능한 결과를 얻을 수 있게 체계적으로 응용될 수 있도록 한다. 이 장에서는 데이터의 모델을 비롯한 디자인, 규칙 및 테이블 선택에 대한 논의를 제공하고자 한다.
+이러한 표준은 공통 데이터 모델(Common Data Model, CDM)에 의해 제공된다. CDM은 표준화된 내용을 기반으로 (\@ref(StandardizedVocabularies)장 참조) 연구 방법들이 효과적으로 비교 가능하고 재현 가능한 결과를 얻을 수 있게 체계적으로 응용될 수 있도록 한다. 이 장에서는 데이터의 모델을 비롯한 디자인, 규칙 및 테이블 선택에 대한 논의를 제공하고자 한다.
 
 CDM내의 모든 테이블에 대한 개요를 Figure \@ref(fig:cdmDiagram) \index{Common Data Model!data model diagram}에서 살펴볼 수 있다. 
 
@@ -22,7 +22,7 @@ CDM내의 모든 테이블에 대한 개요를 Figure \@ref(fig:cdmDiagram) \ind
 
 CDM은 다음과 같은 전형적인 관찰 연구 목적에 최적화되어 있다.\index{Common Data Model!design principles}
 
-*	특정한 의료 행위의 개입(약물 노출, 시술(procedure), 의료 정책 변경 등)이 있거나 의료 관련 결과(질환, 시술(procedure), 기타 약물 노출에 대한)를 포함하는 환자 집단 확인.
+*	특정한 의료 행위의 개입 (약물 노출, 시술(procedure), 의료 정책 변경 등)이 있거나 의료 관련 결과 (질환, 시술(procedure), 기타 약물 노출에 대한)를 포함하는 환자 집단 확인.
 *	인구 통계학적 정보, 질병의 자연사, 의료 서비스 전달, 활용 및 비용, 병적 상태, 치료 및 치료 과정 등과 같은 다양한 매개 변수에 대한 환자 집단의 특성 확인.
 *	개별 환자에서 결과들의 발생 예측 - \@ref(PatientLevelPrediction)장 참고,
 *	앞서 설명한 의료 행위의 개입들이 인구에 미치는 영향 추정 - \@ref(PopulationLevelEstimation)장 참고,
@@ -34,8 +34,8 @@ CDM은 다음과 같은 전형적인 관찰 연구 목적에 최적화되어 있
   - **목적에 대한 적합성**: CDM은 의료 서비스 제공자 혹은 지불인의 운영 요구를 해결하기 위한   목적 보다는 분석에 최적화된 방식으로 구성된 데이터를 제공하는 것을 목표로 한다. \index{Common Data Model!suitability for purpose}
   - **데이터 보호**: 이름, 생년월일 등 환자의 신원 및 안전을 위협할 수 있는 모든 데이터는 제한되어 있다. 영아에 대한 연구를 위한 정확한 생년 월일과 같은 보다 자세한 정보가 명시적으로 필요한 경우에는 예외가 가능하다.\index{Common Data Model!data protection}
   - **도메인 설계**: 도메인은 개인 중심 관계형 데이터 모델(person-centric relational data model)로 모델링 되며 각 기록마다 개인의 신원과 날짜 정보가 최소한으로 수집된다. 여기서 관계형 데이터 모델은 데이터가 기본 키와 외래 키로 연결된 테이블의 모음으로 표현되는 모델이다.
-  - **도메인의 이론적 근거**: 개체-관계 모델(entity-relationship model)에서 도메인은 분석 이용 사례가 있는지 (예를 들면, 질환(conditions)) 그리고 달리 적용 가능한 방안이 없는 특정한 속성(attributes)이 있는지에 따라 식별되고 별도로 정의된다. 다른 모든 데이터는 개체-속성-값 구조(entity-attribute-value structure)의 Observation 테이블에 관찰 데이터로 보존될 수 있다. \index{Common Data Model!domains}
-  - **표준화된 어휘**: 기록들의 내용을 표준화하기 위해, CDM은 모든 필수적이고 적절한 표준 건강 관리 개념(concept)을 포함하는 표준화된 어휘에 의존한다.
+  - **도메인의 이론적 근거**: 개체-관계 모델(entity-relationship model)에서 도메인은 분석 이용 사례가 있는지 (예를 들면, 질환(conditions)) 그리고 달리 적용 가능한 방안이 없는 특정한 속성(attributes)이 있는지에 따라 식별되고 별도로 정의된다. 다른 모든 데이터는 개체-속성-값 구조(entity-attribute-value structure)의 Observation 테이블에 Observation 데이터로 보존될 수 있다. \index{Common Data Model!domains}
+  - **표준화된 어휘**: 기록들의 내용을 표준화하기 위해, CDM은 모든 필수적이고 적절한 표준 건강 관리 Concept을 포함하는 표준화된 어휘에 의존한다.
   - **기존 어휘 재사용**: 이러한 개념은 국립 의학 도서관, 재향 군인 담당 부서, 질병 통제 및 예방 센터 등과 같은 국가 및 산업 표준화 또는 용어 정의 주도 기관이나 협회에서 활용되기도 한다.
   - **원본 코드 유지 관리**: 모든 코드가 표준화된 어휘에 매핑(mapping)되어 있더라도 정보가 소실되지 않도록 원본 코드도 저장한다. \index{Common Data Model!Source Codes} \index{Common Data Model!data loss prevention}
   - **기술 중립성**: CDM에는 특정한 기술을 필요로 하지 않는다. Oracle, SQL Server 등과 같은 관계형 데이터베이스 또는 SAS 분석 데이터 세트로 구현될 수 있다. \index{Common Data Model!technology neutrality}
@@ -52,7 +52,7 @@ CDM은 “개인 중심”모델로서, 모든 임상적인 사건에 대한 테
 
 ### 스키마의 일반적인 규칙
 
-스키마 또는 데이터베이스의 사용자는 읽기 전용 테이블과 읽기/쓰기 테이블을 분리할 수 있다. 임상 사건 및 어휘 테이블은 “CDM” 스키마에 저장되어 있으며 최종 사용자 또는 분석 도구에서는 읽기 전용으로 이용된다. 웹 기반 도구 및 최종 사용자에 의해 조작될 필요가 있는 테이블은 “결과” 스키마에 저장된다. "결과" 스키마의 두 테이블은 COHORT와 COHORT_DEFINITON이다. 이 테이블들은 \@ref(Cohorts) 장에 자세히 설명되어 있는 것처럼 사용자가 정의할 수 있는 관심 그룹을 설명하기 위한 것이다. 이는 런타임 동안에 테이블이 작성될 수 있음을, 즉 코호트가 COHORT 테이블에 저장될 수 있다는 것을 의미한다. 모든 사용자를 위한 읽기-쓰기 스키마는 단 하나뿐이므로, 여러 사용자 접근이 어떻게 구성되고 제어되는지는 CDM의 구현에 달려 있다.
+스키마 또는 데이터베이스의 사용자는 읽기 전용 테이블과 읽기/쓰기 테이블을 분리할 수 있다. 임상 사건 및 어휘 테이블은 “CDM” 스키마에 저장되어 있으며 최종 사용자 또는 분석 도구에서는 읽기 전용으로 이용된다. 웹 기반 도구 및 최종 사용자에 의해 조작될 필요가 있는 테이블은 “결과” 스키마에 저장된다. "결과" 스키마의 두 테이블은 COHORT와 COHORT_DEFINITON이다. 이 테이블들은 \@ref(Cohorts)장에 자세히 설명되어 있는 것처럼 사용자가 정의할 수 있는 관심 그룹을 설명하기 위한 것이다. 이는 런타임 동안에 테이블이 작성될 수 있음을, 즉 코호트가 COHORT 테이블에 저장될 수 있다는 것을 의미한다. 모든 사용자를 위한 읽기-쓰기 스키마는 단 하나뿐이므로, 여러 사용자 접근이 어떻게 구성되고 제어되는지는 CDM의 구현에 달려 있다.
 
 ### 데이터 테이블의 일반적인 규칙
 
@@ -62,7 +62,7 @@ CDM은 플랫폼에 비의존적이다. 데이터 유형은 일반적으로 ANSI
 
 ### 도메인의 일반적인 규칙{#domains}
 
-서로 다른 성격의 사건들은 도메인에 정리되어 있다. 이러한 사건들은 도메인별로 테이블과 필드에 저장되고, 표준화된 어휘에 정의되어 있는 대로 도메인별 표준 Concept으로 표현된다(\@ref(conceptDomains) 참조). 각 표준 Concept에 고유한 도메인 할당이 되는데, 이는 어떤 테이블에 기록되는지를 정의한다. 정확한 도메인 할당이 커뮤니티내에서 항상 논의의 대상이 되지만, 엄격한 도메인-테이블-필드간 대응 규칙은 어떤 코드나 Concept에 대해서도 항상 모호한 위치는 없음을 보장한다. 예를 들어, 증상 및 진단 Concept은 Condition 도메인에 속하며 Condition_OCCURRENCE 테이블의CONDITION_CONCEP_ID로 기록된다. 소위 말하는 시술약품은 일반적으로 원천 데이터의 Procedure 테이블에 Procedure 코드로 기록된다. CDM에서 이러한 정보들은 매핑된 표준 Concept이 약물 도메인에 할당 되어있기 때문에 DRUG_EXPOSURE 테이블에서 찾을 수 있다. 표 \@ref(tab:domains)과 같이 총 30개의 도메인이 있다.
+서로 다른 성격의 사건들은 도메인에 정리되어 있다. 이러한 사건들은 도메인별로 테이블과 필드에 저장되고, 표준화된 어휘에 정의되어 있는 대로 도메인별 표준 Concept으로 표현된다 (\@ref(conceptDomains) 참조). 각 표준 Concept에 고유한 도메인 할당이 되는데, 이는 어떤 테이블에 기록되는지를 정의한다. 정확한 도메인 할당이 커뮤니티내에서 항상 논의의 대상이 되지만, 엄격한 도메인-테이블-필드간 대응 규칙은 어떤 코드나 Concept에 대해서도 항상 모호한 위치는 없음을 보장한다. 예를 들어, 증상 및 진단 Concept은 Condition 도메인에 속하며 Condition_OCCURRENCE 테이블의CONDITION_CONCEP_ID로 기록된다. 소위 말하는 시술약품은 일반적으로 원천 데이터의 Procedure 테이블에 Procedure 코드로 기록된다. CDM에서 이러한 정보들은 매핑된 표준 Concept이 약물 도메인에 할당 되어있기 때문에 DRUG_EXPOSURE 테이블에서 찾을 수 있다. 표 \@ref(tab:domains)과 같이 총 30개의 도메인이 있다.
 
 Table: (\#tab:domains) 각 도메인에 속하는 표준 Concept의 수.
 
@@ -88,7 +88,7 @@ Concept Count|Domain ID|Concept Count|Domain ID
 
 CDM 데이터의 테이블에서는 각 정보의 내용이 완전히 정규화되어 Concept으로 표현된다. Concept은 CONCEPT 테이블의 외래 키 역할을 하는 각각의 CONCEPT_ID 값이 할당되어 사건 테이블에 저장되며, 모든 CDM의 인스턴스들은 Concept에 대한 참고 자료로써 공통 데이터 모델과 함께 상호운용의 핵심 메커니즘이자 OHDSI 연구 네트워크의 기반인 동일한 CONCEPT 테이블을 사용한다. 표준 Concept이 없거나 식별되지 않는 경우에는 CONCEPT_ID가 존재하지 않는 Concept이거나 알 수 없음 또는 매핑이 불가능함을 의미하는 0으로 설정된다. 
 
-CONCEPT 테이블의 정보들은 각각의 Concept에 대한 상세 정보(이름, 도메인, 클래스 등)를 포함하고 있다. Concepts, Concept Relationships, Concept Ancestors 및 다른 Concept과 관련 있는 정보들은 표준화된 용어에 포함되어 있다(\@ref(StandardizedVocabularies)장 참조).
+CONCEPT 테이블의 정보들은 각각의 Concept에 대한 상세 정보 (이름, 도메인, 클래스 등)를 포함하고 있다. Concepts, Concept Relationships, Concept Ancestors 및 다른 Concept과 관련 있는 정보들은 표준화된 용어에 포함되어 있다 (\@ref(StandardizedVocabularies)장 참조).
 
 ### 필드 명명 규칙
 
@@ -108,12 +108,12 @@ Table: (\#tab:fieldConventions) 필드 명 규칙.
 
 많은 테이블이 원본 값, 원본 concept, 표준 concept으로 다양한 위치에 동일한 정보를 포함하고 있다.
 
-* **Source Values** 은 원천 데이터에서의 사건 기록의 본래의 표현이다. 이는 ICD9CM, NDC 또는 Read와 같은 널리 사용되는 공공 도메인의 코딩 시스템이나 CPT4, GPI 또는 MedDRA와 같이 독점적인 코딩 시스템, 혹은 남성은 M 여성은 F와 같이 원천 데이터에서만 사용되는 제한된 어휘의 코드일 수 있다. 또한 표준화 및 제어되지 않은 짧은 자유 텍스트 문구 일 수도 있다. 원본 값은 데이터 테이블의 [Event] _SOURCE_VALUE 필드에 저장됩니다. concept은 임상적 요소의 의미를 일반화하는 CDM 특이적인 개체이다. 대부분의 concept은 이미 의료계에 존재하는 공개되었거나 독점적인 코딩 체계를 기반으로 하고 있지만, 일부는 새롭게 생성되었다 (CONCEPT_CODE는 “OMOP”으로부터 시작됨). concept은 모든 도메인에 걸쳐 고유한 ID를 가지고 있다.
+* **Source Values** 은 원천 데이터에서의 사건 기록의 본래의 표현이다. 이는 ICD9CM, NDC 또는 Read와 같은 널리 사용되는 공공 도메인의 코딩 시스템이나 CPT4, GPI 또는 MedDRA와 같이 독점적인 코딩 시스템, 혹은 남성은 M 여성은 F와 같이 원천 데이터에서만 사용되는 제한된 어휘의 코드일 수 있다. 또한 표준화 및 제어되지 않은 짧은 자유 텍스트 문구 일 수도 있다. 원본 값은 데이터 테이블의 [Event] _SOURCE_VALUE 필드에 저장된다. concept은 임상적 요소의 의미를 일반화하는 CDM 특이적인 개체이다. 대부분의 concept은 이미 의료계에 존재하는 공개되었거나 독점적인 코딩 체계를 기반으로 하고 있지만, 일부는 새롭게 생성되었다 (CONCEPT_CODE는 “OMOP”으로부터 시작됨). concept은 모든 도메인에 걸쳐 고유한 ID를 가지고 있다.
 * **Concepts** 은 임상적 요소의 의미를 일반화하는 CDM 특이적인 개체이다. 대부분의 concept은 이미 의료계에 존재하는 공개되었거나 독점적인 코딩 체계를 기반으로 하고 있지만, 일부는 새롭게 생성되었다 (CONCEPT_CODE는 “OMOP”으로부터 시작됨). concept은 모든 도메인에 걸쳐 고유한 ID를 가지고 있다.
 * **Source Concepts** 은 원 자료에서 사용된 코드를 나타내는 concept이다. 원본 concept은 OMOP기반의 concept이 아니라 기존에 존재하는 공개되었거나 독점적인 코딩 체계만을 위해 사용한다. 원본 concept은 데이터 테이블의 [Event] _SOURCE_CONCEPT_ID 필드에 저장된다.
 * **Standard Concepts** 은 모든 데이터 베이스에서 고유하게 임상적인 개체의 의미를 정의하는 데에 사용되고 원본에서 사용한 코딩 체계와는 독립적인 concept이다. 표준 concept은 일반적으로 이미 공개되어 있거나 독점적인 용어 원본에서 가져온다. 표준 concept과 동일한 의미를 가진 비 표준 concept은 표준 용어의 표준 concept에 매핑되어 있다. 표준 concept은 데이터 테이블의 [Event] _CONCEPT_ID 필드에서 참조된다.
 
-원본 값은 편의 및 품질 보증 (Quality Assurance, QA) 목적으로만 제공된다. 여기에는 특정 데이터 원본의 맥락에서만 의미 있는 정보가 포함될 수 있다. 원본 값이나 원본 concept을 사용하는 것은 선택사항이지만, 원본 데이터가 코딩 시스템을 사용하는 경우 **강력하게 권장**된다. 하지만 표준 concept의 경우 **필수 사항**이다. 이 표준 concept을 필수적으로 사용하면 모든 CDM 인스턴스가 동일한 언어를 사용할 수 있다. 예를 들면 “Pulmonary Tuberculosis” (TB, Figure \@ref(fig:pulmTubICD9))의 condition은 TB에 대한 ICD9CM 코드가 011임을 나타낸다. 
+원본 값은 편의 및 품질 보증(Quality Assurance, QA) 목적으로만 제공된다. 여기에는 특정 데이터 원본의 맥락에서만 의미 있는 정보가 포함될 수 있다. 원본 값이나 원본 concept을 사용하는 것은 선택사항이지만, 원본 데이터가 코딩 시스템을 사용하는 경우 **강력하게 권장**된다. 하지만 표준 concept의 경우 **필수 사항**이다. 이 표준 concept을 필수적으로 사용하면 모든 CDM 인스턴스가 동일한 언어를 사용할 수 있다. 예를 들면 “Pulmonary Tuberculosis” (TB, Figure \@ref(fig:pulmTubICD9))의 condition은 TB에 대한 ICD9CM 코드가 011임을 나타낸다. 
 
 <div class="figure" style="text-align: center">
 <img src="images/CommonDataModel/pulmTubICD9.png" alt="Pulmonary Tuberculosis의 ICD9CM 코드" width="75%" />
@@ -127,7 +127,7 @@ Table: (\#tab:fieldConventions) 필드 명 규칙.
 <p class="caption">(\#fig:pulmTubMap)Pulmonary Tuberculosis의 SNOMED 코드</p>
 </div>
 
-표준 concept과 원본 concept의 관계를 보여주는 예가 표\@ref(tab:conditionOccurrence)에 나와있다.
+표준 concept과 원본 concept의 관계를 보여주는 예가 표 \@ref(tab:conditionOccurrence)에 나와있다.
 
 ## 표준화된 CDM 테이블
 
@@ -191,7 +191,7 @@ OBSERVATION_PERIAD 테이블은 최소한 환자의 인구통계, 질환, 시술
 
 #### Lauren의 Observation Period은 어떻게 정의될까? {-}
 
-표 \@ref(tab:encounters)에 나타난 Lauren의 정보가 EHR 시스템에 기록되었다고 가정하자. 그녀의 Observation period에서 얻어진 방문기록은 다음과 같다:
+표 \@ref(tab:encounters)에 나타난 Lauren의 정보가 EHR 시스템에 기록되었다고 가정하자. 그녀의 관찰 기간에서 얻어진 방문기록은 다음과 같다:
 
 Table: (\#tab:encounters) Lauren의 의료 기관 방문.
 
@@ -214,7 +214,7 @@ Column name|Value|Explanation
 |PERSON_ID|1|PERSON 테이블에서 Laura의 기록에 대한 외래 키이며 PERSON을 OBSERVATION_PERIOD 테이블에 연결한다.|
 |OBSERVATION_PERIOD_ START_DATE|2010-01-06|이는 기록상 그녀의 가장 처음 방문했을 때 시작 날짜이다.|
 |OBSERVATION_PERIOD_ END_DATE|2013-01-24|이는 기록상 그녀의 가장 마지막 방문했을 때 마지막 날짜이다.|
-|PERIOD_TYPE_ CONCEPT_ID|44814725|concept의 클래스가 "Obs Period Type"인 어휘에서 가장 좋은 선택은 [44814724](http://athena.ohdsi.org/search-terms/terms/44814724)이며, 이는 "의료 관련 방문 기간(Period covering healthcare encounters)"을 나타냅니다.|
+|PERIOD_TYPE_ CONCEPT_ID|44814725|concept의 클래스가 "Obs Period Type"인 어휘에서 가장 좋은 선택은 [44814724](http://athena.ohdsi.org/search-terms/terms/44814724)이며, 이는 "의료 관련 방문 기간(Period covering healthcare encounters)"을 나타낸다.|
 
 ### VISIT_OCCURRENCE{#visitOccurrence}
 
@@ -355,7 +355,7 @@ Column name|Value|Explanation
 
 \BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- CDM은 광범위한 관찰 연구 활동을 지원하도록 설계되었다.
 
-- CDM은 개인 중심 모델입니다.
+- CDM은 개인 중심 모델이다.
 
 - CDM은 데이터 구조를 표준화할뿐만 아니라 표준화된 어휘를 통해 내용 표현을 표준화한다.
 
