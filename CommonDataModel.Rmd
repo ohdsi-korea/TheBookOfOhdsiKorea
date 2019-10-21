@@ -33,8 +33,8 @@ CDM은 다음과 같은 전형적인 관찰 연구 목적에 최적화되어 있
   - **목적에 대한 적합성**: CDM은 의료 서비스 제공자 혹은 지불인의 운영 요구를 해결하기 위한   목적 보다는 분석에 최적화된 방식으로 구성된 데이터를 제공하는 것을 목표로 한다. \index{Common Data Model!suitability for purpose}
   - **데이터 보호**: 이름, 생년월일 등 환자의 신원 및 안전을 위협할 수 있는 모든 데이터는 제한되어 있다. 영아에 대한 연구를 위한 정확한 생년 월일과 같은 보다 자세한 정보가 명시적으로 필요한 경우에는 예외가 가능하다.\index{Common Data Model!data protection}
   - **도메인 설계**: 도메인은 개인 중심 관계형 데이터 모델(person-centric relational data model)로 모델링 되며 각 기록마다 개인의 신원과 날짜 정보가 최소한으로 수집된다. 여기서 관계형 데이터 모델은 데이터가 기본 키와 외래 키로 연결된 테이블의 모음으로 표현되는 모델이다.
-  - **도메인의 이론적 근거**: 개체-관계 모델(entity-relationship model)에서 도메인은 분석 이용 사례가 있는지 (예를 들면, 질환(conditions)) 그리고 달리 적용 가능한 방안이 없는 특정한 속성(attributes)이 있는지에 따라 식별되고 별도로 정의된다. 다른 모든 데이터는 개체-속성-값 구조(entity-attribute-value structure)의 관찰 테이블에 관찰 데이터로 보존될 수 있다. \index{Common Data Model!domains}
-  - **표준화된 어휘**: 기록들의 내용을 표준화하기 위해, CDM은 모든 필수적이고 적절한 표준 건강 관리 개념을 포함하는 표준화된 어휘에 의존한다.
+  - **도메인의 이론적 근거**: 개체-관계 모델(entity-relationship model)에서 도메인은 분석 이용 사례가 있는지 (예를 들면, 질환(conditions)) 그리고 달리 적용 가능한 방안이 없는 특정한 속성(attributes)이 있는지에 따라 식별되고 별도로 정의된다. 다른 모든 데이터는 개체-속성-값 구조(entity-attribute-value structure)의 Observation 테이블에 Observation 데이터로 보존될 수 있다. \index{Common Data Model!domains}
+  - **표준화된 어휘**: 기록들의 내용을 표준화하기 위해, CDM은 모든 필수적이고 적절한 표준 건강 관리 Concept을 포함하는 표준화된 어휘에 의존한다.
   - **기존 어휘 재사용**: 이러한 개념은 국립 의학 도서관, 재향 군인 담당 부서, 질병 통제 및 예방 센터 등과 같은 국가 및 산업 표준화 또는 용어 정의 주도 기관이나 협회에서 활용되기도 한다.
   - **원본 코드 유지 관리**: 모든 코드가 표준화된 어휘에 매핑(mapping)되어 있더라도 정보가 소실되지 않도록 원본 코드도 저장한다. \index{Common Data Model!Source Codes} \index{Common Data Model!data loss prevention}
   - **기술 중립성**: CDM에는 특정한 기술을 필요로 하지 않는다. Oracle, SQL Server 등과 같은 관계형 데이터베이스 또는 SAS 분석 데이터 세트로 구현될 수 있다. \index{Common Data Model!technology neutrality}
