@@ -146,11 +146,11 @@ knitr::include_graphics("images/DataQuality/testFramework.png")
 
 ### Checking Mappings
 
-우리가 통제할 수 있는 오류의 원인 중 한가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabylary에서 매핑은 꼼꼼하게 만들어졌고, 공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란[^vocabIssueTrackerUrl]에 보고되고 다음 업데이트에서 수정된다. 그럼에도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때, 연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다. 다행히도, CDM에서는 표준화 concept 뿐 아니라, 소스 코드도 저장하기 때문에 매우 쉽게 할 수 있습니다. 연구에 사용된 concept에 매핑 된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있습니다.
+우리가 통제할 수 있는 오류의 원인 중 한가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabylary에서 매핑은 꼼꼼하게 만들어졌고, 공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란[^vocabIssueTrackerUrl]에 보고되고 다음 업데이트에서 수정된다. 그럼에도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때, 연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다. 다행히도, CDM에서는 표준화 concept 뿐 아니라, 소스 코드도 저장하기 때문에 매우 쉽게 할 수 있다. 연구에 사용된 concept에 매핑 된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
 
 [^vocabIssueTrackerUrl]: https://github.com/OHDSI/Vocabulary-v5.0/issues
 
-소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스코드를 확인합니다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑 되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스코드를 확인한다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑 되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 ```{r sourceCodes, fig.cap='Example output of the checkCohortSourceCodes function. ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/DataQuality/sourceCodes.png")
@@ -218,7 +218,7 @@ knitr::include_graphics("images/DataQuality/achillesCodeChange.png")
 ```
 ## Data Quality Dashboard 실습 (Data Quality Dashboard in Practice) {#dqdInPractice}
 
-여기에서는 CDM 형식의 데이터베이스에서 Data Quality Dashboard를 실행하는 방법을 보여준다.15.4절\@ref(achillesInPractice)에서 설명한 CDM conncection에 대해 더 많은 checks를 수행합니다. 현재 DQD는 CDM v5.3.1만 지원하기 때문에 실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다. ACHILLES와 마찬가지로 `cdmDbSchema`를 작성하여 데이터를 찾을 위치를 R에 입력해야 한다. 
+여기에서는 CDM 형식의 데이터베이스에서 Data Quality Dashboard를 실행하는 방법을 보여준다.15.4절\@ref(achillesInPractice)에서 설명한 CDM conncection에 대해 더 많은 checks를 수행한다. 현재 DQD는 CDM v5.3.1만 지원하기 때문에 실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다. ACHILLES와 마찬가지로 `cdmDbSchema`를 작성하여 데이터를 찾을 위치를 R에 입력해야 한다. 
 
 ```{r eval=FALSE}
 cdmDbSchema <- "my_cdm_data.dbo"
