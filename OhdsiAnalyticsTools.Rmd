@@ -126,7 +126,7 @@ ATLAS 설치는 OHDSI WebAPI와 함께 수행된다. 각 구성 요소의 설치
 
 ## Methods Library
 
-The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)는 그림 \@ref(fig:methodsLibrary)에 표시된 오픈 소스 R 패키지의 모음입니다. \index{methods library}
+The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)는 그림 \@ref(fig:methodsLibrary)에 표시된 오픈 소스 R 패키지의 모음이다. \index{methods library}
 
 ```{r methodsLibrary, fig.cap='The OHDSI Methods Library의 패키지',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/methodsLibrary.png")
