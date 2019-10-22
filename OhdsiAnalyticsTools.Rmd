@@ -319,7 +319,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png")
 
 
 
-## Summary
+## 요약
 
 ```{block2, type='rmdsummary'}
 - 다음을 통해 CDM의 데이터에 대한 분석을 수행할 수 있다.

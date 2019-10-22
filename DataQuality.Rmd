@@ -300,7 +300,7 @@ View(orphans)
 
 데이터에서 실제로 사용된 유일한 잠재적 orphan 코드는 "혈관신경성 부종, 후유증 (Angioneurotic edema, sequela)"이며, 이는 혈관 부종과 매핑 되어서는 안 된다. 따라서 이 분석에서는 누락된 코드가 발견되지 않았다.
 
-## Summary
+## 요약
 
 ```{block2, type='rmdsummary'}
 - 대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다. 

@@ -929,7 +929,7 @@ We have added functionality to automatically generate a word document we can use
 
 For more details see the help page of the function.
 
-## Summary
+## 요약
 
 ```{block2, type='rmdsummary'}
 - Patient-level prediction aims to develop a model that predicts future events using data from the past.

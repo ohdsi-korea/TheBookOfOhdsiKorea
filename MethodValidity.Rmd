@@ -375,7 +375,7 @@ knitr::include_graphics("images/MethodValidity/methodEval.png")
 
 Method Library의 설계에 평가에서 경험적 교정은 종종 type 2 error를 증가시키고 정밀도를 낮추는 대가를 지불하지만, type 1 error와 포함 범위를 공칭 값으로 복원하는 것을 보여준다.
 
-## Summary
+##  요약
 
 ```{block2, type='rmdsummary'}
 - 방법의 타당성은 연구 방법의 기본 가정이 충족되는지 여부에 따라 다르다.
