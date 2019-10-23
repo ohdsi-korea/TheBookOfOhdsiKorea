@@ -464,7 +464,7 @@ knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 
 위에 보이는 것처럼, 지금까지 사용한 방법과 동일한 방식으로 계산되었지만, 입력 값이 (ARB 사용)이 건강에 대한 outcome에서 약물 사용에 대한 평가로 바뀌었기 때문에 해석이 달라지게 된다. 
 
-## 요약 (Summary)
+## 요약
 
 ```{block2, type='rmdsummary'}
 - OHDSI는 모든 데이터베이스 혹은 관심 코호트에 대한 특성을 분석하는 툴을 제공한다.

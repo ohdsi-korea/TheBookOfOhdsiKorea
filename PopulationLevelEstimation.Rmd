@@ -832,7 +832,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/kmPlot.png")
 
 혈관 부종에 대한 위험비는 4.32(95% 신뢰 구간: 2.45 - 8.08)이며, 이는 ACEi가 THZ와 비교하여 혈관 부종의 위험을 증가시키는 것을 의미한다. 마찬가지로, 심근경색에 대한 위험비는 1.13(95% 신뢰 구간: 0.59 - 2.18)이며, 심근경색에 대한 영향은 거의 또는 전혀 없음을 알 수 있다. 앞에서 검토한 것처럼, 우리의 진단(diagnostics)을 통해 본 연구를 검증해보면 이견의 여지가 없다. 그러나 궁극적으로 이러한 근거의 질과 신뢰 여부는 장 \@ref(EvidenceQuality) 에서 설명한대로 연구 진단이 커버하지 못하는 많은 요인들에 달려 있다.
 
-## Summary
+## 요약
 
 ```{block2, type='rmdsummary'}
 - Population-level estimation는 관찰형 데이터의 인과 관계를 추론하는 것을 목적으로 한다.
