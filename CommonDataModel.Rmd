@@ -120,7 +120,7 @@ knitr::include_graphics("images/CommonDataModel/pulmTubICD9.png")
 
 문맥이 없으면, 코드 011은 UB04 언어의 “Hospital Inpatient (Including Medicare Part A)”로 해석되거나, DRG 용어의 “Nervous System Neoplasms without Complications, Comorbidities”로 해석될 수 있다. 이것이 원본와 표준 모두의 concept ID가 중요한 이유이다. 011인 ICD9CM 코드를 나타내는 CONCEPT_ID 값은 [44828631](http://athena.ohdsi.org/search-terms/terms/44828631)이다. 이는 ICD9CM을 UBO4 및 DRG와 구별한다. ICD9CM의 TB 원본 concept은 그림 \@ref(fig:pulmTubMap)과 같이“OMOP (Non-standard to Standard Map)”관계를 통해 SNOMED 어휘에서 표준 concept [253954](http://athena.ohdsi.org/search-terms/terms/253954)로 매핑된다. 표준 SNOMED 개념을 참조하는 모든 연구가 지원되는 모든 원본 코드를 포함할 수 있도록 Read, ICD10, CIEL 및 MeSH 코드에도 동일한 매핑 관계가 존재한다.
 
-```{r pulmTubMap, fig.cap="Pulmonary Tuberculosis의 SNOMED 코드",echo=FALSE, out.width="100%"}
+```{r pulmTubMap, fig.cap="Pulmonary Tuberculosis의 SNOMED 코드",echo=FALSE, out.width="100%", fig.align="center"}
 knitr::include_graphics("images/CommonDataModel/pulmTubMap.png")
 ```
 

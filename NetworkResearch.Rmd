@@ -149,15 +149,15 @@ OHDSI 연구의 실행이 신속하게 진행될 수 있더라도, 모든 참여
 
 현재 네트워크 연구 방식은 수동이다. - 연구팀 구성원이 다양한 방법 (wiki, GitHub, email)을 이용하여 연구 디자인, 코드와 결과 공유를 시행하고 있다. 이러한 방법은 일관적이지 못하고 확장성이 낮아, OHDSI 커뮤니티에서는 연구 프로세스를 체계회하기 위해 노력하고 있다. 
 
-```{r arachne, fig.cap='The ARACHNE Network Study Process.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r arachne, fig.cap='ARACHNE 네트워크 연구 과정.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/NetworkStudies/ARACHNE.png")
 ```
 
-ARACHNE는 네트워크 연구 과정을 간소화하고 자동화할 수 있도록 고안됨 플렛폼이다. ARACHNE는 OHDSI 표준을 사용하여 여러 조직에서 일관되고, 투명하며, 안전하며, 준수하는 관찰 연구 프로세스를 설정한다. ARACHNE는 데이터 접근과 분석 결과 교환을 위한 통신 규약을 표준화 하고 제한된 컨텐츠에 대한 인증 및 권한 부여를 가능하게 한다. 이것은 데이터 제공자, 연구자, 지원업체, 데이터 사이언티스트은 모든 참여 조직을 하나의 협동 연구 조직으로 만들수 있고, 관찰 연구의 모든 단계에서 조정하는 역할을 하게 된다. 이 도구를 사용하면 데이터 관리자가 제어하는 작업을 포함하여 R, Python, SQL 기반 실행 환경을 만들수 있다. 
+ARACHNE는 네트워크 연구 과정을 간소화하고 자동화할 수 있도록 고안된 플렛폼이다. ARACHNE는 OHDSI 표준을 사용하여 여러 조직에서 일관되고, 투명하고, 안전하며, 준수하는 관찰 연구 프로세스를 설정한다. ARACHNE는 데이터 접근과 분석 결과 교환을 위한 통신 규약을 표준화 하고 제한된 컨텐츠에 대한 인증 및 권한 부여를 가능하게 한다. 이것은 데이터 제공자, 연구자, 지원업체, 데이터 사이언티스트은 모든 참여 조직을 하나의 협동 연구 조직으로 만들수 있고, 관찰 연구의 모든 단계에서 조정하는 역할을 하게 된다. 이 도구를 사용하면 데이터 관리자가 제어하는 작업을 포함하여 R, Python, SQL 기반 실행 환경을 만들수 있다. 
 
 ARACHNE는 ACHILLES 보고서 및 ATLAS 디자인 아티팩트 가져 오기, 자체 포함된 패키지 작성 및 여러 사이트에서 자동으로 실행하는 기능을 포함하여 다른 OHDSI 도구와 완벽하게 통합되도록 설계되었다. 미래 비전은 단일 네트워크 내의 조직뿐만 아니라 여러 네트워크의 조직 간에도 연구를 수행 할 목적으로 여러 네트워크를 서로 연결하는 것이다.  
 
-```{r arachneNon, fig.cap='The ARACHNE Network of Networks.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r arachneNon, fig.cap='ARACHNE 네트워크의 네트워크.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/NetworkStudies/ARACHNENON.png")
 ```
  
