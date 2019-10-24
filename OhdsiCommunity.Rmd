@@ -16,7 +16,7 @@
 
 무엇때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거까지의 여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는데에는 정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지 않는다. 사실, "데이터(data)" 가 무엇인지, 그리고 "근거(evidence)"가 무엇인지에 대한 통일된 관념도 존재하지 않는다.
 
-```{r datajourney, fig.cap='The journey from data to evidence', echo=FALSE, out.width='100%', fig.align='center'}
+```{r datajourney, fig.cap='데이터에서 근거로의 여정', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiCommunity/datajourney.png")
 ```
 
@@ -36,7 +36,7 @@ OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 숭 있는 관찰론�
 - 약물 안전성 연구 외에도 clinical characterization, population-level effect estimation, patient-level prediction을 위한 보다 광범위한 모범 사례(best practice)를 확립하기 위한 협업. 방법론적 연구를 통해 입증된 과학적 모범 사례 구현을 코드화하고 연구자들이 쉽게 채택할 수 있는 오픈 소스 분석 소프트웨어 개발에 대한 협업
 - 데이터에서 근거로의 여정을 인도해줄, 주요한 보건 문제에 대한 공동체  공통의 질문에 대한 임상적 적용에 대한 협업
 
-이러한 통찰을 통해, 오딧세이 (OHDSI)가 태어났다. 
+이러한 통찰을 통해, 오딧세이(OHDSI)가 태어났다. 
 
 
 ## 개방형 협업 공동체로서의 오딧세이 (OHDSI as an Open-Science Collaborative)

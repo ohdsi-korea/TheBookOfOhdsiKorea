@@ -20,13 +20,13 @@ OHDSI CDM(Common Data Model)을 통해 전례 없는 규모의 데이터에서 �
 
 그림 \@ref(fig:figure1)은 우리가 다루는 예측 문제를 보여준다. 위험에 처한 모집단 중에서, 우리는 정의된 특정 시점(t = 0)에서 어떤 환자가 위험에 처한 동안 어떤 결과를 경험할 것인지 예측하는 것을 목표로 한다. 예측은 해당 시점 이전의 관찰 기간에서 환자에 대한 정보만 사용하여 수행된다.
 
-```{r figure1, fig.cap='예측 문제',echo=FALSE, out.width='100%'}
+```{r figure1, fig.cap='예측 문제',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/Figure1.png")
 ```
 
 표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 표적 코호트(target cohort)의 t = 0,결과 코호트(outcome cohort)에 의해 예측하고자하는 결과, 그리고 위험에 노출된 시간(time-at-risk)을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다:  \index{target cohort} \index{outcome cohort} \index{time-at-risk}
 
-> *[표적 코호트, T]*에서, 누가  *[위험에 노출된 시간, t]* 내에 *[결과 코호트, O]*가 발생합니까?
+> *[표적 코호트, T]*에서, 누가  *[위험에 노출된 시간, t]* 내에 *[결과 코호트, O]*가 발생하는가?
 
 또한 개발하고자하는 모형에 대해 디자인을 선택하고 내적 및 외적 타당도 검증을 수행 할 관측 데이터세트를 결정해야한다.
 
@@ -99,7 +99,7 @@ Table: (\#tab:plpExampleConditions) Example CONDITION_OCCURRENCE table. For simp
 
 지도 학습 모형은 두 결과 분류(classes)를 최적으로 분리하는 결정 경계(decision boundaries)를 찾아내려고 노력할 것이다. 다른 지도 학습 기법은 다른 분류 결정 경계로 이어지고 분류 결정 경계의 복잡성에 영향을 줄 수 있는 하이퍼-파라미터(hyper-parameters)가 종종 있다.\index{decision boundary}
 
-```{r decisionBoundary, fig.cap='Decision boundary.',echo=FALSE, out.width='80%', fig.align='center'}
+```{r decisionBoundary, fig.cap='결정 경계.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/decisionBoundary.png")
 ```
 
@@ -345,7 +345,7 @@ Table: (\#tab:plpSummary) Main design choices for our study.
 
 표적 코호트를 선택하기 위해서는 ATLAS에 사전에 정의되어야 한다. 예시 코호트가 \@ref(Cohorts)장에 있다. 부록은 이 예시에 사용된 대상(부록 \@ref(AceInhibitors))과 결과(부록 \@ref(Angioedema)) 코호트의 전체 정의를 제공한다. 표적 모집단을 코호트에 추가하기 위해서는 “표적 코호트 추가[Add Target Cohort]” 버튼을 클릭해라. 결과 코호트를 추가하는 것은 “결과코호트 추가[Add Outcome Cohort]” 버튼을 클릭하면 마찬가지로 작동된다. 완료되면, Dialog는 그림 \@ref(fig:problemSettings)처럼 보일 것이다.
 
-```{r problemSettings, fig.cap='Prediction problem settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r problemSettings, fig.cap='예측 문제 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/problemSettings.png")
 ```
 
@@ -359,7 +359,7 @@ knitr::include_graphics("images/PatientLevelPrediction/problemSettings.png")
 
 여기의 예에서는 점진적 부스팅 머신(Gradient Boosting Machine, GBM)을 선택하고 그림 \@ref(fig:gbmSettings)에 지정된 것처럼 하이퍼-파라미터를 설정한다.
 
-```{r gbmSettings, fig.cap='Gradient boosting machine settings',echo=FALSE, out.width='100%', fig.align='center'}
+```{r gbmSettings, fig.cap='점진적 부스팅 머신 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/gbmSettings.png")
 ```
 
@@ -371,7 +371,7 @@ CDM 포멧에 있는 관찰된 데이터로에서 추출할 수 있는 표준 �
 
 공변량 설정 창의 첫 번째 부분은 제외/포함 옵션이다. 공변량은 일반적으로 모든 개념에 맞게 구성된다. 그러나, 어떤 개념이 표적 코호트 정의와 연결되어 있는 경우와 같이 특정한 개념을 추가/제외 하는 것을 원할 수도 있다. 특정 개념만 포함하려면 ATLAS에서 개념 세트(concept set)을 설정한 다음에 **환자-수준 예측 모형의 기저 공변량에 어떤 개념을 포함 하시겠습니까?(모든 것을 포함하려면 비워 두십시오.)**. 아래 ![](images/PopulationLevelEstimation/open.png)를 클릭하여 개념 세트(concept set)을 선택한다. **하위 개념을 포함된 개념 목록에 추가해야 합니까**라는 질문에 “예”라고 답함으로써 모든 하위 개념을 자동적으로 개념 세트(concept set)에 추가할 수 있다. 같은 절차는 **환자 수준 예측 모형의 기저 공변량에 어떤 개념을 제외 하시겠습니까?(모든 것을 포함하려면 비워 두십시오)** 질문에서 동일한 과정을 반복할 수 있고 선택된 개념에 해당하는 공변량을 제거할 수 있다. 마지막 옵션인 **쉼표는 구분되어야 하는 공변량 ID의 리스트의 범위를 정한다**을 사용하면 공변량의 IDs 세트(개념 IDs가 아닌)을 쉼표로 구분하여 추가할 수 있다. 이 옵션은 고급(advanced) 사용자에게만 있다. 완료가 되면 포함 및 제외 옵션이 그림 \@ref(fig:covariateSettings1)과 같아야 한다.
  +
-```{r covariateSettings1, fig.cap='Covariate inclusion and exclusion settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings1, fig.cap='공변량 포함 및 제외 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings1.png")
 ```
 
@@ -391,7 +391,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings1.png")
 
 완료가 된다면, 그림\@ref(fig:covariateSettings2)과 같아야 한다.
 
-```{r covariateSettings2, fig.cap='Select covariates.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings2, fig.cap='공변량 선택.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings2.png")
 ```
 
@@ -404,7 +404,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings2.png")
 
 완료가 된다면, 그림\@ref(fig:covariateSettings3)과 같아야 한다.
 
-```{r covariateSettings3, fig.cap='Time bound covariates.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings3, fig.cap='Time bound 공변량.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings3.png")
 ```
 
@@ -419,7 +419,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings3.png")
 
 완료가 된다면, 그림\@ref(fig:covariateSettings4)와 같아야 한다.
 
-```{r covariateSettings4, fig.cap='Time bound era covariates.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings4, fig.cap='Time bound era 공변량.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings4.png")
 ```
 
@@ -441,12 +441,12 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings4.png")
 
 완료가 된다면, 그림 \@ref(fig:covariateSettings5)과 같아야 한다.
 
-```{r covariateSettings5, fig.cap='Time bound covariates.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings5, fig.cap='Time bound 공변량.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings5.png")
 ```
 마지막 옵션은 공통적으로 사용된 위험 점수를 공변량으로 포함시킬 것 인지의 여부이다. 완료가 된다면, 위험점수 설정은 그림 \@ref(fig:covariateSettings6)과 같아야한다.
 
-```{r covariateSettings6, fig.cap='Risk score covariate settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings6, fig.cap='위험 점수 공변량 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings6.png")
 ```
 
@@ -468,13 +468,13 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings6.png")
 
 완료가 된다면, 모집단 설정 다이얼로그는 그림\@ref(fig:populationSettings)와 같다.
 
-```{r populationSettings, fig.cap='Population settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r populationSettings, fig.cap='모집단 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/populationSettings.png")
 ```
 
 이제 분석 설정을 끝냈으므로, 전체적인 다이얼로그는 그림 \@ref(fig:analysisSettings)와 같다.
 
-```{r analysisSettings, fig.cap='Analysis settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r analysisSettings, fig.cap='분석 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/analysisSettings.png")
 ```
 
@@ -488,7 +488,7 @@ knitr::include_graphics("images/PatientLevelPrediction/analysisSettings.png")
 
 예를 들어, \@ref(fig:executionSettings)그림 에 나타난 선택을 한다.
 
-```{r executionSettings, fig.cap='Execution settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r executionSettings, fig.cap='실행 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
 ```
 
@@ -503,7 +503,7 @@ knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
 
 이 예에서는 그림 \@ref(fig:trainingSettings)와 같이 선택을 한다.
 
-```{r trainingSettings, fig.cap='Training settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r trainingSettings, fig.cap='학습 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/trainingSettings.png")
 ```
 

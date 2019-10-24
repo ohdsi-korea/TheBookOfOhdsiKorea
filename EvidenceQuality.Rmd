@@ -11,7 +11,7 @@
 본격적인 여정 시작에 앞서, 우리가 바라는 이상적인 종착지가 어디인지 상상해보는 것은 도움이 될 것이다. 데이터를 근거로 만들기 위한 우리의 여정을 지원하기 위해서, 우리는 근거의 신뢰도를 높일 수 있는 기반 속성들을 중요시 여긴다.
 
 
-```{r attributesOfEvidence, fig.cap='Desired attributes of reliable evidence', echo=FALSE, out.width='100%', fig.align='center'}
+```{r attributesOfEvidence, fig.cap='이상적인 신뢰성을 위한 근거의 속성', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/EvidenceQuality/reliableevidenceattributes.png")
 ```
 

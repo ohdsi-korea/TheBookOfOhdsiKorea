@@ -29,7 +29,7 @@
 
 다른 연구 설계는 이러한 설계의 다른 가정을 검정하기 위해 다른 진단을 필요로 한다. 예를 들어, 자기-대조군 환자 시리즈 (SCCS) 설계의 경우 관찰의 종료가 결과와는 무관하다는 필수 가정을 확인할 수 있다. 이 가정은 심근 경색과 같이 심각하고 잠재적으로 치명적인 사건의 경우에서 종종 위반된다. 우리는 관찰 기간 종료의 시점이 중도 절단과 중도절단 되지 않은 시점을 보여주는 히스토그램인 그림 \@ref(fig:timeToObsEnd)에 표시된 plot을 생성하여 가정이 유지되는지의 여부를 평가할 수 있다. 데이터에서 관찰 기간이 데이터 수집의 종료 날짜 (전체 데이터베이스에서 관찰이 중단된 날짜, 예를 들어, 추출 날짜 또는 연구 종료 날짜)를 중도절단 되지 않은 것으로 간주하고, 다른 모든 관찰을 중도절단한 것으로 간주한다. 그림 \@ref(fig:timeToObsEnd)에서 우리는 두 분포 사이의 사소한 차이만을 보고도, 우리의 가정이 유지된다는 것을 시사한다.
 
-```{r timeToObsEnd, fig.cap='Time to observation end for those that are censored, and those that are uncensored.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r timeToObsEnd, fig.cap='검열을 받은 사람과 검열을 받지 않은 사람에 대한 관찰 종료 시간.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/timeToObsEnd.png")
 ```
 
@@ -69,7 +69,7 @@ knitr::include_graphics("images/MethodValidity/timeToObsEnd.png")
 
 그림 \@ref(fig:posControlSynth) 이 과정을 보여준다. 이 절차는 몇 가지 중요한 편향을 편향 요인을 모의하지만, 모든 것을 포착하진 않는다. 예를 들어, 측정 오류의 일부 효과가 없다. 합성 양성 대조군은 일정한 양성 예측도와 민감도를 암시하지만, 실제로는 그렇지 않을 수 있다.
 
-```{r posControlSynth, fig.cap='Synthesizing positive controls from negative controls.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r posControlSynth, fig.cap='음성 대조군에서의 양성 대조 합성하기.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/posControlSynth.png")
 ```
 
@@ -185,13 +185,13 @@ $$\Phi\left(
 
 음성 대조군의 후보 목록을 생성하려면, 먼저 관심 있는 모든 노출을 포함하는 concept set을 생성해야 한다. 이 경우 그림 \@ref(fig:exposuresConceptSet)과 같이 ACEi 및 THZ클래스의 모든 성분을 선택한다.
 
-```{r exposuresConceptSet, fig.cap='A concept set containing the concepts defining the target and comparator exposures.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r exposuresConceptSet, fig.cap='대상 및 비교기 노출을 정의하는 개념을 포함하는 concept set.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/exposuresConceptSet.png")
 ```
 
 다음으로, ‘Explore Evidence” 탭으로 가서 ![](images/MethodValidity/generate.png) 버튼을 클릭한다.근거 개요를 작성하는 데는 몇 분이 걸리고, 그 후 ![](images/MethodValidity/viewEvidence.png) 버튼을 클릭 할 수 있다. 그러면 그림 \@ref(fig:candidateNcs)에 표시된 결과와 같은 목록이 열린다.
 
-```{r candidateNcs, fig.cap='Candidate control outcomes with an overview of the evidence found in literature, product labels, and spontaneous reports.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r candidateNcs, fig.cap='문헌, 제품 라벨, 그리고 자발적 보고서의 개요에서 발견된 증거를 가진 후보 제어 결과.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/candidateNcs.png")
 ```
 
@@ -247,7 +247,7 @@ pcs <- synthesizePositiveControls(
 
 그림 \@ref(fig:controls)는 예제 효과 연구에 포함된 음성 및 양성 대조군에 대한 추정 효과 크기를 실제 효과 크기로 계층화 한 것이다. 이 plot은 ATLAS에서 생성한 R 패키지와 함께 제공되는 Shiny 앱에 포함되어 있으며, [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) 패키지의 `plotControls` 함수를 사용하여 생성 할 수 있다. 추정치를 생성하거나 양성 대조군을 합성하기에 충분한 데이터가 없기 때문에 대조군의 수는 때때로 정의 된 것보다 적을 수 있다.
 
-```{r controls, fig.cap='Estimates for the negative (true hazard ratio = 1) and positive controls (true hazard ratio > 1). Each dot represents a control. Estimates below the dashed line have a confidence interval that doesn\'t include the true effect size.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r controls, fig.cap='음성 (실제 위험 비율 = 1) 및 양성 대조 (실제 위험 비율 > 1)의 추정치. 각각의 점은 대조를 뜻한다. 점선 아래의 추정치는 실제 효과 크기를 포함하지 않는 신뢰 구간을 가진다..',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/controls.png")
 ```
 
@@ -285,7 +285,7 @@ plotCalibrationEffect(logRrNegatives = ncEstimates$logRr,
                       seLogRrPositives = oiEstimates$seLogRr,
                       showCis = TRUE)
 ```
-```{r pValueCal, fig.cap='P-value calibration: estimates below the dashed line have a conventional p < 0.05. Estimates in the shaded area have calibrated p < 0.05. The narrow band around the edge of the shaded area denotes the 95\\% credible interval. Dots indicate negative controls. Diamonds indicate outcomes of interest.',echo=FALSE, out.width='70%', fig.align='center'}
+```{r pValueCal, fig.cap='P-value 눈금: 점선 아래의 추정치는 conventional p < 0.05를 의미한다. 음영 처리된 영역의 추정치는 calibrated p < 0.05를 의미한다. 음영 처리된 영역의 가장자리 둘레에 있는 좁은 밴드는 95\\% credible interval을 의미한다. 점들은 음성 대조를 가리킨다. 다이아몬드 모양은 interest의 결과를 의미한다.',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/pValueCal.png")
 ```
 
@@ -313,7 +313,7 @@ oiEstimates$p
 cat("[1] [1] 1.483652e-06 7.052822e-01")
 ```
 
-예상한대로, 편향이 거의 없거나 전혀 관찰되지 않았기 때문에 보정되지 않은 p-value는 보정된 값과 매우 유사한다.
+예상한대로, 편향이 거의 없거나 전혀 관찰되지 않았기 때문에 보정되지 않은 p-value는 보정된 값과 매우 유사하다.
 
 ### Confidence Interval Calibration
 
@@ -325,7 +325,7 @@ cat("[1] [1] 1.483652e-06 7.052822e-01")
 
 한 데이터베이스에서 분석을 수행한 것처럼, IBM MarketScan Medcaid (MDCD) 데이터베이스에서, 우리는 다른 공통 데이터 모델 (CDM) 데이터베이스에서도 동일한 분석 코드를 실행할 수 있다. 그림 \@ref(fig:forest)은 혈관 부종의 결과에 대한 총 5개의 데이터베이스에 대한 forest plot과 메타 분석 추정치 (임의 요인을 가정) [@dersimonian_1986] 를 보여준다. 이 그림은 [EvidenceSynthesis](https://ohdsi.github.io/EvidenceSynthesis/) 패키지의 `plotMetaAnalysisForest`함수를 사용하여 생성되었다.
 
-```{r forest, fig.cap='Effect size estimates and 95\\% confidence intervals (CI) from five different databases and a meta-analytic estimate when comparing ACE inhibitors to thiazides and thiazide-like diuretics for the risk of angioedema.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r forest, fig.cap='혈관부종의 위험을 위해 ACE 억제제를 thiazide 및 thiazides 유사이뇨제와 비교할 때 5개 데이터베이스의 효과 크기 추정 및 95% 신뢰 구간(CI).',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/forest.png")
 ```
 
@@ -333,7 +333,7 @@ knitr::include_graphics("images/MethodValidity/forest.png")
 
 그러나 그림 \@ref(fig:forestCal)과 같이 보정된 신뢰구간을 사용하여 $I^2$를 계산하면 이질성이 음성 및 양성 대조군을 통해 각 데이터베이스에서 측정된 편향에 의해 설명 될 수 있음을 알 수 있다. 경험적 보정은 이 편향을 올바르게 고려한 것으로 보인다. 
 
-```{r forestCal, fig.cap='Calibrated Effect size estimates and 95\\% confidence intervals (CI) from five different databases and a meta-analytic estimate for the hazard ratio of angioedema when comparing ACE inhibitors to thiazides and thiazide-like diuretics.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r forestCal, fig.cap='ACE 억제제를 thiazide 및 thiazide 유사 이뇨제와 비교할 때 5가지 데이터베이스에서 보정된 효과 크기 추정치 및 95% 신뢰 구간 및 혈관부종의 위험 비율에 대한 메타 분석 추정치.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/forestCal.png")
 ```
 
@@ -366,7 +366,7 @@ Although the recommended practice is to empirically evaluate a method’s perfor
 
 [^methodEvalViewerUrl]: http://data.ohdsi.org/MethodEvalViewer/
 
-```{r methodEval, fig.cap='Coverage of the 95\\% confidence interval for the methods in the Methods Library. Each dot represents the performance of a specific set of analysis choices. The dashed line indicates nominal performance (95\\% coverage). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.',echo=FALSE, out.width='100%', fig.align='center', fig.pos='h'}
+```{r methodEval, fig.cap='Methods Libraryd에서 방법에 대한 95% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.',echo=FALSE, out.width='100%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/MethodValidity/methodEval.png")
 ```
 
