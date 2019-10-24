@@ -305,7 +305,7 @@ launchSqlRenderDeveloper()
 
 그러면 그림 \@ref(fig:sqlDeveloper)에 표시된 앱으로 기본 브라우저가 열린다. 이 앱은 웹에서도 공개적으로 사용할 수 있다.[^sqlDeveloperUrl] 
 
-```{r sqlDeveloper, fig.cap='The SqlDeveloper Shiny app.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r sqlDeveloper, fig.cap='The SqlDeveloper Shiny 앱.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SqlAndR/sqlDeveloper.png")
 ```
 
@@ -594,7 +594,7 @@ QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의들의 라�
 
 [^queryLibraryPackageUrl]: https://github.com/OHDSI/QueryLibrary
 
-```{r queryLibrary, fig.cap='QueryLibrary: a library of SQL queries against the CDM.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r queryLibrary, fig.cap='QueryLibrary: CDM에 대한 SQL 조회 라이브러리.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SqlAndR/queryLibrary.png")
 ```
 

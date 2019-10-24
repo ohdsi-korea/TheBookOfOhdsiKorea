@@ -16,7 +16,7 @@
 
 무엇때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거까지의 여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는데에는 정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지 않는다. 사실, "데이터(data)" 가 무엇인지, 그리고 "근거(evidence)"가 무엇인지에 대한 통일된 관념도 존재하지 않는다.
 
-```{r datajourney, fig.cap='The journey from data to evidence', echo=FALSE, out.width='100%', fig.align='center'}
+```{r datajourney, fig.cap='데이터에서 근거로의 여정', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiCommunity/datajourney.png")
 ```
 

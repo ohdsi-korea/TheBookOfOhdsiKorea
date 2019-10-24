@@ -29,7 +29,7 @@ Clinical characterization, population-level estimation, patient-level prediction
 
 연구에 대한 코호트 정의가 결정되면 정의의 타당성을 평가할 수 있다. 타당성을 평가하는 일반적인 접근방식은 정의된 코호트의 일부 또는 모든 사람을 '골드 스탠다드 (gold standard)'에 비교하고 그 결과를 코호트 정의 내의 황금 표준 분류 및 자격 검정에 따라 계층화하여 2x2의 혼동 행렬 (confusion matrix)으로 표현하는 것이다. 그림 \@ref(fig:matrix) 은 혼동 행렬의 요소들을 보여준다.
 
-```{r matrix, fig.cap='Confusion matrix.', echo=FALSE, out.width='75%', fig.align='center'}
+```{r matrix, fig.cap='혼동 행렬.', echo=FALSE, out.width='75%', fig.align='center'}
 knitr::include_graphics("images/ClinicalValidity/matrix.png")
 ```
 

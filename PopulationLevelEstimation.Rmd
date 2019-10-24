@@ -94,7 +94,7 @@ $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{
 
 \index{self-controlled cohort design}
 
-```{r scc, fig.cap='The self-controlled cohort design. The rate of outcomes during exposure to the target is compared to the rate of outcomes in the time pre-exposure.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r scc, fig.cap='스스로 제어하는 코호트 디자인. 목표물에 노출되는 동안의 결과 비율은 사전 노출 시간의 결과 비율과 비교된다..',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCohort.png")
 ```
 
@@ -124,7 +124,7 @@ table
 
 \index{case-control design}
 
-```{r caseControl, fig.cap='The case-control design. Subjects with the outcome (‘cases’) are compared to subjects without the outcome (‘controls’) in terms of their exposure status. Often, cases and controls are matched on various characteristics such as age and sex.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r caseControl, fig.cap='환자-대조군 설계. 결과가 있는 대상 ('케이스')은 노출 상태 측면에서 결과 ('컨트롤')이 없는 대상과 비교된다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/caseControl.png")
 ```
 
@@ -155,7 +155,7 @@ table
 
 \index{case-crossover design}
 
-```{r caseCrossover, fig.cap='The case-crossover design. The time around the outcome is compared to a control date set at a predefined interval prior to the outcome date.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r caseCrossover, fig.cap='환자-교차 연구 설계. 결과 근처의의 시간을 결과 날짜 이전의 미리 정의된 간격으로 설정된 제어 날짜와 비교한다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/caseCrossover.png")
 ```
 
@@ -185,11 +185,11 @@ table
 
 \index{self-controlled case series (SCCS) design}
 
-```{r selfControlledCaseSeries, fig.cap='The Self-Controlled Case Series design. The rate of outcomes during exposure is compared to the rate of outcomes when not exposed.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r selfControlledCaseSeries, fig.cap='자기 대조군 환자군 연구 설계. 노출 중 결과의 비율은 노출되지 않은 결과의 비율과 비교된다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCaseSeries.png")
 ```
 
-자기 대조군 환자군 연구(Self-Controlled Case Series,SCCS) 설계 [@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출 사이, 노출 후) 과 노출기간 동안의 outcome 발생의 비율(rate)을 비교한다. 즉, Poisson regression conditioned on the person 이라고 할 수 있다. 따라서, 그것은 "환자에게 outcome 이 발생하였을 때, non-exposed time 에 비해 exposed time 에 발생할 가능성이 더 높은가?" 이다. 표 \@ref(tab:sccsChoices) 의 선택사항은 SCCS 질문을 정의 한다.\index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
+자기 대조군 환자군 연구(Self-Controlled Case Series,SCCS) 설계 [@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출 사이, 노출 후) 과 노출기간 동안의 outcome 발생의 비율 (rate)를 비교한다. 즉 Poisson regression conditioned on the person 이라고 할 수 있다. 따라서, 그것은 "환자에게 outcome 이 발생하였을 때, non-exposed time 에 비해 exposed time 에 발생할 가능성이 더 높은가?" 이다. 표 \@ref(tab:sccsChoices) 의 선택사항은 SCCS 질문을 정의 한다.\index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
 
 ```{r sccsChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -270,16 +270,16 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 한 연구에는 하나 이상의 비교대상이 있을 수 있다. “Add Comparison”을 클릭하면 새 대화 상자가 열린다. 대상(target) 및 비교(comparator) 코호트를 선택하려면 ![](images/PopulationLevelEstimation/open.png) 을 클릭하면 된다. “Add Outcome”을 클릭하면, 두 개의 결과(outcome) 코호트를 추가할 수 있다. 우리는 \@ref(Cohorts)장에서 설명한대로 이미 코호트들이 생성된 것으로 가정한다. 부록에서 대상군 (Appendix \@ref(AceInhibitorsMono)), 대조군 (Appendix \@ref(ThiazidesMono)), outcome (Appendix \@ref(Angioedema 과 Appendix \@ref(Ami)) 코호트에 대해 자세하 볼 수 있다. 완료되면 그림 \@ref(fig:comparisons)에서와 같은 창이 생성될 것이다.
 
-```{r comparisons, fig.cap='The comparison dialog',echo=FALSE, out.width='100%', fig.align='center'}
+```{r comparisons, fig.cap='비교 dialog',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/comparisons.png")
 ```
 복수의 대상-비교 쌍(target-comparator pair)에 대해 결과를 선택할 수 있다는 점에 주의하자. 각 결과는 독립적으로 처리되며 별도의 분석이 이루어진다.
 
 #### Negative Control Outcomes {-}
 
-음성 대조군 outcome (Negative Control Outcome)은 대상군 또는 비교군에 의해 야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험비는 1과 동일해야 한다. 이상적으로는 우리는 각 결과 코호트에 대해 적절한 코호트 정의를 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 통제 결과 당 하나의 컨셉 집단(concept set)과 이를 결과 코호트로 변환하는 표준 논리만 가진다. 여기서는 \@ref(MethodValidity)장에서 설명한대로 컨셉 셋이 이미 생성되었다고 가정하고 간단하게 선택할 수 있다. 음성 통제 컨셉 집합에는 음성 통제 당 하나의 컨셉만을 포함해야 하며, 하위 컨셉들은 포함하지 않아야 한다. 그림 \@ref(fig:ncConceptSet)은 본 연구에 사용된 음성 대조군 컨셉 집합을 보여준다.
+음성 대조군 결과(Negative Control Outcome)는 대상군 또는 비교군에 의해 야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험비는 1과 동일해야 한다. 이상적으로는 우리는 각 결과 코호트에 대해 적절한 코호트 정의를 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 통제 결과 당 하나의 컨셉 셋(concept set)과 이를 결과 코호트로 변환하는 표준 논리만 가진다. 여기서는 챕터 \@ref(MethodValidity) 에서 설명한대로 컨셉 셋이 이미 생성되었다고 가정하고 간단하게 선택할 수 있다. 음성 통제 컨셉 집합에는 음성 통제 당 하나의 컨셉만을 포함해야 하며, 하위 컨셉들은 포함하지 않아야 한다. 그림 \@ref(fig:ncConceptSet) 은 본 연구에 사용된 음성 대조군 컨셉 집합을 보여준다.
 
-```{r ncConceptSet, fig.cap='Negative Control concept set.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r ncConceptSet, fig.cap='음성 대조군 컨셉 집합.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/ncConceptSet.png")
 ```
 
@@ -291,13 +291,13 @@ knitr::include_graphics("images/PopulationLevelEstimation/ncConceptSet.png")
 
 추가하는 컨셉보다는 **배제** 컨셉을 지정하는 경우가 많다. 배제 컨셉을 지정하면, 배제 컨셉을 제외한 모든 공변량을 사용함을 뜻한다. 기본 공변량 집합(default set of covoariate) 설정을 이용하면, 치료 시작 시의 모든 약물, 시술을 이용하기 때문에, 우리는 대상 치료 및 비교 치료에 에 해당되거나 이것들과 직접적으로 관련된 컨셉들을 배제해야 한다. 예를 들어, 만약 대상 치료가 약물 정맥 주입 치료라면, 우리는 약물 뿐 아니라 정맥 주입 시술 역시도 성향 점수 모델에서 제외해야 한다. 이 예제에서 우리는 ACEi와 THZ를 배제했다. 그림 \@ref(fig:covsToExclude)에서 ACEi와 THZ 과 그들의 하위 컨셉을 포함하여 배제 컨셉 집합을 구성함을 볼 수 있다.
 
-```{r covsToExclude, fig.cap='The concept set defining the concepts to exclude.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covsToExclude, fig.cap='배제 컨셉을 정의하는 개념 집합.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/covsToExclude.png")
 ```
 
 음성 대조군과 배제 컨셉을 지정한 후, 비교 섹션의 아래쪽 절반창은 그림 \@ref(fig:comparisons2)과 같이 보일 것이다.
 
-```{r comparisons2, fig.cap='The comparison window showing concept sets for negative controls and concepts to exclude.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r comparisons2, fig.cap='음성 대조군에 대한 개념 집합과 배제 컨셉을 보여주는 비교 창The comparison window showing concept sets for negative controls and concepts to exclude.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/comparisons2.png")
 ```
 
@@ -322,7 +322,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/comparisons2.png")
 
 “Keep all” 또는 “keep first” 옵션이 선택되면, 우리는 연구 대상자가 양쪽 코호트 모두에 속하는 시기를 절단하기를 바랄 수 있다 (그림 \@ref(fig:tar)). 기본적으로 time-at-risk는 코호트 시작일과 종료일을 기준으로 정의된다. 이번 예에서, time-at-risk는 코호트 시작일 다음날부터 시작되어 코호트 종료일에 끝난다. 절단하지 않는다면, 두 코호트의 time-at-risk가 겹칠 수 있다. 이 겹치는 동안 발생하는 모든 outcome이 (그림과 같이) 두 번 계산되기 때문에 “keep all”을 선택하면 특히 문제가 된다. 만약 절단하기를 선택하면 첫 번째 코호트의 time-at-risk는 두 번째 코호트의 time-at-risk가 시작될 때 종료된다.
 
-```{r tar, fig.cap='Time-at-risk (TAR) for subjects who are in both cohorts, assuming time-at-risk starts the day after treatment initiation, and stops at exposure end.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r tar, fig.cap='두 코호트에 있는 피험자의 위험 노출 기간(TAR)은 치료 시작 다음날부터 시작하여 노출 끝에서 멈춘다고 가정한다.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/tar.png")
 ```
 
@@ -330,7 +330,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/tar.png")
 
 예제 연구에 대한 우리의 선택은 그림 \@ref(fig:studyPopulation)과 같다. 대상 및 대조 '코호트 정의'시 이미 첫 번째 노출로 한정하고 치료 개시 전에 관찰시기가 필요하기 때문에 Estimation에서 이러한 기준을 다시 적용하지 않았다.
 
-```{r studyPopulation, fig.cap='Study population settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r studyPopulation, fig.cap='Study population 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/studyPopulation.png")
 ```
 
@@ -342,7 +342,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/studyPopulation.png")
 
 그림 \@ref(fig:covariateSettings)은 이 연구에 대한 선택을 보여준다. 그림 \@ref(fig:comparisons2)의 비교 셋팅에서 배제 컨셉에 하위 컨셉을 포함하도록 설정했다는 점에 주의하자.
 
-```{r covariateSettings, fig.cap='Covariate settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings, fig.cap='공변량 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/covariateSettings.png")
 ```
 
@@ -358,7 +358,7 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 코호트 연구를 설계할 때, 황금률(golden rule)은 편향(bias)이 개입될 수 있으므로 연구 대상을 정의하기 위해 코호트 시작일 이후의 정보를 절대로 사용하지 않는 것이다. 예를 들어, 모든 피험자들에게 적어도 1년의 time-at-risk가 요구된다면, 우리는 치료를 잘 견디는 피험자들로 분석을 제한했다는 뜻이다. 따라서, 이러한 설정은 세심한 주의를 기울여 사용해야 한다.
 ```
 
-```{r timeAtRisk, fig.cap='Time-at-risk settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r timeAtRisk, fig.cap='위험 노출 기간(TAR) 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/timeAtRisk.png")
 ```
 
@@ -382,7 +382,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/timeAtRisk.png")
 
 그림 \@ref(fig:psSettings)은 이 연구에 대한 우리의 선택을 보여준다. 최대 짝짓기 비율을 100으로 설정하여 variable-ratio matching을 선택하였다.
 
-```{r psSettings, fig.cap='Propensity score adjustment settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r psSettings, fig.cap='성향 점수 조절 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/psSettings.png")
 ```
 
@@ -398,7 +398,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/psSettings.png")
 
 그림 \@ref(fig:outcomeModelSettings)은 이 연구에 대한 선택을 보여준다. Variable-ratio matching을 사용하기 때문에, 회귀분석에 층화 조건화(condition the regression on the strata (i.e. the matched sets))를 해야함에 주목하자.
 
-```{r outcomeModelSettings, fig.cap='Outcome model settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r outcomeModelSettings, fig.cap='결과 모델 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/outcomeModelSettings.png")
 ```
 
@@ -410,7 +410,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/outcomeModelSettings.p
 
 \@ref(ComparisonSettings)절 에서 우리는 음성 대조군을 지정하는 컨셉군을 선택했다. 컨셉을 지정하는 것 뿐 아니라, 분석을 위해서는 컨셉을 기반으로 코호트를 생성하는 프로세스가 필요하다. ATLAS는 세 가지 선택 사항을 가진 표준 프로세스를 제공한다. 첫 번째 선택은 **모든 발생** 을 사용할지 또는 컨셉의 **첫 번째 발생** 만을 사용할지 여부이다. 두 번째 선택은 **하위 컨셉의 발생을 포함할지** 여부를 결정한다. 예를 들어, 하위 컨셉 "내성 발톱(ingrown nail of foot)"의 발생은 상위 컨셉 "내성 손발톱(ingrown nail)"의 발생으로 간주될 수 있다. 세 번째 선택사항은 컨셉을 찾을 때 고려할 도메인(domain)을 지정한다.
 
-```{r ncSettings, fig.cap='Negative control outcome cohort definition settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r ncSettings, fig.cap='음성 대조 결과 코호트 정의 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/ncSettings.png")
 ```
 
@@ -418,7 +418,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/ncSettings.png")
 
 음성 대조군 외에도 양성 대조군도 포함할 수 있는데, 이는 알려진 효과 크기(effect size)와 함께 인과 관계(causal effect)가 존재하는 것으로 보이는 노출-결과 쌍(exposure-outcome pair)을 뜻한다. 여러 가지 이유로 실제 양성 대조군 설정은 문제가 있기 때문에, 대신 \@ref(MethodValidity)장에서 설명한대로 음성 대조군을 기반으로 합성된 양성 대조군을 사용한다. 우리는 **양성 대조군 합성** 여부를 선택할 수 있다. 만약 "예(yes)"를 선택하면, 우리는 반드시 **모델 타입(model type)** 을 선택해야 하는데, 현재는 "Poisson"과 "survival"을 지원하고 있다. 이 예제에서는 생존 (콕스) 분석을 시행하기 때문에, 양성 대조군 합성시에도 "survival"을 선택하도록 하자. 양성 대조군 합성시 가급적 분석 추정 셋팅에서 사용된 값들을 비슷하게 사용하였다 (**minimum required continuous observation prior to exposure**, **should only the first exposure be included**, **should only the first outcome be included**, **remove people with prior outcomes**). 그림 \@ref(fig:outcomeModelSettings) 을 통해 양성 대조군 합성을 위한 셋팅을 참조할 수 있다.
 
-```{r pcSynthesis, fig.cap='Negative control outcome cohort definition settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r pcSynthesis, fig.cap='음성 대조 결과 코호트 정의 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/pcSynthesis.png")
 ```
 
@@ -771,7 +771,7 @@ cat("    analysisId targetId comparatorId outcomeId        rr ...
 
 성향 점수 기반의 짝짓기 이후 먼저 대상 코호트와 비교 코호트가 어느 정도 비슷한지를 평가할 필요가 있다. 이를 위해 성향 점수 모델에 대한 AUC(Area Under the Receiver Operator Curve) 통계값을 계산할 수 있다. AUC 1은 기저 공변량에 근거해 치료배정이 완전히 예측 가능하다는 것을 나타내므로, 두 군은 비교할 수 없다. `computePsAuc` 함수를 사용하여 AUC를 계산할 수 있는데, 우리의 예제에서는 0.79이다. `plotPs` 함수를 사용하여 그림 \@ref(fig:ps) 과 같이 선호 점수 분포(preference score distribution)를 생성할 수도 있다. 많은 피험자들에 대해 그들이 받을 치료가 예측 가능했다는 것을 알 수지만 또한 많은 수의 중첩이 있다. 이는 조정을 통해 비교 가능한 군을 선택할 수 있음을 나타낸다.
 
-```{r ps, fig.cap='Preference score distribution.',echo=FALSE, out.width='80%', fig.align='center'}
+```{r ps, fig.cap='성향 점수 분포.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/ps.png")
 ```
 
@@ -800,7 +800,7 @@ Table: (\#tab:psModel) Top 10 predictors in the propensity model for ACEi and TH
 
 성향점수를 사용하는 목적은 두 군을 비교 가능하게 만드는 (또는 적어도 비교할 수 있는 군을 선택하는) 것이다. 기저 공변량이 조정 후 실제로 균형 (balance)을 이루고 있는지 등을 확인하여 이 목적이 달성되었는지 입증해야 한다. `computeCovariateBalance` 및 `plotCovariateBalanceScatterPlot` 함수를 사용하여 그림\@ref(fig:balance)을 생성할 수 있다. 한 가지 주요한 원칙은 성향 점수 조정 후 공변량이 0.1보다 큰 표준 차이 값 (absolute standardized difference of means)을 가져서는 안 된다는 것이다. 여기서는 성향점수 짝짓기 이전에 상당한 불균형이 있었음에도 불구하고, matching 이후에는 이 기준을 충족한다는 것을 알 수 있다.
 
-```{r balance, fig.cap='Covariate balance, showing the absolute standardized difference of mean before and after propensity score matching. Each dot represents a covariate.',echo=FALSE, out.width='70%', fig.align='center'}
+```{r balance, fig.cap='공변량 균형, 성향 점수 매칭 전과 후의 절대 표준화 평균 차이를 보여준다. 각 점은 공변량을 나타낸다.',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/balance.png")
 ```
 
@@ -808,7 +808,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/balance.png")
 
 Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 통계력(power)이 있는지 여부를 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준(예: 이전 outcome 없음)과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 통계력 계산을 수행하는 것이 좋다. 그림\@ref(fig:attrition) 과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
 
-```{r attrition, fig.cap='Attrition diagram. The counts shown at the top are those that meet our target and comparator cohort definitions. The counts at the bottom are those that enter our outcome model, in  this case a Cox regression.',echo=FALSE, out.width='70%', fig.align='center'}
+```{r attrition, fig.cap='Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 Cox 회귀 분석이다.',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/attrition.png")
 ```
 
@@ -816,7 +816,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/attrition.png")
 
 추적기간 (follow-up) 데이터를 더 잘 이해하기 위해서는 추적기간의 분포도 검사할 수 있다. 추적기간을 time at risk로 정의했으므로 outcome 발생으로 인해서는 중도절단되지 않는다. `getFollowUpDistribution` 그림 \@ref(fig:followUp) 과 같은 간단한 개괄을 제공한다. 이는 두 코호트의 follow-up time이 비슷하다는 것을 의미한다.
 
-```{r followUp, fig.cap='Distribution of follow-up time for the target and comparator cohorts.',echo=FALSE, out.width='80%', fig.align='center'}
+```{r followUp, fig.cap='대상 및 대조군 코호트의 추적 시간 분포.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/followUp.png")
 ```
 
