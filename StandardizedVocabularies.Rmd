@@ -10,7 +10,7 @@
 
 ## 왜 용어(Vocabularies) 인가, 그리고 왜 표준화인가?  
 
-의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서 (Bills of Mortality)로 거슬러 올라간다 (그림\@ref(fig:bill) 참조). \index{Bill of Mortality}
+의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서(Bills of Mortality)로 거슬러 올라간다 (그림\@ref(fig:bill) 참조). \index{Bill of Mortality}
 
 ```{r bill, fig.cap='1660 London Bill of Mortality, 당시 알려진 62가지 질병의 분류 체계를 사용하여 사망한 거주자의 사망 원인을 보여준다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/bill.jpg")
@@ -29,7 +29,7 @@ OHDSI는 관찰형 연구를 위한 글로벌 표준인 OMOP CDM을 개발했다
 
 ### 표준화된 용어 구축
 
-Standardized Vocabularies의 모든 용어는 동일한 공통 형식으로 통합된다. 이를 통해 연구자들이 기존 용어의 여러가지 형식과 수명주기 규칙을 이해하거나 처리할 필요가 없다. 모든 vocabularies는 Pallas 시스템[^pallasUrl]을 사용하여 정기적으로 새로워지고 통합이 된다. Vocabularies는 OMOP CDM Workgroup의 일부인 OHDSI Vocabulary 팀에 의해 만들어지고 운영되고 있다. 오류가 발견되면 OHDSI Forums[^forums2Url] 또는 CDM Github 페이지[^cdmIssuesUrl]에 게시하여 오류를 보고하고 리소스를 개선하도록 도와주기 바란다.\index{Pallas system}
+Standardized Vocabularies의 모든 용어는 동일한 공통 형식으로 통합된다. 이를 통해 연구자들이 기존 용어의 여러가지 형식과 수명주기 규칙을 이해하거나 처리할 필요가 없다. 모든 vocabularies는 Pallas 시스템[^pallasUrl]을 사용하여 정기적으로 새로워지고 통합이 된다. Vocabularies는 OMOP CDM Workgroup의 일부인 OHDSI Vocabulary 팀에 의해 만들어지고 운영되고 있다. 오류가 발견되면 OHDSI Forums[^forums2Url] 또는 CDM Github 페이지[^cdmIssuesUrl]에 게시하여 오류를 보고하고 리소스를 개선할 수 있도록 도와주십시오.\index{Pallas system}
 
 [^pallasUrl]: https://github.com/OHDSI/Vocabulary-v5.0
 [^forums2Url]: https://forums.ohdsi.org
@@ -41,15 +41,15 @@ Standardized Vocabularies 정보를 얻기 위해, Pallas를 직접 실행할 �
 
 [^athenaUrl]: http://athena.ohdsi.org
 
-모든 Standardized Vocabularies tables이 포함 된 zip파일을 다운로드 하려면, OMOP CDM에 필요한 모든 vocabularies를 선택해야한다.  Standard Concepts을 가진 Vocabularies들은 (\@ref(standardConcepts)절 참조) 미리 선택되어 있다.  source data에 사용되는 vocabularies를 추가한다.  저작권이 있는 Vocabularies는 선택할 수 없다. 해당 vocabulary를 리스트에 포함시키려면 "License required" 버튼을 클릭해야 한다.  Vocabulary팀이 당신에게 연락을 할 것이고, 당신이 license를 제출하도록 요청하거나, license를 얻는데 적절한 사람들과 연결시켜줄 것이다.
+모든 Standardized Vocabularies tables이 포함 된 zip파일을 다운로드 하려면, OMOP CDM에 필요한 모든 vocabularies를 선택해야한다. Standard Concepts을 가진 Vocabularies들은 (\@ref(standardConcepts)절 참조) 미리 선택되어 있다.  source data에 사용되는 vocabularies를 추가한다. 저작권이 있는 Vocabularies는 선택할 수 없다. 해당 vocabulary를 리스트에 포함시키려면 "License required" 버튼을 클릭해야 한다. Vocabulary팀이 당신에게 연락을 할 것이고, 당신이 license를 제출하도록 요청하거나, license를 얻는데 적절한 사람들과 연결시켜줄 것이다.
 
 ### 용어의 원천 : 도입 vs 구축  
 
-OHDSI는 일반적으로 새로운 vocabularies 를 구축하기 보다는 기존 vocabularies를 채택하는 것을 선호한다. 왜냐하면 (i) 많은 vocabularies가 이미 공동체의 관찰형 데이터에 사용되어 왔으며 (ii) vocabularies의 구성 및 유지 관리가 복잡하여 오랜 기간 동안 많은 이해관계자들의 의견을 수렴해야한다. 이러한 이유로, 전담 조직은 생성, 사용 중단, 병합 및 분할의 수명주기에 따라 vocabularies를 제공하고 있다. (\@ref(conceptLifeCycle)절 참조)   현재 OHDSI는 Type Concepts (예: condition type concepts)과 같은 내부 관리 용어만 생성하고 있다.  유일한 예외는 RxNorm Extension인데, RxNorm Extension은 미국 이외의 지역에서만 사용되는 약물 vocabulary이다. (\@ref(rxNormExtension)절 참조)
+OHDSI는 일반적으로 새로운 vocabularies 를 구축하기 보다는 기존 vocabularies를 채택하는 것을 선호한다. 왜냐하면 (i) 많은 vocabularies가 이미 공동체의 관찰형 데이터에 사용되어 왔으며 (ii) vocabularies의 구성 및 유지 관리가 복잡하여 오랜 기간 동안 많은 이해관계자들의 의견을 수렴해야한다. 이러한 이유로, 전담 조직은 생성, 사용 중단, 병합 및 분할의 수명주기에 따라 vocabularies를 제공하고 있다. (\@ref(conceptLifeCycle)절 참조) 현재 OHDSI는 Type Concepts (예: condition type concepts)과 같은 내부 관리 용어만 생성하고 있다. 유일한 예외는 RxNorm Extension인데, RxNorm Extension은 미국 이외의 지역에서만 사용되는 약물 vocabulary이다. (\@ref(rxNormExtension)절 참조)
 
 ## 개념
 
-OMOP CDM의 모든 clinical events들은 concepts으로 표현되며, 이는 각 사건의 의미 있는 개념을 나타낸다. Concept은 데이터 기록들의 기본적인 구성 요소로써, 모든 테이블을 거의 예외없이 완전 정규화 한다.  Concepts은 CONCEPT table에 저장된다. (그림 \@ref(fig:concept) 참조) \index{concept}
+OMOP CDM의 모든 clinical events들은 concepts으로 표현되며, 이는 각 사건의 의미 있는 개념을 나타낸다. Concept은 데이터 기록들의 기본적인 구성 요소로써, 모든 테이블을 거의 예외없이 완전 정규화 한다. Concepts은 CONCEPT table에 저장된다. (그림 \@ref(fig:concept) 참조) \index{concept}
 
 ```{r concept, fig.cap='OMOP CDM에서 vocabulary의 표준 표현. 위의 예는 Atrial Fibrillation의 SNOMED 코드에 대한 CONCEPT 테이블 레코드이다.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/concept.png")
