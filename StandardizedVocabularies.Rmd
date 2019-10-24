@@ -4,13 +4,13 @@
 
 *Chapter leads: Christian Reich & Anna Ostropolets*
 
-흔히 "the Vocabulary"라고 불리는 OMOP Standardized Vocabularies는 OHDSI 연구 네트워크의 기초적인 부분이자, 공통 데이터 모델(CDM)의 핵심부분이다. OMOP Standardized Vocabularies는 데이터의 내용을 정의함으로써 분석방법, 정의, 결과를 표준화하여, 진정한 원격 (방화벽 뒤에서) 네트워크 연구와 분석을 가능하게 한다. 일반적으로, 코딩 체계를 사용하여 구조화된 데이터이든 혹은 free text로 구성된 데이터이든, 관찰 의료 데이터의 내용을 찾아 해석하는 것은 임상 사건을 설명하는 수많은 방법들을 고민하는 연구자들, 실무진까지 전달되기 마련이다. OHDSI는 표준화된 형식뿐 아니라 엄격한 표준 컨텐츠와의 조화가 필요하다.
+흔히 "the Vocabulary"라고 불리는 OMOP Standardized Vocabularies는 OHDSI 연구 네트워크의 기초적인 부분이자, 공통 데이터 모델(CDM)의 핵심부분이다. OMOP Standardized Vocabularies는 데이터의 내용을 정의함으로써 분석방법, 정의, 결과를 표준화하여, 진정한 원격 (방화벽 뒤에서) 네트워크 연구와 분석을 가능하게 한다. 일반적으로, 코딩 체계를 사용하여 구조화된 데이터이든 혹은 free text로 구성된 데이터이든, 관찰 의료 데이터의 내용을 찾아 해석하는 것은 임상 사건을 설명하는 수많은 방법들을 고민하는 연구 실무자들까지 전달되기 마련이다. OHDSI는 표준화된 형식뿐 아니라 엄격한 표준 컨텐츠와의 조화가 필요하다.
 
 이 장에서는 먼저 기초적인 부분을 이해하고 활용하기 위해, Standardized Vocabularies 의 주요 원칙, 구성 요소 및 관련 규칙, 규약 및 일반적인 상황에 대해 설명하고자 한다. 또한, 이를 지속적으로 개선하기 위해, 커뮤니티의 지원이 필요한 곳을 언급할 것이다.
 
 ## 왜 용어(Vocabularies) 인가, 그리고 왜 표준화인가?  
 
-의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서 (Bills of Mortality)로 거슬러 올라간다 (그림\@ref(fig:bill) 참조). \index{Bill of Mortality}
+의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서(Bills of Mortality)로 거슬러 올라간다 (그림\@ref(fig:bill) 참조). \index{Bill of Mortality}
 
 ```{r bill, fig.cap='1660 London Bill of Mortality, 당시 알려진 62가지 질병의 분류 체계를 사용하여 사망한 거주자의 사망 원인을 보여준다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/bill.jpg")
@@ -29,7 +29,7 @@ OHDSI는 관찰형 연구를 위한 글로벌 표준인 OMOP CDM을 개발했다
 
 ### 표준화된 용어 구축
 
-Standardized Vocabularies의 모든 용어는 동일한 공통 형식으로 통합된다. 이를 통해 연구자들이 기존 용어의 여러가지 형식과 수명주기 규칙을 이해하거나 처리할 필요가 없다. 모든 vocabularies는 Pallas 시스템[^pallasUrl]을 사용하여 정기적으로 새로워지고 통합이 된다. Vocabularies는 OMOP CDM Workgroup의 일부인 OHDSI Vocabulary 팀에 의해 만들어지고 운영되고 있다. 오류가 발견되면 OHDSI Forums[^forums2Url] 또는 CDM Github 페이지[^cdmIssuesUrl]에 게시하여 오류를 보고하고 리소스를 개선하도록 도와주기 바란다.\index{Pallas system}
+Standardized Vocabularies의 모든 용어는 동일한 공통 형식으로 통합된다. 이를 통해 연구자들이 기존 용어의 여러가지 형식과 수명주기 규칙을 이해하거나 처리할 필요가 없다. 모든 vocabularies는 Pallas 시스템[^pallasUrl]을 사용하여 정기적으로 새로워지고 통합이 된다. Vocabularies는 OMOP CDM Workgroup의 일부인 OHDSI Vocabulary 팀에 의해 만들어지고 운영되고 있다. 오류가 발견되면 OHDSI Forums[^forums2Url] 또는 CDM Github 페이지[^cdmIssuesUrl]에 게시하여 오류를 보고하고 리소스를 개선할 수 있도록 도와주십시오.\index{Pallas system}
 
 [^pallasUrl]: https://github.com/OHDSI/Vocabulary-v5.0
 [^forums2Url]: https://forums.ohdsi.org
@@ -41,25 +41,24 @@ Standardized Vocabularies 정보를 얻기 위해, Pallas를 직접 실행할 �
 
 [^athenaUrl]: http://athena.ohdsi.org
 
-모든 Standardized Vocabularies tables이 포함 된 zip파일을 다운로드 하려면, OMOP CDM에 필요한 모든 vocabularies를 선택해야한다.  Standard Concepts을 가진 Vocabularies들은 (\@ref(standardConcepts)절 참조) 미리 선택되어 있다.  source data에 사용되는 vocabularies를 추가한다.  저작권이 있는 Vocabularies는 선택할 수 없다. 해당 vocabulary를 리스트에 포함시키려면 "License required" 버튼을 클릭해야 한다.  Vocabulary팀이 당신에게 연락을 할 것이고, 당신이 license를 제출하도록 요청하거나, license를 얻는데 적절한 사람들과 연결시켜줄 것이다.
+모든 Standardized Vocabularies tables이 포함 된 zip파일을 다운로드 하려면, OMOP CDM에 필요한 모든 vocabularies를 선택해야한다. Standard Concepts을 가진 Vocabularies들은 (\@ref(standardConcepts)절 참조) 미리 선택되어 있다.  source data에 사용되는 vocabularies를 추가한다. 저작권이 있는 Vocabularies는 선택할 수 없다. 해당 vocabulary를 리스트에 포함시키려면 "License required" 버튼을 클릭해야 한다. Vocabulary팀이 당신에게 연락을 할 것이고, 당신이 license를 제출하도록 요청하거나, license를 얻는데 적절한 사람들과 연결시켜줄 것이다.
 
 ### 용어의 원천 : 도입 vs 구축  
 
-OHDSI는 일반적으로 de-novo 구조보다는 기존 vocabularies를 채택하는 것을 선호한다. 왜냐하면 (i) 많은 vocabularies가 이미 공동체의 관찰형 데이터에 사용되어 왔으며 (ii) vocabularies의 구성 및 유지 관리가 복잡하여 오랜 기간 동안 많은 이해관계자들의 의견을 수렴해야한다. 이러한 이유로, 전담 조직은 생성, 사용 중단, 병합 및 분할의 수명주기에 따라 vocabularies를 제공하고 있다. (\@ref(conceptLifeCycle)절 참조)   현재 OHDSI는 Type Concepts (예: condition type concepts)과 같은 내부 관리 용어만 생성하고 있다.  유일한 예외는 RxNorm Extension인데, RxNorm Extension은 미국 이외의 지역에서만 사용되는 약물 vocabulary이다. (\@ref(rxNormExtension)절 참조)
+OHDSI는 일반적으로 새로운 vocabularies 를 구축하기 보다는 기존 vocabularies를 채택하는 것을 선호한다. 왜냐하면 (i) 많은 vocabularies가 이미 공동체의 관찰형 데이터에 사용되어 왔으며 (ii) vocabularies의 구성 및 유지 관리가 복잡하여 오랜 기간 동안 많은 이해관계자들의 의견을 수렴해야한다. 이러한 이유로, 전담 조직은 생성, 사용 중단, 병합 및 분할의 수명주기에 따라 vocabularies를 제공하고 있다. (\@ref(conceptLifeCycle)절 참조) 현재 OHDSI는 Type Concepts (예: condition type concepts)과 같은 내부 관리 용어만 생성하고 있다. 유일한 예외는 RxNorm Extension인데, RxNorm Extension은 미국 이외의 지역에서만 사용되는 약물 vocabulary이다. (\@ref(rxNormExtension)절 참조)
 
 ## 개념
 
-OMOP CDM의 모든 clinical events들은 concepts으로 표현되며, 이는 각 사건의 의미 있는 개념을 나타낸다. Concept은 데이터 기록들의 기본적인 구성 요소로써, 모든 테이블을 거의 예외없이 완전 정규화 한다.  Concepts은 CONCEPT table에 저장된다. (그림 \@ref(fig:concept) 참조) \index{concept}
+OMOP CDM의 모든 clinical events들은 concepts으로 표현되며, 이는 각 사건의 의미 있는 개념을 나타낸다. Concept은 데이터 기록들의 기본적인 구성 요소로써, 모든 테이블을 거의 예외없이 완전 정규화 한다. Concepts은 CONCEPT table에 저장된다. (그림 \@ref(fig:concept) 참조) \index{concept}
 
 ```{r concept, fig.cap='OMOP CDM에서 vocabulary의 표준 표현. 위의 예는 Atrial Fibrillation의 SNOMED 코드에 대한 CONCEPT 테이블 레코드이다.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/concept.png")
 ```  
 
-이 시스템은 포괄적이지 않으면 안된다.  즉, 환자의 의료 경험 (예: 진단명, 시술, 약물 노출 등) 및 의료시스템의 일부 관리 정보 (예: 병원 방문, 관리 부위 등)과 관련된 모든 이벤트를 포괄할 만큼 **충분히 많은 개념들이 있다.**
+이 시스템은 포괄적이지 않으면 안된다. 즉, 환자의 의료 경험 (예: 진단명, 시술, 약물 노출 등) 및 의료시스템의 일부 관리 정보 (예: 병원 방문, 관리 부위 등)과 관련된 모든 이벤트를 포괄할 만큼 충분히 많은 개념들이 있다.
 
 ### 개념 ID (Concept IDs)
 
-각 concept에는 primary key로 사용할 concept ID가 할당된다.  vocabulary에서 나온 원 코드가 아닌, 의미가 없는 Integer ID 가 CDM event 테이블에 데이터를 기록하는데 사용된다. \index{concept!identifier}
 
 ### 개념 이름 (Concept Names)
 
@@ -75,7 +74,7 @@ knitr::include_graphics("images/StandardizedVocabularies/domains.png")
 ```  
 
 Heuristic(경험적 지식)을 이요한 도메인 할당 방법은 도메인의 정의를 따라 진행한다.
-이러한 정의는 CDM의 테이블 및 필드 정의에서 파생된다(\@ref(CommonDataModel)장 참조). heuristic(경험적 지식)은 완벽하지 않으며, 불분명하다(\@ref(specialSituations절의 "Special Situations" 참조). 만약 concept 도메인에 잘못 할당된 경우 [Forums](https://forums.ohdsi.org) 또는 [CDM issue](https://github.com/OHDSI/CommonDataModel/issues) 게시판을 통하여, 문제점을 보고하고 개선하도록 해야한다.
+이러한 정의는 CDM의 테이블 및 필드 정의에서 파생된다(\@ref(CommonDataModel)장 참조). heuristic(경험적 지식)은 완벽하지 않으며, 불분명하다(\@ref(specialSituations절의 "Special Situations" 참조). 만일, 잘못 지정된 concept 도메인을 발견한다면, [Forums](https://forums.ohdsi.org) 또는 [CDM issue](https://github.com/OHDSI/CommonDataModel/issues) 게시판을 통하여, 문제점을 보고하고 개선하도록 해야한다.
 
 ### 용어 (Vocabularies)
 
@@ -156,7 +155,7 @@ Vocabularies는 영원 불변의 고정된 코드 세트인 경우는 드물다.
 - **후속 코드 없이 더 이상 사용되지 않는 개념**
 	- 설명: Concept이 비활성화 상태여서 표준으로 사용할 수 없다  (\@ref(standardConcepts)절 참조).
 	- VALID_START_DATE: concept의 instantiation의 날, Vocabularies에 concepts을 통합한 날을 알지 못하거나, 알려지지 않은 경우 1970-1-1. 
-	- VALID_END_DATE: 사용 중단을 나타내는 과거의 날짜, 또는 해당 날짜를 알수 없는 경우, concept이 누락되거나 비활성화 된 vocabulary 갱신일
+	- VALID_END_DATE: 사용 중단을 나타내는 과거의 날짜, 또는 해당 날짜를 알수 없는 경우, concept이 누락되거나 비활성화 된 vocabulary 갱신일 
 	- INVALID_REASON: "D"
 - **후속 코드가 있는 업그레이드 된 개념**
 	- 설명: 비활성이지만, 후속 코드가 정의된 개념. 이들은 일반적으로 중복 제거를 통해 된 것을 제거한 concepts.
@@ -175,7 +174,7 @@ Vocabularies는 영원 불변의 고정된 코드 세트인 경우는 드물다.
 
 두 개념이 동일한 도메인 또는 vocabulary에 속하는지 여부에 관계없이 두 개념은 지정된 관계를 가질 수 있다.  관계의 특성은 CONCPET_RELATIONSHIP테이블의 RELATIONSHIP_ID필드에서 대소문자를 구분하는 고유한 짧은 영 숫자 ID로 표시한다. 각 관계에 대해 동등한 관계가 존재하며, CONCEPT_ID_1, CONCEPT_ID_2 필드의 내용이 교환되고, RELATIONSHIP_ID는 반대로 바뀌게 된다. 예를 들어, "Maps to" 관계는 "Mapped from"과 반대의 관계를 갖는다. \index{concept!relationship}
  
-CONCEPT_RELATIONSHIP 테이블 레코드에는 수명주기 필드인 RELATIONSHIP_START_DATE, RELATIONSHIP_END_DATE, INVALID_REASON 이 있다. 그러나, INVALID_REASON = NULL인 유효한 기록들만 ATHENA에서 이용 가능하다. 비활성화 된 relationship은 Pallas 시스템 내에서 내부처리만 용도로만 사용되도록 보관된다. RELATIONSHIP 테이블은 전체 relationship IDs 목록 및 그 반대의 목록과 함께 참조로 사용된다.
+CONCEPT_RELATIONSHIP 테이블 레코드에는 수명주기 필드인 RELATIONSHIP_START_DATE, RELATIONSHIP_END_DATE, INVALID_REASON 이 있다. 그러나, INVALID_REASON = NULL인 유효한 기록들만 ATHENA에서 이용 가능하다. 비활성화 된 relationship은 Pallas 시스템 내에서 내부처리 용도로만 사용되도록 보관된다. RELATIONSHIP 테이블은 전체 relationship IDs 목록 및 그 반대의 목록과 함께 참조로 사용된다.
 
 ### 매핑 관계 {#conceptMapping}
 
@@ -276,11 +275,11 @@ ICD-9 또는 ICD-10과 같은 일반적으로 사용되는 코딩 체계는 적�
 
 ### 처치 코드 시스템
 
-마찬가지로, HCPCS 및 CTP4와 같은 코딩 체계는 medical procedures의 목록으로 간주된다. 실제로, 이 체계들은 의료비 지급 타당성을 선택하는 메뉴에 가깝다. 이러한 서비스의 많은 부분이 procedure 도메인 아래에 포함되어 있지만, 많은 개념들이 이 도메인 밖에 벗어나 있다.
+마찬가지로, HCPCS 및 CTP4와 같은 코딩 체계는 medical procedures의 목록으로 간주된다. 실제로, 이 체계들은 의료비 지급 타당성을 선택하는 메뉴에 가깝다. 이러한 서비스의 많은 부분이 procedure 도메인 하에 포함되어 있지만, 많은 개념들이 이 도메인 밖에 벗어나 있다.
 
 ### 기기
 
-기기 개념 (Device concepts)은 소스 표준 개념에 사용될 수 있는 표준화된 코드 체계를 가지고 있지 않다. 많은 source 데이터에서 기기들은 코드화 되어 있지 않고, 외부 코딩 체계에도 포함되지 않는다.  이와 같은 이유로, 현재 사용 가능한 계층 시스템이 없다.
+기기 개념(Device concepts)은 소스 표준 개념에 사용될 수 있는 표준화된 코드 체계를 가지고 있지 않다. 많은 source 데이터에서 기기들은 코드화 되어 있지 않고, 외부 코딩 체계에도 포함되지 않는다.  이와 같은 이유로, 현재 사용 가능한 계층 시스템이 없다.
 
 ### 방문 서비스
 
@@ -288,7 +287,7 @@ ICD-9 또는 ICD-10과 같은 일반적으로 사용되는 코딩 체계는 적�
 
 ### 제공자 및 전문의 
 
-모든 인간 제공자들은 provider 도메인에 정의되어 있다. 이 제공자들은 의사 및 간호사와 같은 의료 전문가 일수도 있지만, 검안사나, 신발 제조업자와 같은 비 의료 서비스 제공자(non-medical provider) 일 수도 있다. 전문의는 제공자인 "의사" (Physician)의 하위개념이다. Care sites는 전문성을 보유할 수 없으나, 주요 직원의 전문성에 의해 정의되는 경우가 많다 ("Surgical depart-ment").
+모든 인간 제공자들은 provider 도메인에 정의되어 있다. 이 제공자들은 의사 및 간호사와 같은 의료 전문가 일수도 있지만, 검안사나, 신발 제조업자와 같은 비 의료 서비스 제공자(non-medical provider) 일 수도 있다. 전문의는 제공자인 "의사"(Physician)의 하위개념이다. Care sites는 전문성을 보유할 수 없으나, 주요 직원의 전문성에 의해 정의되는 경우가 많다 ("Surgical depart-ment").
 
 ### 특별한 요구사항이 있는 치료 영역
 
@@ -308,7 +307,7 @@ Drug 도메인의 많은 concepts은 미국 국립 의학 도서관 (National Li
 - 모든 이벤트 및 관리되는 사건은 OMOP Standardized Vocabularies에 concepts, concept relationship 및 concept 상위 계층으로 표현된다.
 - 이중 대부분은 기존의 코딩 체계 나 vocabularies에서 채택 된 반면, 일부는 OHDSI Vocabulary Team에서 새로 선별했다.
 - 모든 개념들은 한 개의 도메인에 선정되는데, 도메인은 개념에 의해 표현되는 사건이 CDM 의 저장되는 위치를 관리한다.
-- 다른 vocabularies에서 동등한 의미를 갖는 개념들은 그 중 하나에 매칭되는데, 그 것이 표준개념으로 지정된 개념이다. 다른 개념들은 소스 개념들이다.
+- 다른 vocabularies에서 동등한 의미를 갖는 개념들은 그 중 하나에 매칭되는데, 그것이 표준개념으로 지정된 개념이다. 다른 개념들은 소스 개념들이다.
 -	Mapping은 "Maps to"와 "Maps to value" concept relationships을 통해 수행된다.
 - 분류 개념이라 불리는 추가 개념 계층이 있는데, 이는 비 표준이지만, 소스 개념과 달리 계층으로 존재한다.  non-standard인, classification concepts이라고 불리는 추가적인 concepts class가 있다. 하지만, source concepts과는 다르게, 계층으로 존재한다.
 - Concepts은 시간이 지남에 따라 수명주기(life-cycle)를 갖는다.
