@@ -196,7 +196,7 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### String Concatenation {-}
 
-문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는  `SELECT first_name + ' ' + last_name AS full_name FROM table`와 같이 작성하지만 Postgres와 Oracle에서는 `SELECT first_name || ' ' || last_name AS full_name FROM table` 라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열(작은 따옴표로 묶인 공백)이 있음으로 번역은 정확할 것이다. 그러나 `SELECT first_name + last_name AS full_name FROM table`와 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 "VARCHAR"에 대한 명시적 형변환이므로 `SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` 도 올바르게 변환된다. 모호성을 피하려면 ```CONCAT()``` 함수를 사용하여 두개 이상의 문자열을 연결하는 것이 가장 좋다.
+문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는 `SELECT first_name + ' ' + last_name AS full_name FROM table`와 같이 작성하지만 Postgres와 Oracle에서는 `SELECT first_name || ' ' || last_name AS full_name FROM table` 라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열(작은 따옴표로 묶인 공백)이 있음으로 번역은 정확할 것이다. 그러나 `SELECT first_name + last_name AS full_name FROM table`와 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 "VARCHAR"에 대한 명시적 형변환이므로 `SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` 도 올바르게 변환된다. 모호성을 피하려면 ```CONCAT()``` 함수를 사용하여 두개 이상의 문자열을 연결하는 것이 가장 좋다.
 
 #### Table Aliases and the AS Keyword {-}
 
@@ -288,7 +288,7 @@ SQL Server에서 테이블은 스키마안에 있으며 스키마는 데이터�
 ```sql
 SELECT * FROM @databaseSchema.person
 ```
-SQL Server에서  `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마이름을 모두 포함할 수 있다. 다른 플랫폼에서는 동일한 코드를 사용할 수 있지만 스키마 매개 변수 값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
+SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마이름을 모두 포함할 수 있다. 다른 플랫폼에서는 동일한 코드를 사용할 수 있지만 스키마 매개 변수 값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
 
 이것이 실패하는 한가지 상황은 에러를 발생시키는 `USE cdm_data.dbo;`, 즉 `USE` 명령어를 사용했기 때문이다. 따라서 `USE` 명령어를 사용하지 말고 항상 테이블이 있는 데이터베이스 및 스키마를 지정하는 것이 바람직하다. 
 
@@ -325,7 +325,7 @@ DatabaseConnector는 기존 데이터베이스 시스템 (PostgreSQL, Microsoft 
 
 ### Creating a Connection
 
-데이터베이스에 연결하려면 데이터베이스 플랫폼, 서버의 위치, 사용자 이름 및 비밀번호와 같은 많은 세부 사항을 지정해야 한다.  `connect` 함수를 호출하여 다음 세부 사항을 직접 지정할 수 있다: \index{DatabaseConnector!creating a connection}
+데이터베이스에 연결하려면 데이터베이스 플랫폼, 서버의 위치, 사용자 이름 및 비밀번호와 같은 많은 세부 사항을 지정해야 한다. `connect` 함수를 호출하여 다음 세부 사항을 직접 지정할 수 있다: \index{DatabaseConnector!creating a connection}
 
 ```{r eval=FALSE}
 conn <- connect(dbms = "postgresql",
@@ -427,7 +427,7 @@ insertTable(conn, "mtcars", mtcars, createTable = TRUE)
 
 ## Querying the CDM {#QueryTheCdm}
 
-다음 예시에서는 CDM이 적용된 데이터베이스를 질의하기 위해 OHDSI SQL을 사용한다. 이러한 쿼리는 CDM의 데이터를 찾을 수 있는 데이터베이스 스키마를 나타내기 위해  `@cdm`을 사용한다.
+다음 예시에서는 CDM이 적용된 데이터베이스를 질의하기 위해 OHDSI SQL을 사용한다. 이러한 쿼리는 CDM의 데이터를 찾을 수 있는 데이터베이스 스키마를 나타내기 위해 `@cdm`을 사용한다.
 
 데이터베이스에 얼마나 많은 사람이 있는지 질의하는 것부터 시작할 수 있다:
 
