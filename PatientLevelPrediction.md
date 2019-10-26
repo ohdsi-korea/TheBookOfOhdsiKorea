@@ -6,7 +6,7 @@
 
 임상의사결정(clinical decision making)이란 임상의사가 알 수 있는 환자의 병력에 대한 정보와 현재 임상지침에 따라 진단 또는 치료 경로를 추론해야하는 복잡한 일이다. 임상 예측 모형은 이러한 의사 결정 과정을 지원하기 위해 개발되었으며 광범위한 전문 분야에서 임상 실무에 사용된다. 이러한 모형은 인구통계학적정보, 질병력 및 치료력과 같은 환자 특성들을 조합하여 이를 기반으로 진단 또는 예후 결과를 예측한다. \index{clinical decision making} \index{diagnostic outcome} \index{prognostic outcome}
 
-임상 예측 모형을 설명하는 출판물의 수가 지난 10년 동안 크게 증가했다. 현재 사용되는 대부분의 모형은 소규모 데이터 집합을 사용하여 추정되며, 소규모 환자 특성만 고려한다. 이처럼 소표본이고 그래서 낮아지는 통계학적 검정력으로 인해 데이터 분석가는 엄격한 가정하게 모델링을 수행하게 된다. 제한적인 환자 특성을 가진 데이터 집합의 선택은 현재 알고 있는 전문가의 지식에만 의존해서 강하게 설명되어진다. 이는 환자들이 풍부한 디지털 트레일(digital trail)을 생성하는 현대 의학의 현실과 크게 대조되며, 이는 모든 의료 전문가가 완전히 동화될 수 있는 힘을 훨씬 뛰어 넘는다. 현재, 건강 관리는 EHR (Electronic Health Records)에 저장된 엄청난 양의 환자 개인별 정보를 생성하고 있다. 여기에는 진단, 약물 치료, 실험실 검사 결과와 같은 정형화된 데이터와 임상적 기술(clinical narratives)에 포함된 비정형화된 데이터가 포함되어 있다. 대량의 환자 데이터를 완전한 EHR로부터 얻고 이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다. \index{prediction model}
+임상 예측 모형을 설명하는 출판물의 수가 지난 10년 동안 크게 증가했다. 현재 사용되는 대부분의 모형은 소규모 데이터 집합을 사용하여 추정되며, 소규모 환자 특성만 고려한다. 이처럼 소표본이고 그래서 낮아지는 통계학적 검정력으로 인해 데이터 분석가는 엄격한 가정하게 모델링을 수행하게 된다. 제한적인 환자 특성을 가진 데이터 집합의 선택은 현재 알고 있는 전문가의 지식에만 의존해서 강하게 설명되어진다. 이는 환자들이 풍부한 디지털 트레일(digital trail)을 생성하는 현대 의학의 현실과 크게 대조되며, 이는 모든 의료 전문가가 완전히 동화될 수 있는 힘을 훨씬 뛰어 넘는다. 현재, 건강 관리는 EHR(Electronic Health Records)에 저장된 엄청난 양의 환자 개인별 정보를 생성하고 있다. 여기에는 진단, 약물 치료, 실험실 검사 결과와 같은 정형화된 데이터와 임상적 기술(clinical narratives)에 포함된 비정형화된 데이터가 포함되어 있다. 대량의 환자 데이터를 완전한 EHR로부터 얻고 이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다. \index{prediction model}
 
 대규모 데이터셋 분석을 위한 머신 러닝의 발전으로 이러한 유형의 데이터에 환자-수준 예측을 적용하는 데 관심이 높아졌다. 그러나 환자-수준 예측을 위한 많은 수의 출판물들은 모형 개발 지침을 따르지 않아 광범위한 외적 타당도를 수행에 실패하거나 또는 독립적인 연구자들이 그 모형을 재현하고 외적 타당도를 검증하기 위해 필요 가능성을 제한하는 모델링 위한 세부사항을 제공하지 않는다. 이것은 모형의 예측 성능을 공정하게 평가하기 어렵게 하고 임상 실무에서 모형이 적절하게 사용될 가능성을 줄인다. 표준화를 개선하기 위해 예측 모형을 개발하고 그리고 보고하는 모범 사례에 대한 지침을 자세히 설명하는 여러 논문이 작성되었다. 예를 들어, 개별 예측 또는 진단(TRIPOD)[^tripodUrl] 선언문에 다변량 예측 모형의 투명한 보고(Transparent Reporting)는 예측 모형 개발 및 타당도 보고에 대한 명확한 권장 사항을 제공하고 투명성과 관련된 일부 우려를 해결한다. \index{machine learning} \index{TRIPOD}
 
@@ -14,22 +14,22 @@
 
 OHDSI CDM(Common Data Model)을 통해 전례 없는 규모의 데이터에서 균일하고 투명한 분석이 가능하게 되어 대규모의 환자 개별 예측 모델링이 현실화되었다. CDM으로 표준화된 데이터베이스 네트워크가 증가하면서 전 세계적으로 다양한 의료 환경에서 모형의 외적 타당도 검증을 가능하게 한다. 우리는 이것이 치료의 질적 개선을 가장 필요로 하는 환자의 대규모 공동체에 즉시 서비스를 제공 할 수 있는 기회를 제공한다고 믿는다. 이러한 모형은 정확히 맞춤형 의료서비스에 정보를 제공하고 환자 결과를 크게 향상시킬 수 있다고 희망한다.
 
-이 장에서는 환자-수준 예측을 위한 OHDSI의 표준화된 프레임워크[@reps2018]를 설명하고 개발 및 타당도 검증을 위해 확립된 모범 사례를 구현하는 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) R 패키지에 대해 설명한다. 우리는 환자-수준 예측의 개발과 평가에 필요한 이론을 제공하는 것으로 시작하고 구현된 기계 학습 알고리즘에 대한 높은 수준의 개요를 제공한다. 그런 다음 예측 문제에 대한 예제에 대하여 논의하고 ATLAS 또는 사용자 정의 R 코드를 사용하여 그것의 정의 및 실행에 대한 단계별 지침을 제공한다. 마지막으로 연구 결과의 보급을 위해 Shiny 앱을 사용하는 방법에 대해 논의한다.
+이 장에서는 환자-수준 예측을 위한 OHDSI의 표준화된 프레임워크 [@reps2018]를 설명하고 개발 및 타당도 검증을 위해 확립된 모범 사례를 구현하는 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) R 패키지에 대해 설명한다. 우리는 환자-수준 예측의 개발과 평가에 필요한 이론을 제공하는 것으로 시작하고 구현된 기계 학습 알고리즘에 대한 높은 수준의 개요를 제공한다. 그런 다음 예측 문제에 대한 예제에 대하여 논의하고 ATLAS 또는 사용자 정의 R 코드를 사용하여 그것의 정의 및 실행에 대한 단계별 지침을 제공한다. 마지막으로 연구 결과의 보급을 위해 Shiny 앱을 사용하는 방법에 대해 논의한다.
 
 ## 예측 문제
 
 그림 \@ref(fig:figure1)은 우리가 다루는 예측 문제를 보여준다. 위험에 처한 모집단 중에서, 우리는 정의된 특정 시점(t = 0)에서 어떤 환자가 위험에 처한 동안 어떤 결과를 경험할 것인지 예측하는 것을 목표로 한다. 예측은 해당 시점 이전의 관찰 기간에서 환자에 대한 정보만 사용하여 수행된다.
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="images/PatientLevelPrediction/Figure1.png" alt="예측 문제" width="100%" />
 <p class="caption">(\#fig:figure1)예측 문제</p>
 </div>
 
-표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 표적 코호트(target cohort)의 t = 0,결과 코호트(outcome cohort)에 의해 예측하고자하는 결과, 그리고 위험에 노출된 시간(time-at-risk)을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다:  \index{target cohort} \index{outcome cohort} \index{time-at-risk}
+표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 표적 코호트(target cohort)의 t = 0, 결과 코호트(outcome cohort)에 의해 예측하고자하는 결과, 그리고 위험에 노출된 시간(time-at-risk)을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다:  \index{target cohort} \index{outcome cohort} \index{time-at-risk}
 
-> *[표적 코호트, T]*에서, 누가  *[위험에 노출된 시간, t]* 내에 *[결과 코호트, O]*가 발생합니까?
+> *[표적 코호트, T]*에서, 누가  *[위험에 노출된 시간, t]* 내에 *[결과 코호트, O]*가 발생하는가?
 
-또한 개발하고자하는 모형에 대해 디자인을 선택하고 내적 및 외적 타당도 검증을 수행 할 관측 데이터세트를 결정해야한다.
+또한 개발하고자하는 모형에 대해 디자인을 선택하고 내적 및 외적 타당도 검증을 수행할 관측 데이터세트를 결정해야한다.
 
 Table: (\#tab:plpDesign) Main design choices in a prediction design.
 
@@ -44,32 +44,32 @@ Table: (\#tab:plpDesign) Main design choices in a prediction design.
 이 개념적 프레임워크는 다음과 같은 모든 유형의 예측 문제에 적용된다, 예를 들면:
 
 - 질병 발병 및 진행
-  - **구조**: *[질병 A]*로 새로 진단 된 환자들 중, **[진단 시점 t]* 내에 *[또 다른 질병이나 합병증, B*]*이 있는 사람은 누구입니까?
-  - **예제**: 새로 진단 된 심방 세동 환자 중 향후 3 년 동안 허혈성 뇌졸중이 발생하는 사람은 누구입니까?
+  - **구조**: *[질병 A]*로 새로 진단 된 환자들 중, **[진단 시점 t]* 내에 *[또 다른 질병이나 합병증, B*]*이 있는 사람은 누구인가?
+  - **예제**: 새로 진단 된 심방 세동 환자 중 향후 3 년 동안 허혈성 뇌졸중이 발생하는 사람은 누구인가?
 - 치료 선택
-  - **구조**: *[치료 1]* 또는 *[치료 2]*로 치료 한 *[표시된 질병, D]* 환자 중 [치료 1]로 치료받은 환자는 무엇입니까?
-  - **예제**: 와파린 또는 리바록사반을 복용 한 심방 세동 환자 중 어떤 환자가 와파린을 복용합니까? (예 : 성향 모형의 경우)
+  - **구조**: *[치료 1]* 또는 *[치료 2]*로 치료한 *[표시된 질병, D]* 환자 중 [치료 1]로 치료받은 환자는 무엇인가?
+  - **예제**: 와파린 또는 리바록사반을 복용 한 심방 세동 환자 중 어떤 환자가 와파린을 복용하는가? (예: 성향 모형의 경우)
 - 치료 반응
-  - **구조**: *[치료 1]*을 처음 사용하는 사람 중, 누가 *[시간대 t]*에서 *[어떤 효과, E]*를 경험했습니까? 
-  - **예제**: 메트포민으로 치료받기 시작한 당뇨병 환자 중 어떤 환자가 3년 동안 메트포민을 유지합니까?
+  - **구조**: *[치료 1]*을 처음 사용하는 사람 중, 누가 *[시간대 t]*에서 *[어떤 효과, E]*를 경험했는가? 
+  - **예제**: 메트포민으로 치료받기 시작한 당뇨병 환자 중 어떤 환자가 3년 동안 메트포민을 유지하는가?
 - 치료 안전
-  - **구조**: *[치료 1]*을 처음 사용하는 사람 중 누가 *[시간대 t]*에서 *[이상 반응 E]*를 경험하게 됩니까?
-  - **예제**: 와파린을 처음 사용하는 사람 중 누가 1년 안에 위장관 출혈이 발생했습니까?
+  - **구조**: *[치료 1]*을 처음 사용하는 사람 중 누가 *[시간대 t]*에서 *[이상 반응 E]*를 경험하게 되는가?
+  - **예제**: 와파린을 처음 사용하는 사람 중 누가 1년 안에 위장관 출혈이 발생했는가?
 - 치료 준수 
-  - **구조**: *[치료 1]*를 처음 사용하는 사람 중 누가 *[시간대, t]*에서 *[준수 지표수치]*를 달성합니까? 
-  - **예제**: 메트포민으로 치료를 시작한 당뇨병 환자 중 어떤 환자가 1년 중 80 % 이상을 복용 순응도를 보입니까?
+  - **구조**: *[치료 1]*를 처음 사용하는 사람 중 누가 *[시간대, t]*에서 *[준수 지표수치]*를 달성하는가? 
+  - **예제**: 메트포민으로 치료를 시작한 당뇨병 환자 중 어떤 환자가 1년 중 80 % 이상을 복용 순응도를 보이는가?
   
 ## 데이터 추출
 
-예측 모형을 만들 때 상태에 따라 분류되어진 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는 프로세스를 사용합니다.\index{supervised learning} 따라서, 표적 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레이블을 얻을 필요가 있다.
+예측 모형을 만들 때 상태에 따라 분류되어진 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는 프로세스를 사용한다.\index{supervised learning} 따라서, 표적 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레이블을 얻을 필요가 있다.
 
-**공변량** ( "예측변수", "특징" 또는 "독립 변수"라고도 함)은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명되어져 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜기준으로 환자의 이전 또는 그 때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
+**공변량** ( "예측변수", "특징" 또는 "독립 변수"라고도 함) 은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명되어져 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜기준으로 환자의 이전 또는 그 때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
 
-또한 위험에 노출된 시간(time-at-risk) 동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함)를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간안에 발생하며나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
+또한 위험에 노출된 시간(time-at-risk) 동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간안에 발생하며나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
 
 ### 데이터 추출 예제
 
-표 \@ref(tab:plpExampleCohorts)는 두 개의 코호트가 있는 COHORT에 대한 예를 보여준다. 코호트 정의 ID 1 인 코호트는 표적 코호트(예를 들어, "최근 심방 세동 진단을 받은 사람들")이고 코호트 정의 ID 2는 결과 코호트 (예를 들어, "뇌졸중")이다
+표 \@ref(tab:plpExampleCohorts)는 두 개의 코호트가 있는 COHORT에 대한 예를 보여준다. 코호트 정의 ID 1 인 코호트는 표적 코호트 (예를 들어, "최근 심방 세동 진단을 받은 사람들") 이고 코호트 정의 ID 2는 결과 코호트 (예를 들어, "뇌졸중") 이다
 
 Table: (\#tab:plpExampleCohorts) Example COHORT table. For simplicity the COHORT_END_DATE has been omitted. 
 
@@ -88,7 +88,7 @@ Table: (\#tab:plpExampleConditions) Example CONDITION_OCCURRENCE table. For simp
 | 1         | 320128               | 2000-10-01           |
 | 2         | 320128               | 2001-05-01           |
 
-이 예제 데이터를 기반으로, 위험에 노출된 시간이 인덱스 날짜 (표적 코호트 시작 날짜)의 다음 연도라고 가정하고 다음과 같이 공변량 및 결과 상태를 구성할 수 있다. Person ID가 1인 환자 (인덱스 날짜 *이후*에 발생한 질병)의 경우 "이전 해의 본태성 고혈압"을 나타내는 공변량은 값 0 (현재 아님)으로 하고, person ID가 2인 환자는 값 1 (현재 진행)을 갖는다. 유사하게, 결과 상태는 person ID가 1인 환자 (이 사람은 결과 코호트에 못들어감)의 경우는 값 0 을 갖고 person ID가 2인 환자 (인덱스 날짜 다음 1 년 내에 결과가 발생하였음)의 경우에는 값 1을 갖는다.
+이 예제 데이터를 기반으로, 위험에 노출된 시간이 인덱스 날짜 (표적 코호트 시작 날짜) 의 다음 연도라고 가정하고 다음과 같이 공변량 및 결과 상태를 구성할 수 있다. Person ID가 1인 환자 (인덱스 날짜 *이후*에 발생한 질병) 의 경우 "이전 해의 본태성 고혈압"을 나타내는 공변량은 값 0 (현재 아님) 으로 하고, person ID가 2인 환자는 값 1 (현재 진행) 을 갖는다. 유사하게, 결과 상태는 person ID가 1인 환자 (이 사람은 결과 코호트에 못들어감) 의 경우는 값 0 을 갖고 person ID가 2인 환자 (인덱스 날짜 다음 1 년 내에 결과가 발생하였음) 의 경우에는 값 1을 갖는다.
 
 ### 결측
 
@@ -96,13 +96,13 @@ Table: (\#tab:plpExampleConditions) Example CONDITION_OCCURRENCE table. For simp
 
 ## 모형 적합 {#modelFitting}
 
-예측 모형을 적합할 때 상태에 따라 분류된 예제들로부터 공변량과 관찰된 결과 상태 간의 관계를 알려고 노력한다. 만약 수축기 혈압과 이완기 혈압의 두 가지 공변량이 있다고 가정하면 그림 \@ref(fig:decisionBoundary)와 같이 2 차원 공간에서 그림으로 각 환자를 나타낼 수 있다. 이 그림에서 데이터를 나타내는 점의 모양은 환자의 결과 상태(예를 들어, 뇌졸중)를 나타낸다.
+예측 모형을 적합할 때 상태에 따라 분류된 예제들로부터 공변량과 관찰된 결과 상태 간의 관계를 알려고 노력한다. 만약 수축기 혈압과 이완기 혈압의 두 가지 공변량이 있다고 가정하면 그림 \@ref(fig:decisionBoundary)와 같이 2 차원 공간에서 그림으로 각 환자를 나타낼 수 있다. 이 그림에서 데이터를 나타내는 점의 모양은 환자의 결과 상태 (예를 들어, 뇌졸중) 를 나타낸다.
 
 지도 학습 모형은 두 결과 분류(classes)를 최적으로 분리하는 결정 경계(decision boundaries)를 찾아내려고 노력할 것이다. 다른 지도 학습 기법은 다른 분류 결정 경계로 이어지고 분류 결정 경계의 복잡성에 영향을 줄 수 있는 하이퍼-파라미터(hyper-parameters)가 종종 있다.\index{decision boundary}
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/decisionBoundary.png" alt="Decision boundary." width="80%" />
-<p class="caption">(\#fig:decisionBoundary)Decision boundary.</p>
+<img src="images/PatientLevelPrediction/decisionBoundary.png" alt="결정 경계." width="80%" />
+<p class="caption">(\#fig:decisionBoundary)결정 경계.</p>
 </div>
 
 그림 \@ref(fig:decisionBoundary)에서 세 가지 다른 결정 경계를 볼 수 있다. 그 경계들은 새로운 데이터포인트의 결과 상태를 추론하기 위하여 사용되어지기도 한다. 새 데이터 포인트가 음영이 있는 영역에 포함되면 모형은 "결과가 있음"을 예측하고, 그렇지 않으면 "결과가 없음"으로 예측한다. 이상적으로는 결정 경계가 두 분류(class)를 완벽하게 구분해야 한다. 그러나 너무 복잡한 모형은 데이터에 "과적합(overfit)"할 위험이 있다. 이는 보이지 않는 데이터에 대한 모형의 일반화에 부정적인 영향을 줄 수 있다. 예를 들어, 데이터에 레이블이 없거나 잘못 지정된 데이터 포인트를 갖는 잡음(noise)이 포함 된 경우 해당 잡음(noise)에 예측 모형을 적합하고 싶지 않을 것이다. 그러므로 우리는 학습 데이터(training data)를 갖고 완벽하게 판별하지는 않지만 “실제의” 복잡성을 반영하는 결정 경계를 정의하는 것을 선호 할 수 있다. 정규화(regularization)와 같은 기술은 복잡성을 최소화하면서 모형 성능을 최대화하는 것을 목표로 한다. 
@@ -113,7 +113,7 @@ Table: (\#tab:plpExampleConditions) Example CONDITION_OCCURRENCE table. For simp
 
 ### 정규화된 로지스틱 회귀
 
-LASSO(least absolute shrinkage and selection operator) 로지스틱 회귀는 변수의 선형결합을 알 수 있는 일반화 선형 모형(generalized linear models)에 속하고 그리고 로지스틱 함수는 결국 0과 1 사이값으로 배치구조를 나타낸다. LASSO 정규화는 모형 학습시 모형 복잡도에 따른 비용을 목적 함수(objective function)에 추가한다. 이 비용은 계수들의 선형 결합의 절대 값의 합이다. 모형은 이 비용을 최소화하면서 특징 선택(feature selection)을 자동으로 수행한다. 우리는 대규모 정규화 로지스틱 회귀 분석을 수행하기 위하여 [Cyclops](https://ohdsi.github.io/Cyclops/) (Cyclic coordinate descent for logistic, Poisson and survival analysis)패키지를 사용한다. \index{LASSO} \index{logistic regression} \index{regularization} \index{Cyclops}
+LASSO(least absolute shrinkage and selection operator) 로지스틱 회귀는 변수의 선형결합을 알 수 있는 일반화 선형 모형(generalized linear models)에 속하고 그리고 로지스틱 함수는 결국 0과 1 사이값으로 배치구조를 나타낸다. LASSO 정규화는 모형 학습시 모형 복잡도에 따른 비용을 목적 함수(objective function)에 추가한다. 이 비용은 계수들의 선형 결합의 절대 값의 합이다. 모형은 이 비용을 최소화하면서 특징 선택(feature selection)을 자동으로 수행한다. 우리는 대규모 정규화 로지스틱 회귀 분석을 수행하기 위하여 [Cyclops](https://ohdsi.github.io/Cyclops/)(Cyclic coordinate descent for logistic, Poisson and survival analysis) 패키지를 사용한다. \index{LASSO} \index{logistic regression} \index{regularization} \index{Cyclops}
 
 Table: (\#tab:lassoParameters) Hyper-parameters for the regularized logistic regression.
 
@@ -154,7 +154,7 @@ Table: (\#tab:randomForestParameters) Hyper-parameters for random forests.
 
 ### K-최근접 이웃 (K-Nearest neighbor)
 
-KNN (K-nearest neighbors)은 몇 개의 거리 척도(distance metric)를 사용하여 레이블이 지정되지 않은 새로운 데이터 포인트에 가장 가까운 K 개의 레이블이 있는 데이터 포인트를 찾는 알고리즘이다. 새로운 데이터 포인트의 예측은 K-최근접의 레이블이 된 데이터 포인트의 가장 보편적인 분류이다. 모형에 새 데이터에 대한 예측을 수행하기 위해 레이블이 지정된 데이터가 필요하기 때문에 KNN의 공유 제한이 있으며 데이터 사이트간에 이 데이터를 공유 할 수 없는 경우가 종종 있다. 우리는 대규모 KNN classfier인 OHDSI에서 개발 된 [BigKnn](https://github.com/OHDSI/BigKnn) 패키지를 포함시켰다.\index{k-nearest neighbors} \index{bigknn}
+KNN(K-nearest neighbors)은 몇 개의 거리 척도(distance metric)를 사용하여 레이블이 지정되지 않은 새로운 데이터 포인트에 가장 가까운 K 개의 레이블이 있는 데이터 포인트를 찾는 알고리즘이다. 새로운 데이터 포인트의 예측은 K-최근접의 레이블이 된 데이터 포인트의 가장 보편적인 분류이다. 모형에 새 데이터에 대한 예측을 수행하기 위해 레이블이 지정된 데이터가 필요하기 때문에 KNN의 공유 제한이 있으며 데이터 사이트간에 이 데이터를 공유 할 수 없는 경우가 종종 있다. 우리는 대규모 KNN classfier인 OHDSI에서 개발된 [BigKnn](https://github.com/OHDSI/BigKnn) 패키지를 포함시켰다.\index{k-nearest neighbors} \index{bigknn}
 
 Table: (\#tab:knnParameters) Hyper-parameters for K-nearest neighbors.
 
@@ -164,7 +164,7 @@ Table: (\#tab:knnParameters) Hyper-parameters for K-nearest neighbors.
 
 ### 나이브 베이즈 (Naive Bayes)
 
-AdaBoost는 부스팅 앙상블 기법(boosting ensemble technique )이다. 부스팅은 classfier를 반복적으로 추가하여 수행되지만 다음 classfier가 학습될 때 비용 함수에서 이전 classfier에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 준다. 우리는 파이썬에 있는 sklearn AdaboostClassifier 구현을 사용한다. \index{naive bayes}
+AdaBoost는 부스팅 앙상블 기법(boosting ensemble technique)이다. 부스팅은 classfier를 반복적으로 추가하여 수행되지만 다음 classfier가 학습될 때 비용 함수에서 이전 classfier에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 준다. 우리는 파이썬에 있는 sklearn AdaboostClassifier 구현을 사용한다. \index{naive bayes}
 
 ### AdaBoost
 
@@ -179,7 +179,7 @@ Table: (\#tab:adaBoostParameters) Hyper-parameters for AdaBoost.
 
 ### 의사 결정 트리
 
-의사 결정 나무는 탐욕 접근(greedy approach)방식을 사용하여 선택한 개별 테스트를 사용하여 가변 공간을 분할하는 classifier이다. 이것은 클래스를 분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로 한다. 의사 결정 나무는 많은 수의 파티션(tree depth)을 사용하게 되면 쉽게 과적합 되기 때문에 종종 일부 정규화(예를 들어, 모형의 복잡성을 제한하는 하이퍼-파라미터의 정리 또는 지정)가 필요하다. 우리는 파이썬에 있는 sklearn DecisionTreeClassifier 구현을 사용한다. \index{decision tree} \index{python}
+의사 결정 나무는 탐욕 접근(greedy approach)방식을 사용하여 선택한 개별 테스트를 사용하여 가변 공간을 분할하는 classifier이다. 이것은 클래스를 분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로 한다. 의사 결정 나무는 많은 수의 파티션(tree depth)을 사용하게 되면 쉽게 과적합 되기 때문에 종종 일부 정규화 (예를 들어, 모형의 복잡성을 제한하는 하이퍼-파라미터의 정리 또는 지정) 가 필요하다. 우리는 파이썬에 있는 sklearn DecisionTreeClassifier 구현을 사용한다. \index{decision tree} \index{python}
 
 Table: (\#tab:decisionTreeParameters) Hyper-parameters for decision trees.
 
@@ -219,7 +219,7 @@ Deep net, convolutional neural networks 또는 recurrent neural networks와 같�
 모형의 예측과 관측된 결과 상태 간의 일치도(agreement)를 측정하여 예측 모형을 평가할 수 있고 그렇게 하려면, 결과 상태를 알 수 있는 데이터가 필요하다. \index{evaluating prediction models}
 
 
-\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">평가를 위해서는 모형을 개발하는 데 사용 된 것과 다른 데이터세트를 사용해야한다. 그렇지 않으면 과잉 적합 (섹션 \@ref(modelFitting) 참조)되었거나 새로운 환자에게 잘 맞지않는 모형을 선호하게 되는 위험이 발생할 수 있다.</div>\EndKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">평가를 위해서는 모형을 개발하는 데 사용 된 것과 다른 데이터세트를 사용해야한다. 그렇지 않으면 과잉 적합 (\@ref(modelFitting)절 참조)되었거나 새로운 환자에게 잘 맞지않는 모형을 선호하게 되는 위험이 발생할 수 있다.</div>\EndKnitrBlock{rmdimportant}
 
 우리는 내적타당도와 외적타당도로 구분할 수 있다. 
 
@@ -228,9 +228,9 @@ Deep net, convolutional neural networks 또는 recurrent neural networks와 같�
 
 아래는 내적 타당도를 수행하는 두 가지 방법에 대한 소개이다:
 
-- **홀드아웃 세트(holdout set)접근법**은 레이블이 지정된 데이터를 두 개의 독립된 세트로 나눈 것이다: 검증데이터세트(train set)와 테스트세트(test set). 검증세트(train set)는 모형 학습에 사용되고, 테스트세트(test set)는 모형평가에 사용된다. 환자를 무작위로 검증과 테스트 세트로 나누거나 또는 다음과 같이 선택할 수 있다:
-    - 날짜를 기준으로(시점 타당도), 예를 들어 특정 날짜 전의 데이터는 검증데이터세트로 그 날짜 이후 데이터는 평가를 위한 데이터로 분류하는 것이다. 이것은 모형이 서로 다른 시간대에서도 일반화가 가능한 지 여부를 알 수 있게 해준다.
-    - 지리적 위치를 기반으로 데이터를 분할(공간 타당도) \index{validation!temporal validation} \index{validation!spatial validation}
+- **홀드아웃 세트(holdout set) 접근법**은 레이블이 지정된 데이터를 두 개의 독립된 세트로 나눈 것이다: 검증데이터세트(train set)와 테스트세트(test set). 검증세트(train set)는 모형 학습에 사용되고, 테스트세트(test set)는 모형평가에 사용된다. 환자를 무작위로 검증과 테스트 세트로 나누거나 또는 다음과 같이 선택할 수 있다:
+    - 날짜를 기반으로 데이터를 분할한다. (시점 타당도) 예를 들어, 특정 날짜 이전의 데이터를 학습시키거나, 그 특정 날짜 이후로는 데이터를 평가하는 것이다. 이것은 모형이 서로 다른 시간대에서도 일반화가 가능한지의 여부를 알 수 있게 해준다.
+    - 지리적 위치를 기반으로 데이터를 분할한다. (공간 타당도) \index{validation!temporal validation} \index{validation!spatial validation}
 - **교차 검증**은 데이터가 제한적일 때 유용하다. 데이터는 $n$개의 동일한 크기의 세트로 구분된다. 여기서 $n$은 미리 정해져야 한다(예를 들어, $n=10$). 이러한 각 세트에 대해 모형은 해당 세트의 데이터를 제외한 모든 데이터에 대해 학습되며 홀드 아웃 세트에 대한 예측을 생성하는 데 사용된다. 이러한 방식으로 모든 데이터가 한 번 사용되어 모형 작성 알고리즘을 평가한다. 환자 수준 예측 프레임 워크에서 교차 검증을 사용하여 최적의 하이퍼-파라미터를 선택한다.\index{cross-validation}
 
 외적 타당도는 다른 데이터베이스, 즉 개발에 사용된 데이터베이스가 아닌 다른 데이터베이스로부터 데이터를 얻어 모형 성능을 평가하는 것을 목표로 한다. 이 모형의 타당성을 확보할 수 있는지에 대한 측정은 학습된 데이터베이스뿐만 아니라 모형에 예측 모형에 적용하기 때문에 중요하다. 다른 데이터베이스는 다른 환자 모집단, 다른 의료 시스템 및 다른 데이터 캡처 프로세스를 말할 것이다. 우리는 대규모 데이터베이스 세트에 대한 예측 모형의 외적 타당도 검증이 임상 실무에서 모형이 수행되고 구현되어지기 위한 중요한 단계라고 생각한다.
@@ -265,7 +265,7 @@ Table: (\#tab:tabletheorytab) Example of using a threshold on the predicted prob
 -	특이도: $TN/(TN+FP)$
 -	양성예측도: $TP/(TP+FP)$
 
-임계값을 낮추면 이러한 값이 감소하거나 증가 할 수 있다. classifier의 임계값을 낮추면 반영되는 결과 수가 증가하여 분모가 증가할 수 있다. 임계값이 이전에 너무 높게 설정된 경우, 새로운 결과는 모두 진양성일 수 있으며, 이는 양성예측도를 증가시킨다. 이전 임계값이 맞거나 또는 너무 낮다면 임계값을 더 낮추게 되면 거짓양성이 발생하여 양성예측도가 감소한다. 민감도의 분모는 classifirer 임계값($TP+FN$은 상수)에 의존하지 않는다. 이는 classifier 임계값을 낮추면 진양성 결과 수를 증가시켜 민감도를 높일 수 있음을 의미한다. 또한 임계값을 낮추면 민감도가 바뀌지 않고 양성예측도가 변할 수 있다.
+임계값을 낮추면 이러한 값이 감소하거나 증가 할 수 있다. classifier의 임계값을 낮추면 반영되는 결과 수가 증가하여 분모가 증가할 수 있다. 임계값이 이전에 너무 높게 설정된 경우, 새로운 결과는 모두 진양성일 수 있으며, 이는 양성예측도를 증가시킨다. 이전 임계값이 맞거나 또는 너무 낮다면 임계값을 더 낮추게 되면 거짓양성이 발생하여 양성예측도가 감소한다. 민감도의 분모는 classifirer 임계값 ($TP+FN$은 상수) 에 의존하지 않는다. 이는 classifier 임계값을 낮추면 진양성 결과 수를 증가시켜 민감도를 높일 수 있음을 의미한다. 또한 임계값을 낮추면 민감도가 바뀌지 않고 양성예측도가 변할 수 있다.
 
 #### 판별력 {-}
 
@@ -279,11 +279,11 @@ AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 �
 <p class="caption">(\#fig:figuretheoryroctheory)How the ROC plots are linked to discrimination. If the two classes have similar distributions of predicted risk, the ROC will be close to the diagonal, with AUC close to 0.5.</p>
 </div>
 
-결과가 드물게 발생할 경우, AUC가 높은 값을 갖는 모형이라도 주어진 임계값을 초과하는 모든 양성에 대해 음성이 많을 수 있으므로(즉, 양성예측도가 낮을 수 있기 때문에) 실용적이지 않을 수 있다. 결과의 심각성과 일부 중재에 대한 비용(건강 위험/ 금전적)에 따라, 거짓 양성 비가 높아질 수 있다. 결과가 드물게 발생하는 것이라면 AUPRC(area under the precision-recall curve)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 민감도(재현율이라고도 함)와 y축은 양성예측도(정밀도라고도 함)을 나타내는 곡선하 면적이다.index{area under the precision-recall curve} 
+결과가 드물게 발생할 경우, AUC가 높은 값을 갖는 모형이라도 주어진 임계값을 초과하는 모든 양성에 대해 음성이 많을 수 있으므로 (즉, 양성예측도가 낮을 수 있기 때문에) 실용적이지 않을 수 있다. 결과의 심각성과 일부 중재에 대한 비용 (건강 위험/ 금전적) 에 따라, 거짓 양성 비가 높아질 수 있다. 결과가 드물게 발생하는 것이라면 AUPRC(area under the precision-recall curve)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 민감도 (재현율이라고도 함) 와 y축은 양성예측도 (정밀도라고도 함) 을 나타내는 곡선하 면적이다.index{area under the precision-recall curve} 
 
 #### 적합도 {-}
 
-적합도(calibration)는 모형이 정확한 위험을 적합하는지에 대한 것이다. 예를 들어, 모형에 100명의 환자에게 10 %의 위험이 발생가능성이 있다고 할 경우 10명의 환자가 위험에 노출된 시간 동안 결과를 경험해야 한다. 모형에 100명의 환자에게 80 %의 위험이 발생가능성이 있다면 80명의 환자가 위험에 노출되는 시간 동안 결과를 경험해야 한다. 적합도(calibration)는 일반적으로 예측된 위험에 기초하여 환자를 십분 위로 분할하고 각 그룹에서 평균 예측 위험과 위험에 노출 시간 동안 결과를 경험한 환자의 비율을 계산된다. 그런 다음 10개의 점(y축에 예측 위험과 x축에 관찰된 위험)을 그리고 x = y에 있는지 확인하여 모형이 잘 보정되었음을 나타낸다. 적합도 그래프는 이 장의 뒷부분에 있는 그림 \@ref(fig:shinyCal)에 나와 있다. 또한 점을 사용하여 절편(0에 가까워 야 함)과 기울기(1에 가까워 야 함)를 계산하여 선형 모형으로 적합한다. 기울기가 1보다 크면 모형이 실제 위험보다 높은 위험을 할당하고 있고 기울기가 1보다 작으면 모형이 실제 위험보다 낮은 위험을 나타내는 것이다. 또한 예측된 위험과 관찰된 위험 사이의 비선형 관계를 보다 잘 포착하기 위해 R 패키지에 Smooth Calibration Curves를 수행했다.\index{calibration}
+적합도(calibration)는 모형이 정확한 위험을 적합하는지에 대한 것이다. 예를 들어, 모형에 100명의 환자에게 10 %의 위험이 발생가능성이 있다고 할 경우 10명의 환자가 위험에 노출된 시간 동안 결과를 경험해야 한다. 모형에 100명의 환자에게 80 %의 위험이 발생가능성이 있다면 80명의 환자가 위험에 노출되는 시간 동안 결과를 경험해야 한다. 적합도(calibration)는 일반적으로 예측된 위험에 기초하여 환자를 십분 위로 분할하고 각 그룹에서 평균 예측 위험과 위험에 노출 시간 동안 결과를 경험한 환자의 비율을 계산된다. 그런 다음 10개의 점 (y축에 예측 위험과 x축에 관찰된 위험)을 그리고 x = y에 있는지 확인하여 모형이 잘 보정되었음을 나타낸다. 적합도 그래프는 이 장의 뒷부분에 있는 그림 \@ref(fig:shinyCal)에 나와 있다. 또한 점을 사용하여 절편 (0에 가까워 야 함)과 기울기 (1에 가까워 야 함)를 계산하여 선형 모형으로 적합한다. 기울기가 1보다 크면 모형이 실제 위험보다 높은 위험을 할당하고 있고 기울기가 1보다 작으면 모형이 실제 위험보다 낮은 위험을 나타내는 것이다. 또한 예측된 위험과 관찰된 위험 사이의 비선형 관계를 보다 잘 포착하기 위해 R 패키지에 Smooth Calibration Curves를 수행했다.\index{calibration}
 
 ## 환자-수준 예측 연구 설계
 
@@ -291,7 +291,7 @@ AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 �
 
 ### 문제 정의
 
-혈관 부종(Angioedema)은 ACE 억제제의 잘 알려진 부작용이며, ACE 억제제에 대한 레이블에 보고된 혈관 부종의 발생률은 0.1 % ~ 0.7 %의 범위이다.[@byrd_2006] 혈관 부종은 드물지만 생명을 위협하여 호흡 정지 및 사망으로 이어질 수 있기 때문에 이러한 부작용에 대한 환자 모니터링은 중요하다.[@norman_2013] 또한, 혈관 부종이 초기에 인식되지 않으면, 원인으로 식별되기 전에 범위가 넓어지고 비싼 정밀검사로 이어질 수 있다.[@norman_2013; @thompson_1993] 아프리카 계 미국인 환자들 사이에서 발생한 높은 위험외에 ACE 억제제 관련 혈관 부종의 발생에 대한 알려진 소인은 없다[@byrd_2006]. 대부분의 반응은 초기 요법의 첫 주 또는 한 달 안에, 그리고 종종 초기 복용 후 몇 시간 내에 발생한다 [@circardi_2004]. 그러나 치료가 시작된 후 몇 년이 걸릴 수도 있다[@mara_1996]. 위험에 처한 사람들을 구체적으로 식별하는 진단 테스트가 없다. 우리가 위험에 처한 사람들을 식별 할 수 있다면, 예를 들어, 의사는 ACE 억제제를 처방을 중단하고 다른 고혈압 약물을 처방할 수 있다.\index{angioedema} \index{ACE inhibitors}
+혈관 부종(Angioedema)은 ACE 억제제의 잘 알려진 부작용이며, ACE 억제제에 대한 레이블에 보고된 혈관 부종의 발생률은 0.1 % ~ 0.7 %의 범위이다. [@byrd_2006] 혈관 부종은 드물지만 생명을 위협하여 호흡 정지 및 사망으로 이어질 수 있기 때문에 이러한 부작용에 대한 환자 모니터링은 중요하다. [@norman_2013] 또한, 혈관 부종이 초기에 인식되지 않으면, 원인으로 식별되기 전에 범위가 넓어지고 비싼 정밀검사로 이어질 수 있다. [@norman_2013; @thompson_1993] 아프리카 계 미국인 환자들 사이에서 발생한 높은 위험외에 ACE 억제제 관련 혈관 부종의 발생에 대한 알려진 소인은 없다. [@byrd_2006] 대부분의 반응은 초기 요법의 첫 주 또는 한 달 안에, 그리고 종종 초기 복용 후 몇 시간 내에 발생한다 [@circardi_2004]. 그러나 치료가 시작된 후 몇 년이 걸릴 수도 있다. [@mara_1996] 위험에 처한 사람들을 구체적으로 식별하는 진단 테스트가 없다. 우리가 위험에 처한 사람들을 식별 할 수 있다면, 예를 들어, 의사는 ACE 억제제를 처방을 중단하고 다른 고혈압 약물을 처방할 수 있다.\index{angioedema} \index{ACE inhibitors}
 
 관찰 의료 데이터에 환자-수준 예측 프레임워크를 적용하여 다음의 환자-수준 예측 질문에 응용해 보자.
 
@@ -301,7 +301,7 @@ AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 �
 
 예측 모형을 개발하귀 위한 최종 연구 모집단은 종종 표적 코호트의 하위 집단이다. 예를 들어 관심 결과에 의존하는 기준을 적용하거나 또는 표적 코호트의 부분 모집단(sub-population)의 민감도 분석을 수행하고자 하기 때문이다. 이것을 위하여 우리는 다음의 질문들을 설명해야만 한다:
 
-- *표적 코호트의 인덱스날짜 이전에 필요한 최소 관찰 시간은 얼마입니까?* 이 선택은 학습 데이터에서 사용 가능한 환자 시간에 따라 달라질 수 있지만, 장차 모형을 적용하려는 데이터 소스에서 사용 가능할 것으로 예상되는 시간에 따라 달라질 수도 있다. 최소 관측 시간이 길어질수록 더 많은 기저력 시간(baseline history time)이 특징 추출(feature extraction)에 사용할 수 있는 기저력 시간(baseline history time)이 길어지지만 분석 할 수 있는 환자는 줄어든다. 또한, 단기 또는 look-back 기간을 선택해야하는 임상적 이유가 있을 수 있다. 예제에서는 365일 이전 기록을 look-back 기간(휴약기, washout period)으로 사용한다.
+- *표적 코호트의 인덱스날짜 이전에 필요한 최소 관찰 시간은 얼마입니까?* 이 선택은 학습 데이터에서 사용 가능한 환자 시간에 따라 달라질 수 있지만, 장차 모형을 적용하려는 데이터 소스에서 사용 가능할 것으로 예상되는 시간에 따라 달라질 수도 있다. 최소 관측 시간이 길어질수록 더 많은 기저력 시간(baseline history time)이 특징 추출(feature extraction)에 사용할 수 있는 기저력 시간(baseline history time)이 길어지지만 분석 할 수 있는 환자는 줄어든다. 또한, 단기 또는 look-back 기간을 선택해야하는 임상적 이유가 있을 수 있다. 예제에서는 365일 이전 기록을 look-back 기간 (휴약기, washout period)으로 사용한다.
 
 - *환자가 표적 코호트에 여러 번 포함될 수 있습니까?* 표적 코호트 정의에서, 사람은 서로 다른 시간 간격 동안, 예를 들어 서로 다른 에피소드의 질병이 있거나 의료 제품에 대한 별도의 노출 기간이 있는 경우 그 코호트에 여러 번 포함될 수 있다. 코호트 정의는 환자가 한 번만 들어갈 수 있도록 제한을 적용 할 필요는 없지만 특정 환자-수준 예측 문제와 관련하여 코호트를 첫 번째 적격 에피소드로 제한 할 수 있다. 이 예제에서는 기준이 ACE 억제제의 첫 번째 사용을 기반으로 했기 때문에 표적 코호트에 한 번만 들어갈 수 있다.
 
@@ -323,7 +323,7 @@ AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 �
 
 ### 연구 요약
 
-우리 연구를 위하여 완벽하게 정의한 내용을 표\@ref(tab:plpSummary)에 나타나져 있다.
+우리 연구를 위하여 완벽하게 정의한 내용을 표 \@ref(tab:plpSummary)에 나타내었다.
 
 Table: (\#tab:plpSummary) Main design choices for our study.
 
@@ -336,19 +336,19 @@ Table: (\#tab:plpSummary) Main design choices for our study.
 
 ## Implementing the Study in ATLAS
 
-예측 연구를 설계 하기 위한 인터페이스는 ATLAS 메뉴![](images/PatientLevelPrediction/predictionButton.png) 버튼을 누르면 열 수 있다. 새로운 예측 연구를 만든다. 새로운 예측 연구를 생성해라. 연구에 알기 쉬운 이름을 부여해라. 연구 디자인은![](images/PopulationLevelEstimation/save.png)버튼을 클릭하면 언제든지 저장이 가능하다. \index{ATLAS}
+예측 연구를 설계 하기 위한 인터페이스는 ATLAS 메뉴![](images/PatientLevelPrediction/predictionButton.png) 버튼을 누르면 열 수 있다. 새로운 예측 연구를 만든다. 새로운 예측 연구를 생성하십시오. 연구에 알기 쉬운 이름을 부여해라. 연구 디자인은![](images/PopulationLevelEstimation/save.png)버튼을 클릭하면 언제든지 저장이 가능하다. \index{ATLAS}
 
-예측 디자인 기능에는 4개의 세션이 있다 : 예측 문제 설정, 분석 설정, 실행 설정, 학습 설정. 다음은 각 세션에 대한 설명이다.
+예측 디자인 기능에는 4개의 세션이 있다: 예측 문제 설정, 분석 설정, 실행 설정, 학습 설정. 다음은 각 세션에 대한 설명이다.
 
 ### 예측 문제 설정
 
 여기서는 표적 코호트와 결과 코호트를 선택할 수 있다. 표적 코호트와 결과 코호트의 모든 조합에 대해 예측 모형이 개발될 것이다. 예를 들어, 만약 두 개의 표적 모집단와 두 개의 대상 결과들을 지정한다면 네 개의 예측 문제가 지정된다.
 
-표적 코호트를 선택하기 위해서는 ATLAS에 사전에 정의되어야 한다. 예시 코호트가 \@ref(Cohorts)장에 있다. 부록은 이 예시에 사용된 대상(부록 \@ref(AceInhibitors))과 결과(부록 \@ref(Angioedema)) 코호트의 전체 정의를 제공한다. 표적 모집단을 코호트에 추가하기 위해서는 “표적 코호트 추가[Add Target Cohort]” 버튼을 클릭해라. 결과 코호트를 추가하는 것은 “결과코호트 추가[Add Outcome Cohort]” 버튼을 클릭하면 마찬가지로 작동된다. 완료되면, Dialog는 그림 \@ref(fig:problemSettings)처럼 보일 것이다.
+표적 코호트를 선택하기 위해서는 ATLAS에 사전에 정의되어야 한다. 예시 코호트가 \@ref(Cohorts)장에 있다. 부록은 이 예시에 사용된 대상 (부록 \@ref(AceInhibitors)) 과 결과 (부록 \@ref(Angioedema)) 코호트의 전체 정의를 제공한다. 표적 모집단을 코호트에 추가하기 위해서는 “표적 코호트 추가 [Add Target Cohort]” 버튼을 클릭해라. 결과 코호트를 추가하는 것은 “결과코호트 추가 [Add Outcome Cohort]” 버튼을 클릭하면 마찬가지로 작동된다. 완료되면, Dialog는 그림 \@ref(fig:problemSettings)처럼 보일 것이다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/problemSettings.png" alt="Prediction problem settings." width="100%" />
-<p class="caption">(\#fig:problemSettings)Prediction problem settings.</p>
+<img src="images/PatientLevelPrediction/problemSettings.png" alt="예측 문제 설정." width="100%" />
+<p class="caption">(\#fig:problemSettings)예측 문제 설정.</p>
 </div>
 
 ### 분석 설정
@@ -357,181 +357,181 @@ Table: (\#tab:plpSummary) Main design choices for our study.
 
 #### 모형 설정 {-}
 
-모형 개발을 위해 하나 혹은 더 많은 지도 학습 알고리즘을 선택할 수 있다. 지도 학습 알고리즘을 추가 하기 위해서는 “모형 설정 추가[Add Model Settings]”버튼을 눌러라. 현재 ATLAS에서 지원되는 모든 모형이 포함된 드롭다운이 나타난다. 드롭 다운 메뉴에 있는 이름을 클릭하여 원하는 연구가 포함된 지도 학습 모형을 선택 할 수 있다. 그러고 나면 지정된 모형의 창을 볼 수 있고, 하이퍼-파라미터 값을 선택 할 수 있다. 여러 값이 제공되는 경우 가능한 모든 값들의 조합으로 교차 검증을 사용하여 최적의 조합을 선택하기 위해 그리드서치(Grid Search)를 시행한다.
+모형 개발을 위해 하나 혹은 더 많은 지도 학습 알고리즘을 선택할 수 있다. 지도 학습 알고리즘을 추가 하기 위해서는 “모형 설정 추가 [Add Model Settings]”버튼을 눌러라. 현재 ATLAS에서 지원되는 모든 모형이 포함된 드롭다운이 나타난다. 드롭 다운 메뉴에 있는 이름을 클릭하여 원하는 연구가 포함된 지도 학습 모형을 선택 할 수 있다. 그러고 나면 지정된 모형의 창을 볼 수 있고, 하이퍼-파라미터 값을 선택 할 수 있다. 여러 값이 제공되는 경우 가능한 모든 값들의 조합으로 교차 검증을 사용하여 최적의 조합을 선택하기 위해 그리드서치(Grid Search)를 시행한다.
 
 여기의 예에서는 점진적 부스팅 머신(Gradient Boosting Machine, GBM)을 선택하고 그림 \@ref(fig:gbmSettings)에 지정된 것처럼 하이퍼-파라미터를 설정한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/gbmSettings.png" alt="Gradient boosting machine settings" width="100%" />
-<p class="caption">(\#fig:gbmSettings)Gradient boosting machine settings</p>
+<img src="images/PatientLevelPrediction/gbmSettings.png" alt="점진적 부스팅 머신 설정." width="100%" />
+<p class="caption">(\#fig:gbmSettings)점진적 부스팅 머신 설정.</p>
 </div>
 
 #### 공변량 설정 {-}
 
 CDM 포멧에 있는 관찰된 데이터로에서 추출할 수 있는 표준 공변량을 정의했다. 공변량 설정 창에서 포함할 표준 공변량을 선택할 수 있다. 다양한 유형의 공변량을 정의 할 수 있으며 각 모형은 각각의 지정된 공변량 설정과 함께 별도로 생성될 것이다.
 
-연구에서 공변량 설정을 추가하려면, “공변량 설정 추가[Add Covariate Settings]”을 클릭해라. 그러면 공변량 설정 창이 열린다.
+연구에서 공변량 설정을 추가하려면, “공변량 설정 추가 [Add Covariate Settings] ”을 클릭해라. 그러면 공변량 설정 창이 열린다.
 
-공변량 설정 창의 첫 번째 부분은 제외/포함 옵션이다. 공변량은 일반적으로 모든 개념에 맞게 구성된다. 그러나, 어떤 개념이 표적 코호트 정의와 연결되어 있는 경우와 같이 특정한 개념을 추가/제외 하는 것을 원할 수도 있다. 특정 개념만 포함하려면 ATLAS에서 개념 세트(concept set)을 설정한 다음에 **환자-수준 예측 모형의 기저 공변량에 어떤 개념을 포함 하시겠습니까?(모든 것을 포함하려면 비워 두십시오.)**. 아래 ![](images/PopulationLevelEstimation/open.png)를 클릭하여 개념 세트(concept set)을 선택한다. **하위 개념을 포함된 개념 목록에 추가해야 합니까**라는 질문에 “예”라고 답함으로써 모든 하위 개념을 자동적으로 개념 세트(concept set)에 추가할 수 있다. 같은 절차는 **환자 수준 예측 모형의 기저 공변량에 어떤 개념을 제외 하시겠습니까?(모든 것을 포함하려면 비워 두십시오)** 질문에서 동일한 과정을 반복할 수 있고 선택된 개념에 해당하는 공변량을 제거할 수 있다. 마지막 옵션인 **쉼표는 구분되어야 하는 공변량 ID의 리스트의 범위를 정한다**을 사용하면 공변량의 IDs 세트(개념 IDs가 아닌)을 쉼표로 구분하여 추가할 수 있다. 이 옵션은 고급(advanced) 사용자에게만 있다. 완료가 되면 포함 및 제외 옵션이 그림 \@ref(fig:covariateSettings1)과 같아야 한다.
+공변량 설정 창의 첫 번째 부분은 제외/포함 옵션이다. 공변량은 일반적으로 모든 개념에 맞게 구성된다. 그러나, 어떤 개념이 표적 코호트 정의와 연결되어 있는 경우와 같이 특정한 개념을 추가/제외 하는 것을 원할 수도 있다. 특정 개념만 포함하려면 ATLAS에서 개념 세트(concept set)을 설정한 다음에 **"환자-수준 예측 모형의 기저 공변량에 어떤 개념을 포함 하시겠습니까? (모든 것을 포함하려면 비워 두십시오)"** 아래 ![](images/PopulationLevelEstimation/open.png)를 클릭하여 개념 세트(concept set)을 선택한다. **"하위 개념을 포함된 개념 목록에 추가해야 합니까?"**라는 질문에 “예”라고 답함으로써 모든 하위 개념을 자동적으로 개념 세트(concept set)에 추가할 수 있다. 같은 절차는 **환자 수준 예측 모형의 기저 공변량에 어떤 개념을 제외 하시겠습니까? (모든 것을 포함하려면 비워 두십시오)"** 질문에서 동일한 과정을 반복할 수 있고 선택된 개념에 해당하는 공변량을 제거할 수 있다. 마지막 옵션인 **"쉼표는 구분되어야 하는 공변량 ID의 리스트의 범위를 정한다"**를 사용하면 공변량의 IDs 세트 (개념 IDs가 아닌) 을 쉼표로 구분하여 추가할 수 있다. 이 옵션은 고급(advanced) 사용자에게만 있다. 완료가 되면 포함 및 제외 옵션이 그림 \@ref(fig:covariateSettings1)과 같아야 한다.
  +
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/covariateSettings1.png" alt="Covariate inclusion and exclusion settings." width="100%" />
-<p class="caption">(\#fig:covariateSettings1)Covariate inclusion and exclusion settings.</p>
+<img src="images/PatientLevelPrediction/covariateSettings1.png" alt="공변량 포함 및 제외 설정." width="100%" />
+<p class="caption">(\#fig:covariateSettings1)공변량 포함 및 제외 설정.</p>
 </div>
 
 다음은 non-time bound 변수를 선택할 수 있다.
 
-- 성[Sex]: 남자 또는 여자 성별을 나타내는 이항 변수
-- 나이[Age]: 연령에 해당하는 연속 변수
-- 나이 그룹[Age group]: 5년 단위의 이항 변수(0-4, 5-9, 10-14, …, 95+)
-- 인종[Race]: 각 인종의 이항 변수, 1은 환자의인종이 기록됨을 의미하며, 그렇지 않으면 0이다.
-- 민족[Ethnicity]: 민족에 대한 이항 변수, 1은 환자의 민족이 기록됨을 의미하며, 그렇지 않으면 0이다.
-- 색인 연도[Index year]: 각 코호트 연도 시작 날짜에 대한 이항변수, 1은 환자 코호트 시작 날짜 연도를 의미하고, 그렇지 않으면 0이다. **미래에 이 모형을 적용하기를 원하기 때문에, 때때로는 색인 연도를 포함하는 것은 합리적이지 않다.**
-- 색인 월[Index month]: 각 코호트 달 시작 날짜에 대한 이항 변수, 1은 환자 코호트 월 시작 날짜를 의미하고, 그렇지 않으면 0이다.
-- 사전 관찰 시간[Prior observation time]: [예측에 권장되지 않음] 코호트 시작일 이전에 환자가 데이터베이스에 있었던 기간(일)에 해당하는 연속 변수
-- 사후 관찰 시간[Post observation time]: [예측에 권장되지 않음] 코호트 시작일 이후에 환자가 데이터베이스에 있었던 기간(일)에 해당하는 연속 변수
-- 시간 코호트[Time cohort]: 환자가 코호트에 있었던 기간에 해당하는 연속 변수(코호트 종료일에서 코호트 시작일을 뺀)
-- 색인 연도 및 월[Index year and month]: [예측에 권장되지 않음] 각 코호트 시작 연월 날짜에 대한 이항변수, 1은 환자 코호트 시작 연월 날짜이고, 그렇지 않으면 0이다.
+- 성 [Sex]: 남자 또는 여자 성별을 나타내는 이항 변수
+- 나이 [Age]: 연령에 해당하는 연속 변수
+- 나이 그룹 [Age group]: 5년 단위의 이항 변수 (0-4, 5-9, 10-14, …, 95+)
+- 인종 [Race]: 각 인종의 이항 변수, 1은 환자의인종이 기록됨을 의미하며, 그렇지 않으면 0이다.
+- 민족 [Ethnicity]: 민족에 대한 이항 변수, 1은 환자의 민족이 기록됨을 의미하며, 그렇지 않으면 0이다.
+- 색인 연도 [Index year]: 각 코호트 연도 시작 날짜에 대한 이항변수, 1은 환자 코호트 시작 날짜 연도를 의미하고, 그렇지 않으면 0이다. **미래에 이 모형을 적용하기를 원하기 때문에, 때때로는 색인 연도를 포함하는 것은 합리적이지 않다.**
+- 색인 월 [Index month]: 각 코호트 달 시작 날짜에 대한 이항 변수, 1은 환자 코호트 월 시작 날짜를 의미하고, 그렇지 않으면 0이다.
+- 사전 관찰 시간 [Prior observation time]: [예측에 권장되지 않음] 코호트 시작일 이전에 환자가 데이터베이스에 있었던 기간 (일) 에 해당하는 연속 변수
+- 사후 관찰 시간 [Post observation time]: [예측에 권장되지 않음] 코호트 시작일 이후에 환자가 데이터베이스에 있었던 기간 (일) 에 해당하는 연속 변수
+- 시간 코호트 [Time cohort]: 환자가 코호트에 있었던 기간에 해당하는 연속 변수 (코호트 종료일에서 코호트 시작일을 뺀)
+- 색인 연도 및 월 [Index year and month]: [예측에 권장되지 않음] 각 코호트 시작 연월 날짜에 대한 이항변수, 1은 환자 코호트 시작 연월 날짜이고, 그렇지 않으면 0이다.
 
-완료가 된다면, 그림\@ref(fig:covariateSettings2)과 같아야 한다.
+완료가 된다면, 그림 \@ref(fig:covariateSettings2)과 같아야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/covariateSettings2.png" alt="Select covariates." width="100%" />
-<p class="caption">(\#fig:covariateSettings2)Select covariates.</p>
+<img src="images/PatientLevelPrediction/covariateSettings2.png" alt="공변량 선택." width="100%" />
+<p class="caption">(\#fig:covariateSettings2)공변량 선택.</p>
 </div>
 
 표준 공변량은 공변량에 대해 세개의 유동적인 시간 간격을 가능하게 한다:
 
-- 종료일 : 코호트 시작 날짜를 기준으로 종료시기와의 간격 [기본값 0]
-- 장 기간 [코호트 시작일 이전의 기본값 -365일에서 종료일]
-- 중 기간 [코호트 시작일 이전의 기본값 -180일에서 종료일]
-- 단 기간 [코호트 시작일 이전의 기본값 -30일에서 종료일]
+- 종료일: 코호트 시작 날짜를 기준으로 종료시기와의 간격 [기본값 0]
+- 장기간 [코호트 시작일 이전의 기본값 -365일에서 종료일]
+- 중기간 [코호트 시작일 이전의 기본값 -180일에서 종료일]
+- 단기간 [코호트 시작일 이전의 기본값 -30일에서 종료일]
 
-완료가 된다면, 그림\@ref(fig:covariateSettings3)과 같아야 한다.
+완료가 된다면, 그림 \@ref(fig:covariateSettings3)과 같아야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/covariateSettings3.png" alt="Time bound covariates." width="100%" />
-<p class="caption">(\#fig:covariateSettings3)Time bound covariates.</p>
+<img src="images/PatientLevelPrediction/covariateSettings3.png" alt="Time bound 공변량." width="100%" />
+<p class="caption">(\#fig:covariateSettings3)Time bound 공변량.</p>
 </div>
 
 다음 옵션은 era 테이블에서 추출한 공변량이다:
 
-- 질병[Condition]: 선택된 각 질병 개념 ID와 시간 간격으로 공변량을 계산하고 환자가 질병 era 테이블에서 코호트 시작일 이전에 지정된 시간 간격 동안, era가 있는 개념 ID를 갖는 경우(즉, 시간 간격 동안 상태가 시작 또는 종료되었거나 시간 간격 이전에 시작하고 시간 간격 이후에 종료되거나), 공변량 값은 1이고, 그렇지 않으면 0이다.
-- 질병 그룹[Condition group]: 선택된 각 질병 개념 ID와 시간 간격으로 공변량을 계산하고 환자가 질병 era 테이블에서 코호트 시작일 이전에 지정된 시간 간격 동안, era가 있는 개념 ID를 **또는 하위 개념 ID(any descendant concept ID)**를 갖는 경우, 공변량 값은 1이고, 그렇지 않으면 0이다.
-- 약물[Drug]: 선택된 각 약물 개념 ID와 시간 간격으로 공변량을 계산하고 환자가 약물 era 테이블에서 코호트 시작일 이전의 지정된 시간 간격 동안 era가 있는 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
-- 약물 그룹[Drug group]: 선택된 각 약물 개념 ID 및 시간 간격으로 공변량을 계산하고 환자가 약물 era 테이블에서 코호트 시작일 이전의 지정된 시간 간격 동안 기간 동안 개념 ID **또는 하위 개념 ID(any descendant concept ID)**를 가진 경우 공변량 값은 1이며, 그렇지 않으면 0이다. 
+- 질병 [Condition]: 선택된 각 질병 개념 ID와 시간 간격으로 공변량을 계산하고 환자가 질병 era 테이블에서 코호트 시작일 이전에 지정된 시간 간격 동안, era가 있는 개념 ID를 갖는 경우 (즉, 시간 간격 동안 상태가 시작 또는 종료되었거나 시간 간격 이전에 시작하고 시간 간격 이후에 종료되거나), 공변량 값은 1이고, 그렇지 않으면 0이다.
+- 질병 그룹 [Condition group]: 선택된 각 질병 개념 ID와 시간 간격으로 공변량을 계산하고 환자가 질병 era 테이블에서 코호트 시작일 이전에 지정된 시간 간격 동안, era가 있는 개념 ID를 **또는 하위 개념 ID(any descendant concept ID)**를 갖는 경우, 공변량 값은 1이고, 그렇지 않으면 0이다.
+- 약물 [Drug]: 선택된 각 약물 개념 ID와 시간 간격으로 공변량을 계산하고 환자가 약물 era 테이블에서 코호트 시작일 이전의 지정된 시간 간격 동안 era가 있는 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
+- 약물 그룹 [Drug group]: 선택된 각 약물 개념 ID 및 시간 간격으로 공변량을 계산하고 환자가 약물 era 테이블에서 코호트 시작일 이전의 지정된 시간 간격 동안 기간 동안 개념 ID **또는 하위 개념 ID(any descendant concept ID)**를 가진 경우 공변량 값은 1이며, 그렇지 않으면 0이다. 
 
 겹치는 시간 간격 설정은 약물 또는 질병 발생대(era)가 코호트 시작 날짜 이전에 시작하고 코호트 시작 날짜 이후에 끝나야 하므로 코호트 시작 날짜와 겹친다. Era start 옵션은 선택한 시간 간격 동안 시작되는 질병 또는 약물 era를 찾는 것으로 제한된다.
 
-완료가 된다면, 그림\@ref(fig:covariateSettings4)와 같아야 한다.
+완료가 된다면, 그림 \@ref(fig:covariateSettings4)과 같아야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/covariateSettings4.png" alt="Time bound era covariates." width="100%" />
-<p class="caption">(\#fig:covariateSettings4)Time bound era covariates.</p>
+<img src="images/PatientLevelPrediction/covariateSettings4.png" alt="Time bound era 공변량." width="100%" />
+<p class="caption">(\#fig:covariateSettings4)Time bound era 공변량.</p>
 </div>
 
 다음 옵션은 다양한 시간 간격에 대한 각 도메인의 개념 ID에 해당하는 공변량을 선택한다.
 
-- 질병[Condition]: 선택된 각 질병 개념 ID 및 시간 간격으로 공변량을 계산하고 환자가 질병 발생 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
-- Condition Primary Inpatient(1차입원환자 질병): 질병_발생 표의 입원환자 설정에서 일차 진단으로 관찰된 질병당 이항 공변량 1개이다.
-- 약물[Drug]: 선택된 각 약물 개념 ID 및 시간 간격으로 공변량을 계산하고 약물 노출 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지 않으면 0이다.
-- 수술[Procedure]: 선택된 각 수술 개념 ID 및 시간 간격으로 공변량을 계산하고 환자의 수술 발생 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지 않으면 0이다.
-- 측정[Measurement]: 선택된 각 측정 개념 ID 및 시간 간격으로 공변량을 계산하고 환자가 측정 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지 않으면 0이다.
-- 측정 값[Measurement Value]: 선택된 각 측정 개념 ID 값과 시간 간격으로 공변량을 계산하며 환자가 측정 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 값은 측정 값, 그렇지 않으면 0이다.
-- 측정 범위 그룹[Measurement range group]: 측정값이 정상 범위 이하인지 이내인지 또는 그 이상인지를 나타내는 이항 공변량이다.
-- 관찰[Observation]: 선택된 각 관찰 개념 ID와 시간 간격으로 공변량을 계산하며, 환자가 관찰 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 concept ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
-- 기기[Device]: 선택된 각 기기 개념 ID 및 시간 간격으로 공변량을 계산하며 환자가 기기 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
-- 방문 수[Visit count]: 선택된 각 방문 및 시간 간격으로 공변량을 계산하고 시간 간격 동안 기록된 방문 수를 공변량 값으로 계산한다.
-- 방문 개념 수[Visit Concept Count]: 선택된 각 방문, 도메인 및 시간 간격으로 공변량을 계산하고 방문 유형 및 시간 간격 동안 기록된 도메인 당 기록의 수를 공변량 값으로 계산한다.
+- 질병 [Condition]: 선택된 각 질병 개념 ID 및 시간 간격으로 공변량을 계산하고 환자가 질병 발생 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
+- Condition Primary Inpatient (1차입원환자 질병): 질병_발생 표의 입원환자 설정에서 일차 진단으로 관찰된 질병당 이항 공변량 1개이다.
+- 약물 [Drug]: 선택된 각 약물 개념 ID 및 시간 간격으로 공변량을 계산하고 약물 노출 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지 않으면 0이다.
+- 수술 [Procedure]: 선택된 각 수술 개념 ID 및 시간 간격으로 공변량을 계산하고 환자의 수술 발생 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지 않으면 0이다.
+- 측정 [Measurement]: 선택된 각 측정 개념 ID 및 시간 간격으로 공변량을 계산하고 환자가 측정 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지 않으면 0이다.
+- 측정 값 [Measurement Value]: 선택된 각 측정 개념 ID 값과 시간 간격으로 공변량을 계산하며 환자가 측정 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 값은 측정 값, 그렇지 않으면 0이다.
+- 측정 범위 그룹 [Measurement range group]: 측정값이 정상 범위 이하인지 이내인지 또는 그 이상인지를 나타내는 이항 공변량이다.
+- 관찰 [Observation]: 선택된 각 관찰 개념 ID와 시간 간격으로 공변량을 계산하며, 환자가 관찰 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 concept ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
+- 기기 [Device]: 선택된 각 기기 개념 ID 및 시간 간격으로 공변량을 계산하며 환자가 기기 테이블의 코호트 시작일 이전에 지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지 않으면 0이다.
+- 방문 수 [Visit count]: 선택된 각 방문 및 시간 간격으로 공변량을 계산하고 시간 간격 동안 기록된 방문 수를 공변량 값으로 계산한다.
+- 방문 개념 수 [Visit Concept Count]: 선택된 각 방문, 도메인 및 시간 간격으로 공변량을 계산하고 방문 유형 및 시간 간격 동안 기록된 도메인 당 기록의 수를 공변량 값으로 계산한다.
 
 중복 카운트 옵션은 도메인과 시간 간격 당 중복되는 개념 IDs의 수를 계산한다.
 
 완료가 된다면, 그림 \@ref(fig:covariateSettings5)과 같아야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/covariateSettings5.png" alt="Time bound covariates." width="100%" />
-<p class="caption">(\#fig:covariateSettings5)Time bound covariates.</p>
+<img src="images/PatientLevelPrediction/covariateSettings5.png" alt="Time bound 공변량." width="100%" />
+<p class="caption">(\#fig:covariateSettings5)Time bound 공변량.</p>
 </div>
 마지막 옵션은 공통적으로 사용된 위험 점수를 공변량으로 포함시킬 것 인지의 여부이다. 완료가 된다면, 위험점수 설정은 그림 \@ref(fig:covariateSettings6)과 같아야한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/covariateSettings6.png" alt="Risk score covariate settings." width="100%" />
-<p class="caption">(\#fig:covariateSettings6)Risk score covariate settings.</p>
+<img src="images/PatientLevelPrediction/covariateSettings6.png" alt="위험 점수 공변량 설정." width="100%" />
+<p class="caption">(\#fig:covariateSettings6)위험 점수 공변량 설정.</p>
 </div>
 
 #### 모집단 설정 {-}
 
-모집단 설정은 선정 기준이 표적 모집단에 적용할 수 있는 것이며 위험에 노출된 시간을 정의하는 것이기도 하다. 연구에서 모집단 설정을 추가하기 위해서는 “모집단 설정 추가[Add Population Settings]” 버튼을 클릭하면 모집단 설정 창이 열린다.
+모집단 설정은 선정 기준이 표적 모집단에 적용할 수 있는 것이며 위험에 노출된 시간을 정의하는 것이기도 하다. 연구에서 모집단 설정을 추가하기 위해서는 “모집단 설정 추가 [Add Population Settings]” 버튼을 클릭하면 모집단 설정 창이 열린다.
 
-옵션의 첫번째 설정은 위험에 노출된 기간을 사용자가 지정할 수 있게 한다. 관심 결과가 발생하는지 알아보는 시간 간격이다. 만약 환자가 위험에 노출된 기간 동안의 관심 결과가 있다면 그것을 “결과가 있음[Has outcome]”이라고 분류하고, 그렇지 않으면 “결과가 없음[No outcome]”으로 분류할 것이다. “**표적 코호트 입력과 관련하여 위험에 노출된 시간의 기간 시작의 정의**" 는 표적 코호트 시작과 끝 일자와 비례하여 위험에 노출된 시간으로 정의한다. 마찬가지로, “**위험에 노출된 시간의 기간 종료 정의**”는 위험에 노출된 시간의 끝으로 정의한다.
+옵션의 첫번째 설정은 위험에 노출된 기간을 사용자가 지정할 수 있게 한다. 관심 결과가 발생하는지 알아보는 시간 간격이다. 만약 환자가 위험에 노출된 기간 동안의 관심 결과가 있다면 그것을 “결과가 있음 [Has outcome]”이라고 분류하고, 그렇지 않으면 “결과가 없음 [No outcome]”으로 분류할 것이다. “**표적 코호트 입력과 관련하여 위험에 노출된 시간의 기간 시작의 정의**" 는 표적 코호트 시작과 끝 일자와 비례하여 위험에 노출된 시간으로 정의한다. 마찬가지로, “**위험에 노출된 시간의 기간 종료 정의**”는 위험에 노출된 시간의 끝으로 정의한다.
 
-“**표적 코호트에 적용되는 최소 휴약기간**” 최소 기준 기간, 환자가 지속적으로 관찰되는 코호트 시작일 이전의 최소 일수를 지정한다. 365일이 기본 값이다. 가장 적은 lookback을 늘이는 것은 환자(더 오래 관찰해야하므로)를 보다 완벽하게 파악할 수 있지만 최소 관찰 일수가 없는 환자를 필터링해야 할 것이다.
+“**표적 코호트에 적용되는 최소 휴약기간**” 최소 기준 기간, 환자가 지속적으로 관찰되는 코호트 시작일 이전의 최소 일수를 지정한다. 365일이 기본 값이다. 가장 적은 lookback을 늘이는 것은 환자 (더 오래 관찰해야하므로)를 보다 완벽하게 파악할 수 있지만 최소 관찰 일수가 없는 환자를 필터링해야 할 것이다.
 
-“**위험에 노출된 시간이 없는 대상자를 제거해야 하는가?**”에서 ‘예[yes]’로 설정되어 있다면, “**최소 위험 시간**”의 값도 필요하다. 이를 통해 추척 기간에 잃은 대상(즉, 위험에 노출된 기간동안 데이터베이스에서 떠난 경우)을 제거 할 수 있다. 예를 들어, 위험에 노출된 기간이 코호트 시작에서부터 365일까지 하루이면 전체 위험발생기간은 364(365-1)일이다. 만약 전체 기간에서 관찰된 환자가 포함되기 원한다면 최소 위험 시간을 364일이라고 설정한다. 사람들이 처음 100일동안 위험에 노출된 시간이 있는 것이 좋은 것이라면, 최소 위험 시간을 100일로 선택한다. 위험에 노출된 시간의 시작이 코호트 시작으로부터 1일이기 때문에 코호트 시작일로부터 적어도 101일 동안 데이터베이스에 남아있으면 환자가 포함될 것이다. 만약 “위험이 있는 대상자를 제거해야 하는가?[Should subjects without time at risk be removed?]” 에서 ‘아니오[no]’라고 설정하면, 모든 환자들, 위험에 노출된 시간동안 데이터베이스에서 이탈한 환자들까지도 유지할 것이다.
+“**위험에 노출된 시간이 없는 대상자를 제거해야 하는가?**”에서 ‘예 [yes]’로 설정되어 있다면, “**최소 위험 시간**”의 값도 필요하다. 이를 통해 추척 기간에 잃은 대상 (즉, 위험에 노출된 기간동안 데이터베이스에서 떠난 경우)을 제거 할 수 있다. 예를 들어, 위험에 노출된 기간이 코호트 시작에서부터 365일까지 하루이면 전체 위험발생기간은 364(365-1)일이다. 만약 전체 기간에서 관찰된 환자가 포함되기 원한다면 최소 위험 시간을 364일이라고 설정한다. 사람들이 처음 100일동안 위험에 노출된 시간이 있는 것이 좋은 것이라면, 최소 위험 시간을 100일로 선택한다. 위험에 노출된 시간의 시작이 코호트 시작으로부터 1일이기 때문에 코호트 시작일로부터 적어도 101일 동안 데이터베이스에 남아있으면 환자가 포함될 것이다. 만약 “위험이 있는 대상자를 제거해야 하는가? [Should subjects without time at risk be removed?]” 에서 ‘아니오 [no]’라고 설정하면, 모든 환자들, 위험에 노출된 시간동안 데이터베이스에서 이탈한 환자들까지도 유지할 것이다.
 
-“**위험 기간 전체에서 관찰되지 않은 결과를 가진 사람들을 포함시키겠습니까?**” 옵션은 이전 옵션과 관련된다. “예[yes]”라고 설정하면 지정된 최소 시간 동안 관찰되지 않더라도 위험에 노출된 시간 동안 결과가 발생한 사람들은 항상 유지된다.
+“**위험 기간 전체에서 관찰되지 않은 결과를 가진 사람들을 포함시키겠습니까?**” 옵션은 이전 옵션과 관련된다. “예 [yes]”라고 설정하면 지정된 최소 시간 동안 관찰되지 않더라도 위험에 노출된 시간 동안 결과가 발생한 사람들은 항상 유지된다.
 
-“**대상자마다 첫 번째 노출만 포함되어야 하는가?**” 옵션은 만약 표적 코호트가 다른 코호트 시작일을 가진 환자를 여러 번 포함되어있을 때 유용하다. “예[yes]”를 선택하면 분석 시 환자 당 가장 처음의 표적 코호트만 유지될 것이다. 그렇지 않으면 환자는 데이터세트에 여러 번 있을 수 있다. 
+“**대상자마다 첫 번째 노출만 포함되어야 하는가?**” 옵션은 만약 표적 코호트가 다른 코호트 시작일을 가진 환자를 여러 번 포함되어있을 때 유용하다. “예 [yes]”를 선택하면 분석 시 환자 당 가장 처음의 표적 코호트만 유지될 것이다. 그렇지 않으면 환자는 데이터세트에 여러 번 있을 수 있다. 
 
-“**코호트 포함시키기 전 관심 결과가 관찰되어진 환자를 제거하시겠습니까?**”에서 “예[yes]”로 설정한다면 위험에 노출된 시간 시작일 이전의 결과를 가지고 있는 환자들을 제거할 수 있어서 전에 결과를 경험하지 못한 환자들을 위한 모형이 된다. “아니오”를 선택한다면 환자는 이전에 결과를 가지고 있을 수 있다. 종종, 결과를 미리 얻는 것은 위험시간 동안 결과를 얻는 것에 대해 매우 예측가능하다.
+“**코호트 포함시키기 전 관심 결과가 관찰되어진 환자를 제거하시겠습니까?**”에서 “예 [yes]”로 설정한다면 위험에 노출된 시간 시작일 이전의 결과를 가지고 있는 환자들을 제거할 수 있어서 전에 결과를 경험하지 못한 환자들을 위한 모형이 된다. “아니오”를 선택한다면 환자는 이전에 결과를 가지고 있을 수 있다. 종종, 결과를 미리 얻는 것은 위험시간 동안 결과를 얻는 것에 대해 매우 예측가능하다.
 
-완료가 된다면, 모집단 설정 다이얼로그는 그림\@ref(fig:populationSettings)와 같다.
+완료가 된다면, 모집단 설정 다이얼로그는 그림 \@ref(fig:populationSettings)와 같다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/populationSettings.png" alt="Population settings." width="100%" />
-<p class="caption">(\#fig:populationSettings)Population settings.</p>
+<img src="images/PatientLevelPrediction/populationSettings.png" alt="모집단 설정." width="100%" />
+<p class="caption">(\#fig:populationSettings)모집단 설정.</p>
 </div>
 
 이제 분석 설정을 끝냈으므로, 전체적인 다이얼로그는 그림 \@ref(fig:analysisSettings)와 같다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/analysisSettings.png" alt="Analysis settings." width="100%" />
-<p class="caption">(\#fig:analysisSettings)Analysis settings.</p>
+<img src="images/PatientLevelPrediction/analysisSettings.png" alt="분석 설정." width="100%" />
+<p class="caption">(\#fig:analysisSettings)분석 설정.</p>
 </div>
 
 ### 실행 설정
 
 여기에는 세가지의 옵션이 있다:
 
-- “**표본추출 실행**”: 표본추출을 실행할지 말지 선택할 수 있다(기본값 = “아니오[NO]”. 만약 “예[yes]”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?**”. 여기서 표본크기는 결정되어질 수 있다. 표본추출은 대규모 모집단(예 1000만 환자)의 모형이 환자의 표본을 가지고 모형을 테스트하고 작성함으로써 예측 가능한지 여부를 결정하는 효율적인 수단이 될 수 있다. 예를 들어, 그 표본에서 AUC가 0.5에 가까우면, 그 모형은 쓸모가 없다. 
-- “**최소 공변량 발생: 만약 어떤 공변량이 이 값보다 작은 표적 모집단의 일부에서 발생하면 제거된다:**” 여기서 최소 공변량 발생을 선택할 수 있다(기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
-- “**공변량 표준화**”: 여기서 공변량을 표준화 할 것인지 선택할 수 있다(기본값 = “예[yse]”). 공변량의 표준화는 보통 LASSO모형의 성공적인 요소로 필요로 한다.
+- “**표본추출 실행**”: 표본추출을 실행할 지 말지 선택할 수 있다 (기본값 = “아니오 [NO]”). 만약 “예 [yes] ”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?**”. 여기서 표본크기는 결정되어질 수 있다. 표본추출은 대규모 모집단 (예 1000만 환자) 의 모형이 환자의 표본을 가지고 모형을 테스트하고 작성함으로써 예측 가능한지 여부를 결정하는 효율적인 수단이 될 수 있다. 예를 들어, 그 표본에서 AUC가 0.5에 가까우면, 그 모형은 쓸모가 없다. 
+- “**최소 공변량 발생: 만약 어떤 공변량이 이 값보다 작은 표적 모집단의 일부에서 발생하면 제거된다:**” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
+- “**공변량 표준화**”: 여기서 공변량을 표준화 할 것인지 선택할 수 있다 (기본값 = “예 [yse]”). 공변량의 표준화는 보통 LASSO모형의 성공적인 요소로 필요로 한다.
 
-예를 들어, \@ref(fig:executionSettings)그림 에 나타난 선택을 한다.
+예를 들어, 그림 \@ref(fig:executionSettings)에 나타난 선택을 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/executionSettings.png" alt="Execution settings." width="100%" />
-<p class="caption">(\#fig:executionSettings)Execution settings.</p>
+<img src="images/PatientLevelPrediction/executionSettings.png" alt="실행 설정." width="100%" />
+<p class="caption">(\#fig:executionSettings)실행 설정.</p>
 </div>
 
 ### 학습 설정
 
 여기에는 네 가지 옵션이 있다:
 
-- "**테스트/검증 세트를 분할하는 방법 지정:**" 학습/테스트 데이터를 사람(관심 결과에 따라 분류됨)별로 구분할지, 시간(모형을 학습하기 위해 이전 데이터, 나중에 모형을 평가하기 위한 이전 데이터)별로 구분할지를 선택한다.
-- "**테스트 세트로 사용될 데이터의 백분율(0-100%)**": 테스트 데이터에서 사용될 데이터의 백분율을 선택한다(기본값 = 25%).
-- "**교차 검정에 사용된 폴드 수**": 최적의 하이퍼-파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다(기본값 = 3).
-- "**사용자 유형 testSplit 사용 시 테스트/검증 세트를 분할하는데 사용되는 초기값(선택적).**”: 사용자 유형 testSplit에서 트레인/테스트 세트를 분할하는데 사용되는 임의의 초기값을 선택한다.
+- "**테스트/검증 세트를 분할하는 방법 지정:**" 학습/테스트 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모형을 학습하기 위해 이전 데이터, 나중에 모형을 평가하기 위한 이전 데이터) 별로 구분할지를 선택한다.
+- "**테스트 세트로 사용될 데이터의 백분율 (0-100%)**": 테스트 데이터에서 사용될 데이터의 백분율을 선택한다 (기본값 = 25%).
+- "**교차 검정에 사용된 폴드 수**": 최적의 하이퍼-파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
+- "**사용자 유형 testSplit 사용 시 테스트/검증 세트를 분할하는데 사용되는 초기값 (선택적)**”: 사용자 유형 testSplit에서 트레인/테스트 세트를 분할하는데 사용되는 임의의 초기값을 선택한다.
 
 이 예에서는 그림 \@ref(fig:trainingSettings)와 같이 선택을 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PatientLevelPrediction/trainingSettings.png" alt="Training settings." width="100%" />
-<p class="caption">(\#fig:trainingSettings)Training settings.</p>
+<img src="images/PatientLevelPrediction/trainingSettings.png" alt="학습 설정." width="100%" />
+<p class="caption">(\#fig:trainingSettings)학습 설정.</p>
 </div>
 
 ### 연구 가져오기 및 내보내기
 
-연구를 내보내려면 “유틸리티[Utilities]” 아래의 “내보내기[Export]”탭을 클릭해야 한다. ATLAS는 연구를 실행할 때 필요한 연구 이름, 코호트 정의, 선택된 모형, 공변량, 설정과 같은 모든 데이터를 포함하는 파일에 직접 복사하여 붙여 넣을 수 있는 JSON을 생성할 것이다. 
-연구를 가져오려면 “유틸리티[Utilities]”아래의 “가져오기[Import]”탭을 클릭해야 한다. 환자 수준 예측 연구 JSON의 내용을 이 창에 붙여 넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭해야한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로 비어있는 새 연구 디자인을 사용할 때 수행된다는 점을 유의해야 한다.
+연구를 내보내려면 “유틸리티 [Utilities] ” 아래의 “내보내기 [Export] ”탭을 클릭해야 한다. ATLAS는 연구를 실행할 때 필요한 연구 이름, 코호트 정의, 선택된 모형, 공변량, 설정과 같은 모든 데이터를 포함하는 파일에 직접 복사하여 붙여 넣을 수 있는 JSON을 생성할 것이다. 
+연구를 가져오려면 “유틸리티 [Utilities] ”아래의 “가져오기 [Import] ”탭을 클릭해야 한다. 환자 수준 예측 연구 JSON의 내용을 이 창에 붙여 넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭해야한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로 비어있는 새 연구 디자인을 사용할 때 수행된다는 점을 유의해야 한다.
 
 ### 연구 패키지 다운로드
 
-“유틸리티[Utilities]”탭 아래의 “리뷰 & 다운로드[Review & Download]” 클릭해라.  “연구 패키지 다운로드[Download Study Package]” 부분에서 R의 허용되지않은 모든 문자가 ATLAS에 의해 파일 이름에서 자동으로 제거된다는 점에 유의하여 R 패키지 서술 이름을 입력해야 한다. ![](images/PatientLevelPrediction/download.png)를 클릭하여 R 패키지를 로컬 폴더로 다운로드 할 수 있다.
+“유틸리티 [Utilities] ”탭 아래의 “리뷰 & 다운로드 [Review & Download] ” 클릭해라.  “연구 패키지 다운로드 [Download Study Package] ” 부분에서 R의 허용되지않은 모든 문자가 ATLAS에 의해 파일 이름에서 자동으로 제거된다는 점에 유의하여 R 패키지 서술 이름을 입력해야 한다. ![](images/PatientLevelPrediction/download.png)를 클릭하여 R 패키지를 로컬 폴더로 다운로드 할 수 있다.
 
 ### 연구 실행
 
-R패키지를 실행하려면 섹션 \@ref(installR)에 설명 된대로 R, RStudio, Java가 설치되어 있어야 한다. 또한 다음과 같이 R에 설치할 수 있는 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지가 필요합니다:
+R패키지를 실행하려면 \@ref(installR)절에 설명 된대로 R, RStudio, Java가 설치되어 있어야 한다. 또한 다음과 같이 R에 설치할 수 있는 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지가 필요하다:
 
 
 ```r
@@ -542,7 +542,7 @@ install.packages("PatientLevelPrediction")
 
 머신 러닝 알고리즘의 몇몇은 추가적인 소프트웨어 설치를 요구한다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)패키지를 설치하는 방법에 대한 자세한 내용은 ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html)를 참조하면 된다.
 
-연구 R패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두번 누르면 RStudio에서 열린다. R스튜디오 서버에서 RStudio를 실행 중인 경우 파일을 업로드 하고 압푹을 푼 다음 ![](images/PopulationLevelEstimation/upload.png)을 클릭하여 연구프로젝트를 열면 된다.
+연구 R패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두번 누르면 RStudio에서 열린다. R스튜디오 서버에서 RStudio를 실행 중인 경우 파일을 업로드 하고 압축을 푼 다음 ![](images/PopulationLevelEstimation/upload.png)을 클릭하여 연구프로젝트를 열면 된다.
 
 일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 설명을 따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경 해야 한다.
 
@@ -552,11 +552,11 @@ ATLAS 사용하여 연구디자인을 실행하는 방법은 R에서 코드를 �
 
 ### 코호트 예시화
 
-우선 표적코호트와 결과 코호트를 만들어야 한다. 코호트 만드는 것은 \@ref(Cohorts)장에 설명되어 있다. 부록에선 표적 코호트(부록 \@ref(AceInhibitors))와 결과 코호트(부록 \@ref(Angioedema)) 에 대한 전체 정의를 제공한다. 이 예제에서 우리는 ACE 억제제 코호트를 ID 1, 혈관부종 코호트를 ID 2로 가정한다.
+우선 표적코호트와 결과 코호트를 만들어야 한다. 코호트 만드는 것은 \@ref(Cohorts)장에 설명되어 있다. 부록에선 표적 코호트 (부록 \@ref(AceInhibitors))와 결과 코호트 (부록 \@ref(Angioedema)) 에 대한 전체 정의를 제공한다. 이 예제에서 우리는 ACE 억제제 코호트를 ID 1, 혈관부종 코호트를 ID 2로 가정한다.
 
 ### 데이터 추출
 
-우선 R에서 서버를 연결해야 한다. [`PatientLevelPrediction`](https://ohdsi.github.io/PatientLevelPrediction/)은 다양한 데이터베이스 관리 시스템(DBMS)에 필요한 구체적인 설정을 위한 `createConnectionDetails`. Type `?createConnectionDetails` 라고 불리는 기능을 제공하는 [`DatabaseConnector`](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용한다. 예를 들어 이 코드를 사용하여 PostgreSQL 데이터베이스에 연결할 수 있다. :
+우선 R에서 서버를 연결해야 한다. [`PatientLevelPrediction`](https://ohdsi.github.io/PatientLevelPrediction/)은 다양한 데이터베이스 관리 시스템(DBMS)에 필요한 구체적인 설정을 위한 `createConnectionDetails`. Type `?createConnectionDetails` 라고 불리는 기능을 제공하는 [`DatabaseConnector`](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용한다. 예를 들어 이 코드를 사용하여 PostgreSQL 데이터베이스에 연결할 수 있다.
 
 
 ```r
@@ -572,7 +572,7 @@ cohortsDbTable <- "my_cohorts"
 cdmVersion <- "5"
 ```
 
-마지막 4줄은 `cdmDbSchema`, `cohortsDbSchema` 및 `cohortsDbTable` 변수와 CDM 버전을 정의한다. 나중에 이것들을 사용하여 CDM형식의 데이터 위치, 관심있는 코호트 위치, 사용되는 CDM버전을 R에 입력한다. Microsoft SQL의 경우 데이터베이스 스키마는 데이터와 스키마 모두 지정해야 한다. 예를 들어 `cdmDbSchema <- “my_cdm_data.dbo”`이다.
+마지막 4줄은 `cdmDbSchema`, `cohortsDbSchema` 및 `cohortsDbTable` 변수와 CDM 버전을 정의한다. 나중에 이것들을 사용하여 CDM 형식의 데이터 위치, 관심있는 코호트 위치, 사용되는 CDM 버전을 R에 입력한다. Microsoft SQL의 경우 데이터베이스 스키마는 데이터와 스키마 모두 지정해야 한다. 예를 들어 `cdmDbSchema <- “my_cdm_data.dbo”`이다.
 
 먼저 코호트 항목 수를 세어 코호트 생성이 되었는지 확인하는 것이 좋다:
 
@@ -594,7 +594,7 @@ renderTranslateQuerySql(connection = conn,
 ## 2                    2   3201
 ```
 
-이제 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)을 통해 분석에 필요한 모든 데이터를 추출할 수 있다. 공변량은 FeatureExtraction패키지를 사용하여 추출된다. [`FeatureExtraction`](https://ohdsi.github.io/FeatureExtraction/) 패키지에 대한 자세한 내용은 해당 vignettes에서 볼 수 있다. 예제 연구에서는 다음과 같은 설정을 사용하기로 결정하였다:
+이제 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)을 통해 분석에 필요한 모든 데이터를 추출할 수 있다. 공변량은 FeatureExtraction 패키지를 사용하여 추출된다. [`FeatureExtraction`](https://ohdsi.github.io/FeatureExtraction/) 패키지에 대한 자세한 내용은 해당 vignettes에서 볼 수 있다. 예제 연구에서는 다음과 같은 설정을 사용하기로 결정하였다:
 
 
 ```r
@@ -641,7 +641,7 @@ We can use the `loadPlpData()` function to load the data in a future session.
 
 ### 추가 포함 기준
 
-최종 연구 모집단은 이전에 정의된 2개의 코호트에서 추가적인 제약조건을 적용하여 얻어진다. 예를 들어 최소 위험에 노출된 시간을 적용할 수 있으며(`requireTimeAtRisk, minTimeAtRisk`), 이것이 결과를 가진 환자에게도 적용되는지 여부를 지정할 수 있다(`includeAllOutcomes`). 또한 여기서 표적 코호트 시작에 관련된 위험 기간(risk window)의 시작과 끝을 지정한다. 예를 들어 위험 코호트가 시작된 후 30일부터 위험 기간으로 시작하고 1년 후 종료하려면 `riskWindowStart = 30`, `riskWindowStart = 365`로 설정할 수 있다. 경우에 따라 위험 기간은 코호트 종료일에 시작해야 한다. `addExposureToStart = Ture`으로 설정하면 코호트(노출) 시간을 시작일에 추가할 수 있다.
+최종 연구 모집단은 이전에 정의된 2개의 코호트에서 추가적인 제약조건을 적용하여 얻어진다. 예를 들어 최소 위험에 노출된 시간을 적용할 수 있으며(`requireTimeAtRisk, minTimeAtRisk`), 이것이 결과를 가진 환자에게도 적용되는지 여부를 지정할 수 있다(`includeAllOutcomes`). 또한 여기서 표적 코호트 시작에 관련된 위험 기간(risk window)의 시작과 끝을 지정한다. 예를 들어 위험 코호트가 시작된 후 30일부터 위험 기간으로 시작하고 1년 후 종료하려면 `riskWindowStart = 30`, `riskWindowStart = 365`로 설정할 수 있다. 경우에 따라 위험 기간은 코호트 종료일에 시작해야 한다. `addExposureToStart = Ture`으로 설정하면 코호트 (노출) 시간을 시작일에 추가할 수 있다.
 
 아래의 예에서는 연구를 위해 정의한 모든 설정을 시행한 것이다:
 
@@ -668,7 +668,7 @@ population <- createStudyPopulation(plpData = plpData,
 
 알고리즘의 설정 기능에서 사용자는 각 하이퍼-파라미터에 대한 적합한 값의 목록을 지정할 수 있다. 하이퍼-파라미터에서 가능한 모든 조합은 학습 세트에 교차 검증을 사용하는 이른바 그리드서치에 포함된다. 만일 사용자가 어떤 값도 지정하지 않으면 기본값이 사용된다.
 
-예를 들어 점진적 부스팅 머신에 다음 설정을 사용하는 경우 : `ntrees = c(100,200), maxDepth = 4` 그리드서치는 점진적 부스팅 머신 알고리즘을 다른 하이퍼-파라미타의 기본 설정을 더한 `ntrees = 100`과 `maxDepth = 4` , 다른 하이퍼-파라미타의 기본 설정을 더한 `ntrees = 200`과 `maxDepth = 4`에적용할 것이다. 최고의 교차 검증 실행을 이끄는 하이퍼-파라미터는 마지막 모형으로 선택 될 것이다. 이 문제를 위해 여러 하이퍼-파라미터 값을 가지고 점진적 부스팅 머신을 만들기로 하였다: 
+예를 들어 점진적 부스팅 머신에 다음 설정을 사용하는 경우: `ntrees = c(100,200), maxDepth = 4` 그리드서치는 점진적 부스팅 머신 알고리즘을 다른 하이퍼-파라미타의 기본 설정을 더한 `ntrees = 100`과 `maxDepth = 4` , 다른 하이퍼-파라미타의 기본 설정을 더한 `ntrees = 200`과 `maxDepth = 4`에적용할 것이다. 최고의 교차 검증 실행을 이끄는 하이퍼-파라미터는 마지막 모형으로 선택 될 것이다. 이 문제를 위해 여러 하이퍼-파라미터 값을 가지고 점진적 부스팅 머신을 만들기로 하였다: 
 
 
 ```r
@@ -975,7 +975,7 @@ We have added functionality to automatically generate a word document we can use
 
 For more details see the help page of the function.
 
-## Summary
+## 요약
 
 \BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- Patient-level prediction aims to develop a model that predicts future events using data from the past.
 

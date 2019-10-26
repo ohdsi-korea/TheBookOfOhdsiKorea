@@ -117,8 +117,8 @@ testSql <- generateTestSql(databaseSchema = "cdm_test_schema")
 전반적인 프로세스는 그림 \@ref(fig:testFramework)에 묘사된 것과 같다.
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/testFramework.png" alt="Unit testing an ETL (Extract-Transform-Load) process using the Rabbit-in-a-Hat testing framework." width="90%" />
-<p class="caption">(\#fig:testFramework)Unit testing an ETL (Extract-Transform-Load) process using the Rabbit-in-a-Hat testing framework.</p>
+<img src="images/DataQuality/testFramework.png" alt="Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 추출변환적재(ETL) Unit testing 과정." width="90%" />
+<p class="caption">(\#fig:testFramework)Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 추출변환적재(ETL) Unit testing 과정.</p>
 </div>
 
 테스틑 SQL은 표\@ref(tab:exampleTestResults)와 같은 테이블을 반환한다. 이 표에서는 우리가 앞서 정의한 두 가지 테스트를 통과하는 것을 알 수 있다.  
@@ -147,22 +147,22 @@ testSql <- generateTestSql(databaseSchema = "cdm_test_schema")
 
 ### Checking Mappings
 
-우리가 통제할 수 있는 오류의 원인 중 한가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabylary에서 매핑은 꼼꼼하게 만들어졌고, 공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란[^vocabIssueTrackerUrl]에 보고되고 다음 업데이트에서 수정된다. 그럼에도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때, 연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다. 다행히도, CDM에서는 표준화 concept 뿐 아니라, 소스 코드도 저장하기 때문에 매우 쉽게 할 수 있습니다. 연구에 사용된 concept에 매핑 된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있습니다.
+우리가 통제할 수 있는 오류의 원인 중 한가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabylary에서 매핑은 꼼꼼하게 만들어졌고, 공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란[^vocabIssueTrackerUrl]에 보고되고 다음 업데이트에서 수정된다. 그럼에도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때, 연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다. 다행히도, CDM에서는 표준화 concept 뿐 아니라, 소스 코드도 저장하기 때문에 매우 쉽게 할 수 있다. 연구에 사용된 concept에 매핑 된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
 
 [^vocabIssueTrackerUrl]: https://github.com/OHDSI/Vocabulary-v5.0/issues
 
-소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스코드를 확인합니다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑 되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스코드를 확인한다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑 되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/sourceCodes.png" alt="Example output of the checkCohortSourceCodes function. " width="100%" />
-<p class="caption">(\#fig:sourceCodes)Example output of the checkCohortSourceCodes function. </p>
+<img src="images/DataQuality/sourceCodes.png" alt="checkCohortSourceCodes 기능의 output 예시. " width="100%" />
+<p class="caption">(\#fig:sourceCodes)checkCohortSourceCodes 기능의 output 예시. </p>
 </div>
 
 앞의 예시는 매핑되지 않은 소스 코드를 발견하는 것을 묘사한 것으로, 일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는 것보다 더 어렵다. 이는 어떤 소스 코드가 매핑되어야 하지만 매핑되지 않았는지 알아야 한다. 이를 평가하는 반-자동화된 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `findOrphanSourceCodes` 함수를 사용하는 것이다. 이 함수는 간단한 텍스트 검색을 통해 소스 코드에 대한 Vocabulary를 검색할 수 있게 하고, 이 소스 코드가 특정 concept이나 그 concept의 하위 concept 중 하나와 매핑되는지 여부를 확인한다. 소스 코드의 결과는 현재 CDM 데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, "괴저 장애 (Gangrenous disorder)"  ([439928](http://athena.ohdsi.org/search-terms/terms/439928)) 와 모든 하위 concept들은 모든 괴저 발생을 찾기 위해 사용되었다. 이것이 실제로 괴저를 나타내는 모든 소스 코드를 포함하는지 여부를 평가하기 위해, 소스 코드를 식별하기 위한 CONCEPT 테이블과 SOURCE_TO_CONCEPT_MAP 테이블의 설명을 검색하는데 몇 가지 용어(예. "괴저 (gangrene)")가 사용되었다. 자동 검색은 데이터에 나타나는 각 괴저 코드가 "괴저 장애 (Gangrenous disorder)"라는 concept에 직접 또는 간접적으로 매핑 되었는지 여부를 평가하기 위해 사용된다. 이러한 평가의 결과는 그림 \@ref(fig:missingMapping)와 같으며, ICD-10 코드 J85.0 ("폐의 괴저 및 괴사"; Gangrene and necrosis of lung)은 "괴저 장애 (Gangrenous disorder)의 하위 컨셉이 아닌 컨셉 [4324261](http://athena.ohdsi.org/search-terms/terms/4324261)("폐 괴사"; Pulmonary necrosis)에만 매핑 되었다.  \index{orphan codes}
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/missingMapping.png" alt="Example orphan source code. " width="70%" />
-<p class="caption">(\#fig:missingMapping)Example orphan source code. </p>
+<img src="images/DataQuality/missingMapping.png" alt="orphan 소스코드 예시. " width="70%" />
+<p class="caption">(\#fig:missingMapping)orphan 소스코드 예시. </p>
 </div>
 
 ## ACHILLES 실습 (ACHILLES in Practice) {#achillesInPractice}
@@ -214,19 +214,19 @@ exportToJson(connectionDetails,
 JSON 파일은 achillesOut 하위 폴더에 작성되고, 결과 확인을 위해 AchillesWeb 웹 어플리케이션과 함께 사용할 수 있다. 예를 들어, 그림 \@ref(fig:achillesDataDensity) ACHILLES 데이터 밀도 plot을 보여준다. 이 plot은 2005년에 시작된 대량의 데이터를 보여준다. 하지만 1961년경에 몇 개의 레코드가 있는 것으로 나타나며, 이는 데이터에 오류가 있는 것일 수도 있다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/achillesDataDensity.png" alt="The data density plot in the ACHILLES web viewer." width="100%" />
-<p class="caption">(\#fig:achillesDataDensity)The data density plot in the ACHILLES web viewer.</p>
+<img src="images/DataQuality/achillesDataDensity.png" alt="ACHILLES 웹 뷰어의 데이터 밀도 그림." width="100%" />
+<p class="caption">(\#fig:achillesDataDensity)ACHILLES 웹 뷰어의 데이터 밀도 그림.</p>
 </div>
 
 또 다른 예시로는 그림 \@ref(fig:achillesCodeChange)로, 당뇨병 진단 코드의 유병률에 급격한 변화를 보여주고 있다. 이러한 변화는 특정 국가의 급여 규정의 변경과 일치하여 더 많은 진단이 제공되었기 때문이지 실제로 기본 인구의 유병률이 증가하지는 않았다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/achillesCodeChange.png" alt="Monthly rate of diabetes coded in the ACHILLES web viewer." width="100%" />
-<p class="caption">(\#fig:achillesCodeChange)Monthly rate of diabetes coded in the ACHILLES web viewer.</p>
+<img src="images/DataQuality/achillesCodeChange.png" alt="ACHILLES 웹 뷰어에서 코딩된 월별 당뇨병 발생률." width="100%" />
+<p class="caption">(\#fig:achillesCodeChange)ACHILLES 웹 뷰어에서 코딩된 월별 당뇨병 발생률.</p>
 </div>
 ## Data Quality Dashboard 실습 (Data Quality Dashboard in Practice) {#dqdInPractice}
 
-여기에서는 CDM 형식의 데이터베이스에서 Data Quality Dashboard를 실행하는 방법을 보여준다.15.4절\@ref(achillesInPractice)에서 설명한 CDM conncection에 대해 더 많은 checks를 수행합니다. 현재 DQD는 CDM v5.3.1만 지원하기 때문에 실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다. ACHILLES와 마찬가지로 `cdmDbSchema`를 작성하여 데이터를 찾을 위치를 R에 입력해야 한다. 
+여기에서는 CDM 형식의 데이터베이스에서 Data Quality Dashboard를 실행하는 방법을 보여준다.15.4절\@ref(achillesInPractice)에서 설명한 CDM conncection에 대해 더 많은 checks를 수행한다. 현재 DQD는 CDM v5.3.1만 지원하기 때문에 실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다. ACHILLES와 마찬가지로 `cdmDbSchema`를 작성하여 데이터를 찾을 위치를 R에 입력해야 한다. 
 
 
 ```r
@@ -256,15 +256,15 @@ viewDqDashboard(jsonPath)
 처음 Dashoboaard를 열면 그림 \@ref(fig:dqdOverview)과 같이 개요 테이블이 표시된다. 여기에는 내용별 Kahn의 카테고리에서 실행된 총 검사의 수, 각 검사의 PASS 수와 백분율 및 전체 PASS 비율이 표시된다.  
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/dqdOverview.png" alt="Overview of Data Quality Checks in the Data Quality Dashboard." width="100%" />
-<p class="caption">(\#fig:dqdOverview)Overview of Data Quality Checks in the Data Quality Dashboard.</p>
+<img src="images/DataQuality/dqdOverview.png" alt="Data Quality Dashboard 에서의 데이터 품질 점검 개요." width="100%" />
+<p class="caption">(\#fig:dqdOverview)Data Quality Dashboard 에서의 데이터 품질 점검 개요.</p>
 </div>
 
 왼쪽 메뉴에서 *Results*를 클릭하면 실행된 각 검사에 대한 상세 결과 페이지로 이동한다(그림 \@ref(fig:dqdResults)). 예시의 테이블은 개별적인 CDM 테이블의 완전성을 확인하거나 CDM에서 특정 테이블에 최소 1개 이상의 레코드를 가진 인원 수 및 백분율을 확인하기 위한 검사에 대한 것이다. 이 경우 나열된 5개의 테이블이 Dashboarc에 Fail로 나타났으며 모두 비어있다. ![](images/DataQuality/plusIcon.png) 아이콘을 클릭하면 나열된 결과를 생성하기 위해 데이터에서 실행된 정확한 쿼리를 보여주는 창이 열린다. 이를 통해 Dashboard에서 Fail로 간주한 행을 쉽게 식별할 수 있다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/dqdResults.png" alt="Drilldown into Data Quality Checks in the Data Quality Dashboard." width="100%" />
-<p class="caption">(\#fig:dqdResults)Drilldown into Data Quality Checks in the Data Quality Dashboard.</p>
+<img src="images/DataQuality/dqdResults.png" alt="Drilldown into Data Quality Checks in the Data Quality Dashboard 에서의 데이터 품질 구체적 관찰." width="100%" />
+<p class="caption">(\#fig:dqdResults)Drilldown into Data Quality Checks in the Data Quality Dashboard 에서의 데이터 품질 구체적 관찰.</p>
 </div>
 
 ## 연구 목적 checks 실습 (Study-Specific Checks in Practice)
@@ -288,8 +288,8 @@ checkCohortSourceCodes(connectionDetails,
 그림 \@ref(fig:sourceCodesAngioedema)과 같이 웹 브라우저에서 output(출력) 파일을 열 수 있다. 여기서 혈관 부종 cohort definition에 "Inpatient or ER visit"과 "Angioedema" 두 가지 concept이 있는 것을 확인할 수 있다. 이 예제 데이터베이스에서, 방문은 ETL 중에 표준 concept과 매핑되었지만, Vocabulary에는 없는, "ER"과 "IP"라는 데이터베이스 특정 소스코드를 통해 발견되었다. 혈관 부종은 하나의 ICD-9 코드와 두 개의 ICD-10 코드를 통해 발견되었다.개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두 가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만 전체적인 concept에서는 불연속성이 없다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/DataQuality/sourceCodesAngioedema.png" alt="Source codes used in the angioedema cohort definition." width="100%" />
-<p class="caption">(\#fig:sourceCodesAngioedema)Source codes used in the angioedema cohort definition.</p>
+<img src="images/DataQuality/sourceCodesAngioedema.png" alt="Angioedema 코호트 정의에서 사용된 소스코드." width="100%" />
+<p class="caption">(\#fig:sourceCodesAngioedema)Angioedema 코호트 정의에서 사용된 소스코드.</p>
 </div>
 
 다음으로, 표준 concept 코드에 매핑되지 않은 소스코드인 orphan 소스 코드를 검색할 수 있다. 표준 concept인 "혈관 부종 (Angioedema)"을 찾은 다음 "혈관 부종" 또는 그 이름이 일부 포함되어 있거나 동의어가 있는 concept과 코드를 찾는다:
@@ -316,7 +316,7 @@ View(orphans)
 
 데이터에서 실제로 사용된 유일한 잠재적 orphan 코드는 "혈관신경성 부종, 후유증 (Angioneurotic edema, sequela)"이며, 이는 혈관 부종과 매핑 되어서는 안 된다. 따라서 이 분석에서는 누락된 코드가 발견되지 않았다.
 
-## Summary
+## 요약
 
 \BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- 대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다. 
 
