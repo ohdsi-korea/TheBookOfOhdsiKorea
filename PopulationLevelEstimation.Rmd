@@ -124,7 +124,7 @@ table
 
 \index{case-control design}
 
-```{r caseControl, fig.cap='환자-대조군 설계. 결과가 있는 대상 ('케이스')은 노출 상태 측면에서 결과 ('컨트롤')이 없는 대상과 비교된다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r caseControl, fig.cap='환자-대조군 설계. 결과가 있는 대상 ("케이스")은 노출 상태 측면에서 결과 ("컨트롤")이 없는 대상과 비교된다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/caseControl.png")
 ```
 
