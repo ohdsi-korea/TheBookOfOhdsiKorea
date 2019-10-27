@@ -126,7 +126,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-10-26}
+    \date{2019-10-27}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -316,35 +316,33 @@
 \chapter*{서문}
 \addcontentsline{toc}{chapter}{서문}
 
- 이 책은 관찰 보건 데이터 과학 및 정보학 (Observational Health Data
-Sicence and Informatics : OHDSI) 공동작업에 대한 내용을 담고있다. OHDSI
-커뮤니티에 의해 작성된 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역활을
+ 이 책은 오딧세이(OHDSI, Observational Health Data Sicence and
+Informatics) 커뮤니티가 작성한 \href{book.ohdsi.org}{The Book of
+OHDSI}의 번역판이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을
 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해
 관리되는 생명력있는 문서로 계속 진화하고 있다. 또한
 \href{https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/}{ohdsi-korea.github.io/TheBookOfOhdsiKorea/}에서
-온라인으로 항상 최신 버전의 책을 무료로 받아 볼 수 있으며 실물로 구입을
-원할 경우
-\href{https://www.amazon.com/OHDSI-Observational-Health-Sciences-Informatics/dp/1088855199}{Amazon}
-등에서 구입이 가능하다.
+온라인으로 최신 버전의 책을 무료로 받아 볼 수 있으며 서점에서 실물로
+구입을 할수도 있다.
 
 \section*{이 책의 목표}\label{--}
 \addcontentsline{toc}{section}{이 책의 목표}
 
 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며
-OHDSI 커뮤니티, OHDSI 데이타 기준과 OHDSI 도구들에 중점을 두었다.
-OHDSI의 초보자와 숙련자 모두를 위해 현실적으로 필요 이론과 사용방법에
-대한 교육을 제공하는 실용적인 부분에 목표를 두고 있다. 이 책을 읽은 뒤
-당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여
-이해하게 될 것이다. 또한 공통 데이터 모델(CDM)과 표준화된 용어들이
-무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게
-사용되는지 알게 될 것이다. 이 데이터에 대해 Clinical characterization,
-Population-level estimation, Population-level prediction, 이 3가지 주요
-이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는
-OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다. 데이터 품질,
-임상적 타당성, 소프트웨어 타당성, 방법의 타당성 등에 관한 chapter들에서
-CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할 것이다.
-마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를
-어떻게 사용하는지를 배우게 될 것이다.
+OHDSI 커뮤니티, 공통 데이터 모델(CDM, common data model) 데이터 기준과
+OHDSI 도구들에 중점을 두었다. OHDSI의 초보자와 숙련자 모두를 위해
+현실적으로 필요 이론과 사용방법에 대한 교육을 제공하는 실용적인 부분에
+목표를 두고 있다. 이 책을 읽은 뒤 당신은 OHDSI란 무엇인가, 또한 그
+여정에 어떻게 동참할 것인가에 관하여 이해하게 될 것이다. 또한 CDM과
+표준화된 용어들이 무엇인지, 이러한 것들이 관찰 보건 데이터베이스의
+표준화에 어떻게 사용되는지 알게 될 것이다. 이 데이터에 대해 Clinical
+characterization, Population-level estimation, Population-level
+prediction, 이 3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해
+이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게
+될 것이다. 데이터 품질, 임상적 타당성, 소프트웨어 타당성, 방법론적
+타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의 품질을 어떻게
+확립했는지를 설명할 것이다. 마지막으로, 분산 연구망에서 이러한 연구들을
+실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될 것이다.
 
 \section*{이 책의 구성}\label{--}
 \addcontentsline{toc}{section}{이 책의 구성}
@@ -366,16 +364,15 @@ CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명�
   OHDSI 연구
 \end{enumerate}
 
-각각의 섹션은 다수의 chapter로 구성되어 있으며 각각의 chapter는 아래의
-순서대로 해당 chapter에 맞게 구성되어 있다: 도입, 이론, 실행, 요약,
-예제.
+각각의 섹션은 다수의 장으로 구성되어 있으며 각각의 장은 아래의 순서대로
+해당 장에 맞게 구성되어 있다: 서론, 이론, 실행, 요약, 예제.
 
 \section*{기여자}
 \addcontentsline{toc}{section}{기여자}
 
-각각의 chapter는 해당 chapter를 이끈 주요 작성자들을 표기하고 있다.
-그러나 주요작성자 외에도 이 책을 완성하는데 기여를 한 많은 사람들이
-있으며 아래의 기여자들에게 감사를 표한다:
+원문의 각각의 장은 해당 장을 이끈 주요 작성자들을 표기하고 있다. 그러나
+주요작성자 외에도 이 책을 완성하는데 기여를 한 많은 사람들이 있으며
+아래의 기여자들에게 감사를 표한다:
 
 \begin{tabular}{l|l|l}
 \hline
@@ -484,16 +481,56 @@ Commons Zero v1.0 Universal license}.로 인가되었다.
 \caption{}
 \end{figure}
 
-\section*{이 책이 쓰여진 과정}\label{---}
-\addcontentsline{toc}{section}{이 책이 쓰여진 과정}
+\section*{The Book of OHDSI가 쓰여진 과정}\label{the-book-of-ohdsi--}
+\addcontentsline{toc}{section}{The Book of OHDSI가 쓰여진 과정}
 
-이 책은 \href{https://bookdown.org}{bookdown} 패키지를 사용한
-\href{https://rmarkdown.rstudio.com}{RMarkdown}으로 쓰여졌다. 온라인
-버전은 지속적 통합 시스템인 \href{http://travis-ci.org/}{``travis''}를
-통해서 \url{https://github.com/OHDSI-Korea/TheBookOfOhdsiKorea}의
-저장소를 사용해 자동작성 되었다. 이러한 온라인 버전은 정기적으로 스냅샷
-형식으로 저장되며 이렇게 저장된 파일을 ``에디션''이라 표기한다. 이
-에디션들의 실물 책자들은 아마존에서 구입이 가능하다.
+이 책의 원문인 The Book of OHDSI는 \href{https://bookdown.org}{bookdown}
+패키지를 사용한 \href{https://rmarkdown.rstudio.com}{RMarkdown}으로
+쓰여졌다. 온라인 버전은 지속적 통합 시스템인
+\href{http://travis-ci.org/}{``travis''}를 통해서
+\url{https://github.com/OHDSI/TheBookOfOhdsi}의 저장소를 사용해 자동작성
+되었다. 이러한 온라인 버전은 정기적으로 스냅샷 형식으로 저장되며 이렇게
+저장된 파일을 ``에디션''이라 표기한다. 이 에디션들의 실물 책자들은
+아마존에서 구입이 가능하다.
+
+\section*{이 책이 번역된 과정}\label{---}
+\addcontentsline{toc}{section}{이 책이 번역된 과정}
+
+2019년 OHDSI 심포지엄에서 The Book of OHDSI가 배포된 이후, 한국 OHDSI
+연구자들이 공동으로 번역작업을 진행하였다. 원문과 마찬가지로 bookdown
+패키지를 동일하게 사용하여,
+\url{https://github.com/OHDSI-Korea/TheBookOfOhdsiKorea} 저장소에서
+작성하였다.
+
+한국 OHDSI 네트워크의 발전을 위하여 대가를 바라지 않고, 번역 작업에
+힘써주신 다음의 공동 번역자들에게 큰 감사의 말씀을 드린다.
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+소속 & 이름\tabularnewline
+\midrule
+\endhead
+성균관대학교 & 강미라\tabularnewline
+한양대학교 & 김이석\tabularnewline
+아주대학교 & 김청수\tabularnewline
+아주대학교 & 박래웅\tabularnewline
+아주대학교 & 박유진\tabularnewline
+아주대학교 & 박지명\tabularnewline
+아주대학교 & 박철형\tabularnewline
+성균관대학교 & 양광모\tabularnewline
+아주대학교 & 오송희\tabularnewline
+아주대학교 & 유승찬\tabularnewline
+성균관대학교 & 유재용\tabularnewline
+아주대학교 & 이선경\tabularnewline
+아주대학교 & 이성원\tabularnewline
+동국대학교 & 임지연\tabularnewline
+성균관대학교 & 장동경\tabularnewline
+아주대학교 & 전명훈\tabularnewline
+아주대학교 & 전호균\tabularnewline
+아주대학교 & 조재형\tabularnewline
+성균관대학교 & 차원철\tabularnewline
+\bottomrule
+\end{longtable}
 
 \mainmatter
 
@@ -6927,7 +6964,7 @@ PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.cpgkaqouchildren ;"
+## [1] "SELECT * FROM temp_schema.s4h1takcchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
