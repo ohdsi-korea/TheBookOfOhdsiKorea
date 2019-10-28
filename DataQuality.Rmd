@@ -1,4 +1,4 @@
-# Data Quality {#DataQuality}
+# 데이터의 질 {#DataQuality}
 
 
 *Chapter leads: Martijn Schuemie, Vojtech Huser & Clair Blacketer* 

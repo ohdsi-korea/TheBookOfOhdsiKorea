@@ -1,4 +1,4 @@
-# Population-Level Estimation {#PopulationLevelEstimation}
+# 인구 수준 추정 {#PopulationLevelEstimation}
 
 *Chapter leads: Martijn Schuemie, David Madigan, Marc Suchard & Patrick Ryan*
 

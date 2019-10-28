@@ -1,16 +1,16 @@
-# 환자 특성 분석 Characterization {#Characterization}
+# 임상적 특성 분석 {#Characterization}
 
 *작성자 : Anthony Sena & Daniel Prieto-Alhambra*
 
 관찰형 보건의료 데이터는 다양한 특성을 바탕으로 인구집단의 변화를 이해할 수 있는 귀중한 자원이다. 기술통계를 통해 인구집단의 특성을 확인하는 것은 건강과 질병에 영향을 주는 요인에 대한 가설 설정을 위한 중요한 첫 번째 단계이다. 이번 장에서는 특성 분석(characterization)을 위한 방법들에 대해 살펴보기로 한다. :
 
-* **데이터베이스 수준의 특성 분석 (Database-level characterization)**: 
-상위 수준 (top-level)의 요약 통계량을 제공하여 데이터베이스 전체에 대한 이해를 돕는다. 
+* **데이터베이스 수준의 특성 분석(Database-level characterization)**: 
+상위 수준(top-level)의 요약 통계량을 제공하여 데이터베이스 전체에 대한 이해를 돕는다. 
 * **코호트의 특성 분석 (Cohort characterization)**: 
 통합된 의무기록 측면에서 인구집단을 기술한다.
-* **치료 경로 (Treatment pathways)**:
+* **치료 경로(Treatment pathways)**:
 특정 기간 동안 한 사람에 대하여 행해진 중재(intervention) 순서를 기술한다. 
-* **발생 (Incidence)**: 
+* **발생(Incidence)**: 
 위험 노출 기간(time at risk, TAR) 동안의 outcome의 발생률을 계산한다. 
 
 데이터베이스 수준의 특성 분석을 제외하고 이 방법들은 index date라고 하는 시점과 관련된 인구 집단에 대해 설명하는데 목적이 있다. 이와 같은 관심 집단은 코호트라고 정의되며 \@ref(Cohorts)장에 기술되어 있다. 코호트는 관심 집단의 개개인에 대한 index date를 정의한다. Index date를 기준으로 index date 이전의 시간을 **기저 시간(baseline time)**이라 정의한다. Index date를 포함한 그 이후의 시간은 **index 후 시간(post-index time)**이라고 부른다.

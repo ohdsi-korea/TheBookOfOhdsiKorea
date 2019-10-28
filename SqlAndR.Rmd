@@ -1,4 +1,4 @@
-# SQL and R {#SqlAndR}
+# SQL과 R {#SqlAndR}
 
 *Chapter leads: Martijn Schuemie & Peter Rijnbeek*
 

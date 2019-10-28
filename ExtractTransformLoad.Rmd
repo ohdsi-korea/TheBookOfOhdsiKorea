@@ -1,4 +1,4 @@
-# 추출 변환 적재 {#ExtractTransformLoad}
+# 추출 변환 적재(ETL) {#ExtractTransformLoad}
 
 *챕터 작성자 : Clair Blacketer & Erica Voss*
 
