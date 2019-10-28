@@ -1,7 +1,7 @@
 ---
 title: "The Book of OHDSI Korea"
 author: "OHDSI-Korea"
-date: "2019-10-27"
+date: "2019-10-28"
 classoption: 11pt
 geometry:
 - paperheight=10in

@@ -53,7 +53,7 @@
 [^issueTrackerUrl]: https://github.com/OHDSI/CohortMethod/issues 
 [^forumsUrl]: http://forums.ohdsi.org/
 
-사용자는 연구방법론 라이브러리(Methods Library)의 GitHub 저장소(master branch)에서 직접 설치할 수 있고, “drat”이라는 시스템을 이용하여서도 최신 버전을 설치할 수 있다. R의 Comprehensive R Archive Network (CRAN)을 통해서 다양한 연구방법론 라이브러리 패키지를 사용할 수 있으며, 이용할 수 있는 패키지의 수는 차차 증가할 것으로 예상된다.
+사용자는 연구방법론 라이브러리(Methods Library)의 GitHub 저장소(master branch)에서 직접 설치할 수 있고, “drat”이라는 시스템을 이용하여서도 최신 버전을 설치할 수 있다. R의 Comprehensive R Archive Network(CRAN)을 통해서 다양한 연구방법론 라이브러리 패키지를 사용할 수 있으며, 이용할 수 있는 패키지의 수는 차차 증가할 것으로 예상된다.
 
 오딧세이 연구방법론 라이브러리의 정확성, 신뢰성 및 일관성을 최대화하기 위해서 합리적인 소프트웨어 개발법 및 시험 방법들을 사용한다. 연구방법론 라이브러리의 모든 소스 코드들은 Apache License V2로 배포됨에 따라, R, C++, SQL, Java 등 어떤 언어로 작성이 되었어도, 오딧세이 커뮤니티의 모든 회원들과 대중들이 동료 평가(peer review)할 수 있다. 따라서, 연구방법론 라이브러리 내부에 구현된 모든 기능은 정확성, 신뢰성 그리고 일관성의 향상을 위해서 지속적인 비판과 이로 인한 개선이 이루어져야 한다.
 
