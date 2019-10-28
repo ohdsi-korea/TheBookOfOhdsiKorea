@@ -63,13 +63,13 @@ Table: (\#tab:plpDesign) Main design choices in a prediction design.
 
 예측 모형을 만들 때 상태에 따라 분류된 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는 프로세스를 사용한다.\index{supervised learning} 따라서, 표적 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레이블을 얻을 필요가 있다.
 
-**공변량** ( "예측변수", "특징" 또는 "독립 변수"라고도 함) 은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명돼 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜 기준으로 환자의 이전 또는 그때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
+**공변량**("예측변수", "특징" 또는 "독립 변수"라고도 함)은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명돼 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜 기준으로 환자의 이전 또는 그때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
 
-또한 위험에 노출된 시간(time-at-risk) 동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간 안에 발생하거나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
+또한 위험 노출 기간(time-at-risk)동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간 안에 발생하거나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
 
 ### 데이터 추출 예제
 
-표 \@ref(tab:plpExampleCohorts)는 두 개의 코호트가 있는 COHORT에 대한 예를 보여준다. 코호트 정의 ID 1인 코호트는 표적 코호트 (예를 들어, "최근 심방세동 진단을 받은 사람들") 이고 코호트 정의 ID 2는 결과 코호트 (예를 들어, "뇌졸중") 이다
+표 \@ref(tab:plpExampleCohorts)는 두 개의 코호트가 있는 COHORT에 대한 예를 보여준다. 코호트 정의 ID 1인 코호트는 표적 코호트 (예를 들어 "최근 심방세동 진단을 받은 사람들") 이고 코호트 정의 ID 2는 결과 코호트 (예를 들어 "뇌졸중") 이다
 
 Table: (\#tab:plpExampleCohorts) Example COHORT table. For simplicity the COHORT_END_DATE has been omitted. 
 
@@ -184,7 +184,7 @@ Table: (\#tab:adaBoostParameters) Hyper-parameters for AdaBoost.
 Table: (\#tab:decisionTreeParameters) Hyper-parameters for decision trees.
 
 | Parameter| Description | Typical values |
-|:-------- |:----------- |:-------------- |\
+|:-------- |:----------- |:-------------- |
 | classWeight | "Balance" or "None" | None |
 | maxDepth | The maximum depth of the tree | 10 |
 | minImpuritySplit | Threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf | 10^-7|
@@ -287,7 +287,7 @@ AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 �
 
 ## 환자-수준 예측 연구 설계
 
-이 섹션에서는 예측 연구를 설계하는 방법을 보여준다. 첫 번째 단계는 예측 문제를 명확하게 정의하는 것이다. 흥미롭게도, 많은 출판된 논문에서 예측 문제가 잘 정의되어 있지 않다. 예를 들어 인덱스 날짜(표적 코호트의 시작)가 어떻게 정의되어 있는지 명확하지 않다. 잘못 정의된 예측 문제는 임상 실무에서의 구현은 물론 다른 사람들에 의한 외적 타당도 검정이 불가능하다.  환자-수준 예측 프레임워크에서 표\@ref(tab:plpDesign)에 정의된 주요 선택 사항을 명시적으로 정의하고 예측 문제의 적절한 선택을 한다. 여기서는 "치료의 안전성"을 보는 유형의 예측 문제를 예로 들어 이 프로세스를 살펴보자. \index{index date}
+이 섹션에서는 예측 연구를 설계하는 방법을 보여준다. 첫 번째 단계는 예측 문제를 명확하게 정의하는 것이다. 흥미롭게도, 많은 출판된 논문에서 예측 문제가 잘 정의되어 있지 않다. 예를 들어 인덱스 날짜(표적 코호트의 시작)가 어떻게 정의되어 있는지 명확하지 않다. 잘못 정의된 예측 문제는 임상 실무에서의 구현은 물론 다른 사람들에 의한 외적 타당도 검정이 불가능하다.  환자-수준 예측 프레임워크에서 표 \@ref(tab:plpDesign)에 정의된 주요 선택 사항을 명시적으로 정의하고 예측 문제의 적절한 선택을 한다. 여기서는 "치료의 안전성"을 보는 유형의 예측 문제를 예로 들어 이 프로세스를 살펴보자. \index{index date}
 
 ### 문제 정의
 

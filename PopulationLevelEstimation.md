@@ -11,7 +11,7 @@
 
 In both cases, the patient-level causal effect contrasts a factual outcome, i.e., what happened to the exposed patient, with a counterfactual outcome, i.e., what would have happened had the exposure not occurred (direct) or had a different exposure occurred (comparative). Since any one patient reveals only the factual outcome (the fundamental problem of causal inference), the various effect estimation designs employ different analytic devices to shed light on the counterfactual outcomes. \index{counterfactual}
 
-인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트(예: signal evaluation)하거나 다중 가설을 한 번에 탐색(예: signal detection)할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
+인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 signal evaluation)하거나 다중 가설을 한 번에 탐색(예를 들어 signal detection)할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
 
 이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **Population-Level Estimation** study design를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다.
 마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
@@ -85,7 +85,7 @@ $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{
 
 \index{covariate balance} \index{balance|see {covariate balance}}
 
-좋은 방침(good practice)은 성향 점수 보정이 균형 잡힌 환자 그룹을 만드는 데 성공했는지 항상 확인하는 것이다. 그림 \@ref(fig:balance)은 균형을 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 성향 점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일부 지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다. [@rubin_2001]
+좋은 방침(good practice)은 성향 점수 보정이 균형 잡힌 환자 그룹을 만드는 데 성공했는지 항상 확인하는 것이다. 그림 \@ref(fig:balance)는 균형을 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 성향 점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일부 지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다. [@rubin_2001]
 
 ## 자가 통제 코호트 연구 설계 (The Self-Controlled Cohort Design)
 
@@ -328,7 +328,7 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 코호트 종료일을 time-at-risk 종료일로 설정하여, 약물 노출이 중지된 시점으로 설정하였다. 예를 들어, 치료 종료 후에 발생한 event가 노출로 인한 것으로 판단될 경우, time-at-risk의 종료일을 나중으로 설정할 수 있다. 극단적인 경우, time-at-risk 종료를 코호트 종료일 후에 매우 이후 (예를 들어 99999일)로 설정할 수 있다. 이는 관찰 종료까지 피험자를 추적 관찰하는 것을 의미한다. 이러한 연구 설계를 때로는 *intent-to-treat* 설계라고도 한다.
 
-index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days at risk)** 가 0일인 환자는 추가적인 정보가 없기 때문에, **최소 관찰 기간 (minimum days at risk)** 은 보통 1일로 설정한다. 노출과 outcome 발생에 대한 지연시간(latency)이 알려져 있다면, 이러한 일수를 늘려 더 유익한 비율(more informative proportion)을 얻을 수도 있을 것이다. 이러한 설정은 무작위 임상 시험과 유사한 연구 설계를 위해서도 사용할 수 있다 (예를 들어, 임상시험에 참여한 피험자가 최소한 N 일 동안은 관찰되었다고 할 때).
+index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days at risk)**가 0일인 환자는 추가적인 정보가 없기 때문에, **최소 관찰 기간 (minimum days at risk)**은 보통 1일로 설정한다. 노출과 outcome 발생에 대한 지연시간(latency)이 알려져 있다면, 이러한 일수를 늘려 더 유익한 비율(more informative proportion)을 얻을 수도 있을 것이다. 이러한 설정은 무작위 임상 시험과 유사한 연구 설계를 위해서도 사용할 수 있다 (예를 들어, 임상시험에 참여한 피험자가 최소한 N 일 동안은 관찰되었다고 할 때).
 
 \BeginKnitrBlock{rmdimportant}<div class="rmdimportant">코호트 연구를 설계할 때, 황금률(golden rule)은 편향(bias)이 개입될 수 있으므로 연구 대상을 정의하기 위해 코호트 시작일 이후의 정보를 절대로 사용하지 않는 것이다. 예를 들어, 모든 피험자들에게 적어도 1년의 time-at-risk가 요구된다면, 우리는 치료를 잘 견디는 피험자들로 분석을 제한했다는 뜻이다. 따라서, 이러한 설정은 세심한 주의를 기울여 사용해야 한다.</div>\EndKnitrBlock{rmdimportant}
 
@@ -772,7 +772,7 @@ head(summ)
 <p class="caption">(\#fig:ps)성향 점수 분포.</p>
 </div>
 
-일반적으로 성향 점수 모델 자체를 검사하는 것이 좋으며, 특히 모델이 매우 예측적일 경우에는 그렇다. 그렇게 하면 어떤 변수가 가장 예측적인지를 알 수 있다. 표 \@ref(tab:psModel) 은 성향 모델에서 상위 예측 변수를 보여준다. 변수가 너무 예측적일 경우, CohortMethod 패키지는 이미 완벽하게 예측된 모델을 적합하려고 시도하기보단 정보학적 에러를 발생시킬 것이다. \index{propensity model!example}
+일반적으로 성향 점수 모델 자체를 검사하는 것이 좋으며, 특히 모델이 매우 예측적일 경우에는 그렇다. 그렇게 하면 어떤 변수가 가장 예측적인지를 알 수 있다. 표 \@ref(tab:psModel)은 성향 모델에서 상위 예측 변수를 보여준다. 변수가 너무 예측적일 경우, CohortMethod 패키지는 이미 완벽하게 예측된 모델을 적합하려고 시도하기보단 정보학적 에러를 발생시킬 것이다. \index{propensity model!example}
 
 Table: (\#tab:psModel) Top 10 predictors in the propensity model for ACEi and THZ. Positive values mean subjects with the covariate are more likely to receive the target treatment. "(Intercept)" indicates the intercept of this logistic regression model.
 
@@ -793,7 +793,7 @@ Table: (\#tab:psModel) Top 10 predictors in the propensity model for ACEi and TH
 
 ### 공변량 균형
 
-성향점수를 사용하는 목적은 두 군을 비교 가능하게 만드는 (또는 적어도 비교할 수 있는 군을 선택하는) 것이다. 기저 공변량이 조정 후 실제로 균형 (balance)을 이루고 있는지 등을 확인하여 이 목적이 달성되었는지 입증해야 한다. `computeCovariateBalance` 및 `plotCovariateBalanceScatterPlot` 함수를 사용하여 그림\@ref(fig:balance)을 생성할 수 있다. 한 가지 주요한 원칙은 성향 점수 조정 후 공변량이 0.1보다 큰 표준 차이 값 (absolute standardized difference of means)을 가져서는 안 된다는 것이다. 여기서는 성향점수 짝짓기 이전에 상당한 불균형이 있었음에도 불구하고, matching 이후에는 이 기준을 충족한다는 것을 알 수 있다.
+성향점수를 사용하는 목적은 두 군을 비교 가능하게 만드는 (또는 적어도 비교할 수 있는 군을 선택하는) 것이다. 기저 공변량이 조정 후 실제로 균형(balance)을 이루고 있는지 등을 확인하여 이 목적이 달성되었는지 입증해야 한다. `computeCovariateBalance` 및 `plotCovariateBalanceScatterPlot` 함수를 사용하여 그림\@ref(fig:balance)을 생성할 수 있다. 한 가지 주요한 원칙은 성향 점수 조정 후 공변량이 0.1보다 큰 표준 차이 값 (absolute standardized difference of means)을 가져서는 안 된다는 것이다. 여기서는 성향점수 짝짓기 이전에 상당한 불균형이 있었음에도 불구하고, matching 이후에는 이 기준을 충족한다는 것을 알 수 있다.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/balance.png" alt="공변량 균형, 성향 점수 매칭 전과 후의 절대 표준화 평균 차이를 보여준다. 각 점은 공변량을 나타낸다." width="70%" />
@@ -802,7 +802,7 @@ Table: (\#tab:psModel) Top 10 predictors in the propensity model for ACEi and TH
 
 ### 추적기간과 통계력
 
-Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 통계력(power)이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 통계력 계산을 수행하는 것이 좋다. 그림\@ref(fig:attrition)과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
+Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 통계력(power)이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 통계력 계산을 수행하는 것이 좋다. 그림 \@ref(fig:attrition)과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/attrition.png" alt="Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 Cox 회귀 분석이다." width="70%" />
@@ -820,7 +820,7 @@ Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있
 
 ### Kaplan-Meier
 
-마지막으로 한 가지 검사는 두 코호트에서 시간 경과에 따른 생존율을 보여주는 Kaplan-Meier plot을 검토하는 것이다. `plotKaplanMeier` 함수를 사용하여 그림 \@ref(fig:kmPlot) 을 만들 수 있는데, 여기서 예를 들면 위험 비례 가정이 성립하는지 확인할 수 있다. Kaplan-Meier plot은 성향점수별로 층화 또는 가중치를 자동으로 조정한다. 이 경우, variable-ratio matching을 사용했으므로, 대조군의 생존 곡선이 조정되어 대상 군이 대조 약물에 노출되었을 경우 대상 군의 생존 곡선이 어떤 모습인지 모방하여 그려진다. \index{Kaplan-Meier plot} \index{survival plot|see {Kaplan-Meier plot}}
+마지막으로 한 가지 검사는 두 코호트에서 시간 경과에 따른 생존율을 보여주는 Kaplan-Meier plot을 검토하는 것이다. `plotKaplanMeier` 함수를 사용하여 그림 \@ref(fig:kmPlot)을 만들 수 있는데, 여기서 예를 들면 위험 비례 가정이 성립하는지 확인할 수 있다. Kaplan-Meier plot은 성향점수별로 층화 또는 가중치를 자동으로 조정한다. 이 경우, variable-ratio matching을 사용했으므로, 대조군의 생존 곡선이 조정되어 대상 군이 대조 약물에 노출되었을 경우 대상 군의 생존 곡선이 어떤 모습인지 모방하여 그려진다. \index{Kaplan-Meier plot} \index{survival plot|see {Kaplan-Meier plot}}
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/kmPlot.png" alt="Kaplan-Meier plot." width="100%" />
@@ -842,11 +842,11 @@ Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있
 - OHDSI Methods Library에서 구현되는 다양한 연구설계는 적절한 상대 집합(counterfactual)을 작성하기 위한 가정이 충족되었는지 여부를 평가하는 진단 (diagnostic)을 제공한다.
 </div>\EndKnitrBlock{rmdsummary}
 
-## 연습
+## 예제
 
-#### 필수 구성 요소 {-}
+#### 전제조건 {-}
 
-이 연습문제를 위해서는 R, R-studio, Java가 절 \@ref(installR) 에서 설명한 바와 같이 설치되어 있어야 한다. 또한 다음과 같이 [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/), [Eunomia](https://ohdsi.github.io/Eunomia/), [CohortMethod](https://ohdsi.github.io/CohortMethod/) 패키지를 모두 설치해야 된다.
+이 예제를 위해서는 R, R-studio, Java가 \@ref(installR)절에서 설명한 바와 같이 설치되어 있어야 한다. 또한 다음과 같이 [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/), [Eunomia](https://ohdsi.github.io/Eunomia/), [CohortMethod](https://ohdsi.github.io/CohortMethod/) 패키지를 모두 설치해야 된다.
 
 
 ```r

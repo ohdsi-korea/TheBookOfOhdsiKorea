@@ -148,7 +148,7 @@ translate(sql, targetDialect = "postgresql")
 ## [1] "SELECT  * FROM person LIMIT 10;"
 ```
 
-`targetDialect` 매개 변수는 다음과 같은 값을 가질 수 있다: "oracle", "postgresql", "pdw"", "redshift"", "impala", "netezza", "bigquery", "sqlite", and "sql server". \index{SqlRender!translation}
+`targetDialect` 매개 변수는 다음과 같은 값을 가질 수 있다: "oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", and "sql server". \index{SqlRender!translation}
 
 \BeginKnitrBlock{rmdimportant}<div class="rmdimportant">패키지에는 제한된 변환 규칙 세트만 구현되었기 때문에 SQL의 함수 및 구성을 적절하게 번역되는 것에는 한계가 있을 뿐 아니라 일부 SQL의 특징은 모든 언어에서 동일하지 않다. OHDSI SQL이 독자적인 새로운 문법으로 개발된 주된 이유이다. 하지만 이미 있는 것을 다시 만드느라 쓸데없이 시간을 낭비하지 않기 위해 SQL Server 구문을 유지하였다.</div>\EndKnitrBlock{rmdimportant}
 
@@ -267,7 +267,7 @@ INNER JOIN (
 ON table_1.person_id = table_2.person_id;
 ```
 
-그러나 Oracle에서는 `AS` 키워드를 사용하면 오류가 발생한다. 위의 예제 중 첫 번째 질의는 실패한다. 따라서 테이블 별칭을 지정할 때 `AS` 키워드를 사용하지 않는 것이 좋다. (참고: Oracle에서 `AS`를 사용할 수 없는 테이블 별칭과 이 `AS`를 사용해야 하는 필드 별칭을 쉽게 구별할 수 없기 때문에 SqlRender가 이 것을 처리하도록 만들 수 없다.)
+그러나 Oracle에서는 `AS` 키워드를 사용하면 오류가 발생한다. 위의 예제 중 첫 번째 질의는 실패한다. 따라서 테이블 별칭을 지정할 때 `AS` 키워드를 사용하지 않는 것이 좋다. (참고로 Oracle에서 `AS`를 사용할 수 없는 테이블 별칭과 이 `AS`를 사용해야 하는 필드 별칭을 쉽게 구별할 수 없기 때문에 SqlRender가 이 것을 처리하도록 만들 수 없다)
 
 #### 임시 테이블 {-}
 
@@ -284,7 +284,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.oqyzgu4zchildren ;"
+## [1] "SELECT * FROM temp_schema.bxfciu3achildren ;"
 ```
 
 사용자는 `temp_schema`에 대한 쓰기 권한이 있어야 한다.
@@ -369,14 +369,14 @@ launchSqlRenderDeveloper()
 
 ## DatabaseConnector {#DatabaseConnector}
 
-[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 는 Java의 JDBC 드라이버를 사용하여 다양한 데이터베이스 플랫폼에 연결하기 위한 R 패키지이다. DatabaseConnector 패키지는 CRAN (종합 R 아카이브 네트워크)에서 사용할 수 있으므로 다음을 사용하여 설치할 수 있다:
+[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 는 Java의 JDBC 드라이버를 사용하여 다양한 데이터베이스 플랫폼에 연결하기 위한 R 패키지이다. DatabaseConnector 패키지는 CRAN (종합 R 아카이브 네트워크) 에서 사용할 수 있으므로 다음을 사용하여 설치할 수 있다:
 
 
 ```r
 install.packages("DatabaseConnector")
 ```
 
-DatabaseConnector는 기존 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite 및 Oracle), 병렬 데이터웨어 하우스(Microsoft APS, IBM Netezza 및 Amazon RedShift) 및 빅데이터 플랫폼(Hadoop through Impla 및 Google BigQuery)을 포함한 다양한 기술 플랫폼을 지원한다. 패키지에는 이미 대부분의 드라이버가 포함되어 있지만, 라이센스 문제로 인해 BigQuery, Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가 획득해야 한다. 이러한 드라이버를 다운로드하는 방법에 대한 지침을 보려면 `?jdbcDrivers` 를 입력한다. 다운로드한 후 `connect`, `dbConnect`, and `createConnectionDetails` 함수의 `pathToDriver` 인수로 사용할 수 있다.
+DatabaseConnector는 기존 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite 및 Oracle), 병렬 데이터웨어 하우스 (Microsoft APS, IBM Netezza 및 Amazon RedShift) 및 빅데이터 플랫폼 (Hadoop through Impla 및 Google BigQuery) 을 포함한 다양한 기술 플랫폼을 지원한다. 패키지에는 이미 대부분의 드라이버가 포함되어 있지만, 라이센스 문제로 인해 BigQuery, Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가 획득해야 한다. 이러한 드라이버를 다운로드하는 방법에 대한 지침을 보려면 `?jdbcDrivers` 를 입력한다. 다운로드한 후 `connect`, `dbConnect`, and `createConnectionDetails` 함수의 `pathToDriver` 인수로 사용할 수 있다.
 
 ### 연결 생성하기
 
@@ -691,7 +691,7 @@ Exposure(노출)은 lisinopril에 대한 첫번째 노출로 정의한다. 먼�
 
 입원 또는 응급실 방문 중 혈관 부종 진단 코드의 발생으로 혈관 부종을 정의한다. 
 
-### Time-at-risk(위험 노출 기간)
+### 위험 노출 기간 (Time-at-risk)
 
 환자가 일주일 동안 노출되었는지 여부와 관계없이 이 치료 시작 후 첫 주에 발생률을 계산한다.
 
@@ -884,7 +884,7 @@ results <- renderTranslateQuerySql(conn, sql,
                                    snakeCaseToCamelCase = TRUE)
 ```
 
-우선 적절한 time-at-risk(위험 노출 기간)로 모든 노출을 포함하는 CTE인 "tar"를 만든다. OBSERVATION_PERIOD_END_DATE에서 위험 관찰 기간을 단축한다는 점에 유의한다. 또한 10년 단위로 나이를 계산하고 성별을 파악한다. CTE를 사용하면 동일한 중간 결과 집합을 질의에서 여러 번 사용할 수 있다는 장점이 있다. 이 경우 위험 관찰 기간 동안 발생하는 혈관 부종 사건의 수와 총 위험 관찰 기간의 양을 계산하는 데 사용된다.
+우선 적절한 위험 노출 기간(time-at-risk)으로 모든 노출을 포함하는 CTE인 "tar"를 만든다. OBSERVATION_PERIOD_END_DATE에서 위험 관찰 기간을 단축한다는 점에 유의한다. 또한 10년 단위로 나이를 계산하고 성별을 파악한다. CTE를 사용하면 동일한 중간 결과 집합을 질의에서 여러 번 사용할 수 있다는 장점이 있다. 이 경우 위험 관찰 기간 동안 발생하는 혈관 부종 사건의 수와 총 위험 관찰 기간의 양을 계산하는 데 사용된다.
 
 SQL에서는 필드 이름에 snake_case(대소문자를 구분하지 않는)를 사용하는 반면 R에서는 camelCase(대소문자를 구분하는)를 사용하는 경향이 있기 때문 `snakeCaseToCamelCase = TRUE`로 한다. `results` 데이터 프레임 열 이름은 이제 camelCase이다. 
 
@@ -942,9 +942,9 @@ OHDSI SQL을 DatabaseConnector 및 SQLRender와 함께 사용하기 때문에 �
 - **QueryLibrary** 는 CDM에 재사용 가능한 SQL 질의 모음을 제공한다.
 </div>\EndKnitrBlock{rmdsummary}
 
-## 연습문제
+## 예제
 
-#### 필수 구성 요소 {-}
+#### 전제조건 {-}
 
 이 연습문제에서는 \@ref(installR)절에서 설명된 대로 R, R-Studio, Java가 설치되었다고 가정한다. 또한 다음을 사용하여 설치할 수 있는 [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 및 [Eunomia](https://ohdsi.github.io/Eunomia/) 패키지도 필요하다:
 
@@ -968,7 +968,7 @@ CDM 데이터베이스 스키마는 "main"이다.
 
 \BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCelecoxibUsers"><strong>(\#exr:exerciseCelecoxibUsers) </strong></span>SQL과 R을 사용하여 celecoxib를 적어도 한번 이상 처방 한 사람을 계산하십시오.
 </div>\EndKnitrBlock{exercise}
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseGiBleedsDuringCelecoxib"><strong>(\#exr:exerciseGiBleedsDuringCelecoxib) </strong></span>SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 gastrointestinal hemorrhage(위장 출혈)이 있는지 진단한다. (힌트: 위장 출혈의 concept ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseGiBleedsDuringCelecoxib"><strong>(\#exr:exerciseGiBleedsDuringCelecoxib) </strong></span>SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈(gastrointestinal hemorrhage)이 있는지 진단한다. (힌트: 위장 출혈의 concept ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
 </div>\EndKnitrBlock{exercise}
 
 제안된 답변은 부록 \@ref(SqlAndRanswers)에서 찾을 수 있다.

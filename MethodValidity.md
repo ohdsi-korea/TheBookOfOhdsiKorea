@@ -155,7 +155,7 @@ $$\Phi\left(
 
 여기서 $\Phi(\cdot)$는 표준 정규 분포의 누적 분포 함수를 나타낸다. 상한도 유사하게 확률 0.975에서 찾는다. 확률 0.5를 이용하여 보정된 점 추정치를 정의한다.
 
-[EmpiricalCalibration]https://ohdsi.github.io/EmpiricalCalibration/) 패키지에서 p-값 보정과 신뢰 구간 보정이 모두 구현된다.
+[EmpiricalCalibration](https://ohdsi.github.io/EmpiricalCalibration/) 패키지에서 p-값 보정과 신뢰 구간 보정이 모두 구현된다.
 
 ### 사이트 간 복제
 

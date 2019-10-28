@@ -8,7 +8,7 @@ OHDSI는 관찰 환자 수준 데이터에 대한 다양한 데이터 분석 사
 
 ## 분석 구현 {#analysisImplementation}
 
-그림 \@ref(fig:implementations) 은 CDM을 사용하여 데이터베이스에 대한 연구를 구현하도록 선택할 수 있는 다양한 방법을 보여준다. \index{analysis implementation}
+그림 \@ref(fig:implementations)은 CDM을 사용하여 데이터베이스에 대한 연구를 구현하도록 선택할 수 있는 다양한 방법을 보여준다. \index{analysis implementation}
 
 <div class="figure" style="text-align: center">
 <img src="images/OhdsiAnalyticsTools/implementations.png" alt="CDM의 데이터에 대한 분석을 구현하는 다양한 방법" width="90%" />
@@ -56,7 +56,7 @@ ATLAS는 CDM 형식으로 표준화된 환자 수준 관측 데이터에 대한 
 <p class="caption">(\#fig:atlas)ATLAS 사용자 인터페이스</p>
 </div>
 
-ATLAS 스크린샷은 그림 \@ref(fig:atlas) 에 제공된다. 왼쪽에는 ATLAS에서 제공하는 다양한 기능을 보여주는 내비게이션 바가 있다:
+ATLAS 스크린샷은 그림 \@ref(fig:atlas)에 제공된다. 왼쪽에는 ATLAS에서 제공하는 다양한 기능을 보여주는 내비게이션 바가 있다:
 
 
 
@@ -119,7 +119,7 @@ ATLAS에 대한 설명서는 ATLAS GitHub repository wiki.[^atlasRepoWikiUrl] �
 
 ### 설치 방법
 
-ATLAS 설치는 OHDSI WebAPI와 함께 수행된다. 각 구성 요소의 설치 가이드는 ATLAS GitHub 저장소 설정 가이드[^atlasSetupGuideUrl] 및 WebAPI GitHub 저장소 설치 가이드[^webApiInstallationGuideUrl] \index{ATLAS!installation}
+ATLAS 설치는 OHDSI WebAPI와 함께 수행된다. 각 구성 요소의 설치 가이드는 ATLAS GitHub 저장소 설정 가이드[^atlasSetupGuideUrl] 및 WebAPI GitHub 저장소 설치 가이드[^webApiInstallationGuideUrl]에서 찾아볼 수 있다. \index{ATLAS!installation}
 
 [^atlasSetupGuideUrl]: https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
 [^webApiInstallationGuideUrl]: https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide

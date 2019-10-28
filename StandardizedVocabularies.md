@@ -1,4 +1,4 @@
-# 표준화된 용어 {#StandardizedVocabularies}
+# OMOP 표준 용어 {#StandardizedVocabularies}
 
 \index{standardized vocabularies}
 
@@ -17,7 +17,7 @@
 <p class="caption">(\#fig:bill)1660 London Bill of Mortality, 당시 알려진 62가지 질병의 분류 체계를 사용하여 사망한 거주자의 사망 원인을 보여준다.</p>
 </div>
 
-그 후, 의학 용어 분류는 규모와 복잡성이 크게 확대되면서 시술, 서비스, 약물, 의료기기 등, 의료의 다른 측면으로 널리 전파되었다. 의학 용어 분류의 주요 원칙은 동일하게 유지된다: 즉, 일부 의료 커뮤니티가 환자 데이터를 캡처, 분류 및 분석하기 위한 목적으로 동의한 통제 용어, 용어, 계층 및 언어 개념 (ontologies:온톨로지) 이다. 이러한 vocabularies의 상당수는 공공기관과 정부 기관에서 장기적으로 의무 관리하고 있다. 예를 들면, 세계보건기구(WHO)는 최근 11차 개정판(ICD11)이 추가되면서 국제 질병분류(ICD)를 추가하였다. 지역 정부들은 ICD10CM(USA), ICD10GM(독일) 등과 같은 국가별 버전을 만들고 있다. 정부들은 또한, 의약품의 마케팅과 판매를 통제하고 인증된 의약품의 국가 저장 목록을 운영하고 있다. Vocabularies는 상업용 제품 또는 내부용으로 민간 부문에서도 사용된다. 예를 들면, 전자건강기록(EHR) 시스템과 의료보험청구용이 있다. 
+그 후, 의학 용어 분류는 규모와 복잡성이 크게 확대되면서 시술, 서비스, 약물, 의료기기 등, 의료의 다른 측면으로 널리 전파되었다. 의학 용어 분류의 주요 원칙은 동일하게 유지된다: 즉, 일부 의료 커뮤니티가 환자 데이터를 캡처, 분류 및 분석하기 위한 목적으로 동의한 통제 용어, 용어, 계층 및 언어 개념 (ontologies: 온톨로지) 이다. 이러한 vocabularies의 상당수는 공공기관과 정부 기관에서 장기적으로 의무 관리하고 있다. 예를 들면, 세계보건기구(WHO)는 최근 11차 개정판(ICD11)이 추가되면서 국제 질병분류(ICD)를 추가하였다. 지역 정부들은 ICD10CM(USA), ICD10GM(독일) 등과 같은 국가별 버전을 만들고 있다. 정부들은 또한, 의약품의 마케팅과 판매를 통제하고 인증된 의약품의 국가 저장 목록을 운영하고 있다. Vocabularies는 상업용 제품 또는 내부용으로 민간 부문에서도 사용된다. 예를 들면, 전자건강기록(EHR) 시스템과 의료보험청구용이 있다. 
 
 그 결과, 각 국가, 지역, 의료시스템 및 의료기관은 분류가 사용된 지역에만 관련될 수 있는 자체 질병분류체계를 갖고 있을 가능성이 높다. 이러한 무수히 많은 Vocabularies는 사용 중인 시스템의 상호운용성을 방해한다. 표준화는 환자 데이터 교환을 가능하게 하고, 전 세계적 수준의 의료 데이터 분석의 길을 열어주고, 성능 특성 분석 및 품질 평가를 포함한 체계적이고 표준화된 연구를 가능하게 하는 핵심 요소이다. 이러한 문제를 해결하기 위해, 위에서 언급된 WHO와 the Standard Nomenclature of Medicine(SNOMED) 또는 Logical Observation Identifiers Names and Codes(LOINC). 같은 다국적 기관들이 생겨나고 광범위한 표준들을 만들기 시작했다. 미국의 보건 IT 표준 위원회 HITAC(Health IT Standards Committee)는 다양한 단체 간의 건강 정보 교환을 위한 공통 플랫폼에서 사용하기 위해 ONC(National Coordinator for Health IT)의 표준으로 SNOMED, LOINC 및 drug vocabulary인 RxNorm을 사용할 것을 권장하고 있다. 
 
@@ -77,7 +77,7 @@ OMOP CDM의 모든 clinical events들은 concepts으로 표현되며, 이는 각
 </div>
 
 Heuristic(경험적 지식)을 이용한 도메인 할당 방법은 도메인의 정의를 따라 진행한다.
-이러한 정의는 CDM의 테이블 및 필드 정의에서 파생된다(\@ref(CommonDataModel)장 참조). heuristic(경험적 지식)은 완벽하지 않으며, 불분명하다(\@ref(specialSituations절의 "Special Situations" 참조). 만일, 잘못 지정된 concept 도메인을 발견한다면, [Forums](https://forums.ohdsi.org) 또는 [CDM issue](https://github.com/OHDSI/CommonDataModel/issues) 게시판을 통하여, 문제점을 보고하고 개선하도록 해야 한다.
+이러한 정의는 CDM의 테이블 및 필드 정의에서 파생된다 (\@ref(CommonDataModel)장 참조). heuristic(경험적 지식)은 완벽하지 않으며, 불분명하다 (\@ref(specialSituations)절의 "Special Situations" 참조). 만일, 잘못 지정된 concept 도메인을 발견한다면, [Forums](https://forums.ohdsi.org) 또는 [CDM issue](https://github.com/OHDSI/CommonDataModel/issues) 게시판을 통하여, 문제점을 보고하고 개선하도록 해야 한다.
 
 ### 용어 (Vocabularies)
 
@@ -101,11 +101,11 @@ None | APC, all Type Concepts, Ethnicity, OXMIS, Race, Revenue Code, Sponsor, Su
 
 ### 표준 개념 {#standardConcepts}
 
-각 clinical event의 의미를 나타내는 하나의 concept을 표준이라고 부른다. 예를 들면, MESH 코드 D001281, CIEL 코드 148203, SNOMED 코드 49436004, ICD9CM 코드 427.31 및 Read 코드 G573000은 모두 condition 도메인에서 "Atrial fibrillation"을 정의하지만, Condition 데이터에서 SNOMED의 concept만이 표준이고 그 데이터에서 질환을 나타낸다. 나머지는 비표준 개념 또는 소스 개념 (source concepts) 으로 지정되고, 표준 개념에 매핑이 된다. Standard Concepts은 STANDARD_CONCEPT 필드에 "S"라고 표시한다. 그리고 이러한 Standard Concepts만이 "_CONCEPT_ID"로 끝나는 CDM 필드에 데이터를 기록하는 데 사용된다. \index{standard concept}
+각 clinical event의 의미를 나타내는 하나의 concept을 표준이라고 부른다. 예를 들면, MESH 코드 D001281, CIEL 코드 148203, SNOMED 코드 49436004, ICD9CM 코드 427.31 및 Read 코드 G573000은 모두 condition 도메인에서 "Atrial fibrillation"을 정의하지만, Condition 데이터에서 SNOMED의 concept만이 표준이고 그 데이터에서 질환을 나타낸다. 나머지는 비표준 개념 또는 소스 개념(source concepts) 으로 지정되고, 표준 개념에 매핑이 된다. Standard Concepts은 STANDARD_CONCEPT 필드에 "S"라고 표시한다. 그리고 이러한 Standard Concepts만이 "_CONCEPT_ID"로 끝나는 CDM 필드에 데이터를 기록하는 데 사용된다. \index{standard concept}
 
 ### 비표준 개념
 
-비표준 개념은 clinical event를 나타내는데 사용되지 않으나, 여전히 표준화된 용어 일부이고 소스데이터에서 흔히 발견된다. 이런 이유로, 그것들은 "source concepts"라고 부른다. source concepts을 Standard Concepts으로 변환하는 과정을 "mapping"이라고 부른다. (\@ref(conceptMapping)절 참조) 비표준 개념은 STANDARD_CONCEPT 필드에 값이 없다. (NULL)
+비표준 개념은 clinical event를 나타내는데 사용되지 않으나, 여전히 표준화된 용어 일부이고 소스데이터에서 흔히 발견된다. 이런 이유로, 그것들은 "source concepts"라고 부른다. source concepts을 Standard Concepts으로 변환하는 과정을 "mapping"이라고 부른다 (\@ref(conceptMapping)절 참조). 비표준 개념은 STANDARD_CONCEPT 필드에 값이 없다. (NULL)
 
 ### 분류된 개념들 (Classification Concepts)
 
@@ -116,7 +116,7 @@ None | APC, all Type Concepts, Ethnicity, OXMIS, Race, Revenue Code, Sponsor, Su
 <p class="caption">(\#fig:hierarchy)Standard, non-standard source 및 분류 개념 및 condition 도메인에서의 계층적 관계.SNOMED는 대부분 standard condition concepts (일부 ICDO3에서 파생된 종양학 관련 개념)에 사용되고, MedDRA 개념은 계층 분류 개념에 사용되는데, 다른 모든 vocabularies는 비표준 개념이나 소스 개념이 포함되어 있어서 계층 구조에는 포함하지 않는다.</p>
 </div>
 
-개념을 표준, 비표준 및 분류 중 어디로 지정할지 선택할 때 각 도메인에 용어 수준에서 개별적으로 시행한다. 이는 개념의 질, 내장된 계층구조 및 그 용어가 선언된 목적에 따라 행해진다. 또한, 용어의 모든 개념이 표준 개념으로 사용되는 것은 아니다. 어디로 지정할지는 각 도메인마다 분리되어 있고, 각 개념은 유효해야 하며 (\@ref(conceptLifeCycle)세션 참조), 다른 vocabularies에서 하나 이상의 개념이 같은 의미로 경쟁하는 경우 우선순위가 있을 수 있다. 다른 말로 하면, 그런 경우에는 표준 용어는 존재하지 않는다. 예는 표 \@ref(tab:vocabList)를 참고하기 바란다.
+개념을 표준, 비표준 및 분류 중 어디로 지정할지 선택할 때 각 도메인에 용어 수준에서 개별적으로 시행한다. 이는 개념의 질, 내장된 계층구조 및 그 용어가 선언된 목적에 따라 행해진다. 또한, 용어의 모든 개념이 표준 개념으로 사용되는 것은 아니다. 어디로 지정할지는 각 도메인마다 분리되어 있고, 각 개념은 유효해야 하며 (\@ref(conceptLifeCycle)절 참조), 다른 vocabularies에서 하나 이상의 개념이 같은 의미로 경쟁하는 경우 우선순위가 있을 수 있다. 다른 말로 하면, 그런 경우에는 표준 용어는 존재하지 않는다. 예는 표 \@ref(tab:vocabList)를 참고하기 바란다.
 
 Table: (\#tab:vocabList) Standard/nonstandard/classification concept 할당에 활용할 vocabularies 목록 
 
@@ -132,7 +132,7 @@ Visit | CMS Place of Service, ABMT, NUCC | SNOMED, HCPCS, CPT4, UB04 | None at t
 
 ### 개념 코드 (Concept Codes)
 
-개념 코드들은 source vocabularies에서 사용되는 식별자들이다. 예를 들어, ICD9CM 또는 NDC 코드는 해당 필드에 저장되는데, OMOP 테이블은 concept ID를 CONCEPT 테이블에 foreign key로 사용을 한다. 그 이유는, name space가 vocabularies에 걸쳐 겹치기 때문이고, 동일한 코드가 완전히 다른 의미로 다른 용어에 존재할 수 있기 때문이다. (표\@ref(tab:code1001)참조) \index{concept!code}
+개념 코드들은 source vocabularies에서 사용되는 식별자들이다. 예를 들어, ICD9CM 또는 NDC 코드는 해당 필드에 저장되는데, OMOP 테이블은 concept ID를 CONCEPT 테이블에 foreign key로 사용을 한다. 그 이유는, name space가 vocabularies에 걸쳐 겹치기 때문이고, 동일한 코드가 완전히 다른 의미로 다른 용어에 존재할 수 있기 때문이다. (표 \@ref(tab:code1001)참조) \index{concept!code}
 
 Table: (\#tab:code1001) 동일한 concept 코드 1001을 사용하지만, vocabularies, 도메인, concept classes가 다른 개념.
 
@@ -157,7 +157,7 @@ Vocabularies는 영원불변의 고정된 코드 세트인 경우는 드물다. 
 	- VALID_END_DATE: "지금은 활성화되어 있으나, 추후에는 무효가 될 수가 있음."을 나타내는 규칙으로 2099-12-31을 설정.
 	- INVALID_REASON: NULL
 - **후속 코드 없이 더 이상 사용되지 않는 개념**
-	- 설명: Concept이 비활성화 상태여서 표준으로 사용할 수 없다. (\@ref(standardConcepts)절 참조).
+	- 설명: Concept이 비활성화 상태여서 표준으로 사용할 수 없다. (\@ref(standardConcepts)절 참조)
 	- VALID_START_DATE: concept의 instantiation의 날, Vocabularies에 concepts을 통합한 날을 알지 못하거나, 알려지지 않은 경우 1970-1-1. 
 	- VALID_END_DATE: 사용 중단을 나타내는 과거의 날짜, 또는 해당 날짜를 알 수 없는 경우, concept이 누락되거나 비활성화된 vocabulary 갱신일 
 	- INVALID_REASON: "D"
@@ -269,7 +269,7 @@ VOCABULARY 테이블에는 기존 vocabulary의 source와 버전을 참조하는
 
 ### 성별
 
-OMOP CDM 및 Standardized Vocabularies의 성별은 출생 시의 생물학적 성별을 나타내지만, 종종 양자택일하는 성별을 어떻게 정의하는지 의문이 제기된다. 이러한 사례들은 OBSERVATION 테이블의 레코드를 통하여 처리해야 하는데, 여기에 개인이 자체적으로 정의한 성별이 저장된다. (데이터 자산에 정보가 포함된 경우)
+OMOP CDM 및 Standardized Vocabularies의 성별은 출생 시의 생물학적 성별을 나타내지만, 종종 양자택일하는 성별을 어떻게 정의하는지 의문이 제기된다. 이러한 사례들은 OBSERVATION 테이블의 레코드를 통하여 처리해야 하는데, 여기에 개인이 자체적으로 정의한 성별이 저장된다 (데이터 자산에 정보가 포함된 경우).
 
 ### 인종과 민족 
 
@@ -320,7 +320,7 @@ Drug 도메인의 많은 concepts은 미국 국립 의학 도서관(National Lib
 - 실수나, 오류를 발견한 경우 community에 참여할 것을 적극적으로 권장한다.
 </div>\EndKnitrBlock{rmdsummary}
 
-## 연습
+## 예제
 
 #### 전제조건 {-}
 
@@ -333,7 +333,7 @@ Concepts을 찾아 볼 필요가 있다.
 \BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseVocab1"><strong>(\#exr:exerciseVocab1) </strong></span>"Gastrointestinal hemorrhage"에 대한 Standard Concept ID는 무엇인가?
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseVocab2"><strong>(\#exr:exerciseVocab2) </strong></span>"Gastrointestinal hemorrhage"에 대한 Standard Concept에 어떤 ICD-10CM 코드가 매핑 됩니까? 이 Standard Concept에 어떤 ICD-9CM 코드가 매핑 되는가?
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseVocab2"><strong>(\#exr:exerciseVocab2) </strong></span>"Gastrointestinal hemorrhage"에 대한 Standard Concept에 어떤 ICD-10CM 코드가 매핑되는가? 이 Standard Concept에 어떤 ICD-9CM 코드가 매핑되는가?
 </div>\EndKnitrBlock{exercise}
 
 \BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseVocab3"><strong>(\#exr:exerciseVocab3) </strong></span>"Gastrointestinal hemorrhage"에 대한 Standard concept에 해당하는 MedDRA 선호 용어는 무엇인가?
