@@ -1,4 +1,4 @@
-# 어디서부터 시작할 것인가 (Where to Begin) {#WhereToBegin}
+# OHDSI 시작하기 {#WhereToBegin}
 
 *Chapter leads: Hamed Abedtash & Kristin Kostka*
 

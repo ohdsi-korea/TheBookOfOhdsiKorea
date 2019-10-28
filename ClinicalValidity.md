@@ -1,4 +1,4 @@
-# Clinical Validity {#ClinicalValidity}
+# 임상적 타당성 {#ClinicalValidity}
 
 *Chapter leads: Joel Swerdel, Seng Chan You, Ray Chen & Patrick Ryan*
 

@@ -1,4 +1,4 @@
-# Method Validity {#MethodValidity}
+# 방법론적 타당성 {#MethodValidity}
 
 \index{method validity}
 

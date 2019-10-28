@@ -1,8 +1,6 @@
-# Software Validity {#SoftwareValidity}
+# 소프트웨어의 타당성 {#SoftwareValidity}
 
 *Chapter lead: Martijn Schuemie*
-
-*번역 : 김청수*
 
 이 단원의 주요 질문은 다음과 같다.
 

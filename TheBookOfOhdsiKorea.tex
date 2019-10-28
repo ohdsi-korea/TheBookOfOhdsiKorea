@@ -613,91 +613,95 @@ prediction)으로 분류할 수 있다. 출발지(원본 데이터) 및 원하�
 \section{오몹 (Observational Medical Outcomes Partnership,
 OMOP)}\label{-observational-medical-outcomes-partnership-omop}
 
-협력 관찰형 연구 모델로써 주목할만한 예시로 오몹(Observational Medical
-Outcomes Partnership, OMOP)이 있었다. 오몹은 미국의 식품의약국(FDA)이
+협력 관찰형 연구 모델의 주목할만한 예시로 오몹(Observational Medical
+Outcomes Partnership, OMOP)이 있다. 오몹은 미국 식품의약국(FDA)이
 주관하고, 미국 국립 보건원(National Institutes of Health) 관리하에 학술
-연구자 및 보건 데이터 파트너와 협력하는 제약 회사의 컨소시엄으로
-구성되었으며, 관찰형 보건의료 데이터를 이용하여 능동적 의료 제품 안전성
-감시의 발전을 꾀하는 민관 협력체였다. \citep{stang2010omop} OMOP은
-다수의 이해관계자 간의 거버넌스 구조를 확립했고, 다수의 청구자료 및 전자
-의무 기록 데이터베이스에 적용하여 진정한 약물 안전성 연관성과 거짓 양성
-소견을 식별할 수 있는 대안적인 역학 설계 및 통계 방법의 성능을
-경험적으로 검증하는 일련의 방법론적 실험을 설계하였다. 분산된 관찰형
-데이터베이스를 통해 연구를 진행하면서 기술적인 난제를 인식하고,
-연구진들은 데이터의 구조, 내용 및 용어를 표준화하여 하나의 통계 분석
-코드가 모든 데이터 파트너에서 사용될 수 있도록, OMOP 공통 데이터
-모델(Common Data Model, CDM)을 설계하였다. \citep{overhage2012cdm} OMOP
-실험은 공통 데이터 모델과 표준화된 어휘를 확립하는 것이 가능하다는 것을
-증명했다. 이는 서로 다른 관리 설정으로부터, 다른 용어 체계를 통해 다른
-데이터 유형을 수용하고 하여 기관 간 협업과 효율적인 분석을 용이하게 할
-수 있는 방식으로 구현되었다.
+연구자, 보건 데이터 파트너 및 협력 제약사간의 컨소시엄으로 구성되었으며,
+관찰형 보건의료 데이터를 이용하여 능동적 의료 제품 안전성 감시의 발전을
+꾀하고자 만들어진 민관 협력체였다. \citep{stang2010omop} OMOP은 다수의
+이해관계자 간의 거버넌스 구조를 확립했고, 다수의 청구자료 및 전자 의무
+기록 데이터베이스에 적용하여 참인 약물 안전성 연관성과 거짓 양성 소견을
+식별할 수 있는 대안적인 역학 설계 및 통계 방법의 성능을 경험적으로
+검증하는 일련의 방법론적 실험을 설계하였다. 분산된 관찰형 데이터베이스를
+통해 연구를 진행하면서 기술적인 난제를 인식하고, 연구진들은 데이터의
+구조, 내용 및 용어를 표준화하여 하나의 통계 분석 코드가 모든 데이터
+파트너에서 공통으로 사용될 수 있도록, OMOP 공통 데이터 모델(Common Data
+Model, CDM)을 설계하였다. \citep{overhage2012cdm} OMOP 실험은 공통
+데이터 모델과 표준화된 어휘를 확립하는 것이 가능하다는 것을
+증명하였으며, 이는 서로 다른 의료체계에서 다른 용어체계를 통해서 생성된
+다른 데이터 유형을 수용하여 기관 간 협업과 계산적으로 효율적인 분석을
+용이하게 할 수 있는 방식으로 구현되었다.
 
 OMOP는 처음부터 연구 설계, 데이터 표준, 분석 코드, 경험적 결과 등 모든
-작업 제품을 공공에 배포하여 투명성을 증진하고, OMOP가 수행하고 있는
+작업 제품을 공공에 배포하여 투명성을 증진하고, OMOP이 수행하고 있는
 연구에 대한 신뢰를 쌓을 뿐 아니라, 또한 다른 이들의 연구 목적을 위하여
 발전할 수 있도록 개방형 과학(open science) 정책을 채택하였다. OMOP의
-원래 초점은 약물 안전성이었지만, OMOP-CDM은 의료 처치와 보건 시스템
-정책의 비교 효과성을 포함한 확대된 분석 사용 사례를 지원하기 위해
-지속해서 발전했다.
+원래 초점은 약물 안전성이었지만, 의학적 개입이나 보건 시스템 정책에 대한
+비교효과연구를 포함하여 다양한 분석 사용사례를 지원하기 위해 지속해서
+발전했다.
 
 비록 OMOP이 대규모의 경험적 실험을 완성하는 데 성공하였고,
 \citep{ryan2012omop, ryan2013omop} 방법론적인 혁신을 만들고,
-\citep{schuemie_2014} 관찰형 데이터를 이용하여 안정성에 관련되어
-의사결정에 유용한 지식 생성을 위한 적절한 방법론을 제시하였지만,
+\citep{schuemie_2014} 관찰형 데이터를 이용한 안정성에 관련된 의사결정에
+유용한 지식 생성을 위한 적절한 방법론을 제시하였지만,
 \citep{madigan_2013, madigan2013design} 이제 OMOP의 유산은 OHDSI
 커뮤니티의 형성에 동기를 부여한 자극과 개방형 과학 원칙을 조기에 채택한
 것으로 더 기억될 수 있다.
 
 OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 수 있는 관찰론적 연구를
-완료하고 종료된 이후, 사람들은 OMOP 여정의 끝이, 새로운 여정의 시작이
+완료하고 종료된 이후, 사람들은 OMOP 여정의 끝이 새로운 여정의 시작이
 되어야 한다고 생각했다. OMOP의 방법론적 연구가 관찰 데이터에서 생성되는
 근거의 품질을 명시적으로 개선할 수 있는 과학적 모범 사례에 대한 가시적
 통찰력을 제공하지만, 그러한 모범 사례의 채택은 느렸다. 몇 가지
-장애물들이 있었는데, 1) 방법론 적의 혁신 이전에 관찰형 데이터 품질에
-대한 근본적인 우려 2) 방법론적 문제와 해결책에 대한 불충분한 개념적 이해
-3) 개별 데이터 파트너의 로컬 환경 내에서 솔루션을 독립적으로 구현할 수
-없다는 점 4) 이러한 접근방식이 그들의 관심 임상 문제에 적용 가능한지에
-대한 불확실성 등이었다. 이러한 모든 장애물에 대한 하나의 공통된 실마리는
-한 사람만이 스스로 변화를 만드는 데 필요한 모든 것을 가지고 있지는
-않지만, 여러 사람이 협력하면 이러한 문제들을 극복할 수 있다는 것이었다.
+장애물들이 있었는데, 1) 방법론 적인 혁신을 내세우기엔 그 보다 훨씬 더
+중요성이 높은 관찰형 자료의 품질에 대한 근본적인 우려 2) 방법론적 문제와
+해결책에 대한 불충분한 개념적 이해 3) 개별 데이터 파트너의 로컬 환경
+내에서 솔루션을 독립적으로 구현할 수 없다는 점 4) 이러한 접근방식이
+그들이 관심을 가지고 있는 임상적 문제에 적용 가능한지에 대한 불확실성
+등이었다. 이러한 모든 장애물에 대한 하나의 공통된 실마리는 한 사람
+혼자만으로는 변화를 만드는 데 필요한 모든 것을 다 가질 수 없지만, 여러
+사람이 협력하면 이러한 문제들을 극복할 수 있다는 것이었다. 다음과 같은
+협력 분야가 필요했다:
 
 \begin{itemize}
 \tightlist
 \item
-  기초 데이터 품질에 대한 신뢰도를 높이며 구조, 콘텐츠 및 의미론의
+  기초 데이터 품질에 대한 신뢰도를 높이며 구조, 콘텐츠 및 의미론적
   일관성을 촉진하여 표준화된 분석이 가능하도록 개방형 커뮤니티(open
   community)의 데이터 구조, 어휘 및 추출 변환
-  적재(Extract-Transform-Load, ETL)의 표준 규약 구축을 위한 협업
+  적재(Extract-Transform-Load, ETL) 표준규약 구축을 위한 협업
 \item
-  약물 안전성 연구 외에도 clinical characterization, population-level
-  effect estimation, patient-level prediction을 위한 보다 광범위한 모범
-  사례(best practice)를 확립하기 위한 협업. 방법론적 연구를 통해 입증된
-  과학적 모범 사례 구현을 코드화하고 연구자들이 쉽게 채택할 수 있는 오픈
-  소스 분석 소프트웨어 개발에 대한 협업
+  약물 안전성 연구 외에도 임상적 특성 분석(clinical characterization),
+  인구 수준 효과추정(population-level effect estimation), 환자 수준
+  예측(patient-level prediction)을 위한 보다 광범위한 모범 사례(best
+  practice)를 확립하기 위한 협업. 방법론적 연구를 통해 입증된 과학적
+  모범 사례 구현을 코드화하고 연구자들이 쉽게 채택할 수 있는 오픈 소스
+  분석 소프트웨어 개발에 대한 협업
 \item
-  데이터에서 근거로의 여정을 인도해줄, 주요한 보건 문제에 대한 공동체
-  공통의 질문에 대한 임상적 적용에 대한 협업
+  주요한 보건 문제를 해결할 공통의 질문에 대한 임상적용을 위한
+  협업으로서, 커뮤니티를 아울러서 데이터에서 근거로의 여정을 총괄적으로
+  인도해줄 수 있는 협업체계
 \end{itemize}
 
 이러한 통찰을 통해, 오딧세이(OHDSI)가 태어났다.
 
-\section{개방형 협업 공동체로서의 오딧세이 (OHDSI as an Open-Science
+\section{개방형 과학 공동체로서의 오딧세이 (OHDSI as an Open-Science
 Collaborative)}\label{----ohdsi-as-an-open-science-collaborative}
 
 OHDSI(Observational Health data Sciences and Informatics, 오딧세이)는
 보다 더 나은 의료 결정과 더 나은 보건 관리를 촉진할 수 있는 과학적
 근거를 공동으로 생성하도록 함으로써 보건 수준을 향상하는 것을 목표로
 하는 개방형 과학 공동체다. \citep{Hripcsak2015} OHDSI는 관찰 건강
-데이터의 적절한 사용에 대한 과학적 모범 사례를 확립하기 위한 방법론적
-연구를 수행하고, 이러한 연구방법론을 일관되고 투명하며 재현 가능한
-솔루션으로 코드화하는 오픈 소스 분석 소프트웨어를 개발하여, 보건의료
-정책 및 환자 치료에 도움이 될 수 있는 임상적 근거를 마련하는 데에 적용할
-수 있도록 노력한다.
+데이터(observational health data)의 적절한 사용에 대한 과학적 모범
+사례를 확립하기 위한 방법론적 연구를 수행하고, 이러한 연구방법론을
+일관되고 투명하며 재현 가능한 솔루션으로 코드화하는 오픈 소스 분석
+소프트웨어를 개발하여, 보건의료 정책 및 환자 치료에 도움이 될 수 있는
+임상적 근거를 마련하는 데에 적용할 수 있도록 노력한다.
 
 \subsection{OHDSI의 사명 (Our Mission)}\label{ohdsi--our-mission}
 
-참여 공동체의 상호협력 하에 의료 발전을 촉진하는 근거를 생성하는 능력을
-부여한다.
+더 나은 의학적 결정과 의료를 촉진할 수 있는 근거를 상호협력하여 생성할
+수 있도록 공동체에 힘을 실어줌으로써 보건을 개선한다.
 
 \begin{quote}
 To improve health by empowering a community to collaboratively generate
@@ -707,22 +711,21 @@ the evidence that promotes better health decisions and better care.
 
 \subsection{OHDSI의 이상 (Our Vision)}\label{ohdsi--our-vision}
 
-의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를
-제공한다.
+관찰연구를 통해 건강과 질병에 대한 포괄적인 이해가 가능한 세상
 
 \begin{quote}
 A world in which observational research produces a comprehensive
 understanding of health and disease. \index{vision}
 \end{quote}
 
-\subsection{OHDSI의 핵심 가치 (Our
-Objectives)}\label{ohdsi---our-objectives}
+\subsection{OHDSI의 목표 (Our Objectives)}\label{ohdsi--our-objectives}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{혁신성 Innovation}: 우리는 적극적으로 의료 빅데이터 분석 및
-  연구에 대한 혁신적인 방법론과 접근법을 찾고 격려한다.
+  \textbf{혁신 Innovation}: 관찰연구는 파괴적 사유를 통해서 가장 혜택을
+  얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인 접근을
+  적극적으로 찾고 격려한다.
 \end{itemize}
 
 \begin{quote}
@@ -734,8 +737,8 @@ approaches in our work.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{재현성 Reproducibility}: 우리는 보건 증진을 위하여 정확하고,
-  재현 가능하며, 잘 보정된 근거를 찾도록 노력한다.
+  \textbf{재현 Reproducibility}: 보건향상을 위해서는 정확하고
+  재현가능하며 잘 보정된 근거가 필요하다.
 \end{itemize}
 
 \begin{quote}
@@ -746,8 +749,9 @@ health improvement.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{공동체 정신 Community}: 우리는 모든 참여자를 환영하며 동등하게
-  우리의 활동에 참여할 수 있도록 돕는다.
+  \textbf{공동체 Community}: 우리는 오딧세이에 적극적으로 참여하는 모든
+  사람 (환자, 의료직 전문가, 연구자, 또는 단순히 우리의 주장을 믿는
+  사람)을 환영한다.
 \end{itemize}
 
 \begin{quote}
@@ -759,9 +763,21 @@ believes in our cause.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{개방성 Openness}: 우리는 의사 결정 과정의 투명성을 지향하며,
-  우리의 진보 및 우리가 생성한 방법론, 소프트웨어, 근거를 가능한
-  공개적으로 접근할 수 있게 한다.
+  \textbf{협력 Collaboration}: 우리는 우리 공동체 참여자들의 현실적
+  요구를 최우선적으로 다루기 위해서 함께 일한다.
+\end{itemize}
+
+\begin{quote}
+We work collectively to prioritize and address the real world needs of
+our community's participants.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{개방 Openness}: 우리는 방법론, 도구, 우리가 생성하는 근거 등
+  우리 공동체의 모든 진행사항을 개방하고 공개적으로 접근가능할 수 있도록
+  최대한 노력한다.
 \end{itemize}
 
 \begin{quote}
@@ -773,20 +789,8 @@ generate.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{협력 정신 Collaboration}: 우리는 참여자들의 실제적 요구를 먼저
-  다루고, 그것을 위해 공동으로 노력한다.
-\end{itemize}
-
-\begin{quote}
-We work collectively to prioritize and address the real world needs of
-our community's participants.
-\end{quote}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{선행의 정신 Beneficence}: 우리는 고통 받는 환자를 비롯하여
-  참여자 및 참여기관의 권리를 보호하기 위해 노력한다.
+  \textbf{선행 Beneficence}: 우리는 우리 공동체에 속한 개인과 기관의
+  권리를 보호하기 위해서 항상 노력한다.
 \end{itemize}
 
 \begin{quote}
@@ -796,15 +800,15 @@ our community at all times.
 
 \index{objectives}
 
-\section{오딧세이의 진척 (OHDSI's Progress)}\label{--ohdsis-progress}
+\section{오딧세이의 역사 (OHDSI's Progress)}\label{--ohdsis-progress}
 
-OHDSI는 2014년 설립된 이래 성장을 지속하여 컴퓨터 과학, 역학, 통계, 생물
-의학 정보학, 보건 정책 및 임상 의학 등 다양한 분야를 대표하는 학계, 의료
-제품 산업, 규제 기관, 정부, 보험자, 기술 제공자, 의료 시스템, 임상의사
-및 환자 집단 2,500명 이상의 다양한 이해관계자가 온라인 포럼에서 활동하고
-있다. OHDSI 협력체로써 자발적으로 보고한 기관 및 데이터베이스의 리스트는
-OHDSI 웹사이트에서 확인할 수 있다. \footnote{\url{https://www.ohdsi.org/who-we-are/collaborators/}}
-오딧세이 협력 지도 (Figure \ref{fig:collaboratormap}) 는 폭넓은 국제
+OHDSI는 2014년 설립된 이래 성장을 지속하여 컴퓨터 과학, 역학, 통계,
+의생명 정보학, 보건 정책 및 임상 의학 등 다양한 분야를 대표하는 학계,
+의료 제품 산업, 규제 기관, 정부, 보험자, 기술 제공자, 의료 시스템,
+임상의사 및 환자 집단 등 2,500명 이상의 다양한 이해관계자가 온라인
+포럼에서 활동하고 있다. OHDSI 협력체로써 자발적으로 보고한 기관 및
+데이터베이스의 리스트는 OHDSI 웹사이트에서 확인할 수 있다. \footnote{\url{https://www.ohdsi.org/who-we-are/collaborators/}}
+오딧세이 협력자 지도 (Figure \ref{fig:collaboratormap}) 는 폭넓은 국제
 공동체로서의 다양성을 상기시킨다.
 
 \begin{figure}
@@ -831,16 +835,16 @@ OHDSI는 OMOP-CDM이라는 개방형 공동체 데이터 표준 기반으로 201
 
 OHDSI 개발자 커뮤니티는 3가지의 사용 사례를 지원하기 위해 OMOP CDM 위에
 다음 3가지의 강력한 오픈 소스 분석 소프트웨어 라이브러리를 구축하였는데
-이는 다음과 같다. 1) Clinical characterization: 질병의 자연 경과, 치료
-행태 및 질 향상을 위한 임상 특성 분석 2) Population-level effect
-estimation: 의약품 안전성 감시 및 비교 효과 연구에서의 인과성 분석 3)
-Patient-level prediction: 머신러닝 알고리즘을 활용한 정밀 의학 또는 의료
-개입. OHDSI 개발자들은 또한 OMOP CDM의 채택, 데이터 품질 평가, OHDSI
-네트워크 연구의 촉진을 지원하는 애플리케이션을 개발했다. 이러한
-소프트웨어에는 R과 Python에 내장된 백 엔드 통계 패키지 및 HTML과
-Javascript로 개발된 프론트엔드 웹 어플리케이션이 포함된다. 모든 OHDSI
-소프트웨어들은 오픈 소스 정책을 채택하여 Github을 통해 공개된다.
-\footnote{\url{https://github.com/OHDSI}}
+이는 다음과 같다. 1) 임상적 특성 분석(clinical characterization): 질병의
+자연 경과, 치료 행태 및 질 향상을 위한 임상 특성 분석 2) 인구 수준 효과
+추정 (population-level effect estimation): 의약품 안전성 감시 및 비교
+효과 연구에서의 인과성 분석 3) 환자 수준 예측(patient-level prediction):
+기계학습 알고리즘을 활용한 정밀 의학 또는 의료 개입. OHDSI 개발자들은
+또한 OMOP CDM의 채택, 데이터 품질 평가, OHDSI 네트워크 연구의 촉진을
+지원하는 애플리케이션을 개발했다. 이러한 소프트웨어에는 R과 Python에
+내장된 백 엔드 통계 패키지 및 HTML과 Javascript로 개발된 프론트엔드 웹
+어플리케이션이 포함된다. 모든 OHDSI 소프트웨어들은 오픈 소스 정책을
+채택하여 Github을 통해 공개된다. \footnote{\url{https://github.com/OHDSI}}
 
 오픈 소스 소프트웨어들과 함께, OHDSI의 개방형 과학 공동체적 접근은
 관찰형 연구의 발전을 가능하게 했다. 첫 번째 OHDSI 네트워크 연구는 당뇨,
@@ -855,7 +859,7 @@ PNAS(Proceedings of the National Academy of Science)에 출판된 연구는, 그
 \citep{duke_2017} 및 당뇨병의 이차 약제의 비교 효과 연구
 \citep{vashisht_2018} 및 우울증 치료의 대규모 비교 효과 연구
 \citep{schuemie_2018b} 에 활용하였다. OHDSI 공동체는 또한 관찰형
-보건의료 데이터의 머신러닝 알고리즘을 활용 프레임 워크를 구축
+보건의료 데이터의 기계학습 알고리즘을 활용한 프레임 워크를 구축
 \citep{reps2018} 하여 다양한 치료 분야에 활용하였다.
 \citep{johnston_2019, cepeda_2018, reps_2019}
 
@@ -878,9 +882,9 @@ OHDSI 참가자는 중요한 의학 보건학적 질문을 가지고 있고 논�
 심포지엄 개최를 포함하여, 그 임무를 지속할 수 있도록 자원을 제공하는
 개인 또는 단체일 수도 있다. 당신의 배경이나 소속과 관계없이, OHDSI는
 개개인이 공통의 목적을 위해 함께 일할 수 있는 공동체가 되기를 추구하고
-있으며, 각 개인이 공동으로 의료 서비스를 발전시킬 수 있는 기여를 하고
-있다. 이 여정에 함께하고 싶다면, \ref{WhereToBegin}장(``Where To
-Begin'')을 통해 어떻게 시작하는지 배울 수 있다.
+있으며, 각 개인이 공동으로 의료를 발전시킬 수 있는 기여를 하고 있다. 이
+여정에 함께하고 싶다면, \ref{WhereToBegin}장(``Where To Begin'')을 통해
+어떻게 시작하는지 배울 수 있다.
 
 \section{한국 오딧세이의 역사}\label{--}
 
@@ -927,7 +931,7 @@ chapter} 을 개설하고, 한국의 OHDSI 참여를 독려하였다. 첫 한국
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\chapter{어디서부터 시작할 것인가 (Where to Begin)}\label{WhereToBegin}
+\chapter{OHDSI 시작하기}\label{WhereToBegin}
 
 \emph{Chapter leads: Hamed Abedtash \& Kristin Kostka}
 
@@ -4290,7 +4294,7 @@ MedDRA 선호 용어는 무엇인가?
 
 제시된 답변은 부록 \ref{Vocabanswers}에서 찾을 수 있다.
 
-\chapter{추출 변환 적재}\label{ExtractTransformLoad}
+\chapter{추출 변환 적재(ETL)}\label{ExtractTransformLoad}
 
 \emph{챕터 작성자 : Clair Blacketer \& Erica Voss}
 
@@ -5863,7 +5867,7 @@ OHDSI 데이터베이스에서의 결측은 감지하기 어려운 문제점들�
 
 정답은 부록 \ref{UseCasesanswers}에서 확인할 수 있다.
 
-\chapter{OHDSI Analytics Tools}\label{OhdsiAnalyticsTools}
+\chapter{OHDSI 분석 툴}\label{OhdsiAnalyticsTools}
 
 \emph{Chapter leads: Martijn Schuemie \& Frank DeFalco}
 
@@ -6537,7 +6541,7 @@ RStudio에 접근할 수 있다. RStudio에는 OHDSI Methods Library가 이미
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\chapter{SQL and R}\label{SqlAndR}
+\chapter{SQL과 R}\label{SqlAndR}
 
 \emph{Chapter leads: Martijn Schuemie \& Peter Rijnbeek}
 
@@ -6967,7 +6971,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.b7zwovsrchildren ;"
+## [1] "SELECT * FROM temp_schema.uusvhbfvchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
@@ -7940,21 +7944,21 @@ gastrointestinal hemorrhage(위장 출혈)이 있는지 진단한다. (힌트: �
 
 \emph{Chapter lead: Kristin Kostka}
 
-\emph{실제 데이터(Real world data)} 라고도 불리는 관찰 건강
+\emph{실제 데이터(Real world data)}라고도 불리는 관찰 건강
 정보(Observational health data)는 다양한 출처에서 꾸준하게 수집되는
 환자의 건강 상태나 제공되는 의료서비스에 관한 정보이다. CDM 데이터
-유지를 위해 노력하는 OHDSI 공동 연구자들은 전자의무기록, 보험청구자료,
+유지를 위해 노력하는 OHDSI 공동 연구자들은 전자 의무기록, 보험청구자료,
 결제 자료, 제품 및 질병 등록 정보 등을 포함하는 다양한 출처의 데이터를
 활용하며, 환자 개인이 가정 내에서, 혹은 핸드폰 등의 다른 소스로 발생시킨
 건강 정보들을 활용하기도 한다. 이러한 데이터들은 연구 목적으로 수집된
 데이터가 아니기 때문에 우리가 보고자 하는 임상정보를 명료하게 담고 있지
 못할 수도 있다.
 
-예를 들어, 건강 보험 청구 자료 데이터베이스는 특정 질병 (예:
-혈관성부종)을 가진 환자에게 제공된 의료 서비스를 파악하여 적절한 돈을
+예를 들어, 건강 보험 청구 자료 데이터베이스는 특정 질병 (예를 들어
+혈관성부종) 을 가진 환자에게 제공된 의료 서비스를 파악하여 적절한 돈을
 상환해주기 위해 설립되었기 때문에, 이 목적에 맞는 정보만 부분적으로 담고
 있다. 우리가 그런 데이터를 연구 목적으로 사용하기를 원한다면, 우리가
-데이터를 사용 할 때 실제로 관심있는 것을 추론해야 하며, 타당한 추론을
+데이터를 사용할 때 실제로 관심 있는 것을 추론해야 하며, 타당한 추론을
 가능케 하는 적절한 코호트를 설정해서 연구를 진행해야 한다. 그러므로 만약
 우리가 보험 청구 자료 데이터베이스에서 혈관성 부종이 발생한 환자를
 확인하고 싶다면, 코호트를 만들 때 추적관찰 중인 혈관성 부종 환자를
@@ -7965,43 +7969,43 @@ gastrointestinal hemorrhage(위장 출혈)이 있는지 진단한다. (힌트: �
 설계할 때마다 다양한 데이터베이스 환경에서 우리가 설정한 코호트가 어떻게
 존재하고 있는지에 대한 뉘앙스를 항상 생각해야 한다.
 
-이 챕터는 코호트를 생성하고 공유하는 것이 가지는 의미와, 코호트를
+이 장에서는 코호트를 생성하고 공유하는 것이 가지는 의미와, 코호트를
 개발하는 방법들, 그리고 ATLAS와 SQL을 이용해 당신만의 코호트를 생성하는
 방법에 관해서 설명할 것이다.
 
 \section{코호트란 무엇인가?}\label{-}
 
-오디시 연구에서는 특정 기간 안에 하나 이상의 포함 기준에 속하는 사람들의
-집단을 코호트라고 정의한다. 코호트는 때로 \emph{표현형(phenotype)}
-이라는 용어로 대신 사용하기도 한다. 코호트는 오디시 분석 도구를
-사용하거나 연구를 시작하기 위한 첫 단계로 사용된다. 예를 들어 ACE
-inhibitor를 복용하기 시작한 사람들 중에서 혈관성 부종을 일으킬 위험을
-예측하기 위한 연구를 진행할 때 우리는 두 개의 코호트를 지정한다 : 결과
-코호트(혈관성 부종이 발생한 사람들), 그리고 타겟 코호트(ACE inhibitor를
-복용하기 시작한 사람들). 오디시에서 사용되는 코호트라는 개념이 가지는
-중요한 특성은, 연구 내에서 지정된 하나의 코호트가 다른 코호트와는
-독립적으로 지정되기 때문에 재사용이 가능하다는 것이다. 앞서 제시된
-우리의 혈관성 부종 코호트를 예로 들어 보면, 이 코호트는 관찰되는 인구
-내의 모든 혈관성 부종 발생을 담으며, 이는 타겟 코호트 외의 사람들도
-포함될 수 있다는 것을 의미한다. 우리의 분석 툴은 두 코호트의 교집합을
-분석할 것이다. 이것이 가지는 장점은, ACE inhibiter를 복용함으로써
-발생하는 다른 결과를 분석할 때에도 동일한 혈관성 부종 코호트를 사용할 수
-있다는 것이다.
+OHDSI 연구에서는 특정 기간 안에 하나 이상의 포함 기준에 속하는 사람들의
+집단을 코호트라고 정의한다. 코호트는 때로 \emph{표현형(phenotype)}이라는
+용어로 대신 사용하기도 한다. 코호트는 OHDSI 분석 도구를 사용하거나
+연구를 시작하기 위한 첫 단계로 사용된다. 예를 들어 ACE inhibitor를
+복용하기 시작한 사람들 중에서 혈관성 부종을 일으킬 위험을 예측하기 위한
+연구를 진행할 때 우리는 두 개의 코호트를 지정한다: 결과 코호트 (혈관성
+부종이 발생한 사람들), 그리고 표적 코호트 (ACE inhibitor를 복용하기
+시작한 사람들). OHDSI에서 사용되는 코호트라는 개념이 가지는 중요한
+특성은, 연구 내에서 지정된 하나의 코호트가 다른 코호트와는 독립적으로
+지정되기 때문에 재사용이 가능하다는 것이다. 앞서 제시된 우리의 혈관성
+부종 코호트를 예로 들어 보면, 이 코호트는 관찰되는 인구 내의 모든 혈관성
+부종 발생을 담으며, 이는 표적 코호트 외의 사람들도 포함될 수 있다는 것을
+의미한다. 우리의 분석 툴은 두 코호트의 교집합을 분석할 것이다. 이것이
+가지는 장점은, ACE inhibiter를 복용함으로써 발생하는 다른 결과를 분석할
+때에도 동일한 혈관성 부종 코호트를 사용할 수 있다는 것이다.
 
 \BeginKnitrBlock{rmdimportant}
 코호트는 특정 시간 내에 하나 이상의 포함 기준을 만족시키는 사람들의
 집합이다.
 \EndKnitrBlock{rmdimportant}
 
-\index{cohort} \index{cohort definition} 오디시에서 사용되는 코호트의
+\index{cohort} \index{cohort definition} OHDSI에서 사용되는 코호트의
 정의가 다른 분야에서 사용되는 코호트의 정의와 다를 수 있다는 것을
 인지하는 것이 중요하다. 예를 들어 동료 심사를 마친 많은 과학 원고들에서,
-코호트는 특정 임상 코드 집합 (예: ICD-9/ICD-10, NDC, HCPCS 등)과 동일한
-의미로 사용되었다. 코드 집합들은 코호트를 설정하는 데 중요한 부분을
-담당하지만, 코호트는 코드 집합에 의해서만 정의되는 것은 아니다. 코호트는
-기준에 맞도록 코드 집합을 사용하는 특정 논리를 필요로 한다(ICD-9/ICD-10
-코드의 첫 번째 발생인가? 등). 잘 정의된 코호트는 환자가 어떻게 코호트에
-포함되고 제외되는지에 관해 구체적으로 설명한다. \index{code set}
+코호트는 특정 임상 코드 집합 (예를 들어 ICD-9/ICD-10, NDC, HCPCS 등)과
+동일한 의미로 사용되었다. 코드 집합들은 코호트를 설정하는 데 중요한
+부분을 담당하지만, 코호트는 코드 집합에 의해서만 정의되는 것은 아니다.
+코호트는 기준에 맞도록 코드 집합을 사용하는 특정 논리를 필요로
+한다(ICD-9/ICD-10 코드의 첫 번째 발생인가? 등). 잘 정의된 코호트는
+환자가 어떻게 코호트에 포함되고 제외되는지에 관해 구체적으로 설명한다.
+\index{code set}
 
 \index{phenotype} OHDSI가 코호트를 정의하는 방식에는 다음과 같은 독특한
 특징이 있다:
@@ -8024,15 +8028,15 @@ inhibitor를 복용하기 시작한 사람들 중에서 혈관성 부종을 일�
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{규칙 기반 코호트 정의} 는 언제 환자가 코호트 내에 속하는 지에
-  관한 명확한 포함규칙을 가진다. 이 포함 규칙을 정하는 것은 코호트를
+  \textbf{규칙 기반 코호트 정의}는 언제 환자가 코호트 내에 속하는지에
+  관한 명확한 포함 규칙을 가진다. 이 포함 규칙을 정하는 것은 코호트를
   디자인하는 사람들의 전문가적인 지식에 상당히 의존한다.
 \item
-  \textbf{확률적 코호트 정의} 는 확률 모델을 사용하여 환자들이 코호트에
-  속할 확률 (0\textasciitilde{}100\%)을 계산한다. 이 확률은 역치값을
+  \textbf{확률적 코호트 정의}는 확률 모델을 사용하여 환자들이 코호트에
+  속할 확률 (0\textasciitilde{}100\%) 을 계산한다. 이 확률은 역치 값을
   사용하여 `예-아니오' 분류로 전환할 수도 있고, 그대로 사용할 수도 있다.
-  확률 모델은 일반적으로 예측 가능한 관련 환자 특성을 자동적으로
-  식별하기 위해 일부 머신 러닝모델 (예 : 로지스틱 회귀)의 학습을 위해
+  확률 모델은 일반적으로 예측 가능한 관련 환자 특성을 자동으로 식별하기
+  위해 일부 머신 러닝 모델 (예를 들어 로지스틱 회귀) 의 학습을 위해
   사용된다.
 \end{enumerate}
 
@@ -8040,39 +8044,39 @@ inhibitor를 복용하기 시작한 사람들 중에서 혈관성 부종을 일�
 
 \section{규칙 기반 코호트 정의}\label{---}
 
-규칙 기반 코호트 정의는 특정 기간 내에 (예 : ``지난 6 개월 이내 해당
-질병이 발생한 사람'') 하나 혹은 그 이상의 포함 기준 (예 : ``혈관 부종을
-앓는 환자들'')을 명확히 제시함으로써 시작한다.
+규칙 기반 코호트 정의는 특정 기간 내에 (예를 들어 ``지난 6 개월 이내
+해당 질병이 발생한 사람'') 하나 혹은 그 이상의 포함 기준 (예를 들어
+``혈관 부종을 앓는 환자들'') 을 명확히 제시함으로써 시작한다.
 \index{cohort!rule-based design}
 
-이러한 기준을 만드는데 사용되는 표준 구성 요소는 다음과 같다:
+이러한 기준을 만드는 데 사용되는 표준 구성 요소는 다음과 같다:
 
 \begin{itemize}
 \item
-  \textbf{도메인}: CDM 도메인 (예 : ``Procedure Occurrence'', ``Drug
-  Exposure'')은 데이터가 저장되는 곳인데, 도메인의 종류에 따라 어떤
-  유형의 임상 정보가 담길 지, 어떤 개념들이 담길 지가 결정된다. 도메인에
-  관한 세부사항은 \ref{domains}절에서 확인할 수 있다.
+  \textbf{도메인}: CDM 도메인 (예를 들어 ``Procedure Occurrence'',
+  ``Drug Exposure'')은 데이터가 저장되는 곳인데, 도메인의 종류에 따라
+  어떤 유형의 임상 정보가 담길지, 어떤 개념들이 담길지가 결정된다.
+  도메인에 관한 세부사항은 \ref{domains}절에서 확인할 수 있다.
 \item
   \textbf{컨셉 모음(Concept set)}: 우리가 관심을 가지는 임상적 개념을
   대변하는 하나 이상의 표준화된 컨셉의 모음을 의미 한다. 컨셉 모음은
-  표준 용어들(임상에서 쓰이는 용어들은 국가나 병원, 사람에 따라 동일한
-  개념도 조금씩 다른 용어로 사용되는데 이를 표준 용어로 매핑함)로
+  표준 용어들 (임상에서 쓰이는 용어들은 국가나 병원, 사람에 따라 동일한
+  개념도 조금씩 다른 용어로 사용되는데 이를 표준 용어로 매핑함) 로
   구성되어 있기 때문에 다양한 관찰 의료 데이터에서 상호 운용이 가능하다.
   Concept set에 관하여 \ref{conceptSets}절에 자세한 설명이 있다.
 \item
   \textbf{도메인 별 속성}: 관심 있는 임상 실체와 연관된 추가적인 속성들
-  (예: DRUG\_EXPOSURE의 DAYS\_SUPPLY, MEASUREMENT의 VALUE\_AS\_NUMBER 와
-  RANGE\_HIGH)
+  (예를 들어 DRUG\_EXPOSURE의 DAYS\_SUPPLY, MEASUREMENT의
+  VALUE\_AS\_NUMBER와 RANGE\_HIGH)
 \item
-  \textbf{시간의 설정}: 포함 기준과 이벤트 발생 간의 시간 간격 (예 :
-  노출 시작 또는 노출 시작 후 365일 이내에 특정 조건이 발생해야 함)
+  \textbf{시간의 설정}: 포함 기준과 이벤트 발생 간의 시간 간격 (예를
+  들어 노출 시작 또는 노출 시작 후 365일 이내에 특정 조건이 발생해야 함)
 \end{itemize}
 
 코호트 정의를 작성할 때, 코호트 속성을 나타내는 도메인을 빌딩 블록(그림
 \ref{fig:cohortLegos} 참조)과 유사하게 생각하면 도움이 될 수 있다. 각
 도메인에서 허용 가능한 구성 요소에 대해 혼란스럽다면 언제든지 공통
-데이터 모델 챕터 (\ref{CommonDataModel}장)을 참조하라.
+데이터 모델 \ref{CommonDataModel}장을 참조하라.
 
 \begin{figure}
 
@@ -8096,23 +8100,24 @@ inhibitor를 복용하기 시작한 사람들 중에서 혈관성 부종을 일�
 \end{itemize}
 
 \textbf{코호트 진입 이벤트}: 코호트 진입 이벤트(초기 이벤트)는 사람들이
-코호트에 진입하는 \textbf{코호트 색인 날짜(cohort index date)} 로
+코호트에 진입하는 \textbf{코호트 색인 날짜(cohort index date)}로
 정의된다. 코호트 진입 이벤트는 약물 노출(Drug exposure), 질병
 상태(conditions), 절차(procedures), 측정(measurements) 및 방문(visits)과
 같은 CDM에 기록된 모든 사건일 수 있다. 초기 이벤트는 데이터가 저장되는
-CDM 도메인(예: PROCEDURS\_OCCURRENCE, DRUG\_EXPOSURE 등), 임상 활동을
-식별하기 위해 구축된 개념 모음(예 : 질병 상태에 대한 SNOMED 코드, 약물에
-대한 RxNorm 코드) 및 기타 특정 속성들(예 : 발생 연령, 첫 진단 / 절차 등,
-지정된 시작 및 종료 날짜, 방문 유형 등)에 의해 정의된다. 진입 이벤트를
-가진 사람들의 집합을 \textbf{초기 이벤트 코호트} 라고 한다.
-\index{cohort!entry event}
+CDM 도메인(예를 들어 PROCEDURS\_OCCURRENCE, DRUG\_EXPOSURE 등), 임상
+활동을 식별하기 위해 구축된 개념 모음(예를 들어 질병 상태에 대한 SNOMED
+코드, 약물에 대한 RxNorm 코드) 및 기타 특정 속성들(예를 들어 발생 연령,
+첫 진단 / 절차 등, 지정된 시작 및 종료 날짜, 방문 유형 등)에 의해
+정의된다. 진입 이벤트를 가진 사람들의 집합을 \textbf{초기 이벤트
+코호트}라고 한다. \index{cohort!entry event}
 
 \textbf{포함 기준}: 포함 기준은 초기 이벤트 코호트에 적용되어 코호트에
 진입할 사람들을 추가적으로 제한한다. 각 포함 기준을 만들 때는 데이터가
-저장되는 CDM 도메인, 컨셉 모음, 도메인 별 속성(예 : days supply, 방문
-유형) 및 코호트 색인 날짜에 관한 시간 논리를 결정해야 한다. \textbf{적격
-코호트(qualifying cohort)} 는 초기 이벤트 코호트에서 모든 포함 기준을
-충족하는 사람들의 집합으로 정의한다. \index{cohort!inclusion criteria}
+저장되는 CDM 도메인, 컨셉 모음, 도메인 별 속성(예를 들어 days supply,
+방문 유형) 및 코호트 색인 날짜에 관한 시간 논리를 결정해야 한다.
+\textbf{적격 코호트(qualifying cohort)}는 초기 이벤트 코호트에서 모든
+포함 기준을 충족하는 사람들의 집합으로 정의한다.
+\index{cohort!inclusion criteria}
 
 \textbf{코호트 종료 기준}: 코호트 종료 이벤트는 한 사람이 더 이상 코호트
 자격 요건을 갖추지 못했을 때를 의미한다. 코호트 종료는 관찰 기간이
@@ -8122,9 +8127,9 @@ CDM 도메인(예: PROCEDURS\_OCCURRENCE, DRUG\_EXPOSURE 등), 임상 활동을
 있다.\index{cohort!exit criteria}
 
 \BeginKnitrBlock{rmdimportant}
-OHDSI 도구에는 포함기준과 제외 기준이 구분되지 않는다. 모든 기준은 포함
+OHDSI 도구에는 포함 기준과 제외 기준이 구분되지 않는다. 모든 기준은 포함
 기준으로 설정해야 한다. 예를 들어 `사전 고혈압 환자 제외'라는 제외
-기준을 `사전 고혈압 발생이 0인 사람들 포함'이라는 포함기준으로 설정해야
+기준을 `사전 고혈압 발생이 0인 사람들 포함'이라는 포함 기준으로 설정해야
 한다.
 \EndKnitrBlock{rmdimportant}
 
@@ -8177,7 +8182,7 @@ Mapped\tabularnewline
 myocardial infarction'' 와 그 모든 하위 컨셉들은 제외할 것이다.
 결과적으로 거의 100개 정도의 표준 컨셉들을 포함한 컨셉 모음이
 만들어졌다. 이 표준 컨셉들은 다양한 데이터베이스에서 사용되는 수백 개의
-소스 코드(예 : ICD-9, ICD-10)를 반영한다.
+소스 코드 (예를 들어 ICD-9, ICD-10) 를 반영한다.
 
 \begin{figure}
 
@@ -8204,7 +8209,7 @@ Identification, Training and Evaluation) R 패키지이다. 이 패키지는
 불완전하게 레이블이 붙은 데이터로부터 학습하는 능력을 결합한 코호트 구축
 프레임워크를 제공한다. \citep{Banda2017APHRODITE} \index{APHRODITE}
 
-\section{Cohort Definition Validity}\label{cohort-definition-validity}
+\section{코호트 정의 유효성}\label{--}
 
 당신이 코호트를 구축할 때, 다음 중 당신에게 더 중요한 것이 무엇인지
 고려하는 것이 필요하다: \emph{코호트 조건에 해당하는 환자를 모두 찾는
@@ -8212,19 +8217,19 @@ Identification, Training and Evaluation) R 패키지이다. 이 패키지는
 중요한가?}
 
 코호트를 구축할 때 당신의 전략은 전문가가 질병을 얼마나 엄격하게
-정의하는지에 의존할 것이다. 얻을 수 있는 모든 것을 사용하거나, 최저 공통
-분모를 사용하거나 이 둘을 절충하는 코호트 정의를 작성할 수 있다. 관심
-코호트를 적절하게 연구하기 위해 얼마나 엄격한 임계값을 사용할 지는
+정의하는지에 의존할 것이다. 얻을 수 있는 모든 것을 사용하거나, 최저
+공통분모를 사용하거나 이 둘을 절충하는 코호트 정의를 작성할 수 있다.
+관심 코호트를 적절하게 연구하기 위해 얼마나 엄격한 임계값을 사용할지는
 궁극적으로 연구원의 재량에 달려 있다.
 
 이 장의 시작 부분에서 언급했듯이 코호트 정의는 데이터로부터 관찰하고자
 하는 것을 유추하려는 시도이다. 우리는 코호트 정의를 통한 다음의 시도에
 성공하였는가? 일반적으로, `골드 스탠다드 기준'과 비교함으로써 규칙
 기반의 코호트 정의와 확률적 알고리즘의 유효성을 검증할 수 있다. 이에
-대해서는 \ref{ClinicalValidity} 장 (``임상 유효성'')에서 자세히
+대해서는 \ref{ClinicalValidity}장 (``임상적 타당성'') 에서 자세히
 설명한다.
 
-\subsection{오디시의 골드 스탠다드 코호트 라이브러리}\label{----}
+\subsection{OHDSI의 골드 스탠다드 코호트 라이브러리}\label{ohdsi----}
 
 커뮤니티를 지원하기 위해서 OHDSI Gold Standard Phenotype Library (GSPL)
 그룹이 형성되었다. GSPL 그룹의 목표는 규칙 기반 및 확률적 방법으로
@@ -8250,7 +8255,7 @@ Identification, Training and Evaluation) R 패키지이다. 이 패키지는
 
 이 연습을 진행하면서 표준 감소 차트와 비슷한 코호트를 작성하게 될
 것이다. 그림 \ref{fig:CohortPractice}은 우리가 어떤 논리로 코호트를
-작성할 지 보여준다.
+작성할지 보여준다.
 
 \begin{figure}
 
@@ -8282,8 +8287,8 @@ ATLAS를 시작하기 위해
 \end{figure}
 
 먼저 ``New Cohort Definition''로 지정되어 있는 코호트 이름을 다른
-이름으로 바꾸어 지어주기를 추천한다. `New users of ACE inhibitors as
-first-line monotherapy for hypertension' 라고 지으면 적당할 것이다.
+이름으로 바꿔 지어 주기를 추천한다. `New users of ACE inhibitors as
+first-line monotherapy for hypertension'라고 지으면 적당할 것이다.
 
 \BeginKnitrBlock{rmdimportant}
 ATLAS는 동일한 이름을 가진 두 개의 코호트가 존재하는 것을 허락하지
@@ -8319,14 +8324,14 @@ ATLAS는 동일한 이름을 가진 두 개의 코호트가 존재하는 것을 
 않는가? 고혈압과 관련해서는 다른 기준을 만들 것이다. 하지만 고혈압
 약물을 복용하기 시작한 날짜가 코호트 시작 날짜로 설정되며, 고혈압 약물을
 복용하기 시작한 것이 코호트의 시작 이벤트가 될 것이다. 고혈압의 진단은
-\emph{추가적 적격 기준(additional qualifying criteria)} 이라고 부른다.
+\emph{추가적 적격 기준(additional qualifying criteria)}이라고 부른다.
 이에 관해서는 뒤에서 다시 설명하겠다. 이제 `Add Drug Exposure'를
 클릭하라.
 
-화면은 당신이 선택한 기준에 따라 업데이트 되겠지만, 아직 끝난 것은
+화면은 당신이 선택한 기준에 따라 업데이트되겠지만, 아직 끝난 것은
 아니다. 그림 \ref{fig:ATLASdrugexposure}에서 볼 수 있다시피 ATLAS는
-우리가 어떤 약물을 찾고자 하는 지 아직 모른다. 우리는 ATLAS에게 어떤
-컨셉 모음이 ACE inhibitors와 연관이 있는지 알려주어야 한다.
+우리가 어떤 약물을 찾고자 하는지 아직 모른다. 우리는 ATLAS에게 어떤 컨셉
+모음이 ACE inhibitors와 연관이 있는지 알려주어야 한다.
 
 \begin{figure}
 
@@ -8366,9 +8371,9 @@ inhibitors를 나타내는 컨셉들을 찾아보자. (그림 \ref{fig:aceinhibi
 필요한 용어들을 찾았다면,
 \includegraphics{images/Cohorts/shoppingcart.png}을 클릭함으로써 그
 컨셉을 선택할 수 있다. 그림 \ref{fig:aceinhibitors}의 좌상단의 왼쪽을
-향하는 화살표버튼을 클릭하여 코호트 작성 페이지로 돌아갈 수 있다. 적절한
-용어를 찾기 위한 방법은 \ref{StandardizedVocabularies}장 (표준 용어)을
-참고하라.
+향하는 화살표 버튼을 클릭하여 코호트 작성 페이지로 돌아갈 수 있다.
+적절한 용어를 찾기 위한 방법은 \ref{StandardizedVocabularies}장 (표준
+용어)을 참고하라.
 
 그림 \ref{fig:aceConceptSetExpression}에서 우리가 선택한 컨셉 모음의
 구성을 확인할 수 있다. 우리는 모든 ACE inhibitors 성분들을 선택했으며,
@@ -8396,9 +8401,9 @@ Concept Set'을 클릭하라. 그러면 그림 \ref{fig:ATLASfindyourconcept}에
 있는 대화창이 뜬다. 이번 예시에서는 사용자가 ATLAS에 저장되어 있던 컨셉
 모음을 이용한다고 가정하자. 사용자는 검색 창에 `ace inhibitors'를
 검색하였고, 검색 내용이 이름에 포함된 컨셉 모음들을 볼 수 있을 것이다.
-사용자는 해당하는 컨셉 모음을 클릭하여 선택할 수 있다(참고 : 당신이 컨셉
-모음을 선택하면 대화창은 사라진다). Any Drug 칸이 당신이 선택한 컨셉
-모음의 이름으로 바뀌어 있다면 성공한 것이다.
+사용자는 해당하는 컨셉 모음을 클릭하여 선택할 수 있다 (참고로 당신이
+컨셉 모음을 선택하면 대화창은 사라진다). Any Drug 칸이 당신이 선택한
+컨셉 모음의 이름으로 바뀌어 있다면 성공한 것이다.
 
 \begin{figure}
 
@@ -8420,8 +8425,8 @@ inhibitors을 처음 복용한 환자 기록을 찾는 것을 의미한다. 이�
 특성들을 지정할 수 있다. 각 도메인에 따라 선택할 수 있는 특성들이
 다르다.
 
-선택을 했으면, 창은 자동적으로 닫힌다. 선택된 특성은 초기 기준과 같은 칸
-안에서 볼 수 있을 것이다(그림 \ref{fig:initialEventAce}을 보라).
+선택을 했으면, 창은 자동으로 닫힌다. 선택된 특성은 초기 기준과 같은 칸
+안에서 볼 수 있을 것이다 (그림 \ref{fig:initialEventAce}을 보라).
 
 \BeginKnitrBlock{rmdimportant}
 현재 ATLAS 디자인은 활용하기에 약간 혼란스러울 수 있다. 생긴 모양과는
@@ -8430,7 +8435,7 @@ inhibitors을 처음 복용한 환자 기록을 찾는 것을 의미한다. 이�
 버튼이다. 만약 당신이 \includegraphics{images/Cohorts/redX.png}를
 클릭한다면, 해당 기준은 사라질 것이다. 그러므로 당신의 기준을 사라지지
 않은 채 그대로 보존시키고 싶다면, 옆에
-\includegraphics{images/Cohorts/redX.png} 버튼을 그대로 놔 두어야 한다.
+\includegraphics{images/Cohorts/redX.png} 버튼을 그대로 놔두어야 한다.
 \EndKnitrBlock{rmdimportant}
 
 이제 당신은 만족스러운 초기 이벤트를 설정했다. 환자가 처음으로 약물을
@@ -8446,11 +8451,11 @@ inhibitors을 처음 복용한 환자 기록을 찾는 것을 의미한다. 이�
 before.} 당신 연구 팀의 재량껏 관찰 기간을 설정하면 된다. 다른
 코호트에서는 관찰 기간을 다르게 설정해서 다양한 시도들을 해볼 수 있다.
 이는 환자의 과거력에 관한 기간이며, index date 이후의 시간은 포함하지
-않는다. 그러므로 우리는 0 dates after index date 라고 설정해야 한다.
+않는다. 그러므로 우리는 0 dates after index date라고 설정해야 한다.
 우리는 생에 처음 ACE inhibitors를 복용한 환자를 찾고 싶기 때문에
 \emph{limit initial events to the ``earliest event'' per person} (한
 환자에서 발생한 여러 번의 ACE inhibitor 복용 중, 첫 번째 복용을 초기
-이벤트로 설정하는 것)으로 설정한다.
+이벤트로 설정하는 것) 으로 설정한다.
 
 \begin{figure}
 
@@ -8514,8 +8519,8 @@ criteria'를 통해 기준을 추가한다면, 추가 포함 기준을 적용하
 클릭하여 여러 규칙을 담은 기준을 설계하라. 이 버튼은 ``Add Initial
 Event''과 비슷한데, 다만 ``+Add criteria to group''의 버튼은 초기
 이벤트를 설계하고, 수정하는 버튼이 아니다. 우리는 여기서 여러 개의
-기준을 추가할 수 있다. 예를 들어 만약 당신이 질병의 발생을 확인하는
-여러가지 방법을 가지고 있다고 가정하자(예: CONDITION\_OCCURRENCE, 혹은
+기준을 추가할 수 있다. 예를 들어 만약 당신이 질병의 발생을 확인하는 여러
+가지 방법을 가지고 있다고 가정하자(예를 들어 CONDITION\_OCCURRENCE, 혹은
 DRUG\_EXPOSURE, 혹은 MEASUREMENT을 사용한 방법). 모두 다른 도메인들이고
 각각 다른 기준들을 필요로 하겠지만 특정 조건을 찾는 하나의 기준으로
 그룹화할 수 있다. 이 경우에는, 우리는 고혈압의 진단을 찾고 싶기 때문에
@@ -8533,15 +8538,15 @@ inhibitor 첫 복용한 날(index date)로 이후 0\textasciitilde{}365일의
 \caption{추가적 포함 기준 1}\label{fig:ATLASIC1}
 \end{figure}
 
-그리고 당신은 환자들을 탐색할 또다른 기준을 추가하고 싶을 것이다:
+그리고 당신은 환자들을 탐색할 또 다른 기준을 추가하고 싶을 것이다:
 \emph{with exactly 0 occurrences of hypertension drugs ALL days before
-and 1 day before index start date (ACE inhibitor 이전에 어떠한 고혈압
+and 1 day before index start date(ACE inhibitor 이전에 어떠한 고혈압
 약물도 복용하지 않은 사람).} 먼저 ``New inclusion criteria''를 클릭해
 당신의 기준을 설정한 다음, ``+Add criteria to group''을 클릭한다. 이는
 DRUG\_EXPOSURE의 영역이니 ``Add Drug Exposure''를 클릭한 다음, 고혈압
 약물의 컨셉 모음을 붙인다. 그리고, index date로부터 ALL days before and
 0 days after라는 시간을 설정해준다. exactly 0 occurrence를 선택하였는지
-다시 한 번 확인하고 그림 \ref{fig:ATLASIC2}과 같이 잘 만들어졌는지
+다시 한번 확인하고 그림 \ref{fig:ATLASIC2}과 같이 잘 만들어졌는지
 확인하라.
 
 \begin{figure}
@@ -8553,8 +8558,8 @@ DRUG\_EXPOSURE의 영역이니 ``Add Drug Exposure''를 클릭한 다음, 고혈
 \caption{추가적 포함 기준 1}\label{fig:ATLASIC2}
 \end{figure}
 
-``having no occurrences'' (발생하지 않았다)라는 말이 왜 ``exactly 0
-occurrences'' (발생 횟수 0회) 라고 쓰이는 지 혼란스러울 수 있다. 이는
+``having no occurrences'' (발생하지 않았다) 라는 말이 왜 ``exactly 0
+occurrences'' (발생 횟수 0회) 라고 쓰이는지 혼란스러울 수 있다. 이는
 ATLAS 가 사용하는 규칙이다. ATLAS는 오직 포함 기준만을 사용하고, 제외
 기준을 사용하지 않는다. 만약 당신이 어떤 특성을 가진 환자들을 제외하고
 싶다면 해당 특성을 0회 가지는 환자들을 포함한다는 말로 대체하여야 한다.
@@ -8589,9 +8594,9 @@ DRUG\_EXPOSURE의 영역이니 ``Add Drug Exposure''를 클릭한 다음, 고혈
 언제일지 생각해보아야 할 것이다. 이 코호트에서 우리는 약물을 처음 복용한
 사람들을 추적한다. 즉, 약물 복용을 중단한 시점에 환자는 코호트에서
 나오게 하면 된다. 약물 복용이 중단되는 동안에는 해당 환자에게 무슨 일이
-일어나는지 확인할 수 없기 때문이다. 또한 약물 복용 사이에 허용되는
-공백기간을 지정하기 위해 persistence 창에서 기준을 설정할 수 있다. 이
-연구에서 전문가들은 약물 복용 사이에 최대 30일의 공백기간은 허용된다고
+일어나는지 확인할 수 없기 때문이다. 또한 약물 복용 사이에 허용되는 공백
+기간을 지정하기 위해 persistence 창에서 기준을 설정할 수 있다. 이
+연구에서 전문가들은 약물 복용 사이에 최대 30일의 공백 기간은 허용된다고
 결론지었다.
 
 \textbf{왜 공백기간이 허용되는가?} 우리는 데이터 세트에서 실제로
@@ -8628,7 +8633,7 @@ SQL코드와 JSON 파일로 저장되어 다른 연구자들과 공유할 수 �
 여기서는 동일한 코호트를 SQL과 R을 통하여 작성하는 방법을 설명할 것이다.
 9장에서 설명하였듯이 OHDSI는 SqlRender, DatabaseConnector라는 두 개의 R
 패키지를 제공하는데, 이는 SQL의 코드가 다양한 플랫폼에서 실행될 수
-있게끔 자동적으로 번역해준다.
+있게끔 자동으로 번역해준다.
 
 구체적인 설명을 위해 우리는 SQL 코드를 여러 개의 단계로 나눌 것이고, 각
 단계에서는 다음 단계에 필요한 임시 테이블이 생성될 것이다. 이런 설명
@@ -8637,11 +8642,11 @@ SQL코드와 JSON 파일로 저장되어 다른 연구자들과 공유할 수 �
 
 \subsection{데이터베이스에 연결하기}\label{-}
 
-처음으로 우리는 R에 서버에 어떻게 접속하는 지 알려주어야 한다.
+처음으로 우리는 R에 서버에 어떻게 접속하는지 알려주어야 한다.
 \texttt{createConnectionDetails}라는 기능을 가진
 \href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}
 패키지를 사용할 것이다. \texttt{?createConnectionDetails}를 기입하여
-다양한 데이터베이스 관리 시스템 (DBMS) 에 연결하기 위해 필요한 설정들을
+다양한 데이터베이스 관리 시스템(DBMS)에 연결하기 위해 필요한 설정을
 확인할 수 있다. 예를 들어 아래의 코드를 이용해 PostgreSQL에 연결할 수
 있다:
 
@@ -8659,12 +8664,12 @@ SQL코드와 JSON 파일로 저장되어 다른 연구자들과 공유할 수 �
 \end{Highlighting}
 \end{Shaded}
 
-마지막 3 줄은 변수 \texttt{cdmDbSchema}, \texttt{cohortDbSchema}, 그리고
+마지막 3줄은 변수 \texttt{cdmDbSchema}, \texttt{cohortDbSchema}, 그리고
 \texttt{cohortTable} 들을 정의한다. 우리는 나중에 이 변수들을 R에게 CDM
-포멧의 데이터가 어디에 위치해 있으며, 우리가 만든 코호트가 어디에
-생성되어야 하는지 알려주기 위해 사용할 것이다. Microsoft SQL
-Server에서는 \texttt{cdmDbSchema\ \textless{}-\ "my\_cdm\_data.dbo"}의
-예시와 같이 데이터베이스와 스키마 모두를 지정해 주어야 함을 참고하라.
+포맷의 데이터가 어디에 있으며, 우리가 만든 코호트가 어디에 생성되어야
+하는지 알려주기 위해 사용할 것이다. Microsoft SQL Server에서는
+\texttt{cdmDbSchema\ \textless{}-\ "my\_cdm\_data.dbo"}의 예시와 같이
+데이터베이스와 스키마 모두를 지정해 주어야 함을 참고하라.
 
 \subsection{컨셉 결정하기}\label{-}
 
@@ -8714,13 +8719,13 @@ Server에서는 \texttt{cdmDbSchema\ \textless{}-\ "my\_cdm\_data.dbo"}의
 \end{Highlighting}
 \end{Shaded}
 
-DRUG\_EXPOSURE 테이블을 CONCEPT\_ANCESTOR 테이블에 조인함으로서 ACE
+DRUG\_EXPOSURE 테이블을 CONCEPT\_ANCESTOR 테이블에 조인함으로써 ACE
 inhibitor를 포함하는 모든 약물을 찾았다는 것을 참고하라.
 
-\subsection{약물 복용 이전 최소 365일동안 관찰될 수 있었던
-환자}\label{----365----}
+\subsection{약물 복용 이전 최소 365일 동안 관찰될 수 있었던
+환자}\label{----365-----}
 
-OBSERVATION\_PERIOD 테이블을 조인하여 약물 복용 이전 최소 365일동안
+OBSERVATION\_PERIOD 테이블을 조인하여 약물 복용 이전 최소 365일 동안
 관찰될 수 있었던 환자를 선택해야 한다:
 
 \begin{Shaded}
@@ -8832,7 +8837,7 @@ Left join을 사용했으며, DRUG\_EXPOSURE 테이블의 person\_id 행만 NULL
 
 이제 코호트 종료 일자를 제외하고 코호트를 완전히 지정했다. 코호트는
 노출이 중단되면 종료되도록 정의되며, 노출 사이에 최대 30일의 간격까지는
-허용된다. 즉, 약물의 복용 시작 뿐만 아니라 ACE inhibitor의 후속 복용에
+허용된다. 즉, 약물의 복용 시작뿐만 아니라 ACE inhibitor의 후속 복용에
 대해서도 고려한다는 말이다. SQL을 통해 약물의 후속 복용을 고려하여 약물
 복용 기간을 정의하는 것은 매우 복잡하다. 운이 좋게도 약물 복용 기간을
 효율적으로 만들 수 있는 표준 코드가 작성되었다. 이 코드는 Chris Knoll이
@@ -8935,7 +8940,7 @@ Left join을 사용했으며, DRUG\_EXPOSURE 테이블의 person\_id 행만 NULL
 \end{Highlighting}
 \end{Shaded}
 
-이 코드는 모든 후속 복용들을 병합하며, \texttt{max\_gap}의 변수를 통해
+이 코드는 모든 후속 복용을 병합하며, \texttt{max\_gap}의 변수를 통해
 약물 복용 사이에 허용되는 최대기간을 정의할 수 있다. 그 결과로 작성된
 약물 복용 기간은 임시 테이블 \texttt{\#exposure\_era}라고 불리는 임시
 테이블에 기록된다. 다음으로 ACE inhibitor 복용 기간을 우리의 기존
@@ -9009,7 +9014,7 @@ Left join을 사용했으며, DRUG\_EXPOSURE 테이블의 person\_id 행만 NULL
 \item
   코호트 정의는 특정 코호트를 식별하는 데 사용되는 논리에 대한 설명이다.
 \item
-  코호트는 OHDSI 분석 도구 전체에서 사용(및 재사용)될 수 있다.
+  코호트는 OHDSI 분석 도구 전체에서 사용 (및 재사용) 될 수 있다.
 \item
   코호트를 작성하기 위한 두 가지 주요 접근 방법이 있다: 규칙 기반 정의,
   확률적 정의
@@ -9099,39 +9104,39 @@ CDM 데이터베이스 스키마는 `main' 이다.
 
 해답은 부록 \ref{Cohortsanswers}에 있다.
 
-\chapter{환자 특성 분석 Characterization}\label{Characterization}
+\chapter{임상적 특성 분석}\label{Characterization}
 
 \emph{작성자 : Anthony Sena \& Daniel Prieto-Alhambra}
 
-관찰형 보건의료데이터는 다양한 특성을 바탕으로 인구집단의 변화를 이해할
+관찰형 보건의료 데이터는 다양한 특성을 바탕으로 인구집단의 변화를 이해할
 수 있는 귀중한 자원이다. 기술통계를 통해 인구집단의 특성을 확인하는 것은
-건강과 질병에 영향을 주는 요인에 대한 가설 설정을 위한 중요한 첫번째
-단계이다. 이번 장에서는 특성 분석 (characterization)을 위한 방법들에
-대해 살펴보기로 한다. :
+건강과 질병에 영향을 주는 요인에 대한 가설 설정을 위한 중요한 첫 번째
+단계이다. 이번 장에서는 특성 분석(characterization)을 위한 방법들에 대해
+살펴보기로 한다. :
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{데이터베이스 수준의 특성 분석 (Database-level
-  characterization)}: 상위 수준 (top-level)의 요약 통계량을 제공하여
+  \textbf{데이터베이스 수준의 특성 분석(Database-level
+  characterization)}: 상위 수준(top-level)의 요약 통계량을 제공하여
   데이터베이스 전체에 대한 이해를 돕는다.
 \item
   \textbf{코호트의 특성 분석 (Cohort characterization)}: 통합된 의무기록
   측면에서 인구집단을 기술한다.
 \item
-  \textbf{치료 경로 (Treatment pathways)}: 특정 기간동안 한 사람에
-  대하여 행해진 중재 (intervention) 순서를 기술한다.
+  \textbf{치료 경로(Treatment pathways)}: 특정 기간 동안 한 사람에
+  대하여 행해진 중재(intervention) 순서를 기술한다.
 \item
-  \textbf{발생 (Incidence)}: 위험 관찰 기간(time at risk, TAR)동안의
-  outcome의 발생율을 계산한다.
+  \textbf{발생(Incidence)}: 위험 노출 기간(time at risk, TAR) 동안의
+  outcome의 발생률을 계산한다.
 \end{itemize}
 
 데이터베이스 수준의 특성 분석을 제외하고 이 방법들은 index date라고 하는
 시점과 관련된 인구 집단에 대해 설명하는데 목적이 있다. 이와 같은 관심
-집단은 코호트라고 정의되며 \ref{Cohorts} 장에 기술되어 있다. 코호트는
-관심집단의 개개인에 대한 index date를 정의한다. Index date를 기준으로
-index date이전의 시간을 \textbf{기저 시간(baseline time)}이라 정의한다.
-Index date를 포함한 그 이후의 시간들은 \textbf{index 후 시간(post-index
+집단은 코호트라고 정의되며 \ref{Cohorts}장에 기술되어 있다. 코호트는
+관심 집단의 개개인에 대한 index date를 정의한다. Index date를 기준으로
+index date 이전의 시간을 \textbf{기저 시간(baseline time)}이라 정의한다.
+Index date를 포함한 그 이후의 시간은 \textbf{index 후 시간(post-index
 time)}이라고 부른다.
 
 특성 분석은 질병의 자연 경과, 치료 이용, 진료 질 개선 등과 같은 것에
@@ -9147,10 +9152,10 @@ R을 이용한 고혈압 환자군에 대한 특성 분석을 해 볼
 \section{데이터베이스 수준의 특성 분석 (Database Level
 Characterization)}\label{----database-level-characterization}
 
-관심집단에 대한 특성 분석을 시행하기 전, 사용하고자 하는 데이터베이스의
+관심 집단에 대한 특성 분석을 시행하기 전, 사용하고자 하는 데이터베이스의
 특성을 이해하는 것이 선행되어야 한다. 데이터베이스 수준의 특성 분석은
 전체 데이터베이스에 대한 시간의 흐름에 따른 경향과 분포 측면에서 데이터
-번체를 설명하기 위해 사용한다. 데이터베이스의 정량적 분석은 일반적으로
+전체를 설명하기 위해 사용한다. 데이터베이스의 정량적 분석은 일반적으로
 다음과 같은 질문을 포함한다:
 
 \begin{itemize}
@@ -9162,34 +9167,34 @@ Characterization)}\label{----database-level-characterization}
 \item
   환자들의 관찰 기간은 얼마나 오래되었는가?
 \item
-  시간이 지남에 따라 기록/처방된 \{치료, 질병, 처치 등\}을 받은 사람의
+  시간이 지남에 따라 기록/처방된 \{치료, 질병, 처치 등\} 을 받은 사람의
   비율은 어떠한가?
 \end{itemize}
 
-데이터베이스 수준의 기술 통계는 연구자로 하여금 어떠한 데이터에서 손실이
-있을 수 있는지와 같이 확인할 수 없는 부분을 이해하는데 도움을 주며
-\ref{DataQuality} 장 데이터 품질을 설명할 때 자세히 다룬다.
+데이터베이스 수준의 기술 통계는 연구자가 어떠한 데이터에서 손실이 있을
+수 있는지와 같이 확인할 수 없는 부분을 이해하는 데 도움을 주며
+\ref{DataQuality}장 데이터 품질을 설명할 때 자세히 다룬다.
 \index{characterization!database level}
 
 \section{코호트 특성 분석 (Cohort
 Characterization)}\label{---cohort-characterization}
 
 코호트 특성 분석은 기저 시점과 index 후 코호트 구성원의 특징들을
-기술한다. OHDSI는 상태(condition), 약물(drug), 치료재료(device),
+기술한다. OHDSI는 상태(condition), 약물(drug), 치료 재료(device),
 시술(procedure), 임상적 관찰(clinical observation) 등 개인의 의무기록에
-존재하는 모든 것에 대한 기술 통계량을 바탕으로 특성 분석을 접근한다.
+존재하는 모든 것에 대한 기술 통계량을 바탕으로 특성 분석에 접근한다.
 또한, index 시점에서 코호트 구성원에 대한 사회인구학적 내용에 대해
 요약해준다. 이와 같은 접근 방식을 통해 관심 코호트에 대한 완벽한 요약을
 제공한다. 특히, 이러한 접근을 통해 데이터의 변화에 대한 안목을 가지고
-코호트에 대한 전체적인 탐색을 가능하게 하는 한편, 잠재적인 결측 값을
-찾을 수 있도록 한다.
+코호트에 대한 전체적인 탐색을 가능하게 하는 한편, 잠재적인 결측값을 찾을
+수 있도록 한다.
 
-코호트 특성 분석 방법은 이미 치료를 받은 사람에서 치료의 적응증 유발율과
-금기를 추정하는 개인 수준의 개인 수준의 약물 사용 연구 (person-level
-drug utilization studies : DUS)에 이용될 수 있다. 코호트 특성 분석의
-보급은 역학 관찰연구 보고 강화(Strengthening the Reporting of
-Observational Studies in Epidemiology, STROBE) 가이드라인에 자세히
-제시된 관찰 연구에 권장되는 모범사례이다. \citep{VONELM2008344}
+코호트 특성 분석 방법은 이미 치료를 받은 사람에게서 치료의 적응증
+유발률과 금기를 추정하는 개인 수준의 개인 수준의 약물 사용
+연구(person-level drug utilization studies : DUS)에 이용될 수 있다.
+코호트 특성 분석의 보급은 역학 관찰연구 보고 강화(Strengthening the
+Reporting of Observational Studies in Epidemiology, STROBE) 가이드라인에
+자세히 제시된 관찰 연구에 권장되는 모범사례이다. \citep{VONELM2008344}
 \index{characterization!cohort}
 \index{descriptive statistics|see {characterization}}
 \index{drug utilization}
@@ -9197,17 +9202,17 @@ Observational Studies in Epidemiology, STROBE) 가이드라인에 자세히
 \section{치료 경로 (Treatment Pathways)}\label{--treatment-pathways}
 
 인구 집단의 특성을 분석하는 또 하나의 방법은 index 후(post-index) 시간
-동안의 치료 순서를 기술하는 것이다. 예를들어, 이전
-연구\citep{Hripcsak7329}에서 OHDSI의 공통 데이터 표준을 활용해 제 2형
-당뇨, 고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를
-고안하였다. 이러한 분석 방법을 표준화 함으로써, Hripcsak과 그 연구팀은
-관심집단의 특성 분석을 OHDSI 네트워크 상에서 동일한 통계방법으로
+동안의 치료 순서를 기술하는 것이다. 예를 들어, 이전 연구
+\citep{Hripcsak7329} 에서 OHDSI의 공통 데이터 표준을 활용해 제2형 당뇨,
+고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를
+고안하였다. 이러한 분석 방법을 표준화함으로써, Hripcsak과 그 연구팀은
+관심 집단의 특성 분석을 OHDSI 네트워크상에서 같은 통계 방법으로
 실행하였다. \index{characterization!treatment pathways}
 \index{treatment pathways|see {characterization!treatment pathways}}
 \index{cohort pathways|see {characterization!treatment pathways}}
 
 치료 경로 분석은 가장 처음 처방/조제된 약물 이후 특정 상태에 있는 환자에
-대한 치료행위(events)를 요약하기 위해 시행한다. 이 연구에서는 제 2형
+대한 치료행위(events)를 요약하기 위해 시행한다. 이 연구에서는 제2형
 당뇨, 고혈압, 우울증의 진단 이후의 치료행위들을 기술했다. 개개인이 받은
 치료행위들(events)은 이후 요약 통계량으로 합쳐지고 각의 질병과 각각의
 데이터베이스에서 별로 시각화되었다.
@@ -9222,11 +9227,11 @@ Observational Studies in Epidemiology, STROBE) 가이드라인에 자세히
 \end{figure}
 
 figure \ref{fig:treatmentPathwaysSunburstDataViz}에서 제시된 사례는
-고혈압 치료를 시작한 환자집단을 나타낸다. 가운데 위치한 첫번쨰 고리는
+고혈압 치료를 시작한 환자집단을 나타낸다. 가운데 위치한 첫번째 고리는
 1차 요법(first-line therapy)에 대한 환자의 비율을 나타낸다. 이 사례의
 경우 Hydrochlorothiazide는 고혈압 환자군의 1차 요법으로 가장 흔하게
 사용되는 약물이라는 것을 알 수 있다. Hydrochlorothiazide에서 파생된
-상자들은 해당 코호트 대상자에서 기록된 두번째(2nd), 세번째(3rd) 요법을
+상자들은 해당 코호트 대상자에서 기록된 두 번째(2nd), 세 번째(3rd) 요법을
 의미한다.
 
 치료 경로 분석은 인구집단 내의 치료 이용 현황에 대한 중요한 근거를
@@ -9239,14 +9244,15 @@ figure \ref{fig:treatmentPathwaysSunburstDataViz}에서 제시된 사례는
 적 없는 치료 경로를 따르고 있는 것을 확인했다.
 
 고전적인 약물 사용 연구 (DUS) 개념에서, 치료 경로 분석은 특정 집단에서
-하나 이상의 약물 사용율과 같은 집단 수준의 약물 사용 연구
-(population-level DUS) 뿐 아니라 치료 방법의 지속률, 서로 다른 치료 간의
-전환률과 같은 개인 수준의 약물 사용 연구 (person-level DUS)가 포함된다.
+하나 이상의 약물 사용율과 같은 집단 수준의 약물 사용
+연구(population-level DUS) 뿐 아니라 치료 방법의 지속률, 서로 다른 치료
+간의 전환율과 같은 개인 수준의 약물 사용 연구(person-level DUS)가
+포함된다.
 
 \section{발생 (Incidence)}\label{-incidence}
 
-발생률과 발생비는 공중 보건에서 위험 관찰 기간(time-at-risk, TAR)동안
-인구집단 내 새로운 outcome의 발생의 평가에 사용되는 통계적 지표이다.
+발생률과 발생비는 공중 보건에서 위험 노출 기간(time-at-risk, TAR) 동안
+인구집단 내 새로운 outcome의 발생 평가에 사용되는 통계적 지표이다.
 Figure \ref{fig:incidenceTimeline} 는 한 사람에게서 발생률 계산에 필요한
 구성요소를 보여주고 있다: \index{incidence}
 
@@ -9256,15 +9262,15 @@ Figure \ref{fig:incidenceTimeline} 는 한 사람에게서 발생률 계산에 �
 
 }
 
-\caption{개인 수준에서의 발생률 계산의 구성 성분. 본 예시에서는 위험 관찰 기간은 코호트가 시작하고 하루 이후부터 코호트가 끝나는 시점으로 정의됨.}\label{fig:incidenceTimeline}
+\caption{개인 수준에서의 발생률 계산의 구성 성분. 본 예시에서는 위험 노출 기간은 코호트가 시작하고 하루 이후부터 코호트가 끝나는 시점으로 정의됨.}\label{fig:incidenceTimeline}
 \end{figure}
 
 figure \ref{fig:incidenceTimeline}에서 한 사람은 데이터 내에서 관찰이
-시작되고 끝나는 시점이 표시된 기간을 갖는다. 그 다음, 그 사람은 몇몇
-연구 기준 (eligibility criteria)에 의해 코호트에 들어가는(enter) 시점과
+시작되고 끝나는 시점이 표시된 기간을 갖는다. 그다음, 그 사람은 몇몇 연구
+기준 (eligibility criteria)에 의해 코호트에 들어가는(enter) 시점과
 나오는(exit) 시점을 갖게 된다. 위험을 관찰하는 기간(time at risk, TAR)은
 우리가 outcome의 발생을 보고자 하는 기간을 의미한다. 만일 outcome이 위험
-관찰 기간(time at risk, TAR) 내에서 발생한다면, outcome이 발생된 것으로
+노출 기간(time at risk, TAR) 내에서 발생한다면, outcome이 발생한 것으로
 간주한다.
 
 발생을 계산하기 위해서는 두 가지 측정법이 있다:
@@ -9273,8 +9279,8 @@ figure \ref{fig:incidenceTimeline}에서 한 사람은 데이터 내에서 관�
 발생\;분율 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{\#\;TAR을\;가지면서\;코호트에\;포함된\;사람}
 \]
 
-발생 분율은 위험 관찰 기간동안 집단 내 새로운 outcome의 발생을 측정하는
-방법이다. 다시 말해, 관심집단에서 정해진 시간의 틀 안에서 발생한
+발생 분율은 위험 노출 기간 동안 집단 내 새로운 outcome의 발생을 측정하는
+방법이다. 다시 말해, 관심 집단에서 정해진 시간의 틀 안에서 발생한
 outcome의 비율이다. \index{incidence!proportion}
 
 \[
@@ -9285,11 +9291,11 @@ outcome의 비율이다. \index{incidence!proportion}
 Incidence\;Rate = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{person\;time\;at\;risk\;contributed\;by\;persons\;in\;cohort}
 \]
 
-발생률은 인구집단에서 누적되는 위험 관찰 기간 동안의 새로 발생한
-outcome의 횟수를 측정한 것이다. 만일 한 환자가 위험 관찰 기간 (TAR)
-내에서 outcome을 경험했을 때, 그 환자가 전체의 인-시(person-time)에
-outcome이 발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 관찰
-기간은 \textbf{인-시(person-time)}라고 하고, 단위는 일, 월, 혹은 연으로
+발생률은 인구집단에서 누적되는 위험 노출 기간의 새로 발생한 outcome의
+횟수를 측정한 것이다. 만일 한 환자가 위험 노출 기간 (TAR) 내에서
+outcome을 경험했을 때, 그 환자가 전체의 인-시(person-time)에 outcome이
+발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 노출 기간은
+\textbf{인-시(person-time)}라고 하고, 단위는 일, 월, 혹은 연으로
 표현된다. \index{incidence!rate} \index{person-time}
 
 치료 요법에 대하여 계산할 때, 정해진 치료 요법의 사용 비율 혹은 발생률을
@@ -9302,8 +9308,8 @@ Persons)}\label{----characterizing-hypertensive-persons}
 세계보건기구(WHO)의 고혈압에 대한 보고서\citep{WHOHypertension}에
 따르면, 고혈압의 초기 발견과 적절한 치료 및 양호한 혈압 조절은 건강과
 경제적인 면에서 상당한 이득이 있다. WHO의 보고서에는 고혈압의 개요 및
-여러 국가들의 질병 부담의 특징들을 보여주고 있다. WHO는 지경과 사회
-경제적 계급 및 성별 별 고혈압에 대한 기술통계를 제공하고 있다.
+여러 국가의 질병 부담의 특징들을 보여주고 있다. WHO는 지경과 사회 경제적
+계급 및 성별별 고혈압에 대한 기술통계를 제공하고 있다.
 
 WHO가 수행한 고혈압 환자의 특성 분석과 동일한 분석은 관찰형 데이터
 소스를 이용해 할 수 있다. 이 장의 다음 절에서는 고혈압 환자 집단의
@@ -9321,10 +9327,10 @@ ATLAS)}\label{atlas-----database-characterization-in-atlas}
 특성을 찾아내는 방법을 설명하고자 한다. 시작하기 위해 ATLAS의 왼쪽 바에
 위치한
 \includegraphics{images/Characterization/atlasDataSourcesMenuItem.png}을
-클릭하자. ATLAS의 첫번째 드롭 다운 목록에서 데이터 탐색(database to
-explore)을 선택한다. 그리고, 데이터베이스 아래의 드롭 다운 목록을 통해
+클릭하자. ATLAS의 첫 번째 드롭다운 목록에서 데이터 탐색(database to
+explore)을 선택한다. 그리고, 데이터베이스 아래의 드롭다운 목록을 통해
 보고서를 탐색을 시작할 수 있다. 고혈압 환자에 대한 데이터베이스 수준의
-특성 분석을 위해 두 번째 드롭 다운 목록인 report 드롭 다운 목록에서
+특성 분석을 위해 두 번째 드롭다운 목록인 report 드롭다운 목록에서
 Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병에 대한
 treemap 시각화 결과가 표시된다:
 
@@ -9334,11 +9340,11 @@ treemap 시각화 결과가 표시된다:
 
 }
 
-\caption{Atlas Data Sources: Condition Occurrence Treemap}\label{fig:atlasDataSourcesConditionTreemap}
+\caption{Atlas 데이터 원천: Condition Occurrence Treemap}\label{fig:atlasDataSourcesConditionTreemap}
 \end{figure}
 
-특정 관심 질환을 검색하기 위해 Table탭을 클릭하면 환자 수, 유병률, 환자
-별 기록들을 포함하는 데이터베이스의 전체 condition 목록이 나타난다.
+특정 관심 질환을 검색하기 위해 Table 탭을 클릭하면 환자 수, 유병률,
+환자별 기록들을 포함하는 데이터베이스의 전체 condition 목록이 나타난다.
 상단의 filter 상자를 이용해 ``hypertension''을 포함하는 concept name만을
 걸러낼 수 있다:
 
@@ -9348,7 +9354,7 @@ treemap 시각화 결과가 표시된다:
 
 }
 
-\caption{Atlas Data Sources: concept name에서 "hypertension"이라는 단어를 이용해 걸러낸 결과}\label{fig:atlasDataSourcesConditionFiltered}
+\caption{Atlas 데이터 원천: concept name에서 "hypertension"이라는 단어를 이용해 걸러낸 결과}\label{fig:atlasDataSourcesConditionFiltered}
 \end{figure}
 
 하나의 행을 클릭하면 해당 condition에 대한 자세한 드릴다운 보고서를
@@ -9362,15 +9368,15 @@ treemap 시각화 결과가 표시된다:
 
 }
 
-\caption{Atlas Data Sources: Essential hypertension drill down report}\label{fig:atlasDataSourcesDrillDownReport}
+\caption{Atlas 데이터 원천: Essential hypertension 드릴다운 보고서}\label{fig:atlasDataSourcesDrillDownReport}
 \end{figure}
 
 지금까지 고혈압이라는 concept에 대한 데이터의 특징과 시간에 따른 경향을
 살펴보았다. 데이터베이스 수준의 특성 분석을 통해 고혈압 환자의 치료에
 사용된 약물에 대하여도 확인할 수 있다. 이는 RxNorm Ingredient에 요약된
-약물의 특성을 검토를 위해 Drug Era report을 사용한 것 외에는 위와
-동일하게 진행된다. 관심있는 항목에 대한 데이터베이스 특성 탐색을
-마쳤다면, 이제는 특성화 하고자 하는 고혈압 환자의 특성 분석을 위한
+약물의 특성을 검토를 위해 Drug Era report를 사용한 것 외에는 위와
+동일하게 진행된다. 관심 있는 항목에 대한 데이터베이스 특성 탐색을
+마쳤다면, 이제는 특성화하고자 하는 고혈압 환자의 특성 분석을 위한
 코호트를 설계하는 단계로 나아갈 준비를 마친 것이다.
 
 \section{ATLAS를 이용한 코호트 특성 분석 (Cohort Characterization in
@@ -9386,12 +9392,12 @@ ATLAS)}\label{atlas-----cohort-characterization-in-atlas}
 \subsection{디자인 (Design)}\label{-design}
 
 특성 분석은 하나 이상의 코호트와 분석하고자 하는 하나 이상의 속성이
-필요하다. 예시의 경우, 두 개의 코호트를 사용할 것이다. 첫번째 코호트는
-고혈압 치료를 시작한 환자로 index date 이전 1년 간 한번이라도 고혈압
+필요하다. 예시의 경우, 두 개의 코호트를 사용할 것이다. 첫 번째 코호트는
+고혈압 치료를 시작한 환자로 index date 이전 1년간 한 번이라도 고혈압
 진단을 받은 환자로 정의한다고 하자. 또한 이 코호트에 속한 사람들은
 고혈압 치료제를 복용하기 시작한 후 최소 1년의 관찰 기간을 갖는다고 하자
-(Appendix \ref{HTN1yrFO}). 두번째 코호트는 첫 번째 코호트와 모든 조건이
-동일하지만 최소 관찰기간을 1년 대신 3년을 갖는다고 하자 (Appendix
+(Appendix \ref{HTN1yrFO}). 두 번째 코호트는 첫 번째 코호트와 모든 조건이
+동일하지만, 최소관찰 기간을 1년 대신 3년을 갖는다고 하자 (Appendix
 \ref{HTN3yrFO}).
 
 \subsubsection*{코호트 정의 (Cohort
@@ -9404,10 +9410,10 @@ Definitions)}\label{--cohort-definitions}
 
 }
 
-\caption{Characterization design tab - cohort definition selection}\label{fig:atlasCharacterizationCohortSelection}
+\caption{특성 디자인 탭 - 코호트 정의 선택}\label{fig:atlasCharacterizationCohortSelection}
 \end{figure}
 
-해당 코호트들은 \ref{Cohorts} 장에서 이미 만들어 져 있다고 가정한다.
+해당 코호트들은 \ref{Cohorts} 장에서 이미 만들어져 있다고 가정한다.
 \includegraphics{images/Characterization/atlasImportButton.png}을
 클릭하고 figure \ref{fig:atlasCharacterizationCohortSelection}에서
 보이는 바와 같이 코호트를 선택한다. 그 다음, 두 코호트 특성 분석을 위해
@@ -9419,11 +9425,11 @@ Selection)}\label{--feature-selection}
 
 ATLAS는 OMOP CDM에서 모델링 된 임상 도메인에서 특성 분석을 수행하기 위한
 속성들이 100개 이상 사전에 정의되어 있다. 각 사전에 정의된 분석은 선택된
-분석 대상 코호트들에 대한 임상 관찰들을 집계하고 요약하는 기능을
-수행한다. 이와 같은 계산은 코호트의 기저 그리고 index 후 특징들을
-설명하기 위해 수천 가지의 속성을 제공한다. ATLAS는 OHDSI에서 제공하는
+분석 대상 코호트들에 대한 임상 관찰을 집계하고 요약하는 기능을 수행한다.
+이와 같은 계산은 코호트의 기저 그리고 index 후 특징들을 설명하기 위해
+수천 가지의 속성을 제공한다. ATLAS는 OHDSI에서 제공하는
 FeatureExtraction R package를 이용해 개별 코호트에 대한 특성 분석을
-시행하며, 이 FeatureExtraction이라는 R package을 사용하는 방법에 대하여
+시행하며, 이 FeatureExtraction이라는 R package를 사용하는 방법에 대하여
 다음 절에서 더 자세하게 다룰 것이다. \index{feature analyses}
 
 분석하고자 하는 속성들을 선택하기 위해
@@ -9437,14 +9443,14 @@ FeatureExtraction R package를 이용해 개별 코호트에 대한 특성 분�
 
 }
 
-\caption{Characterization design tab - feature selection.}\label{fig:atlasCharacterizationFeatureSelection}
+\caption{특성 디자인 탭 - 속성 선택.}\label{fig:atlasCharacterizationFeatureSelection}
 \end{figure}
 
 위 그림은 각의 코호트에서 분석할 속성들에 어떤 것들이 있는지를 설명과
 함께 목록을 나타낸 것이다. ``Demographics''라고 시작하는 속성은 각
 환자의 인구 통계학적인 정보를 코호트의 시작 시점에서 계산한다. 도메인
-이름으로 시작한 속성들 (예를 들어, Visit, Procedure, Condition, Drug
-등)은 해당 도메인에 기록된 모든 관찰 값들의 특성을 나타낸 것이다. 각각의
+이름으로 시작한 속성들 (예를 들어, Visit, Procedure, Condition, Drug 등)
+은 해당 도메인에 기록된 모든 관찰 값들의 특성을 나타낸 것이다. 각각의
 도메인의 특성들은 코호트 시작 지점에 앞서 네 가지의 시간대의 옵션이
 있다:
 
@@ -9464,13 +9470,13 @@ FeatureExtraction R package를 이용해 개별 코호트에 대한 특성 분�
 Analysis)}\label{---subgroup-analysis}
 \addcontentsline{toc}{subsubsection}{하위 집단 분석 (Subgroup Analysis)}
 
-만일 성별에 따라 특성에 차이가 있는지가 알고싶다면 어떻게 해야할까? 이때
-우리는 ``하위 집단 분석 (subgroup analyses)''을 이용할 수 있다. 이는
-특성 분석 안에서 새로운 관심 하위 집단에 대한 정의를 할 수 있도록
-해준다. 하위 집단을 만들기 위해 하위 그룹에 대한 기준 (criteria)을
-클릭해 더하면 된다. 이 단계는 코호트 정의에 사용되는 기준 (criteria)과
-유사하다. 이 사례에서 우리는 코호트 내의 여성을 확인할 수 있는 기준
-(criteria) 셋를 정의할 것이다:
+만일 성별에 따라 특성에 차이가 있는지가 알고 싶다면 어떻게 해야 할까?
+이때 우리는 ``하위 집단 분석 (subgroup analyses)''을 이용할 수 있다.
+이는 특성 분석 안에서 새로운 관심 하위 집단에 대한 정의를 할 수 있도록
+해준다. 하위 집단을 만들기 위해 하위 그룹에 대한 기준(criteria)을 클릭해
+더하면 된다. 이 단계는 코호트 정의에 사용되는 기준(criteria)과 유사하다.
+이 사례에서 우리는 코호트 내의 여성을 확인할 수 있는 기준(criteria)
+세트를 정의할 것이다:
 
 \begin{figure}
 
@@ -9519,18 +9525,17 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 \end{figure}
 
 설계 시 선택된 각 코호트의 다른 속성들은 표의 형식으로 나타난다. 그림
-\ref{fig:atlasCharacterizationResultsSummary}에서 보이는 것 처럼 코호트
-시작 일로부터 365일 이전에 두 코호트에 존재하는 모든 질환을 요약하여
-확인할 수 있다. 각 변수들은 개별 코호트와 우리가 코호트 내에서 정의한
-여성 하위그룹에 대한 수 (count)와 백분율 (percentage)를 갖는다.
+\ref{fig:atlasCharacterizationResultsSummary}에서 보이는 것처럼 코호트
+시작일로부터 365일 이전에 두 코호트에 존재하는 모든 질환을 요약하여
+확인할 수 있다. 각 변수는 개별 코호트와 우리가 코호트 내에서 정의한 여성
+하위그룹에 대한 수(count)와 백분율(percentage)를 갖는다.
 
 어떤 심혈관 질환들이 모집단에서 관찰되는지 이해하고자
 \texttt{cardiac\ arrhythmia} 과거력을 갖는 환자의 비율이 얼마인지를
-알아보기 위해 겁색창에서 필터를 사용하였다. cardiac arrythmia concept
+알아보기 위해 검색창에서 필터를 사용하였다. cardiac arrythmia concept
 옆의 \texttt{Explore} 링크를 이용하면 그림
-\ref{fig:atlasCharacterizationResultsExplore}에 보여지는 것과 같이
-하나의 코호트에 대하여 더 자세한 내용이 들어있는 새로운 창을 띄울 수
-있다:
+\ref{fig:atlasCharacterizationResultsExplore}에 보이는 것과 같이 하나의
+코호트에 대하여 더 자세한 내용이 들어 있는 새로운 창을 띄울 수 있다:
 
 \begin{figure}
 
@@ -9538,7 +9543,7 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 
 }
 
-\caption{특성 분석 결과 - 하나의 concept에 대하여 자세한 내용이 들어있는 새로운 창.}\label{fig:atlasCharacterizationResultsExplore}
+\caption{특성 분석 결과 - 하나의 concept에 대하여 자세한 내용이 들어 있는 새로운 창.}\label{fig:atlasCharacterizationResultsExplore}
 \end{figure}
 
 분석하고자 하는 코호트들에 대하여 모든 conition에 대한 컨셉을 분석하고
@@ -9546,11 +9551,11 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 컨셉을 확인할 수 있다. 본 연구의 경우 cardiac arrythmia에 대하여
 확인했다. 이와 같은 탐색 기능은 컨셉의 계층 구조를 탐색 할 수 있도록
 하며, 고혈압 환자들에서 나타날 수 있는 다른 심장 질환들을 확인할 수
-있도록 한다. 요약된 결과처럼 (갯)수와 백분율로써 화면에 출력된다.
+있도록 한다. 요약된 결과처럼 (갯) 수와 백분율로써 화면에 출력된다.
 
-동일한 특성 분석은 혈관 부종과 같은 항 고혈압 제제의 부작용에 의한
-상태를 찾는 분석에도 사용할 수 있다. 방법은 위의 분석과 동일하게 그림
-\ref{fig:atlasCharacterizationResultsContra}에 나온 것 처럼 'edema'를
+같은 특성 분석은 혈관 부종과 같은 항고혈압 제제의 부작용에 의한 상태를
+찾는 분석에도 사용할 수 있다. 방법은 위의 분석과 같이 그림
+\ref{fig:atlasCharacterizationResultsContra}에 나온것 처럼 'edema'를
 검색하여 진행할 수 있다:
 
 \begin{figure}
@@ -9562,7 +9567,7 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 \caption{특성 분석 결과 - 금기되는 상태 이상을 탐색한 결과.}\label{fig:atlasCharacterizationResultsContra}
 \end{figure}
 
-다시 한 번, 고혈압 환자에서 혈관 부종의 발병률을 알아보기 위해 Edema의
+다시 한번, 고혈압 환자에서 혈관 부종의 발병률을 알아보기 위해 Edema의
 특성을 보는 탐색 기능을 사용할 것이다:
 
 \begin{figure}
@@ -9574,8 +9579,8 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 \caption{특성 분석 결과 - 금기되는 상태 이상에 대한 자세한 결과.}\label{fig:atlasCharacterizationResultsContraExplore}
 \end{figure}
 
-항 고혈압 제제를 시작하기 1년 전부터 혈관 부종의 기록이 있었던 사람들의
-비율을 확인하 수 있었다.
+항고혈압 제제를 시작하기 1년 전부터 혈관 부종의 기록이 있었던 사람들의
+비율을 확인할 수 있었다.
 
 \begin{figure}
 
@@ -9595,10 +9600,10 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 \subsection{사용자 정의 속성 (Defining Custom
 Features)}\label{---defining-custom-features}
 
-사전에 정의되어 제공되는 속성들 뿐 아니라 ATLAS에서는 사용자가 필요에
-따라 속성들을 커스터마이즈 하고 정의할 수 있는 기능을 지원한다. 왼쪽
+사전에 정의되어 제공되는 속성들뿐 아니라 ATLAS에서는 사용자가 필요에
+따라 속성들을 커스터마이즈하고 정의할 수 있는 기능을 지원한다. 왼쪽
 메뉴에서 \textbf{characterization}를 클릭하고, \textbf{Feature
-Analysis}탭을 클릭 한 후, \textbf{New Feature Analysis} 버튼을 클릭하면
+Analysis}탭을 클릭한 후, \textbf{New Feature Analysis} 버튼을 클릭하면
 사용자가 정의한 속성 분석을 할 수 있다. 사용자가 정의하는 속성을
 명명하고, \includegraphics{images/PopulationLevelEstimation/save.png}
 버튼을 통해 저장할 수 있다. \index{ATLAS!characterization features}
@@ -9618,7 +9623,7 @@ Analysis}탭을 클릭 한 후, \textbf{New Feature Analysis} 버튼을 클릭�
 위에서 정의한 기준(criteria)은 코호트 시작 날짜에 적용된다고 가정하자.
 이전에 정의한 기준(criteria)을 저장했다면, 이전 절에서 우리가 디자인한
 특성 분석에 이를 적용할 수 있다. 이는 위해 characterization을 열고,
-Feature Analysis로 이동 해 보자.
+Feature Analysis로 이동해 보자.
 \includegraphics{images/Characterization/atlasImportButton.png} 버튼을
 누르고 메뉴에서 new custom features를 선택하자. 그러면 분석할 속성
 목록에 사용자 정의 속성이 올라간 것이 보일 것이다. 앞 절에서 설명한 것과
@@ -9653,31 +9658,31 @@ package를 사용하는 방법을 알아보기로 한다. FeatureExtraction은 �
   사용자 정의 분석 셋을 생성
 \end{itemize}
 
-FeatureExtraction은 개인 수준 속성 (person-level feature)과 통합된
-속성의 두가지 방법으로 변수를 만든다. 개인 수준의 특성은 기계 학습에
-적용할 때 유용하다. 이 절에서는 관심 코호트를 설명하는 기저 변수를
-생성할 때 유용한 통합된 속성의 사용 방법을 집중적으로 설명할 것이다.
-더불어 사전 지정된 분석과 사용자가 정의하는 분석의 두 가지 변수를 구성
-방법에 대해 알아볼 것이다. (기본 설정 세트에 대해서는 독자의 연습을 위해
-남겨두도록 하겠다.)
+FeatureExtraction은 개인 수준 속성(person-level feature)과 통합된 속성의
+두 가지 방법으로 변수를 만든다. 개인 수준의 특성은 기계 학습에 적용할 때
+유용하다. 이 절에서는 관심 코호트를 설명하는 기저 변수를 생성할 때
+유용한 통합된 속성의 사용 방법을 집중적으로 설명할 것이다. 더불어 사전
+지정된 분석과 사용자가 정의하는 분석의 두 가지 변수를 구성 방법에 대해
+알아볼 것이다. (기본 설정 세트에 대해서는 독자의 연습을 위해 남겨두도록
+하겠다)
 
 \subsection{Cohort Instantiation}\label{cohort-instantiation}
 
 특성 분석을 위해 우선 코호트를 예시를 들어 설명하겠다. 코호트 예시는
-\ref{Cohorts} 장에서 실습 했었다. 본 실습에서는 고혈압의 1차 약물 치료를
-시작한 사람들 중 1년 간 관찰된 사람들을 사용할 것이다 (Appendix
+\ref{Cohorts} 장에서 실습했었다. 본 실습에서는 고혈압의 1차 약물치료를
+시작한 사람 중 1년간 관찰된 사람들을 사용할 것이다 (Appendix
 \ref{HTN1yrFO}). 부록 \ref{CohortDefinitions} 의 다른 코호트들은 독자의
 연습을 위해 남겨두었다. cohort definition ID가 1인
-\texttt{scratch.my\_cohorts} 라는 테이블에 실습에 사용할 코호트가 있다고
+\texttt{scratch.my\_cohorts}라는 테이블에 실습에 사용할 코호트가 있다고
 가정하자.
 
 \subsection{데이터 추출 (Data Extraction)}\label{--data-extraction}
 
-먼저 R이 서버에 접속할 수 있도록 해야한다. FeatureExtraction은
+먼저 R이 서버에 접속할 수 있도록 해야 한다. FeatureExtraction은
 DatabaseConnector package의 \texttt{createConnectionDetails} 함수를
 이용해 서버와 연결할 수 있다. \texttt{?createConnectionDetails}를
-입력하면 다양한 데이터베이스 관리 시스템 (DBMS)이 요구하는 설정 값이
-어떤것 들이 있는지 확인할 수 있다. 예를 들어, PostgreSql 데이터베이스와
+입력하면 다양한 데이터베이스 관리 시스템(DBMS)이 요구하는 설정값이 어떤
+것들이 있는지 확인할 수 있다. 예를 들어, PostgreSql 데이터베이스와
 연결해야 하는 경우 다음과 같이 연결 설정을 해야 한다:
 
 \begin{Shaded}
@@ -9697,7 +9702,7 @@ DatabaseConnector package의 \texttt{createConnectionDetails} 함수를
 
 마지막 네 줄의 코드는 \texttt{cdmDbSchema}, \texttt{cohortsDbSchema},
 \texttt{cohortsDbTable} 변수들을 정의하고 CDM 버전 또한 정의하기
-위함이다. 이러한 정의는 나중에 R에게 CDM 형식의 데이터가의 위치, 관심
+위함이다. 이러한 정의는 나중에 R에게 CDM 형식의 데이터가 있는 위치, 관심
 코호트가 만들어진 위치, 어떤 버전의 CDM이 사용되었는지를 확인할 수
 있도록 해준다. Microsofe SQL Server에서 주의할 점은, 데이터베이스
 스키마는 데이터베이스와 스키마 정보를 둘 다 필요로 한다는 것이다. 예를
@@ -9707,9 +9712,9 @@ DatabaseConnector package의 \texttt{createConnectionDetails} 함수를
 \subsection{사전 지정 분석의 사용 (Using Prespecified
 Analyses)}\label{----using-prespecified-analyses}
 
-\texttt{createCovariateSettings} 함수는 사전에 미리 정의된 대규모
-변수들의 셋을 선택할 수 있도록 한다. \texttt{?createCovariateSettings}를
-입력하면 사용 가능한 옵션들을 확인할 수 있다. 예를 들어:
+\texttt{createCovariateSettings} 함수는 사전에 정의된 대규모 변수들의
+셋을 선택할 수 있도록 한다. \texttt{?createCovariateSettings}를 입력하면
+사용 가능한 옵션들을 확인할 수 있다. 예를 들어:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9726,7 +9731,7 @@ Analyses)}\label{----using-prespecified-analyses}
 
 많은 사전 정의 분석은 단기(short term), 중기(medium term), 혹은
 장기(long term) 구간(time window)을 지정할 수 있다. 기본적으로 구간들은
-다음과 같이 정의 되어 있다:
+다음과 같이 정의되어 있다:
 
 \begin{itemize}
 \tightlist
@@ -9776,7 +9781,7 @@ Analyses)}\label{----using-prespecified-analyses}
 \BeginKnitrBlock{rmdimportant}
 \texttt{aggregated\ =\ TRUE}로 바꾸면 위에 표시된 모든 사례에 대하여
 FeatureExtraction로 하여금 모든 요약 통계치를 표시하도록 한다. 이 지표를
-제외하면 코호트 내의 각의 사람에 대한 변수 값이 계산 될 것이다.
+제외하면 코호트 내의 각의 사람에 대한 변수값이 계산될 것이다.
 \EndKnitrBlock{rmdimportant}
 
 \subsection{통합된 변수의 생성 (Creating Aggregated
@@ -9815,7 +9820,7 @@ Covariates)}\label{---creating-aggregated-covariates}
 통합된 \texttt{변수\ 데이터\ (covariateData)}에서 주요한 두 가지
 구성요소는 이분법적인 혹은 연속적 변수에 대한
 \texttt{변수\ (covariates)}와
-\texttt{변수\ 량\ (covariatesContinuous)}이다:
+\texttt{변수\ 양\ (covariatesContinuous)}이다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9843,8 +9848,8 @@ ATLAS)}\label{atlas---cohort-pathways-in-atlas}
 Cohort pathways는 하나 이상의 분석하고자 하는 대상 코호트(target
 cohort)의 코호트 시작 날짜 이후 발생한 사건들을 요약하는 분석 기능을
 제공하는 것을 목표로 한다. 이를 위해 분석 대상 집단에서 관심 임상적
-사건들을 식별하기 위한 사건 코호트(event cohort) 셋를 정의하고 생성해야
-한다.
+사건들을 식별하기 위한 사건 코호트(event cohort) 세트를 정의하고
+생성해야 한다.
 
 대상 코호트(target cohort)에서 한 환자를 어떻게 찾는지를 보면 다음과
 같다:
@@ -9872,10 +9877,10 @@ cohort)의 코호트 시작 날짜 이후 발생한 사건들을 요약하는 �
 
 \subsection{디자인 (Design)}\label{-design-1}
 
-사용할 코호트는 고혈압 1차 치료를 시작하고 환자 1년간 관찰 된 환자
+사용할 코호트는 고혈압 1차 치료를 시작하고 환자 1년간 관찰된 환자
 코호트와 3년 간 추적 관찰된 환자 코호트로 이전 분석에서 사용된 코호트를
-지속적으로 사용할 것이다 (Appendix \ref{HTN1yrFO}, \ref{HTN3yrFO}).
-import 버튼을 사용해 두 개의 코호트를 불러오자.
+지속해서 사용할 것이다 (Appendix \ref{HTN1yrFO}, \ref{HTN3yrFO}). import
+버튼을 사용해 두 개의 코호트를 불러오자.
 
 \begin{figure}
 
@@ -9886,12 +9891,12 @@ import 버튼을 사용해 두 개의 코호트를 불러오자.
 \caption{선택된 대상 코호트들을 이용한 경로 분석.}\label{fig:atlasPathwaysTargetCohorts}
 \end{figure}
 
-그 다음, 각각의 분석하고자 하는 일차 고혈압 치료 약제에 대한 코호트를
-사건 코호트로 정의한다. 이를 위해 ACE inhibitor 사용에 대한 코호트를
-생성하고 코호트 마지막 날짜를 약물의 마지막 노출이 끝나는 날짜로
-정의한다. 여덟개의 다른 고혈압 약제애 대하여 동일한 방식으로 코호트를
-생성하고, 코호트 생성에 필요한 여러 정의들은 Appendix
-\ref{ACEiUse}-\ref{A1BUse}에서 찾아볼 수 있다. 완료한 후
+그다음, 각각 분석하고자 하는 일차 고혈압 치료 약제에 대한 코호트를 사건
+코호트로 정의한다. 이를 위해 ACE inhibitor 사용에 대한 코호트를 생성하고
+코호트 마지막 날짜를 약물의 마지막 노출이 끝나는 날짜로 정의한다. 여덟
+개의 다른 고혈압 약제에 대하여 동일한 방식으로 코호트를 생성하고, 코호트
+생성에 필요한 여러 정의는 Appendix \ref{ACEiUse}-\ref{A1BUse}에서 찾아볼
+수 있다. 완료한 후
 \includegraphics{images/Characterization/atlasImportButton.png} 버튼을
 눌러 경로 분석 디자인의 Event Cohort 부분에 삽입한다:
 
@@ -9911,14 +9916,14 @@ import 버튼을 사용해 두 개의 코호트를 불러오자.
 \tightlist
 \item
   \textbf{Combination window}: 이 세팅을 사용하면 사건이 겹쳐질 경우
-  사건을 조합(combination)으로 간주될 수 있도록 하는 시간의 구간설정할
+  사건을 조합(combination)으로 간주할 수 있도록 하는 시간의 구간 설정할
   수 있도록 해주며, 일(days) 단위로 정의할 수 있도록 한다. 예를 들어,
   만약 두 개의 약물 노출에 대하여 두 개의 사건 코호트로 표시했을 때
-  (사건 코호트 1와 사건 코호트 2), 조합 구간 내에서 사건 코호트가 겹치는
+  (사건 코호트 1과 사건 코호트 2), 조합 구간 내에서 사건 코호트가 겹치는
   경우 경로 알고리즘은 두 사건 코호트를 조합해 ``사건 코호트 1 + 사건
   코호트 2''로 만든다.
 \item
-  \textbf{Minimum cell count}: 사건 코호트가 이 수보다 작으면 개인정보
+  \textbf{Minimum cell count}: 사건 코호트가 이 수보다 적으면 개인정보
   보호를 위해 결과에서 제외된다.
 \item
   \textbf{Max path length}: 분석에 사용되는 최대 연속 사건의 수를
@@ -9943,15 +9948,15 @@ import 버튼을 사용해 두 개의 코호트를 불러오자.
 \end{figure}
 
 경로 분석에 대한 결과는 3개의 부분으로 나누어진다. 범례(legend) 부분은
-대상 코호트의 총 환자수를 나타내는데, 이는 하나 이상의 사건이 있는 환자
+대상 코호트의 총 환자 수를 나타내는데, 이는 하나 이상의 사건이 있는 환자
 수를 나타낸다. 아래의 요약은 sunburst plot의 가운데 부분을 각 코호트에
 색을 지정해 표현하였다.
 
 sunburst plot은 시간에 따라 한 사람이 겪는 다양한 사건 경로를
-시각화한다. 그래프의 가운데 부분은 코호트의 시작부분을 나타내고 첫번째
+시각화한다. 그래프의 가운데 부분은 코호트의 시작 부분을 나타내고 첫 번째
 색으로 구분된 고리는 전체 코호트에서 각 사건 코호트의 환자 비율을
 보여준다. 본 예시에서 가장 가운데의 원은 고혈압 환자가 처음으로 시작한
-일차 약제를 의미한다. 그리고 sunburst plot의 첫번째 고리는 사건
+일차 약제를 의미한다. 그리고 sunburst plot의 첫 번째 고리는 사건
 코호트에서 정의한 것과 같이 시작한 일차 약제의 유형별 비율을 나타낸다
 (예를 들어, ACE inhibitor, Angiotensin receptor blocker, 등).
 
@@ -9971,22 +9976,22 @@ sunburst plot은 시간에 따라 한 사람이 겪는 다양한 사건 경로�
 sunburst plot의 세션을 클릭하면 오른편에 세부 경로가 나타난다.
 
 이를 통해 대상 코호트에서 가장 많은 비율을 차지하는 환자가 일차 약제로
-ACE inhibitor을 시작한 환자임을 알 수 있고, 가장 작은 비율을 차지하는
+ACE inhibitor를 시작한 환자임을 알 수 있고, 가장 작은 비율을 차지하는
 약제는 thiazide나 thiazide diuretics임을 알 수 있었다.
 
 \section{ATLAS를 이용한 발생 분석 (Incidence Analysis in
 ATLAS)}\label{atlas----incidence-analysis-in-atlas}
 
-발생률의 계산 시, 우리는 대상 코호트의 사람들 중 위험 관찰 기간 동안
+발생률의 계산 시, 우리는 대상 코호트의 사람 중 위험 노출 기간 동안
 outcome 코호트를 경험한 환자들에 대하여 설명하기로 했다. 예를 들어, ACE
 inhibitor (ACEi)를 시작한 사람들과 Thiazides와 tiazide-like diuretics
-(THZ)를 시작한 사람들 중 혈관 부종과 급성 심근 경색의 outcomes의 발생을
-분석하는 발생 분석을 디자인 했다고 하자. 이를 위해 약물에 노출된
-사람들의 위험 관찰 기간 동안 이들 outcome을 평가해야 한다. 더불어,
-Angiotensin receptor blockers (ARBs)에 대한 약물 노출 결과를 추가하기
-위해 대상 코호트들(ACEi와 THZ)에 속해 있는 동안 ARBs 약물 사용의 발생을
+(THZ)를 시작한 사람 중 혈관 부종과 급성 심근경색의 outcomes 발생을
+분석하는 발생 분석을 디자인했다고 하자. 이를 위해 약물에 노출된 사람들의
+위험 노출 기간 동안 이들 outcome을 평가해야 한다. 더불어, Angiotensin
+receptor blockers(ARBs)에 대한 약물 노출 결과를 추가하기 위해 대상
+코호트들(ACEi와 THZ)에 속해 있는 동안 ARBs 약물 사용의 발생을
 outcome으로 추가한다. 이 outcome은 대상 코호트에 속해있는 동안 얼마나
-ARBs 사용이 발생됐는지를 측정 해 줄 수 있다.
+ARBs 사용이 발생했는지를 측정해 줄 수 있다.
 
 발생률 분석을 시작하기 위해서는 ATLAS의 왼쪽 바에서
 \includegraphics{images/Characterization/atlasIncidenceMenuItem.png}
@@ -10007,13 +10012,13 @@ ARBs 사용이 발생됐는지를 측정 해 줄 수 있다.
 
 }
 
-\caption{발생률 분석에 사용할 대상 코호트와 outcome코호트의 정의.}\label{fig:atlasIncidenceCohortSelection}
+\caption{발생률 분석에 사용할 대상 코호트와 outcome 코호트의 정의.}\label{fig:atlasIncidenceCohortSelection}
 \end{figure}
 
 definition 탭을 클릭해서 \emph{New users of ACE inhibitors} 코호트와
 \emph{New users of Thiazide or Thiazide-like diuretics} 코호트를
 선택한다. 선택한 코호트들이 분석 디자인에 추가되었는지 확인하기 위해
-대화 상자를 닫아야 한다. 그 다음 대화 상자에서 클릭해 outcome 코호트들을
+대화 상자를 닫아야 한다. 그다음 대화 상자에서 클릭해 outcome 코호트들을
 추가한다. \emph{acute myocardial infarction events}, \emph{angioedema
 events} 와 \emph{Angiotensin receptor blocker (ARB) use} 코호트 등이
 outcome 코호트로 선택되어야 한다. 분석 디자인에 outcome 코호트들이
@@ -10028,11 +10033,11 @@ outcome 코호트로 선택되어야 한다. 분석 디자인에 outcome 코호�
 \caption{발생률 분석에 사용할 대상 코호트와 outcome코호트의 정의.}\label{fig:atlasIncidenceTimeAtRisk}
 \end{figure}
 
-이후 분석에 필요한 위험 관찰 기간을 정의해야 한다. 위에서 보이는 바와
-같이 위험 관찰 기간은 코호트 시작과 마지막 날짜에 기반하여 정해진다.
-예제에서는 위험 관찰 기간의 시작일을 대상 코호트의 코호트 시작일보다 1일
-후로 정의했다. 위험 관찰 기간의 마지막 날짜는 코호트 마지막 날짜로
-정의했다. 이 경우, ACEi와 THZ 코호트의 코호트의 정의에 따라 약물 노출이
+이후 분석에 필요한 위험 노출 기간을 정의해야 한다. 위에서 보이는 바와
+같이 위험 노출 기간은 코호트 시작과 마지막 날짜에 기반하여 정해진다.
+예제에서는 위험 노출 기간의 시작일을 대상 코호트의 코호트 시작일보다 1일
+후로 정의했다. 위험 노출 기간의 마지막 날짜는 코호트 마지막 날짜로
+정의했다. 이 경우, ACEi와 THZ 코호트는 코호트의 정의에 따라 약물 노출이
 끝나면 코호트 또한 종료된다.
 
 ATLAS는 또한 분석의 선택 사항의 일부분으로 대상 코호트의 층화 기능을
@@ -10044,7 +10049,7 @@ ATLAS는 또한 분석의 선택 사항의 일부분으로 대상 코호트의 �
 
 }
 
-\caption{여성에 대한 틍화를 정의한 발생률.}\label{fig:atlasIncidenceStratifyFemale}
+\caption{여성에 대한 층화를 정의한 발생률.}\label{fig:atlasIncidenceStratifyFemale}
 \end{figure}
 
 분석을 위해서 New Stratify Criteria 버튼을 누르고 11장에서 설명한 것과
@@ -10089,10 +10094,10 @@ Infarction (AMI)를 드롭다운 목록에서 선택해 보자. 그리고
 \caption{ACEi 의 새로운 사용자에서 AMI의 발생률을 분석한 결과.}\label{fig:atlasIncidenceResults}
 \end{figure}
 
-결과를 통해 데이터베이스의 해당 코호트에서 위험 관찰 기간 동안 발생한
-모든 case에 해당하는 전체 환자 수를 요약해 보여준다. 발생 비율은 1000명
-당 발생 건수로 표시한다. 위험 관찰 기간은 대상 코호트에서 연 단위로
-계산된다. 발생률은 1000 인-년 당 발생 건수로 표현된다.
+결과를 통해 데이터베이스의 해당 코호트에서 위험 노출 기간 동안 발생한
+모든 case에 해당하는 전체 환자 수를 요약해 보여준다. 발생 비율은
+1000명당 발생 건수로 표시한다. 위험 노출 기간은 대상 코호트에서 연
+단위로 계산된다. 발생률은 1000인-년 당 발생 건수로 표현된다.
 
 또한 분석 디자인에서 층화를 위해 정의 한 계층에 대한 발생률을 확인할 수
 있다. 각 계층에 대해 위에 언급한 바와 동일한 방식으로 계산되었다.
@@ -10100,7 +10105,7 @@ Infarction (AMI)를 드롭다운 목록에서 선택해 보자. 그리고
 표현했다. 아래 눈금에 표시된 대로 색상은 발생률을 나타낸다.
 
 ACEi 환자군 내에서 ARBs를 새롭게 사용하기 시작한 신규 환자군의 발생을
-확인하기 위한 정보도 얻을 수 있다. 상단의 드롭 다운을 사용하여 ARBs의
+확인하기 위한 정보도 얻을 수 있다. 상단의 드롭다운을 사용하여 ARBs의
 사용으로 outcome을 바꾸고,
 \includegraphics{images/Characterization/atlasIncidenceReportButton.png}버튼을
 누르면 자세한 내용이 나타난다.
@@ -10115,8 +10120,8 @@ ACEi 환자군 내에서 ARBs를 새롭게 사용하기 시작한 신규 환자�
 \end{figure}
 
 위에 보이는 것처럼, 지금까지 사용한 방법과 동일한 방식으로 계산되었지만,
-입력 값이 (ARB 사용)이 건강에 대한 outcome에서 약물 사용에 대한 평가로
-바뀌었기 때문에 해석이 달라지게 된다.
+입력값이 (ARB 사용) 이 건강에 대한 outcome에서 약물 사용에 대한 평가로
+바뀌었기 때문에 해석이 달라진다.
 
 \section{요약}\label{-9}
 
@@ -10157,10 +10162,10 @@ ATLAS의 Data Sources를 이용해 celecoxib에 대한 정보를 찾아보십시
 \BeginKnitrBlock{exercise}
 \protect\hypertarget{exr:exerciseCharacterization2}{}{\label{exr:exerciseCharacterization2}
 }celecoxib 사용자의 질병 자연 경과에 대해 더 알고 싶다. celecoxib의
-새로운 사용자들에 대한 간단한 코호트를 만드십시오. 이 때, 365일의
-washout 기간을 주십시오 (어떻게 해야 하는지 자세히 알고 싶다면
-\ref{Cohorts}장을 참고십시오). 그리고 ATLAS에서 이 코호트의
-characterization을 생성하고, 동병상병 질환과 약물 노출을 찾아보십시오.
+새로운 사용자들에 대한 간단한 코호트를 만드십시오. 이때, 365일의 washout
+기간을 주십시오 (어떻게 해야 하는지 자세히 알고 싶다면 \ref{Cohorts}장을
+참고하십시오). 그리고 ATLAS에서 이 코호트의 characterization을 생성하고,
+동병상병 질환과 약물 노출을 찾아보십시오.
 \EndKnitrBlock{exercise}
 
 \BeginKnitrBlock{exercise}
@@ -10176,19 +10181,19 @@ celecoxib을 시작한 이후 GI bleed의 발생률을 계산하자.
 
 답변은 부록 \ref{Characterizationanswers} 에서 찾을 수 있다.
 
-\chapter{Population-Level Estimation}\label{PopulationLevelEstimation}
+\chapter{인구 수준 추정}\label{PopulationLevelEstimation}
 
 \emph{Chapter leads: Martijn Schuemie, David Madigan, Marc Suchard \&
 Patrick Ryan}
 
 \index{population-level estimation}
 
-Observational healthcare data(예: administrative claims, electronic
-health records)는 환자의 삶을 의미 있게 향상시킬 수 있는 치료효과에 대한
-실제 증거를 생성할 수 있는 기회를 제공한다. 이 장에서는 인구 수준 효과
-추정(population-level effect estimation), 즉 특정 건강 결과에 대한
-노출(예: 약물 노출 또는 시술과 같은 의료개입)의 평균 인과 관계 효과에
-대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
+관찰형 헬스케어 데이터 (예를 들어 보험청구자료, 전자 의무 기록) 는
+환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실제 증거를 생성할
+기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect
+estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는
+시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을
+맞춘다. 두 가지의 다른 추정 업무를 고려한다.
 
 \begin{itemize}
 \tightlist
@@ -10210,7 +10215,7 @@ not occurred (direct) or had a different exposure occurred
 estimation designs employ different analytic devices to shed light on
 the counterfactual outcomes. \index{counterfactual}
 
-인구 수준 효과 추정의 사용 사례(use-cases)는 치료선택, 안전 감시(safety
+인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety
 surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은
 특정 가설을 한 번에 하나씩 테스트(예: signal evaluation)하거나 다중
 가설을 한 번에 탐색(예: signal detection)할 수 있다. 모든 경우에 있어,
@@ -10225,7 +10230,7 @@ Methods Library}에 R 패키지로 구현되어 있는 다양한
 방법에 대한 단계별 가이드를 또한 설명한다. 마지막으로 연구 진단 및 효과
 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
 
-\section{The Cohort Method Design}\label{CohortMethod}
+\section{코호트 설계 방법}\label{CohortMethod}
 
 \index{cohort method}
 
@@ -10238,9 +10243,9 @@ Methods Library}에 R 패키지로 구현되어 있는 다양한
 \caption{대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여 (weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델 (Propensity model) 또는 결과 모델 (Outcome model)에 포함된 특징은 치료 시작 전에 결정된다.}\label{fig:cohortMethod}
 \end{figure}
 
-코호트 방법은 무작위 임상 시험을 모방하려고 한다 \citep{hernan_2016}.
+코호트 방법은 무작위 임상 시험을 모방하려고 한다. \citep{hernan_2016}
 하나의 치료를 시작한 환자(target)는 다른 치료를 시작한
-환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 동안(예: 치료를
+환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를
 받는 기간) 추적 관찰된다. 표 \ref{tab:cmChoices} 에서 강조하는 5가지
 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한
 질문을 지정할 수 있다. \index{target cohort!cohort method}
@@ -10300,7 +10305,7 @@ between the target and comparator\strut
 regression)을 사용할 수 있다. 로지스틱 회귀분석은 time-at-risk가
 target과 comparator 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로,
 포아송 회귀분석(poisson regression)을 선택할 수 있는데, 이는 일정한
-발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)를
+발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)을
 추정한다. 콕스 회귀분석(cox regression)을 종종 사용하기도 하는데, 이는
 target과 comparator 사이의 비례 위험(proportional hazard)을 가정하며,
 위험 비율(hazard ratio)을 추정하려고 time-to-first-outcome을 고려한다.
@@ -10311,58 +10316,59 @@ target과 comparator 사이의 비례 위험(proportional hazard)을 가정하�
 \BeginKnitrBlock{rmdimportant}
 New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여
 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출
-군을 정의하기 힘들어 치료와 비치료를 비교하기 위해 이 방법을 사용하긴
+군을 정의하기 힘들어 치료와 비 치료를 비교하기 위해 이 방법을 사용하긴
 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지
-않을, 동일한 적응증이 적용되는 비교 대상을 관심 노출군(exposure of
+않을, 동일한 적응증이 적용되는 비교 대상을 관심 노출 군(exposure of
 interest)으로 선택하는 방법이 선호된다. 하지만, 이러한 비교 대상을 항상
 사용할 수 있는 것은 아니다.
 \EndKnitrBlock{rmdimportant}
 
-주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로
-(systemically) 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는
-실험군 (target cohort)이 평균 60세인 반면, 해당 치료를 받지 않은 대조군
-(comparator cohort)이 평균 40세라고 가정하자. 연령과 관련된 건강
-결과(예: 뇌졸중)는 양 군간에 상당히 차이가 날 것이다. 이런 정보에 대해
-정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한 인과관계를
-보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지 않았다면 실험군의
-환자들이 뇌졸중에 걸리지 않을 것이라 생각할 수 있다. 이러한 결과는
-전적으로 잘못되었다. 단순히 실험군의 연령이 높기 때문에 뇌졸중을 많이
-경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의
-발병률은 비슷할 수 있다. 여기서 나이는 ``교란변수(confounder)''이다.
-관찰형 연구에서 교란변수를 통제하는 한 가지 방법은 성향 점수 (propensity
-score)를 이용하는 것이다. \index{confounder}
+주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과
+전체적으로(systemically) 다를 수 있다는 것이다. 예를 들어, 연구 대상
+치료를 받는 실험군(target cohort)이 평균 60세이지만, 해당 치료를 받지
+않은 대조군(comparator cohort) 이 평균 40세라고 가정하자. 연령과 관련된
+건강 결과 (예를 들어 뇌졸중) 는 양 군 간에 상당히 차이가 날 것이다. 이런
+정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한
+인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지
+않았다면 실험군의 환자들이 뇌졸중에 걸리지 않으리라 생각할 수 있다.
+이러한 결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높아서
+뇌졸중을 많이 경험할 수 있기 때문이다. 실험군이 해당 치료를 받지
+않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는
+``교란변수(confounder)''이다. 관찰형 연구에서 교란변수를 통제하는 한
+가지 방법은 성향 점수(propensity score)를 이용하는 것이다.
+\index{confounder}
 
-\subsection{Propensity Scores}\label{propensity-scores}
+\subsection{성향 점수}\label{-}
 
 \index{propensity score}
 
-무작위 시험(randomized trial)에서 (가상의) 동전던지기는 환자를 각각의
-그룹에 배정한다. 따라서, 설계상 비교 치료 군과 비교하여 환자가
-대상치료를 받을 확률은 어떤 식으로든 연령과 같은 환자의 특성과 관련이
-없다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될
-정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가
-증가함에 따라 신뢰도가 증가해 두 환자군은 본질적으로 \textbf{어떠한}
-환자 특성이라도 \textbf{다를 수 없다}. 이 보장된 균형은 무작위 시험이
-측정한 특성(예: 연령)과 유전적 특성과 같이 무작위 시험이 측정하지 못한
+무작위 시험(randomized trial)에서 (가상의) 동전 던지기는 환자를 각각의
+그룹에 배정한다. 따라서, 설계상 비교 치료군과 비교하여 환자가 대상치료를
+받을 확률은 어떤 식으로든 나이가 같은 환자의 특성과 관련이 없다.
+동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될 정확한
+확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가 증가함에
+따라 신뢰도가 증가해 두 환자군은 본질에서 \textbf{어떠한} 환자
+특성이라도 \textbf{다를 수 없다}. 이 보장된 균형은 무작위 시험이 측정한
+특성 (예를 들어 나이) 과 유전적 특성과 같이 무작위 시험이 측정하지 못한
 특성에 적용된다. \index{randomized trial}
 
 주어진 환자의 \textbf{성향 점수(Propensity score, PS)} 는 환자가 비교
-치료군과 비교하여 대상 치료를 받을 확률이다 \citep{rosenbaum_1983}. 균형
+치료군과 비교하여 대상 치료를 받을 확률이다. \citep{rosenbaum_1983} 균형
 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향
-점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전(환자가
-실제로 받은 치료와 관계없이)에 관찰할 수 있는 것에 근거해 대상 치료를
+점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가
+실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를
 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링
 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한
-모델(예: 로지스틱 회귀분석)을 만들고, 이 모델을 사용하여 각 환자들에
-대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상
-치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수
-있다. 예를 들어, target 피험자를 유사한 PS를 가진 comparator 피험자에게
-매칭 (PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화 (PS
-stratification) 하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of
-Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수
-있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나,
-variable-ratio matching을 활용하여 대상 당 두 명 이상의 비교 대상을
-허용할 수 있다. \citep{rassen_2012} \index{propensity model}
+모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각
+환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른
+환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로
+사용할 수 있다. 예를 들어, target 피험자를 유사한 PS를 가진 comparator
+피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을
+층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse
+Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를
+적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을
+선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교
+대상을 허용할 수 있다. \citep{rassen_2012} \index{propensity model}
 \index{propensity score!matching}
 \index{propensity score!stratification}
 \index{propensity score!weighting}
@@ -10371,55 +10377,54 @@ variable-ratio matching을 활용하여 대상 당 두 명 이상의 비교 대�
 
 예를 들어 one-on-one PS 매칭을 사용한다고 가정해보자. Jan이라는 환자가
 대상 치료를 받을 선험 확률(priori probability)이 0.4이고, 실제로 대상
-치료(target treatment)를 받고, Jun이라고 하는 또다른 환자는 대상 치료를
+치료(target treatment)를 받고, Jun이라고 하는 또 다른 환자는 대상 치료를
 받을 선험 확률이 0.4이지만, 사실상 대조 치료(comparator treatment)를
-받았다면, 적어도 측정된 교란변수와 대해 Jan과 Jun의 outcome 비교는 작은
+받았다면, 적어도 측정된 교란변수에 대해 Jan과 Jun의 outcome 비교는 작은
 무작위 시험과 같다. 이 비교는 Jan과 Jun의 인과적인 대조를 무작위
 시험으로 산출한 결과만큼 양호하게 추정할 것이다. 추정은 다음과 같이
-진행된다: 대상치료을 받은 모든 환자에 대해, 대조 치료를 받았지만 표적을
+진행된다: 대상치료를 받은 모든 환자에 대해, 대조 치료를 받았지만, 표적을
 받는 선험적 확률이 동일한 하나 이상의 일치하는 환자를 찾는다. 그들의
 짝지어진 환자군(matched group) 안에서 대상 환자(target group)의 결과와
 비교 그룹(comparator group)의 결과를 비교한다.
 
 성향점수 방법은 측정된 교란변수(measured confounder)를 제어한다. 사실,
 측정된 특성 하에서 치료배정(treatment assignment)이 ``강하게 무시할 수
-있는'' 경우라면, 성향 점수는 인과 관계의 비편향적 추정을 산출할 것이다.
+있는'' 경우라면, 성향 점수는 인과 관계의 비 편향적 추정을 산출할 것이다.
 ``강력하게 무시할 수 있는'' 조건이란 측정되지 않은 교란변수가 없고,
 측정된 교란변수는 적절하게 조정된다는 것을 의미한다. 불행히도, 이것은
 검증할만한 가정은 아니다. \ref{MethodValidity}장에서 이에 대한 추가적인
 논의를 볼 수 있다. \index{strongly ignorable}
 
-\subsection{Variable Selection}\label{VariableSelection}
+\subsection{변수 선택}\label{VariableSelection}
 
 이전에 성향 점수는 연구자가 임의로 선택된 특성(manually selected
-characteristics) 을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을
-지원할 수는 있지만, 많은 일반적 특성(즉, 연구의 특정 노출 및 결과에 따라
-선택되지 않은 특성)을 포함하는 것을 선호한다. \citep{tian_2018} 이러한
-특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된
-모든 진단, 약물노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로
-10,000 -- 100,000가지의 독특한 특성을 포함하며, 이러한 모델은
+characteristics)을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을
+지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에
+따라 선택되지 않은 특성) 을 포함하는 것을 선호한다. \citep{tian_2018}
+이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에
+관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은
+전형적으로 10,000 -- 100,000가지의 독특한 특성을 포함하며, 이러한 모델은
 \href{https://ohdsi.github.io/Cyclops/}{Cyclops} 패키지에서 구현되는
 large-scale regularized regression \citep{suchard_2013}을 사용하여
-적합화시킨다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자
+적합화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자
 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
 
 \BeginKnitrBlock{rmdimportant}
 치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 해당 날짜에
 기록되기 때문에 일반적으로 공변량을 정의할 때 치료 개시일의 변수를
-포함한다. 이 날에 연구의 주제가 되는 대상 치료 (target treatment) 과
-대조 치료 (comparator treatment) 치료 자체도 기록되는데, 이러한 치료는
-우리가 예측하려는 바로 그것이기 때문에 성향 모델에 포함시켜서는 안 된다.
-따라서 공변량 집합에서 대상 치료와 대조치료는 \textbf{반드시 제외해야
-한다}.
+포함한다. 이 날에 연구의 주제가 되는 대상 치료(target treatment)와 대조
+치료(comparator treatment) 자체도 기록되는데, 이러한 치료는 우리가
+예측하려는 바로 그것이기 때문에 성향 모델에 포함해서는 안 된다. 따라서
+공변량 집합에서 대상 치료와 대조치료는 \textbf{반드시 제외해야 한다}.
 \EndKnitrBlock{rmdimportant}
 
 일부 연구자들은 ``올바른'' 인과 구조를 반영하기 위해 임상적 전문지식에
-의존하지 않는 데이터 기반 접근방식(data-driven approach) 을 통한 공변량
+의존하지 않는 데이터 기반 접근방식(data-driven approach)을 통한 공변량
 선택이 소위 도구적 변수(instrumental variable)와 충돌자(collider)를 잘못
-포함시켜 분산을 증가시키고 잠재적으로 편향을 만들어낼 위험이 있다고
+포함해 분산을 증가시키고 잠재적으로 편향을 만들어낼 위험이 있다고
 주장해왔다. \citep{hernan_2002} 하지만 이러한 우려가 실제 시나리오에서
 큰 영향을 미칠 가능성은 적다. \citep{schneeweiss_2018} 게다가, 의학에서
-진정한 인과 관계는 거의 알려지지 않다시피 하며,서로 다른 연구자들에게
+진정한 인과 관계는 거의 알려지지 않다시피 하며, 서로 다른 연구자들에게
 특정 연구 주제에 대해 `올바른' 공변량을 선택해 달라고 요청한다면, 각
 연구자들은 서로 다른 공변량 리스트를 주문할 것이 분명하고, 전체 과정은
 재현 불가능해질 것이다. 무엇보다도, 성향 점수 모델의 검사, 모든 공변량의
@@ -10427,17 +10432,17 @@ large-scale regularized regression \citep{suchard_2013}을 사용하여
 충돌자들에 의해 발생하는 대부분의 문제를 진단할 수 있다.
 \index{instrumental variables} \index{colliders}
 
-\subsection{Caliper}\label{caliper}
+\subsection{캘리퍼 (Caliper)}\label{-caliper}
 
 \index{caliper}
 
 성향 점수가 0에서 1까지의 연속성을 갖기 때문에 정확한 일치는 거의
 불가능하다. 그 대신, 매칭 프로세스는 대상 환자의 성향 점수와 일치하는
 환자를 ``캘리퍼 (caliper)''라고 알려진 내성 범위 내에서 찾는다. 이전
-연구 \citep{austin_2011}에 따라, 우리는 로짓 척도에서 0.2 표준편차의
+연구 \citep{austin_2011}에 따라, 우리는 로직 척도에서 0.2 표준편차의
 기본(default) 캘리퍼를 사용한다.
 
-\subsection{Overlap: Preference Scores}\label{overlap-preference-scores}
+\subsection{오버랩: 선호 점수}\label{--}
 
 \index{preference score}
 
@@ -10445,8 +10450,8 @@ large-scale regularized regression \citep{suchard_2013}을 사용하여
 성향 점수 분포를 보여준다. 해석을 용이하게 하기 위해 OHDSI 도구는 ``선호
 점수(preference score)''라는 성향 점수의 변형을 그린다.
 \citep{walker_2013} 선호 점수는 대상 치료와 대조 치료, 두 가지 치료법의
-``market share''을 조정하다. 예를 들면, 10\%의 환자가 대상 치료를
-받고(90\%가 비교 치료를 받는 경우), 선호 점수가 0.5인 환자는 대상 치료를
+``market share''를 조정하다. 예를 들면, 10\%의 환자가 대상 치료를 받고
+(90\%가 비교 치료를 받는 경우), 선호 점수가 0.5인 환자는 대상 치료를
 받을 확률이 10\%이다. 수학적으로 선호 점수는
 
 \[\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{1-P}\right)\]
@@ -10459,14 +10464,14 @@ large-scale regularized regression \citep{suchard_2013}을 사용하여
 노출쌍(exposure pair)이 경험적 평형에서 나오는 것으로 받아 들인다.
 \index{clinical equipoise}
 
-\subsection{Balance}\label{balance}
+\subsection{균형}
 
 \index{covariate balance} \index{balance|see {covariate balance}}
 
-좋은 방침(good practice)은 성향 점수 보정이 균형 잡힌 환자 그룹을
-만드는데 성공했는지 항상 확인하는 것이다. 그림 \ref{fig:balance} 은
-균형을 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해
-성향 점수 보정 전과 후에 두 노출 그룹간의 평균 차이를 표준화한다. 일부
+좋은 방침(good practice)은 성향 점수 보정이 균형 잡힌 환자 그룹을 만드는
+데 성공했는지 항상 확인하는 것이다. 그림 \ref{fig:balance}은 균형을
+점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 성향
+점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일부
 지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다.
 \citep{rubin_2001}
 
@@ -10481,12 +10486,12 @@ Design)}\label{-----the-self-controlled-cohort-design}
 
 }
 
-\caption{스스로 제어하는 코호트 디자인. 목표물에 노출되는 동안의 결과 비율은 사전 노출 시간의 결과 비율과 비교된다..}\label{fig:scc}
+\caption{스스로 제어하는 코호트 디자인. 목표물에 노출되는 동안의 결과 비율은 사전 노출 시간의 결과 비율과 비교된다.}\label{fig:scc}
 \end{figure}
 
 자가 통제 코호트(self-controlled cohort, SCC) 설계 \citep{ryan_2013}는
-노출 직전의 결과 비율을 기준으로 노출 동안의 결과 비율을 비교한다. 표
-\ref{tab:sccChoices}에 제시된 4가지 선택 사항은 SCC 질문을
+노출 직전의 결과 비율을 기준으로 노출 하는 동안의 결과 비율을 비교한다.
+표 \ref{tab:sccChoices}에 제시된 4가지 선택 사항은 SCC 질문을
 정의한다.\index{target cohort!self-controlled cohort design}
 \index{outcome cohort!self-controlled cohort design}
 
@@ -10522,15 +10527,15 @@ Design)}\label{----the-case-control-design}
 
 }
 
-\caption{환자-대조군 설계. 결과가 있는 대상 ("케이스")은 노출 상태 측면에서 결과 ("컨트롤")이 없는 대상과 비교된다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.}\label{fig:caseControl}
+\caption{환자-대조군 설계. 결과가 있는 대상 ("케이스")은 노출 상태 측면에서 결과 ("컨트롤") 이 없는 대상과 비교된다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.}\label{fig:caseControl}
 \end{figure}
 
-환자-대조군 연구 \citep{vandenbroucke_2012}는 ``특정 질병 결과가 있는
+환자-대조군 연구 \citep{vandenbroucke_2012} 는 ``특정 질병 결과가 있는
 사람이 질병이 없는 사람보다 특정 치료(agent)에 더 자주 노출되는가?''라는
-질문을 고려한다. 따라서, 주요 아이디어는 환자(cases) (i.e., 관심 결과를
-경험한 피험자)를 대조군(controls) (i.e., 관심 결과를 경험하지 않은
-피험자)에 비교하는 것이다. 표 \ref{tab:ccChoices}에 선택 사항은
-환자-대조군(case-control) 질문을 정의한다.
+질문을 고려한다. 따라서, 주요 아이디어는 환자(cases) (다시 말하면 관심
+결과를 경험한 피험자) 를 대조군(controls) (다시 말하면 관심 결과를
+경험하지 않은 피험자) 에 비교하는 것이다. 표 \ref{tab:ccChoices}에 선택
+사항은 환자-대조군(case-control) 질문을 정의한다.
 \index{outcome cohort!case-control design}
 \index{target cohort!case-control design}
 \index{nesting cohort!case-control design}
@@ -10554,7 +10559,7 @@ Time-at-risk & At what time (often relative to the index date) do we consider ex
 
 종종 우리는 나이와 성별 등 환자군들의 특성을 매칭하여 대조군을 설정한다.
 또 달리 많이 사용되는 방법은, 특정 질병이 있는 환자군처럼, 특정 subgroup
-환자들 군 안에서 nested analysis 를 이용한다.
+환자들 군 안에서 nested analysis를 이용한다.
 
 \section{환자-교차 연구 설계 (The Case-Crossover
 Design)}\label{----the-case-crossover-design}
@@ -10567,14 +10572,14 @@ Design)}\label{----the-case-crossover-design}
 
 }
 
-\caption{환자-교차 연구 설계. 결과 근처의의 시간을 결과 날짜 이전의 미리 정의된 간격으로 설정된 제어 날짜와 비교한다.}\label{fig:caseCrossover}
+\caption{환자-교차 연구 설계. 결과 근처의 시간을 결과 날짜 이전의 미리 정의된 간격으로 설정된 제어 날짜와 비교한다.}\label{fig:caseCrossover}
 \end{figure}
 
 환자-교차 연구(case-crossover study \citep{maclure_1991}) 설계는 outcome
-이전의 정해진 기간 동안 노출율(rate of exposure)의 차이가 나는지
-평가하는 방법이다. 이것은 outcome 발생 시점의 특이한 사항이 있는지
-확인하는 방법이다. 표 \ref{tab:ccrChoices} 는 환자-연구 연구 정의를 위한
-선택지를 보여준다. \index{outcome cohort!case-crossover design}
+이전의 정해진 기간 노출률(rate of exposure)의 차이가 나는지 평가하는
+방법이다. 이것은 outcome 발생 시점의 특이한 사항이 있는지 확인하는
+방법이다. 표 \ref{tab:ccrChoices}는 환자-연구 연구 정의를 위한 선택지를
+보여준다. \index{outcome cohort!case-crossover design}
 \index{target cohort!case-crossover design}
 
 \begin{table}[t]
@@ -10595,11 +10600,11 @@ Control time & The time period used as the control time\\
 
 환자군은 자신들이 대조군으로 사용된다. 자가 통제 코호트 연구 설계처럼,
 환자간 차이에 의한 교란변수를 통제할 수 있도록 환자군이 잘 선택되어야
-한다. 한 가지 우려는, outcome 일시가 항상 대조군 일시에 비해 뒤에 오기
+한다. 한 가지 우려는, outcome 일시가 항상 대조군 일시보다 뒤에 오기
 때문에, 전반적인 노출 빈도가 시간이 갈수록 높아져 양성 편향 (만약
-노출빈도가 시간이 갈수록 줄어든다면 음성 편향이)이 일어날 수 있다는
+노출빈도가 시간이 갈수록 줄어든다면 음성 편향이) 이 일어날 수 있다는
 점이다. 이를 통제하기 위하여 환자-교차 연구 연구 설계에 나이, 성별을
-이용한 짝짓기를 통한 대조군을 추가하여 노출율을 보정하는
+이용한 짝짓기를 통한 대조군을 추가하여 노출률을 보정하는
 환자-시간-대조군 연구 설계(case-time-control design
 \citep{suissa_1995})가 개발되었다. \index{case-time-control design}
 
@@ -10619,13 +10624,12 @@ Design)}\label{-----the-self-controlled-case-series-design}
 
 자기 대조군 환자군 연구(Self-Controlled Case Series,SCCS) 설계
 \citep{farrington_1995, whitaker_2006}는 전체 비노출 기간 (노출 이전,
-노출 사이, 노출 후) 과 노출기간 동안의 outcome 발생의 비율 (rate)를
-비교한다. 즉 Poisson regression conditioned on the person 이라고 할 수
-있다. 따라서, 그것은 ``환자에게 outcome 이 발생하였을 때, non-exposed
-time 에 비해 exposed time 에 발생할 가능성이 더 높은가?'' 이다. 표
-\ref{tab:sccsChoices} 의 선택사항은 SCCS 질문을 정의
-한다.\index{outcome cohort!SCCS design}
-\index{target cohort!SCCS design}
+노출 사이, 노출 후) 과 노출기간의 outcome 발생의 비율(rate)를 비교한다.
+즉 Poisson regression conditioned on the person이라고 할 수 있다.
+따라서, 그것은 ``환자에게 outcome 이 발생하였을 때, non-exposed time 에
+비해 exposed time 에 발생할 가능성이 더 높은가?''이다. 표
+\ref{tab:sccsChoices}의 선택사항은 SCCS 질문을 정의한다.
+\index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
 
 \begin{table}[t]
 
@@ -10645,44 +10649,43 @@ Model & The model to estimate the effect, including any adjustments for time-var
 
 다른 자가 통제 설계(self-controlled design)와 마찬가지로, SCCS는 사람
 간의 교란 변수(counfounding due to betwee-person difference)는 잘
-보정하지만, 시간의 변화에 따른 교란변수(confounding due to time-varying
-effect)의 영향에는 취약한다. 이를 위해 몇 가지 보정을 시도할 수 있는데,
-예를 들면 나이와 계절을 보정하는 것이다. SCCS의 특별한 변형은 관심대상의
+바로잡지만, 시간의 변화에 따른 교란변수(confounding due to time-varying
+effect)의 영향에는 취약하다. 이를 위해 몇 가지 보정을 시도할 수 있는데,
+예를 들면 나이와 계절을 바로잡는 것이다. SCCS의 특별한 변형은 관심대상의
 노출뿐만 아니라 데이터베이스에 기록된 약물에 대한 다른 모든 노출
-\citep{simpson_2013}에 잠재적으로 수천 개의 추가변수를 모델에 추가하는
-것을 포함한다. 정규화 하이퍼파라미터를 선택하기 위해
+\citep{simpson_2013} 에 잠재적으로 수천 개의 추가변수를 모델에 추가하는
+것을 포함한다. 정규화 하이퍼 파라미터를 선택하기 위해
 교차검증(cross-validation)을 사용하는 L1-regularization이 관심 대상
 노출을 제외한 모든 노출 계수에 적용된다.
 
 SCCS의 기본 가정 중 하나는 관찰 기간 종료가 결과 날짜 (outcome date)와
-독립적이라는 것이다. 몇 가지 outcome 의 경우, 예를 들어 뇌졸중과 같은
+독립적이라는 것이다. 몇 가지 outcome의 경우, 예를 들어 뇌졸중과 같은
 치명적인(fatal) 질병의 경우, 이러한 가정이 위반될 수 있다. 이러한
 종속성을 수정하는 SCCS의 확장이 개발되었다. \citep{farrington_2011}
 
-\section{Designing a Hypertension
-Study}\label{designing-a-hypertension-study}
+\section{고혈압 연구 설계하기}\label{--}
 
-\subsection{Problem Definition}\label{problem-definition}
+\subsection{문제 정의}\label{--1}
 
 ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 울혈성 심부전,
 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리
 사용된다. \citep{zaman_2002} 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈
-주위 부위가 부어 오르는 심각한 중증도의 때로는 생명을 위협하는 부작용은
+주위 부위가 부어오르는 심각한 중증도의 때로는 생명을 위협하는 부작용은
 이러한 약물의 사용과 관련이 있다. \citep{sabroe_1997} 그러나 이러한
 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한 정보는
 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한 특정
-코호트(예: 주로 남성 퇴역 군인이나 메디케이드 수혜자)에 대한 조사 또는
-불안정한 위험 추정치를 제공하는 경우가 거의 없는 조사를 기반으로 한다.
-\citep{powers_2012} 다수의 관찰 연구는 혈관부종의 위험에 대한 ACEi를
-베타 차단제와 비교하지만 \citep{magid_2010, toh_2012}, 베타 차단제는 더
-이상 고혈압의 1차 치료제로 권장되지 않는다. \citep{whelton_2018} 사용
-가능한 대체 치료제는 thiazide 또는 thiazide-like 이뇨제일 수 있으며,
-이는 혈관부종의 위험 증가 없이 급성 심근경색과 같은 고혈압관련 위험을
-관리하는데 ACEi만큼 효과적이다.
+코호트 (예를 들어 주로 남성 퇴역 군인이나 메디케이드 수혜자) 에 대한
+조사 또는 불안정한 위험 추정치를 제공하는 경위가 거의 없는 조사를
+기반으로 한다. \citep{powers_2012} 다수의 관찰 연구는 혈관부종의 위험에
+대한 ACEi를 베타 차단제와 비교하지만 \citep{magid_2010, toh_2012}, 베타
+차단제는 더 이상 고혈압의 1차 치료제로 권장되지 않는다.
+\citep{whelton_2018} 사용 가능한 대체 치료제는 thiazide 또는
+thiazide-like 이뇨제일 수 있으며, 이는 혈관부종의 위험 증가 없이 급성
+심근경색과 같은 고혈압 관련 위험을 관리하는데 ACEi만큼 효과적이다.
 
-다음은 다음과 같은 비교 추정 질문을 다루기 위해 인구수준
-평가(population-level estimation) 프레임워크를
-관찰보건데이터(observational healthcare data)에 적용하는 방법을 보여준다
+다음은 다음과 같은 비교 추정 질문을 다루기 위해 인구 수준
+평가(population-level estimation) 프레임워크를 관찰 보건
+데이터(observational healthcare data)에 적용하는 방법을 보여준다
 
 \begin{quote}
 Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를
@@ -10691,42 +10694,43 @@ Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교�
 
 \begin{quote}
 Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를
-새로 사용하는 환자들에서급성 심근경색의 위험도는 어떻게 되는가?
+새로 사용하는 환자들에서 급성 심근경색의 위험도는 어떻게 되는가?
 \end{quote}
 
 이들이 비교 효과 추정(comparative effect estimation) 질문이기 때문에
-\ref{CohortMethod}장에서 설명한 대로 Cohort Method 를 적용할 것이다
+\ref{CohortMethod}장에서 설명한 대로 Cohort Method를 적용할 것이다.
 
-\subsection{Target and Comparator}\label{target-and-comparator}
+\subsection{대상 및 비교기}\label{--}
 
 첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을
 단독요법으로 사용하는 경우를 new-user로 간주한다. 이 중 치료 시작 후 7일
 동안 다른 항고혈압제를 시작하지 않은 경우를 단독요법으로 정의한다.
-환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속적으로
-관찰되고, 치료시작 전 또는 그 이전에 기록된 고혈압 진단을 받도록
+환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속해서
+관찰되고, 치료 시작 전 또는 그 이전에 기록된 고혈압 진단을 받도록
 정의했다.
 
-\subsection{Outcome}\label{outcome}
+\subsection{결과}\label{-1}
 
 입원 또는 응급실 방문 중에 혈관부종이 발생하고, 그 이전 일주일간
 혈관부종 발생이 없었던 경우를 혈관부종으로 정의했다. 입원 또는 응급실
 방문 중에 심근경색이 발생하고, 그 이전 180일간 심근경색 발생이 없었던
 경우를 심근경색으로 정의했다.
 
-\subsection{Time-At-Risk}\label{time-at-risk}
+\subsection{위험 노출 기간(Time-At-Risk)}\label{--time-at-risk}
 
-30일 까지의 차이(30-day gap)를 인정하여, 치료 시작 다음날부터 시작하여
-연속적인 약물 노출이 중단될 때까지를 ``time-at-risk''로 정의했다.
+30일까지의 차이(30-day gap)를 인정하여, 치료 시작 다음 날부터 시작하여
+연속적인 약물 노출이 중단될 때까지를 위험 노출 기간(time-at-risk)으로
+정의했다.
 
-\subsection{Model}\label{model}
+\subsection{모델}
 
-인구학적 특징, 상태, 약물, 절차, 측정, 관찰 결과, 다양한 병존질환을
+인구학적 특징, 상태, 약물, 절차, 측정, 관찰 결과, 다양한 병존 질환을
 포함하는 공변량 기본 세트를 사용하여 적합한 성향 점수 모델을 구하는데,
 공변량에서 ACEi와 THZ를 제외한다. 여기에서 다비율 짯짓기(variable-ratio
-matching)을 수행하고, 성향 점수 짝짓기된 세트에 대해 조건화된 콕스
+matching)을 수행하고, 성향 점수 짝짓기 된 세트에 대해 조건화된 콕스
 회귀분석을 실시한다.
 
-\subsection{Study Summary}\label{study-summary}
+\subsection{연구 요약}\label{-}
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:aceChoices} Main design choices for our comparative
@@ -10778,17 +10782,17 @@ Cox proportional hazards model using variable-ratio matching.\strut
 \bottomrule
 \end{longtable}
 
-\subsection{Control Questions}\label{control-questions}
+\subsection{대조군 질문}\label{-}
 
 우리 연구 디자인이 실제와 일치하는 추정치를 산출하는지 평가하기 위해
 진짜 효과 크기가 알려진 곳에 일련의 통제 질문을 추가로 포함한다. 통제
-질문은 위험비(hazard ratio)이 1인 음성 대조군(negative control)과 1보다
+질문은 위험비(hazard ratio)는 1인 음성 대조군(negative control)과 1보다
 큰 위험 비율을 갖는 양성 대조군(positive control)으로 나눌 수 있다.
 우리는 몇 가지 이유에서 실제 음성 대조군을 사용하고, 음성 대조군에
 근거해 양성 대조군을 만든다. 대조군을 설정하고 사용하는 방법은
 \ref{MethodValidity}장에서 자세히 다룬다.
 
-\section{Implementing the Study Using ATLAS}\label{PleAtlas}
+\section{ATLAS를 사용한 연구 구현하기}\label{PleAtlas}
 
 여기서는 ATLAS의 추정 기능(Estimation function)을 사용하여 이 연구를
 어떻게 구현하는지 보여준다. ATLAS의 왼쪽 바에서
@@ -10804,17 +10808,17 @@ settings). 다중 비교 및 다중 분석 설정을 지정할 수 있으며, AT
 이러한 모든 조합을 별도의 분석으로 수행한다. 여기서는 각 섹션에 대해
 설명한다:
 
-\subsection{Comparative Cohort Settings}\label{ComparisonSettings}
+\subsection{비교 코호트 설정}\label{ComparisonSettings}
 
-한 연구에는 하나 이상의 비교대상이 있을 수 있다. ``Add Comparison''을
+한 연구에는 하나 이상의 비교 대상이 있을 수 있다. ``Add Comparison''을
 클릭하면 새 대화 상자가 열린다. 대상(target) 및 비교(comparator)
 코호트를 선택하려면
 \includegraphics{images/PopulationLevelEstimation/open.png} 을 클릭하면
 된다. ``Add Outcome''을 클릭하면, 두 개의 결과(outcome) 코호트를 추가할
-수 있다. 우리는 \ref{Cohorts}장에서 설명한대로 이미 코호트들이 생성된
+수 있다. 우리는 \ref{Cohorts}장에서 설명한 대로 이미 코호트들이 생성된
 것으로 가정한다. 부록에서 대상군 (Appendix \ref{AceInhibitorsMono}),
 대조군 (Appendix \ref{ThiazidesMono}), outcome (Appendix @ref(Angioedema
-과 Appendix \ref{Ami}) 코호트에 대해 자세하 볼 수 있다. 완료되면 그림
+과 Appendix \ref{Ami}) 코호트에 대해 자세히 볼 수 있다. 완료되면 그림
 \ref{fig:comparisons}에서와 같은 창이 생성될 것이다.
 
 \begin{figure}
@@ -10830,16 +10834,15 @@ settings). 다중 비교 및 다중 분석 설정을 지정할 수 있으며, AT
 있다는 점에 주의하자. 각 결과는 독립적으로 처리되며 별도의 분석이
 이루어진다.
 
-\subsubsection*{Negative Control
-Outcomes}\label{negative-control-outcomes}
-\addcontentsline{toc}{subsubsection}{Negative Control Outcomes}
+\subsubsection*{음성 대조군 결과}\label{--}
+\addcontentsline{toc}{subsubsection}{음성 대조군 결과}
 
 음성 대조군 결과(Negative Control Outcome)는 대상군 또는 비교군에 의해
-야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험비는 1과 동일해야
+야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험 비는 1과 동일해야
 한다. 이상적으로는 우리는 각 결과 코호트에 대해 적절한 코호트 정의를
 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 통제 결과 당 하나의
-컨셉 셋(concept set)과 이를 결과 코호트로 변환하는 표준 논리만 가진다.
-여기서는 챕터 \ref{MethodValidity} 에서 설명한대로 컨셉 셋이 이미
+컨셉 세트(concept set)와 이를 결과 코호트로 변환하는 표준 논리만 가진다.
+여기서는 \ref{MethodValidity}장에서 설명한 대로 컨셉 셋이 이미
 생성되었다고 가정하고 간단하게 선택할 수 있다. 음성 통제 컨셉 집합에는
 음성 통제 당 하나의 컨셉만을 포함해야 하며, 하위 컨셉들은 포함하지
 않아야 한다. 그림 \ref{fig:ncConceptSet} 은 본 연구에 사용된 음성 대조군
@@ -10854,32 +10857,32 @@ Outcomes}\label{negative-control-outcomes}
 \caption{음성 대조군 컨셉 집합.}\label{fig:ncConceptSet}
 \end{figure}
 
-\subsubsection*{Concepts to Include}\label{concepts-to-include}
-\addcontentsline{toc}{subsubsection}{Concepts to Include}
+\subsubsection*{포함 컨셉}\label{-}
+\addcontentsline{toc}{subsubsection}{포함 컨셉}
 
-포함 컨셉(concept to include) 선택시, 우리는 성향점수 모델 등에 어떠한
+포함 컨셉(concept to include) 선택 시, 우리는 성향점수 모델 등에 어떠한
 공변량이 생성되기를 원하는지 선택할 수 있다. 공변량을 지정하면, 모든
-다른 공변량(선택하지 않은) 은 제외된다. 보통 우리는 환자들의 모든 기저
+다른 공변량 (선택하지 않은) 은 제외된다. 보통 우리는 환자들의 모든 기저
 공변량을 추가하여 regularized regression이 모든 공변량의 균형을 맞출 수
 있는 모델을 만들기를 바란다. 만약 특정 공변량만을 선택하기 원한다면,
-그것은 연구자들이 직접 공변량을 고른 다른 연구들을 복제해보기 위해서일
+그것은 연구자들이 직접 공변량을 고른 다른 연구를 복제해보기 위해서일
 것이다. 이러한 공변량 추가들은 비교(comparison) 섹션 또는 분석(analysis)
 섹션에서 정의될 수 있는데, 공변량들이 특정 비교 (비교시 알고 있는
-교란변수) 또는 분석 (특정 공변량 선택 전략의 평가)에 연계될 수 있기
+교란변수) 또는 분석 (특정 공변량 선택 전략의 평가) 에 연계될 수 있기
 때문이다.
 
-\subsubsection*{Concepts to Exclude}\label{concepts-to-exclude}
-\addcontentsline{toc}{subsubsection}{Concepts to Exclude}
+\subsubsection*{배제 컨셉}\label{-}
+\addcontentsline{toc}{subsubsection}{배제 컨셉}
 
 추가하는 컨셉보다는 \textbf{배제} 컨셉을 지정하는 경우가 많다. 배제
 컨셉을 지정하면, 배제 컨셉을 제외한 모든 공변량을 사용함을 뜻한다. 기본
 공변량 집합(default set of covoariate) 설정을 이용하면, 치료 시작 시의
-모든 약물, 시술을 이용하기 때문에, 우리는 대상 치료 및 비교 치료에 에
-해당되거나 이것들과 직접적으로 관련된 컨셉들을 배제해야 한다. 예를 들어,
-만약 대상 치료가 약물 정맥 주입 치료라면, 우리는 약물 뿐 아니라 정맥
-주입 시술 역시도 성향 점수 모델에서 제외해야 한다. 이 예제에서 우리는
-ACEi와 THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ 과
-그들의 하위 컨셉을 포함하여 배제 컨셉 집합을 구성함을 볼 수 있다.
+모든 약물, 시술을 이용하기 때문에, 우리는 대상 치료 및 비교 치료에
+해당하거나 이것들과 직접적으로 관련된 컨셉들을 배제해야 한다. 예를 들어,
+만약 대상 치료가 약물 정맥 주입 치료라면, 우리는 약물뿐 아니라 정맥 주입
+시술 역시도 성향 점수 모델에서 제외해야 한다. 이 예제에서 우리는 ACEi와
+THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ 과 그들의
+하위 컨셉을 포함하여 배제 컨셉 집합을 구성함을 볼 수 있다.
 
 \begin{figure}
 
@@ -10890,7 +10893,7 @@ ACEi와 THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ �
 \caption{배제 컨셉을 정의하는 개념 집합.}\label{fig:covsToExclude}
 \end{figure}
 
-음성 대조군과 배제 컨셉을 지정한 후, 비교 섹션의 아래쪽 절반창은 그림
+음성 대조군과 배제 컨셉을 지정한 후, 비교 섹션의 아래쪽 절반 창은 그림
 \ref{fig:comparisons2}과 같이 보일 것이다.
 
 \begin{figure}
@@ -10899,39 +10902,37 @@ ACEi와 THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ �
 
 }
 
-\caption{음성 대조군에 대한 개념 집합과 배제 컨셉을 보여주는 비교 창The comparison window showing concept sets for negative controls and concepts to exclude.}\label{fig:comparisons2}
+\caption{음성 대조군에 대한 개념 집합과 배제 컨셉을 보여주는 비교 창.}\label{fig:comparisons2}
 \end{figure}
 
-\subsection{Effect Estimation Analysis
-Settings}\label{effect-estimation-analysis-settings}
+\subsection{효과 추정 분석 설정}\label{---}
 
 비교 창을 닫은 후 ``Add Analysis Settings'' 을 클릭할 수 있다.
 ``Analysis Name''이라는 상자에 추후에 기억하고 분류하기 쉽도록 분석별
 고유한 이름을 지정할 수 있다. 예를 들어 ``Propensity score matching''을
 지어줄 수 있다.
 
-\subsubsection*{Study Population}\label{study-population}
-\addcontentsline{toc}{subsubsection}{Study Population}
+\subsubsection*{인구 연구}\label{-}
+\addcontentsline{toc}{subsubsection}{인구 연구}
 
-분석에 포함시킬 피험자 집단과 같은 연구 집단을 지정하는데 다양한 옵션이
+분석에 포함할 피험자 집단과 같은 연구 집단을 지정하는데 다양한 옵션이
 있다. 코호트 정의(cohort definition) 도구에서 대상 및 대조 코호트를
 설계할 때 사용할 수 있는 옵션과 대부분 겹친다. 코호트 정의 대신에
 Estimation에서 옵션을 사용하는 한 가지 이유는
 재사용성(re-usability)이다. 대상, 대조 및 결과 코호트를 완전히
-독립적으로 정의한 후에 나중에 이들 사이의 종속관계를 추가할 수 있다.
-예를 들어, 치료 개시 전에 outcome가 있었던 사람들을 제외하기를 원한다면,
-대상 및 대조 코호트의 정의에서 그렇게 할 수 있지만, 모든 outcome에 대해
-별도의 코호트를 작성해야 한다! 대신에, Estimation 설정에서 이전 결과를
-가진 사람들을 제거하도록 선택할 수 있다. 이제 우리는 (음성 대조군
-결과뿐만 아니라) 두 가지 관심 결과에 대해 대상 및 대조 코호트를 재사용할
-수 있다.
+독립적으로 정의한 후에 이들 사이의 종속관계를 추가할 수 있다. 예를 들어,
+치료 개시 전에 outcome이 있었던 사람들을 제외하기를 원한다면, 대상 및
+대조 코호트의 정의에서 그렇게 할 수 있지만, 모든 outcome에 대해 별도의
+코호트를 작성해야 한다! 대신에, Estimation 설정에서 이전 결과를 가진
+사람들을 제거하도록 선택할 수 있다. 이제 우리는 (음성 대조군 결과뿐만
+아니라) 두 가지 관심 결과에 대해 대상 및 대조 코호트를 재사용할 수 있다.
 
-\textbf{연구 시작 및 종료일(study start and end dates)} 은 분석을 특정
-기간으로 제한하는데 사용할 수 있다. 연구 종료일 또한 위험창(risk
+\textbf{연구 시작 및 종료일 (study start and end dates)} 은 분석을 특정
+기간으로 제한하는데 사용할 수 있다. 연구 종료일 또한 위험 창(risk
 window)을 제한하기 때문에 연구 종료일 이후의 outcome은 고려되지 않는다.
 연구 시작일을 선택하는 한 가지 이유는 연구 중인 약물 중 하나가 새로운
 것이며, 전에는 존재하지 않을 수 있기 때문이다. \textbf{``두 노출이 모두
-관찰되는 기간으로 분석을 제한하라(Restrict the analysis to the period
+관찰되는 기간으로 분석을 제한하라 (Restrict the analysis to the period
 when both exposures are present in the data?)''} 는 옵션을
 ``예(yes)''라고 설정하면, 새 약물이 데이터베이스에 존재하는 시점을
 자동으로 연구 시작일로 조정할 수 있다. 연구 시작일과 종료일을 조정하는
@@ -10939,34 +10940,34 @@ when both exposures are present in the data?)''} 는 옵션을
 임상 업무의 변화가 있고, 우리는 보통 특정 방식으로 임상이 이루어질 때만
 관심이 있기 때문이다.
 
-\textbf{``환자 당 첫 번째 노출만 포함해야 하는가?(Should only the first
-exposure per subject be included?)''} 옵션을 사용하여 환자 당 첫 번째
+\textbf{``환자당 첫 번째 노출만 포함해야 하는가? (Should only the first
+exposure per subject be included?)''} 옵션을 사용하여 환자당 첫 번째
 노출만으로 코호트를 제한할 수 있다. 이 옵션은 이번 예제에서처럼 코호트
 정의에서 이미 수행된 경우가 많다. 유사하게, 코호트 정의에
-\textbf{``코호트에 포함될 사람이 index date전에 최소 연속적 관측
-시기(The minimum required continuous observation time prior to index
-date for a person to be included in the cohort)''} 옵션이 설정되어 있는
-경우가 많아, 여기에 0으로 남겨둘 수 있다. 이러한 옵션은 index data
-이전에 관찰된 시간 (OBSERVATION\_PERIOD 테이블에서 정의된)을 가짐으로써
-성향 점수를 계산할 수 있는 환자에 대한 충분한 정보가 있음을 보장하고,
-환자가 이전에 노출된 적 없는, 진정하게 치료의 새로운 사용자(new
-user)임을 보장하기 위해 자주 사용된다.
+\textbf{``코호트에 포함될 사람이 index date 전에 최소 연속적 관측 시기
+(The minimum required continuous observation time prior to index date
+for a person to be included in the cohort)''} 옵션이 설정된 경우가 많아,
+여기에 0으로 남겨둘 수 있다. 이러한 옵션은 index data 이전에 관찰된 시간
+(OBSERVATION\_PERIOD 테이블에서 정의된)을 가짐으로써 성향 점수를 계산할
+수 있는 환자에 대한 충분한 정보가 있음을 보장하고, 환자가 이전에 노출된
+적 없는, 진정하게 치료의 새로운 사용자(new user)임을 보장하기 위해 자주
+사용된다.
 
 \textbf{``만일 피험자가 여러 코호트에 있다면, 겹침(overlap)을 막기 위해
-새로운 time-at-risk를 시작할 때 이것이 중도 절단(censor) 되어야
-하는가?(If a subject is in multiple cohorts, should time-at-risk be
-censored when the new time-at-risk starts to prevent overlap?)''} 하는
-옵션과 함께 \textbf{``대상 및 대조 코호트 모두에 있는 피험자를
-제거하는가?''(Remove subjects that are in both the target and comparator
-cohort?)} 옵션은 피험자가 대상과 대조 코호트 모두에 있을 때 어떻게 할 지
-정의한다. ``대상 및 대조 코호트 모두에 있는 피험자를 제거하는가'' 옵션에
-대해서는 세 가지 선택 사항이 있다
+새로운 time-at-risk를 시작할 때 이것이 중도 절단(censor)되어야 하는가?
+(If a subject is in multiple cohorts, should time-at-risk be censored
+when the new time-at-risk starts to prevent overlap?)''} 하는 옵션과
+함께 \textbf{``대상 및 대조 코호트 모두에 있는 피험자를 제거하는가?''
+(Remove subjects that are in both the target and comparator cohort?)}
+옵션은 피험자가 대상과 대조 코호트 모두에 있을 때 어떻게 할지 정의한다.
+``대상 및 대조 코호트 모두에 있는 피험자를 제거하는가?'' 옵션에 대해서는
+세 가지 선택 사항이 있다:
 
 \begin{itemize}
 \tightlist
 \item
-  ``\textbf{Keep All}'' 은 양 코호트의 모든 환자들을 보존한다는 뜻이다.
-  이 옵션은 환자와 outcome의 쌍 갯수를 중복으로 셀 수 있다.
+  ``\textbf{Keep All}'' 은 양 코호트의 모든 환자를 보존한다는 뜻이다. 이
+  옵션은 환자와 outcome의 쌍 개수를 중복으로 셀 수 있다.
 \item
   ``\textbf{Keep First}'' 은 한 환자가 양 코호트에 모두 들어있을 경우,
   두 코호트 중 먼저 들어간 코호트에서의 환자만 인정한다는 뜻이다.
@@ -10976,9 +10977,9 @@ cohort?)} 옵션은 피험자가 대상과 대조 코호트 모두에 있을 때
 \end{itemize}
 
 ``Keep all'' 또는 ``keep first'' 옵션이 선택되면, 우리는 연구 대상자가
-양쪽 코호트 모두에 속하는 시기를 절단하기를 바랄 수 있다 (그림
-\ref{fig:tar}). 기본적으로 time-at-risk는 코호트 시작일과 종료일을
-기준으로 정의된다. 이번 예에서, time-at-risk는 코호트 시작일 다음날부터
+양쪽 코호트 모두에 속하는 시기를 절단하기를 바랄 수 있다. (그림
+\ref{fig:tar}) 기본적으로 time-at-risk는 코호트 시작일과 종료일을
+기준으로 정의된다. 이번 예에서, time-at-risk는 코호트 시작일 다음 날부터
 시작되어 코호트 종료일에 끝난다. 절단하지 않는다면, 두 코호트의
 time-at-risk가 겹칠 수 있다. 이 겹치는 동안 발생하는 모든 outcome이
 (그림과 같이) 두 번 계산되기 때문에 ``keep all''을 선택하면 특히 문제가
@@ -10991,7 +10992,7 @@ time-at-risk가 겹칠 수 있다. 이 겹치는 동안 발생하는 모든 outc
 
 }
 
-\caption{두 코호트에 있는 피험자의 위험 노출 기간(TAR)은 치료 시작 다음날부터 시작하여 노출 끝에서 멈춘다고 가정한다.}\label{fig:tar}
+\caption{두 코호트에 있는 피험자의 위험 노출 기간(TAR)은 치료 시작 다음 날부터 시작하여 노출 끝에서 멈춘다고 가정한다.}\label{fig:tar}
 \end{figure}
 
 최초의 outcome 발생 이후 연속적으로 이후의 outcome이 발생하는 경우가
@@ -10999,12 +11000,12 @@ time-at-risk가 겹칠 수 있다. 이 겹치는 동안 발생하는 모든 outc
 제거(remove subjects that have the outcome prior to the risk window
 start)} 할 수도 있다. 예를 들어, 누군가에게 심부전과 같은 만성 질병이
 최초로 발생한 후, 두 번째 발생이 있을 수 있는데, 이는 심부전이 새로 다시
-발생했다기 보다는, 이전의 심부전이 완전히 치료되지 않은 상태를 의미할
+발생했다기보다는, 이전의 심부전이 완전히 치료되지 않은 상태를 의미할
 가능성이 높다. 한편으로는, 어떠한 outcome들은 일시적일 수도 있다. 예를
 들어 상부 호흡기 감염(upper respiratory infection)과 같은 급성 질병이 한
-환자에 여러번 발생한다면, 이는 실제로 독립적인 질병 발생이 시간 간격으로
-두고 발생함을 의미할 수도 있다. \textbf{이전 outcome을 확인할 때 몇
-일전까지 검토해야 할지(how many days we should look back when
+환자에 여러 번 발생한다면, 이는 실제로 독립적인 질병 발생이 시간
+간격으로 두고 발생함을 의미할 수도 있다. \textbf{이전 outcome을 확인할
+때 몇 일 전까지 검토해야 할지(how many days we should look back when
 identifying prior outcomes)} 를 선택함으로써, 이전에 outcome이 있는
 사람들을 제거하는 방법을 선택할 수 있다.
 
@@ -11022,8 +11023,8 @@ identifying prior outcomes)} 를 선택함으로써, 이전에 outcome이 있는
 \caption{Study population 설정.}\label{fig:studyPopulation}
 \end{figure}
 
-\subsubsection*{Covariate Settings}\label{covariate-settings}
-\addcontentsline{toc}{subsubsection}{Covariate Settings}
+\subsubsection*{공변량 설정}\label{-}
+\addcontentsline{toc}{subsubsection}{공변량 설정}
 
 여기서 우리는 사용할 공변량을 지정한다. 이러한 공변량은 일반적으로 성향
 점수 모델에서 사용되지만, 결과 모델 (이 경우 Cox proportional hazards
@@ -11052,21 +11053,21 @@ to view details)} 을 클릭을 하면, 사용할 공변량 셋을 선택할 수
 \caption{공변량 설정.}\label{fig:covariateSettings}
 \end{figure}
 
-\subsubsection*{Time At Risk}\label{time-at-risk-1}
-\addcontentsline{toc}{subsubsection}{Time At Risk}
+\subsubsection*{위험 노출 기간 (Time At Risk)}\label{---time-at-risk}
+\addcontentsline{toc}{subsubsection}{위험 노출 기간 (Time At Risk)}
 
-Time-at-risk는 대상 및 대조 코호트의 시작일과 종료일을 기준으로
-정의된다. 이 예제에서는, 치료 시작일을 코호트 시작일로, 약물 노출이 30일
-이상 중지되면 코호트 종료일이 되도록 설정하였다. 코호트 시작 후 1일 (즉,
-치료 시작 후 1일)을 time-at-risk의 시작으로 설정하였다. 치료 시작과 함께
-발생한 outcome 이 이론상 치료에 의해 발생한 것이라고 믿기 어려울 때,
-코호트 시작 이후에 time-at-risk 가 시작하도록 설정한다.
+위험 노출 기간(Time-at-risk)은 대상 및 대조 코호트의 시작일과 종료일을
+기준으로 정의된다. 이 예제에서는, 치료 시작일을 코호트 시작일로, 약물
+노출이 30일 이상 중지되면 코호트 종료일이 되도록 설정하였다. 코호트 시작
+후 1일 (즉, 치료 시작 후 1일) 을 time-at-risk의 시작으로 설정하였다.
+치료 시작과 함께 발생한 outcome 이 이론상 치료에 의해 발생한 것이라고
+믿기 어려울 때, 코호트 시작 이후에 time-at-risk 가 시작하도록 설정한다.
 
 코호트 종료일을 time-at-risk 종료일로 설정하여, 약물 노출이 중지된
 시점으로 설정하였다. 예를 들어, 치료 종료 후에 발생한 event가 노출로
 인한 것으로 판단될 경우, time-at-risk의 종료일을 나중으로 설정할 수
 있다. 극단적인 경우, time-at-risk 종료를 코호트 종료일 후에 매우 이후
-(예: 99999일)로 설정할 수 있다. 이는 관찰 종료까지 피험자를 추적
+(예를 들어 99999일)로 설정할 수 있다. 이는 관찰 종료까지 피험자를 추적
 관찰하는 것을 의미한다. 이러한 연구 설계를 때로는 \emph{intent-to-treat}
 설계라고도 한다.
 
@@ -11097,30 +11098,29 @@ time-at-risk가 요구된다면, 우리는 치료를 잘 견디는 피험자들�
 \caption{위험 노출 기간(TAR) 설정.}\label{fig:timeAtRisk}
 \end{figure}
 
-\subsubsection*{Propensity Score
-Adjustment}\label{propensity-score-adjustment}
-\addcontentsline{toc}{subsubsection}{Propensity Score Adjustment}
+\subsubsection*{성향 점수 조정}\label{--}
+\addcontentsline{toc}{subsubsection}{성향 점수 조정}
 
-극단적이 성향 점수를 갖는 피험자들을 제거하여, 연구 대상을
-\textbf{트리밍(trimming)} 할 수 있다. 상위 또는 하위 비율을 제거하도록
+극단적인 성향 점수를 갖는 피험자들을 제거하여, 연구 대상을
+\textbf{트리밍(trimming)}할 수 있다. 상위 또는 하위 비율을 제거하도록
 선택하거나, 선호도 점수(preference score)가 지정된 범위를 벗어나는
 피험자를 제거할 수 있다. 코호트 트리밍은 관측치를 제거하여
-통계력(statistical power)을 감소 시키기 때문에 일반적으로 권장되지는
+통계력(statistical power)을 감소시키기 때문에 일반적으로 권장되지는
 않는다. IPTW를 사용할 때처럼 경우에 따라서는 트리밍을 하는 것이 바람직할
 수 있다. \index{propensity score!trimming}
 
 트리밍에 추가하여, 또는 트리밍 대신에, 성향 점수를 이용해
-\textbf{계층화(stratification)} 하거나 \textbf{짝짓기(matching)} 하도록
-선택할 수 있다. 계층화할 때, \textbf{계층의 수(number of strata)} 를
-지정하고, 대상군, 대조군, 또는 전체 연구 집단을 기준으로 계층을 선택할
-지 여부를 지정해야 한다. 성향점수 짝짓기 시, 대상군의 각 피험자와
-일치시키기 위한 대조군에서의 \textbf{최대 피험자 수 비율(maximum number
-of people from the comparator group to match to each person in the
-target group)} 지정하여야 한다. 일반적인 값은 one-on-one matching의 경우
-1, variable-ratio matching의 경우 다수 (예: 100)이다. 또한, 매칭을
-허용하는 성향 점수 사이의 최대 허용 차이를 뜻하는
-\textbf{캘리퍼(caliper)} 를 지정해야 한다: 캘리퍼는 다음과 같이 서로
-다른 \textbf{캘리퍼 척도(caliper scales)} 로 정의할 수 있다
+\textbf{계층화(stratification)}하거나 \textbf{짝짓기(matching)}하도록
+선택할 수 있다. 계층화할 때, \textbf{계층의 수(number of strata)}를
+지정하고, 대상 군, 대조군, 또는 전체 연구 집단을 기준으로 계층을
+선택할지 여부를 지정해야 한다. 성향 점수 짝짓기 시, 대상 군의 각
+피험자와 일치시키기 위한 대조군에서의 \textbf{최대 피험자 수
+비율(maximum number of people from the comparator group to match to each
+person in the target group)}를 지정하여야 한다. 일반적인 값은 one-on-one
+matching의 경우 1, variable-ratio matching의 경우 다수 (예를 들어 100)
+이다. 또한, 매칭을 허용하는 성향 점수 사이의 최대 허용 차이를 뜻하는
+\textbf{캘리퍼(caliper)}를 지정해야 한다: 캘리퍼는 다음과 같이 서로 다른
+\textbf{캘리퍼 척도(caliper scales)}로 정의할 수 있다.
 \index{caliper!scale}
 
 \begin{itemize}
@@ -11151,13 +11151,13 @@ each covariate for correlation with the target assignment?)} 을 'yes'로
 설정하면, 만약 어떤 공변량이 치료 배정(treatment assignment)과
 비정상적으로 높은 (양 또는 음의) 상관관계가 있으면 오류를 발생시키고,
 프로세스가 중단된다. 이것은 대규모 성향 점수 모델 계산이 완전히 끝날
-때까지 기다리는 것을 방지할 수 있다. 매우 높은 단변량 상관 관계를
-발견하면, 공변량을 검토하여 치료 배정과 상관 관계가 높은 이유와 이를
-제거해야 하는지 여부를 결정할 수 있다.
+때까지 기다리는 것을 방지할 수 있다. 매우 높은 단변량 상관관계를
+발견하면, 공변량을 검토하여 치료 배정과 상관관계가 높은 이유와 이를
+제거해야 하는지를 결정할 수 있다.
 
 \textbf{모델 적합시에 정규화를 사용하시겠습니까? (Use regularization
 when fitting the model?)} 일반적으로 매우 많은 공변량 (일반적으로 만 개
-이상)이 성향점수 모델 계산시 사용된다. 이러한 대규모 모델을 적합하기
+이상) 이 성향 점수 모델 계산 시 사용된다. 이러한 대규모 모델을 적합하기
 위해서는 정규화(regularization)가 필요하다. 만약 수동으로 몇 개의
 공변량만 사용된다면, 정규화를 사용하지 않아도 모델을 적합할 수 있다.
 
@@ -11173,19 +11173,19 @@ when fitting the model?)} 일반적으로 매우 많은 공변량 (일반적으�
 \caption{성향 점수 조절 설정.}\label{fig:psSettings}
 \end{figure}
 
-\subsubsection*{Outcome Model Settings}\label{outcome-model-settings}
-\addcontentsline{toc}{subsubsection}{Outcome Model Settings}
+\subsubsection*{결과 모델 설정}\label{--}
+\addcontentsline{toc}{subsubsection}{결과 모델 설정}
 
-먼저, 대상 코호트과 대조 코호트 간 \textbf{outcome의 상대적
+먼저, 대상 코호트와 대조 코호트 간 \textbf{outcome의 상대적
 위험(relative risk)을 추정하기 위해 사용할 통계 모델을 명시할 필요가
-있다.} 절 \ref{CohortMethod} 에서 간략히 논의했던 것처럼, Cox, Poisson
-및 logistic regression 중에서 선택할 수 있다. 예제에서는 Cox
-proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여
-첫 번째 사건까지의 시간(time to first event)을 고려한다. 다음으로,
-\textbf{회귀분석에 층화 조건을 사용해야 할 지(whether the regression
-should be conditioned on the strata)} 를 명시할 필요가 있다. 쉽게
+있다.} \ref{CohortMethod}절에서 간략히 논의했던 것처럼, Cox, Poisson 및
+logistic regression 중에서 선택할 수 있다. 예제에서는 Cox proportional
+hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째
+사건까지의 시간(time to first event)을 고려한다. 다음으로,
+\textbf{회귀분석에 층화 조건을 사용해야 할지(whether the regression
+should be conditioned on the strata)}를 명시할 필요가 있다. 쉽게
 말하자면, 조건화(conditioning)는 별도의 추정치가 각 층(strata)에서
-생성된 다음, 층에 걸쳐 추정치가 결합된 것으로 생각할 수 있다. One-to-one
+생성된 다음, 층에 걸쳐 추정치가 결합한 것으로 생각할 수 있다. One-to-one
 PS matching에서는 이러한 과정이 불필요할 것이며, 통계력(statistical
 power)감소를 유발할 것이다. 조건화는 층화(stratification) 또는
 variable-ratio matching을 위해서 필요하다. \index{conditioned model}
@@ -11198,19 +11198,19 @@ variable-ratio matching을 위해서 필요하다. \index{conditioned model}
 적어 데이터가 모자라는 경우가 많다. 그래서 공변량을 결과 모델에 추가하지
 말고, 결과 모델을 가급적 간단하게 유지하기를 권장한다.
 
-성향 점수 이용해 층화하거나 매칭하는 대신에 \textbf{역확률
-치료가중치(inverse probability of treatment weighting, IPTW)} 를 사용할
-수도 있다.
+성향 점수 이용해 층화하거나 매칭하는 대신에 \textbf{역 확률 치료
+가중치(inverse probability of treatment weighting, IPTW)}를 사용할 수도
+있다.
 
 만약 모든 공변량을 결과 모델에 추가한다면, 공변량이 매우 많기 때문에
-결과 모델 적합시 정규화를 이용하는 것이 합리적일 것이다. 편향이 없는
+결과 모델 적합 시 정규화를 이용하는 것이 합리적일 것이다. 편향이 없는
 추정(unbiased estimation)을 위해서 치료 공변량(treatment variable)
 자체에는 정규화가 적용되지 않음에 유의하자.
 
 그림 \ref{fig:outcomeModelSettings}은 이 연구에 대한 선택을 보여준다.
 Variable-ratio matching을 사용하기 때문에, 회귀분석에 층화
-조건화(condition the regression on the strata (i.e.~the matched sets))를
-해야함에 주목하자.
+조건화(condition the regression on the strata (다른 말로 the matched
+sets))를 해야 함에 주목하자.
 
 \begin{figure}
 
@@ -11221,24 +11221,22 @@ Variable-ratio matching을 사용하기 때문에, 회귀분석에 층화
 \caption{결과 모델 설정.}\label{fig:outcomeModelSettings}
 \end{figure}
 
-\subsection{Evaluation Settings}\label{evaluationSettings}
+\subsection{평가 설정}\label{evaluationSettings}
 
 \ref{MethodValidity}장에서 기술한 바와 같이, 음성 대조군 및 양성
-대조군은 운영 특성 및 empirical calibration을 위하여 추가되어야 한다.
+대조군은 운영 특성 및 경험적 보정을 위하여 추가되어야 한다.
 
-\subsubsection*{Negative Control Outcome Cohort
-Definition}\label{negative-control-outcome-cohort-definition}
-\addcontentsline{toc}{subsubsection}{Negative Control Outcome Cohort
-Definition}
+\subsubsection*{음성 대조군 결과 코호트 정의}\label{----}
+\addcontentsline{toc}{subsubsection}{음성 대조군 결과 코호트 정의}
 
-\ref{ComparisonSettings}절 에서 우리는 음성 대조군을 지정하는 컨셉군을
-선택했다. 컨셉을 지정하는 것 뿐 아니라, 분석을 위해서는 컨셉을 기반으로
+\ref{ComparisonSettings}절 에서 우리는 음성 대조군을 지정하는 컨셉 군을
+선택했다. 컨셉을 지정하는 것뿐 아니라, 분석을 위해서는 컨셉을 기반으로
 코호트를 생성하는 프로세스가 필요하다. ATLAS는 세 가지 선택 사항을 가진
 표준 프로세스를 제공한다. 첫 번째 선택은 \textbf{모든 발생} 을 사용할지
 또는 컨셉의 \textbf{첫 번째 발생} 만을 사용할지 여부이다. 두 번째 선택은
 \textbf{하위 컨셉의 발생을 포함할지} 여부를 결정한다. 예를 들어, 하위
 컨셉 ``내성 발톱(ingrown nail of foot)''의 발생은 상위 컨셉 ``내성
-손발톱(ingrown nail)''의 발생으로 간주될 수 있다. 세 번째 선택사항은
+손발톱(ingrown nail)''의 발생으로 간주할 수 있다. 세 번째 선택사항은
 컨셉을 찾을 때 고려할 도메인(domain)을 지정한다.
 
 \begin{figure}
@@ -11250,26 +11248,25 @@ Definition}
 \caption{음성 대조 결과 코호트 정의 설정.}\label{fig:ncSettings}
 \end{figure}
 
-\subsubsection*{Positive Control
-Synthesis}\label{positive-control-synthesis}
-\addcontentsline{toc}{subsubsection}{Positive Control Synthesis}
+\subsubsection*{양성 대조군 합성}\label{--}
+\addcontentsline{toc}{subsubsection}{양성 대조군 합성}
 
 음성 대조군 외에도 양성 대조군도 포함할 수 있는데, 이는 알려진 효과
 크기(effect size)와 함께 인과 관계(causal effect)가 존재하는 것으로
 보이는 노출-결과 쌍(exposure-outcome pair)을 뜻한다. 여러 가지 이유로
 실제 양성 대조군 설정은 문제가 있기 때문에, 대신
-\ref{MethodValidity}장에서 설명한대로 음성 대조군을 기반으로 합성된 양성
-대조군을 사용한다. 우리는 \textbf{양성 대조군 합성} 여부를 선택할 수
-있다. 만약 ``예(yes)''를 선택하면, 우리는 반드시 \textbf{모델 타입(model
-type)} 을 선택해야 하는데, 현재는 ``Poisson''과 ``survival''을 지원하고
-있다. 이 예제에서는 생존 (콕스) 분석을 시행하기 때문에, 양성 대조군
-합성시에도 ``survival''을 선택하도록 하자. 양성 대조군 합성시 가급적
-분석 추정 셋팅에서 사용된 값들을 비슷하게 사용하였다 (\textbf{minimum
-required continuous observation prior to exposure}, \textbf{should only
-the first exposure be included}, \textbf{should only the first outcome
-be included}, \textbf{remove people with prior outcomes}). 그림
-\ref{fig:outcomeModelSettings} 을 통해 양성 대조군 합성을 위한 셋팅을
-참조할 수 있다.
+\ref{MethodValidity}장에서 설명한 대로 음성 대조군을 기반으로 합성된
+양성 대조군을 사용한다. 우리는 \textbf{양성 대조군 합성} 여부를 선택할
+수 있다. 만약 ``예(yes)''를 선택하면, 우리는 반드시 \textbf{모델
+타입(model type)} 을 선택해야 하는데, 현재는 ``Poisson''과
+``survival''을 지원하고 있다. 이 예제에서는 생존 (콕스) 분석을 시행하기
+때문에, 양성 대조군 합성 시에도 ``survival''을 선택하도록 하자. 양성
+대조군 합성 시 가급적 분석 추정 설정에서 사용된 값들을 비슷하게
+사용하였다 (\textbf{minimum required continuous observation prior to
+exposure}, \textbf{should only the first exposure be included},
+\textbf{should only the first outcome be included}, \textbf{remove
+people with prior outcomes}). 그림 \ref{fig:outcomeModelSettings}을 통해
+양성 대조군 합성을 위한 설정을 참조할 수 있다.
 
 \begin{figure}
 
@@ -11280,10 +11277,9 @@ be included}, \textbf{remove people with prior outcomes}). 그림
 \caption{음성 대조 결과 코호트 정의 설정.}\label{fig:pcSynthesis}
 \end{figure}
 
-\subsection{연구 패키지 실행(Running the study
-package)}\label{--running-the-study-package}
+\subsection{연구 패키지 실행}\label{--}
 
-이제 연구를 완전히 정의했으므로, 실행 가능한 R 패키지로 export할 수
+이제 연구를 완전히 정의했으므로, 실행 가능한 R 패키지로 export 할 수
 있다. 이 패키지는 CDM 데이터가 있는 사이트에서 연구를 실행하는데 필요한
 모든 것이 들어있다. 여기에는 분석을 실행하기 위한 R 코드뿐만 아니라
 대상, 대조 및 결과 코호트, 음성 대조군을 정의하기 위한 컨셉 군과 코호트
@@ -11291,7 +11287,7 @@ package)}\label{--running-the-study-package}
 \textbf{Utilities} 탭을 클릭하면, 수행될 일련의 분석을 검토할 수 있다.
 앞서 언급했듯이, 개개의 비교와 분석 설정의 조합은 별도의 분석 결과를
 생성할 것이다. 이번 예시에서는 성향 점수 매칭을 사용하여 두 가지 분석을
-지정하였다: 급성심근경색 위험에 대한 ACEi 대 THZ 비교, 혈관 부종에 대한
+지정하였다: 급성 심근경색 위험에 대한 ACEi 대 THZ 비교, 혈관 부종에 대한
 ACEi 대 THZ 비교.
 
 ``Download''를 클릭하여 zip 파일을 다운로드하기 위해, 패키지의 이름을
@@ -11301,44 +11297,44 @@ Studio를 사용하는 것이 좋다. R Studio를 로컬로 실행하는 경우 
 압축을 푼 다음, .Rproj 파일을 더블 클릭하여 R Studio에서 연다. R Studio
 서버에서 R Studio를 실행하는 경우,
 \includegraphics{images/PopulationLevelEstimation/upload.png} 버튼을
-클릭하여 파일을 업로드하고 압축을 해제 한 다음, .Rproj 파일을 클릭하여
+클릭하여 파일을 업로드하고 압축을 해제한 다음, .Rproj 파일을 클릭하여
 프로젝트를 연다.
 
-R Studio에서 프로젝트를 열면 README 파일을 열고 파일의 지침을 따라할 수
+R Studio에서 프로젝트를 열면 README 파일을 열고 파일의 지침을 따라 할 수
 있다. 모든 파일 경로를 시스템의 기존 경로로 변경하는 것을 잊지 말자.
 
 연구를 진행할 때 나타날 수 있는 흔한 오류 메시지는 ``공변량과 치료가
-높은 상관 관계를 보임(High correlation between covariate(s) and
-treatment detected)''이다. 이는 성향 모델을 적용했을 때 일부 공변량이
-노출과 높은 상관 관계가 있음을 나타낸다. 오류 메시지에 언급된 공변량을
-검토하고 적절한 경우 해당 공변량을 공변량 집합에서 제외하면 된다
-(\ref{VariableSelection}절 참조). \index{high correlation}
+높은 상관관계를 보임(High correlation between covariate(s) and treatment
+detected)''이다. 이는 성향 모델을 적용했을 때 일부 공변량이 노출과 높은
+상관관계가 있음을 나타낸다. 오류 메시지에 언급된 공변량을 검토하고
+적절한 경우 해당 공변량을 공변량 집합에서 제외하면 된다.
+(\ref{VariableSelection}절 참조) \index{high correlation}
 
-\section{Implementing the Study Using R}\label{pleR}
+\section{R을 사용한 연구 구현하기}\label{pleR}
 
 ATLAS를 사용하여 연구를 실행하는 R 코드를 작성하는 대신 R 코드를 직접
-작성할 수도 있다. 이는 ATLAS를 이용하는 것보다, 훨씬 큰 유연성
-(flexibility)을 제공할 수 있다. 예를 들어 사용자 정의 공변량 또는 선형
-결과 모델을 사용하려면 사용자 정의 R 코드를 작성하고 이를 OHDSI R
+작성할 수도 있다. 이는 ATLAS를 이용하는 것보다, 훨씬 큰
+유연성(flexibility)을 제공할 수 있다. 예를 들어 사용자 정의 공변량 또는
+선형 결과 모델을 사용하려면 사용자 정의 R 코드를 작성하고 이를 OHDSI R
 패키지가 제공하는 기능과 결합해야 한다.
 
 예제 연구에서, 우리는 연구를 수행하기 위해
 \href{https://ohdsi.github.io/CohortMethod/}{CohortMethod} 패키지를
 사용할 것이다. CohortMethod는 CDM 데이터베이스에서 필요한 데이터를
 추출하고 성향 점수 모델에 대규모의 공변량 집합을 사용할 수 있다. 다음
-예에서는 혈관 부종만을 outcome으로 사용할 것이다. 절
-\ref{MultipleAnalyses} 에서는 이것이 어떻게 급성심근경색과 음성 대조군
+예시에서는 혈관 부종만을 outcome으로 사용할 것이다.
+\ref{MultipleAnalyses}절에서는 이것이 어떻게 급성 심근경색과 음성 대조군
 결과를 포함하도록 확장될 수 있는지 기술한다.
 
 \subsection{코호트 실체화 (Cohort
 Instantiation)}\label{--cohort-instantiation}
 
 먼저 대상 (target) 및 outcome 코호트를 실체화해야 한다. 코호트 실체화
-방법은 \ref{Cohorts}장에서 자세히 기술되어 있다. 부록에서 대상(부록
-\ref{AceInhibitorsMono}), 대조(부록 \ref{ThiazidesMono}) 및 outcome(부록
-\ref{Angioedema}) 코호트들의 정의 전체를 제공한다. ACEi, THZ 및 혈관
-부종 코호트가 \texttt{scratch.my\_cohorts} 라고 명명된 테이블에서 cohort
-definition ID 1, 2 및 3을 가지고 함께 실체화되었다고 가정한다.
+방법은 \ref{Cohorts}장에서 자세히 기술되어 있다. 부록에서 대상 (부록
+\ref{AceInhibitorsMono}), 대조 (부록 \ref{ThiazidesMono}) 및 outcome
+(부록 \ref{Angioedema}) 코호트들의 정의 전체를 제공한다. ACEi, THZ 및
+혈관 부종 코호트가 \texttt{scratch.my\_cohorts} 라고 명명된 테이블에서
+cohort definition ID 1, 2 및 3을 가지고 함께 실체화되었다고 가정한다.
 
 \subsection{데이터 추출 (Data Extraction)}\label{--data-extraction-1}
 
@@ -11370,7 +11366,7 @@ system, DBMS)에 필요한 설정에 대해 알아보기 위하여
 \texttt{cohortTable} 변수와 CDM 버전을 정의한다. 이들을 이용하여 이후에
 CDM 데이터가 존재하는 위치, 연구용 코호트가 생성된 위치, 그리고 사용된
 CDM 버전 정보를 R에 전달한다. Microsoft SQL Server의 경우 데이터베이스
-스키마는 데이터베이스와 스키마 (schema)를 모두 지정해야 한다(예:
+스키마는 데이터베이스와 스키마(schema)를 모두 지정해야 한다 (예를 들어
 \texttt{cdmDbSchema\ \textless{}-\ "my\_cdm\_data.dbo"}).
 
 이제 CorhotMethod를 이용해 코호트를 추출하고, 공변량을 구성하며, 분석에
@@ -11424,20 +11420,20 @@ CDM 버전 정보를 R에 전달한다. Microsoft SQL Server의 경우 데이터
 매뉴얼}에 모두 설명되어 있다. \texttt{createDefaultCovariateSettings}
 함수는
 \href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}
-패키지에 설명되어 있다. 간단이 말해, 코호트를 포함하는 테이블에 함수를
+패키지에 설명되어 있다. 간단히 말해, 코호트를 포함하는 테이블에 함수를
 지정하고 해당 테이블의 cohort definition ID가 대상, 대조 및 outcome
 코호트를 식별하도록 지정한다. index data 당일 혹은 이전에 발견된 모든
-진단명, 약물 노출, 시술기록에 대한 공변량을 포함하여 공변량의 기본 셋을
-구성하도록 지시한다. 절 \ref{CohortMethod} 에서 언급했듯이, 공변량
+진단명, 약물 노출, 시술 기록에 대한 공변량을 포함하여 공변량의 기본
+세트를 구성하도록 지시한다. \ref{CohortMethod}절에서 언급했듯이, 공변량
 집합에서 대상 및 대조 치료를 배제하여야 하며, 이 예제에서는 두 가지의
 약물군에 해당하는 약물 성분(ingredient)을 나열하여 이를 달성한다. 또한,
 FeatureExtraction에 모든 하위 컨셉을 포함하여 배제하도록 지시하여 나열된
 성분을 포함하는 모든 약물 노출을 공변량에서 제외한다.
 
 코호트, 결과 및 공변량에 대한 모든 데이터는 서버에서 추출되어
-\texttt{cohortMethodData} object에 저장된다. 이러한 object는
-\texttt{ff}패키지를 사용하여 절 \ref{BigDataSupport} 에서 언급한 것처럼
-데이터가 크더라도, R이 메모리를 모두 소모하지 않도록 보장한다.
+\texttt{cohortMethodData} object에 저장된다. 이러한 object는 \texttt{ff}
+패키지를 사용하여 \ref{BigDataSupport}절에서 언급한 것처럼 데이터가
+크더라도, R이 메모리를 모두 소모하지 않도록 보장한다.
 
 generic \texttt{summary()} 함수를 사용하여 추출한 데이터에 대한 추가
 정보를 볼 수 있다:
@@ -11481,12 +11477,12 @@ generic \texttt{summary()} 함수를 사용하여 추출한 데이터에 대한 
 \texttt{loadCohortMethodData()} 함수를 사용하여 향후 세션에서 데이터를
 로드할 수 있다.
 
-\subsubsection*{Defining New Users}\label{defining-new-users}
-\addcontentsline{toc}{subsubsection}{Defining New Users}
+\subsubsection*{새로운 사용자 정의하기}\label{--}
+\addcontentsline{toc}{subsubsection}{새로운 사용자 정의하기}
 
-일반적으로 \textbf{새로운 사용자 (new user)} 는 약물(대상 또는 비교)의
+일반적으로 \textbf{새로운 사용자 (new user)}는 약물 (대상 또는 비교) 의
 최초 사용으로 정의되며, 최초 사용을 보장하는 확률을 높이기 위해 최초
-사용 이전의 최소 기간을 뜻하는 휴식기 (washout period)를 사용할 수 있다.
+사용 이전의 최소 기간을 뜻하는 휴식기(washout period)를 사용할 수 있다.
 CohortMethod 패키지를 사용할 때 다음 세 가지 방법으로 새로운 사용자를
 정의할 수 있다.
 
@@ -11498,29 +11494,29 @@ CohortMethod 패키지를 사용할 때 다음 세 가지 방법으로 새로운
 \item
   \texttt{getDbCohortMethodData}함수를 사용하여 코호트를 로딩할 때,
   \texttt{firstExposureOnly}, \texttt{removeDuplicateSubjects},
-  \texttt{restrictToCommonPeriod}, \texttt{washoutPeriod} 전달인자
-  (argument)를 사용하여 지정
+  \texttt{restrictToCommonPeriod}, \texttt{washoutPeriod} 전달
+  인자(argument)를 사용하여 지정
 \item
-  연구 집단 (study population) 정의시 \texttt{createStudyPopulation}
+  연구 집단(study population) 정의 시 \texttt{createStudyPopulation}
   함수를 이용하여 지정
 \end{enumerate}
 
-첫번재 방법의 장점은 입력 코호트(input cohort)가 이미 CohortMethod
+첫 번째 방법의 장점은 입력 코호트(input cohort)가 이미 CohortMethod
 패키지 밖에서 완전히 정의되어 있고, 외부 코호트 특성화 도구(external
 cohort characterization tool)가 이 분석에 사용된 것과 동일한 코호트에서
-사용될 수 있다는 것이다. 두번째, 세번째 방법의 장점은 CDM에서 DRUG\_ERA
-테이블을 직접 사용할 수 있는 등, 최초 사용자를 정의하는 데 생기는 문제를
-줄여준다는 것이다. 최초 사용에 대한 데이터만 가져올 것이기 때문에 두번째
-방법이 세번째 방법보다 더 효율적이다. 세번째 방법이 덜 효율적이긴
-하지만, 원래 코호트를 연구 대상 집단 (study population)과 비교할 수
-있다.
+사용될 수 있다는 것이다. 두 번째, 세 번째 방법의 장점은 CDM에서
+DRUG\_ERA 테이블을 직접 사용할 수 있는 등, 최초 사용자를 정의하는 데
+생기는 문제를 줄여준다는 것이다. 최초 사용에 대한 데이터만 가져올 것이기
+때문에 두 번째 방법이 세 번째 방법보다 더 효율적이다. 세 번째 방법이 덜
+효율적이긴 하지만, 원래 코호트를 연구 대상 집단(study population)과
+비교할 수 있다.
 
 \subsection{연구 대상 집단 정의 (Defining the Study
 Population)}\label{----defining-the-study-population}
 
 일반적으로, 노출 코호트와 outcome 코호트는 서로 독립적으로 정의된다.
-효과 크기 추정치 (effect size estimate)를 생성하려면 노출 전에 결과가
-있는 피험자는 제거하고 정의된 risk window에 발생하는 outcome 만을
+효과 크기 추정치(effect size estimate)를 생성하려면 노출 전에 결과가
+있는 피험자는 제거하고 정의된 risk window에 발생하는 outcome만을
 고려하는 등의 방법을 추가해야 한다. 이를 위하여
 \texttt{createStudyPopulation} 함수를 사용할 수 있다.
 
@@ -11545,15 +11541,15 @@ Population)}\label{----defining-the-study-population}
 \texttt{firstExposureOnly}와 \texttt{removeDuplicateSubjects}를 FALSE로,
 \texttt{washoutPeriod}를 0으로 설정하였다. 사용할 outcome ID를 지정하고,
 risk window 시작일 전에 outcome이 발생한 사람들은 제거할 것이다. Risk
-window는 코호트 시작일 다음날부터 시작하는 것으로
-정의하고(\texttt{riskWindowStart\ =\ 1} 및
+window는 코호트 시작일 다음 날부터 시작하는 것으로 정의하고
+(\texttt{riskWindowStart\ =\ 1} 및
 \texttt{startAnchor\ =\ "cohort\ start"}), risk window는 코호트 노출이
-끝날 때 종료되도록 설정했다(\texttt{riskWindowEnd\ =\ 0} and
+끝날 때 종료되도록 설정했다 (\texttt{riskWindowEnd\ =\ 0} and
 \texttt{endAnchor\ =\ "cohort\ end"}). 이것은 코호트 정의에서 치료 노출
 종료로써 정의되었었다. Risk window는 관찰 종료 또는 연구 종료일에
-자동적으로 절단됨에 유의하자. 또한 risk window가 0일인 피험자도
-제거했다. 연구 대상자에 남아 있는 사람의 수를 보려면,
-\texttt{getAttritionTable} 함수를 사용하면 된다.
+자동으로 절단됨에 유의하자. 또한 risk window가 0일인 피험자도 제거했다.
+연구 대상자에 남아 있는 사람의 수를 보려면, \texttt{getAttritionTable}
+함수를 사용하면 된다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11572,7 +11568,7 @@ window는 코호트 시작일 다음날부터 시작하는 것으로
 \subsection{성향 점수 (Propensity Scores)}\label{--propensity-scores}
 
 \texttt{getDbcohortMethodData()} 함수로 생성된 공변량을 사용하여 성향
-점수 모델을 적합할 수 있으며, 각 피험자별 성향 점수를 계산할 수 있다.
+점수 모델을 적합할 수 있으며, 피험자별 성향 점수를 계산할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11586,12 +11582,12 @@ regularized logistic regression)을 적합화하기 위해
 점수 모델을 적합화하기 위해, Cyclops는 prior의 분산을 지정하는
 하이퍼파라미터(hyperparameter) 값을 알아야 한다. 디폴트로, Cyclops는
 최적의 하이퍼파라미터를 추정하기 위해 교차 유효성
-검사(cross-validation)을 사용할 것이다. 다만, 이 작업은 오랜 시간이 걸릴
+검사(cross-validation)를 사용할 것이다. 다만, 이 작업은 오랜 시간이 걸릴
 수 있음을 알아 두어야 한다. \texttt{createPs} 함수의 \texttt{prior} 및
 \texttt{control} 의 매개변수(parameter)를 사용하여 병렬 처리를 사용하여
 교차 유효성 검사 속도를 높이는 등 Cyclops의 동작을 지정할 수 있다.
 
-얘제에서는 성향점수 기반의 variable-ratio matching을 수행했다.
+예제에서는 성향점수 기반의 variable-ratio matching을 수행했다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11603,19 +11599,13 @@ regularized logistic regression)을 적합화하기 위해
 위와 같은 설정 대신에, \texttt{trimByPs}, \texttt{trimByPsToEquipoise}
 또는 \texttt{stratifyByPs} 함수에서 성향 점수를 사용할 수도 있다.
 
-\subsection{Outcome Models}\label{outcome-models}
+\subsection{결과 모델}\label{-}
 
-Outcome 모델은 outcome과 어떠한 변수들이 관련이 있는지 설명하는
-모델이다. Under strict assumptions, the coefficient for the treatment
-variable can be interpreted as the causal effect. In this case we fit a
-Cox proportional hazards model, conditioned (stratified) on the matched
-sets:
-
-Outcome 모델은 outcome과 어떠한 변수들이 관련이 있는지 설명하는
-모델이다. 엄격한 가정하에서 치료변수의 계수는 인과 관계 효과(causal
-effect)로 해석될 수 있다. 이 경우, 짝짓기된 군에 대해 층화 조건화 콕스
-비례 위험 모델(Cox proportional hazards model conditioned (stratified)
-on the matched set)에 적합하였다.
+결과 모델은 결과와 어떠한 변수들이 관련이 있는지 설명하는 모델이다.
+엄격한 가정하에서 치료변수의 계수는 인과 관계 효과(causal effect)로
+해석될 수 있다. 이 경우, 짝짓기 된 군에 대해 층화 조건화 콕스 비례 위험
+모델(Cox proportional hazards model conditioned (stratified) on the
+matched set)에 적합하였다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11637,9 +11627,9 @@ on the matched set)에 적합하였다.
 ## treatment   4.3203    2.4531    8.0771 1.4633   0.304
 \end{verbatim}
 
-\subsection{Running Multiple Analyses}\label{MultipleAnalyses}
+\subsection{다중 분석 실행하기}\label{MultipleAnalyses}
 
-음성 대조군을 포함하여 다수의 outcome에 대해 하나 이상의 분석을 수행하기
+음성 대조군을 포함하여 다수의 결과에 대해 하나 이상의 분석을 수행하기
 원할 수 있다.
 \href{https://ohdsi.github.io/CohortMethod/}{CohortMethod}는 이러한
 연구를 효율적으로 수행하는 기능을 제공한다. 이것은 다중 분석 실행에 대한
@@ -11673,9 +11663,8 @@ vignette on running multiple analyses})에 자세히 설명되어 있다. 간단
 \end{Highlighting}
 \end{Shaded}
 
-다음으로, 하나의 outcome을 분석하는 이번 예제에서 전에 설명한 다양한
-함수를 호출하기 위해 어떤 조절인자 (argument)를 사용해야 하는가를
-지정한다.
+다음으로, 하나의 결과를 분석하는 이번 예제에서 전에 설명한 다양한 함수를
+호출하기 위해 어떤 조절인자(argument)를 사용해야 하는가를 지정한다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11761,7 +11750,7 @@ object를 하나의 list로 결합할 수 있다.
 \end{Shaded}
 
 \texttt{result} object에는 작성된 모든 artifact에 대한 참조가 들어 있다.
-예를 들어, 급성심근경색의 outcome 모델을 추출할 수 있다.
+예를 들어, 급성 심근경색의 outcome 모델을 추출할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11785,8 +11774,7 @@ object를 하나의 list로 결합할 수 있다.
 ## treatment   1.1338    0.5921    2.1765 0.1256   0.332
 \end{verbatim}
 
-We can also retrieve the effect size estimates for all outcomes with one
-command:
+또한 하나의 명령으로 모든 결과에 대한 효과 크기 추정치를 검색할 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11808,8 +11796,8 @@ command:
 \section{연구 결과 (Study Outputs)}\label{studyOutputs}
 
 결과로 나오는 추정치는 몇 가지 가정이 충족된 경우에만 유효하다. 유효성을
-검증하기 위하여 다양한 진단 기준 (wide set of diagnostics)들을 사용할
-것이다. 이것들은 ATLAS로 생성된 R 패키지를 이용한 결과에 자동적으로
+검증하기 위하여 다양한 진단 기준(wide set of diagnostics)을 사용할
+것이다. 이것들은 ATLAS로 생성된 R 패키지를 이용한 결과에 자동으로
 포함되어 있으며, 특정 R 함수를 활용하여 즉석에서 생성할 수도 있다.
 
 \subsection{성향 점수 및 모델 (Propensity Scores and
@@ -11821,10 +11809,10 @@ Under the Receiver Operator Curve) 통계값을 계산할 수 있다. AUC 1은 �
 공변량에 근거해 치료배정이 완전히 예측 가능하다는 것을 나타내므로, 두
 군은 비교할 수 없다. \texttt{computePsAuc} 함수를 사용하여 AUC를 계산할
 수 있는데, 우리의 예제에서는 0.79이다. \texttt{plotPs} 함수를 사용하여
-그림 \ref{fig:ps} 과 같이 선호 점수 분포(preference score
-distribution)를 생성할 수도 있다. 많은 피험자들에 대해 그들이 받을
-치료가 예측 가능했다는 것을 알 수지만 또한 많은 수의 중첩이 있다. 이는
-조정을 통해 비교 가능한 군을 선택할 수 있음을 나타낸다.
+그림 \ref{fig:ps}과 같이 선호 점수 분포(preference score distribution)를
+생성할 수도 있다. 많은 피험자에 대해 그들이 받을 치료가 예측 가능했다는
+것을 알 수지만 또한 많은 수의 중첩이 있다. 이는 조정을 통해 비교 가능한
+군을 선택할 수 있음을 나타낸다.
 
 \begin{figure}
 
@@ -11839,7 +11827,7 @@ distribution)를 생성할 수도 있다. 많은 피험자들에 대해 그들�
 예측적일 경우에는 그렇다. 그렇게 하면 어떤 변수가 가장 예측적인지를 알
 수 있다. 표 \ref{tab:psModel} 은 성향 모델에서 상위 예측 변수를
 보여준다. 변수가 너무 예측적일 경우, CohortMethod 패키지는 이미 완벽하게
-예측된 모델을 적합하려고 시도하기 보단 정보학적 에러를 발생시킬 것이다.
+예측된 모델을 적합하려고 시도하기보단 정보학적 에러를 발생시킬 것이다.
 \index{propensity model!example}
 
 \begin{longtable}[]{@{}rl@{}}
@@ -11929,7 +11917,7 @@ gender = MALE\strut
 불가능하기 때문에 분석을 멈추어야 한다는 것이다.
 \EndKnitrBlock{rmdimportant}
 
-\subsection{Covariate Balance}\label{covariate-balance}
+\subsection{공변량 균형}\label{-}
 
 성향점수를 사용하는 목적은 두 군을 비교 가능하게 만드는 (또는 적어도
 비교할 수 있는 군을 선택하는) 것이다. 기저 공변량이 조정 후 실제로 균형
@@ -11951,13 +11939,13 @@ difference of means)을 가져서는 안 된다는 것이다. 여기서는 성�
 \caption{공변량 균형, 성향 점수 매칭 전과 후의 절대 표준화 평균 차이를 보여준다. 각 점은 공변량을 나타낸다.}\label{fig:balance}
 \end{figure}
 
-\subsection{Follow Up and Power}\label{follow-up-and-power}
+\subsection{추적기간과 통계력}\label{-}
 
 Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한
-통계력(power)이 있는지 여부를 파악해보고 싶을 수 있다. 연구 대상 집단이
-완전히 정의되면, 다양한 포함/제외 기준(예: 이전 outcome 없음)과 매칭
+통계력(power)이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히
+정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭
 및/또는 트리밍으로 인한 손실을 고려하여 이러한 통계력 계산을 수행하는
-것이 좋다. 그림\ref{fig:attrition} 과 같이 \texttt{drawAttritionDiagram}
+것이 좋다. 그림\ref{fig:attrition}과 같이 \texttt{drawAttritionDiagram}
 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다.
 \index{attrition diagram}
 
@@ -11970,18 +11958,19 @@ Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있
 \caption{Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 Cox 회귀 분석이다.}\label{fig:attrition}
 \end{figure}
 
-후향적 연구에서 표본 크기가 고정되어 있고(데이터가 이미 수집된
+후향적 연구에서 표본 크기가 고정되어 있고 (데이터가 이미 수집된
 상태이므로), 실제 효과 크기를 알 수 없으므로, 예상 효과 크기에 대한
 통계력(power)를 계산하는 것은 의미가 없다. 대신 CohortMethod 패키지는
 \texttt{computeMdrr} 함수를 제공하여 MDRR(minimum detectable relative
 risk)을 계산한다. 이 사례에서 MDRR은 1.69이다.
 \index{minimum detectable relative risk (MDRR)} \index{power}
 
-추적기간 (follow-up) 데이터를 더 잘 이해하기 위해서는 추적기간의 분포도
-검사할 수 있다. 추적기간을 time at risk로 정의했으므로 outcome 발생으로
-인해서는 중도절단되지 않는다. \texttt{getFollowUpDistribution} 그림
-\ref{fig:followUp} 과 같은 간단한 개괄을 제공한다. 이는 두 코호트의
-follow-up time이 비슷하다는 것을 의미한다.
+추적 기간(follow-up) 데이터를 더 잘 이해하기 위해서는 추적 기간의 분포도
+검사할 수 있다. 추적 기간을 위험 노출 기간(time at risk)으로
+정의했으므로 outcome 발생으로 인해서는 중도 절단되지 않는다.
+\texttt{getFollowUpDistribution} 그림 \ref{fig:followUp}과 같은 간단한
+개괄을 제공한다. 이는 두 코호트의 follow-up time이 비슷하다는 것을
+의미한다.
 
 \begin{figure}
 
@@ -12013,16 +12002,16 @@ variable-ratio matching을 사용했으므로, 대조군의 생존 곡선이 조
 \caption{Kaplan-Meier plot.}\label{fig:kmPlot}
 \end{figure}
 
-\subsection{Effect Size Estimate}\label{effect-size-estimate}
+\subsection{효과 크기 추정치}\label{--}
 
-혈관 부종에 대한 위험비는 4.32(95\% 신뢰 구간: 2.45 - 8.08)이며, 이는
+혈관 부종에 대한 위험 비는 4.32 (95\% 신뢰 구간: 2.45 - 8.08) 이며, 이는
 ACEi가 THZ와 비교하여 혈관 부종의 위험을 증가시키는 것을 의미한다.
-마찬가지로, 심근경색에 대한 위험비는 1.13(95\% 신뢰 구간: 0.59 -
-2.18)이며, 심근경색에 대한 영향은 거의 또는 전혀 없음을 알 수 있다.
-앞에서 검토한 것처럼, 우리의 진단(diagnostics)을 통해 본 연구를
-검증해보면 이견의 여지가 없다. 그러나 궁극적으로 이러한 근거의 질과 신뢰
-여부는 \ref{EvidenceQuality}장에서 설명한대로 연구 진단이 커버하지
-못하는 많은 요인들에 달려 있다.
+마찬가지로, 심근경색에 대한 위험 비는 1.13 (95\% 신뢰 구간: 0.59 - 2.18)
+이며, 심근경색에 대한 영향은 거의 또는 전혀 없음을 알 수 있다. 앞에서
+검토한 것처럼, 우리의 진단(diagnostics)을 통해 본 연구를 검증해보면
+이견의 여지가 없다. 그러나 궁극적으로 이러한 근거의 질과 신뢰 여부는
+\ref{EvidenceQuality}장에서 설명한 대로 연구 진단이 커버하지 못하는 많은
+요인에 달려 있다.
 
 \section{요약}\label{-10}
 
@@ -12032,22 +12021,22 @@ ACEi가 THZ와 비교하여 혈관 부종의 위험을 증가시키는 것을 �
   Population-level estimation는 관찰형 데이터의 인과 관계를 추론하는
   것을 목적으로 한다.
 \item
-  \textbf{상대집합(counterfactual)}, 즉 피험자가 대체제에 노출되었거나
+  \textbf{상대 집합(counterfactual)}, 즉 피험자가 대체재에 노출되었거나
   치료제에 노출되지 않은 경우 일어난 일은 관찰할 수 없다.
 \item
-  다른 연구 설계는 다른 방식으로 상대집합(counterfactual)을 구성하는
+  다른 연구 설계는 다른 방식으로 상대 집합(counterfactual)을 구성하는
   것을 목적으로 한다.
 \item
-  OHDSI Methods Library에서 구현되는 다양한 연구설계는 적절한
-  상대집합(counterfactual)을 작성하기 위한 가정이 충족되었는지 여부를
+  OHDSI Methods Library에서 구현되는 다양한 연구설계는 적절한 상대
+  집합(counterfactual)을 작성하기 위한 가정이 충족되었는지 여부를
   평가하는 진단 (diagnostic)을 제공한다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\section{Exercises}\label{exercises}
+\section{연습}\label{-1}
 
-\subsubsection*{Prerequisites}\label{prerequisites}
-\addcontentsline{toc}{subsubsection}{Prerequisites}
+\subsubsection*{필수 구성 요소}\label{---1}
+\addcontentsline{toc}{subsubsection}{필수 구성 요소}
 
 이 연습문제를 위해서는 R, R-studio, Java가 절 \ref{installR} 에서 설명한
 바와 같이 설치되어 있어야 한다. 또한 다음과 같이
@@ -12084,8 +12073,8 @@ CDM 데이터 스키마는 ``main''이다. 이 연습문제는 또한 몇 가지
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Problem Definition}\label{problem-definition-1}
-\addcontentsline{toc}{subsubsection}{Problem Definition}
+\subsubsection*{문제 정의}\label{--2}
+\addcontentsline{toc}{subsubsection}{문제 정의}
 
 \begin{quote}
 What is the risk of gastrointestinal (GI) bleed in new users of
@@ -12138,44 +12127,44 @@ different from the unadjusted model?
 
 Suggested answers can be found in Appendix \ref{Pleanswers}.
 
-\chapter{환자-수준 예측}\label{PatientLevelPrediction}
+\chapter{환자 수준 예측}\label{PatientLevelPrediction}
 
 \emph{Chapter leads: Peter Rijnbeek \& Jenna Reps}
 
 \index{patient-level prediction}
 
-임상의사결정(clinical decision making)이란 임상의사가 알 수 있는 환자의
-병력에 대한 정보와 현재 임상지침에 따라 진단 또는 치료 경로를
-추론해야하는 복잡한 일이다. 임상 예측 모형은 이러한 의사 결정 과정을
-지원하기 위해 개발되었으며 광범위한 전문 분야에서 임상 실무에 사용된다.
-이러한 모형은 인구통계학적정보, 질병력 및 치료력과 같은 환자 특성들을
+임상의사결정(clinical decision making)이란 임상 의사가 알 수 있는 환자의
+병력에 대한 정보와 현재 임상지침에 따라 진단 또는 치료 경로를 추론해야
+하는 복잡한 일이다. 임상 예측 모형은 이러한 의사 결정 과정을 지원하기
+위해 개발되었으며 광범위한 전문 분야에서 임상 실무에 사용된다. 이러한
+모형은 인구 통계학적 정보, 질병력 및 치료력과 같은 환자 특성들을
 조합하여 이를 기반으로 진단 또는 예후 결과를 예측한다.
 \index{clinical decision making} \index{diagnostic outcome}
 \index{prognostic outcome}
 
 임상 예측 모형을 설명하는 출판물의 수가 지난 10년 동안 크게 증가했다.
 현재 사용되는 대부분의 모형은 소규모 데이터 집합을 사용하여 추정되며,
-소규모 환자 특성만 고려한다. 이처럼 소표본이고 그래서 낮아지는 통계학적
+소규모 환자 특성만 고려한다. 이처럼 소 표본이고 그래서 낮아지는 통계학적
 검정력으로 인해 데이터 분석가는 엄격한 가정하게 모델링을 수행하게 된다.
 제한적인 환자 특성을 가진 데이터 집합의 선택은 현재 알고 있는 전문가의
-지식에만 의존해서 강하게 설명되어진다. 이는 환자들이 풍부한 디지털
+지식에만 의존해서 강하게 설명된다. 이는 환자들이 풍부한 디지털
 트레일(digital trail)을 생성하는 현대 의학의 현실과 크게 대조되며, 이는
-모든 의료 전문가가 완전히 동화될 수 있는 힘을 훨씬 뛰어 넘는다. 현재,
-건강 관리는 EHR(Electronic Health Records)에 저장된 엄청난 양의 환자
-개인별 정보를 생성하고 있다. 여기에는 진단, 약물 치료, 실험실 검사
-결과와 같은 정형화된 데이터와 임상적 기술(clinical narratives)에 포함된
-비정형화된 데이터가 포함되어 있다. 대량의 환자 데이터를 완전한 EHR로부터
-얻고 이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다.
+모든 의료 전문가가 완전히 동화될 힘을 훨씬 뛰어넘는다. 현재, 건강 관리는
+EHR(Electronic Health Records)에 저장된 엄청난 양의 환자 개인별 정보를
+생성하고 있다. 여기에는 진단, 약물치료, 실험실 검사 결과와 같은 정형화된
+데이터와 임상적 기술(clinical narratives)에 포함된 비정형화된 데이터가
+포함되어 있다. 대량의 환자 데이터를 완전한 EHR로부터 얻고 이것을
+활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다.
 \index{prediction model}
 
-대규모 데이터셋 분석을 위한 머신 러닝의 발전으로 이러한 유형의 데이터에
-환자-수준 예측을 적용하는 데 관심이 높아졌다. 그러나 환자-수준 예측을
-위한 많은 수의 출판물들은 모형 개발 지침을 따르지 않아 광범위한 외적
-타당도를 수행에 실패하거나 또는 독립적인 연구자들이 그 모형을 재현하고
-외적 타당도를 검증하기 위해 필요 가능성을 제한하는 모델링 위한
-세부사항을 제공하지 않는다. 이것은 모형의 예측 성능을 공정하게 평가하기
-어렵게 하고 임상 실무에서 모형이 적절하게 사용될 가능성을 줄인다.
-표준화를 개선하기 위해 예측 모형을 개발하고 그리고 보고하는 모범 사례에
+대규모 데이터 세트 분석을 위한 머신 러닝의 발전으로 이러한 유형의
+데이터에 환자-수준 예측을 적용하는 데 관심이 높아졌다. 그러나 환자-수준
+예측을 위한 많은 수의 출판물들은 모형 개발 지침을 따르지 않아 광범위한
+외적 타당도를 수행에 실패하거나 또는 독립적인 연구자들이 그 모형을
+재현하고 외적 타당도를 검증하기 위해 필요 가능성을 제한하는 모델링을
+위한 세부사항을 제공하지 않는다. 이것은 모형의 예측 성능을 공정하게
+평가하기 어렵게 하고 임상 실무에서 모형이 적절하게 사용될 가능성을
+줄인다. 표준화를 개선하기 위해 예측 모형을 개발하고 보고하는 모범 사례에
 대한 지침을 자세히 설명하는 여러 논문이 작성되었다. 예를 들어, 개별 예측
 또는 진단(TRIPOD)\footnote{\url{https://www.equator-network.org/reporting-guidelines/tripod-statement/}}
 선언문에 다변량 예측 모형의 투명한 보고(Transparent Reporting)는 예측
@@ -12184,15 +12173,15 @@ Suggested answers can be found in Appendix \ref{Pleanswers}.
 
 OHDSI CDM(Common Data Model)을 통해 전례 없는 규모의 데이터에서 균일하고
 투명한 분석이 가능하게 되어 대규모의 환자 개별 예측 모델링이
-현실화되었다. CDM으로 표준화된 데이터베이스 네트워크가 증가하면서 전
+현실화하였다. CDM으로 표준화된 데이터베이스 네트워크가 증가하면서 전
 세계적으로 다양한 의료 환경에서 모형의 외적 타당도 검증을 가능하게 한다.
 우리는 이것이 치료의 질적 개선을 가장 필요로 하는 환자의 대규모 공동체에
 즉시 서비스를 제공 할 수 있는 기회를 제공한다고 믿는다. 이러한 모형은
-정확히 맞춤형 의료서비스에 정보를 제공하고 환자 결과를 크게 향상시킬 수
+정확히 맞춤형 의료서비스에 정보를 제공하고 환자 결과를 크게 향상할 수
 있다고 희망한다.
 
 이 장에서는 환자-수준 예측을 위한 OHDSI의 표준화된 프레임워크
-\citep{reps2018}를 설명하고 개발 및 타당도 검증을 위해 확립된 모범
+\citep{reps2018} 를 설명하고 개발 및 타당도 검증을 위해 확립된 모범
 사례를 구현하는
 \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}
 R 패키지에 대해 설명한다. 우리는 환자-수준 예측의 개발과 평가에 필요한
@@ -12205,8 +12194,8 @@ R 패키지에 대해 설명한다. 우리는 환자-수준 예측의 개발과 
 \section{예측 문제}\label{-}
 
 그림 \ref{fig:figure1}은 우리가 다루는 예측 문제를 보여준다. 위험에 처한
-모집단 중에서, 우리는 정의된 특정 시점(t = 0)에서 어떤 환자가 위험에
-처한 동안 어떤 결과를 경험할 것인지 예측하는 것을 목표로 한다. 예측은
+모집단 중에서, 우리는 정의된 특정 시점 (t = 0) 에서 어떤 환자가 위험에
+처하는 동안 어떤 결과를 경험할 것인지 예측하는 것을 목표로 한다. 예측은
 해당 시점 이전의 관찰 기간에서 환자에 대한 정보만 사용하여 수행된다.
 
 \begin{figure}
@@ -12220,7 +12209,7 @@ R 패키지에 대해 설명한다. 우리는 환자-수준 예측의 개발과 
 
 표 \ref{tab:plpDesign}에서 볼 수 있듯이 예측 문제를 밝히려면 표적
 코호트(target cohort)의 t = 0, 결과 코호트(outcome cohort)에 의해
-예측하고자하는 결과, 그리고 위험에 노출된 시간(time-at-risk)을 정의해야
+예측하고자 하는 결과, 그리고 위험 노출 시간(time-at-risk)을 정의해야
 한다. 표준 예측 질문을 다음과 같이 정의한다: \index{target cohort}
 \index{outcome cohort} \index{time-at-risk}
 
@@ -12229,8 +12218,8 @@ R 패키지에 대해 설명한다. 우리는 환자-수준 예측의 개발과 
 내에 \emph{{[}결과 코호트, O{]}}가 발생하는가?
 \end{quote}
 
-또한 개발하고자하는 모형에 대해 디자인을 선택하고 내적 및 외적 타당도
-검증을 수행할 관측 데이터세트를 결정해야한다.
+또한 개발하고자 하는 모형에 대해 디자인을 선택하고 내적 및 외적 타당도
+검증을 수행할 관측 데이터 세트를 결정해야 한다.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:plpDesign} Main design choices in a prediction
@@ -12285,11 +12274,11 @@ variables do we include?\strut
 \item
   질병 발병 및 진행
 \item
-  \textbf{구조}: \emph{{[}질병 A{]}}로 새로 진단 된 환자들 중, **{[}진단
+  \textbf{구조}: \emph{{[}질병 A{]}}로 새로 진단된 환자 중, **{[}진단
   시점 t{]}* 내에 \emph{{[}또 다른 질병이나 합병증, B*{]}}이 있는 사람은
   누구인가?
 \item
-  \textbf{예제}: 새로 진단 된 심방 세동 환자 중 향후 3 년 동안 허혈성
+  \textbf{예제}: 새로 진단된 심방세동 환자 중 향후 3년 동안 허혈성
   뇌졸중이 발생하는 사람은 누구인가?
 \item
   치료 선택
@@ -12298,8 +12287,8 @@ variables do we include?\strut
   \emph{{[}표시된 질병, D{]}} 환자 중 {[}치료 1{]}로 치료받은 환자는
   무엇인가?
 \item
-  \textbf{예제}: 와파린 또는 리바록사반을 복용 한 심방 세동 환자 중 어떤
-  환자가 와파린을 복용하는가? (예: 성향 모형의 경우)
+  \textbf{예제}: 와파린 또는 리바록사반을 복용 한 심방세동 환자 중 어떤
+  환자가 와파린을 복용하는가? (예를 들어 성향 모형의 경우)
 \item
   치료 반응
 \item
@@ -12323,12 +12312,12 @@ variables do we include?\strut
   \emph{{[}시간대, t{]}}에서 \emph{{[}준수 지표수치{]}}를 달성하는가?
 \item
   \textbf{예제}: 메트포민으로 치료를 시작한 당뇨병 환자 중 어떤 환자가
-  1년 중 80 \% 이상을 복용 순응도를 보이는가?
+  1년 중 80\% 이상을 복용 순응도를 보이는가?
 \end{itemize}
 
 \section{데이터 추출}\label{-}
 
-예측 모형을 만들 때 상태에 따라 분류되어진 예제들 기반으로 공변량과 결과
+예측 모형을 만들 때 상태에 따라 분류된 예제들 기반으로 공변량과 결과
 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는
 프로세스를 사용한다.\index{supervised learning} 따라서, 표적 코호트에
 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과
@@ -12338,21 +12327,21 @@ variables do we include?\strut
 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자
 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은
 \href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}
-패키지를 사용하여 구성되었고, \ref{Characterization}장에 자세히
-설명되어져 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는
-날짜기준으로 환자의 이전 또는 그 때의 데이터만 사용할 수 있다. 이 날짜를
-인덱스 날짜라고 한다.\index{index date}
+패키지를 사용하여 구성되었고, \ref{Characterization}장에 자세히 설명돼
+있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜 기준으로
+환자의 이전 또는 그때의 데이터만 사용할 수 있다. 이 날짜를 인덱스
+날짜라고 한다.\index{index date}
 
 또한 위험에 노출된 시간(time-at-risk) 동안 모든 환자의 \textbf{결과
 상태} (``라벨'' 또는 ``분류''라고도 함) 를 생성할 필요가 있다. 만약
-결과가 위험에 노출된 시간안에 발생하며나 그 결과 상태는 ``양성''으로
+결과가 위험에 노출된 시간 안에 발생하거나 그 결과 상태는 ``양성''으로
 정의된다.\index{outcome status} \index{labels} \index{classes}
 
 \subsection{데이터 추출 예제}\label{--}
 
 표 \ref{tab:plpExampleCohorts}는 두 개의 코호트가 있는 COHORT에 대한
-예를 보여준다. 코호트 정의 ID 1 인 코호트는 표적 코호트 (예를 들어,
-``최근 심방 세동 진단을 받은 사람들'') 이고 코호트 정의 ID 2는 결과
+예를 보여준다. 코호트 정의 ID 1인 코호트는 표적 코호트 (예를 들어,
+``최근 심방세동 진단을 받은 사람들'') 이고 코호트 정의 ID 2는 결과
 코호트 (예를 들어, ``뇌졸중'') 이다
 
 \begin{longtable}[]{@{}ccc@{}}
@@ -12402,9 +12391,9 @@ CONDITION\_START\_DATE\tabularnewline
 구성할 수 있다. Person ID가 1인 환자 (인덱스 날짜 \emph{이후}에 발생한
 질병) 의 경우 ``이전 해의 본태성 고혈압''을 나타내는 공변량은 값 0 (현재
 아님) 으로 하고, person ID가 2인 환자는 값 1 (현재 진행) 을 갖는다.
-유사하게, 결과 상태는 person ID가 1인 환자 (이 사람은 결과 코호트에
-못들어감) 의 경우는 값 0 을 갖고 person ID가 2인 환자 (인덱스 날짜 다음
-1 년 내에 결과가 발생하였음) 의 경우에는 값 1을 갖는다.
+유사하게, 결과 상태는 person ID가 1인 환자 (이 사람은 결과 코호트에 못
+들어감) 의 경우는 값 0을 갖고 person ID가 2인 환자 (인덱스 날짜 다음 1
+년 내에 결과가 발생하였음) 의 경우에는 값 1을 갖는다.
 
 \subsection{결측}
 
@@ -12412,15 +12401,15 @@ CONDITION\_START\_DATE\tabularnewline
 예제에서, 우리는 person ID가 1인 환자가 인덱스 날짜 이전에 본태성
 고혈압이 없었음을 관찰했다. 이는 그 당시 본태성 고혈압이 없었거나
 기록되지 않았기 때문일 수 있다. 머신 러닝 알고리즘은 두 시나리오를
-구분할 수 없고 사용 가능한 데이터 안에서 예측 값을 대략 평가한다는 것을
-인지해야한다. \index{missing data}
+구분할 수 없고 사용 가능한 데이터 안에서 예측값을 대략 평가한다는 것을
+인지해야 한다. \index{missing data}
 
 \section{모형 적합}\label{modelFitting}
 
 예측 모형을 적합할 때 상태에 따라 분류된 예제들로부터 공변량과 관찰된
 결과 상태 간의 관계를 알려고 노력한다. 만약 수축기 혈압과 이완기 혈압의
 두 가지 공변량이 있다고 가정하면 그림 \ref{fig:decisionBoundary}와 같이
-2 차원 공간에서 그림으로 각 환자를 나타낼 수 있다. 이 그림에서 데이터를
+2차원 공간에서 그림으로 각 환자를 나타낼 수 있다. 이 그림에서 데이터를
 나타내는 점의 모양은 환자의 결과 상태 (예를 들어, 뇌졸중) 를 나타낸다.
 
 지도 학습 모형은 두 결과 분류(classes)를 최적으로 분리하는 결정
@@ -12439,21 +12428,21 @@ CONDITION\_START\_DATE\tabularnewline
 \end{figure}
 
 그림 \ref{fig:decisionBoundary}에서 세 가지 다른 결정 경계를 볼 수 있다.
-그 경계들은 새로운 데이터포인트의 결과 상태를 추론하기 위하여
-사용되어지기도 한다. 새 데이터 포인트가 음영이 있는 영역에 포함되면
-모형은 ``결과가 있음''을 예측하고, 그렇지 않으면 ``결과가 없음''으로
-예측한다. 이상적으로는 결정 경계가 두 분류(class)를 완벽하게 구분해야
-한다. 그러나 너무 복잡한 모형은 데이터에 ``과적합(overfit)''할 위험이
-있다. 이는 보이지 않는 데이터에 대한 모형의 일반화에 부정적인 영향을 줄
-수 있다. 예를 들어, 데이터에 레이블이 없거나 잘못 지정된 데이터 포인트를
-갖는 잡음(noise)이 포함 된 경우 해당 잡음(noise)에 예측 모형을 적합하고
-싶지 않을 것이다. 그러므로 우리는 학습 데이터(training data)를 갖고
-완벽하게 판별하지는 않지만 ``실제의'' 복잡성을 반영하는 결정 경계를
-정의하는 것을 선호 할 수 있다. 정규화(regularization)와 같은 기술은
-복잡성을 최소화하면서 모형 성능을 최대화하는 것을 목표로 한다.
+그 경계들은 새로운 데이터 포인트의 결과 상태를 추론하기 위하여
+사용되기도 한다. 새 데이터 포인트가 음영이 있는 영역에 포함되면 모형은
+``결과가 있음''을 예측하고, 그렇지 않으면 ``결과가 없음''으로 예측한다.
+이상적으로는 결정 경계가 두 분류(class)를 완벽하게 구분해야 한다. 그러나
+너무 복잡한 모형은 데이터에 ``과적합(overfit)''할 위험이 있다. 이는
+보이지 않는 데이터에 대한 모형의 일반화에 부정적인 영향을 줄 수 있다.
+예를 들어, 데이터에 레이블이 없거나 잘못 지정된 데이터 포인트를 갖는
+잡음(noise)이 포함된 경우 해당 잡음(noise)에 예측 모형을 적합하고 싶지
+않을 것이다. 그러므로 우리는 학습 데이터(training data)를 갖고 완벽하게
+판별하지는 않지만 ``실제의'' 복잡성을 반영하는 결정 경계를 정의하는 것을
+선호 할 수 있다. 정규화(regularization)와 같은 기술은 복잡성을
+최소화하면서 모형 성능을 최대화하는 것을 목표로 한다.
 
 각각의 지도 학습 알고리즘마다 의사 결정 경계를 학습하는 방법이 다르므로
-어떤 알고리즘이 데이터에 가장 적합한 지 간단하지 않다. No Free Lunch
+어떤 알고리즘이 데이터에 가장 적합한지 간단하지 않다. No Free Lunch
 정리에 따르면 모든 예측 문제에서 하나의 알고리즘이 언제나 다른
 알고리즘보다 성능이 우수하지는 않다는 것을 알 수
 있다.\index{no free lunch} 따라서 환자-수준 예측 모형을 개발할 때 다양한
@@ -12468,8 +12457,8 @@ CONDITION\_START\_DATE\tabularnewline
 
 LASSO(least absolute shrinkage and selection operator) 로지스틱 회귀는
 변수의 선형결합을 알 수 있는 일반화 선형 모형(generalized linear
-models)에 속하고 그리고 로지스틱 함수는 결국 0과 1 사이값으로 배치구조를
-나타낸다. LASSO 정규화는 모형 학습시 모형 복잡도에 따른 비용을 목적
+models)에 속하고 로지스틱 함수는 결국 0과 1 사이 값으로 배치구조를
+나타낸다. LASSO 정규화는 모형 학습 시 모형 복잡도에 따른 비용을 목적
 함수(objective function)에 추가한다. 이 비용은 계수들의 선형 결합의 절대
 값의 합이다. 모형은 이 비용을 최소화하면서 특징 선택(feature
 selection)을 자동으로 수행한다. 우리는 대규모 정규화 로지스틱 회귀
@@ -12497,7 +12486,7 @@ Starting variance & The starting variance of the prior distribution. &
 
 교차 검증에서 표본 외(out-of-sample) 우도(likelihood)를 최대화하여
 분산이 최적화되므로 시작 분산은 결과 모형의 성능에 거의 영향을 미치지
-않는다. 그러나 시작 분산이 최적 값에서 너무 차이가 나면 모형적합 시간이
+않는다. 그러나 시작 분산이 최적값에서 너무 차이가 나면 모형 적합 시간이
 길어질 수 있다. \index{variance} \index{hyper-parameter}
 \index{cross-validation}
 
@@ -12505,9 +12494,9 @@ Starting variance & The starting variance of the prior distribution. &
 Machines}\label{gradient-boosting-machines}
 
 Gradient boosting machines은 부스팅 앙상블 기법(boosting ensemble
-technique)이며 프레임워크안에서 다중 의사 결정 나무를 연결시킨다.
+technique)이며 프레임워크 안에서 다중 의사 결정 나무를 연결한다.
 부스팅은 의사 결정 나무를 반복적으로 추가하는 것이지만, 다음에 생성될
-의사결정나무를 학습할 때 비용 함수(cost function)에서 이전 의사 결정
+의사 결정 나무를 학습할 때 비용 함수(cost function)에서 이전 의사 결정
 나무에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 추가한다.
 CRAN에서 제공하는 xgboost R 패키지로 수행된 gradient boosting
 framework를 효율적으로 구현하는 Extreme Gradient Boosting을 사용한다.
@@ -12533,15 +12522,15 @@ ntrees & Number of trees & 100,1000\tabularnewline
 \bottomrule
 \end{longtable}
 
-\subsection{Random Forest}\label{random-forest}
+\subsection{랜덤 포레스트 (Random Forest)}\label{--random-forest}
 
 랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 연결하는 배깅
 앙상블 기법(bagging ensemble technique)이다. 배깅의 기본 개념은 유사도가
 낮은 classfiers들을 사용하여 유사도가 높은 classfier로 결합하여 과적합
 가능성을 줄이는 것이다. 랜덤 포레스트(Random forest)는 다중 의사 결정
 나무를 학습하여 저장하는 것으로 하지만 각 나무(trees)에서 변수의 하위
-집합만 사용하며 변수 하위 집합은 의사결정나무마다 다르다. 우리 패키지는
-Python에서 Random Forest의 sklearn 수행을 사용한다.
+집합만 사용하며 변수 하위 집합은 의사 결정 나무마다 다르다. 우리
+패키지는 Python에서 Random Forest의 sklearn 수행을 사용한다.
 \index{random forest} \index{python} \index{sklearn}
 
 \begin{longtable}[]{@{}lll@{}}
@@ -12599,10 +12588,10 @@ KNN(K-nearest neighbors)은 몇 개의 거리 척도(distance metric)를 사용�
 레이블이 있는 데이터 포인트를 찾는 알고리즘이다. 새로운 데이터 포인트의
 예측은 K-최근접의 레이블이 된 데이터 포인트의 가장 보편적인 분류이다.
 모형에 새 데이터에 대한 예측을 수행하기 위해 레이블이 지정된 데이터가
-필요하기 때문에 KNN의 공유 제한이 있으며 데이터 사이트간에 이 데이터를
-공유 할 수 없는 경우가 종종 있다. 우리는 대규모 KNN classfier인
-OHDSI에서 개발된 \href{https://github.com/OHDSI/BigKnn}{BigKnn} 패키지를
-포함시켰다.\index{k-nearest neighbors} \index{bigknn}
+필요하므로 KNN의 공유 제한이 있으며 데이터 사이트 간에 이 데이터를
+공유할 수 없는 경우가 종종 있다. 우리는 대규모 KNN classfier인 OHDSI에서
+개발된 \href{https://github.com/OHDSI/BigKnn}{BigKnn} 패키지를
+포함했다.\index{k-nearest neighbors} \index{bigknn}
 
 \begin{longtable}[]{@{}lll@{}}
 \caption{\label{tab:knnParameters} Hyper-parameters for K-nearest
@@ -12621,19 +12610,20 @@ k & Number of neighbors & 1000\tabularnewline
 
 \subsection{나이브 베이즈 (Naive Bayes)}\label{--naive-bayes}
 
-AdaBoost는 부스팅 앙상블 기법(boosting ensemble technique)이다. 부스팅은
-classfier를 반복적으로 추가하여 수행되지만 다음 classfier가 학습될 때
-비용 함수에서 이전 classfier에 의해 잘못 분류된 데이터 포인트에 더 많은
-가중치를 준다. 우리는 파이썬에 있는 sklearn AdaboostClassifier 구현을
-사용한다. \index{naive bayes}
+The Naive Bayes algorithm applies the Bayes theorem with the naive
+assumption of conditional independence between every pair of features
+given the value of the class variable. Based on the likelihood the data
+belongs to a class and the prior distribution of the class, a posterior
+distribution is obtained. Naive Bayes has no hyper-parameters.
+\index{naive bayes}
 
 \subsection{AdaBoost}\label{adaboost}
 
-AdaBoost is a boosting ensemble technique. Boosting works by iteratively
-adding classifiers but adds more weight to the data-points that are
-misclassified by prior classifiers in the cost function when training
-the next classifier. We use the sklearn AdaboostClassifier
-implementation in Python. \index{adaboost} \index{python}
+AdaBoost는 부스팅 앙상블 기법(boosting ensemble technique)이다. 부스팅은
+classfier를 반복적으로 추가하여 수행되지만, 다음 classfier가 학습될 때
+비용 함수에서 이전 classfier에 의해 잘못 분류된 데이터 포인트에 더 많은
+가중치를 준다. 우리는 파이썬에 있는 sklearn AdaboostClassifier 구현을
+사용한다. \index{adaboost} \index{python}
 
 \begin{longtable}[]{@{}lll@{}}
 \caption{\label{tab:adaBoostParameters} Hyper-parameters for
@@ -12712,7 +12702,7 @@ Multilayer perceptrons은 비선형 함수를 사용하여 입력에 가중치�
 그리고 그 사이에는 히든 레이어(hidden layers)가 있다. 신경망은
 일반적으로 역 전파(back-propagation)를 사용하여 학습된다. 즉, 학습
 입력(training input)이 네트워크를 통해 앞으로 전달되어 출력을 생성하고,
-출력과 결과 상태 사이의 오류가 계산되며,이 오류는 네트워크를 통해 뒤로
+출력과 결과 상태 사이의 오류가 계산되며, 이 오류는 네트워크를 통해 뒤로
 전달되어 선형 함수 가중치를 업데이트한다. \index{neural network}
 \index{perceptron} \index{back-propagation}
 
@@ -12763,19 +12753,19 @@ Custom Patient-Level Prediction Algorithms'' vignette} 에 있다.
 필요하다. \index{evaluating prediction models}
 
 \BeginKnitrBlock{rmdimportant}
-평가를 위해서는 모형을 개발하는 데 사용 된 것과 다른 데이터세트를
-사용해야한다. 그렇지 않으면 과잉 적합 (\ref{modelFitting}절
-참조)되었거나 새로운 환자에게 잘 맞지않는 모형을 선호하게 되는 위험이
-발생할 수 있다.
+평가를 위해서는 모형을 개발하는 데 사용된 것과 다른 데이터 세트를
+사용해야 한다. 그렇지 않으면 과잉 적합 (\ref{modelFitting}절 참조)
+되었거나 새로운 환자에게 잘 맞지 않는 모형을 선호하게 되는 위험이 발생할
+수 있다.
 \EndKnitrBlock{rmdimportant}
 
-우리는 내적타당도와 외적타당도로 구분할 수 있다.
+우리는 내적 타당도와 외적 타당도로 구분할 수 있다.
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{내적 타당도}: 동일한 데이터베이스에서 추출 된 다른
-  데이터세트를 사용하여 모형을 개발하고 평가.
+  \textbf{내적 타당도}: 동일한 데이터베이스에서 추출된 다른 데이터
+  세트를 사용하여 모형을 개발하고 평가.
 \item
   \textbf{외적 타당도}: 한 데이터베이스에서 모형을 개발하고 다른
   데이터베이스에서 평가. \index{validation!internal validation}
@@ -12787,11 +12777,11 @@ Custom Patient-Level Prediction Algorithms'' vignette} 에 있다.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{홀드아웃 세트(holdout set) 접근법}은 레이블이 지정된 데이터를
-  두 개의 독립된 세트로 나눈 것이다: 검증데이터세트(train set)와
-  테스트세트(test set). 검증세트(train set)는 모형 학습에 사용되고,
-  테스트세트(test set)는 모형평가에 사용된다. 환자를 무작위로 검증과
-  테스트 세트로 나누거나 또는 다음과 같이 선택할 수 있다:
+  \textbf{홀드 아웃 세트(holdout set) 접근법}은 레이블이 지정된 데이터를
+  두 개의 독립된 세트로 나눈 것이다: 검증데이터 세트(train set)와 테스트
+  세트(test set). 검증 세트(train set)는 모형 학습에 사용되고, 테스트
+  세트(test set)는 모형평가에 사용된다. 환자를 무작위로 검증과 테스트
+  세트로 나누거나 또는 다음과 같이 선택할 수 있다:
 
   \begin{itemize}
   \tightlist
@@ -12807,13 +12797,13 @@ Custom Patient-Level Prediction Algorithms'' vignette} 에 있다.
   \end{itemize}
 \item
   \textbf{교차 검증}은 데이터가 제한적일 때 유용하다. 데이터는 \(n\)개의
-  동일한 크기의 세트로 구분된다. 여기서 \(n\)은 미리 정해져야 한다(예를
+  동일한 크기의 세트로 구분된다. 여기서 \(n\)은 미리 정해져야 한다 (예를
   들어, \(n=10\)). 이러한 각 세트에 대해 모형은 해당 세트의 데이터를
   제외한 모든 데이터에 대해 학습되며 홀드 아웃 세트에 대한 예측을
   생성하는 데 사용된다. 이러한 방식으로 모든 데이터가 한 번 사용되어
   모형 작성 알고리즘을 평가한다. 환자 수준 예측 프레임 워크에서 교차
-  검증을 사용하여 최적의 하이퍼-파라미터를
-  선택한다.\index{cross-validation}
+  검증을 사용하여 최적의 하이퍼-파라미터를 선택한다.
+  \index{cross-validation}
 \end{itemize}
 
 외적 타당도는 다른 데이터베이스, 즉 개발에 사용된 데이터베이스가 아닌
@@ -12822,8 +12812,8 @@ Custom Patient-Level Prediction Algorithms'' vignette} 에 있다.
 데이터베이스뿐만 아니라 모형에 예측 모형에 적용하기 때문에 중요하다.
 다른 데이터베이스는 다른 환자 모집단, 다른 의료 시스템 및 다른 데이터
 캡처 프로세스를 말할 것이다. 우리는 대규모 데이터베이스 세트에 대한 예측
-모형의 외적 타당도 검증이 임상 실무에서 모형이 수행되고 구현되어지기
-위한 중요한 단계라고 생각한다.
+모형의 외적 타당도 검증이 임상 실무에서 모형이 수행되고 구현되기 위한
+중요한 단계라고 생각한다.
 
 \subsection{성능 지표}\label{performance}
 
@@ -12831,10 +12821,10 @@ Custom Patient-Level Prediction Algorithms'' vignette} 에 있다.
 \addcontentsline{toc}{subsubsection}{임계값 측정}
 
 예측 모형은 위험에 노출된 시간 동안 관심 결과가 발생할 위험에 해당하는
-각 환자에 대해 0과 1 사이의 값을 할당한다. 0 값은 0 \% 위험을 의미하고
-0.5 값은 50 \% 위험을 의미하고 1 값은 100 \% 위험을 의미한다. 정확도,
+각 환자에 대해 0과 1 사이의 값을 할당한다. 0값은 0\% 위험을 의미하고
+0.5값은 50\% 위험을 의미하고 1값은 100\% 위험을 의미한다. 정확도,
 민감도, 특이도, 양성 예측도와 같은 일반적인 측정 지표들은 위험에 처한
-시간 동안 환자가 관심 결과를 갖는지 여부를 분류하는 데 사용되는 임계
+시간 동안 환자가 관심 결과를 갖는지의 여부를 분류하는 데 사용되는 임계
 값을 먼저 지정하여 계산할 수 있다. 예를 들어, 표
 \ref{tab:tabletheorytab}에서 임계 값을 0.5로 설정하면 환자 1, 3, 7 및
 10은 예상 위험이 임계 값 0.5보다 크거나 같으므로 관심 결과가 발생할
@@ -12988,7 +12978,7 @@ FP\strut
 \end{longtable}
 
 환자에게 관심 결과가 예측되고 (위험 노출 시간 동안) 관심 결과가
-발생했다면이를 진양성(TP)이라고 한다. 환자에게 관심 결과가 있을 것으로
+발생했다면 이를 진양성(TP)이라고 한다. 환자에게 관심 결과가 있을 것으로
 예상되지만 그 결과가 없는 경우라면 이를 거짓 양성(FP)이라고 한다.
 환자에게 관심 결과가 없을 것으로 예상되고 실제 결과가 없는 경우 이를
 진음성(TN)이라고 한다. 마지막으로, 환자에게 관심 결과가 없을 것으로
@@ -13013,12 +13003,12 @@ FP\strut
 임계값을 낮추면 이러한 값이 감소하거나 증가 할 수 있다. classifier의
 임계값을 낮추면 반영되는 결과 수가 증가하여 분모가 증가할 수 있다.
 임계값이 이전에 너무 높게 설정된 경우, 새로운 결과는 모두 진양성일 수
-있으며, 이는 양성예측도를 증가시킨다. 이전 임계값이 맞거나 또는 너무
-낮다면 임계값을 더 낮추게 되면 거짓양성이 발생하여 양성예측도가
+있으며, 이는 양성 예측도를 증가시킨다. 이전 임계값이 맞거나 또는 너무
+낮다면 임계값을 더 낮추게 되면 거짓 양성이 발생하여 양성예측도가
 감소한다. 민감도의 분모는 classifirer 임계값 (\(TP+FN\)은 상수) 에
-의존하지 않는다. 이는 classifier 임계값을 낮추면 진양성 결과 수를
-증가시켜 민감도를 높일 수 있음을 의미한다. 또한 임계값을 낮추면 민감도가
-바뀌지 않고 양성예측도가 변할 수 있다.
+의존하지 않는다. 이는 classifier 임계값을 낮추면 진양성 결과 수를 증가
+시켜 민감도를 높일 수 있음을 의미한다. 또한 임계값을 낮추면 민감도가
+바뀌지 않고 양성 예측도가 변할 수 있다.
 
 \subsubsection*{판별력}
 \addcontentsline{toc}{subsubsection}{판별력}
@@ -13026,51 +13016,51 @@ FP\strut
 판별력(discrimination)은 위험에 노출된 시간 동안 관심 결과를 경험할
 환자에게 더 높은 위험을 할당하는 능력이다. ROC(Receiver Operating
 Characteristics) 곡선은 가능한 모든 임계값에 대하여 x축은 1-특이도를
-그리고 y축에는 민감도를 나타낸다. ROC곡선은 이 장의 뒷부분에 있는 그림
+그리고 y축에는 민감도를 나타낸다. ROC 곡선은 이 장의 뒷부분에 있는 그림
 \ref{fig:shinyROC}에 나와 있다. AUC(area under the receiver operating
 characteristic curve)가 0.5이면 위험에 무작위로 할당되는 것을 의미하고
 값이 1이면 완벽하게 판별한다는 의미이다. 대부분 출판된 예측 모형의 AUC는
 0.6-0.8 사이의 값을 갖고 있다. \index{AUC} \index{ROC}
 \index{discrimination}
 
-AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 그렇지 않은
-환자간에 예측된 위험 분포가 얼마나 다른지 결정하는 방법을 제공한다.
-AUC가 높으면 위험 분포가 대부분 분리되지만, 겹치는 부분이 많을 때는 그림
+AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 그렇지 않은 환자
+간에 예측된 위험 분포가 얼마나 다른지 결정하는 방법을 제공한다. AUC가
+높으면 위험 분포가 대부분 분리되지만, 겹치는 부분이 많을 때는 그림
 \ref{fig:figuretheoryroctheory}에서와 같이 AUC가 0.5에 가까워진다.
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{images/PatientLevelPrediction/theory/roctheory} \caption{How the ROC plots are linked to discrimination. If the two classes have similar distributions of predicted risk, the ROC will be close to the diagonal, with AUC close to 0.5.}\label{fig:figuretheoryroctheory}
+\includegraphics[width=1\linewidth]{images/PatientLevelPrediction/theory/roctheory} \caption{ROC 플롯이 어떻게 차별과 연관되어 있는지를 설명한다. 두 등급의 예측 위험 분포가 유사한 경우, ROC는 대각선에 가까우며 AUC는 0.5에 가깝다.}\label{fig:figuretheoryroctheory}
 \end{figure}
 
 결과가 드물게 발생할 경우, AUC가 높은 값을 갖는 모형이라도 주어진
 임계값을 초과하는 모든 양성에 대해 음성이 많을 수 있으므로 (즉,
 양성예측도가 낮을 수 있기 때문에) 실용적이지 않을 수 있다. 결과의
-심각성과 일부 중재에 대한 비용 (건강 위험/ 금전적) 에 따라, 거짓 양성
-비가 높아질 수 있다. 결과가 드물게 발생하는 것이라면 AUPRC(area under
-the precision-recall curve)라고 알려진 다른 측정법이 권장된다. AUPRC는
-x축은 민감도 (재현율이라고도 함) 와 y축은 양성예측도 (정밀도라고도 함)
-을 나타내는 곡선하 면적이다.index\{area under the precision-recall
-curve\}
+심각성과 일부 중재에 대한 비용 (건강 위험/ 금전적) 에 따라, 거짓
+양성비가 높아질 수 있다. 결과가 드물게 발생하는 것이라면 AUPRC(area
+under the precision-recall curve)라고 알려진 다른 측정법이 권장된다.
+AUPRC는 x축은 민감도 (재현율이라고도 함) 와 y축은 양성예측도
+(정밀도라고도 함) 을 나타내는 곡선하 면적이다.
+\index{area under the precision-recall curve}
 
 \subsubsection*{적합도}
 \addcontentsline{toc}{subsubsection}{적합도}
 
-적합도(calibration)는 모형이 정확한 위험을 적합하는지에 대한 것이다.
-예를 들어, 모형에 100명의 환자에게 10 \%의 위험이 발생가능성이 있다고 할
+적합도(calibration)는 모형이 정확한 위험을 적합 하는지에 대한 것이다.
+예를 들어, 모형에 100명의 환자에게 10\%의 위험이 발생 가능성이 있다고 할
 경우 10명의 환자가 위험에 노출된 시간 동안 결과를 경험해야 한다. 모형에
-100명의 환자에게 80 \%의 위험이 발생가능성이 있다면 80명의 환자가 위험에
+100명의 환자에게 80\%의 위험이 발생 가능성이 있다면 80명의 환자가 위험에
 노출되는 시간 동안 결과를 경험해야 한다. 적합도(calibration)는
 일반적으로 예측된 위험에 기초하여 환자를 십분 위로 분할하고 각 그룹에서
-평균 예측 위험과 위험에 노출 시간 동안 결과를 경험한 환자의 비율을
+평균 예측 위험과 위험에 노출 시간 동안 결과를 경험한 환자의 비율이
 계산된다. 그런 다음 10개의 점 (y축에 예측 위험과 x축에 관찰된 위험)을
 그리고 x = y에 있는지 확인하여 모형이 잘 보정되었음을 나타낸다. 적합도
 그래프는 이 장의 뒷부분에 있는 그림 \ref{fig:shinyCal}에 나와 있다. 또한
-점을 사용하여 절편 (0에 가까워 야 함)과 기울기 (1에 가까워 야 함)를
-계산하여 선형 모형으로 적합한다. 기울기가 1보다 크면 모형이 실제
+점을 사용하여 절편 (0에 가까워 야 함) 과 기울기 (1에 가까워 야 함) 를
+계산하여야 선형 모형으로 적합하다. 기울기가 1보다 크면 모형이 실제
 위험보다 높은 위험을 할당하고 있고 기울기가 1보다 작으면 모형이 실제
 위험보다 낮은 위험을 나타내는 것이다. 또한 예측된 위험과 관찰된 위험
 사이의 비선형 관계를 보다 잘 포착하기 위해 R 패키지에 Smooth Calibration
-Curves를 수행했다.\index{calibration}
+Curves를 수행했다. \index{calibration}
 
 \section{환자-수준 예측 연구 설계}\label{----}
 
@@ -13078,22 +13068,22 @@ Curves를 수행했다.\index{calibration}
 문제를 명확하게 정의하는 것이다. 흥미롭게도, 많은 출판된 논문에서 예측
 문제가 잘 정의되어 있지 않다. 예를 들어 인덱스 날짜(표적 코호트의
 시작)가 어떻게 정의되어 있는지 명확하지 않다. 잘못 정의된 예측 문제는
-임상 실무에서의 구현은 물론 다른 사람들에 의한 외적 타당도 검정을
+임상 실무에서의 구현은 물론 다른 사람들에 의한 외적 타당도 검정이
 불가능하다. 환자-수준 예측 프레임워크에서 표\ref{tab:plpDesign}에 정의된
 주요 선택 사항을 명시적으로 정의하고 예측 문제의 적절한 선택을 한다.
 여기서는 ``치료의 안전성''을 보는 유형의 예측 문제를 예로 들어 이
-프로세스를 살펴보자.\index{index date}
+프로세스를 살펴보자. \index{index date}
 
-\subsection{문제 정의}\label{--1}
+\subsection{문제 정의}\label{--3}
 
 혈관 부종(Angioedema)은 ACE 억제제의 잘 알려진 부작용이며, ACE 억제제에
 대한 레이블에 보고된 혈관 부종의 발생률은 0.1 \% \textasciitilde{} 0.7
-\%의 범위이다. \citep{byrd_2006} 혈관 부종은 드물지만 생명을 위협하여
+\%의 범위이다. \citep{byrd_2006} 혈관 부종은 드물지만, 생명을 위협하여
 호흡 정지 및 사망으로 이어질 수 있기 때문에 이러한 부작용에 대한 환자
 모니터링은 중요하다. \citep{norman_2013} 또한, 혈관 부종이 초기에
 인식되지 않으면, 원인으로 식별되기 전에 범위가 넓어지고 비싼 정밀검사로
-이어질 수 있다. \citep{norman_2013, thompson_1993} 아프리카 계 미국인
-환자들 사이에서 발생한 높은 위험외에 ACE 억제제 관련 혈관 부종의 발생에
+이어질 수 있다. \citep{norman_2013, thompson_1993} 아프리카계 미국인
+환자들 사이에서 발생한 높은 위험 외에 ACE 억제제 관련 혈관 부종의 발생에
 대한 알려진 소인은 없다. \citep{byrd_2006} 대부분의 반응은 초기 요법의
 첫 주 또는 한 달 안에, 그리고 종종 초기 복용 후 몇 시간 내에 발생한다
 \citep{circardi_2004}. 그러나 치료가 시작된 후 몇 년이 걸릴 수도 있다.
@@ -13106,13 +13096,13 @@ ACE 억제제를 처방을 중단하고 다른 고혈압 약물을 처방할 수
 예측 질문에 응용해 보자.
 
 \begin{quote}
-처음에 ACE억제제로 치료를 시작한 환자들 중, 그 다음해에 혈액 부종을
+처음에 ACE 억제제로 치료를 시작한 환자 중, 그다음 해에 혈액 부종을
 경험한 환자는 누구인가?
 \end{quote}
 
 \subsection{연구 모집단 정의}\label{--}
 
-예측 모형을 개발하귀 위한 최종 연구 모집단은 종종 표적 코호트의 하위
+예측 모형을 개발하기 위한 최종 연구 모집단은 종종 표적 코호트의 하위
 집단이다. 예를 들어 관심 결과에 의존하는 기준을 적용하거나 또는 표적
 코호트의 부분 모집단(sub-population)의 민감도 분석을 수행하고자 하기
 때문이다. 이것을 위하여 우리는 다음의 질문들을 설명해야만 한다:
@@ -13125,16 +13115,16 @@ ACE 억제제를 처방을 중단하고 다른 고혈압 약물을 처방할 수
   것으로 예상되는 시간에 따라 달라질 수도 있다. 최소 관측 시간이
   길어질수록 더 많은 기저력 시간(baseline history time)이 특징
   추출(feature extraction)에 사용할 수 있는 기저력 시간(baseline history
-  time)이 길어지지만 분석 할 수 있는 환자는 줄어든다. 또한, 단기 또는
-  look-back 기간을 선택해야하는 임상적 이유가 있을 수 있다. 예제에서는
-  365일 이전 기록을 look-back 기간 (휴약기, washout period)으로
+  time)이 길어지지만, 분석 할 수 있는 환자는 줄어든다. 또한, 단기 또는
+  look-back 기간을 선택해야 하는 임상적 이유가 있을 수 있다. 예제에서는
+  365일 이전 기록을 look-back 기간 (휴약기, washout period) 으로
   사용한다.
 \item
   \emph{환자가 표적 코호트에 여러 번 포함될 수 있습니까?} 표적 코호트
   정의에서, 사람은 서로 다른 시간 간격 동안, 예를 들어 서로 다른
   에피소드의 질병이 있거나 의료 제품에 대한 별도의 노출 기간이 있는 경우
   그 코호트에 여러 번 포함될 수 있다. 코호트 정의는 환자가 한 번만
-  들어갈 수 있도록 제한을 적용 할 필요는 없지만 특정 환자-수준 예측
+  들어갈 수 있도록 제한을 적용할 필요는 없지만, 특정 환자-수준 예측
   문제와 관련하여 코호트를 첫 번째 적격 에피소드로 제한 할 수 있다. 이
   예제에서는 기준이 ACE 억제제의 첫 번째 사용을 기반으로 했기 때문에
   표적 코호트에 한 번만 들어갈 수 있다.
@@ -13144,7 +13134,7 @@ ACE 억제제를 처방을 중단하고 다른 고혈압 약물을 처방할 수
   표적 코호트에 들어가도록 허용합니까? 특정 환자-수준 예측 문제에 따라,
   결과가 처음 발생하게 되는 것을 예측하고자 할 수 있으며, 이 경우 이전에
   결과를 경험한 환자는 처음 발생할 위험이 없으므로 표적 코호트에서
-  제외되어져야 한다. 다른 상황에서, 유행하는 에피소드를 예측하고자하는
+  제외돼야 한다. 다른 상황에서, 유행하는 에피소드를 예측하고자 하는
   경우가 있을 수 있는데, 이로 인해 사전에 관심 결과를 가진 환자가 분석에
   포함될 수 있고 사전 결과 자체가 미래 결과를 예측하기 위한 변수가 될 수
   있다. 예측을 위한 예제로, 우리는 이전에 혈관 부종을 가진 사람들을
@@ -13153,34 +13143,34 @@ ACE 억제제를 처방을 중단하고 다른 고혈압 약물을 처방할 수
   \emph{대상 코호트 시작에 대한 결과를 예측할 기간을 어떻게 정의합니까?}
   우리는 이 질문에 답하기 위해 두 가지 결정을 내려야 한다. 첫째, 위험에
   노출된 시간 기간은 표적 코호트가 시작된 날짜 또는 그 이후에
-  시작되는가? 나중에 시작하게하자는 주장은 표적 코호트가 시작되기 전에
+  시작되는가? 나중에 시작하게 하자는 주장은 표적 코호트가 시작되기 전에
   실제로 발생한 기록에서 늦게 입력된 결과를 모면하고 싶거나 그 결과를
   방지하기 위한 중재가 이론적으로 구현될 수 있는 것의 차이를 남기고 싶을
   수 있다. 둘째, 표적 코호트 시작일 또는 종료일에 대해 상쇄된 날을
-  지정함으로써위험에 노출된 시간의 기간 정의해야 한다. 우리의 문제를
+  지정함으로써 위험에 노출된 시간의 기간 정의해야 한다. 우리의 문제를
   위해, 우리는 365일까지 표적 코호트의 시작일부터 하루 뒤부터 위험에
-  노출된 시간의 기간내에서 예측할 것이다.
+  노출된 시간의 기간 내에서 예측할 것이다.
 \item
   \emph{위험에 노출된 최소 시간이 필요합니까?} 관심 결과를 경험하지
-  않았지만 위험에 노출된 시간이 끝나기 전에 데이터베이스에 남지 않는
-  환자를 포함시킬 것인지 결정해야 한다. 이 환자들은 더 이상 관찰하지
-  않는 동안 결과를 경험할 수도 있다. 예측 문제에 대해, 우리는 이 질문에
-  ``예''로 대답하기로 결정했는데, 그 이유는 최소 위험 시간이 필요하기
-  때문이다. 또한이 제약 조건이 결과를 경험한 사람에게도 적용되는지
-  결정해야 한다. 그렇지 않으면 위험에 노출된 총 시간에 관계없이 결과를
-  가진 모든 사람을 포함시켜야 한다. 예를 들어, 결과가 사망인 경우 전체
-  위험에 노출된 시간이 완료되기 전에 결과를 가진 사람이 중도절단될
+  않았지만, 위험에 노출된 시간이 끝나기 전에 데이터베이스에 남지 않는
+  환자를 포함할 것인지 결정해야 한다. 이 환자들은 더 이상 관찰하지 않는
+  동안 결과를 경험할 수도 있다. 예측 문제에 대해, 우리는 이 질문에
+  ``예''로 대답하기로 했는데, 그 이유는 최소 위험 시간이 필요하기
+  때문이다. 또한 이 제약 조건이 결과를 경험한 사람에게도 적용되는지
+  결정해야 한다. 그렇지 않으면 위험에 노출된 총 시간과 관계없이 결과를
+  가진 모든 사람을 포함해야 한다. 예를 들어, 결과가 사망인 경우 전체
+  위험에 노출된 시간이 완료되기 전에 결과를 가진 사람이 중도 절단될
   가능성이 있다.
 \end{itemize}
 
 \subsection{모형 개발 설정}\label{--}
 
-예측 모형을 개발하기 위해 학습하고자하는 알고리즘을 결정해야 한다.
+예측 모형을 개발하기 위해 학습하고자 하는 알고리즘을 결정해야 한다.
 우리는 경험적 질문으로 특정 예측 문제에 대한 최상의 알고리즘을 선택하는
 것이라고 본다. 즉, 데이터 그 자체를 언급하고 가장 최고의 모형을 찾기
 위해 다른 접근법을 시도하는 것을 선호한다. 우리 프레임워크에서는
 \ref{modelFitting}절에 설명된 대로 많은 알고리즘을 구현했으며 그리고
-다른 알고리즘을 추가 할 수 있다. 이 예제에서는 작업을 단순하게하기 위해
+다른 알고리즘을 추가 할 수 있다. 이 예제에서는 작업을 단순하게 하기 위해
 Gradient Boosting Machines 알고리즘을 선택한다.
 
 또한 모형을 학습하기 위하여 사용할 공변량을 결정해야 한다. 이 예제에서는
@@ -13191,12 +13181,12 @@ Gradient Boosting Machines 알고리즘을 선택한다.
 \subsection{모형 평가}\label{-}
 
 마지막으로 모형 평가 방법을 정의해야 한다. 편의상 여기서는 내적 타당도를
-선택했다. 학습과 테스트를 위한 데이터세트에서 이것을 나누는 방법과
-환자를 이 두 데이터세트로 할당하는 방법을 결정해야 한다. 여기에서는
-일반적으로 하는 75 \%-25 \% 분할을 사용한다. 매우 큰 데이터세트의 경우
-학습데이터세트에 더 많은 데이터를 포함해서 사용할 수 있다.
+선택했다. 학습과 테스트를 위한 데이터 세트에서 이것을 나누는 방법과
+환자를 이 두 데이터 세트로 할당하는 방법을 결정해야 한다. 여기에서는
+일반적으로 하는 75\%-25\% 분할을 사용한다. 매우 큰 데이터 세트의 경우
+학습데이터 세트에 더 많은 데이터를 포함해서 사용할 수 있다.
 
-\subsection{연구 요약}\label{-}
+\subsection{연구 요약}\label{--1}
 
 우리 연구를 위하여 완벽하게 정의한 내용을 표 \ref{tab:plpSummary}에
 나타내었다.
@@ -13250,15 +13240,14 @@ person.\strut
 \bottomrule
 \end{longtable}
 
-\section{Implementing the Study in
-ATLAS}\label{implementing-the-study-in-atlas}
+\section{ATLAS에서의 연구 구현하기}\label{atlas--}
 
-예측 연구를 설계 하기 위한 인터페이스는 ATLAS
+예측 연구를 설계하기 위한 인터페이스는 ATLAS
 메뉴\includegraphics{images/PatientLevelPrediction/predictionButton.png}
 버튼을 누르면 열 수 있다. 새로운 예측 연구를 만든다. 새로운 예측 연구를
-생성하십시오. 연구에 알기 쉬운 이름을 부여해라. 연구
-디자인은\includegraphics{images/PopulationLevelEstimation/save.png}버튼을
-클릭하면 언제든지 저장이 가능하다. \index{ATLAS}
+생성하십시오. 연구에 알기 쉬운 이름을 부여하십시오. 연구
+디자인은\includegraphics{images/PopulationLevelEstimation/save.png}
+버튼을 클릭하면 언제든지 저장이 가능하다. \index{ATLAS}
 
 예측 디자인 기능에는 4개의 세션이 있다: 예측 문제 설정, 분석 설정, 실행
 설정, 학습 설정. 다음은 각 세션에 대한 설명이다.
@@ -13267,7 +13256,7 @@ ATLAS}\label{implementing-the-study-in-atlas}
 
 여기서는 표적 코호트와 결과 코호트를 선택할 수 있다. 표적 코호트와 결과
 코호트의 모든 조합에 대해 예측 모형이 개발될 것이다. 예를 들어, 만약 두
-개의 표적 모집단와 두 개의 대상 결과들을 지정한다면 네 개의 예측 문제가
+개의 표적 모집단과 두 개의 대상 결과들을 지정한다면 네 개의 예측 문제가
 지정된다.
 
 표적 코호트를 선택하기 위해서는 ATLAS에 사전에 정의되어야 한다. 예시
@@ -13275,7 +13264,7 @@ ATLAS}\label{implementing-the-study-in-atlas}
 \ref{AceInhibitors}) 과 결과 (부록 \ref{Angioedema}) 코호트의 전체
 정의를 제공한다. 표적 모집단을 코호트에 추가하기 위해서는 ``표적 코호트
 추가 {[}Add Target Cohort{]}'' 버튼을 클릭해라. 결과 코호트를 추가하는
-것은 ``결과코호트 추가 {[}Add Outcome Cohort{]}'' 버튼을 클릭하면
+것은 ``결과 코호트 추가 {[}Add Outcome Cohort{]}'' 버튼을 클릭하면
 마찬가지로 작동된다. 완료되면, Dialog는 그림
 \ref{fig:problemSettings}처럼 보일 것이다.
 
@@ -13296,13 +13285,13 @@ ATLAS}\label{implementing-the-study-in-atlas}
 \addcontentsline{toc}{subsubsection}{모형 설정}
 
 모형 개발을 위해 하나 혹은 더 많은 지도 학습 알고리즘을 선택할 수 있다.
-지도 학습 알고리즘을 추가 하기 위해서는 ``모형 설정 추가 {[}Add Model
+지도 학습 알고리즘을 추가하기 위해서는 ``모형 설정 추가 {[}Add Model
 Settings{]}''버튼을 눌러라. 현재 ATLAS에서 지원되는 모든 모형이 포함된
-드롭다운이 나타난다. 드롭 다운 메뉴에 있는 이름을 클릭하여 원하는 연구가
+드롭다운이 나타난다. 드롭다운 메뉴에 있는 이름을 클릭하여 원하는 연구가
 포함된 지도 학습 모형을 선택 할 수 있다. 그러고 나면 지정된 모형의 창을
-볼 수 있고, 하이퍼-파라미터 값을 선택 할 수 있다. 여러 값이 제공되는
-경우 가능한 모든 값들의 조합으로 교차 검증을 사용하여 최적의 조합을
-선택하기 위해 그리드서치(Grid Search)를 시행한다.
+볼 수 있고, 하이퍼-파라미터값을 선택 할 수 있다. 여러 값이 제공되는 경우
+가능한 모든 값의 조합으로 교차 검증을 사용하여 최적의 조합을 선택하기
+위해 그리드서치(Grid Search)를 시행한다.
 
 여기의 예에서는 점진적 부스팅 머신(Gradient Boosting Machine, GBM)을
 선택하고 그림 \ref{fig:gbmSettings}에 지정된 것처럼 하이퍼-파라미터를
@@ -13317,34 +13306,35 @@ Settings{]}''버튼을 눌러라. 현재 ATLAS에서 지원되는 모든 모형�
 \caption{점진적 부스팅 머신 설정.}\label{fig:gbmSettings}
 \end{figure}
 
-\subsubsection*{공변량 설정}\label{-}
+\subsubsection*{공변량 설정}\label{--1}
 \addcontentsline{toc}{subsubsection}{공변량 설정}
 
-CDM 포멧에 있는 관찰된 데이터로에서 추출할 수 있는 표준 공변량을
-정의했다. 공변량 설정 창에서 포함할 표준 공변량을 선택할 수 있다. 다양한
-유형의 공변량을 정의 할 수 있으며 각 모형은 각각의 지정된 공변량 설정과
-함께 별도로 생성될 것이다.
+CDM 포맷에 있는 관찰된 데이터에서 추출할 수 있는 표준 공변량을 정의했다.
+공변량 설정 창에서 포함할 표준 공변량을 선택할 수 있다. 다양한 유형의
+공변량을 정의 할 수 있으며 각 모형은 각각 지정된 공변량 설정과 함께
+별도로 생성될 것이다.
 
 연구에서 공변량 설정을 추가하려면, ``공변량 설정 추가 {[}Add Covariate
 Settings{]}''을 클릭해라. 그러면 공변량 설정 창이 열린다.
 
 공변량 설정 창의 첫 번째 부분은 제외/포함 옵션이다. 공변량은 일반적으로
-모든 개념에 맞게 구성된다. 그러나, 어떤 개념이 표적 코호트 정의와
-연결되어 있는 경우와 같이 특정한 개념을 추가/제외 하는 것을 원할 수도
-있다. 특정 개념만 포함하려면 ATLAS에서 개념 세트(concept set)을 설정한
-다음에 \textbf{``환자-수준 예측 모형의 기저 공변량에 어떤 개념을 포함
-하시겠습니까? (모든 것을 포함하려면 비워 두십시오)''} 아래
+모든 개념에 맞게 구성된다. 그러나, 어떤 개념이 표적 코호트 정의와 연결된
+경우와 같이 특정한 개념을 추가/제외하는 것을 원할 수도 있다. 특정 개념만
+포함하려면 ATLAS에서 개념 세트(concept set)을 설정한 다음에
+\textbf{``환자-수준 예측 모형의 기저 공변량에 어떤 개념을
+포함하시겠습니까? (모든 것을 포함하려면 비워 두십시오)''} 아래
 \includegraphics{images/PopulationLevelEstimation/open.png}를 클릭하여
-개념 세트(concept set)을 선택한다. \textbf{``하위 개념을 포함된 개념
+개념 세트(concept set)를 선택한다. \textbf{``하위 개념을 포함된 개념
 목록에 추가해야 합니까?''}라는 질문에 ``예''라고 답함으로써 모든 하위
-개념을 자동적으로 개념 세트(concept set)에 추가할 수 있다. 같은 절차는
-**환자 수준 예측 모형의 기저 공변량에 어떤 개념을 제외 하시겠습니까?
+개념을 자동으로 개념 세트(concept set)에 추가할 수 있다. 같은 절차는
+**환자 수준 예측 모형의 기저 공변량에 어떤 개념을 제외하시겠습니까?
 (모든 것을 포함하려면 비워 두십시오)``** 질문에서 동일한 과정을 반복할
 수 있고 선택된 개념에 해당하는 공변량을 제거할 수 있다. 마지막 옵션인
-\textbf{``쉼표는 구분되어야 하는 공변량 ID의 리스트의 범위를 정한다''}를
-사용하면 공변량의 IDs 세트 (개념 IDs가 아닌) 을 쉼표로 구분하여 추가할
-수 있다. 이 옵션은 고급(advanced) 사용자에게만 있다. 완료가 되면 포함 및
-제외 옵션이 그림 \ref{fig:covariateSettings1}과 같아야 한다. +
+\textbf{``쉼표는 구분되어야 하는 공변량 ID의 리스트의 범위를
+정한다.''}를 사용하면 공변량의 IDs 세트 (개념 IDs가 아닌) 을 쉼표로
+구분하여 추가할 수 있다. 이 옵션은 고급(advanced) 사용자에게만 있다.
+완료되면 포함 및 제외 옵션이 그림 \ref{fig:covariateSettings1}과 같아야
+한다. +
 
 \begin{figure}
 
@@ -13367,7 +13357,7 @@ Settings{]}''을 클릭해라. 그러면 공변량 설정 창이 열린다.
   나이 그룹 {[}Age group{]}: 5년 단위의 이항 변수 (0-4, 5-9, 10-14,
   \ldots{}, 95+)
 \item
-  인종 {[}Race{]}: 각 인종의 이항 변수, 1은 환자의인종이 기록됨을
+  인종 {[}Race{]}: 각 인종의 이항 변수, 1은 환자의 인종이 기록됨을
   의미하며, 그렇지 않으면 0이다.
 \item
   민족 {[}Ethnicity{]}: 민족에 대한 이항 변수, 1은 환자의 민족이
@@ -13397,7 +13387,7 @@ Settings{]}''을 클릭해라. 그러면 공변량 설정 창이 열린다.
   날짜이고, 그렇지 않으면 0이다.
 \end{itemize}
 
-완료가 된다면, 그림 \ref{fig:covariateSettings2}과 같아야 한다.
+완료된다면, 그림 \ref{fig:covariateSettings2}과 같아야 한다.
 
 \begin{figure}
 
@@ -13408,12 +13398,12 @@ Settings{]}''을 클릭해라. 그러면 공변량 설정 창이 열린다.
 \caption{공변량 선택.}\label{fig:covariateSettings2}
 \end{figure}
 
-표준 공변량은 공변량에 대해 세개의 유동적인 시간 간격을 가능하게 한다:
+표준 공변량은 공변량에 대해 세 개의 유동적인 시간 간격을 가능하게 한다:
 
 \begin{itemize}
 \tightlist
 \item
-  종료일: 코호트 시작 날짜를 기준으로 종료시기와의 간격 {[}기본값 0{]}
+  종료일: 코호트 시작 날짜를 기준으로 종료 시기와의 간격 {[}기본값 0{]}
 \item
   장기간 {[}코호트 시작일 이전의 기본값 -365일에서 종료일{]}
 \item
@@ -13457,7 +13447,7 @@ Settings{]}''을 클릭해라. 그러면 공변량 설정 창이 열린다.
 \item
   약물 그룹 {[}Drug group{]}: 선택된 각 약물 개념 ID 및 시간 간격으로
   공변량을 계산하고 환자가 약물 era 테이블에서 코호트 시작일 이전의
-  지정된 시간 간격 동안 기간 동안 개념 ID \textbf{또는 하위 개념 ID(any
+  지정된 시간 간격 기간 동안 개념 ID \textbf{또는 하위 개념 ID(any
   descendant concept ID)}를 가진 경우 공변량 값은 1이며, 그렇지 않으면
   0이다.
 \end{itemize}
@@ -13467,7 +13457,7 @@ Settings{]}''을 클릭해라. 그러면 공변량 설정 창이 열린다.
 겹친다. Era start 옵션은 선택한 시간 간격 동안 시작되는 질병 또는 약물
 era를 찾는 것으로 제한된다.
 
-완료가 된다면, 그림 \ref{fig:covariateSettings4}과 같아야 한다.
+완료된다면, 그림 \ref{fig:covariateSettings4}과 같아야 한다.
 
 \begin{figure}
 
@@ -13489,7 +13479,7 @@ era를 찾는 것으로 제한된다.
   간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1이며, 그렇지
   않으면 0이다.
 \item
-  Condition Primary Inpatient (1차입원환자 질병): 질병\_발생 표의
+  Condition Primary Inpatient (1차 입원환자 질병): 질병\_발생 표의
   입원환자 설정에서 일차 진단으로 관찰된 질병당 이항 공변량 1개이다.
 \item
   약물 {[}Drug{]}: 선택된 각 약물 개념 ID 및 시간 간격으로 공변량을
@@ -13506,9 +13496,9 @@ era를 찾는 것으로 제한된다.
   시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 공변량 값은 1, 그렇지
   않으면 0이다.
 \item
-  측정 값 {[}Measurement Value{]}: 선택된 각 측정 개념 ID 값과 시간
+  측정값 {[}Measurement Value{]}: 선택된 각 측정 개념 ID 값과 시간
   간격으로 공변량을 계산하며 환자가 측정 테이블의 코호트 시작일 이전에
-  지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 값은 측정 값,
+  지정된 시간 간격 동안 기록된 개념 ID를 가지고 있는 경우 값은 측정값,
   그렇지 않으면 0이다.
 \item
   측정 범위 그룹 {[}Measurement range group{]}: 측정값이 정상 범위
@@ -13535,7 +13525,7 @@ era를 찾는 것으로 제한된다.
 중복 카운트 옵션은 도메인과 시간 간격 당 중복되는 개념 IDs의 수를
 계산한다.
 
-완료가 된다면, 그림 \ref{fig:covariateSettings5}과 같아야 한다.
+완료된다면, 그림 \ref{fig:covariateSettings5}과 같아야 한다.
 
 \begin{figure}
 
@@ -13567,56 +13557,56 @@ era를 찾는 것으로 제한된다.
 위해서는 ``모집단 설정 추가 {[}Add Population Settings{]}'' 버튼을
 클릭하면 모집단 설정 창이 열린다.
 
-옵션의 첫번째 설정은 위험에 노출된 기간을 사용자가 지정할 수 있게 한다.
+옵션의 첫 번째 설정은 위험에 노출된 기간을 사용자가 지정할 수 있게 한다.
 관심 결과가 발생하는지 알아보는 시간 간격이다. 만약 환자가 위험에 노출된
-기간 동안의 관심 결과가 있다면 그것을 ``결과가 있음 {[}Has
-outcome{]}''이라고 분류하고, 그렇지 않으면 ``결과가 없음 {[}No
-outcome{]}''으로 분류할 것이다. ``\textbf{표적 코호트 입력과 관련하여
-위험에 노출된 시간의 기간 시작의 정의}'' 는 표적 코호트 시작과 끝 일자와
-비례하여 위험에 노출된 시간으로 정의한다. 마찬가지로, ``\textbf{위험에
-노출된 시간의 기간 종료 정의}''는 위험에 노출된 시간의 끝으로 정의한다.
+기간의 관심 결과가 있다면 그것을 ``결과가 있음 {[}Has outcome{]}''이라고
+분류하고, 그렇지 않으면 ``결과가 없음 {[}No outcome{]}''으로 분류할
+것이다. ``\textbf{표적 코호트 입력과 관련하여 위험에 노출된 시간의 기간
+시작의 정의}'' 는 표적 코호트 시작과 끝 일자와 비례하여 위험에 노출된
+시간으로 정의한다. 마찬가지로, ``\textbf{위험에 노출된 시간의 기간 종료
+정의}''는 위험에 노출된 시간의 끝으로 정의한다.
 
 ``\textbf{표적 코호트에 적용되는 최소 휴약기간}'' 최소 기준 기간, 환자가
 지속적으로 관찰되는 코호트 시작일 이전의 최소 일수를 지정한다. 365일이
-기본 값이다. 가장 적은 lookback을 늘이는 것은 환자 (더 오래
-관찰해야하므로)를 보다 완벽하게 파악할 수 있지만 최소 관찰 일수가 없는
-환자를 필터링해야 할 것이다.
+기본값이다. 가장 적은 lookback을 늘이는 것은 환자 (더 오래 관찰해야
+하므로)를 보다 완벽하게 파악할 수 있지만, 최소 관찰일 수가 없는 환자를
+필터링해야 할 것이다.
 
 ``\textbf{위험에 노출된 시간이 없는 대상자를 제거해야 하는가?}''에서 `예
 {[}yes{]}'로 설정되어 있다면, ``\textbf{최소 위험 시간}''의 값도
-필요하다. 이를 통해 추척 기간에 잃은 대상 (즉, 위험에 노출된 기간동안
-데이터베이스에서 떠난 경우)을 제거 할 수 있다. 예를 들어, 위험에 노출된
-기간이 코호트 시작에서부터 365일까지 하루이면 전체 위험발생기간은
+필요하다. 이를 통해 추적 기간에 잃은 대상 (즉, 위험에 노출된 기간 동안
+데이터베이스에서 떠난 경우) 을 제거 할 수 있다. 예를 들어, 위험에 노출된
+기간이 코호트 시작에서부터 365일까지 하루이면 전체 위험 발생 기간은
 364(365-1)일이다. 만약 전체 기간에서 관찰된 환자가 포함되기 원한다면
-최소 위험 시간을 364일이라고 설정한다. 사람들이 처음 100일동안 위험에
+최소 위험 시간을 364일이라고 설정한다. 사람들이 처음 100일 동안 위험에
 노출된 시간이 있는 것이 좋은 것이라면, 최소 위험 시간을 100일로
 선택한다. 위험에 노출된 시간의 시작이 코호트 시작으로부터 1일이기 때문에
 코호트 시작일로부터 적어도 101일 동안 데이터베이스에 남아있으면 환자가
 포함될 것이다. 만약 ``위험이 있는 대상자를 제거해야 하는가? {[}Should
 subjects without time at risk be removed?{]}'' 에서 `아니오
-{[}no{]}'라고 설정하면, 모든 환자들, 위험에 노출된 시간동안
+{[}no{]}'라고 설정하면, 모든 환자, 위험에 노출된 시간 동안
 데이터베이스에서 이탈한 환자들까지도 유지할 것이다.
 
 ``\textbf{위험 기간 전체에서 관찰되지 않은 결과를 가진 사람들을
-포함시키겠습니까?}'' 옵션은 이전 옵션과 관련된다. ``예 {[}yes{]}''라고
+포함하겠습니까?}'' 옵션은 이전 옵션과 관련된다. ``예 {[}yes{]}''라고
 설정하면 지정된 최소 시간 동안 관찰되지 않더라도 위험에 노출된 시간 동안
 결과가 발생한 사람들은 항상 유지된다.
 
 ``\textbf{대상자마다 첫 번째 노출만 포함되어야 하는가?}'' 옵션은 만약
 표적 코호트가 다른 코호트 시작일을 가진 환자를 여러 번 포함되어있을 때
-유용하다. ``예 {[}yes{]}''를 선택하면 분석 시 환자 당 가장 처음의 표적
-코호트만 유지될 것이다. 그렇지 않으면 환자는 데이터세트에 여러 번 있을
+유용하다. ``예 {[}yes{]}''를 선택하면 분석 시 환자당 가장 처음의 표적
+코호트만 유지될 것이다. 그렇지 않으면 환자는 데이터 세트에 여러 번 있을
 수 있다.
 
-``\textbf{코호트 포함시키기 전 관심 결과가 관찰되어진 환자를
+``\textbf{코호트 포함하기 전 관심 결과가 관찰된 환자를
 제거하시겠습니까?}''에서 ``예 {[}yes{]}''로 설정한다면 위험에 노출된
-시간 시작일 이전의 결과를 가지고 있는 환자들을 제거할 수 있어서 전에
-결과를 경험하지 못한 환자들을 위한 모형이 된다. ``아니오''를 선택한다면
-환자는 이전에 결과를 가지고 있을 수 있다. 종종, 결과를 미리 얻는 것은
-위험시간 동안 결과를 얻는 것에 대해 매우 예측가능하다.
+시간 시작일 이전의 결과가 있는 환자들을 제거할 수 있어서 전에 결과를
+경험하지 못한 환자들을 위한 모형이 된다. ``아니오''를 선택한다면 환자는
+이전에 결과가 있을 수 있다. 종종, 결과를 미리 얻는 것은 위험 시간 동안
+결과를 얻는 것에 대해 매우 예측 가능하다.
 
-완료가 된다면, 모집단 설정 다이얼로그는 그림
-\ref{fig:populationSettings}와 같다.
+완료된다면, 모집단 설정 다이얼로그는 그림 \ref{fig:populationSettings}와
+같다.
 
 \begin{figure}
 
@@ -13641,16 +13631,16 @@ subjects without time at risk be removed?{]}'' 에서 `아니오
 
 \subsection{실행 설정}\label{-}
 
-여기에는 세가지의 옵션이 있다:
+여기에는 세 가지의 옵션이 있다:
 
 \begin{itemize}
 \tightlist
 \item
-  ``\textbf{표본추출 실행}'': 표본추출을 실행할 지 말지 선택할 수 있다
+  ``\textbf{표본추출 실행}'': 표본추출을 실행할지 말지 선택할 수 있다
   (기본값 = ``아니오 {[}NO{]}''). 만약 ``예 {[}yes{]}''라고 설정하면, 또
   다른 옵션이 나타날 것이다: ``\textbf{몇 명의 환자를 부분집합으로
-  사용할 것인가?}''. 여기서 표본크기는 결정되어질 수 있다. 표본추출은
-  대규모 모집단 (예 1000만 환자) 의 모형이 환자의 표본을 가지고 모형을
+  사용할 것인가?}''. 여기서 표본 크기는 결정될 수 있다. 표본추출은
+  대규모 모집단 (예 1000만 환자)의 모형이 환자의 표본을 가지고 모형을
   테스트하고 작성함으로써 예측 가능한지 여부를 결정하는 효율적인 수단이
   될 수 있다. 예를 들어, 그 표본에서 AUC가 0.5에 가까우면, 그 모형은
   쓸모가 없다.
@@ -13660,7 +13650,7 @@ subjects without time at risk be removed?{]}'' 에서 `아니오
   선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문
   사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다.
 \item
-  ``\textbf{공변량 표준화}'': 여기서 공변량을 표준화 할 것인지 선택할 수
+  ``\textbf{공변량 표준화}'': 여기서 공변량을 표준화할 것인지 선택할 수
   있다 (기본값 = ``예 {[}yse{]}''). 공변량의 표준화는 보통 LASSO모형의
   성공적인 요소로 필요로 한다.
 \end{itemize}
@@ -13694,9 +13684,9 @@ subjects without time at risk be removed?{]}'' 에서 `아니오
   ``\textbf{교차 검정에 사용된 폴드 수}'': 최적의 하이퍼-파라미터 선택에
   사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
 \item
-  ``\textbf{사용자 유형 testSplit 사용 시 테스트/검증 세트를 분할하는데
+  ``\textbf{사용자 유형 testSplit 사용 시 테스트/검증 세트를 분할하는 데
   사용되는 초기값 (선택적)}'': 사용자 유형 testSplit에서 트레인/테스트
-  세트를 분할하는데 사용되는 임의의 초기값을 선택한다.
+  세트를 분할하는 데 사용되는 임의의 초기값을 선택한다.
 \end{itemize}
 
 이 예에서는 그림 \ref{fig:trainingSettings}와 같이 선택을 한다.
@@ -13715,26 +13705,25 @@ subjects without time at risk be removed?{]}'' 에서 `아니오
 연구를 내보내려면 ``유틸리티 {[}Utilities{]}'' 아래의 ``내보내기
 {[}Export{]}''탭을 클릭해야 한다. ATLAS는 연구를 실행할 때 필요한 연구
 이름, 코호트 정의, 선택된 모형, 공변량, 설정과 같은 모든 데이터를
-포함하는 파일에 직접 복사하여 붙여 넣을 수 있는 JSON을 생성할 것이다.
+포함하는 파일에 직접 복사하여 붙여넣을 수 있는 JSON을 생성할 것이다.
 연구를 가져오려면 ``유틸리티 {[}Utilities{]}''아래의 ``가져오기
 {[}Import{]}''탭을 클릭해야 한다. 환자 수준 예측 연구 JSON의 내용을 이
-창에 붙여 넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을
-클릭해야한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로
-일반적으로 비어있는 새 연구 디자인을 사용할 때 수행된다는 점을 유의해야
-한다.
+창에 붙여넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭해야
+한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로
+비어있는 새 연구 디자인을 사용할 때 수행된다는 점을 유의해야 한다.
 
 \subsection{연구 패키지 다운로드}\label{--}
 
 ``유틸리티 {[}Utilities{]}''탭 아래의 ``리뷰 \& 다운로드 {[}Review \&
 Download{]}'' 클릭해라. ``연구 패키지 다운로드 {[}Download Study
-Package{]}'' 부분에서 R의 허용되지않은 모든 문자가 ATLAS에 의해 파일
+Package{]}'' 부분에서 R의 허용되지 않은 모든 문자가 ATLAS에 의해 파일
 이름에서 자동으로 제거된다는 점에 유의하여 R 패키지 서술 이름을 입력해야
 한다. \includegraphics{images/PatientLevelPrediction/download.png}를
-클릭하여 R 패키지를 로컬 폴더로 다운로드 할 수 있다.
+클릭하여 R 패키지를 로컬 폴더로 다운로드할 수 있다.
 
 \subsection{연구 실행}\label{-}
 
-R패키지를 실행하려면 \ref{installR}절에 설명 된대로 R, RStudio, Java가
+R 패키지를 실행하려면 \ref{installR}절에 설명된 대로 R, RStudio, Java가
 설치되어 있어야 한다. 또한 다음과 같이 R에 설치할 수 있는
 \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}
 패키지가 필요하다:
@@ -13753,19 +13742,19 @@ R패키지를 실행하려면 \ref{installR}절에 설명 된대로 R, RStudio, 
 \href{https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html}{``Patient-Level
 Prediction Installation Guide'' vignette}를 참조하면 된다.
 
-연구 R패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R
-Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를
-두번 누르면 RStudio에서 열린다. R스튜디오 서버에서 RStudio를 실행 중인
-경우 파일을 업로드 하고 압축을 푼 다음
+연구 R 패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R
+Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두
+번 누르면 RStudio에서 열린다. R스튜디오 서버에서 RStudio를 실행 중인
+경우 파일을 업로드하고 압축을 푼 다음
 \includegraphics{images/PopulationLevelEstimation/upload.png}을 클릭하여
 연구프로젝트를 열면 된다.
 
 일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 설명을
-따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경 해야 한다.
+따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경해야 한다.
 
 \section{R에서의 연구 실행}\label{r--}
 
-ATLAS 사용하여 연구디자인을 실행하는 방법은 R에서 코드를 직접 작성하는
+ATLAS 사용하여 연구 디자인을 실행하는 방법은 R에서 코드를 직접 작성하는
 것이다.
 \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}패키지에서
 제공하는 함수를 사용할 수 있다. 패키지는 OMOP CDM으로 변환된
@@ -13773,7 +13762,7 @@ ATLAS 사용하여 연구디자인을 실행하는 방법은 R에서 코드를 �
 
 \subsection{코호트 예시화}\label{-}
 
-우선 표적코호트와 결과 코호트를 만들어야 한다. 코호트 만드는 것은
+우선 표적 코호트와 결과 코호트를 만들어야 한다. 코호트 만드는 것은
 \ref{Cohorts}장에 설명되어 있다. 부록에선 표적 코호트 (부록
 \ref{AceInhibitors})와 결과 코호트 (부록 \ref{Angioedema}) 에 대한 전체
 정의를 제공한다. 이 예제에서 우리는 ACE 억제제 코호트를 ID 1, 혈관부종
@@ -13807,7 +13796,7 @@ ATLAS 사용하여 연구디자인을 실행하는 방법은 R에서 코드를 �
 
 마지막 4줄은 \texttt{cdmDbSchema}, \texttt{cohortsDbSchema} 및
 \texttt{cohortsDbTable} 변수와 CDM 버전을 정의한다. 나중에 이것들을
-사용하여 CDM 형식의 데이터 위치, 관심있는 코호트 위치, 사용되는 CDM
+사용하여 CDM 형식의 데이터 위치, 관심 있는 코호트 위치, 사용되는 CDM
 버전을 R에 입력한다. Microsoft SQL의 경우 데이터베이스 스키마는 데이터와
 스키마 모두 지정해야 한다. 예를 들어
 \texttt{cdmDbSchema\ \textless{}-\ “my\_cdm\_data.dbo”}이다.
@@ -13839,7 +13828,7 @@ ATLAS 사용하여 연구디자인을 실행하는 방법은 R에서 코드를 �
 FeatureExtraction 패키지를 사용하여 추출된다.
 \href{https://ohdsi.github.io/FeatureExtraction/}{\texttt{FeatureExtraction}}
 패키지에 대한 자세한 내용은 해당 vignettes에서 볼 수 있다. 예제
-연구에서는 다음과 같은 설정을 사용하기로 결정하였다:
+연구에서는 다음과 같은 설정을 사용하기로 하였다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13858,9 +13847,9 @@ FeatureExtraction 패키지를 사용하여 추출된다.
 
 데이터를 추출의 마지막 단계는 \texttt{getPlpData}함수를 실행하고
 코호트가 저장되는 데이터베이스 스키마, 코호트와 결과를 위한 코호트 정의
-ID, 해당 사람이 데이터에 포함되도록 관찰되어야하는 코호트 색인 일자
+ID, 해당 사람이 데이터에 포함되도록 관찰되어야 하는 코호트 색인 일자
 이전의 최소 일자인 최소 휴약기(washout period)와 같은 연결 세부사항들을
-입력하는것 이고 마지막으로 이전에 생성된 공변량 설정을 입력하는 것이다.
+입력하는 것 이고 마지막으로 이전에 생성된 공변량 설정을 입력하는 것이다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13901,10 +13890,10 @@ load the data in a future session.
 \subsection{추가 포함 기준}\label{--}
 
 최종 연구 모집단은 이전에 정의된 2개의 코호트에서 추가적인 제약조건을
-적용하여 얻어진다. 예를 들어 최소 위험에 노출된 시간을 적용할 수
-있으며(\texttt{requireTimeAtRisk,\ minTimeAtRisk}), 이것이 결과를 가진
-환자에게도 적용되는지 여부를 지정할 수
-있다(\texttt{includeAllOutcomes}). 또한 여기서 표적 코호트 시작에 관련된
+적용하여 얻어진다. 예를 들어 최소 위험에 노출된 시간을 적용할 수 있으며
+(\texttt{requireTimeAtRisk,\ minTimeAtRisk}), 이것이 결과를 가진
+환자에게도 적용되는지 여부를 지정할 수 있다
+(\texttt{includeAllOutcomes}). 또한 여기서 표적 코호트 시작에 관련된
 위험 기간(risk window)의 시작과 끝을 지정한다. 예를 들어 위험 코호트가
 시작된 후 30일부터 위험 기간으로 시작하고 1년 후 종료하려면
 \texttt{riskWindowStart\ =\ 30}, \texttt{riskWindowStart\ =\ 365}로
@@ -13943,12 +13932,12 @@ load the data in a future session.
 
 예를 들어 점진적 부스팅 머신에 다음 설정을 사용하는 경우:
 \texttt{ntrees\ =\ c(100,200),\ maxDepth\ =\ 4} 그리드서치는 점진적
-부스팅 머신 알고리즘을 다른 하이퍼-파라미타의 기본 설정을 더한
+부스팅 머신 알고리즘을 다른 하이퍼-파라미터의 기본 설정을 더한
 \texttt{ntrees\ =\ 100}과 \texttt{maxDepth\ =\ 4} , 다른
-하이퍼-파라미타의 기본 설정을 더한 \texttt{ntrees\ =\ 200}과
+하이퍼-파라미터의 기본 설정을 더한 \texttt{ntrees\ =\ 200}과
 \texttt{maxDepth\ =\ 4}에적용할 것이다. 최고의 교차 검증 실행을 이끄는
-하이퍼-파라미터는 마지막 모형으로 선택 될 것이다. 이 문제를 위해 여러
-하이퍼-파라미터 값을 가지고 점진적 부스팅 머신을 만들기로 하였다:
+하이퍼-파라미터는 마지막 모형으로 선택될 것이다. 이 문제를 위해 여러
+하이퍼-파라미터값을 가지고 점진적 부스팅 머신을 만들기로 하였다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13962,7 +13951,7 @@ load the data in a future session.
 \texttt{plpData} 및 모형 설정을 사용한다. 데이터를 75\%
 \textasciitilde{} 25\%로 분할하기 위해 \texttt{testSplit}(사람/시간)과
 \texttt{testFraction} 파라미터를 사용하고 환자 수준 예측 파이프라인을
-실행 할 수 있다:
+실행할 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13976,14 +13965,14 @@ load the data in a future session.
 \end{Highlighting}
 \end{Shaded}
 
-패키지 안에 R xgboost패키지를 사용하여 데이터의 75\%를 사용하는 점진적
+패키지 안에 R xgboost 패키지를 사용하여 데이터의 75\%를 사용하는 점진적
 부스팅 머신 모형(gradient boosting machine model)을 맞추고 나머지 25\%에
-대해 모형을 평가 한다. 결과 데이터 구조는 모형과 성능에 대한 정보가
+대해 모형을 평가한다. 결과 데이터 구조는 모형과 성능에 대한 정보가
 포함되어 있다.
 
 \texttt{runPIP} 함수에는 기본적으로 \texttt{TRUE}로 설정된
 \texttt{plpData}, \texttt{plpResults}, \texttt{plpplots},
-\texttt{evaluation} 등을 저장할 수 있는 몇가지 파라미터가 있다.
+\texttt{evaluation} 등을 저장할 수 있는 몇 가지 파라미터가 있다.
 
 다음을 사용하여 모형을 저장할 수 있다:
 
@@ -14022,8 +14011,8 @@ load the data in a future session.
 연구를 실행하면 \texttt{runPLP}함수는 학습/테스트 세트에서 학습된 모형과
 학습/테스트 세트에서 모형의 평가를 해준다.
 \texttt{viewPLP(runPLP\ =\ gbmResults)}를 실행하여 양방향의 결과를 볼 수
-있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든 측정 값을
-볼 수 있는 Shiny App을 열 것이다(Shiny Application 섹션의 그림
+있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든 측정값을 볼
+수 있는 Shiny App을 열 것이다(Shiny Application 섹션의 그림
 \ref{fig:shinySummary}을 참조).
 
 모든 평가 그림을 폴더에 생성하고 저장하려면 다음 코드를 실행하면 된다:
@@ -14478,9 +14467,9 @@ For more details see the help page of the function.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\section{Exercises}\label{exercises-1}
+\section{Exercises}\label{exercises}
 
-\subsubsection*{Prerequisites}\label{prerequisites-1}
+\subsubsection*{Prerequisites}\label{prerequisites}
 \addcontentsline{toc}{subsubsection}{Prerequisites}
 
 For these exercises we assume R, R-Studio and Java have been installed
@@ -14519,7 +14508,7 @@ package will create these in the COHORT table:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection*{Problem Definition}\label{problem-definition-2}
+\subsubsection*{Problem Definition}\label{problem-definition}
 \addcontentsline{toc}{subsubsection}{Problem Definition}
 
 \begin{quote}
@@ -14555,19 +14544,19 @@ Suggested answers can be found in Appendix \ref{Plpanswers}.
 
 \part{Evidence Quality}\label{part-evidence-quality}
 
-\chapter{Evidence Quality}\label{EvidenceQuality}
+\chapter{근거의 질}\label{EvidenceQuality}
 
 \emph{Chapter leads: Patrick Ryan \& Jon Duke}
 
 \index{evidence quality}
 
-\section{Attributes of Reliable Evidence (신뢰성을 위한 근거의
-속성)}\label{attributes-of-reliable-evidence----}
+\section{신뢰성을 위한 근거의 속성 (Attributes of Reliable
+Evidence)}\label{----attributes-of-reliable-evidence}
 
 본격적인 여정 시작에 앞서, 우리가 바라는 이상적인 종착지가 어디인지
 상상해보는 것은 도움이 될 것이다. 데이터를 근거로 만들기 위한 우리의
 여정을 지원하기 위해서, 우리는 근거의 신뢰도를 높일 수 있는 기반
-속성들을 중요시 여긴다.
+속성들을 중요시한다.
 
 \begin{figure}
 
@@ -14582,18 +14571,18 @@ Suggested answers can be found in Appendix \ref{Plpanswers}.
 연구원이 주어진 질문에 대해 동일한 데이터를 이용하여 동일한 분석을
 수행할 때 동일한 결과가 나올 것이라 기대할 수 있어야 한다. 근거의 반복
 가능성에 대한 최소한의 요구 조건은 근거가 특정 데이터를 입력하고 정의된
-절차를 수행하여서 나온 결과라는 점과, 이것은 사후 의사 결정 과정에서의
-수동적인 개입으로부터 자유롭다는 점이다. 조금 더 이상적으로는, 신뢰할 수
+절차를 수행하여서 나온 결과라는 점과 이것은 사후 의사 결정 과정에서의
+수동적인 개입으로부터 벗어난다는 점이다. 조금 더 이상적으로는, 신뢰할 수
 있는 근거는 \textbf{재현 가능(reproducible)} 해야 하는데, 다른 연구자가
-주어진 데이터와 분석방법을 가지고 동일한 업무를 수행하였을 때 첫
+주어진 데이터와 분석 방법을 가지고 동일한 업무를 수행하였을 때 첫
 연구자의 수행 결과와 동일한 결과를 낼 수 있어야 한다. 재현 가능성을
 위해서 연구 절차는 일반적인 사람이 읽을 수 있고, 컴퓨터가 실행할 수
 있으며 충분히 구체화 되어 있어 추가적인 연구자의 결정이 연구 결과에
 반영되지 않도록 해야 한다. 반복성과 재현성을 충족시킬 수 있는 가장
 효과적인 방법은 사전에 정의한 데이터의 입출력을 이용하여 표준화된 분석
-방법을 사용하고, 이러한 절차를 버전관리 데이터베이스에 적용하는 것이다.
+방법을 사용하고, 이러한 절차를 버전 관리 데이터베이스에 적용하는 것이다.
 
-또한 우리는 동일한 질문에 대해 비슷한 데이터를 가지고 동일 분석방법을
+또한 우리는 동일한 질문에 대해 비슷한 데이터를 가지고 동일 분석 방법을
 적용하여 비슷한 결과를 얻을 수 있는, \textbf{복제 가능한(replicable)}
 것으로 보인다면 우리가 주장하는 근거는 더욱 신뢰할 만하다고 자신할 수
 있다. 예를 들어, 한 대규모 보험사의 청구 데이터베이스에 대한 분석에서
@@ -14602,7 +14591,7 @@ Suggested answers can be found in Appendix \ref{Plpanswers}.
 속성들은 Austin Bradford Hill의 인과적 관점과 잘 일치한다. ``다른 사람,
 다른 장소, 환경 및 시간에서도 반복적으로 관찰되었습니까?
 \ldots{}(중략)\ldots{} 반복적인 상황과 관찰만이 우연으로 설명되는
-현상인지 혹은 실재하는 위험인지 답할 수 있다.''\citep{hill_1965} 환자
+현상인지 혹은 실재하는 위험인지 답할 수 있다.'' \citep{hill_1965} 환자
 수준 예측의 맥락에서 복제 가능성은 외부 검증(external validation)의
 시행에 대한 중요성뿐 아니라, 한 데이터베이스에서 훈련된 모델이 다른
 데이터베이스에 적용될 때 결과를 구별할 수 있는 정확도(discriminative
@@ -14613,63 +14602,63 @@ accuracy)와 검정능(calibration)을 관찰함으로써 모델의 성능을 �
 네트워크의 핵심 가치는 다른 인구, 지역, 자료 획득 과정 등으로 대표되는
 다양성이다. \citet{madigan_2013} 은 효과 추정치(effect estimates)가
 데이터의 선택에 따라 민감하게 변할 수 있음을 보여주었다. 각 데이터
-소스가 단일 연구의 신뢰도를 하락시킬 수 있는 고유의 한계점과 비뚤림이
-있다는 점을 인식한 상태에서도, 서로 다른 데이터셋을 사용하여 유사한 결과
-패턴이 관측된 것은 상당히 강력한 의미를 가지고 있다. 이는 데이터 소스
-각각이 가지고 있는 편향의 가능성을 상당 부분 감소시켜, 연구 결과를
-설명할 수 있기 때문이다. 네트워크 연구의 인구수준 효과 추정치가 미국,
-유럽, 아시아 그리고 다양한 청구데이터, 전자의무기록 데이터 상에서 일관된
-결과를 보여줄 때 해당 의학적 중재는 의학적 의사 결정과정에서 더 큰
+소스가 단일 연구의 신뢰도를 하락시킬 수 있는 고유의 한계점과 편향이
+있다는 점을 인식한 상태에서도, 서로 다른 데이터 세트를을 사용하여 유사한
+결과 패턴이 관측된 것은 상당히 강력한 의미가 있다. 이는 데이터 소스
+각각이 가지고 있는 편향의 가능성을 상당 부분 감소 시켜, 연구 결과를
+설명할 수 있기 때문이다. 네트워크 연구의 인구 수준 효과 추정치가 미국,
+유럽, 아시아 그리고 다양한 청구데이터, 전자의무기록 데이터상에서 일관된
+결과를 보여줄 때 해당 의학적 중재는 의학적 의사 결정 과정에서 더 큰
 영향을 줄 수 있는 더욱 강력한 근거로서 인식되어야 한다.
 
-신뢰할 만한 근거는 분석 내에서 주관적 선택에 지나치게 민감하지 않는
-\textbf{완건성(robust)}을 가져야 한다.주어진 연구에 대해서 잠재적으로
+신뢰할 만한 근거는 분석 내에서 주관적 선택에 지나치게 민감하지 않은
+\textbf{완건성(robust)}을 가져야 한다. 주어진 연구에 대해서 잠재적으로
 합당하다고 고려되는 대안적인 통계 방법이 있다면, 결과에 따라서 다른
-방법을 통해 얻은 동일한 결과로 기존 연구 결과에 대한 확신을 갖거나, 혹은
-상충되는 결과를 통해 기존 연구에 대한 경각심을 줄 수 있다.
-\citep{madigan2013design} 인구수준 효과 추정에서 민감도 분석에는 연구
+방법을 통해 얻은 동일한 결과로 기존 연구 결과에 대한 확신을 하거나, 혹은
+상충하는 결과를 통해 기존 연구에 대한 경각심을 줄 수 있다.
+\citep{madigan2013design} 인구 수준 효과 추정에서 민감도 분석에는 연구
 설계 선정 (코호트 비교 연구, 자기 통제 환자군 (self-controlled case
-series) 연구 등) 과 분석적 고려사항의 선정 (코호트 비교에서 혼란변수
-조정을 위한 성향점수매칭, 계층화 또는 가중치 유무) 과 같은 고급 연구
+series) 연구 등) 과 분석적 고려사항의 선정 (코호트 비교에서 혼란 변수
+조정을 위한 성향점수 매칭, 계층화 또는 가중치 유무) 과 같은 고급 연구
 설계의 문제를 포함할 수 있다.
 
-마지막으로 가장 중요할 수도 있는 부분은 근거는 \textbf{검정되어야
+마지막으로 가장 중요할 수도 있는 부분은 근거는 \textbf{검정 되어야
 한다(calibrated)}는 점이다. 근거 생성 시스템에 대한 성능이 검증되지 않은
-상태에서는 해당 시스템이 미지의 연구 질문에 대한 답변을 제공한다 라고
+상태에서는 해당 시스템이 미지의 연구 질문에 대한 답변을 제공한다고
 말하기 불충분하다. 폐쇄형 시스템은 잘 알려진 작동 특성을 가져야 하며,
 이는 측정 가능하고 시스템이 생성하는 어떠한 결과에 대해서도 그 상황을 잘
-전달할 수 있어야 한다. 통계적 표현들은 경험적으로 잘 정립된 특성을
-가지고 있음을 보여줄 수 있어야 한다. 예를 들어 95\% 신뢰구간이란 95\%의
-확률 범위를 갖는다는 뜻이고, 10\%의 예상 확률이란 인구 집단에서 관측된
-사건 발생의 비율이 10\%이라는 뜻이다. 관찰 연구에서는 항상 연구 설계,
-연구 방법, 연구 데이터에 대한 가정을 검정할 수 있는 방법을 수반해야
-한다. 이 검정 방법들은 연구 타당성에 일차적인 위협들에 (선택 비뚤림,
-교란변수, 측정 오차) 대해 우선적으로 집중하여 평가하여야 한다. 음성
-대조군(Negative controls) 은 관찰연구에서 발생할 수 있는 계통오차를
-확인하고 감소시킬 수 있는 강력한 도구인 것으로 보여졌다.
+전달할 수 있어야 한다. 통계적 표현들은 경험적으로 잘 정립된 특성이
+있음을 보여줄 수 있어야 한다. 예를 들어 95\% 신뢰구간이란 95\%의 확률
+범위를 갖는다는 뜻이고, 10\%의 예상 확률이란 인구 집단에서 관측된 사건
+발생의 비율이 10\%이라는 뜻이다. 관찰 연구에서는 항상 연구 설계, 연구
+방법, 연구 데이터에 대한 가정을 검정할 방법을 수반해야 한다. 이 검정
+방법들은 연구 타당성에 일차적인 위협들에 (선택 편향, 교란변수, 측정
+오차) 대해 먼저 집중하여 평가하여야 한다. 음성 대조군(Negative
+controls)은 관찰연구에서 발생할 수 있는 계통 오차를 확인하고 감소시킬 수
+있는 강력한 도구인 것으로 보였다.
 \citep{schuemie_2016, schuemie_2018, schuemie_2018b}
 
 \section{근거의 질에 대한 이해}\label{---}
 
 하지만 우리의 연구 결과가 충분히 신뢰할만한 수준인지 어떻게 알 수
 있을까? 누군가가 우리의 연구에서 설정해놓은 특정 환경들을 신뢰할까?
-규제적 의사결정은 어떨까? 향후 연구의 기반이 될 수 있을까?새로운 연구가
+규제적 의사결정은 어떨까? 향후 연구의 기반이 될 수 있을까? 새로운 연구가
 발표되거나 확산되는 과정에서 독자는 연구의 형태 (무작위 대조시험, 관찰
-연구, 혹은 다른 유형의 분석방법) 에 관계없이 이러한 질문들을 염두에
+연구, 혹은 다른 유형의 분석 방법) 에 관계없이 이러한 질문들을 염두에
 두어야 한다. \index{evidence quality} \index{regulatory decision-making}
 
 흔히 관찰 연구(observational study) 즉, 실제 데이터(real world data)를
 활용한 연구를 진행하면서 마주하게 되는 우려는 바로 데이터 품질에 관한
 부분이다. \citep{botsis2010secondary, hersh2013caveats, sherman2016real}
 일반적으로 관찰 연구에 사용된 데이터는 원래 연구 목적으로 수집된 것이
-아니므로 고유의 비뚤림(inherent biases)과 같은 불완전하거나 부정확한
+아니므로 내재적 편향(inherent biases)과 같은 불완전하거나 부정확한
 데이터의 수집으로 인한 문제를 겪을 수 있다. 이러한 우려로 인해 데이터
 품질을 측정하고 특성화하고 이상적으로 데이터 품질을 개선하려는 방법에
 대한 연구가 계속해서 증가하고 있다.
 \citep{kahn2012pragmatic, liaw2013towards, weiskopf_2013} 오딧세이
-커뮤니티는 이러한 연구들을 강력히 지지하며, 커뮤니티 회원들은 OMOP
-공통데이터모델 및 오딧세이 네트워크의 데이터 품질을 조사하는 많은
-연구들을 직접 주도하고 참여하였다.
+커뮤니티는 이러한 연구를 강력히 지지하며, 커뮤니티 회원들은 OMOP
+공통데이터모델 및 오딧세이 네트워크의 데이터 품질을 조사하는 많은 연구를
+직접 주도하고 참여하였다.
 \citep{huser_multisite_2016, kahn_transparent_2015, callahan2017comparison, yoon_2016}
 \index{data quality} \index{community}
 
@@ -14682,23 +14671,23 @@ McDonald 박사의 인용에도 잘 반영되어 있다. :
 것에서부터 시작된다. \index{Clem McDonald}
 \end{quote}
 
-그러므로 우리는 공동체로서 질문을 해야 할 필요가 있다. --\emph{불완전한
+그러므로 우리는 공동체로서 질문해야 할 필요가 있다. --\emph{불완전한
 데이터가 주어지면, 어떻게 우리는 신뢰할만한 근거를 얻을 수 있을까?}
 
-이 문제에 대한 대답은 ``근거의 품질''에 대한 전반적인 부분을 살펴보는데
+이 문제에 대한 대답은 ``근거의 품질''에 대한 전반적인 부분을 살펴보는 데
 있다. 데이터에서부터 근거로의 과정에 대한 검토, 근거 생성 과정의 구성
 요소들에 대한 확인, 각 구성 요소의 질에 대한 신뢰 구축 방법의 결정,
-그리고 이것을 투명하게 전달하는 방법을 각각 살펴보았다.근거의 질이란
+그리고 이것을 투명하게 전달하는 방법을 각각 살펴보았다. 근거의 질이란
 단순히 관찰 데이터의 품질뿐 아니라 관찰 분석에 사용된 방법, 소프트웨어
 및 임상적 정의의 타당성을 고려한다. \index{community}
 \index{reliable evidence}
 
-뒤이어 나오는 단원에서 우리는 근거의 품질에 해당하는 4가지 구성요소에
+뒤이어 나오는 단원에서 우리는 근거의 품질에 해당하는 네 가지 구성요소에
 대한 부분을 살펴볼 것이며, 이를 표\ref{tab:evidenceQuality}에
 나타내었다.
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:evidenceQuality} 근거의 품질에 해당하는 네가지
+\caption{\label{tab:evidenceQuality} 근거의 품질에 해당하는 네 가지
 구성요소}\tabularnewline
 \toprule
 구성요소 & 측정 대상\tabularnewline
@@ -14723,11 +14712,11 @@ McDonald 박사의 인용에도 잘 반영되어 있다. :
 \section{근거 품질의 전달}\label{--}
 
 근거 품질의 중요한 측면은 데이터에서 근거로의 여정에서 발생하는
-불확실성을 표현하는 능력이다.오딧세이의 활동을 통해 이루고자 하는
-거시적인 목표는 오딧세이에서 생성된 근거가 --비록 여러 방면으로 불완전
-하더라도-- 강점과 약점에 대하여 일관되게 측정되고, 엄격하고 공개적인
-방식으로 전달되어 생성되었다는 신뢰감을 의료 전문가들에게 제공해주는
-것이다.
+불확실성을 표현하는 능력이다. 오딧세이의 활동을 통해 이루고자 하는
+거시적인 목표는 오딧세이에서 생성된 근거가 --비록 여러 방면으로
+불완전하더라도-- 강점과 약점에 대하여 일관되게 측정되고, 엄격하고
+공개적인 방식으로 전달되어 생성되었다는 신뢰감을 의료 전문가들에게
+제공해주는 것이다.
 
 \section{요약}\label{-12}
 
@@ -14755,25 +14744,25 @@ McDonald 박사의 인용에도 잘 반영되어 있다. :
   \end{itemize}
 \item
   근거를 전달하는 과정에서, 근거의 품질에 대한 다양한 위협으로부터
-  나타나게 되는 불확실성들 또한 표현해야 한다.
+  나타나게 되는 불확실성 또한 표현해야 한다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\chapter{Data Quality}\label{DataQuality}
+\chapter{데이터의 질}\label{DataQuality}
 
 \emph{Chapter leads: Martijn Schuemie, Vojtech Huser \& Clair Blacketer}
 
 관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지
-않는다. 예를 들어, 전자건강기록 (Electronic Health Records, EHRs)은
+않는다. 예를 들어, 전자 건강기록(Electronic Health Records, EHRs)은
 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용
 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은
 이들이 이러한 데이터가 임상 연구에 적합한지 여부에 대해 의문을 가지고
 있으며, \citet{vanDerLei_1991} 은 ``데이터는 수집된 목적으로만
-사용되어야 한다 (Data shall be used only for the purpose for which they
-were collected.)''고 주장하였다. 문제는 데이터가 우리가 원하는 연구를
-위해 수집되지 않았기 때문에, 충분한 품질을 보자할 수 없다는 것이다.
+사용되어야 한다(Data shall be used only for the purpose for which they
+were collected)''고 주장하였다. 문제는 데이터가 우리가 원하는 연구를
+위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다.
 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의
-품질도 낮을 수 밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서
+품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서
 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로
 한다:
 
@@ -14782,7 +14771,7 @@ were collected.)''고 주장하였다. 문제는 데이터가 우리가 원하�
 our research purposes) ?
 \end{quote}
 
-우리는 데이터 품질 (DQ)을 다음과 같이 정의할 수 있다
+우리는 데이터 품질(DQ)을 다음과 같이 정의할 수 있다
 \citep{roebuck_2012}: \index{data quality}
 
 \begin{quote}
@@ -14794,10 +14783,10 @@ specific use).
 \end{quote}
 
 주목할만한 것은 우리의 데이터가 완벽하지는 않지만, 목적에 충분히 적합할
-수 있는 있다는 것이다.
+수 있다는 것이다.
 
 DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방법론이 개발되어
-왔다. DQ평가는 2가지 유형으로 구분될 수 있다 \citep{weiskopf_2013}:
+왔다. DQ 평가는 2가지 유형으로 구분될 수 있다 \citep{weiskopf_2013}:
 보편적인 DQ를 확인하기 위한 평가, 특정 연구의 맥락에서 DQ를 확인하기
 위한 평가.
 
@@ -14809,24 +14798,25 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 Problems)}\label{-----sources-of-data-quality-problems}
 
 \ref{EvidenceQuality}장에서 언급한 바와 같이, 의사들이 본인의 생각을
-기록할 때 데이터 품질과 관련된 많은 위험요소들이 발생한다.
-\citet{dasu_2003} 은 각 단계에 구성된 DQ를 제시하면서, 데이터의
-수명주기에 따라 DQ를 구분하였다. 그들은 이를 DQ 연속체 (DQ continuum)라
+기록할 때 데이터 품질과 관련된 많은 위험요소가 발생한다.
+\citet{dasu_2003} 은 각 단계에 구성된 DQ를 제시하면서, 데이터의 수명
+주기에 따라 DQ를 구분하였다. 그들은 이를 DQ 연속체(DQ continuum)라
 하였다:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{데이터 수집 및 통합 (Data gathering and integration)}. 발생
-  가능한 문제로 잘못된 수기 입력, 편향 (예. upcoding in claims), EHR에서
-  잘못된 테이블과의 결합, 누락값을 기본값으로 대체하는 것 등이 있다.
+  \textbf{데이터 수집 및 통합(Data gathering and integration)}. 발생
+  가능한 문제로 잘못된 수기 입력, 편향 (예를 들어 upcoding in claims),
+  EHR에서 잘못된 테이블과의 결합, 누락 값을 기본값으로 대체하는 것 등이
+  있다.
 \item
-  \textbf{데이터 저장 및 지식 공유 (Data storage and knowledge
-  sharing)}. 데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이
-  잠재적인 문제로 여겨진다.
+  \textbf{데이터 저장 및 지식 공유(Data storage and knowledge sharing)}.
+  데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이 잠재적인 문제로
+  여겨진다.
 \item
-  \textbf{데이터 분석 (Data analysis)}. 잘못된 데이터 변환, 부정확한
+  \textbf{데이터 분석(Data analysis)}. 잘못된 데이터 변환, 부정확한
   데이터 해석, 그리고 부적절한 방법론 사용 등의 문제가 포함될 수 있다.\\
 \item
   \textbf{Data publishing}. 후속 사용을 위해 데이터를 게시하는 경우
@@ -14835,13 +14825,13 @@ Problems)}\label{-----sources-of-data-quality-problems}
 
 우리가 사용하는 데이터는 종종 이미 수집되고 통합되어 있기 때문에,
 1단계에서 개선할 수 있는 것은 거의 없다. 이 단계에서 생성된 DQ를 확인할
-수 있는 방법은 다음 절에서 논의될 것이다.
+방법은 다음 절에서 논의될 것이다.
 
-유사하게, 특정 형식으로 데이터를 받기 때문에 2단꼐에 대한 영향력도 거의
-없다. 하지만 OHDSI에서 우리는 우리의 관찰 데이터를 공통데이터모델
-(Common Data Model, CDM)로 변환하고, 이 프로세스에 대한 소유권을 갖는다.
-몇몇은 이러한 특정 단계가 DQ를 저하시킬 것이라 우려를 표한다. 하지만
-우리는 이 프로세스를 통제하기 때문에, 이후
+유사하게, 특정 형식으로 데이터를 받기 때문에 2단계에 대한 영향력도 거의
+없다. 하지만 OHDSI에서 우리는 우리의 관찰 데이터를 공통
+데이터모델(Common Data Model, CDM)로 변환하고, 이 프로세스에 대한
+소유권을 갖는다. 몇몇은 이러한 특정 단계가 DQ를 저하할 것이라 우려를
+표한다. 하지만 우리는 이 프로세스를 통제하기 때문에, 이후
 15.2.2절\ref{etlUnitTests}에서 논의하는 것과 같이 DQ를 보호하기 위한
 엄격한 안전장치를 구축할 수 있다. 여러
 연구\citep{defalco_2013, makadia_2014, matcho_2014, voss_2015, voss_2015b, hripcsak_2018}에
@@ -14852,8 +14842,8 @@ Problems)}\label{-----sources-of-data-quality-problems}
 
 3단계 (데이터 분석) 또한 우리의 통제 아래에 있다. OHDSI에서 우리는 이
 단계의 품질 이슈에 대해 DQ 용어를 사용하지 않고 각각
-16장\ref{ClinicalValidity}, 17장\ref{SoftwareValidity}, 그리고
-18장\ref{MethodValidity}에서 다루는 \emph{clinical validity},
+\ref{ClinicalValidity}장, \ref{SoftwareValidity}장, 그리고
+\ref{MethodValidity}장에서 다루는 \emph{clinical validity},
 \emph{software validity} 그리고\emph{method validity}라는 용어를
 사용한다.
 
@@ -14868,22 +14858,23 @@ General)}\label{---data-quality-in-general}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{적합성(Conformance)}: 데이터 값이 지정된 표준과 형식을
-  준수하는가? 3가지 하위 유형으로 식별됨:
+  \textbf{적합성(Conformance)}: 데이터값이 지정된 표준과 형식을
+  준수하는가? 3가지 하위 유형으로 식별된다:
 \end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Value}: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예.
-  모든 Provider의 의료 전문분야는 유효한 전문 분야인가?
+  \textbf{Value}: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예를
+  들어 모든 Provider의 의료 전문분야는 유효한 전문 분야인가?
 \item
   \textbf{Relational}: 기록된 데이터가 지정된 관계적 제약(relational
-  constraints)과 일치하는가? 예. DRUG\_EXPOSURE 테이블의 PROVIDER\_ID가
-  PROVIDER 테이블의 해당 레코드를 가지고 있는가?
+  constraints)과 일치하는가? 예를 들어 DRUG\_EXPOSURE 테이블의
+  PROVIDER\_ID가 PROVIDER 테이블의 해당 레코드를 가지고 있는가?
 \item
   \textbf{Computation}: 데이터에 대한 계산이 의도한 결과를 산출하는가?
-  예. 키와 몸무게에서 계산된 BMI와 데이터에 기록된 BMI가 일치하는가?
+  예를 들어 키와 몸무게에서 계산된 BMI와 데이터에 기록된 BMI가
+  일치하는가?
 \end{itemize}
 
 \begin{enumerate}
@@ -14891,24 +14882,25 @@ General)}\label{---data-quality-in-general}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  \textbf{완전성 (Completeness)}: 특정 변수가 존재하는지 여부(예.
-  진료실에서 측정된 체중이 기록되어 있는가?)와 모든 변수의 값이 기록되어
-  있는지 여부(예. 모든 사람이 성별에 관련된 데이터를 가지고 있는가?)를
-  나타냄
+  \textbf{완전성(Completeness)}: 특정 변수가 존재하는지 여부 (예를 들어
+  진료실에서 측정된 체중이 기록되어 있는가?) 와 모든 변수의 값이
+  기록되어 있는지 (예를 들어 모든 사람이 성별에 관련된 데이터를 가지고
+  있는가?) 를 나타낸다.
 \item
   \textbf{Plausibility}: 데이터의 값을 믿을 수 있는가? 3가지 하위
-  유형으로 식별됨:
+  유형으로 식별된다:
 
   \begin{itemize}
   \tightlist
   \item
-    \textbf{Uniqueness}: 예. 각각의 PERSON\_ID는 PERSON 테이블에서
-    한번만 발생하는가?
+    \textbf{Uniqueness}: 예를 들어 각각의 PERSON\_ID는 PERSON 테이블에서
+    한 번만 발생하는가?
   \item
-    \textbf{Atemporal}: 값, 분표 또는 밀도가 예상 값과 일치하는가? 예.
-    데이터에 의해 암시된 당뇨병의 유행이 실제 알려진 유행과 일치하는가?
+    \textbf{Atemporal}: 값, 분포 또는 밀도가 예상값과 일치하는가? 예를
+    들어 데이터에 의해 암시된 당뇨병의 유행이 실제 알려진 유행과
+    일치하는가?
   \item
-    \textbf{Temporal}: 값의 변화가 예상과 일치하는가? 예. 예방접종
+    \textbf{Temporal}: 값의 변화가 예상과 일치하는가? 예를 들어 예방접종
     순서는 권고사항과 일치하는가?
   \end{itemize}
 
@@ -14933,27 +14925,27 @@ General)}\label{---data-quality-in-general}
 
 \index{data quality!verification} \index{data quality!validation}
 
-\subsection{데이터 품질 checks (Data Qualityintegrate
-Checks)}\label{--checks-data-qualityintegrate-checks}
+\subsection{데이터 품질 검사 (Data Qualityintegrate
+Checks)}\label{---data-qualityintegrate-checks}
 
 \index{ACHILLES} \index{data quality!checks}
 
-Kahn은 데이터가 주어진 요구조건을 준수하는지 테스트하기 위해
-\emph{데이터 품질 check (data quality check)} (때로는 \emph{데이터 품질
-rule (data quality rule)}이라고도 함)라는 용어를 도입하였다 (예. 잘못된
-출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할 수 없는
-연령 표시). 우리는 자동화된 DQ 툴들을 만들어 소프트웨어에서 이러한
-check들을 수행한다. 이러한 툴 중 하나가
+Kahn은 데이터가 주어진 요구 조건을 준수하는지 테스트하기 위해
+\emph{데이터 품질 검사(data quality check)} (때로는 \emph{데이터 품질
+rule(data quality rule)}이라고도 함)라는 용어를 도입하였다 (예를 들어
+잘못된 출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할
+수 없는 연령 표시). 우리는 자동화된 DQ 툴들을 만들어 소프트웨어에서
+이러한 check들을 수행한다. 이러한 툴 중 하나가
 \href{https://github.com/OHDSI/Achilles}{ACHILLES} (Automated
 Characterization of Health Information at Large-scale Longitudinal
 Evidence Systems, ACHILLES)이다. \citep{huser_methods_2018} ACHILLES는
 CDM에 부합하는 데이터베이스의 특성과 시각화를 제공하는 소프트웨어
 툴이다. 데이터베이스 네트워크에서 DQ를 평가하는데 사용할 수 있다
-\citep{huser_multisite_2016}. ACHILLES는 독립형 툴로서 사용 가능하며,
+\citep{huser_multisite_2016}. ACHILLES는 독립형 툴로써 사용 가능하며,
 ``데이터 소스(Data Sources)'' 기능으로 ATLAS에서도 통합되어 있다.
 \index{data quality!data quality check} \index{ACHILLES}
 
-ACHILLES는 각 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터
+ACHILLES는 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터
 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다.
 ``715: DRUG\_CONCEPT에 의한 DAYS\_SUPPLY의 분포'' and ``506: 성별에 따른
 사망 연령 분포''. 이러한 분석 결과는 데이터베이스에 저장되며, 웹
@@ -14963,12 +14955,12 @@ ACHILLES는 각 분석마다 분석 ID와 간단한 설명을 지닌 170개 이�
 
 공동체에서 DQ 평가를 위해 만든 또 다른 툴로
 \href{https://github.com/OHDSI/DataQualityDashboard}{Data Quality
-Dashboard (DQD)}가 있다. ACHILLES가 특성화 분석을 실행하여 CDM
+Dashboard(DQD)}가 있다. ACHILLES가 특성화 분석을 실행하여 CDM
 인스턴스(instance)에 대한 전반적인 시각적 이해를 제공한다면, DQD는
-테이블 별, 필드 별로 주어진 규격에 적합하지 않는 CDM의 레코드 수를
-정량화한다. 전체적으로, 1500건 이상의 checks가 수행되고, 각각은 Kahn의
+테이블별, 필드 별로 주어진 규격에 적합하지 않은 CDM의 레코드 수를
+정량화한다. 전체적으로, 1,500건 이상의 checks가 수행되고, 각각은 Kahn의
 프레임워크로 구성된다. 각 check의 결과는 임계값과 비교되며, FAIL은 해당
-값을 초과하는 위반 뱅의 백분율로 간주된다. 표
+값을 초과하는 위반 행의 백분율로 간주한다. 표
 15.1\ref{tab:dqdExamples}은 checks의 예시를 보여준다.
 
 표: \label{tab:dqdExamples} Data Quality Dashboard에서 데이터 품질 rules
@@ -15000,8 +14992,8 @@ FAIL\strut
 \begin{minipage}[t]{0.12\columnwidth}\raggedright\strut
 0.99\strut
 \end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright\strut
-MEASUREMENT 테이블의 measurement\_source\_value 필드에서 0으로 매핑되어
-있는 소스 데이터의 수와 백분율.\strut
+MEASUREMENT 테이블의 measurement\_source\_value 필드에서 0으로 매핑된
+소스 데이터의 수와 백분율.\strut
 \end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright\strut
 0.30\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
@@ -15045,17 +15037,17 @@ PASS\strut
 속하며 여러 가지 방식으로 구성된다. 테이블 checks는 모든 필수 테이블이
 존재하는지 판별하는 등 CDM 내에서 상위 레벨로 수행되는 check이다. 필드
 레벨의 checks는 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는
-방법으로 수행된다. 이는 모든 기본키가 실제로 고유한지 확인하는 것과 모든
-표준 concept 필드가 많은 다른 것들 중 적절한 도메인의 concept\_ID를
+방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과
+모든 표준 concept 필드가 많은 다른 것 중 적절한 도메인의 concept\_ID를
 포함하는지 확인하는 것이 포함된다. Concept 레벨의 검사는 개별적인
 concept\_id를 조사하기 위해 조금 더 깊이 들어간다. 이 중 상당수는 성별에
-따른 concept이 부정확한 성별(예. 여성 환자의 전립선 암)에 속하지 않도록
-하는 것과 같이 Kahn의 프레임워크 중 타당성(Plausibility) 카테고리에
-속한다.
+따른 concept이 부정확한 성별 (예를 들어 여성 환자의 전립선암) 에 속하지
+않도록 하는 것과 같이 Kahn의 프레임워크 중 타당성(Plausibility)
+카테고리에 속한다.
 
 \BeginKnitrBlock{rmdimportant}
 ACHILLES와 DQD는 CDM 데이터에서 실행된다. 이렇게 식별된 DQ 이슈는
-cDM으로의 변환때문일 수 있지만, 소스 데이터에서 이미 존재하는 DQ 문제를
+cDM으로의 변환 때문일 수 있지만, 소스 데이터에서 이미 존재하는 DQ 문제를
 반영할 수도 있다. 만약 변환이 잘못되었을 경우, 문제를 해결하는 것은
 우리의 통제 아래에 있지만, 기본 데이터가 잘못되었을 경우, 유일한 조치
 행동은 위반된 기록을 삭제하는 것이다.
@@ -15068,21 +15060,21 @@ cDM으로의 변환때문일 수 있지만, 소스 데이터에서 이미 존재
 상위 레벨의 데이터 품질 checks뿐만 아니라, 개별 수준의 데이터 품질
 checks도 수행되어야 한다. 데이터가 CDM으로 변환되는 ETL(추출-변환-적재,
 Extract-Transform-Load) 프로세스는 종종 상당히 복잡하고, 이러한
-복잡성으로 인해 실수를 눈치 채지 못할 위험이 있다. 더욱이, 시간이 지남에
+복잡성으로 인해 실수를 눈치채지 못할 위험이 있다. 더욱이, 시간이 지남에
 따라 원본 데이터 모델이 변경되거나, CDM 버전이 업데이트 되면, ETL
 프로세스를 수정할 필요가 있다. ETL과 같이 복잡한 프로세스의 변경은
 의도하지 않은 결과를 초래할 수 있고, ETL의 모든 측면을 재고하고 검토해야
 한다.
 
-ETL이 해야하는 것을 정확히 하고, 계속하기 위해서 일련의 unit tests를
+ETL이 해야 하는 것을 정확히 하고, 계속하기 위해서 일련의 unit tests를
 구성하는 것이 매우 권장된다. Unit test란 하나의 측면을 자동으로 확인하는
-작은 코드 조각이다. 6장에서\ref{ExtractTransformLoad} 설명한
+작은 코드 조각이다. \ref{ExtractTransformLoad}장에서 설명한
 Rabbit-in-a-Hat 툴로 이러한 Unit test를 보다 쉽게 작성할 수 있는 Unit
 test 프레임워크를 만들 수 있다. 이 프레임워크는 ETL에서 소스
-데이터베이스와 타켓 CDM 버전을 위해 특별히 만들어진 R 함수의 모음이다.
+데이터베이스와 표적 CDM 버전을 위해 특별히 만들어진 R 함수의 모음이다.
 이러한 함수 중 일부는 소스데이터 스키마를 준수하는 가짜 데이터 항목을
 만들기 위한 것이며, 다른 기능은 CDM 형식으로 데이터에 대한 예상값을
-정하는데 사용될 수 있다. Unit test에대한 예시는 다음과 같다:
+정하는 데 사용될 수 있다. Unit test에 대한 예시는 다음과 같다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15096,23 +15088,23 @@ test 프레임워크를 만들 수 있다. 이 프레임워크는 ETL에서 소�
 \end{Shaded}
 
 예제에서, Rabbit-in-a-Hat에 의해 생성된 프레임워크는 나머지 코드에서
-사용되는 함수를 불러오는 코드이다. 그리고 나서 우리는 성별 매핑(Person
+사용되는 함수를 불러오는 코드이다. 그러고 나서 우리는 성별 매핑(Person
 gender mappings)에 대한 테스트를 시작할 것이라 선언하였다. 소스 스키마는
 ENROLLMENT 테이블을 가지고 있고, 우리는 Rabbit-in-a-Hat에서 생성된
 add\_enrollment 함수를 사용하여 MEMBER\_ID와 GENDER\_OF\_MEMBER 필드에
 대해 서로 다른 값을 지닌 두 개의 항목을 만들었다. 마지막으로, ETL 이후
-PERSON 테이블에서 다양한 예상 값을 지닌 두 개의 항목이 존재해야 한다는
+PERSON 테이블에서 다양한 예상값을 지닌 두 개의 항목이 존재해야 한다는
 것을 명시한다.
 
 ENROLLMENT 테이블에는 많은 다른 필드가 있지만, 이 테스트의 맥락에서는
 이러한 다른 필드가 어떤 값을 가지는지는 중요하지 않다. 하지만 이러한
-값을 비워두면 (예. 생년월일), 레코드를 삭제하거나 오류를 발생시키는
-ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서 이러한
-문제를 해결하기 위해서, add\_enrollment 함수는 사용자가 명확하게
-지정하지 않은 필드의 값에 기본값(White Rabbit 스캔 보고서에서 관찰된
-가장 일반적인 값)을 할당한다.
+값을 비워두면 (예를 들어 생년월일), 레코드를 삭제하거나 오류를
+발생시키는 ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서
+이러한 문제를 해결하기 위해서, add\_enrollment 함수는 사용자가 명확하게
+지정하지 않은 필드의 값에 기본값 (White Rabbit 스캔 보고서에서 관찰된
+가장 일반적인 값) 을 할당한다.
 
-ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어 질 수 있으며,
+ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어질 수 있으며,
 일반적으로 수백 개의 시험이 발생한다. 테스트를 정의하는 것이 끝나면,
 가짜 소스 데이터를 생성하기 위한 것과 ETL된 데이터를 test에 생성할 수
 있는 두 개의 SQL 문을 생성하기 위해 프레임워크를 사용할 수 있다.
@@ -15135,7 +15127,7 @@ ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어 질 수 �
 \caption{Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 추출변환적재(ETL) Unit testing 과정.}\label{fig:testFramework}
 \end{figure}
 
-테스틑 SQL은 표\ref{tab:exampleTestResults}와 같은 테이블을 반환한다. 이
+테스트 SQL은 표\ref{tab:exampleTestResults}와 같은 테이블을 반환한다. 이
 표에서는 우리가 앞서 정의한 두 가지 테스트를 통과하는 것을 알 수 있다.
 
 표: \label{tab:exampleTestResults} ETL unit test 결과 예시.
@@ -15153,8 +15145,8 @@ ID & 설 명 & 상 태\tabularnewline
 이 unit test의 강점은 ETL 프로세스가 변경될 때마다 쉽게 재실행할 수
 있다는 것이다.
 
-\section{연구 목적 checks (Study-Specific
-Checks)}\label{--checks-study-specific-checks}
+\section{연구 목적 검사 (Study-Specific
+Checks)}\label{---study-specific-checks}
 
 \index{data quality!study-specific checks}
 
@@ -15170,9 +15162,9 @@ Checks)}\label{--checks-study-specific-checks}
 표준 평가는 ACHILLES에서 연구에 가장 관련 있는 concept, 예를 들어 cohort
 definition으로 지정된 concept을 검토하는 것이다. 관찰된 코드와 동일한,
 시간에 따른 갑작스러운 변화는 DQ 문제에 힌트가 될 수 있다. 몇몇 예시들은
-이 장의 뒷부분에서recommend 설명하고 있다.
+이 장의 뒷부분에서 recommend를 설명하고 있다.
 
-또다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된
+또 다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된
 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이
 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어,
 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이
@@ -15181,32 +15173,33 @@ definition으로 지정된 concept을 검토하는 것이다. 관찰된 코드�
 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트
 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만,
 다른 데이터베이스에서는 누락된 경우, DQ 문제가 발생할 수 있다. 이러한
-평가는 16장\ref{ClinicalValidity}에서 논의한 바와 같이, \emph{clinical
+평가는 \ref{ClinicalValidity}장에서 논의한 바와 같이, \emph{clinical
 validity}의 개념과 중복된다는 것을 유의해야 한다. 몇몇
 데이터베이스에서는 cohort definition이 실제로 관심 있는 건강 상태를
-담아내지 못하거나 다른 환자 모집단을 기록하는 데이터베이스에 따라
-건강상태가 다를 수 있기 때문에 DQ 문제가 아닌 예기치 못한 유병률을
-발견할 수도 있다.
+담아내지 못하거나 다른 환자 모집단을 기록하는 데이터베이스에 따라 건강
+상태가 다를 수 있기 때문에 DQ 문제가 아닌 예기치 못한 유병률을 발견할
+수도 있다.
 
-\subsection{Checking Mappings}\label{checking-mappings}
+\subsection{매핑 검사하기 (Checking
+Mappings)}\label{--checking-mappings}
 
-우리가 통제할 수 있는 오류의 원인 중 한가지는 소스 코드를 표준 concept에
-매핑하는 것이다. Vocabylary에서 매핑은 꼼꼼하게 만들어졌고, 공동체
-구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란\footnote{\url{https://github.com/OHDSI/Vocabulary-v5.0/issues}}에
-보고되고 다음 업데이트에서 수정된다. 그럼에도 불구하고 모든 매핑을 직접
+우리가 통제할 수 있는 오류의 원인 중 한 가지는 소스 코드를 표준
+concept에 매핑하는 것이다. Vocabulary에서 매핑은 꼼꼼하게 만들어졌고,
+공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란 \footnote{\url{https://github.com/OHDSI/Vocabulary-v5.0/issues}}에
+보고되고 다음 업데이트에서 수정된다. 그런데도 불구하고 모든 매핑을 직접
 확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때,
 연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다.
-다행히도, CDM에서는 표준화 concept 뿐 아니라, 소스 코드도 저장하기
-때문에 매우 쉽게 할 수 있다. 연구에 사용된 concept에 매핑 된 소스
-코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
+다행히도, CDM에서는 표준화 concept뿐 아니라, 소스 코드도 저장하기 때문에
+매우 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만
+아니라 그렇지 않은 소스 코드도 검토할 수 있다.
 
 소스 코드를 검토하는 한 가지 방법은
 \href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation} R
 패키지의 \texttt{checkCohortSourceCodes} 함수를 사용하는 것이다. 이
 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort
-definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는
-소스코드를 확인한다. 또한 특정 소스 코드와 관련된 시간적 문제를
-확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림
+definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스
+코드를 확인한다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데
+도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림
 \ref{fig:sourceCodes} 예시 결과는 ``우울증 (Depression disorder)''이라
 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이
 concept 세트의 가장 보편적인 concept은
@@ -15217,10 +15210,10 @@ F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점�
 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를
 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로
 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한
-것과 같은 시간임에도 불구하고, ICD-10 코드의 결합된 유병률은 ICD-9
+것과 같은 시간임에도 불구하고, ICD-10 코드의 결합한 유병률은 ICD-9
 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9
-(``주요 우울 장애, 단일 에피소드, 불특정'')도 이 concept으로 매핑
-되었어야 했기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+(``주요 우울 장애, 단일 에피소드, 불특정'')도 이 concept으로 매핑돼야
+했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 \begin{figure}
 
@@ -15232,7 +15225,7 @@ F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점�
 \end{figure}
 
 앞의 예시는 매핑되지 않은 소스 코드를 발견하는 것을 묘사한 것으로,
-일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는 것보다
+일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는것 보다
 더 어렵다. 이는 어떤 소스 코드가 매핑되어야 하지만 매핑되지 않았는지
 알아야 한다. 이를 평가하는 반-자동화된 방법은
 \href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation} R
@@ -15240,21 +15233,21 @@ F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점�
 함수는 간단한 텍스트 검색을 통해 소스 코드에 대한 Vocabulary를 검색할 수
 있게 하고, 이 소스 코드가 특정 concept이나 그 concept의 하위 concept 중
 하나와 매핑되는지 여부를 확인한다. 소스 코드의 결과는 현재 CDM
-데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, ``괴저 장애
-(Gangrenous disorder)''
+데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, ``괴저
+장애(Gangrenous disorder)''
 (\href{http://athena.ohdsi.org/search-terms/terms/439928}{439928}) 와
 모든 하위 concept들은 모든 괴저 발생을 찾기 위해 사용되었다. 이것이
 실제로 괴저를 나타내는 모든 소스 코드를 포함하는지 여부를 평가하기 위해,
 소스 코드를 식별하기 위한 CONCEPT 테이블과 SOURCE\_TO\_CONCEPT\_MAP
-테이블의 설명을 검색하는데 몇 가지 용어(예. ``괴저 (gangrene)'')가
+테이블의 설명을 검색하는데 몇 가지 용어(예를 들어 ``괴저(gangrene)'')가
 사용되었다. 자동 검색은 데이터에 나타나는 각 괴저 코드가 ``괴저 장애
-(Gangrenous disorder)''라는 concept에 직접 또는 간접적으로 매핑 되었는지
+(Gangrenous disorder)''라는 concept에 직접 또는 간접적으로 매핑되었는지
 여부를 평가하기 위해 사용된다. 이러한 평가의 결과는 그림
 \ref{fig:missingMapping}와 같으며, ICD-10 코드 J85.0 (``폐의 괴저 및
-괴사''; Gangrene and necrosis of lung)은 ``괴저 장애 (Gangrenous
+괴사''; Gangrene and necrosis of lung)은 ``괴저 장애(Gangrenous
 disorder)의 하위 컨셉이 아닌 컨셉
-\href{http://athena.ohdsi.org/search-terms/terms/4324261}{4324261}(''폐
-괴사``; Pulmonary necrosis)에만 매핑 되었다. \index{orphan codes}
+\href{http://athena.ohdsi.org/search-terms/terms/4324261}{4324261} (''폐
+괴사``; Pulmonary necrosis)에만 매핑되었다. \index{orphan codes}
 
 \begin{figure}
 
@@ -15262,7 +15255,7 @@ disorder)의 하위 컨셉이 아닌 컨셉
 
 }
 
-\caption{orphan 소스코드 예시. }\label{fig:missingMapping}
+\caption{orphan 소스 코드 예시. }\label{fig:missingMapping}
 \end{figure}
 
 \section{ACHILLES 실습 (ACHILLES in Practice)}\label{achillesInPractice}
@@ -15273,10 +15266,10 @@ disorder)의 하위 컨셉이 아닌 컨셉
 먼저, R에서 서버를 연결하는 방법에 대해 설명할 필요가 있다. ACHILLES는
 \texttt{createConnectionDetails}라는 함수를 제공하는
 \href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}
-패키지를 사용한다. . 다양한 데이터베이스 관리 시스템 (Database
-management systems, DBMS)에 필요한 특정 설정을
-\texttt{?createConnectionDetails}을 입력하여 확인할 수 있다. 예를 들어,
-다음 코드를 이용하여 PostgreSQl과 연결할 수 있다. :
+패키지를 사용한다. 다양한 데이터베이스 관리 시스템(Database management
+systems, DBMS)에 필요한 특정 설정을 \texttt{?createConnectionDetails}을
+입력하여 확인할 수 있다. 예를 들어, 다음 코드를 이용하여 PostgreSQl과
+연결할 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15291,9 +15284,9 @@ management systems, DBMS)에 필요한 특정 설정을
 \end{Highlighting}
 \end{Shaded}
 
-마지막 두 줄은 CDM 버전뿐 만 아니라 \texttt{cdmDbSchema} 변수를
-정의한다. 이를 사용하여 CDM 형식의 데이터가 어디에 있는지, 어떤 버전의
-CDM이 사용되었는지 R에 입력한다. Microsoft SQL Server의 경우,
+마지막 두 줄은 CDM 버전뿐만 아니라 \texttt{cdmDbSchema} 변수를 정의한다.
+이를 사용하여 CDM 형식의 데이터가 어디에 있는지, 어떤 버전의 CDM이
+사용되었는지 R에 입력한다. Microsoft SQL Server의 경우,
 \texttt{cdmDbSchema\ \textless{}-\ "my\_cdm\_data.dbo"}와 같이
 데이터베이스와 스키마를 모두 지정해야 한다.
 
@@ -15309,11 +15302,11 @@ CDM이 사용되었는지 R에 입력한다. Microsoft SQL Server의 경우,
 \end{Highlighting}
 \end{Shaded}
 
-이 함수는\texttt{resultsDatabaseSchema}에 여러 테이블을 생성하며,
+이 함수는 \texttt{resultsDatabaseSchema}에 여러 테이블을 생성하며,
 여기에서는 CDM 데이터와 동일한 데이터베이스 스키마로 설정하였다.
 
 ATLAS를 ACHILLES 결과 데이터베이스로 지정하거나 ACHILLES 결과를 JSON
-파일로 내보내서 ACHILLES 데이터베이스의 특징을 볼 수 있다.:
+파일로 내보내서 ACHILLES 데이터베이스의 특징을 볼 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15358,11 +15351,11 @@ plot은 2005년에 시작된 대량의 데이터를 보여준다. 하지만 1961
 Practice)}\label{dqdInPractice}
 
 여기에서는 CDM 형식의 데이터베이스에서 Data Quality Dashboard를 실행하는
-방법을 보여준다.15.4절\ref{achillesInPractice}에서 설명한 CDM
-conncection에 대해 더 많은 checks를 수행한다. 현재 DQD는 CDM v5.3.1만
-지원하기 때문에 실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다.
-ACHILLES와 마찬가지로 \texttt{cdmDbSchema}를 작성하여 데이터를 찾을
-위치를 R에 입력해야 한다.
+방법을 보여준다. \ref{achillesInPractice}절에서 설명한 CDM conncection에
+대해 더 많은 checks를 수행한다. 현재 DQD는 CDM v5.3.1만 지원하기 때문에
+실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다. ACHILLES와
+마찬가지로 \texttt{cdmDbSchema}를 작성하여 데이터를 찾을 위치를 R에
+입력해야 한다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15385,8 +15378,8 @@ ACHILLES와 마찬가지로 \texttt{cdmDbSchema}를 작성하여 데이터를 �
 위의 함수는 지정된 스키마에서 사용 가능한 모든 데이터 품질 checks를
 실행한다. 그런 다음 CDM과 동일한 스키마로 설정한
 \texttt{resultsDatabaseSchema}에 테이블을 작성한다. 이 테이블은 CDM
-테이블, CDM 필드, 검사 명, 설명, Kahn의 카테고리와 하위 카테고리, 위반
-행의 수, 임계 값 레벨 그리고 검사의 통과여부 등 각 check의 실행에 대한
+테이블, CDM 필드, 검사명, 설명, Kahn의 카테고리와 하위 카테고리, 위반
+행의 수, 임계값 레벨 그리고 검사의 통과여부 등 각 check의 실행에 대한
 모든 정보가 포함된다. 이 함수는 테이블뿐만 아니라
 \texttt{outputFolder}로 JSON 파일을 작성할 위치를 지정한다. JSON 파일을
 사용해서 웹 뷰어를 시작해 결과를 확인할 수 있다.
@@ -15415,9 +15408,9 @@ ACHILLES와 마찬가지로 \texttt{cdmDbSchema}를 작성하여 데이터를 �
 \end{figure}
 
 왼쪽 메뉴에서 \emph{Results}를 클릭하면 실행된 각 검사에 대한 상세 결과
-페이지로 이동한다(그림 \ref{fig:dqdResults}). 예시의 테이블은 개별적인
+페이지로 이동한다 (그림 \ref{fig:dqdResults}). 예시의 테이블은 개별적인
 CDM 테이블의 완전성을 확인하거나 CDM에서 특정 테이블에 최소 1개 이상의
-레코드를 가진 인원 수 및 백분율을 확인하기 위한 검사에 대한 것이다. 이
+레코드를 가진 인원수 및 백분율을 확인하기 위한 검사에 대한 것이다. 이
 경우 나열된 5개의 테이블이 Dashboarc에 Fail로 나타났으며 모두 비어있다.
 \includegraphics{images/DataQuality/plusIcon.png} 아이콘을 클릭하면
 나열된 결과를 생성하기 위해 데이터에서 실행된 정확한 쿼리를 보여주는
@@ -15436,9 +15429,9 @@ CDM 테이블의 완전성을 확인하거나 CDM에서 특정 테이블에 최�
 \section{연구 목적 checks 실습 (Study-Specific Checks in
 Practice)}\label{--checks--study-specific-checks-in-practice}
 
-다음으로, Appendix \ref{Angioedema}dp 제공된 혈관 부종 cohort
-definition에 대한 몇 가지 checks를 수행할 것이다. 15.4
-절\ref{achillesInPractice}에 설명된 것처럼 연결 세부사항이 설정되어
+다음으로, Appendix \ref{Angioedema}에 제공된 혈관 부종 cohort
+definition에 대한 몇 가지 checks를 수행할 것이다.
+\ref{achillesInPractice}절에 설명된 것처럼 연결 세부사항이 설정되어
 있고, cohort definition JSON과 cohort definition에 대한 SQL이 각각
 ``cohort.json''과 ``cohort.sql'' 파일에 저장되어있다고 가정한다. JSON
 파일과 SQP 파일은 ATLAS cohort definition 기능의 내보내기 탭에서 얻을 수
@@ -15461,10 +15454,10 @@ definition에 대한 몇 가지 checks를 수행할 것이다. 15.4
 파일을 열 수 있다. 여기서 혈관 부종 cohort definition에 ``Inpatient or
 ER visit''과 ``Angioedema'' 두 가지 concept이 있는 것을 확인할 수 있다.
 이 예제 데이터베이스에서, 방문은 ETL 중에 표준 concept과 매핑되었지만,
-Vocabulary에는 없는, ``ER''과 ``IP''라는 데이터베이스 특정 소스코드를
+Vocabulary에는 없는, ``ER''과 ``IP''라는 데이터베이스 특정 소스 코드를
 통해 발견되었다. 혈관 부종은 하나의 ICD-9 코드와 두 개의 ICD-10 코드를
-통해 발견되었다.개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두
-가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만
+통해 발견되었다. 개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두
+가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만,
 전체적인 concept에서는 불연속성이 없다.
 
 \begin{figure}
@@ -15473,11 +15466,11 @@ Vocabulary에는 없는, ``ER''과 ``IP''라는 데이터베이스 특정 소스
 
 }
 
-\caption{Angioedema 코호트 정의에서 사용된 소스코드.}\label{fig:sourceCodesAngioedema}
+\caption{Angioedema 코호트 정의에서 사용된 소스 코드.}\label{fig:sourceCodesAngioedema}
 \end{figure}
 
-다음으로, 표준 concept 코드에 매핑되지 않은 소스코드인 orphan 소스
-코드를 검색할 수 있다. 표준 concept인 ``혈관 부종 (Angioedema)''을 찾은
+다음으로, 표준 concept 코드에 매핑되지 않은 소스 코드인 orphan 소스
+코드를 검색할 수 있다. 표준 concept인 ``혈관 부종(Angioedema)''을 찾은
 다음 ``혈관 부종'' 또는 그 이름이 일부 포함되어 있거나 동의어가 있는
 concept과 코드를 찾는다:
 
@@ -15511,8 +15504,9 @@ T78.3XXS & Angioneurotic edema, sequela & ICD10CM & 508\tabularnewline
 \end{longtable}
 
 데이터에서 실제로 사용된 유일한 잠재적 orphan 코드는 ``혈관신경성 부종,
-후유증 (Angioneurotic edema, sequela)''이며, 이는 혈관 부종과 매핑
-되어서는 안 된다. 따라서 이 분석에서는 누락된 코드가 발견되지 않았다.
+후유증(Angioneurotic edema, sequela)''이며, 이는 혈관 부종과
+매핑되어서는 안 된다. 따라서 이 분석에서는 누락된 코드가 발견되지
+않았다.
 
 \section{요약}\label{-13}
 
@@ -15534,13 +15528,13 @@ T78.3XXS & Angioneurotic edema, sequela & ICD10CM & 508\tabularnewline
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\section{Exercises}\label{exercises-2}
+\section{연습}\label{-2}
 
-\subsubsection*{Prerequisites}\label{prerequisites-2}
-\addcontentsline{toc}{subsubsection}{Prerequisites}
+\subsubsection*{필수 구성 요소}\label{---2}
+\addcontentsline{toc}{subsubsection}{필수 구성 요소}
 
-예제 실습을 위해 8.4.5 절\ref{installR}에서 설명한 것과 같이 R, R-studio
-및 Java가 설치되어 있다고 가정한다. 또한
+예제 실습을 위해 \ref{installR}절에서 설명한 것과 같이 R, R-studio 및
+Java가 설치되어 있다고 가정한다. 또한
 \href{https://ohdsi.github.io/SqlRender/}{SqlRender},
 \href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector},
 \href{https://github.com/OHDSI/Achilles}{ACHILLES} 및
@@ -15582,10 +15576,9 @@ CDM 데이터베이스 스키마는 ``main''이다.
 검사 목록을 추출하시오.
 \EndKnitrBlock{exercise}
 
-예제에 대한 정답은 Appendix E.10\ref{DataQualityanswers}에서 확인
-가능하다.
+예제에 대한 정답은 Appendix \ref{DataQualityanswers}에서 확인 가능하다.
 
-\chapter{Clinical Validity}\label{ClinicalValidity}
+\chapter{임상적 타당성}\label{ClinicalValidity}
 
 \emph{Chapter leads: Joel Swerdel, Seng Chan You, Ray Chen \& Patrick
 Ryan}
@@ -16477,11 +16470,9 @@ OHDSI의 커뮤니티의 오픈 사이언스에 대한 협력적 접근은 임�
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\chapter{Software Validity}\label{SoftwareValidity}
+\chapter{소프트웨어의 타당성}\label{SoftwareValidity}
 
 \emph{Chapter lead: Martijn Schuemie}
-
-\emph{번역 : 김청수}
 
 이 단원의 주요 질문은 다음과 같다.
 
@@ -16806,7 +16797,7 @@ GitHub's 사고 복구 체계는 다음 사이트에서 확인할 수 있다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
-\chapter{Method Validity}\label{MethodValidity}
+\chapter{방법론적 타당성}\label{MethodValidity}
 
 \index{method validity}
 

@@ -1,4 +1,4 @@
-# SQL and R {#SqlAndR}
+# SQL과 R {#SqlAndR}
 
 *Chapter leads: Martijn Schuemie & Peter Rijnbeek*
 
@@ -284,7 +284,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.z63t7wb8children ;"
+## [1] "SELECT * FROM temp_schema.oqyzgu4zchildren ;"
 ```
 
 사용자는 `temp_schema`에 대한 쓰기 권한이 있어야 한다.
