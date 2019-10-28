@@ -41,7 +41,7 @@ knitr::include_graphics("images/EvidenceQuality/reliableevidenceattributes.png")
  
 이 문제에 대한 대답은 “근거의 품질”에 대한 전반적인 부분을 살펴보는 데 있다. 데이터에서부터 근거로의 과정에 대한 검토, 근거 생성 과정의 구성 요소들에 대한 확인, 각 구성 요소의 질에 대한 신뢰 구축 방법의 결정, 그리고 이것을 투명하게 전달하는 방법을 각각 살펴보았다. 근거의 질이란 단순히 관찰 데이터의 품질뿐 아니라 관찰 분석에 사용된 방법, 소프트웨어 및 임상적 정의의 타당성을 고려한다. \index{community} \index{reliable evidence}
 
-뒤이어 나오는 단원에서 우리는 근거의 품질에 해당하는 네 가지 구성요소에 대한 부분을 살펴볼 것이며, 이를 표\@ref(tab:evidenceQuality)에 나타내었다.
+뒤이어 나오는 단원에서 우리는 근거의 품질에 해당하는 네 가지 구성요소에 대한 부분을 살펴볼 것이며, 이를 표 \@ref(tab:evidenceQuality)에 나타내었다.
 
 Table: (\#tab:evidenceQuality) 근거의 품질에 해당하는 네 가지 구성요소
 
@@ -61,7 +61,7 @@ Table: (\#tab:evidenceQuality) 근거의 품질에 해당하는 네 가지 구�
 ```{block2, type='rmdsummary'}
 - 우리가 생성한 근거는 *반복 가능성(repeatable)*, *재현 가능성(reproducible)*, *복제 가능성(replicable)*, *일반화 가능성(generalizable)*, *완건성(robust)*을 갖추어야 하며 *검정된(calibrated)* 결과여야 한다.
 
-- 근거의 품질은 그 근거의 신뢰성 여부를 판단하기 위해 단순히 데이터의 품질만이 아닌 그 이상의 것을 추구한다. :
+- 근거의 품질은 그 근거의 신뢰성 여부를 판단하기 위해 단순히 데이터의 품질만이 아닌 그 이상의 것을 추구한다:
     - 데이터 품질
     - 임상적 타당성
     - 소프트웨어 타당성
