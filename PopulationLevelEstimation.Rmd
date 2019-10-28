@@ -4,7 +4,7 @@
 
 \index{population-level estimation}
 
-관찰형 헬스케어 데이터 (예를 들어 administrative claims, 전자 건강 기록) 는 환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실제 증거를 생성할 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는 시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
+관찰형 헬스케어 데이터 (예를 들어 보험청구자료, 전자 의무 기록) 는 환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실제 증거를 생성할 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는 시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
 
 - **직접 효과 추정(direct effect estimation)**: 노출 위험과 결과의 위험에 대한 노출 효과를 추정. \index{direct effect estimation}
 - **비교 효과 추정(comparative effect estimation)**: 다른 노출(comparator exposure)과 비교하여 노출(target exposure)의 결과 위험에 대한 영향 추정. \index{comparative effect estimation}
