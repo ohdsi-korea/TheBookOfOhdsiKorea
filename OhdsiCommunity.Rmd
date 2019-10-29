@@ -105,8 +105,13 @@ OHDSI 개발자 커뮤니티는 3가지의 사용 사례를 지원하기 위해 
 OHDSI는 근거를 생성하기 위해 협업을 강화하는 것을 목표로 하는 공동체인데, OHDSI 참가자가 된다는 것은 무엇을 의미하는가? 만약 당신이 OHDSI의 사명을 믿고 데이터에서 근거에 이르는 여정의 어디든지 기여를 하는 데 관심이 있다면, OHDSI는 당신을 위한 공동체가 될 수 있다. OHDSI 참가자는 보건 의료 데이터에 접근이 가능하고, 이를 활용해 의학적 근거를 생성하고 싶은 개인일 수 있다. OHDSI 참가자는 과학적 모범 사례를 수립하고 대안적 접근법을 평가하는 데 관심이 있는 방법론 연구자일 수 있다. OHDSI 참가자는 OHDSI의 타 연구자들이 사용할 수 있는 도구를 만들기 위해 프로그래밍 기술을 적용하는 데 관심이 있는 소프트웨어 개발자일 수 있다. OHDSI 참가자는 중요한 의학 보건학적 질문을 가지고 있고 논문 발표 등을 통해 그러한 질문들에 대한 근거를 더욱 더 큰 의료 커뮤니티에 제공하고자 하는 임상 연구자일 수 있다. OHDSI 참가자는 공공 보건을 위해 이러한 공통적인 사명과 가치를 믿고 해당 지역의 공동체가 OHDSI 관련 교육과 심포지엄 개최를 포함하여, 그 임무를 지속할 수 있도록 자원을 제공하는 개인 또는 단체일 수도 있다. 당신의 배경이나 소속과 관계없이, OHDSI는 개개인이 공통의 목적을 위해 함께 일할 수 있는 공동체가 되기를 추구하고 있으며, 각 개인이 공동으로 의료를 발전시킬 수 있는 기여를 하고 있다. 이 여정에 함께하고 싶다면, \@ref(WhereToBegin)장("Where To Begin")을 통해 어떻게 시작하는지 배울 수 있다.
 
 ## 한국 오딧세이의 역사
-아주대학교 박래웅 교수가 아주대 병원의 전자의무기록을 이용하여 2014년 OMOP-CDM 도입을 시작하였고, 2015년 첫 연례 심포지엄에서 활용 결과를 발표하면서 한국의 OHDSI 참여가 시작되었다. 이후 계속 한국에서 OMOP-CDM, OHDSI 전파를 위해 노력하였고, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean) 을 개설하고, 한국의 OHDSI 참여를 독려하였다.
-첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
+OMOP의 창립자 중 한명인 Martijn Schuemie는 OMOP의 연구성과 중 하나로서 관찰형 자료에서 confounding by indication을 찾을 수 있는 LEOPARD알고리듬을 고안하였고, 2010년 남아프리카 케이프타운에서 열린 세계의료정보학회(IMIA)에서 그 내용을 발표하였다. 당시 세계의료정보학회에 참석하였던 아주대학교 박래웅 교수는 우연히 Martijn Schuemie의 LEOPARD 알고리즘과 OMOP을 접하게 되었고 강한 흥미와 유대감을 느꼈다. 이후 박교수는 2012년 국내 4개 대학병원의 다기관 임상의료정보 통합시스템 개발을 진행하였고 이를 위해 자체적으로 고안한 CDM을 적용하였다. 2013년 세계약물역학학회(ICPE)가 2013년 9월 캐나타 몬트리올에서 열렸고 이 학회에서 다시 만난 Martijn Schuemie, Patrick Ryan과 박교수는 각자 진행하던 프로젝트에 대해서 논의하였고 향후 긴밀한 협조를 결의하였다. 이후 박교수는 빠른시간내에 아주대병원 전자의무기록을 CDM으로 변환완료하고 2014년 오딧세이의 결성을 알리는 콜롬비아대학에서 열린 첫번째 face-to-face 모임에 참여하면서 변환완료된 아주대병원의 CDM과 Achilles 웹페이지를 전격 공개하였다. 미국 이외의 국가에서 변환된 첫번째 CDM이며 전세계에서 첫번째로 공개된 Achilles 페이지였다. 
+
+```{r OHDSI_F2F_MEETING_2014, fig.cap='2014년 최초 개최된 오딧세이 Face to Face 미팅에서 아주대학교병원의 CDM과 Achilles웹페이지를 소개함', echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/OhdsiCommunity/2014f2fmeeting_korea.png")
+```
+
+2014년 6월에 귀국한 박래웅 교수는 이후 본격적으로 한국사회에 오딧세이를 알리기 시작하였고, 이후 국민건강보험공단을 시작으로 가천길병원 등이 오딧세이에 참여하기 시작하였다. 이후 계속 국내외에서 OMOP-CDM, OHDSI 전파를 위해 노력한 결과, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean) 을 개설하고, 한국의 OHDSI 참여가 본격화 되었다. 첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
 
 ```{r OHDSIInternationalSymposium2017inKorea1, fig.cap='2017년 한국에서의 OHDSI 국제 심포지엄',echo=FALSE, out.width='80%'}
 knitr::include_graphics("images/OhdsiCommunity/DSC01956.png")
@@ -116,7 +121,7 @@ knitr::include_graphics("images/OhdsiCommunity/DSC01861.png")
 ```{r OHDSIInternationalSymposium2017inKorea2, fig.cap='2017년 한국에서의 OHDSI 국제 심포지엄 튜토리얼',echo=FALSE, out.width='80%'}
 knitr::include_graphics("images/OhdsiCommunity/DSC02166.png")
 ```
-한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫 번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.
+한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫 번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 총 15회 이상의 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다. 박래웅 교수는 2014년 6월 이후로 2019년말까지 약 350회 이상의 국내외 강연을 실시하였다.
 
 ## 요약
 
