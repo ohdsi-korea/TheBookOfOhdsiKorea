@@ -3,7 +3,7 @@
 
 *Chapter leads: Martijn Schuemie, Vojtech Huser & Clair Blacketer* 
 
-관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자 건강기록(Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터가 임상 연구에 적합한지 여부에 대해 의문을 가지고 있으며, @vanDerLei_1991 은 "데이터는 수집된 목적으로만 사용되어야 한다(Data shall be used only for the purpose for which they were collected)"고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:
+관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자 건강기록(Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터를 임상 연구에 사용하는것이 적합한가 여부에 의문을 가지고 있으며 심지어, @vanDerLei_1991 은 "데이터는 수집된 목적으로만 사용되어야 한다(Data shall be used only for the purpose for which they were collected)"고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:
 
 > 연구 목적에 적합한 데이터인가 (Are the data of sufficient quality for our research purposes) ?
 
