@@ -869,38 +869,38 @@ Eunomia::createCohorts(connectionDetails)
 
 #### 문제 정의 {-}
 
-> What is the risk of gastrointestinal (GI) bleed in new users of celecoxib compared to new users of diclofenac?
+> Diclofenac의 새 사용자와 비교하였을 때 celecoxib의 새 사용자의 위장 출혈의 위험은 무엇인가?
 
-The celecoxib new-user cohort has COHORT_DEFINITION_ID = 1. The diclofenac new-user cohort has COHORT_DEFINITION_ID = 2. The GI bleed cohort has COHORT_DEFINITION_ID = 3. The ingredient concept IDs for celecoxib and diclofenac are 1118084 and 1124300, respectively. Time-at-risk starts on day of treatment initiation, and stops at the end of observation (a so-called intent-to-treat analysis).
+celecoxib의 새 사용자 코호트는 COHORT_DEFINITION_ID = 1 값을 가진다. diclofenac 새 사용자 코호트는 COHORT_DEFINITION_ID = 2 값을 가진다. 위장 출혈 코호트는 COHORT_DEFINITION_ID = 3 값을 가진다. Celecoxib와 Diclofenac의 성분 컨셉트 ID는 각각 1118084과 1124300이다. 위험 노출 기간은 치료가 시작된 날부터 시작하며, 관찰이 종료될 때 멈춘다 (intent-to-treat 분석이라고 부른다).
 
 ```{exercise, exercisePle1}
-Using the CohortMethod R package, use the default set of covariates and extract the CohortMethodData from the CDM. Create the summary of the CohortMethodData.
+CohortMethod R 패키지를 사용하여, 공변량의 기본 세트를 사용하고 CDM에서 CohortMethodData 추출해 보십시오. CohortMethodData의 요약본을 생성해 보십시오.
 
 ```
 
 ```{exercise, exercisePle2}
-Create a study population using the `createStudyPopulation` function, requiring a 180-day washout period, excluding people who had a prior outcome, and removing people that appear in both cohorts. Did we lose people?
+createStudyPopulation 기능을 사용하여 인구 연구를 생성하는데, 180일의 휴식기를 가지며, 사전 결과를 가진 사람들을 배제하고 두 코호트에 공통으로 나타나는 사람들을 제거해야 한다. 사람의 수가 적어지는가?
 
 ```
 
 ```{exercise, exercisePle3}
-Fit a Cox proportional hazards model without using any adjustments. What could go wrong if you do this?
+아무 조정을 사용하지 않고 Cox 비례 위험 모델을 장착하십시오. 이렇게 진행하면 무엇이 잘못되는가?
 
 ```
 
 ```{exercise, exercisePle4}
-Fit a propensity model. Are the two groups comparable?
-
+성향 모델을 장착하십시오. 그 두 집단은 비교되는가?
+  
 ```
 
 ```{exercise, exercisePle5}
-Perform PS stratification using 5 strata. Is covariate balance achieved?
-
+5개의 계층을 사용하여 PS 계층화를 수행하십시오. 공변량 균형은 달성되었는가?
+  
 ```
 
 ```{exercise, exercisePle6}
-Fit a Cox proportional hazards model using the PS strata. Why is the result different from the unadjusted model?
+PS strata를 사용하여 Cox 비례 위험 모델을 장착하십시오. 조정되지 않은 모델과 결과가 다른 이유는 무엇인가?
 
 ```
 
-Suggested answers can be found in Appendix \@ref(Pleanswers).
+제안된 답변은 부록 \@ref(Pleanswers)에서 찾을 수 있다.
