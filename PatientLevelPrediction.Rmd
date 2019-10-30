@@ -24,7 +24,7 @@ OHDSI CDM(Common Data Model)을 통해 전례 없는 규모의 데이터에서 �
 knitr::include_graphics("images/PatientLevelPrediction/Figure1.png")
 ```
 
-표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 표적 코호트(target cohort)의 t = 0, 결과 코호트(outcome cohort)에 의해 예측하고자 하는 결과, 그리고 위험 노출 시간(time-at-risk)을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다:  \index{target cohort} \index{outcome cohort} \index{time-at-risk}
+표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 표적 코호트(target cohort)의 t = 0, 결과 코호트(outcome cohort)에 의해 예측하고자 하는 결과, 그리고 위험 노출 시간(time-at-risk)을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다: \index{target cohort} \index{outcome cohort} \index{time-at-risk}
 
 > *[표적 코호트, T]*에서, 누가  *[위험에 노출된 시간, t]* 내에 *[결과 코호트, O]*가 발생하는가?
 
@@ -60,9 +60,9 @@ Table: (\#tab:plpDesign) Main design choices in a prediction design.
   
 ## 데이터 추출
 
-예측 모형을 만들 때 상태에 따라 분류된 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는 프로세스를 사용한다.\index{supervised learning} 따라서, 표적 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레이블을 얻을 필요가 있다.
+예측 모형을 만들 때 상태에 따라 분류된 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는 프로세스를 사용한다. \index{supervised learning} 따라서, 표적 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레이블을 얻을 필요가 있다.
 
-**공변량**("예측변수", "특징" 또는 "독립 변수"라고도 함)은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명돼 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜 기준으로 환자의 이전 또는 그때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
+**공변량** ("예측변수", "특징" 또는 "독립 변수"라고도 함)은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명돼 있다. 예측을 위해 우리는 오직 표적 코호트에 들어오는 날짜 기준으로 환자의 이전 또는 그때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
 
 또한 위험 노출 기간(time-at-risk)동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간 안에 발생하거나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
 
@@ -162,7 +162,7 @@ Table: (\#tab:knnParameters) Hyper-parameters for K-nearest neighbors.
 
 ### 나이브 베이즈 (Naive Bayes)
 
-The Naive Bayes algorithm applies the Bayes theorem with the naive assumption of conditional independence between every pair of features given the value of the class variable. Based on the likelihood the data belongs to a class and the prior distribution of the class, a posterior distribution is obtained. Naive Bayes has no hyper-parameters. \index{naive bayes}
+나이브 베이즈 알고리즘은 클래스 변수의 값이 주어지는 모든 특징들 사이의 조건부 독립성의 나이브 추정을 가진 베이즈(Bayes) 이론을 적용한다. 클래스의 사전 배포와 데이터가 클래스에 속할 가능성에 기초하여, 사후 배포가 얻어진다. 나이브 베이즈는 하이퍼-파라미터를 갖지 않는다. \index{naive bayes}
 
 ### AdaBoost
 
