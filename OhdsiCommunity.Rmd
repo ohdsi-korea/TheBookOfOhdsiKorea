@@ -107,7 +107,7 @@ OHDSI는 근거를 생성하기 위해 협업을 강화하는 것을 목표로 �
 ## 한국 오딧세이의 역사
 OMOP의 창립자 중 한명인 Martijn Schuemie는 OMOP의 연구성과 중 하나로서 관찰형 자료에서 confounding by indication을 찾을 수 있는 LEOPARD알고리듬을 고안하였고, 2010년 남아프리카 케이프타운에서 열린 세계의료정보학회(IMIA)에서 그 내용을 발표하였다. 당시 세계의료정보학회에 참석하였던 아주대학교 박래웅 교수는 우연히 Martijn Schuemie의 LEOPARD 알고리즘과 OMOP을 접하게 되었고 강한 흥미와 유대감을 느꼈다. 이후 박교수는 2012년 국내 4개 대학병원의 다기관 임상의료정보 통합시스템 개발을 진행하였고 이를 위해 자체적으로 고안한 CDM을 적용하였다. 2013년 세계약물역학학회(ICPE)가 2013년 9월 캐나타 몬트리올에서 열렸고 이 학회에서 다시 만난 Martijn Schuemie, Patrick Ryan과 박교수는 각자 진행하던 프로젝트에 대해서 논의하였고 향후 긴밀한 협조를 결의하였다. 이후 박교수는 빠른시간내에 아주대병원 전자의무기록을 CDM으로 변환완료하고 2014년 오딧세이의 결성을 알리는 콜롬비아대학에서 열린 첫번째 face-to-face 모임에 참여하면서 변환완료된 아주대병원의 CDM과 Achilles 웹페이지를 전격 공개하였다. 미국 이외의 국가에서 변환된 첫번째 CDM이며 전세계에서 첫번째로 공개된 Achilles 페이지였다. 
 
-```{r OHDSI_F2F_MEETING_2014, fig.cap='2014년 최초 개최된 오딧세이 Face to Face 미팅에서 아주대학교병원의 CDM과 Achilles웹페이지를 소개함', echo=FALSE, out.width='100%', fig.align='center'}
+```{r OHDSIf2f2014, fig.cap='2014년 최초 개최된 오딧세이 Face to Face 미팅에서 아주대학교병원의 CDM과 Achilles웹페이지를 소개함', echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/OhdsiCommunity/2014f2fmeeting_korea.png")
 ```
 
