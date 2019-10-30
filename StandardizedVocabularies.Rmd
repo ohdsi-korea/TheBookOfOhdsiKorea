@@ -10,7 +10,7 @@
 
 ## 왜 용어(Vocabularies)인가, 그리고 왜 표준화인가?
 
-의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서(Bills of Mortality)로 거슬러 올라간다. (그림\@ref(fig:bill) 참조) \index{Bill of Mortality}
+의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서(Bills of Mortality)로 거슬러 올라간다. (그림 \@ref(fig:bill) 참조) \index{Bill of Mortality}
 
 ```{r bill, fig.cap='1660 London Bill of Mortality, 당시 알려진 62가지 질병의 분류 체계를 사용하여 사망한 거주자의 사망 원인을 보여준다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/bill.jpg")
