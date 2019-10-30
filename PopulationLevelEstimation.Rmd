@@ -9,9 +9,9 @@
 - **직접 효과 추정(direct effect estimation)**: 노출 위험과 결과의 위험에 대한 노출 효과를 추정. \index{direct effect estimation}
 - **비교 효과 추정(comparative effect estimation)**: 다른 노출(comparator exposure)과 비교하여 노출(target exposure)의 결과 위험에 대한 영향 추정. \index{comparative effect estimation}
 
-In both cases, the patient-level causal effect contrasts a factual outcome, i.e., what happened to the exposed patient, with a counterfactual outcome, i.e., what would have happened had the exposure not occurred (direct) or had a different exposure occurred (comparative). Since any one patient reveals only the factual outcome (the fundamental problem of causal inference), the various effect estimation designs employ different analytic devices to shed light on the counterfactual outcomes. \index{counterfactual}
+두 가지의 경우에서, 인구 수준의 효과는 사실적 효과와 대조된다. 다시 말하면, 반 사실적인 결과를 가진 노출된 환자에게 무슨 일이 일어났는가? 다시 말하면 노출이 일어나지 않았다면 (직접적) 혹은 다른 노출이 일어났다면 (상대적) 무슨 일이 일어났을까? 어떤 환자라도 하나의 사실적인 결과만 노출하기 때문에 (인과 추론의 근본적인 문제), 다양한 효과 추정 설계는 다른 분석 장치를 사용하여 반 사실적인 결과를 조명한다. \index{counterfactual}
 
-인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 signal evaluation)하거나 다중 가설을 한 번에 탐색(예를 들어 signal detection)할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
+인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 signal evaluation) 하거나 다중 가설을 한 번에 탐색 (예를 들어 signal detection) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
 
 이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **Population-Level Estimation** study design를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다.
 마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
@@ -869,38 +869,38 @@ Eunomia::createCohorts(connectionDetails)
 
 #### 문제 정의 {-}
 
-> What is the risk of gastrointestinal (GI) bleed in new users of celecoxib compared to new users of diclofenac?
+> Diclofenac의 새 사용자와 비교하였을 때 celecoxib의 새 사용자의 위장 출혈의 위험은 무엇인가?
 
-The celecoxib new-user cohort has COHORT_DEFINITION_ID = 1. The diclofenac new-user cohort has COHORT_DEFINITION_ID = 2. The GI bleed cohort has COHORT_DEFINITION_ID = 3. The ingredient concept IDs for celecoxib and diclofenac are 1118084 and 1124300, respectively. Time-at-risk starts on day of treatment initiation, and stops at the end of observation (a so-called intent-to-treat analysis).
+celecoxib의 새 사용자 코호트는 COHORT_DEFINITION_ID = 1 값을 가진다. diclofenac 새 사용자 코호트는 COHORT_DEFINITION_ID = 2 값을 가진다. 위장 출혈 코호트는 COHORT_DEFINITION_ID = 3 값을 가진다. Celecoxib와 Diclofenac의 성분 컨셉트 ID는 각각 1118084과 1124300이다. 위험 노출 기간은 치료가 시작된 날부터 시작하며, 관찰이 종료될 때 멈춘다 (intent-to-treat 분석이라고 부른다).
 
 ```{exercise, exercisePle1}
-Using the CohortMethod R package, use the default set of covariates and extract the CohortMethodData from the CDM. Create the summary of the CohortMethodData.
+CohortMethod R 패키지를 사용하여, 공변량의 기본 세트를 사용하고 CDM에서 CohortMethodData 추출해 보십시오. CohortMethodData의 요약본을 생성해 보십시오.
 
 ```
 
 ```{exercise, exercisePle2}
-Create a study population using the `createStudyPopulation` function, requiring a 180-day washout period, excluding people who had a prior outcome, and removing people that appear in both cohorts. Did we lose people?
+createStudyPopulation 기능을 사용하여 인구 연구를 생성하는데, 180일의 휴식기를 가지며, 사전 결과를 가진 사람들을 배제하고 두 코호트에 공통으로 나타나는 사람들을 제거해야 한다. 사람의 수가 적어지는가?
 
 ```
 
 ```{exercise, exercisePle3}
-Fit a Cox proportional hazards model without using any adjustments. What could go wrong if you do this?
+아무 조정을 사용하지 않고 Cox 비례 위험 모델을 장착하십시오. 이렇게 진행하면 무엇이 잘못되는가?
 
 ```
 
 ```{exercise, exercisePle4}
-Fit a propensity model. Are the two groups comparable?
-
+성향 모델을 장착하십시오. 그 두 집단은 비교되는가?
+  
 ```
 
 ```{exercise, exercisePle5}
-Perform PS stratification using 5 strata. Is covariate balance achieved?
-
+5개의 계층을 사용하여 PS 계층화를 수행하십시오. 공변량 균형은 달성되었는가?
+  
 ```
 
 ```{exercise, exercisePle6}
-Fit a Cox proportional hazards model using the PS strata. Why is the result different from the unadjusted model?
+PS strata를 사용하여 Cox 비례 위험 모델을 장착하십시오. 조정되지 않은 모델과 결과가 다른 이유는 무엇인가?
 
 ```
 
-Suggested answers can be found in Appendix \@ref(Pleanswers).
+제안된 답변은 부록 \@ref(Pleanswers)에서 찾을 수 있다.
