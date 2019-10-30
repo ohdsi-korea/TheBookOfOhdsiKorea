@@ -131,6 +131,7 @@ knitr::kable(packageVersions, col.names = c("Package", "Version"), row.names = F
 | 삼성서울병원 | 윤선영 |
 | 아주대학교   | 이선경 |
 | 아주대학교   | 이성원 |
+| 성균관대학교 | 이일동 |
 | 동국대학교   | 임지연 |
 | 성균관대학교 | 장동경 |
 | 삼성서울병원 | 장진성 |
