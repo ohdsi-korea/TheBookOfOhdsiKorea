@@ -37,21 +37,21 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 우리는 우리의 데이터가 관찰형 연구의 보편적인 목적에 적합한지 여부에 대해 의문을 가질 수 있다. @kahn_harmonized_2016 은 보편적인 DQ가 3가지 구성요소로 구성되어있다고 정의하였다: 
 
 1. **적합성(Conformance)**: 데이터값이 지정된 표준과 형식을 준수하는가? 3가지 하위 유형으로 식별된다:
-   - **Value**: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예를 들어 모든 Provider의 의료 전문분야는 유효한 전문 분야인가? 
-   - **Relational**: 기록된 데이터가 지정된 관계적 제약(relational constraints)과 일치하는가? 예를 들어 DRUG_EXPOSURE 테이블의 PROVIDER_ID가 PROVIDER 테이블의 해당 레코드를 가지고 있는가? 
+   - **Value**: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예를 들어 모든 의료 제공자(Provider)의 진료과(specialties)는 유효한 전문 분야인가? 
+   - **Relational**: 기록된 데이터가 지정된 관계적 제약(relational constraints)과 일치하는가? 예를 들어 DRUG_EXPOSURE 테이블의 PROVIDER_ID가 PROVIDER 테이블에도 상응하는 기록을 가지고 있는가? 
    - **Computation**: 데이터에 대한 계산이 의도한 결과를 산출하는가? 예를 들어 키와 몸무게에서 계산된 BMI와 데이터에 기록된 BMI가 일치하는가? 
 2. **완전성(Completeness)**: 특정 변수가 존재하는지 여부 (예를 들어 진료실에서 측정된 체중이 기록되어 있는가?) 와 모든 변수의 값이 기록되어 있는지 (예를 들어 모든 사람이 성별에 관련된 데이터를 가지고 있는가?) 를 나타낸다.
-3. **Plausibility**: 데이터의 값을 믿을 수 있는가? 3가지 하위 유형으로 식별된다:
+3. **타당성(Plausibility)**: 데이터의 값을 믿을 수 있는가? 3가지 하위 유형으로 정의된다:
     - **Uniqueness**: 예를 들어 각각의 PERSON_ID는 PERSON 테이블에서 한 번만 발생하는가? 
-    - **Atemporal**: 값, 분포 또는 밀도가 예상값과 일치하는가? 예를 들어 데이터에 의해 암시된 당뇨병의 유행이 실제 알려진 유행과 일치하는가? 
-    - **Temporal**: 값의 변화가 예상과 일치하는가? 예를 들어 예방접종 순서는 권고사항과 일치하는가? 
+    - **Atemporal**: 값, 분포 또는 밀도가 예상되는 값과 일치하는가? 예를 들어 데이터에 의해 암시된 당뇨병의 유행이 실제 알려진 유행과 일치하는가? 
+    - **Temporal**: 값의 변화가 예상 범위 내에서 일어나는가? 예를 들어 예방접종 순서는 권고사항과 일치하는가? 
     
     \index{data quality!conformance} \index{data quality!completeness} \index{data quality!plausibility}
 
 각각의 구성요소는 두 가지 방법으로 평가될 수 있다:
 
-* **Verification** 외부 참조에 의존하지 않고, 모델, 메타데이터의 데이터 제약, 시스템 추정, 그리고 Local 지식에 주력한다. Verification의 주요 특징은 Local 환경 내의 자원을 사용하여 예상되는 값과 분포를 설명하는 능력이다. 
-* **Validation** 관련된 외부 benchmarks와 관련된 데이터 값과의 일치에 주력한다. 외부 benchmark로 가능한 원천으로는 여러 데이터 사이트에 걸쳐 결과를 결합하는 것이 있다. 
+* **검증(Verification)** 외부 참조에 의존하지 않고 모델과 메타데이터의 데이터 제약, 시스템 추정, 그리고 Local 지식을 집중적으로 확인한다. Verification의 주요 특징은 Local 환경 내의 자원을 사용하여 예상되는 값과 분포를 설명하는 능력이다. 
+* **검토(Validation)** 관련된 외부 기준(benchmarks)와 관련된 데이터 값과의 일치에 주력한다. 외부 기준(benchmark)로 가능한 원천으로는 다기관의 데이터를 결합한 결과가 될 수 있다. 
 
 \index{data quality!verification} \index{data quality!validation}
 
@@ -59,28 +59,28 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 \index{ACHILLES} \index{data quality!checks}
 
-Kahn은 데이터가 주어진 요구 조건을 준수하는지 테스트하기 위해  *데이터 품질 검사(data quality check)* (때로는 *데이터 품질 rule(data quality rule)*이라고도 함)라는 용어를 도입하였다 (예를 들어 잘못된 출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할 수 없는 연령 표시). 우리는 자동화된 DQ 툴들을 만들어 소프트웨어에서 이러한 check들을 수행한다. 이러한 툴 중 하나가 [ACHILLES](https://github.com/OHDSI/Achilles) (Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems, ACHILLES)이다. [@huser_methods_2018] ACHILLES는 CDM에 부합하는 데이터베이스의 특성과 시각화를 제공하는 소프트웨어 툴이다.  데이터베이스 네트워크에서 DQ를 평가하는데 사용할 수 있다 [@huser_multisite_2016]. ACHILLES는 독립형 툴로써 사용 가능하며, "데이터 소스(Data Sources)" 기능으로 ATLAS에서도 통합되어 있다. \index{data quality!data quality check} \index{ACHILLES}
+Kahn은 데이터가 주어진 요구 조건을 준수하는지 확인하기 위해 데이터 품질 확인 (data quality check, 때로는 data quality rule이라고도 함)이라는 용어를 도입하였다 (예시. 부정확한 출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할 수 없는 연령 자료 삭제). 우우리는 자동화된 DQ tool을 만들어 소프트웨어 내에서 위와 같은 검사를 진행할 수 있다. 이러한 툴 중 하나가 [ACHILLES](https://github.com/OHDSI/Achilles) (Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems, ACHILLES)이다. [@huser_methods_2018] ACHILLES는 CDM에 부합하는 데이터베이스의 특성과 시각화를 제공하는 소프트웨어 툴이다.  따라서 데이터베이스 네트워크에서 DQ를 평가하는데 사용할 수 있다 [@huser_multisite_2016]. ACHILLES는 독립형 툴로써 사용 가능하며, "데이터 소스(Data Sources)" 기능으로 ATLAS에서도 통합되어 있다. \index{data quality!data quality check} \index{ACHILLES}
 
-ACHILLES는 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다. "715: DRUG_CONCEPT에 의한 DAYS_SUPPLY의 분포" and "506: 성별에 따른 사망 연령 분포". 이러한 분석 결과는 데이터베이스에 저장되며, 웹 뷰어(web viewer) 또는 ATLAS에서 엑세스 할 수 있다. 
+ACHILLES는 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다. "715: DRUG_CONCEPT_ID에 의한 DAYS_SUPPLY의 분포" 그리고 "506: 성별에 따른 사망 연령 분포". 이러한 분석 결과는 데이터베이스에 저장되며, 웹 뷰어(web viewer) 또는 ATLAS에서 확인 할 수 있다. 
 
 \index{Data Quality Dashboard}
 
-공동체에서 DQ 평가를 위해 만든 또 다른 툴로 [Data Quality Dashboard(DQD)](https://github.com/OHDSI/DataQualityDashboard)가 있다. ACHILLES가 특성화 분석을 실행하여 CDM 인스턴스(instance)에 대한 전반적인 시각적 이해를 제공한다면, DQD는 테이블별, 필드 별로 주어진 규격에 적합하지 않은 CDM의 레코드 수를 정량화한다. 전체적으로, 1,500건 이상의 checks가 수행되고, 각각은 Kahn의 프레임워크로 구성된다. 각 check의 결과는 임계값과 비교되며, FAIL은 해당 값을 초과하는 위반 행의 백분율로 간주한다. 표 15.1\@ref(tab:dqdExamples)은 checks의 예시를 보여준다. 
+공동체에서 DQ 평가를 위해 만든 또 다른 툴로 [Data Quality Dashboard(DQD)](https://github.com/OHDSI/DataQualityDashboard)가 있다. ACHILLES가 특성화 분석을 실행하여 CDM 인스턴스(instance)에 대한 전반적인 시각적 이해를 제공한다면, DQD는 테이블별, 필드 별로 주어진 규격에 적합하지 않은 CDM의 레코드 수를 제공한다. 전체적으로, 1,500건 이상의 확인이 수행되고, 각 확인은 Kahn의 프레임워크로 구성된다. 각 DQ의 결과는 임계값과 비교되며, FAIL은 임계값을 위반하는 행을 백분율로 계산한 결과로 결정된다. 표 15.1\@ref(tab:dqdExamples)은 확인의 예시를 보여준다. 
 
-표: (\#tab:dqdExamples) Data Quality Dashboard에서 데이터 품질 rules 예시.
+표: (\#tab:dqdExamples) Data Quality Dashboard에서 데이터 품질  규칙(Data Quality rules)의 예시.
 
-| 위반 행의 분율  | Check 설명 | 임계값 | 상태 |
+| 위반 행의 분율  | 확인 내용 설명 | 임계값 | 상태 |
 |:-------- |:------------------------------------ |:------ |:---- |
-| 0.34| VISIT_OCCURRENCE의 provider_id가 설명서를 기반으로 예측되는 데이터 형식인지를 나타내는 yes 또는 no 값. | 0.05 | FAIL|
+| 0.34| VISIT_OCCURRENCE의 provider_id가 CDM specification에 규정된 데이터 형식으로 확인되는가를 예 / 아니오로 나타낸 값. | 0.05 | FAIL|
 | 0.99| MEASUREMENT 테이블의 measurement_source_value 필드에서 0으로 매핑된 소스 데이터의 수와 백분율. | 0.30 | FAIL|
-| 0.09| DRUG_ERA 테이블의 drug_concept_id 필드에서 성분 클래스에 적합하지 않은 값을 가진 레코드 수와 백분율. | 0.10 | PASS|
+| 0.09| DRUG_ERA 테이블의 drug_concept_id 필드에서 성분 등급에 적합하지 않은 값을 가진 레코드 수와 백분율. | 0.10 | PASS|
 | 0.02| DRUG_EXPOSURE 테이블에서 verbatim_end_date 필드에 drug_exposure_start_date 이전에 발생한 값이 있는 레코드 수와 백분율.|0.05|PASS|
 | 0.00| PROCEDURE_OCCURRENCE 테이블의 procedure_occurrence_id 필드에 중복되는 값이 있는 레코드 수와 백분율. | 0.00 | PASS|
 
-툴에서, DQ checks는 테이블, 필드 및 concept 레벨의 checks 중 하나에 속하며 여러 가지 방식으로 구성된다. 테이블 checks는 모든 필수 테이블이 존재하는지 판별하는 등 CDM 내에서 상위 레벨로 수행되는 check이다. 필드 레벨의 checks는 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는 방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과 모든 표준 concept 필드가 많은 다른 것 중 적절한 도메인의 concept_ID를 포함하는지 확인하는 것이 포함된다. Concept 레벨의 검사는 개별적인 concept_id를 조사하기 위해 조금 더 깊이 들어간다. 이 중 상당수는 성별에 따른 concept이 부정확한 성별 (예를 들어 여성 환자의 전립선암) 에 속하지 않도록 하는 것과 같이 Kahn의 프레임워크 중 타당성(Plausibility) 카테고리에 속한다. 
+DQ 확인 툴은 여러가지 방법으로 구성되며 테이블, 필드, 개념 수준의 확인이 예시가 될 수 있다. 테이블(table) 점검은 CDM내에서 상위 수준에서 수행되는 점검으로 예를 들면 모든 필수 테이블이 존재하는지를 확인하는 것이다. 필드 수준의 확인는 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는 방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과 모든 표준 concept 필드가 많은 concept_ID들 중 적절한 도메인의 concept_ID를 사용하는지 확인하는 것이 포함된다. Concept 수준의 검사는 개별적인 concept_id를 확인하기 위해 조금 더 깊이 들어간다.이 중 상당수가 Kahn의 프레임워크 중 타당성(Plausibility)항목에 해당되며 성별과 관련된 특정 개념이 부적절한 성별에 할당되지 않도록 보장하는것이 예시로 해당된다(예시. 여성 환자에서 전립선 암)
 
 ```{block2, type='rmdimportant'}
-ACHILLES와 DQD는 CDM 데이터에서 실행된다. 이렇게 식별된 DQ 이슈는 cDM으로의 변환 때문일 수 있지만, 소스 데이터에서 이미 존재하는 DQ 문제를 반영할 수도 있다. 만약 변환이 잘못되었을 경우, 문제를 해결하는 것은 우리의 통제 아래에 있지만, 기본 데이터가 잘못되었을 경우, 유일한 조치 행동은 위반된 기록을 삭제하는 것이다.
+ACHILLES와 DQD는 CDM 데이터를 대상으로 실행된다. 이렇게 식별된 DQ 문제는 CDM으로의 변환 과정이 원인일 수 있지만, 원본 데이터(source data)상에서 이미 존재하는 DQ 문제를 반영할 수도 있다. 만일 변환 과정의 문제로 확인되는 경우 일반적으로 문제 해결을 연구자의 역량 내에서 진행할 수 있지만, 원본 데이터의 오류로 인한 문제의 유일한 조치는 오류 데이터 자체를 삭제하는것이다.
 
 ```
 
@@ -88,9 +88,9 @@ ACHILLES와 DQD는 CDM 데이터에서 실행된다. 이렇게 식별된 DQ 이�
 
 \index{ETL!unit tests}
 
-상위 레벨의 데이터 품질 checks뿐만 아니라, 개별 수준의 데이터 품질 checks도 수행되어야 한다. 데이터가 CDM으로 변환되는 ETL(추출-변환-적재, Extract-Transform-Load) 프로세스는 종종 상당히 복잡하고, 이러한 복잡성으로 인해 실수를 눈치채지 못할 위험이 있다. 더욱이, 시간이 지남에 따라 원본 데이터 모델이 변경되거나, CDM 버전이 업데이트 되면, ETL 프로세스를 수정할 필요가 있다. ETL과 같이 복잡한 프로세스의 변경은 의도하지 않은 결과를 초래할 수 있고, ETL의 모든 측면을 재고하고 검토해야 한다. 
+상위 레벨의 데이터 품질 확인 뿐만 아니라, 개별 수준의 데이터 품질 확인도 수행되어야 한다. 데이터가 CDM으로 변환되는 ETL(추출-변환-적재, Extract-Transform-Load) 과정은 종종 상당히 복잡하고, 이러한 복잡성은 인해 실수를 눈치채지 못할 위험이 된다. 더욱이, 시간 경과에 지남에 따라 원본 데이터 모델이 변경되거나, CDM 버전이 업데이트 될 수 있으므로, ETL 과정를 수정이 필수적으로 진행되어야 한다. ETL과 같이 복잡한 과정의 변경은 의도하지 않은 결과를 초래할 수 있어, ETL의 모든 측면을 재고하고 검토해야 한다. 
 
-ETL이 해야 하는 것을 정확히 하고, 계속하기 위해서 일련의 unit tests를 구성하는 것이 매우 권장된다.  Unit test란 하나의 측면을 자동으로 확인하는 작은 코드 조각이다. \@ref(ExtractTransformLoad)장에서 설명한 Rabbit-in-a-Hat 툴로 이러한 Unit test를 보다 쉽게 작성할 수 있는 Unit test 프레임워크를 만들 수 있다. 이 프레임워크는 ETL에서 소스 데이터베이스와 표적 CDM 버전을 위해 특별히 만들어진 R 함수의 모음이다. 이러한 함수 중 일부는 소스데이터 스키마를 준수하는 가짜 데이터 항목을 만들기 위한 것이며, 다른 기능은 CDM 형식으로 데이터에 대한 예상값을 정하는 데 사용될 수 있다. Unit test에 대한 예시는 다음과 같다:
+ETL의 향후 계획을 명확히 하고 지속적인 작업 진행을 위해 하나의 테스트 단위(Unit test)를 구성하는것을 매우 권장한다. Unit test란 하나의 측면을 자동으로 확인하는 작은 코드 조각이다. \@ref(ExtractTransformLoad)장에서 설명한 Rabbit-in-a-Hat 툴로 이러한 Unit test를 보다 쉽게 작성할 수 있는 Unit test 프레임워크를 만들 수 있다.이 프레임 워크는 원본 DB와 대상으로 하는 CDM version의 ETL을 위해 특별히 작성된 R 함수의 집합이다. 이러한 함수 중 일부는 원본 데이터(source datta) 스키마를 준수하는 가짜 데이터 항목을 만들기 위한 것이며, 다른 일부는 CDM 형식으로 데이터에 대한 예상값을 정하는 데 사용될 수 있다. Unit test에 대한 예시는 다음과 같다:
 
 
 ```{r eval=FALSE}
@@ -102,25 +102,24 @@ expect_person(PERSON_ID = 102, GENDER_CONCEPT_ID = 8507
 expect_person(PERSON_ID = 103, GENDER_CONCEPT_ID = 8532)
 ```
 
-예제에서, Rabbit-in-a-Hat에 의해 생성된 프레임워크는 나머지 코드에서 사용되는 함수를 불러오는 코드이다. 그러고 나서 우리는 성별 매핑(Person gender mappings)에 대한 테스트를 시작할 것이라 선언하였다. 소스 스키마는 ENROLLMENT 테이블을 가지고 있고, 우리는 Rabbit-in-a-Hat에서 생성된 add_enrollment 함수를 사용하여 MEMBER_ID와 GENDER_OF_MEMBER 필드에 대해 서로 다른 값을 지닌 두 개의 항목을 만들었다. 마지막으로, ETL 이후 PERSON 테이블에서 다양한 예상값을 지닌 두 개의 항목이 존재해야 한다는 것을 명시한다. 
+예제에서, Rabbit-in-a-Hat에 의해 생성된 프레임워크는 나머지 코드에서 사용되는 함수를 불러오는 출처가 된다. 이후에 성별 매핑(Person gender mappings)에 대한 테스트를 시작할 것이라 선언하였다. 소스 스키마는 ENROLLMENT 테이블을 가지고 있고, 우리는 Rabbit-in-a-Hat에서 생성된 add_enrollment 함수를 사용하여 MEMBER_ID와 GENDER_OF_MEMBER 필드에 대해 서로 다른 값을 지닌 두 개의 항목을 만들었다. 마지막으로, ETL 이후 PERSON 테이블에서 다양한 예상값을 지닌 두 개의 항목이 존재해야 한다는 것을 명시한다. 
 
-ENROLLMENT 테이블에는 많은 다른 필드가 있지만, 이 테스트의 맥락에서는 이러한 다른 필드가 어떤 값을 가지는지는 중요하지 않다. 하지만 이러한 값을 비워두면 (예를 들어 생년월일), 레코드를 삭제하거나 오류를 발생시키는 ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서 이러한 문제를 해결하기 위해서, add_enrollment 함수는 사용자가 명확하게 지정하지 않은 필드의 값에 기본값 (White Rabbit 스캔 보고서에서 관찰된 가장 일반적인 값) 을 할당한다. 
+ENROLLMENT 테이블에는 다른 필드가 많이 존재하지만, 이 테스트의 맥락에서는 다른 필드가 어떤 값을 가지는지에 관해 설명하지 않을것이다. 하지만 이러한 값을 비워두면 (예를 들어 생년월일), 레코드를 삭제하거나 오류를 발생시키는 ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서 이러한 문제를 해결하기 위해서, add_enrollment 함수는 사용자가 명확하게 지정하지 않은 필드의 값에 기본값 (White Rabbit 스캔 보고서에서 관찰된 가장 일반적인 값) 을 할당한다. 
 
-ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어질 수 있으며, 일반적으로 수백 개의 시험이 발생한다. 테스트를 정의하는 것이 끝나면, 가짜 소스 데이터를 생성하기 위한 것과 ETL된 데이터를 test에 생성할 수 있는 두 개의 SQL 문을 생성하기 위해 프레임워크를 사용할 수 있다. 
-
+ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어질 수 있으며, 일반적으로 수백 개의 시험을 진행할 수 있다. 테스트를 정의하는것이 끝나면 프레임워크를 사용하여 두 개의 SQL 구문 세트를 만들 수 있다. 하나는 가짜 원본 데이터를 만드는 것이고, 다른 하나는 ETL된 데이터에 대한 테스트를 진행할 수 있는 구문이다. 
 
 ```{r eval=FALSE}
 insertSql <- generateInsertSql(databaseSchema = "source_schema")
 testSql <- generateTestSql(databaseSchema = "cdm_test_schema")
 ```
 
-전반적인 프로세스는 그림 \@ref(fig:testFramework)에 묘사된 것과 같다.
+전반적인 과정은 그림 \@ref(fig:testFramework)에 묘사된 것과 같다.
 
 ```{r testFramework, fig.cap='Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 추출변환적재(ETL) Unit testing 과정.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/DataQuality/testFramework.png")
 ```
 
-테스트 SQL은 표\@ref(tab:exampleTestResults)와 같은 테이블을 반환한다. 이 표에서는 우리가 앞서 정의한 두 가지 테스트를 통과하는 것을 알 수 있다.  
+SQL을 통한 테스트는 표\@ref(tab:exampleTestResults)와 같은 테이블을 반환한다. 이 표에서는 우리가 앞서 정의한 두 가지 테스트를 통과하는 것을 알 수 있다.  
 
 표: (\#tab:exampleTestResults) ETL unit test 결과 예시.
 
