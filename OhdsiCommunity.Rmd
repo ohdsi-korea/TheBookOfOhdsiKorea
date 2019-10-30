@@ -121,7 +121,7 @@ knitr::include_graphics("images/OhdsiCommunity/DSC01861.png")
 ```{r OHDSIInternationalSymposium2017inKorea2, fig.cap='2017년 한국에서의 OHDSI 국제 심포지엄 튜토리얼',echo=FALSE, out.width='80%'}
 knitr::include_graphics("images/OhdsiCommunity/DSC02166.png")
 ```
-한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫 번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 총 15회 이상의 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다. 박래웅 교수는 2014년 6월 이후로 2019년말까지 약 350회 이상의 국내외 강연을 실시하였다.
+한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월 7일 첫 번째 리더십 미팅을 가진 후 현재까지 2달마다 전국의 의과대학/병원을 순회하며 총 15회 이상의 한국 OHDSI 리더십 미팅을 개최하며 OHDSI 전파 및 상호 협력을 꾀하고 있다.
 
 ## 요약
 
