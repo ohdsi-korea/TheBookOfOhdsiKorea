@@ -240,7 +240,7 @@ Column name|Value|Explanation
 |VISIT_SOURCE_ VALUE|inpatient|출처에 나와 있는 방문 값 그대로 여기에 입력한다. Lauren의 데이터에는 존재하지 않는다.|
 |VISIT_SOURCE_ CONCEPT_ID|0|출처의 방문 값이 OHDSI에서 통용되는 용어를 사용하여 코딩 되어 있는 경우 원본 코드를 나타내는 CONCEPT_ID 값을 여기에 넣는다. Lauren의 데이터에는 존재하지 않는다.|
 |ADMITTED_FROM_ CONCEPT_ID|0|환자가 어디에서부터 입원해 왔는지 알 수 있는 경우 이를 나타내는 concept을 포함하고 있다. 이 concept은 “Visit”의 도메인을 가지고 있어야 한다. 예를 들어 만약 환자가 집에서 병원으로 입원한 경우 [8536](http://athena.ohdsi.org/search-terms/terms/8536) ("Home")값일 것이다.|
-|ADMITTED_FROM_ SOURCE_CONCEPT_ID|NULL|환자가 어디에서부터 입원해 왔는지를 나타내는 원본 값이다. 위의 예를 활용하면 여기에는 “Home”이 들어가야 한다.|
+|ADMITTED_FROM_ SOURCE_VALUE|NULL|환자가 어디에서부터 입원해 왔는지를 나타내는 원본 값이다. 위의 예를 활용하면 여기에는 “Home”이 들어가야 한다.|
 |DISCHARGE_TO_ CONCEPT_ID|0|환자가 어디로 퇴원 되었는지 알 수 있는 경우 이를 나타내는 concept을 나타낸다. 이 concept은 “Visit” 도메인을 가지고 있어야 한다. 예를 들면, 만약 환자가 보조 생활 시설로 보내졌을 경우 concept ID는 [8615](http://athena.ohdsi.org/search-terms/terms/8615) ("Assisted Living Facility")일 것이다.|
 |DISCHARGE_TO_ SOURCE_VALUE|0|환자가 퇴원 한 곳을 나타내는 원본 값이다. 위의 예를 활용하면“보조 생활 시설”이 된다.|
 |PRECEDING_VISIT_ OCCURRENCE_ID|NULL|현재 Visit의 바로 이전의 방문을 나타낸다. ADMITTED_FROM_CONCEPT_ID와 달리 Visit Concept이 아닌 실제 Visit Occurrence 기록에 연결된다. 또한 Visit Occurrence에 따른 기록는 없으며 Visit Occurrence는 이 필드를 통해서만 연결되어 있다.|
@@ -249,7 +249,7 @@ Column name|Value|Explanation
 
 ### CONDITION_OCCURRENCE{#conditionOccurrence}
 
-CONDITION_OCCURRENCE 테이블의 기록는 제공자가 관찰하거나 환자가 보고한 상태의 진단,징후 또는 증상이다.
+CONDITION_OCCURRENCE 테이블의 기록는 제공자가 관찰하거나 환자가 보고한 상태의 진단, 징후 또는 증상이다.
 
 #### Lauren의 condition은 무엇일까? {-}
 
