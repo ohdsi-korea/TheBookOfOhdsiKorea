@@ -24,7 +24,7 @@
 <meta name="author" content="OHDSI-Korea" />
 
 
-<meta name="date" content="2019-10-30" />
+<meta name="date" content="2019-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -469,15 +469,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.7.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.5</b> 내부 검증</a></li>
 <li class="chapter" data-level="13.7.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증</a></li>
 </ul></li>
-<li class="chapter" data-level="13.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#results-dissemination"><i class="fa fa-check"></i><b>13.8</b> Results Dissemination</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-performance"><i class="fa fa-check"></i><b>13.8.1</b> Model Performance</a></li>
-<li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#comparing-models"><i class="fa fa-check"></i><b>13.8.2</b> Comparing Models</a></li>
+<li class="chapter" data-level="13.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8</b> 결과 보급</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.1</b> 모델 성능</a></li>
+<li class="chapter" data-level="13.8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.2</b> 모형 비교</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-patient-level-prediction-features"><i class="fa fa-check"></i><b>13.9</b> Additional Patient-Level Prediction Features</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#journal-paper-generation"><i class="fa fa-check"></i><b>13.9.1</b> Journal Paper Generation</a></li>
+<li class="chapter" data-level="13.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>13.9</b> 추가적 환자-수준 예측 변수</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.9.1</b> 저널에 논문 작성</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#-11"><i class="fa fa-check"></i><b>13.10</b> 요약</a></li>
-<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
+<li class="chapter" data-level="13.11" data-path="SqlAndR.html"><a href="SqlAndR.html#-7"><i class="fa fa-check"></i><b>13.11</b> 예제</a></li>
 </ul></li>
 <li class="part"><span><b>IV Evidence Quality</b></span></li>
 <li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> 근거의 질</a><ul>
@@ -1015,7 +1015,7 @@ Figure 18.8: ACE 억제제를 thiazide 및 thiazide 유사 이뇨제와 비교�
 <div id="ohdsi--" class="section level2">
 <h2><span class="header-section-number">18.4</span> OHDSI 방법 벤치마크</h2>
 
-<p>Although the recommended practice is to empirically evaluate a method’s performance within the context that it is applied, using negative and positive controls that are in ways similar to the exposures-outcomes pairs of interest (for example using the same exposure or the same outcome) and on the database used in the study, there is also value in evaluating a method’s performance in general. 이것이 OHDSI Methods Evaluation이 개발된 이유이다. 성능 평가 기준은 만성 혹은 급성 결과 또는 단기 노출을 포함한 광범위한 대조군 질의를 사용하여 성능을 평가한다. 이 성능 평가 기준의 결과는 분석 방법의 전반적인 유용성을 입증하는 데 도움이 될 수 있으며 상황별로 경험적 평가를 아직 사용할 수 없는 경우 분석법의 성능에 대한 사전 확신을 형성하는데 사용될 수 있다. 사용 평가 기준은 8개의 범주로 분류할 수 있는 200개의 신중하게 선택된 음성 대조군으로 구성되며 각 범주의 대조군은 동일한 노출 또는 동일한 결과를 공유한다. 이러한 200개의 음성 대조군으로부터, <a href="MethodValidity.html#PositiveControls">18.2.2</a>절에 기술된 바와 같이 600개의 합성 양성 대조군이 유도된다. 분석 방법을 평가하려면 모든 대조군에 대해 효과 크기 추정치를 생성하는데 사용해야하며, 그 후 <a href="MethodValidity.html#metrics">18.2.3</a>절에 설명된 측정기준을 계산할 수 있다. 성능 평가 기준은 공개적으로 사용이 가능하며 <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> 패키지의 <a href="https://ohdsi.github.io/MethodEvaluation/articles/OhdsiMethodsBenchmark.html">Running the OHDSI Methods Benchmark vignette</a> 비네팅 실행에 설명된 대로 배포할 수 있다.</p>
+<p>비록 권고안이 적용된 맥락 안에서 방법론적의 성능을 경험적으로 평가하는 것이라 하더라도, 연구에서 쓰인 데이터베이스와 관심 노출-결과 쌍과 비슷한 방식 (예를 들어 같은 노출 혹은 같은 결과를 사용하는 것) 의 음성과 양성 대조군을 사용하여 방법론적의 성능을 일반적으로 평가하는 데도 가치가 있다. 이것이 OHDSI Methods Evaluation이 개발된 이유이다. 성능 평가 기준은 만성 혹은 급성 결과 또는 단기 노출을 포함한 광범위한 대조군 질의를 사용하여 성능을 평가한다. 이 성능 평가 기준의 결과는 분석 방법의 전반적인 유용성을 입증하는 데 도움이 될 수 있으며 상황별로 경험적 평가를 아직 사용할 수 없는 경우 분석법의 성능에 대한 사전 확신을 형성하는데 사용될 수 있다. 사용 평가 기준은 8개의 범주로 분류할 수 있는 200개의 신중하게 선택된 음성 대조군으로 구성되며 각 범주의 대조군은 동일한 노출 또는 동일한 결과를 공유한다. 이러한 200개의 음성 대조군으로부터, <a href="MethodValidity.html#PositiveControls">18.2.2</a>절에 기술된 바와 같이 600개의 합성 양성 대조군이 유도된다. 분석 방법을 평가하려면 모든 대조군에 대해 효과 크기 추정치를 생성하는데 사용해야하며, 그 후 <a href="MethodValidity.html#metrics">18.2.3</a>절에 설명된 측정기준을 계산할 수 있다. 성능 평가 기준은 공개적으로 사용이 가능하며 <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> 패키지의 <a href="https://ohdsi.github.io/MethodEvaluation/articles/OhdsiMethodsBenchmark.html">Running the OHDSI Methods Benchmark vignette</a> 비네팅 실행에 설명된 대로 배포할 수 있다.</p>
 <p>이 성능 평가 기준을 통해 OHDSI Methods Library의 모든 분석법만의 방법으로 실행했다. 예를 들어, CohortMethod는 성향 점수 짝짓기, 층화, 그리고 가중화를 사용하여 평가했다. 이 실험은 4개의 대규모 관찰형 의료 데이터베이스에서 실행되었다. 온라인상의 Shiny app<a href="#fn57" class="footnoteRef" id="fnref57"><sup>57</sup></a> 에서 볼 수 있는 결과는 여러 방법이 높은 AUC (음성과 양성 대조군을 구분하는 능력) 를 보여주지만, 그림 <a href="MethodValidity.html#fig:methodEval">18.9</a>와 같이, 대부분의 설정에서 대부분의 방법은 높은 type 1 error와 95% 신뢰 구간에 포함되는 비율이 낮은 것을 보여준다.</p>
 <div class="figure" style="text-align: center"><span id="fig:methodEval"></span>
 <img src="images/MethodValidity/methodEval.png" alt="Methods Libraryd에서 방법에 대한 95% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease." width="100%" />

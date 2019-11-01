@@ -241,7 +241,7 @@ Column name|Value|Explanation
 |VISIT_SOURCE_ VALUE|inpatient|출처에 나와 있는 방문 값 그대로 여기에 입력한다. Lauren의 데이터에는 존재하지 않는다.|
 |VISIT_SOURCE_ CONCEPT_ID|0|출처의 방문 값이 OHDSI에서 통용되는 용어를 사용하여 코딩 되어 있는 경우 원본 코드를 나타내는 CONCEPT_ID 값을 여기에 넣는다. Lauren의 데이터에는 존재하지 않는다.|
 |ADMITTED_FROM_ CONCEPT_ID|0|환자가 어디에서부터 입원해 왔는지 알 수 있는 경우 이를 나타내는 concept을 포함하고 있다. 이 concept은 “Visit”의 도메인을 가지고 있어야 한다. 예를 들어 만약 환자가 집에서 병원으로 입원한 경우 [8536](http://athena.ohdsi.org/search-terms/terms/8536) ("Home")값일 것이다.|
-|ADMITTED_FROM_ SOURCE_CONCEPT_ID|NULL|환자가 어디에서부터 입원해 왔는지를 나타내는 원본 값이다. 위의 예를 활용하면 여기에는 “Home”이 들어가야 한다.|
+|ADMITTED_FROM_ SOURCE_VALUE|NULL|환자가 어디에서부터 입원해 왔는지를 나타내는 원본 값이다. 위의 예를 활용하면 여기에는 “Home”이 들어가야 한다.|
 |DISCHARGE_TO_ CONCEPT_ID|0|환자가 어디로 퇴원 되었는지 알 수 있는 경우 이를 나타내는 concept을 나타낸다. 이 concept은 “Visit” 도메인을 가지고 있어야 한다. 예를 들면, 만약 환자가 보조 생활 시설로 보내졌을 경우 concept ID는 [8615](http://athena.ohdsi.org/search-terms/terms/8615) ("Assisted Living Facility")일 것이다.|
 |DISCHARGE_TO_ SOURCE_VALUE|0|환자가 퇴원 한 곳을 나타내는 원본 값이다. 위의 예를 활용하면“보조 생활 시설”이 된다.|
 |PRECEDING_VISIT_ OCCURRENCE_ID|NULL|현재 Visit의 바로 이전의 방문을 나타낸다. ADMITTED_FROM_CONCEPT_ID와 달리 Visit Concept이 아닌 실제 Visit Occurrence 기록에 연결된다. 또한 Visit Occurrence에 따른 기록는 없으며 Visit Occurrence는 이 필드를 통해서만 연결되어 있다.|
@@ -250,7 +250,7 @@ Column name|Value|Explanation
 
 ### CONDITION_OCCURRENCE{#conditionOccurrence}
 
-CONDITION_OCCURRENCE 테이블의 기록는 제공자가 관찰하거나 환자가 보고한 상태의 진단,징후 또는 증상이다.
+CONDITION_OCCURRENCE 테이블의 기록는 제공자가 관찰하거나 환자가 보고한 상태의 진단, 징후 또는 증상이다.
 
 #### Lauren의 condition은 무엇일까? {-}
 
@@ -371,13 +371,13 @@ Column name|Value|Explanation
 [^athenaCdmUrl]: http://athena.ohdsi.org/
 [^atlasCdmUrl]: http://atlas-demo.ohdsi.org
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnPerson"><strong>(\#exr:exerciseJohnPerson) </strong></span>John은 1974 년 8 월 4 일에 태어난 흑인 남자이다. 이 정보를 인코딩하는 PERSON 테이블 항목을 정의하라.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnPerson"><strong>(\#exr:exerciseJohnPerson) </strong></span>John은 1974 년 8 월 4 일에 태어난 흑인 남자이다. 이 정보를 인코딩하는 PERSON 테이블 항목을 정의하십시오.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnOp"><strong>(\#exr:exerciseJohnOp) </strong></span>John은 2015 년 1 월 1 일에 현재 이용하는 보험에 등록했다. 그의 보험 데이터베이스의 데이터는 2019 년 7 월 1 일에 추출되었다. 이 정보를 인코딩하는 OBSERVATION_PERIOD 테이블 항목을 정의하라.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnOp"><strong>(\#exr:exerciseJohnOp) </strong></span>John은 2015 년 1 월 1 일에 현재 이용하는 보험에 등록했다. 그의 보험 데이터베이스의 데이터는 2019 년 7 월 1 일에 추출되었다. 이 정보를 인코딩하는 OBSERVATION_PERIOD 테이블 항목을 정의하십시오.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnDrug"><strong>(\#exr:exerciseJohnDrug) </strong></span>John은 2019 년 5 월 1 일에 Ibuprofen 200 MG Oral 정제 (NDC 코드 : 76168009520)를 30 일간 투여하도록 처방되었다. 이 정보를 인코딩하는 DRUG_EXPOSURE 테이블 항목을 정의하라.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnDrug"><strong>(\#exr:exerciseJohnDrug) </strong></span>John은 2019 년 5 월 1 일에 Ibuprofen 200 MG Oral 정제 (NDC 코드 : 76168009520)를 30 일간 투여하도록 처방되었다. 이 정보를 인코딩하는 DRUG_EXPOSURE 테이블 항목을 정의하십시오.
 </div>\EndKnitrBlock{exercise}
 
 #### 전제 조건 {-}
@@ -405,7 +405,7 @@ CDM 데이터 베이스 스키마는 “main”이다.
 \BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exercisePersonSource"><strong>(\#exr:exercisePersonSource) </strong></span>SQL과 R을 사용하여 원본 코드로 "Gastrointestinal hemorrhage" 질환의 모든 기록을 검색한다. 이 데이터베이스는 ICD-10을 사용하며 관련 ICD-10 코드는 "K92.2"이다. 
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exercisePerson61Records"><strong>(\#exr:exercisePerson61Records) </strong></span>SQL과 R을 사용하여 PERSON_ID가 61 인 사람의 관찰 기간을 검색하라.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exercisePerson61Records"><strong>(\#exr:exercisePerson61Records) </strong></span>SQL과 R을 사용하여 PERSON_ID가 61 인 사람의 관찰 기간을 검색하십시오.
 </div>\EndKnitrBlock{exercise}
 
 

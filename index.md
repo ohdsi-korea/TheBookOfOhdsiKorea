@@ -1,7 +1,7 @@
 ---
 title: "The Book of OHDSI Korea"
 author: "OHDSI-Korea"
-date: "2019-10-30"
+date: "2019-11-01"
 classoption: 11pt
 geometry:
 - paperheight=10in
@@ -139,6 +139,7 @@ SqlRender                  1.6.2
 | 삼성서울병원 | 윤선영 |
 | 아주대학교   | 이선경 |
 | 아주대학교   | 이성원 |
+| 성균관대학교 | 이일동 |
 | 동국대학교   | 임지연 |
 | 성균관대학교 | 장동경 |
 | 삼성서울병원 | 장진성 |

@@ -307,8 +307,6 @@ Broadsea[^broadseaUrl]은 Docker 컨테이너 기술을 사용한다. [^dockerUr
 
 Amazon은 버튼 클릭 한 번으로 AWS 클라우드 컴퓨팅 환경에서 인스턴스화할 수 있는 두 가지 환경, 즉 OHDSI-in-a-Box[^ohdsiInaBoxUrl]와 OHDSIonAWS.[^ohdsiOnAwsUrl]을 준비했다. \index{tools deployment!Amazon AWS}
 
-OHDSI-in-a-Box is specifically created as a learning environment, and is used in most of the tutorials provided by the OHDSI community. It includes many OHDSI tools, sample data sets, RStudio and other supporting software in a single, low cost Windows virtual machine. A PostgreSQL database is used to store the CDM and also to store the intermediary results from ATLAS. The OMOP CDM data mapping and ETL tools are also included in OHDSI-in-a-Box. The architecture for OHDSI-in-a-Box is depicted in Figure \@ref(fig:ohdsiinaboxDiagram).
-
 OHDSI-in-a-Box는 특별히 학습 환경으로 만들어졌으며, OHDSI 커뮤니티에서 제공하는 대부분의 튜토리얼에 사용된다. 그것은 많은 OHDSI 도구, 샘플 데이터 세트, RStudio 및 기타 지원 소프트웨어를 저렴한 단일 윈도우즈 가상 머신에 포함한다. PostgreSQL 데이터베이스는 CDM을 저장하고 ATLAS의 중간 결과를 저장하는 데 사용된다. OMOP CDM 데이터 매핑과 ETL 툴도 OHDSI-in-a-Box에 포함되어 있다. OHDSI-in-a-Box 아키텍처는 그림 \@ref(fig:ohdsiinaboxDiagram)에 나타나 있다.
 
 [^ohdsiInaBoxUrl]: https://github.com/OHDSI/OHDSI-in-a-Box

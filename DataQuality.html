@@ -24,7 +24,7 @@
 <meta name="author" content="OHDSI-Korea" />
 
 
-<meta name="date" content="2019-10-30" />
+<meta name="date" content="2019-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -469,15 +469,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.7.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.5</b> 내부 검증</a></li>
 <li class="chapter" data-level="13.7.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증</a></li>
 </ul></li>
-<li class="chapter" data-level="13.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#results-dissemination"><i class="fa fa-check"></i><b>13.8</b> Results Dissemination</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#model-performance"><i class="fa fa-check"></i><b>13.8.1</b> Model Performance</a></li>
-<li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#comparing-models"><i class="fa fa-check"></i><b>13.8.2</b> Comparing Models</a></li>
+<li class="chapter" data-level="13.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8</b> 결과 보급</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.1</b> 모델 성능</a></li>
+<li class="chapter" data-level="13.8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.2</b> 모형 비교</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#additional-patient-level-prediction-features"><i class="fa fa-check"></i><b>13.9</b> Additional Patient-Level Prediction Features</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#journal-paper-generation"><i class="fa fa-check"></i><b>13.9.1</b> Journal Paper Generation</a></li>
+<li class="chapter" data-level="13.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>13.9</b> 추가적 환자-수준 예측 변수</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.9.1</b> 저널에 논문 작성</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#-11"><i class="fa fa-check"></i><b>13.10</b> 요약</a></li>
-<li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#exercises"><i class="fa fa-check"></i><b>13.11</b> Exercises</a></li>
+<li class="chapter" data-level="13.11" data-path="SqlAndR.html"><a href="SqlAndR.html#-7"><i class="fa fa-check"></i><b>13.11</b> 예제</a></li>
 </ul></li>
 <li class="part"><span><b>IV Evidence Quality</b></span></li>
 <li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> 근거의 질</a><ul>
@@ -658,7 +658,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="DataQuality" class="section level1">
 <h1><span class="header-section-number">Chapter 15</span> 데이터의 질</h1>
 <p><em>Chapter leads: Martijn Schuemie, Vojtech Huser &amp; Clair Blacketer</em></p>
-<p>관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자 건강기록(Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터가 임상 연구에 적합한지 여부에 대해 의문을 가지고 있으며, <span class="citation">Lei (<a href="#ref-vanDerLei_1991">1991</a>)</span> 은 “데이터는 수집된 목적으로만 사용되어야 한다(Data shall be used only for the purpose for which they were collected)”고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:</p>
+<p>관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자 건강기록(Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터를 임상 연구에 사용하는것이 적합한가 여부에 의문을 가지고 있으며 심지어, <span class="citation">Lei (<a href="#ref-vanDerLei_1991">1991</a>)</span> 은 “데이터는 수집된 목적으로만 사용되어야 한다(Data shall be used only for the purpose for which they were collected)”고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:</p>
 <blockquote>
 <p>연구 목적에 적합한 데이터인가 (Are the data of sufficient quality for our research purposes) ?</p>
 </blockquote>
@@ -671,16 +671,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>본 장에서 우리는 먼저, DQ 문제가 발생할 수 있는 원인에 대해 검토하고, 보편적인 DQ와 연구 목적의 DQ 평가 이론에 대해 논의 후, OHDSI 툴들을 사용하여 이러한 평가를 어떻게 수행하는지 단계별로 설명하고자 한다.</p>
 <div id="-----sources-of-data-quality-problems" class="section level2">
 <h2><span class="header-section-number">15.1</span> 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)</h2>
-<p><a href="EvidenceQuality.html#EvidenceQuality">14</a>장에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소가 발생한다. <span class="citation">Dasu and Johnson (<a href="#ref-dasu_2003">2003</a>)</span> 은 각 단계에 구성된 DQ를 제시하면서, 데이터의 수명 주기에 따라 DQ를 구분하였다. 그들은 이를 DQ 연속체(DQ continuum)라 하였다:</p>
+<p><a href="EvidenceQuality.html#EvidenceQuality">14</a>장에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소가 발생한다. <span class="citation">Dasu and Johnson (<a href="#ref-dasu_2003">2003</a>)</span> 은 데이터의 수명 주기에 따른 단계를 명시하였고, 각 단계를 통합한 DQ 진행을 제시하였다. 그들은 이를 DQ 연속체(DQ continuum)라 하였다:</p>
 <ol style="list-style-type: decimal">
-<li><strong>데이터 수집 및 통합(Data gathering and integration)</strong>. 발생 가능한 문제로 잘못된 수기 입력, 편향 (예를 들어 upcoding in claims), EHR에서 잘못된 테이블과의 결합, 누락 값을 기본값으로 대체하는 것 등이 있다.</li>
+<li><strong>데이터 수집 및 통합(Data gathering and integration)</strong>. 자료의 수기 입력시 오류와 편향등의 발생가능한 문제. (예를 들어 upcoding in claims ;청구를 위하여 진단명과 시술 등을 보다 심각하게 혹은 높은 비용으로 작성하는것), EHR에서 잘못된 테이블간의 결합, 결측값을 기본값으로 대체하는 것 등을 포함한다.</li>
 <li><strong>데이터 저장 및 지식 공유(Data storage and knowledge sharing)</strong>. 데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이 잠재적인 문제로 여겨진다.</li>
 <li><strong>데이터 분석(Data analysis)</strong>. 잘못된 데이터 변환, 부정확한 데이터 해석, 그리고 부적절한 방법론 사용 등의 문제가 포함될 수 있다.<br />
 </li>
-<li><strong>Data publishing</strong>. 후속 사용을 위해 데이터를 게시하는 경우 (When publishing data for downstream use).</li>
+<li><strong>데이터 공유(Data publishing)</strong>. 후속 사용을 위해 데이터를 게시하는 경우 (When publishing data for downstream use).</li>
 </ol>
-<p>우리가 사용하는 데이터는 종종 이미 수집되고 통합되어 있기 때문에, 1단계에서 개선할 수 있는 것은 거의 없다. 이 단계에서 생성된 DQ를 확인할 방법은 다음 절에서 논의될 것이다.</p>
-<p>유사하게, 특정 형식으로 데이터를 받기 때문에 2단계에 대한 영향력도 거의 없다. 하지만 OHDSI에서 우리는 우리의 관찰 데이터를 공통 데이터모델(Common Data Model, CDM)로 변환하고, 이 프로세스에 대한 소유권을 갖는다. 몇몇은 이러한 특정 단계가 DQ를 저하할 것이라 우려를 표한다. 하지만 우리는 이 프로세스를 통제하기 때문에, 이후 15.2.2절<a href="DataQuality.html#etlUnitTests">15.2.2</a>에서 논의하는 것과 같이 DQ를 보호하기 위한 엄격한 안전장치를 구축할 수 있다. 여러 연구<span class="citation">(Defalco, Ryan, and Soledad Cepeda <a href="#ref-defalco_2013">2013</a>; Makadia and Ryan <a href="#ref-makadia_2014">2014</a>; Matcho et al. <a href="#ref-matcho_2014">2014</a>; Voss, Ma, and Ryan <a href="#ref-voss_2015">2015</a>; Voss et al. <a href="#ref-voss_2015b">2015</a>; Hripcsak et al. <a href="#ref-hripcsak_2018">2018</a>)</span>에 따르면 이 과정이 제대로 실행된다면 CDM으로 변환했을 때 오류가 거의 발생하지 않는 것으로 나타났다. 실제로, 대규모 공동체에 의해 공유되는 잘 문서화된 데이터 모델은 명백하고 명확한 방법으로 데이터 저장을 용이하게 한다.</p>
+<p>우리가 사용하는 데이터는 대부분 이미 수집되고 통합되어 있기 때문에, 1단계에서 개선할 수 있는 것은 거의 없다. 이 단계에서 생성된 DQ를 확인할 방법은 다음 절에서 논의될 것이다.</p>
+<p>유사하게, 특정 형식으로 데이터를 받기 때문에 2단계에 대한 영향을 줄 수 있는 부분도 미미하다. 하지만 OHDSI에서 우리는 우리의 관찰 데이터를 공통 데이터모델(Common Data Model, CDM)로 변환하고, 이 프로세스에 대한 소유권을 갖는다. 몇몇은 이러한 특정 단계가 DQ를 저하할 것이라 우려를 표한다. 하지만 우리는 이 변환 프로세스를 통제하기 때문에, 이후 15.2.2절<a href="DataQuality.html#etlUnitTests">15.2.2</a>에서 논의하는 것과 같이 DQ를 보존하기 위한 엄격한 안전장치를 구축할 수 있다. 여러 연구<span class="citation">(Defalco, Ryan, and Soledad Cepeda <a href="#ref-defalco_2013">2013</a>; Makadia and Ryan <a href="#ref-makadia_2014">2014</a>; Matcho et al. <a href="#ref-matcho_2014">2014</a>; Voss, Ma, and Ryan <a href="#ref-voss_2015">2015</a>; Voss et al. <a href="#ref-voss_2015b">2015</a>; Hripcsak et al. <a href="#ref-hripcsak_2018">2018</a>)</span>에 따르면 이 과정이 제대로 실행된다면 CDM으로 변환했을 때 오류가 거의 발생하지 않는 것으로 나타났다. 실제로, 대규모 공동체에 의해 공유되는 잘 문서화된 데이터 모델은 명백하고 명확한 방법으로 데이터 저장을 용이하게 한다.</p>
 <p>3단계 (데이터 분석) 또한 우리의 통제 아래에 있다. OHDSI에서 우리는 이 단계의 품질 이슈에 대해 DQ 용어를 사용하지 않고 각각 <a href="ClinicalValidity.html#ClinicalValidity">16</a>장, <a href="SoftwareValidity.html#SoftwareValidity">17</a>장, 그리고 <a href="MethodValidity.html#MethodValidity">18</a>장에서 다루는 <em>clinical validity</em>, <em>software validity</em> 그리고<em>method validity</em>라는 용어를 사용한다.</p>
 </div>
 <div id="---data-quality-in-general" class="section level2">
@@ -690,34 +690,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>적합성(Conformance)</strong>: 데이터값이 지정된 표준과 형식을 준수하는가? 3가지 하위 유형으로 식별된다:</li>
 </ol>
 <ul>
-<li><strong>Value</strong>: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예를 들어 모든 Provider의 의료 전문분야는 유효한 전문 분야인가?</li>
-<li><strong>Relational</strong>: 기록된 데이터가 지정된 관계적 제약(relational constraints)과 일치하는가? 예를 들어 DRUG_EXPOSURE 테이블의 PROVIDER_ID가 PROVIDER 테이블의 해당 레코드를 가지고 있는가?</li>
+<li><strong>Value</strong>: 기록된 데이터의 요소가 지정된 형식과 일치하는가? 예를 들어 모든 의료 제공자(Provider)의 진료과(specialties)는 유효한 전문 분야인가?</li>
+<li><strong>Relational</strong>: 기록된 데이터가 지정된 관계적 제약(relational constraints)과 일치하는가? 예를 들어 DRUG_EXPOSURE 테이블의 PROVIDER_ID가 PROVIDER 테이블에도 상응하는 기록을 가지고 있는가?</li>
 <li><strong>Computation</strong>: 데이터에 대한 계산이 의도한 결과를 산출하는가? 예를 들어 키와 몸무게에서 계산된 BMI와 데이터에 기록된 BMI가 일치하는가?</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>완전성(Completeness)</strong>: 특정 변수가 존재하는지 여부 (예를 들어 진료실에서 측정된 체중이 기록되어 있는가?) 와 모든 변수의 값이 기록되어 있는지 (예를 들어 모든 사람이 성별에 관련된 데이터를 가지고 있는가?) 를 나타낸다.</li>
-<li><strong>Plausibility</strong>: 데이터의 값을 믿을 수 있는가? 3가지 하위 유형으로 식별된다:
+<li><strong>타당성(Plausibility)</strong>: 데이터의 값을 믿을 수 있는가? 3가지 하위 유형으로 정의된다:
 <ul>
 <li><strong>Uniqueness</strong>: 예를 들어 각각의 PERSON_ID는 PERSON 테이블에서 한 번만 발생하는가?</li>
-<li><strong>Atemporal</strong>: 값, 분포 또는 밀도가 예상값과 일치하는가? 예를 들어 데이터에 의해 암시된 당뇨병의 유행이 실제 알려진 유행과 일치하는가?</li>
-<li><strong>Temporal</strong>: 값의 변화가 예상과 일치하는가? 예를 들어 예방접종 순서는 권고사항과 일치하는가?</li>
+<li><strong>Atemporal</strong>: 값, 분포 또는 밀도가 예상되는 값과 일치하는가? 예를 들어 데이터에 의해 암시된 당뇨병의 유행이 실제 알려진 유행과 일치하는가?</li>
+<li><strong>Temporal</strong>: 값의 변화가 예상 범위 내에서 일어나는가? 예를 들어 예방접종 순서는 권고사항과 일치하는가?</li>
 </ul>
   </li>
 </ol>
 <p>각각의 구성요소는 두 가지 방법으로 평가될 수 있다:</p>
 <ul>
-<li><strong>Verification</strong> 외부 참조에 의존하지 않고, 모델, 메타데이터의 데이터 제약, 시스템 추정, 그리고 Local 지식에 주력한다. Verification의 주요 특징은 Local 환경 내의 자원을 사용하여 예상되는 값과 분포를 설명하는 능력이다.</li>
-<li><strong>Validation</strong> 관련된 외부 benchmarks와 관련된 데이터 값과의 일치에 주력한다. 외부 benchmark로 가능한 원천으로는 여러 데이터 사이트에 걸쳐 결과를 결합하는 것이 있다.</li>
+<li><strong>검증(Verification)</strong> 외부 참조에 의존하지 않고 모델과 메타데이터의 데이터 제약, 시스템 추정, 그리고 Local 지식을 집중적으로 확인한다. Verification의 주요 특징은 Local 환경 내의 자원을 사용하여 예상되는 값과 분포를 설명하는 능력이다.</li>
+<li><strong>검토(Validation)</strong> 관련된 외부 기준(benchmarks)와 관련된 데이터 값과의 일치에 주력한다. 외부 기준(benchmark)로 가능한 원천으로는 다기관의 데이터를 결합한 결과가 될 수 있다.</li>
 </ul>
 <p> </p>
 <div id="---data-qualityintegrate-checks" class="section level3">
 <h3><span class="header-section-number">15.2.1</span> 데이터 품질 검사 (Data Qualityintegrate Checks)</h3>
 <p> </p>
-<p>Kahn은 데이터가 주어진 요구 조건을 준수하는지 테스트하기 위해 <em>데이터 품질 검사(data quality check)</em> (때로는 <em>데이터 품질 rule(data quality rule)</em>이라고도 함)라는 용어를 도입하였다 (예를 들어 잘못된 출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할 수 없는 연령 표시). 우리는 자동화된 DQ 툴들을 만들어 소프트웨어에서 이러한 check들을 수행한다. 이러한 툴 중 하나가 <a href="https://github.com/OHDSI/Achilles">ACHILLES</a> (Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems, ACHILLES)이다. <span class="citation">(Huser et al. <a href="#ref-huser_methods_2018">2018</a>)</span> ACHILLES는 CDM에 부합하는 데이터베이스의 특성과 시각화를 제공하는 소프트웨어 툴이다. 데이터베이스 네트워크에서 DQ를 평가하는데 사용할 수 있다 <span class="citation">(Huser et al. <a href="#ref-huser_multisite_2016">2016</a>)</span>. ACHILLES는 독립형 툴로써 사용 가능하며, “데이터 소스(Data Sources)” 기능으로 ATLAS에서도 통합되어 있다.  </p>
-<p>ACHILLES는 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다. “715: DRUG_CONCEPT에 의한 DAYS_SUPPLY의 분포” and “506: 성별에 따른 사망 연령 분포”. 이러한 분석 결과는 데이터베이스에 저장되며, 웹 뷰어(web viewer) 또는 ATLAS에서 엑세스 할 수 있다.</p>
+<p>Kahn은 데이터가 주어진 요구 조건을 준수하는지 확인하기 위해 데이터 품질 확인 (data quality check, 때로는 data quality rule이라고도 함)이라는 용어를 도입하였다 (예시. 부정확한 출생 연도 또는 사망 사건의 누락으로 인해 141세라는 환자의 신뢰할 수 없는 연령 자료 삭제). 우우리는 자동화된 DQ tool을 만들어 소프트웨어 내에서 위와 같은 검사를 진행할 수 있다. 이러한 툴 중 하나가 <a href="https://github.com/OHDSI/Achilles">ACHILLES</a> (Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems, ACHILLES)이다. <span class="citation">(Huser et al. <a href="#ref-huser_methods_2018">2018</a>)</span> ACHILLES는 CDM에 부합하는 데이터베이스의 특성과 시각화를 제공하는 소프트웨어 툴이다. 따라서 데이터베이스 네트워크에서 DQ를 평가하는데 사용할 수 있다 <span class="citation">(Huser et al. <a href="#ref-huser_multisite_2016">2016</a>)</span>. ACHILLES는 독립형 툴로써 사용 가능하며, “데이터 소스(Data Sources)” 기능으로 ATLAS에서도 통합되어 있다.  </p>
+<p>ACHILLES는 분석마다 분석 ID와 간단한 설명을 지닌 170개 이상의 데이터 특성 분석을 사전 계산한다. 이와 관련된 두 가지 예시는 다음과 같다. “715: DRUG_CONCEPT_ID에 의한 DAYS_SUPPLY의 분포” 그리고 “506: 성별에 따른 사망 연령 분포”. 이러한 분석 결과는 데이터베이스에 저장되며, 웹 뷰어(web viewer) 또는 ATLAS에서 확인 할 수 있다.</p>
 
-<p>공동체에서 DQ 평가를 위해 만든 또 다른 툴로 <a href="https://github.com/OHDSI/DataQualityDashboard">Data Quality Dashboard(DQD)</a>가 있다. ACHILLES가 특성화 분석을 실행하여 CDM 인스턴스(instance)에 대한 전반적인 시각적 이해를 제공한다면, DQD는 테이블별, 필드 별로 주어진 규격에 적합하지 않은 CDM의 레코드 수를 정량화한다. 전체적으로, 1,500건 이상의 checks가 수행되고, 각각은 Kahn의 프레임워크로 구성된다. 각 check의 결과는 임계값과 비교되며, FAIL은 해당 값을 초과하는 위반 행의 백분율로 간주한다. 표 15.1<a href="#tab:dqdExamples">15.1</a>은 checks의 예시를 보여준다.</p>
-<p>표: (#tab:dqdExamples) Data Quality Dashboard에서 데이터 품질 rules 예시.</p>
+<p>공동체에서 DQ 평가를 위해 만든 또 다른 툴로 <a href="https://github.com/OHDSI/DataQualityDashboard">Data Quality Dashboard(DQD)</a>가 있다. ACHILLES가 특성화 분석을 실행하여 CDM 인스턴스(instance)에 대한 전반적인 시각적 이해를 제공한다면, DQD는 테이블별, 필드 별로 주어진 규격에 적합하지 않은 CDM의 레코드 수를 제공한다. 전체적으로, 1,500건 이상의 확인이 수행되고, 각 확인은 Kahn의 프레임워크로 구성된다. 각 DQ의 결과는 임계값과 비교되며, FAIL은 임계값을 위반하는 행을 백분율로 계산한 결과로 결정된다. 표 15.1<a href="#tab:dqdExamples">15.1</a>은 확인의 예시를 보여준다.</p>
+<p>표: (#tab:dqdExamples) Data Quality Dashboard에서 데이터 품질 규칙(Data Quality rules)의 예시.</p>
 <table style="width:86%;">
 <colgroup>
 <col width="13%" />
@@ -728,7 +728,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <thead>
 <tr class="header">
 <th align="left">위반 행의 분율</th>
-<th align="left">Check 설명</th>
+<th align="left">확인 내용 설명</th>
 <th align="left">임계값</th>
 <th align="left">상태</th>
 </tr>
@@ -736,7 +736,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tbody>
 <tr class="odd">
 <td align="left">0.34</td>
-<td align="left">VISIT_OCCURRENCE의 provider_id가 설명서를 기반으로 예측되는 데이터 형식인지를 나타내는 yes 또는 no 값.</td>
+<td align="left">VISIT_OCCURRENCE의 provider_id가 CDM specification에 규정된 데이터 형식으로 확인되는가를 예 / 아니오로 나타낸 값.</td>
 <td align="left">0.05</td>
 <td align="left">FAIL</td>
 </tr>
@@ -748,7 +748,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="odd">
 <td align="left">0.09</td>
-<td align="left">DRUG_ERA 테이블의 drug_concept_id 필드에서 성분 클래스에 적합하지 않은 값을 가진 레코드 수와 백분율.</td>
+<td align="left">DRUG_ERA 테이블의 drug_concept_id 필드에서 성분 등급에 적합하지 않은 값을 가진 레코드 수와 백분율.</td>
 <td align="left">0.10</td>
 <td align="left">PASS</td>
 </tr>
@@ -766,37 +766,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>툴에서, DQ checks는 테이블, 필드 및 concept 레벨의 checks 중 하나에 속하며 여러 가지 방식으로 구성된다. 테이블 checks는 모든 필수 테이블이 존재하는지 판별하는 등 CDM 내에서 상위 레벨로 수행되는 check이다. 필드 레벨의 checks는 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는 방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과 모든 표준 concept 필드가 많은 다른 것 중 적절한 도메인의 concept_ID를 포함하는지 확인하는 것이 포함된다. Concept 레벨의 검사는 개별적인 concept_id를 조사하기 위해 조금 더 깊이 들어간다. 이 중 상당수는 성별에 따른 concept이 부정확한 성별 (예를 들어 여성 환자의 전립선암) 에 속하지 않도록 하는 것과 같이 Kahn의 프레임워크 중 타당성(Plausibility) 카테고리에 속한다.</p>
+<p>DQ 확인 툴은 여러가지 방법으로 구성되며 테이블, 필드, 개념 수준의 확인이 예시가 될 수 있다. 테이블(table) 점검은 CDM내에서 상위 수준에서 수행되는 점검으로 예를 들면 모든 필수 테이블이 존재하는지를 확인하는 것이다. 필드 수준의 확인는 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는 방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과 모든 표준 concept 필드가 많은 concept_ID들 중 적절한 도메인의 concept_ID를 사용하는지 확인하는 것이 포함된다. Concept 수준의 검사는 개별적인 concept_id를 확인하기 위해 조금 더 깊이 들어간다.이 중 상당수가 Kahn의 프레임워크 중 타당성(Plausibility)항목에 해당되며 성별과 관련된 특정 개념이 부적절한 성별에 할당되지 않도록 보장하는것이 예시로 해당된다(예시. 여성 환자에서 전립선 암)</p>
 
 <div class="rmdimportant">
-<p>ACHILLES와 DQD는 CDM 데이터에서 실행된다. 이렇게 식별된 DQ 이슈는 cDM으로의 변환 때문일 수 있지만, 소스 데이터에서 이미 존재하는 DQ 문제를 반영할 수도 있다. 만약 변환이 잘못되었을 경우, 문제를 해결하는 것은 우리의 통제 아래에 있지만, 기본 데이터가 잘못되었을 경우, 유일한 조치 행동은 위반된 기록을 삭제하는 것이다.</p>
+<p>ACHILLES와 DQD는 CDM 데이터를 대상으로 실행된다. 이렇게 식별된 DQ 문제는 CDM으로의 변환 과정이 원인일 수 있지만, 원본 데이터(source data)상에서 이미 존재하는 DQ 문제를 반영할 수도 있다. 만일 변환 과정의 문제로 확인되는 경우 일반적으로 문제 해결을 연구자의 역량 내에서 진행할 수 있지만, 원본 데이터의 오류로 인한 문제의 유일한 조치는 오류 데이터 자체를 삭제하는것이다.</p>
 </div>
 
 </div>
 <div id="etlUnitTests" class="section level3">
 <h3><span class="header-section-number">15.2.2</span> ETL Unit Tests</h3>
 
-<p>상위 레벨의 데이터 품질 checks뿐만 아니라, 개별 수준의 데이터 품질 checks도 수행되어야 한다. 데이터가 CDM으로 변환되는 ETL(추출-변환-적재, Extract-Transform-Load) 프로세스는 종종 상당히 복잡하고, 이러한 복잡성으로 인해 실수를 눈치채지 못할 위험이 있다. 더욱이, 시간이 지남에 따라 원본 데이터 모델이 변경되거나, CDM 버전이 업데이트 되면, ETL 프로세스를 수정할 필요가 있다. ETL과 같이 복잡한 프로세스의 변경은 의도하지 않은 결과를 초래할 수 있고, ETL의 모든 측면을 재고하고 검토해야 한다.</p>
-<p>ETL이 해야 하는 것을 정확히 하고, 계속하기 위해서 일련의 unit tests를 구성하는 것이 매우 권장된다. Unit test란 하나의 측면을 자동으로 확인하는 작은 코드 조각이다. <a href="ExtractTransformLoad.html#ExtractTransformLoad">6</a>장에서 설명한 Rabbit-in-a-Hat 툴로 이러한 Unit test를 보다 쉽게 작성할 수 있는 Unit test 프레임워크를 만들 수 있다. 이 프레임워크는 ETL에서 소스 데이터베이스와 표적 CDM 버전을 위해 특별히 만들어진 R 함수의 모음이다. 이러한 함수 중 일부는 소스데이터 스키마를 준수하는 가짜 데이터 항목을 만들기 위한 것이며, 다른 기능은 CDM 형식으로 데이터에 대한 예상값을 정하는 데 사용될 수 있다. Unit test에 대한 예시는 다음과 같다:</p>
+<p>상위 레벨의 데이터 품질 확인 뿐만 아니라, 개별 수준의 데이터 품질 확인도 수행되어야 한다. 데이터가 CDM으로 변환되는 ETL(추출-변환-적재, Extract-Transform-Load) 과정은 종종 상당히 복잡하고, 이러한 복잡성은 인해 실수를 눈치채지 못할 위험이 된다. 더욱이, 시간 경과에 지남에 따라 원본 데이터 모델이 변경되거나, CDM 버전이 업데이트 될 수 있으므로, ETL 과정를 수정이 필수적으로 진행되어야 한다. ETL과 같이 복잡한 과정의 변경은 의도하지 않은 결과를 초래할 수 있어, ETL의 모든 측면을 재고하고 검토해야 한다.</p>
+<p>ETL의 향후 계획을 명확히 하고 지속적인 작업 진행을 위해 하나의 테스트 단위(Unit test)를 구성하는것을 매우 권장한다. Unit test란 하나의 측면을 자동으로 확인하는 작은 코드 조각이다. <a href="ExtractTransformLoad.html#ExtractTransformLoad">6</a>장에서 설명한 Rabbit-in-a-Hat 툴로 이러한 Unit test를 보다 쉽게 작성할 수 있는 Unit test 프레임워크를 만들 수 있다.이 프레임 워크는 원본 DB와 대상으로 하는 CDM version의 ETL을 위해 특별히 작성된 R 함수의 집합이다. 이러한 함수 중 일부는 원본 데이터(source datta) 스키마를 준수하는 가짜 데이터 항목을 만들기 위한 것이며, 다른 일부는 CDM 형식으로 데이터에 대한 예상값을 정하는 데 사용될 수 있다. Unit test에 대한 예시는 다음과 같다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;Framework.R&quot;</span>)
 <span class="kw">declareTest</span>(<span class="dv">101</span>, <span class="st">&quot;Person gender mappings&quot;</span>)
 <span class="kw">add_enrollment</span>(<span class="dt">member_id =</span> <span class="st">&quot;M000000102&quot;</span>, <span class="dt">gender_of_member =</span> <span class="st">&quot;male&quot;</span>)
 <span class="kw">add_enrollment</span>(<span class="dt">member_id =</span> <span class="st">&quot;M000000103&quot;</span>, <span class="dt">gender_of_member =</span> <span class="st">&quot;female&quot;</span>)
 <span class="kw">expect_person</span>(<span class="dt">PERSON_ID =</span> <span class="dv">102</span>, <span class="dt">GENDER_CONCEPT_ID =</span> <span class="dv">8507</span>
 <span class="kw">expect_person</span>(<span class="dt">PERSON_ID =</span> <span class="dv">103</span>, <span class="dt">GENDER_CONCEPT_ID =</span> <span class="dv">8532</span>)</code></pre></div>
-<p>예제에서, Rabbit-in-a-Hat에 의해 생성된 프레임워크는 나머지 코드에서 사용되는 함수를 불러오는 코드이다. 그러고 나서 우리는 성별 매핑(Person gender mappings)에 대한 테스트를 시작할 것이라 선언하였다. 소스 스키마는 ENROLLMENT 테이블을 가지고 있고, 우리는 Rabbit-in-a-Hat에서 생성된 add_enrollment 함수를 사용하여 MEMBER_ID와 GENDER_OF_MEMBER 필드에 대해 서로 다른 값을 지닌 두 개의 항목을 만들었다. 마지막으로, ETL 이후 PERSON 테이블에서 다양한 예상값을 지닌 두 개의 항목이 존재해야 한다는 것을 명시한다.</p>
-<p>ENROLLMENT 테이블에는 많은 다른 필드가 있지만, 이 테스트의 맥락에서는 이러한 다른 필드가 어떤 값을 가지는지는 중요하지 않다. 하지만 이러한 값을 비워두면 (예를 들어 생년월일), 레코드를 삭제하거나 오류를 발생시키는 ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서 이러한 문제를 해결하기 위해서, add_enrollment 함수는 사용자가 명확하게 지정하지 않은 필드의 값에 기본값 (White Rabbit 스캔 보고서에서 관찰된 가장 일반적인 값) 을 할당한다.</p>
-<p>ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어질 수 있으며, 일반적으로 수백 개의 시험이 발생한다. 테스트를 정의하는 것이 끝나면, 가짜 소스 데이터를 생성하기 위한 것과 ETL된 데이터를 test에 생성할 수 있는 두 개의 SQL 문을 생성하기 위해 프레임워크를 사용할 수 있다.</p>
+<p>예제에서, Rabbit-in-a-Hat에 의해 생성된 프레임워크는 나머지 코드에서 사용되는 함수를 불러오는 출처가 된다. 이후에 성별 매핑(Person gender mappings)에 대한 테스트를 시작할 것이라 선언하였다. 소스 스키마는 ENROLLMENT 테이블을 가지고 있고, 우리는 Rabbit-in-a-Hat에서 생성된 add_enrollment 함수를 사용하여 MEMBER_ID와 GENDER_OF_MEMBER 필드에 대해 서로 다른 값을 지닌 두 개의 항목을 만들었다. 마지막으로, ETL 이후 PERSON 테이블에서 다양한 예상값을 지닌 두 개의 항목이 존재해야 한다는 것을 명시한다.</p>
+<p>ENROLLMENT 테이블에는 다른 필드가 많이 존재하지만, 이 테스트의 맥락에서는 다른 필드가 어떤 값을 가지는지에 관해 설명하지 않을것이다. 하지만 이러한 값을 비워두면 (예를 들어 생년월일), 레코드를 삭제하거나 오류를 발생시키는 ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서 이러한 문제를 해결하기 위해서, add_enrollment 함수는 사용자가 명확하게 지정하지 않은 필드의 값에 기본값 (White Rabbit 스캔 보고서에서 관찰된 가장 일반적인 값) 을 할당한다.</p>
+<p>ETL의 모든 다른 논리에 대해 유사한 Unit test가 만들어질 수 있으며, 일반적으로 수백 개의 시험을 진행할 수 있다. 테스트를 정의하는것이 끝나면 프레임워크를 사용하여 두 개의 SQL 구문 세트를 만들 수 있다. 하나는 가짜 원본 데이터를 만드는 것이고, 다른 하나는 ETL된 데이터에 대한 테스트를 진행할 수 있는 구문이다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">insertSql &lt;-<span class="st"> </span><span class="kw">generateInsertSql</span>(<span class="dt">databaseSchema =</span> <span class="st">&quot;source_schema&quot;</span>)
 testSql &lt;-<span class="st"> </span><span class="kw">generateTestSql</span>(<span class="dt">databaseSchema =</span> <span class="st">&quot;cdm_test_schema&quot;</span>)</code></pre></div>
-<p>전반적인 프로세스는 그림 <a href="DataQuality.html#fig:testFramework">15.1</a>에 묘사된 것과 같다.</p>
+<p>전반적인 과정은 그림 <a href="DataQuality.html#fig:testFramework">15.1</a>에 묘사된 것과 같다.</p>
 <div class="figure" style="text-align: center"><span id="fig:testFramework"></span>
 <img src="images/DataQuality/testFramework.png" alt="Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 추출변환적재(ETL) Unit testing 과정." width="90%" />
 <p class="caption">
 Figure 15.1: Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 추출변환적재(ETL) Unit testing 과정.
 </p>
 </div>
-<p>테스트 SQL은 표<a href="#tab:exampleTestResults">15.2</a>와 같은 테이블을 반환한다. 이 표에서는 우리가 앞서 정의한 두 가지 테스트를 통과하는 것을 알 수 있다.</p>
+<p>SQL을 통한 테스트는 표<a href="#tab:exampleTestResults">15.2</a>와 같은 테이블을 반환한다. 이 표에서는 우리가 앞서 정의한 두 가지 테스트를 통과하는 것을 알 수 있다.</p>
 <p>표: (#tab:exampleTestResults) ETL unit test 결과 예시.</p>
 <table>
 <thead>
