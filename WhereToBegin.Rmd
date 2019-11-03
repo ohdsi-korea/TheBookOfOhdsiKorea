@@ -59,11 +59,11 @@ OHDSI 는 워크 그룹 팀들이 이끌어가는 다양한 프로젝트들이 �
 
 테이블 \@ref(tab:OHDSIworkgroups)은 활동 중인 OHDSI 워크 그룹의 빠른 레퍼런스를 제공한다. 프로젝트에 참여하여 배우길 독려한다. 
 
-테이블: (\#tab:OHDSIworkgroups) 주목할 만한 OHDSI 워크 그룹
+Table: (\#tab:OHDSIworkgroups) 주목할 만한 OHDSI 워크 그룹
 
-|Workgroup Name|	 Objective|	Target Audience|
-|:-------|:----------------------|:----------|
-|Atlas & WebAPI|	Atlas & WebAPI는 OHDSI 오픈소스 소프트웨어 구성의 일환으로 OMOP 공통 데이터 모델을 기반으로 한 표준화된 분석 기능을 제공하는 것에 중점을 두고 있다.| 	오픈소스 Atlas/WebAPI 플랫폼의 개선과 기여하고 싶은 Java와 JavaScript 소프트웨어 개발자들|
+| Workgroup Name |	 Objective  |	Target Audience  |
+|:----- |:------------------------------------ |:---------------------------- |
+| Atlas & WebAPI |	Atlas & WebAPI는 OHDSI 오픈소스 소프트웨어 구성의 일환으로 OMOP 공통 데이터 모델을 기반으로 한 표준화된 분석 기능을 제공하는 것에 중점을 두고 있다. | 	오픈소스 Atlas/WebAPI 플랫폼의 개선과 기여하고 싶은 Java와 JavaScript 소프트웨어 개발자들 |
 |CDM & Vocabulary| 체계적이고 표준화되었으며 임상 환자 데이터에 적용되는 대량 분석을 위한 OMOP 공통 데이터 모델의 지속적인 개발. 타 워크 그룹에 의해 개발된 표준화된 분석을 지원하기 위해 국제 코딩 시스템과 환자 케어의 임상적 측면의 증가를 통해 표준화된 Vocabulary의 질적 개선. | 모든 필요와 사례들에 적용될OMOP 공통 데이터 모델과 표준화된 Vocabulary를 개선하고 싶은 사람 |
 |Genomics|	환자들의 게놈 데이터의 OMOP 공통 데이터 모델로의 포함을 위한 확장. 다양한 시퀀싱 작업을 통해 유전 변종을 저장하고 있는 CDM-compatible schema의 정의를 내리는 그룹|	제한 없음|
 |Population- Level Estimation| 	정확하고 믿을 수 있으며 재현 가능한 population level estimates of effects를 얻기 위한 관찰 연구의 과학적 방법을 개발하여 커뮤니티에 이러한 방법의 사용을 촉진한다.|	제한 없음|
