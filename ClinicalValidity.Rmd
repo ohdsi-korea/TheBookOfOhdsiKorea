@@ -179,9 +179,9 @@ phenoTest <- createPhenoModel(
 
 #### 네번째 단계 : 평가용 코호트 생성 {-}
 
-The function `createEvalCohort` uses the PatientLevelPrediction package function `applyModel` to produce a large cohort of persons, each with a predicted probability for the health outcome of interest. The function requires specifying the xSpec cohort (by setting the `xSpecCohort` parameter to the xSpec cohort ID). We may also specify the characteristics of the persons included in the evaluation cohort as we did in the previous step. This could include specifying the lower and upper ages limits (by setting, as ages, the `lowerAgeLimit` and `upperAgeLimit` arguments, respectively), the sex (by setting the `gender` parameter to the concept IDs for male and/or female), the starting and ending dates (by setting, as dates, the `startDate` and `endDate` arguments, respectively), and designating a large population from which to select the persons by setting the `mainPopnCohort` to the cohort Id for the population to use.
+`createEvalCohort` 기능은 관심 건강 결과의 예측된 가능성을 가진 각각의 사람들의 대규모 코호트를 생성하기 위하여 환자 수준 예측 패키지 기능 `applyModel`를 사용한다. 이 기능은 xSpec 코호트를 지정해야 한다 (매개변수 `xSpecCohort`를 xSpec 코호트 ID로 지정함으로써). 우리는 앞 과정에서 진행했었던 바와 같이 평가 코호트에 포함된 사람들의 특징도 지정해야 할 수도 있다. 이것은 나이제한의 상한과 하한선을 지정하는 것도 포함할 수 있다 (나이를 각각 `lowerAgeLimit`와 `upperAgeLimit` 전달인자로 설정함으로써), 성별 (매개변수 `gender`를 concept ID의 남성 그리고/혹은 여성으로 지정함으로써), 시작과 종료 날짜 (날짜를 각각 `startDate`와 `endDate` 전달인자로 설정함으로써), 그리고 사용할 인구의 코호트 ID를 `mainPopnCohort`로 지정하여 사람을 선별할 대규모 인구를 설계한다.
 
-For example:
+예를 들면:
 
 ```{r tidy=FALSE, eval=FALSE}
 setwd("c:/temp")
@@ -210,21 +210,19 @@ evalCohort <- createEvalCohort(
   endDate = "20171231")
 ```
 
-In this example, the parameters specify that the function should use the model file: “c:/temp/lr_results_5XMI_train_myCDM_ePPV0.75_20181206V1.rds”
-to produce the evaluation cohort file: “c:/temp/lr_results_5XMI_eval_myCDM_ePPV0.75_20181206V1.rds”
-The model and the evaluation cohort files created in this step will be used in the evaluation of the cohort definitions provided in the next step.
+이 예시에서, 매개변수는 평가 코호트 파일을 생성하기 위하여 (“c:/temp/lr_results_5XMI_eval_myCDM_ePPV0.75_20181206V1.rds”) 이 모델 파일을 사용해야 한다고 명시한다 (“c:/temp/lr_results_5XMI_train_myCDM_ePPV0.75_20181206V1.rds”). 이 과정에서 생성된 모델과 평가 코호트 파일은 다음 과정에서 제공될 코호트 정의의 평가에 사용되어질 것이다.
 
 #### 다섯번째 단계 : 코호트 정의 생성 및 검증 {-}
 
-The next step is to create and test the cohort definitions to be evaluated. The desired performance characteristics may depend on the intended use of the cohort to address the research question of interest. For certain questions, a very sensitive algorithm may be required; others may require a more specific algorithm. The process for determining the performance characteristics for a cohort definition using PheValuator is shown in Figure \@ref(fig:phevaluatorDiagram).
+다음 과정은 평가받을 수 있게 코호트 정의를 생성하고 테스트하는 것이다. 이상적인 성능 특성은 관심 연구 문제를 설명하기 위하여 코호트의 의도된 사용에 따라 달라질 수 있다. 몇몇 특정한 문제에는, 굉장히 민감한 알고리즘이 필요할 수 있다; 다른것은 더욱 구체적인 알고리즘이 필요할 수 있다. PheValuator를 사용한 코호트 정의의 성능 특성을 결정하는 과정은 그림 \@ref(fig:phevaluatorDiagram)에서 보여진다.
 
 ```{r phevaluatorDiagram, fig.cap='Determining the Performance Characteristics of a cohort definition using PheValuator. p(O) = Probability of outcome; TP = True Positive; FN = False Negative; TN = True Negative; FP = False Positive.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ClinicalValidity/PheValuatorEvaluation.png")
 ```
 
-In part A of Figure \@ref(fig:phevaluatorDiagram), we examined the persons from the cohort definition to be tested and found those persons from the evaluation cohort (created in the previous step) who were included in the cohort definition (Person IDs 016, 019, 022, 023, and 025) and those from the evaluation cohort who were not included (Person Ids 017, 018, 020, 021, and 024). For each of these included/excluded persons, we had previously determined the probability of the health outcome using the predictive model (p(O)).
+그림 \@ref(fig:phevaluatorDiagram)의 A 부분에서, 우리는 코호트 정의에서 테스트가 진행될 코호트 정의에서 사람들을 조사하고 코호트 정의에 포함되었던 (Person ID가  016, 019, 022, 023, 025) 그리고 포함되지 않았던 사람들 (Person Id가 017, 018, 020, 021, 024) 의 평가 코호트 (앞 과정에서 생성되었었다) 로부터 사람들을 찾았다. 각각 포함된/포함되지 않은 사람들은, 우리가 이전에 이미 예측 모델 (p(O)) 을 사용하여 건강 결과의 가능성을 예측했었다.
 
-We estimated the values for True Positives, True Negatives, False Positives, and False Negatives as follows (Part B of Figure \@ref(fig:phevaluatorDiagram)):
+우리는 다음과 같이 True Positives, True Negatives, False Positives, False Negatives의 값을 예상하였다. (그림 \@ref(fig:phevaluatorDiagram)의 B 부분 참조):
 
 1. If the cohort definition included a person from the evaluation cohort, i.e., the cohort definition considered the person a “positive.” The predicted probability for the health outcome indicated the expected value of the number of counts contributed by that person to the True Positives, and one minus the probability indicated the expected value of the number of counts contributed by that person to the False Positives for that person. We added all the expected values of counts across persons to get the total expected value. For example, PersonId 016 had a predicted probability of 99% for the presence of the health outcome, 0.99 was added to the True Positives (expected value of counts added 0.99) and 1.00–0.99 = 0.01 was added to the False Positives (0.01 expected value). This was repeated for all the persons from the evaluation cohort included in the cohort definition (i.e., PersonIds 019, 022, 023, and 025).
 
