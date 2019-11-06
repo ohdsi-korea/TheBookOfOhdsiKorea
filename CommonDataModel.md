@@ -4,65 +4,65 @@
 
 *챕터 책임자: Clair Blacketer*
 
-관찰 데이터는 환자가 의료 혜택을 받는 동안 어떤 일들이 일어나는지를 보여준다. 전 세계적으로 점점 더 많은 수의 환자에 대한 데이터가 빅 데이터라고 불리는 형태로 수집 및 저장되고 있다. 이러한 수집의 목적은 다음과 같은 세 가지로 설명할 수 있다. (i) 직접적으로 (많은 경우에 설문 조사 및 레지스트리 정보를 활용한) 연구를 용이하게 하기 위해, (ii) 의료 행위 수행을 지원하기 위해 (이를 보통 EHR - Electronic Health Records이라고 함), 또는 (iii) 의료비 지불 관리를 위함 (청구 데이터). 세 가지 목적 모두 임상 연구에 보편적으로 사용되고, 아래 두 항목은 이차적인 목적으로 사용하는 데이터로 사용되며, 모두 일반적으로 고유한 내용의 형식 및 인코딩으로 이루어져 있다. \index{Common Data Model} \index{CDM |see {Common Data Model}} \index{relational data model|see {Common Data Model}}
+관찰 데이터는 환자가 진료를 받는 동안 어떤 일들이 일어나는지를 보여준다. 전 세계적으로 점점 더 많은 수의 환자에 대한 데이터가 빅 데이터라고 불리는 형태로 수집 및 저장되고 있다. 이러한 수집의 목적은 다음과 같은 세 가지로 설명할 수 있다. (i) 직접적으로 (많은 경우에 설문 조사 및 레지스트리 정보를 활용한) 연구를 용이하게 하기 위해, (ii) 의료 행위 수행을 지원하기 위해 (이를 보통 EHR - Electronic Health Records라고 함), 또는 (iii) 의료비 지불 관리를 위함 (청구 데이터). 세 가지 목적 모두 임상 연구에 보편적으로 사용되나, 두번 째 세번 째 항목은 이차적인 목적으로 사용된다. 위 세가지 모두 일반적으로 고유한 내용의 형식 및 인코딩으로 이루어져 있다. \index{Common Data Model} \index{CDM |see {Common Data Model}} \index{relational data model|see {Common Data Model}}
 
 관찰형 의료 데이터(Observational healthcare data)에 공통 데이터 모델이 필요한 이유는 무엇일까?
 
-일차적인 목적에 의해 모든 임상적인 사건들을 동일하게 포착하는 관찰형 데이터베이스(Observational database)는 없다. 따라서, 여러 다른 데이터 출처에서 연구 결과를 도출하고 데이터를 포착하는 과정에서 발생하는 잠재적 편향(bias)의 영향을 이해하기 위해 이를 비교 및 대조해야 한다. 또한 통계적 검증력을 갖춘 결론을 도출하려면 많은 수의 관찰 환자가 필요하다. 이는 여러 데이터 출처를 동시에 평가하고 분석해야 할 필요성을 설명한다. 그러기 위해서는 데이터를 공통 데이터 표준(common data standard)으로 화합할 필요가 있다. 게다가 환자 데이터는 높은 수준의 보안이 필요하다. 기존에 그래왔듯이 분석을 목적으로 하는 데이터 추출은 엄격한 데이터 사용 계약 및 복잡한 접근 제어 방식이 필요하다. 공통 데이터 표준은 추출 단계를 생략하고 기본 환경의 데이터에 대해 표준화된 분석을 실행할 수 있도록 하여 이러한 필요성을 줄여 줄 수 있다- 분석을 위한 데이터가 아닌 데이터를 위한 분석적 접근(the analytic comes to the data instead of the data to the analytic).
+일차적인 목적에 의해 모든 임상적인 사건들을 동일하게 포착하는 관찰형 데이터베이스(Observational database)는 없다. 따라서, 여러 다른 데이터 출처에서 연구 결과를 도출하고 데이터를 포착하는 과정에서 발생하는 잠재적 편향(bias)의 영향을 이해하기 위해 이를 비교 및 대조해야 한다. 또한 통계적 검증력을 갖춘 결론을 도출하려면 많은 수의 관찰 환자가 필요하다. 이는 여러 데이터 출처를 동시에 평가하고 분석해야 할 필요성을 설명한다. 그러기 위해서는 데이터를 공통 데이터 표준(common data standard)으로 화합할 필요가 있다. 게다가 환자 데이터는 높은 수준의 보안이 필요하다. 기존에 그래왔듯이 분석을 목적으로 하는 데이터 추출은 엄격한 데이터 사용 계약 및 복잡한 접근 제어 방식이 필요하다. 공통 데이터 표준은 추출 단계를 생략하고 기본 환경의 데이터에 대해 표준화된 분석을 실행할 수 있도록 하여 이러한 필요성을 줄여 줄 수 있다 - 분석환경으로 데이터가 오는게 아니고 데이터가 있는 장소로 분석환경이 오는 것.
 
-이러한 표준은 공통 데이터 모델(Common Data Model, CDM)에 의해 제공된다. CDM은 표준화된 내용을 기반으로 (\@ref(StandardizedVocabularies)장 참조) 연구 방법들이 효과적으로 비교 가능하고 재현 가능한 결과를 얻을 수 있게 체계적으로 응용될 수 있도록 한다. 이 장에서는 데이터의 모델을 비롯한 디자인, 규칙 및 테이블 선택에 대한 논의를 제공하고자 한다.
+이러한 표준은 공통 데이터 모델(Common Data Model, CDM)에 의해 제공된다. CDM은 표준화된 내용을 기반으로 (\@ref(StandardizedVocabularies)장 참조) 연구 방법들이 효과적으로 비교 가능하고 재현 가능한 결과를 얻을 수 있게 체계적으로 활용되게 한다. 이 장에서는 데이터 모델을 비롯한 디자인, 규칙 및 테이블 선택에 대한 논의를 제공하고자 한다.
 
-CDM내의 모든 테이블에 대한 개요를 Figure \@ref(fig:cdmDiagram) \index{Common Data Model!data model diagram}에서 살펴볼 수 있다. 
+CDM내의 모든 테이블에 대한 개요는 Figure \@ref(fig:cdmDiagram) \index{Common Data Model!data model diagram}에서 살펴볼 수 있다. 
 
 <div class="figure">
-<img src="images/CommonDataModel/cdmDiagram.png" alt="CDM 6.0 버전의 모든 테이블에 대한 개요. 테이블 간의 모든 관계가 묘사되어 있는 것은 아니다." width="100%" />
-<p class="caption">(\#fig:cdmDiagram)CDM 6.0 버전의 모든 테이블에 대한 개요. 테이블 간의 모든 관계가 묘사되어 있는 것은 아니다.</p>
+<img src="images/CommonDataModel/cdmDiagram.png" alt="CDM 6.0 버전의 모든 테이블에 대한 개요. 테이블 간의 모든 관계가 표시된 것은 아님." width="100%" />
+<p class="caption">(\#fig:cdmDiagram)CDM 6.0 버전의 모든 테이블에 대한 개요. 테이블 간의 모든 관계가 표시된 것은 아님.</p>
 </div>
 ## 설계 원리
 
-CDM은 다음과 같은 전형적인 관찰 연구 목적에 최적화되어 있다.\index{Common Data Model!design principles}
+CDM은 다음과 같은 목적의 전형적인 관찰 연구에 최적화되어 있다.\index{Common Data Model!design principles}
 
 *	특정한 의료 행위의 개입 (약물 노출, 시술(procedure), 의료 정책 변경 등)이 있거나 의료 관련 결과 (질환, 시술(procedure), 기타 약물 노출에 대한)를 포함하는 환자 집단 확인.
 *	인구 통계학적 정보, 질병의 자연사, 의료 서비스 전달, 활용 및 비용, 병적 상태, 치료 및 치료 과정 등과 같은 다양한 매개 변수에 대한 환자 집단의 특성 확인.
-*	개별 환자에서 결과들의 발생 예측 - \@ref(PatientLevelPrediction)장 참고,
-*	앞서 설명한 의료 행위의 개입들이 인구에 미치는 영향 추정 - \@ref(PopulationLevelEstimation)장 참고,
+*	개별 환자에서 결과의 발생 예측 - \@ref(PatientLevelPrediction)장 참고,
+*	앞서 설명한 의료 행위의 개입이 인구에 미치는 영향 추정 - \@ref(PopulationLevelEstimation)장 참고,
 
 
 이러한 목표를 달성하기 위해서 CDM의 개발은 다음과 같은 설계 요소를 따른다:
 
  
-  - **목적에 대한 적합성**: CDM은 의료 서비스 제공자 혹은 지불인의 운영 요구를 해결하기 위한   목적 보다는 분석에 최적화된 방식으로 구성된 데이터를 제공하는 것을 목표로 한다. \index{Common Data Model!suitability for purpose}
+  - **목적에 대한 적합성**: CDM은 의료 서비스 제공이나 보험청구 업무를 해결하기 위한 목적 보다는 분석에 최적화된 방식으로 구성된 데이터를 제공하는 것을 목표로 한다. \index{Common Data Model!suitability for purpose}
   - **데이터 보호**: 이름, 생년월일 등 환자의 신원 및 안전을 위협할 수 있는 모든 데이터는 제한되어 있다. 영아에 대한 연구를 위한 정확한 생년 월일과 같은 보다 자세한 정보가 명시적으로 필요한 경우에는 예외가 가능하다.\index{Common Data Model!data protection}
-  - **도메인 설계**: 도메인은 개인 중심 관계형 데이터 모델(person-centric relational data model)로 모델링 되며 각 기록마다 개인의 신원과 날짜 정보가 최소한으로 수집된다. 여기서 관계형 데이터 모델은 데이터가 기본 키와 외래 키로 연결된 테이블의 모음으로 표현되는 모델이다.
-  - **도메인의 이론적 근거**: 개체-관계 모델(entity-relationship model)에서 도메인은 분석 이용 사례가 있는지 (예를 들면, 질환(conditions)) 그리고 달리 적용 가능한 방안이 없는 특정한 속성(attributes)이 있는지에 따라 식별되고 별도로 정의된다. 다른 모든 데이터는 개체-속성-값 구조(entity-attribute-value structure)의 Observation 테이블에 Observation 데이터로 보존될 수 있다. \index{Common Data Model!domains}
-  - **표준화된 어휘**: 기록들의 내용을 표준화하기 위해, CDM은 모든 필수적이고 적절한 표준 건강 관리 Concept을 포함하는 표준화된 어휘에 의존한다.
-  - **기존 어휘 재사용**: 이러한 개념은 국립 의학 도서관, 재향 군인 담당 부서, 질병 통제 및 예방 센터 등과 같은 국가 및 산업 표준화 또는 용어 정의 주도 기관이나 협회에서 활용되기도 한다.
+  - **도메인 설계**: 도메인은 개인 중심 관계형 데이터 모델(person-centric relational data model)로 모델링 되며 각 기록마다 개인의 신원과 날짜 정보가 최소한으로 수집된다. 여기서 관계형 데이터 모델은 데이터가 기본 키와 외래 키로 연결된 테이블들로 표현되는 모델이다.
+  - **도메인의 이론적 근거**: 개체-관계 모델(entity-relationship model)에서 도메인은 분석 이용 사례가 있는지 (예를 들면, 질환(conditions)) 그리고 달리 적용 가능한 방안이 없는 특정한 속성(attributes)이 있는지에 따라서 별도로 정의된다. 다른 모든 데이터는 개체-속성-값 구조(entity-attribute-value structure)를 가진 Observation 테이블에 관찰 데이터로 저장할 수 있다. \index{Common Data Model!domains}
+  - **표준화된 어휘**: 기록을 표준화하기 위해, CDM은 필수적이고 적절한 표준 건강 관리 Concept을 포함하는 표준 어휘에 의존한다.
+  - **기존 어휘 재사용**: 이러한 개념은 국립 의학 도서관, 재향 군인 담당 부서, 질병 통제 및 예방 센터 등과 같은 국가 및 산업 표준화 또는 용어 정의 주도 기관이나 협회에서 만든 어휘를 재사용하기도 한다.
   - **원본 코드 유지 관리**: 모든 코드가 표준화된 어휘에 매핑(mapping)되어 있더라도 정보가 소실되지 않도록 원본 코드도 저장한다. \index{Common Data Model!Source Codes} \index{Common Data Model!data loss prevention}
-  - **기술 중립성**: CDM에는 특정한 기술을 필요로 하지 않는다. Oracle, SQL Server 등과 같은 관계형 데이터베이스 또는 SAS 분석 데이터 세트로 구현될 수 있다. \index{Common Data Model!technology neutrality}
-  - **확장성**: CDM은 데이터 처리 및 계산 분석에 최적화되어 있기 때문에 수 억 명에 이르는 데이터베이스와 수 십 억 건에 달하는 임상 관찰을 비롯한 데이터 베이스의 크기가 다양한 원천 데이터를 수용할 수 있다. \index{Common Data Model!scalability}
+  - **기술 중립성**: CDM은 특정 기술만을 채택하지 않는다. Oracle, SQL Server 등과 같은 관계형 데이터베이스 또는 SAS 분석 데이터 세트로도 구현될 수 있다. \index{Common Data Model!technology neutrality}
+  - **확장성**: CDM은 데이터 처리 및 컴퓨터를 이용한 분석에 최적화되어 있기 때문에 수 십 억 건에 달하는 임상 관찰을 비롯하여 수 억 명이 포함된 데이터베이스 등 다양한 크기의 원천 데이터를 수용할 수 있다. \index{Common Data Model!scalability}
   - **이전 버전과의 호환성**: 이전 CDM로부터의 모든 변경 사항은 github 저장소 [(https://github.com/OHDSI/CommonDataModel)](https://github.com/OHDSI/CommonDataModel)에 명확하게 서술되어 있다. CDM의 이전 버전은 현재 버전을 이용해 쉽게 만들 수 있으며, 이전에 있었던 정보는 손실되지 않는다. \index{Common Data Model!backwards compatibility}
 
 ## 데이터 모델 규칙
 
-CDM에 채택된 많은 암시적 혹은 명시적인 규칙이 있다. CDM에 관련한 메소드 개발자들은 이러한 규칙들을 이해하고 있어야 한다. \index{Common Data Model!conventions}
+CDM에 채택된 많은 묵시적 혹은 명시적인 규칙이 있다. 따라서, CDM에 관련된 메소드 개발자들은 이러한 규칙을 잘 이해하고 있어야 한다. \index{Common Data Model!conventions}
 
 ### 모델의 일반적인 규칙{#model-Conv}
 
-CDM은 “개인 중심”모델로서, 모든 임상적인 사건에 대한 테이블이 PERSON 테이블에 연결되어 있다. 시작 날짜 및 기타 날짜 정보들과 더불어 이는 모든 의료 관련 사건에 대해 각 사람별로 종적 관찰이 가능하도록 한다. 이러한 규칙들의 예외 사항은 다양한 도메인의 사건들에 직접 연결되는 표준화된 의료 체계의 데이터 테이블들이다. 
+CDM은 “개인 중심”의 모델로서, 모든 임상적인 사건에 대한 테이블이 PERSON 테이블을 중심으로 연결되어 있다. 시작 날짜 및 기타 날짜 정보들과 더불어 이는 모든 의료 관련 사건에 대해 각 사람별로 종적 관찰이 가능하도록 한다. 이 규칙에 예외적으로, 표준화된 의료체계 데이터 테이블들(standardized health system data tables)은 다양한 도메인의 사건에 직접 연결되어 있다. 
 
 ### 스키마의 일반적인 규칙
 
-스키마 또는 데이터베이스의 사용자는 읽기 전용 테이블과 읽기/쓰기 테이블을 분리할 수 있다. 임상 사건 및 어휘 테이블은 “CDM” 스키마에 저장되어 있으며 최종 사용자 또는 분석 도구에서는 읽기 전용으로 이용된다. 웹 기반 도구 및 최종 사용자에 의해 조작될 필요가 있는 테이블은 “결과” 스키마에 저장된다. "결과" 스키마의 두 테이블은 COHORT와 COHORT_DEFINITON이다. 이 테이블들은 \@ref(Cohorts)장에 자세히 설명되어 있는 것처럼 사용자가 정의할 수 있는 관심 그룹을 설명하기 위한 것이다. 이는 런타임 동안에 테이블이 작성될 수 있음을, 즉 코호트가 COHORT 테이블에 저장될 수 있다는 것을 의미한다. 모든 사용자를 위한 읽기-쓰기 스키마는 단 하나뿐이므로, 여러 사용자 접근이 어떻게 구성되고 제어되는지는 CDM의 구현에 달려 있다.
+스키마 또는 데이터베이스 사용자는 읽기 전용 테이블과 읽기/쓰기 테이블을 분리할 수 있다. 임상 사건 및 어휘 테이블은 “CDM” 스키마에 저장되어 있으며 최종 사용자 또는 분석 도구에서는 읽기 전용으로 이용된다. 웹 기반 도구 및 최종 사용자가 조작할 필요가 있는 테이블은 “결과” 스키마에 저장된다. "결과" 스키마의 두 테이블은 COHORT와 COHORT_DEFINITON이다. 이 테이블들은 \@ref(Cohorts)장에 자세히 설명되어 있는 것처럼 사용자가 정의할 수 있는 관심 그룹을 설명하기 위한 것이다. 이는 분석 중에 테이블이 작성될 수 있음을, 즉 새로 생성한 코호트가 COHORT 테이블에 저장될 수 있다는 것을 의미한다. 모든 사용자를 위한 읽기-쓰기 스키마는 단 하나뿐이므로, 여러 사용자 접근이 어떻게 구성되고 제어되는지는 CDM의 구현에 달려 있다.
 
 ### 데이터 테이블의 일반적인 규칙
 
-CDM은 플랫폼에 비의존적이다. 데이터 유형은 일반적으로 ANSI SQL 데이터 유형(VARCHAR, INTEGER, FLOAT, DATE, DATETIME, CLOB)을 사용하여 정의된다. VARCHAR에서만 정밀도가 제공된다. 이는 필요한 최소 문자열 길이를 반영하지만 구체적인 CDM 인스턴스화 내에서 확장될 수 있다. CDM은 날짜 및 날짜시간 형식을 규정하지 않는다. CDM에 대한 표준 쿼리는 로컬 인스턴스 및 날짜/시간 구성에 따라 달라질 수 있다.
+CDM은 플랫폼에 비의존적이다. 데이터 유형은 일반적으로 ANSI SQL 데이터 유형(VARCHAR, INTEGER, FLOAT, DATE, DATETIME, CLOB)을 사용하여 정의된다. VARCHAR에서만 정밀도가 제공된다. 이는 필요한 최소 문자열 길이를 반영하지만 구체적인 CDM 인스턴스 내에서 확장할 수 있다. CDM은 날짜 및 날짜시간 형식을 규정하지 않는다. CDM에 대한 표준 쿼리는 로컬 인스턴스 및 날짜/시간 구성에 따라 달라질 수 있다.
 
 *참고*: 데이터 모델 자체는 플랫폼에 독립적이지만, 데이터 모델과 함께 작동하도록 구축된 여러 도구는 특정 사양이 요구된다. 이에 대한 자세한 내용은 \@ref(OhdsiAnalyticsTools)장을 참조. 
 
 ### 도메인의 일반적인 규칙{#domains}
 
-서로 다른 성격의 사건들은 도메인에 정리되어 있다. 이러한 사건들은 도메인별로 테이블과 필드에 저장되고, 표준화된 어휘에 정의되어 있는 대로 도메인별 표준 Concept으로 표현된다 (\@ref(conceptDomains) 참조). 각 표준 Concept에 고유한 도메인 할당이 되는데, 이는 어떤 테이블에 기록되는지를 정의한다. 정확한 도메인 할당이 커뮤니티내에서 항상 논의의 대상이 되지만, 엄격한 도메인-테이블-필드간 대응 규칙은 어떤 코드나 Concept에 대해서도 항상 모호한 위치는 없음을 보장한다. 예를 들어, 증상 및 진단 Concept은 Condition 도메인에 속하며 Condition_OCCURRENCE 테이블의CONDITION_CONCEP_ID로 기록된다. 소위 말하는 시술약품은 일반적으로 원천 데이터의 Procedure 테이블에 Procedure 코드로 기록된다. CDM에서 이러한 정보들은 매핑된 표준 Concept이 약물 도메인에 할당 되어있기 때문에 DRUG_EXPOSURE 테이블에서 찾을 수 있다. 표 \@ref(tab:domains)과 같이 총 30개의 도메인이 있다.
+서로 다른 성격의 사건들은 도메인 별로 정리되어 있다. 이러한 사건들은 도메인별로 테이블과 필드에 저장되고, 표준화된 어휘에 정의되어 있는 대로 도메인별 표준 Concept으로 표현된다 (\@ref(conceptDomains) 참조). 각 표준 Concept에 고유한 도메인이 할당되는데, 이는 어떤 테이블에 기록되어야 하는지를 정의한다. 정확한 도메인 할당은 커뮤니티내에서 항상 논의의 대상이 되지만, 엄격한 도메인-테이블-필드간 대응 규칙은 어떠한 코드나 Concept에 대해서도 항상 정확성을 보장한다. 예를 들어, 증상 및 진단 Concept은 Condition 도메인에 속하며 Condition_OCCURRENCE 테이블의CONDITION_CONCEP_ID로 기록된다. 소위 말하는 시술시 사용되는 약품은 일반적으로 원천 데이터에서는 Procedure 테이블에 Procedure 코드로 기록되지만, CDM에서는 이러한 정보는 매핑된 표준 Concept이 약물 도메인에 할당 되어있기 때문에 DRUG_EXPOSURE 테이블에 저장한다. 표 \@ref(tab:domains)과 같이 총 30개의 도메인이 있다.
 
 Table: (\#tab:domains) 각 도메인에 속하는 표준 Concept의 수.
 
@@ -84,11 +84,11 @@ Concept Count|Domain ID|Concept Count|Domain ID
 336|Type Concept|2|Ethnicity
 194|Relationship|1|Observation Type
  
-### Concept을 통한 내용의 표현
+### Concept을 통한 내용 표현
 
-CDM 데이터의 테이블에서는 각 정보의 내용이 완전히 정규화되어 Concept으로 표현된다. Concept은 CONCEPT 테이블의 외래 키 역할을 하는 각각의 CONCEPT_ID 값이 할당되어 사건 테이블에 저장되며, 모든 CDM의 인스턴스들은 Concept에 대한 참고 자료로써 공통 데이터 모델과 함께 상호운용의 핵심 메커니즘이자 OHDSI 연구 네트워크의 기반인 동일한 CONCEPT 테이블을 사용한다. 표준 Concept이 없거나 식별되지 않는 경우에는 CONCEPT_ID가 존재하지 않는 Concept이거나 알 수 없음 또는 매핑이 불가능함을 의미하는 0으로 설정된다. 
+CDM 테이블에서는 각 정보의 내용이 완전히 정규화되어 Concept으로 저장된다. Concept은 CONCEPT 테이블의 외래 키 역할을 하는 각각의 CONCEPT_ID 값이 할당되어 사건 테이블에 저장된다. CDM의 모든 인스턴스는 (Concept에 대한 참고 자료로써 공통 데이터 모델과 함께 상호운용의 핵심 메커니즘이자 OHDSI 연구 네트워크의 기반인) 동일한 CONCEPT 테이블을 사용한다. 표준 Concept이 없거나 식별되지 않는 경우에는 CONCEPT_ID가 존재하지 않는 Concept이거나 알 수 없음 또는 매핑이 불가능함을 의미하는 0으로 설정된다 (즉, CONCEPT_ID = 0). 
 
-CONCEPT 테이블의 정보들은 각각의 Concept에 대한 상세 정보 (이름, 도메인, 클래스 등)를 포함하고 있다. Concepts, Concept Relationships, Concept Ancestors 및 다른 Concept과 관련 있는 정보들은 표준화된 용어에 포함되어 있다 (\@ref(StandardizedVocabularies)장 참조).
+CONCEPT 테이블의 정보는 각각의 Concept에 대한 상세 정보 (이름, 도메인, 클래스 등)를 포함하고 있다. Concepts, Concept Relationships, Concept Ancestors 및 다른 Concept과 관련 있는 정보들은 표준화된 용어에 포함되어 있다 (\@ref(StandardizedVocabularies)장 참조).
 
 ### 필드 명명 규칙
 
@@ -99,16 +99,16 @@ Table: (\#tab:fieldConventions) 필드 명 규칙.
 |Notation|Description|
 |:------------------------------|:-------------------------------------------------------|
 |[Event]_ID|각 행의 고유 식별자로, 사건 테이블간 관계를 설정하는 외래 키 역할을 한다. 예를 들어 PERSON_ID는 각 개인을 고유하게 식별한다. VISIT_OCCURRENCE_ID는 방문을 고유하게 식별한다.|
-|[Event]_CONCEPT_ID|CONCEPT 참고 테이블의 표준 Concept에 대한 외래 키. 이는 모든 표준화된 분석에 기본 기반이 되는 사건의 주요 표현이다. 예를 들어 CONDITION_CONCEPT_ID = [31967](http://athena.ohdsi.org/search-terms/terms/31967)에는 SNOMED Concept인 “Nausea”에 대한 참조 값을 포함하고 있다.|
-|[Event]_SOURCE _CONCEPT_ID|CONCEPT 참고 테이블의 행에 대한 외래 키.  이 Concept은 원본 값(아래)과 동등하며, 이때 [EVENT_CONCEPT_ID]와 동일한 표준 개념이거나 또 다른 비-표준 concept일 수 있다. 예를 들어, Condition_SOURCE_CONCEPT_ID = [45431665](http://athena.ohdsi.org/search-terms/terms/45431665)는 독해용 용어의 "Nausea" 개념을 나타내며, 유사한 CONDITION_CONCEPT_ID는 표준 SNOMED-CT concept으로 [31967](http://athena.ohdsi.org/search-terms/terms/31967)이다. 표준 Concept만이 사건의 의미를 모호하지 않게 표현하므로 표준 분석에 응용 시 상호 운용성이 없는 원본 개념을 사용하는 것은 바람직하지 않다.|
-|[Event]_TYPE_CONCEPT_ID|표준화된 용어를 표준화되어 있고 원본 정보의 출처를 나타내는 CONCEPT 참고 테이블의 행에 대한 외래 키. 이는 사건의 유형이나 concept의 유형을 나타내는 것이 아니라 이 기록를 생성한 메커니즘에 대한 정보를 수집하는 것을 의미한다. 예를 들면, DRUG_TYPE_CONCEPT_ID는 이 기록이 약국에서의 처방 (“Pharmacy dispensing”)으로 부터 발생하였는지 혹은 전자 처방 신청서 (“Prescription written”)로부터 발생하였는지를 구분한다.|
-|[Event]_SOURCE_VALUE|이 사건이 원천 데이터에 표현되어 있는 방식을 쓰여진 그대로의 코드 혹은 자유 텍스트 문자열이다. 이 원본 값들은 데이터 원본간에 통일되어 있지 않으므로 표준 분석 방식에 사용하는 것은 좋지 않다. 예를 들면, CONDITION_SOURCE_VALUE는 ICD-9 코드 787.02에 점을 제외하고 “78702”라는 기록를 포함할 수 있다.|
+|[Event]_CONCEPT_ID|CONCEPT 참고 테이블의 표준 Concept에 대한 외래 키. 이는 모든 분석에 기반이 되는 사건의 주요 표현이다. 예를 들어 CONDITION_CONCEPT_ID = [31967](http://athena.ohdsi.org/search-terms/terms/31967)에는 SNOMED Concept인 “오심 Nausea”에 대한 참조 값을 포함하고 있다.|
+|[Event]_SOURCE _CONCEPT_ID|CONCEPT 참고 테이블의 행에 대한 외래 키.  이 Concept은 원본 값(아래)과 동등하며, 이때 [EVENT_CONCEPT_ID]와 동일한 표준 개념이거나 또 다른 비-표준 concept일 수 있다. 예를 들어, Condition_SOURCE_CONCEPT_ID = [45431665](http://athena.ohdsi.org/search-terms/terms/45431665)는 READ 용어집의 "Nausea" 개념을 나타내며, 유사한 CONDITION_CONCEPT_ID는 표준 SNOMED-CT concept으로 [31967](http://athena.ohdsi.org/search-terms/terms/31967)이다. 표준 Concept만이 사건의 의미를 모호하지 않게 표현하므로 표준 분석에 응용 시 상호 운용성이 없는 원본 개념(SOURCE _CONCEPT)을 사용하는 것은 바람직하지 않다.|
+|[Event]_TYPE_CONCEPT_ID|원본 정보의 출처를 나타내는 CONCEPT 참고 테이블(CONCEPT reference table)에 대한 외래 키. 이는 사건의 유형이나 concept의 유형을 나타내는 것이 아니라 이 기록를 생성한 메커니즘에 대한 정보를 수집하는 것을 의미한다. 예를 들면, DRUG_TYPE_CONCEPT_ID는 이 기록이 약국에서의 처방 (“Pharmacy dispensing”)으로 부터 발생하였는지 혹은 전자 처방 신청서 (“Prescription written”)로부터 발생하였는지를 구분한다.|
+|[Event]_SOURCE_VALUE|이 사건이 원천 데이터에 표현되어 있는 방식 그대로 쓰여진 코드 혹은 자유서술 문자열이다. 이 원본 값들은 데이터 원본간에 통일되어 있지 않으므로 표준 분석 방식에 사용하는 것은 좋지 않다. 예를 들면, CONDITION_SOURCE_VALUE는 ICD-9 코드 787.02에 점을 제외하고 “78702”라는 기록를 포함할 수 있다.|
 
 ### concept과 원본 값과의 차이{#concepts-Sources}
 
 많은 테이블이 원본 값, 원본 concept, 표준 concept으로 다양한 위치에 동일한 정보를 포함하고 있다.
 
-* **Source Values** 은 원천 데이터에서의 사건 기록의 본래의 표현이다. 이는 ICD9CM, NDC 또는 Read와 같은 널리 사용되는 공공 도메인의 코딩 시스템이나 CPT4, GPI 또는 MedDRA와 같이 독점적인 코딩 시스템, 혹은 남성은 M 여성은 F와 같이 원천 데이터에서만 사용되는 제한된 어휘의 코드일 수 있다. 또한 표준화 및 제어되지 않은 짧은 자유 텍스트 문구 일 수도 있다. 원본 값은 데이터 테이블의 [Event] _SOURCE_VALUE 필드에 저장된다. concept은 임상적 요소의 의미를 일반화하는 CDM 특이적인 개체이다. 대부분의 concept은 이미 의료계에 존재하는 공개되었거나 독점적인 코딩 체계를 기반으로 하고 있지만, 일부는 새롭게 생성되었다 (CONCEPT_CODE는 “OMOP”으로부터 시작됨). concept은 모든 도메인에 걸쳐 고유한 ID를 가지고 있다.
+* **Source Values** 은 원천 데이터에서의 사건 기록의 본래 표현이다. 이는 ICD9CM, NDC 또는 Read와 같은 널리 사용되는 공공 도메인의 코딩 시스템이나 CPT4, GPI 또는 MedDRA와 같이 독점적인 코딩 시스템, 혹은 남성은 M 여성은 F와 같이 원천 데이터에서만 사용되는 제한된 어휘의 코드일 수 있다. 또한 표준화 및 제어되지 않은 짧은 자유 텍스트 문구 일 수도 있다. 원본 값은 데이터 테이블의 [Event] _SOURCE_VALUE 필드에 저장된다. concept은 임상적 요소의 의미를 일반화하는 CDM 특이적인 개체이다. 대부분의 concept은 이미 의료계에 존재하는 공개되었거나 독점적인 코딩 체계를 기반으로 하고 있지만, 일부는 새롭게 생성되었다 (CONCEPT_CODE는 “OMOP”으로부터 시작됨). concept은 모든 도메인에 걸쳐 고유한 ID를 가지고 있다.
 * **Concepts** 은 임상적 요소의 의미를 일반화하는 CDM 특이적인 개체이다. 대부분의 concept은 이미 의료계에 존재하는 공개되었거나 독점적인 코딩 체계를 기반으로 하고 있지만, 일부는 새롭게 생성되었다 (CONCEPT_CODE는 “OMOP”으로부터 시작됨). concept은 모든 도메인에 걸쳐 고유한 ID를 가지고 있다.
 * **Source Concepts** 은 원 자료에서 사용된 코드를 나타내는 concept이다. 원본 concept은 OMOP기반의 concept이 아니라 기존에 존재하는 공개되었거나 독점적인 코딩 체계만을 위해 사용한다. 원본 concept은 데이터 테이블의 [Event] _SOURCE_CONCEPT_ID 필드에 저장된다.
 * **Standard Concepts** 은 모든 데이터 베이스에서 고유하게 임상적인 개체의 의미를 정의하는 데에 사용되고 원본에서 사용한 코딩 체계와는 독립적인 concept이다. 표준 concept은 일반적으로 이미 공개되어 있거나 독점적인 용어 원본에서 가져온다. 표준 concept과 동일한 의미를 가진 비 표준 concept은 표준 용어의 표준 concept에 매핑되어 있다. 표준 concept은 데이터 테이블의 [Event] _CONCEPT_ID 필드에서 참조된다.
@@ -133,7 +133,7 @@ Table: (\#tab:fieldConventions) 필드 명 규칙.
 
 \index{Common Data Model!standardized tables}
 
-DM에는 16개의 임상 사건 테이블, 10개의 어휘 테이블, 2개의 메타데이터 테이블, 4개의 보건 시스템 데이터 테이블, 2개의 보건 경제학 데이터 테이블, 3개의 표준화된 파생 요소 및 2개의 결과 스키마 테이블이 포함되어 있다. 이 테이블들은 CDM Wiki에 전체 명시되어 있다.[^cdmWikiUrl1]
+CDM에는 16개의 임상 사건 테이블, 10개의 어휘 테이블, 2개의 메타데이터 테이블, 4개의 보건 시스템 데이터 테이블, 2개의 보건 경제학 데이터 테이블, 3개의 표준화된 파생 요소 및 2개의 결과 스키마 테이블이 포함되어 있다. 이 테이블들은 CDM Wiki에 전체 명시되어 있다.[^cdmWikiUrl1]
 
 [^cdmWikiUrl1]: https://github.com/OHDSI/CommonDataModel/wiki
 
@@ -141,7 +141,7 @@ DM에는 16개의 임상 사건 테이블, 10개의 어휘 테이블, 2개의 �
 
 ### 실행 예제: 자궁내막증 
 
-자궁내막증은 보통 여성의 자궁 안쪽에서 발견되는 세포가 신체 다른 곳에서 생겨나는 고통스러운 질환이다. 심한 경우는 불임, 장, 방광 문제를 일으킬 수 있다. 해당 섹션에서는 한 환자의 이 질병에 대한 경험과 이 질병이 공통 데이터 모델로 어떻게 표현되는지를 상세하게 설명하고자 한다.
+자궁내막증은 보통 여성의 자궁 내 표피에 있는 자궁내막세포가 신체 다른 곳에서 생겨나는 고통스러운 질환이다. 심한 경우는 불임, 장, 방광 문제를 일으킬 수 있다. 해당 섹션에서는 한 환자의 이 질병에 대한 경험과 이 질병이 공통 데이터 모델로 어떻게 표현되는지를 상세하게 설명하고자 한다.
 
 <img src="images/CommonDataModel/Lauren.jpg" width="50%" style="display: block; margin: auto;" />
 
@@ -187,9 +187,9 @@ Column name|Value|Explanation
 
 ### OBSERVATION_PERIOD 테이블{#observationPeriod}
 
-OBSERVATION_PERIAD 테이블은 최소한 환자의 인구통계, 질환, 시술 및 약물이 원본 시스템에 기록되는 시간을 민감성과 특수성을 고려하여 합리적인 예상을 통해 정의하도록 설계되었다. 보험 데이터의 경우 일반적으로 환자의 등록 시기이다. 대부분의 의료 시스템이 어떤 의료 기관이나 제공업체를 방문할지 결정해두지 않기 때문에 전자 건강 기록(EHR)에서는 더욱 까다롭다. 차선책으로서 시스템의 첫 번째 기록은 관측 기간의 시작일로 간주되고 최신 기록은 종료일로 간주된다.
+OBSERVATION_PERIOD 테이블은 최소한 환자의 인구통계, 질환, 시술 및 약물이 원본 시스템에 기록되는 시간을 민감성과 특수성을 고려하여 합리적인 예상을 통해 정의하도록 설계되었다. 보험 데이터의 경우 일반적으로 환자의 등록 시기이다. 대부분의 의료 시스템이 어떤 의료 기관이나 제공업체를 방문할지 결정해두지 않기 때문에 전자건강기록(EHR)에서는 더욱 까다롭다. 차선책으로서 시스템의 첫 번째 기록은 관측 기간의 시작일로 간주되고 마지막 기록은 종료일로 간주된다.
 
-#### Lauren의 Observation Period은 어떻게 정의될까? {-}
+#### Lauren의 Observation Period는 어떻게 정의될까? {-}
 
 표 \@ref(tab:encounters)에 나타난 Lauren의 정보가 EHR 시스템에 기록되었다고 가정하자. 그녀의 관찰 기간에서 얻어진 방문기록은 다음과 같다:
 
@@ -250,13 +250,13 @@ Column name|Value|Explanation
 
 ### CONDITION_OCCURRENCE{#conditionOccurrence}
 
-CONDITION_OCCURRENCE 테이블의 기록는 제공자가 관찰하거나 환자가 보고한 상태의 진단, 징후 또는 증상이다.
+CONDITION_OCCURRENCE 테이블의 기록은 제공자가 관찰하거나 환자가 보고한 상태의 진단, 징후 또는 증상이다.
 
 #### Lauren의 condition은 무엇일까? {-}
 
 그녀의 예로 돌아가자면 그녀는 다음과 같이 말한다:
 
-> 3년 정도 전쯤 그 동안 매우 통증이 심했던 월경이 점점 더 고통스러워지고 있다는 것을 알아챘다. 나는 내 결장 바로 옆에서 날카롭게 쑤시는 통증을 느끼기 시작했고 꼬리뼈와 아랫골반 부위가 따갑고 부풀어 오르는 것을 느꼈다. 내 월경이 너무 고통스러워져서 일을 한달에 하루 이틀 쉬었다. 진통제가 가끔 고통을 줄여 주긴 했지만 보통은 그렇지 않았다.
+> 3년 정도 전쯤 그 동안 매우 통증이 심했던 월경이 점점 더 고통스러워지고 있다는 것을 알아챘다. 나는 내 대장 바로 옆에서 날카롭게 쑤시는 통증을 느끼기 시작했고 꼬리뼈와 아랫골반 부위가 따갑고 부풀어 오르는 것을 느꼈다. 내 월경이 너무 고통스러워져서 일을 한달에 하루 이틀 쉬었다. 진통제가 가끔 고통을 줄여 주긴 했지만 보통은 그렇지 않았다.
 
 월경통이라고 하는 고통스러운 월경 경련의 SNOMED 코드는 266599000이다. 표 \@ref(tab:conditionOccurrence) 은 CONDITION_OCCURRENCE 테이블에 어떻게 표시되는 지를 보여준다:
 
@@ -282,11 +282,11 @@ Column name|Value|Explanation
 
 ### DRUG_EXPOSURE{#drugExposure}
 
-DRUG_EXPOSURE 테이블은 환자에 신체에 약물을 투여하고자 한 의도나 실제 투여에 대한 기록을 수집한다. 의약품에는 처방전이 필수적인 의약품과 처방전 없이 구입할 수 있는 의약품, 백신 및 고분자의 생물학적 제제를 포함한다. 약물 노출은 주문, 처방된 처방전, 약품 조제, 절차적 등록, 기타 환자가 보고한 정보와 같은 임상적인 사건에서 유추된다. 
+DRUG_EXPOSURE 테이블은 환자에게 약물을 투여하고자 한 의도나 실제 투여에 대한 기록을 수집한다. 의약품에는 처방전이 필요한 전문의약품과 처방전 없이 구입할 수 있는 의약품, 백신 및 고분자 생물학적 제제를 포함한다. 약물 노출은 처방, 처방전, 약품 불출, 시술시 사용된 약품, 기타 환자가 보고한 정보와 같은 임상적인 사건에서 유추된다. 
 
 #### Lauren의 약물 노출은 어떻게 나타낼 수 있을까?  {-}
 
-월경 곤란 통증을 완화하기 위해 Lauren은 2010 년 1 월 6 일 방문하여 375mg Acetaminophen (일명 Paracetamol, 미국 NDC 코드 69842087651) 경구 제제 60알을 30일치 받았다. 이는 DRUG_EXPOSURE 테이블에서 다음과 같이 나타난다: 
+월경통을 완화하기 위해 Lauren은 2010 년 1 월 6 일 방문하여 아세트아미노펜 375mg (일명 Paracetamol, 미국 NDC 코드 69842087651) 경구 제제 60알을 30일치 처방으로 받았다. 이는 DRUG_EXPOSURE 테이블에서 다음과 같이 나타난다: 
 
 Table: (\#tab:drugExposure) DRUG_EXPOSURE 테이블.
 
@@ -294,7 +294,7 @@ Column name|Value|Explanation
 :---------------------|:-----------|:--------------------------------------
 |DRUG_EXPOSURE_ID|1001|이는 일반적으로 테이블의 각 기록에 대한 고유 식별자를 생성하는 자동으로 생성되는 값이다.|
 |PERSON_ID|1|PERSON 테이블에서 Laura의 기록에 대한 외래 키이며 PERSON을 DRUG_EXPOSURE에 연결한다.|
-|DRUG_CONCEPT_ID|1127433|의약품에 대한 개념. 아세트 아미노펜에 대한 NDC 코드는 Concept [1127433](http://athena.ohdsi.org/search-terms/terms/1127433)으로 표시되는 RxNorm 코드 313782에 매핑된다.|
+|DRUG_CONCEPT_ID|1127433|의약품에 대한 개념. 아세트아미노펜에 대한 NDC 코드는 Concept [1127433](http://athena.ohdsi.org/search-terms/terms/1127433)으로 표시되는 RxNorm 코드 313782에 매핑된다.|
 |DRUG_EXPOSURE_ START_DATE|2010-01-06|약물에 노출되기 시작한 날짜.|
 |DRUG_EXPOSURE_ START_DATETIME|2010-01-06 00:00:00|약물에 노출되기 시작한 날짜 및 시각. 알 수 없을 경우 자정을 입력|
 |DRUG_EXPOSURE_ END_DATE|2010-02-05|약물 노출이 종료되는 날짜. 서로 다른 출처에서 알려져 있는 날짜나 추정된 날짜 일 수 있으며 환자가 약물에 노출 지속된 날짜의 마지막 날을 의미한다. 해당 사례에서는 Lauren이 30일 동안 제공받았음을 알기에 이 날짜가 추론될 수 있다.|
@@ -359,7 +359,7 @@ Column name|Value|Explanation
 
 - CDM은 데이터 구조를 표준화할뿐만 아니라 표준화된 어휘를 통해 내용 표현을 표준화한다.
 
-- 완벽히 추적이 가능하도록 원본 코드가 CDM에 유지된다.
+- 충분한 추적가능성을 위하여 원본 코드가 CDM에 유지된다.
 </div>\EndKnitrBlock{rmdsummary}
 
 ## 예제
@@ -371,13 +371,13 @@ Column name|Value|Explanation
 [^athenaCdmUrl]: http://athena.ohdsi.org/
 [^atlasCdmUrl]: http://atlas-demo.ohdsi.org
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnPerson"><strong>(\#exr:exerciseJohnPerson) </strong></span>John은 1974 년 8 월 4 일에 태어난 흑인 남자이다. 이 정보를 인코딩하는 PERSON 테이블 항목을 정의하십시오.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnPerson"><strong>(\#exr:exerciseJohnPerson) </strong></span>John은 1974 년 8 월 4 일에 태어난 흑인 남자이다. 이 정보를 인코딩하는 PERSON 테이블 항목을 정의하라.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnOp"><strong>(\#exr:exerciseJohnOp) </strong></span>John은 2015 년 1 월 1 일에 현재 이용하는 보험에 등록했다. 그의 보험 데이터베이스의 데이터는 2019 년 7 월 1 일에 추출되었다. 이 정보를 인코딩하는 OBSERVATION_PERIOD 테이블 항목을 정의하십시오.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnOp"><strong>(\#exr:exerciseJohnOp) </strong></span>John은 2015 년 1 월 1 일에 현재 이용하는 보험에 등록했다. 그의 보험 데이터베이스의 데이터는 2019 년 7 월 1 일에 추출되었다. 이 정보를 인코딩하는 OBSERVATION_PERIOD 테이블 항목을 정의하라.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnDrug"><strong>(\#exr:exerciseJohnDrug) </strong></span>John은 2019 년 5 월 1 일에 Ibuprofen 200 MG Oral 정제 (NDC 코드 : 76168009520)를 30 일간 투여하도록 처방되었다. 이 정보를 인코딩하는 DRUG_EXPOSURE 테이블 항목을 정의하십시오.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseJohnDrug"><strong>(\#exr:exerciseJohnDrug) </strong></span>John은 2019 년 5 월 1 일에 Ibuprofen 200 MG Oral 정제 (NDC 코드 : 76168009520)를 30 일간 투여하도록 처방되었다. 이 정보를 인코딩하는 DRUG_EXPOSURE 테이블 항목을 정의하라.
 </div>\EndKnitrBlock{exercise}
 
 #### 전제 조건 {-}

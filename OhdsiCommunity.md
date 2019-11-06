@@ -114,7 +114,7 @@ OMOP의 창립자 중 한명인 Martijn Schuemie는 OMOP의 연구성과 중 하
 <p class="caption">(\#fig:OHDSIf2f2014)2014년 최초 개최된 오딧세이 Face to Face 미팅에서 아주대학교병원의 CDM과 Achilles웹페이지를 소개함</p>
 </div>
 
-2014년 6월에 귀국한 박래웅 교수는 이후 본격적으로 한국사회에 오딧세이를 알리기 시작하였고, 이후 국민건강보험공단을 시작으로 가천길병원 등이 오딧세이에 참여하기 시작하였다. 이후 계속 국내외에서 OMOP-CDM, OHDSI 전파를 위해 노력한 결과, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean) 을 개설하고, 한국의 OHDSI 참여가 본격화 되었다. 첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
+2014년에 귀국한 박래웅 교수는 이후 본격적으로 한국사회에 오딧세이를 알리기 시작하였고, 이후 국민건강보험공단을 시작으로 가천길병원 등이 오딧세이에 참여하기 시작하였다. 이후 계속 국내외에서 OMOP-CDM, OHDSI 전파를 위해 노력한 결과, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean) 을 개설하고, 한국의 OHDSI 참여가 본격화 되었다. 첫 한국 국제 오딧세이 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
 
 <div class="figure">
 <img src="images/OhdsiCommunity/DSC01956.png" alt="2017년 한국에서의 OHDSI 국제 심포지엄" width="80%" />
