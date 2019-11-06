@@ -323,7 +323,7 @@ cat("[1] [1] 1.483652e-06 7.052822e-01")
 
 ### 데이터베이스 간 이질성
 
-한 데이터베이스에서 분석을 수행한 것처럼, IBM MarketScan Medcaid (MDCD) 데이터베이스에서, 우리는 다른 공통 데이터 모델 (CDM) 데이터베이스에서도 동일한 분석 코드를 실행할 수 있다. 그림 \@ref(fig:forest)은 혈관 부종의 결과에 대한 총 5개의 데이터베이스에 대한 forest plot과 메타 분석 추정치 (임의 효과을 가정) [@dersimonian_1986] 를 보여준다. 이 그림은 [EvidenceSynthesis](https://ohdsi.github.io/EvidenceSynthesis/) 패키지의 `plotMetaAnalysisForest`함수를 사용하여 생성되었다.
+한 데이터베이스에서 분석을 수행한 것처럼, IBM MarketScan Medcaid (MDCD) 데이터베이스에서, 우리는 다른 공통 데이터 모델 (CDM) 데이터베이스에서도 동일한 분석 코드를 실행할 수 있다. 그림 \@ref(fig:forest)은 혈관 부종의 결과에 대한 총 5개의 데이터베이스에 대한 forest plot과 메타 분석 추정치 (임의 효과를 가정) [@dersimonian_1986] 를 보여준다. 이 그림은 [EvidenceSynthesis](https://ohdsi.github.io/EvidenceSynthesis/) 패키지의 `plotMetaAnalysisForest`함수를 사용하여 생성되었다.
 
 ```{r forest, fig.cap='혈관부종의 위험을 위해 ACE 억제제를 thiazide 및 thiazides 유사이뇨제와 비교할 때 5개 데이터베이스의 효과 크기 추정 및 95% 신뢰 구간(CI).',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/forest.png")
