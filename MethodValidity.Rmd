@@ -83,13 +83,13 @@ knitr::include_graphics("images/MethodValidity/posControlSynth.png")
 
 *	**Area Under the receiver operator Curve (AUC)**: 양성 대조군과 음성 대조군 구별력. 
 *	**Coverage**: 실제 효과 크기가 95% 신뢰 구간 내에 포함된 정도.
-*	**Mean precision**: 정밀도는 $ 1 / (standard \ error) ^ 2 $로 계산되며 정밀도가 높을수록 신뢰구간이 좁아진다. 기하 평균을 사용하여 정밀도의 치우친 분포를 설명한다.
+*	**Mean precision**: 정밀도는 $1 / (standard \ error) ^ 2$로 계산되며 정밀도가 높을수록 신뢰구간이 좁아진다. 기하 평균을 사용하여 정밀도의 치우친 분포를 설명한다.
 *	**Mean squared error (MSE)**: 효과 크기의 점추정치 로그와 실제 효과 크기 로그 사이의 평균 제곱 오차.
 *	**Type 1 error**: 음성 대조군의 경우, 귀무가설이 기각된 정도 (at $\alpha = 0.05$). 이는 위 양성도 및 $1 - specificity$에 해당한다.
 *	**Type 2 error**: 양성 대조군의 경우, 귀무가설이 기각되지 않는 정도 (at $\alpha = 0.05$). 이는 위 음성도 및 $1 - sensitivity$에 해당한다.
 *	**Non-estimable**: 대조군 방법에서 추정치를 산출할 수 없었던 대조군은 몇 개인가? 추정할 수 없는 이유는 여러 가지가 있을 수 있는데, 예를 들어 성향 점수 매칭 후 남은 환자나 결과를 가진 환자들이 없는 경우이다.
 
-활용 사례에 따라 이러한 작동 특성이 우리의 목표에 적합한지 평가할 수 있다. 예를 들어, signal detection을 수행하고자 하는 경우, type 1과 type 2 오류를 고려하거나 $\alpha$의 임계 값을 수정하려는 경우 AUC를 대신 검사할 수 있다.
+활용 사례에 따라 이러한 작동 특성이 우리의 목표에 적합한지 평가할 수 있다. 예를 들어, 징후 탐지를 수행하고자 하는 경우, type 1과 type 2 오류를 고려하거나 $\alpha$의 임계 값을 수정하려는 경우 AUC를 대신 검사할 수 있다.
 
 ### P-Value 보정
 
@@ -138,13 +138,13 @@ $$l(a,b,c,d | \theta, \hat{\theta}, \hat{\tau} ) \propto \prod_{i=1}^{n}\int p(\
 
 최대우도추정량인 $(\hat{a}, \hat{b}, \hat{c}, \hat{d})$ 를 얻는다.
 
-우리는 체계적 오차 모형을 사용하는 보정된 CI를 계산한다. 여기서 $\hat{\theta}_{n+1}$는 다시 추정 효과의 로그를 다시 표시하고, $\hat{\tau}_{n+1}$는 해당하는 추정의 표준 오차를 나타낸다. 위 가정에서 $\beta_{n+1}$이 동일한 체계 오차 모형에서 발생한다고 가정하면 다음과 같다:
+우리는 체계적 오차 모형을 사용하는 보정된 신뢰구간를 계산한다. 여기서 $\hat{\theta}_{n+1}$는 다시 추정 효과의 로그를 다시 표시하고, $\hat{\tau}_{n+1}$는 해당하는 추정의 표준 오차를 나타낸다. 위 가정에서 $\beta_{n+1}$이 동일한 체계 오차 모형에서 발생한다고 가정하면 다음과 같다:
 
 $$\hat{\theta}_{n+1} \sim N(
 \theta_{n+1} + \hat{a} + \hat{b} \times \theta_{n+1},
 \hat{c} + \hat{d} \times \mid \theta_{n+1} \mid) + \hat{\tau}_{n+1}^2) .$$
 
-$\theta_{n+1}$ 에 대한 방정식의 해로 보정된 95 % CI의 하한을 찾는다:
+$\theta_{n+1}$ 에 대한 방정식의 해로 보정된 95 % 신뢰구간의 하한을 찾는다:
 
 $$\Phi\left(
 \frac{\theta_{n+1} + \hat{a} + \hat{b} \times \theta_{n+1}-\hat{\theta}_{n+1}}
