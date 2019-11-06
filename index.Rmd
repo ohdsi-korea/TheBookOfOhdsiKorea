@@ -46,11 +46,11 @@ lapply(c('SqlRender', 'DatabaseConnector'), function(pkg) {
 
 # 서문 {-}
 
-<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이(OHDSI, Observational Health Data Sicence and Informatics) 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)의 번역판이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 또한 [ohdsi-korea.github.io/TheBookOfOhdsiKorea/](https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/)에서 온라인으로 최신 버전의 책을 무료로 받아 볼 수 있으며 서점에서 실물로 구입을 할수도 있다.
+<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이(OHDSI, Observational Health Data Sicence and Informatics) 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)의 번역판이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 또한 [ohdsi-korea.github.io/TheBookOfOhdsiKorea/](https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/)에서 온라인으로 최신 버전의 책을 무료로 받아 볼 수 있으며 서점에서 실물을 구입을 할 수도 있다.
 
 ## 이 책의 목표 {-}
 
-이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 OHDSI 커뮤니티, 공통 데이터 모델(CDM, common data model) 데이터 기준과 OHDSI 도구들에 중점을 두었다. OHDSI의 초보자와 숙련자 모두를 위해 현실적으로 필요 이론과 사용방법에 대한 교육을 제공하는 실용적인 부분에 목표를 두고 있다.  이 책을 읽은 뒤 당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여 이해하게 될 것이다. 또한 CDM과 표준화된 용어들이 무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게 사용되는지 알게 될 것이다. 이 데이터에 대해 Clinical characterization,  Population-level estimation, Population-level prediction, 이 3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다.  데이터 품질, 임상적 타당성, 소프트웨어 타당성, 방법론적 타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할  것이다. 마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될 것이다.
+이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 OHDSI 커뮤니티, CDM 데이터 기준과 OHDSI 도구들에 중점을 두었다. OHDSI의 초보자와 숙련자 모두를 위해 현실적으로 필요 이론과 사용방법에 대한 교육을 제공하는 실용적인 부분에 목표를 두고 있다.  이 책을 읽은 뒤 당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여 이해하게 될 것이다. 또한 CDM과 표준화된 용어들이 무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게 사용되는지 알게 될 것이다. 이 데이터에 대해 Clinical characterization,  Population-level estimation, Population-level prediction, 이 3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다.  데이터 품질, 임상적 타당성, 소프트웨어 타당성, 방법론적 타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할  것이다. 마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될 것이다.
 
 ## 이 책의 구성 {-}
 
@@ -139,3 +139,11 @@ knitr::kable(packageVersions, col.names = c("Package", "Version"), row.names = F
 | 아주대학교   | 전호균 |
 | 아주대학교   | 조재형 |
 | 성균관대학교 | 차원철 |
+
+## 한국판에 부쳐 {-}
+
+*Martijn Schumie, David Madigan
+
+한국 오딧세이(Korean Chapter of OHDSI)는 유전체 및 방사선 자료 등을 위한 공통 데이터 모델(CDM, common data model)의 확장, 새로운 OHDSI 소프트웨어 개발 및 OHDSI 기반 주요 임상 연구에 걸치는 OHDSI의 다양한 분야에 혁혁한 공헌을 해왔다. CDM의 광범위한 채택으로 인해 한국은 전국 규모의 탄탄한 분산연구망을 구축하였다. 한국의 OHDSI 연구자들은 OHDSI 코리아 심포지엄을 조직하여 전세계의 연구자들을 한국으로 초대할 뿐 아니라, 미국, 유럽, 아시아 각국의 OHDSI 심포지엄에도 열성적으로 참여하고 있다. 우리는 OHDSI의 공동체 정신을 한국에서 생생하게 느낄 수 있다. 
+
+오딧세이 바이블은 한국의 연구자들을 포함한 전세계 OHDSI 커뮤니티에 의해 OHDSI 커뮤니티를 위하여 작성되었다. 우리는 한국 오딧세이가 이 책을 한국어로 번역한 것에 대해 경탄을 금치 않으며, 이 책의 번역이 한국 오딧세이에 중요한 이정표가 되리라 믿어 의심치 않는다. 
