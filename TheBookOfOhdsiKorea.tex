@@ -25,8 +25,8 @@
 \usepackage[paperheight=10in,paperwidth=7in,margin=1in,inner=1in,outer=0.65in,top=0.8in,bottom=0.8in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={The Book of OHDSI Korea},
-            pdfauthor={OHDSI-Korea},
+            pdftitle={오딧세이 바이블 The Book of OHDSI},
+            pdfauthor={한국 오딧세이},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -118,10 +118,10 @@
 
 \setlength{\droptitle}{-2em}
 
-  \title{The Book of OHDSI Korea}
+  \title{오딧세이 바이블 The Book of OHDSI}
     \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-    \author{OHDSI-Korea}
+    \author{한국 오딧세이}
     \preauthor{\centering\large\emph}
   \postauthor{\par}
       \predate{\centering\large\emph}
@@ -5555,7 +5555,7 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
 헬스케어의 특성을 묻는 말에 답할 수 있으며, 시간이 경과함에 따라 이
 특성들이 어떻게 변화하는지 알 수 있다.
 
-데이터는 다음과 같은 질문들에 답을 제공할 수 있다:
+데이터는 다음과 같은 질문에 답을 제공할 수 있다:
 
 \begin{itemize}
 \tightlist
@@ -5587,13 +5587,13 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
 \item
   환자가 \ldots{}에 노출되는 평균 노출 기간은 얼마인가?
 \item
-  \ldots{}의 시간 경과에 따른 트렌드는 무엇인가?
+  \ldots{}의 시간 경과에 따른 추세는 무엇인가?
 \item
   이 환자들이 사용하는 다른 약들이 무엇인가?
 \item
   수반되는 치료법들이 무엇인가?
 \item
-  \ldots{}에 대한 충분한 케이스들이 있는가?
+  \ldots{}에 대한 충분한 증례가 있는가?
 \item
   \ldots{}에 대한 연구X가 실행 가능한가?
 \item
@@ -5610,57 +5610,58 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
 \begin{itemize}
 \tightlist
 \item
-  건수 또는 퍼센트
+  건수 또는 퍼센트 count or percentage
 \item
-  평균
+  평균 averages
 \item
-  기술 통계값
+  기술 통계 descriptive statistics
 \item
-  발병률
+  발생률 incidence rate
 \item
-  유병율
+  유병률 prevalence
 \item
-  코호트
+  코호트 cohort
 \item
-  규칙 기반 표현형
+  규칙 기반 표현형 rule-based phenotype
 \item
-  약물 사용
+  약물 사용 drug utilication
 \item
-  질병의 자연 경과
+  질병의 자연 경과 disease natural history
 \item
-  이행
+  순응도 adherence
 \item
-  동반질환 프로필
+  동반질환 프로파일 co-morbidity profile
 \item
-  치료 경로
+  치료 경로 treatment pathways
 \item
-  치료 요법
+  치료 요법 line of therapy
 \end{itemize}
 
 \section{인구 수준 추정}\label{--}
 
 \index{population-level estimation}
 
-데이터가 한정된 범위까지는 헬스케어 개입의 효과에 대한 인과적 추론들을
-제공할 수 있다
+제한된 범위내에서, 데이터는 헬스케어 개입 효과에 대한 인과적 추론을
+지원함으로써 질문에 답할 수 있다.
 
 \begin{quote}
-무엇이 인과 효과들인가?
+무엇이 인과 효과 caulsal effect인가?
 \end{quote}
 
 우리는 행동의 결과를 이해하기 위해 인과 효과를 파악하고자 한다. 예를
 들어, 우리가 어떤 치료법을 사용하기로 결정했다면, 이것이 앞으로 우리에게
 무슨 변화를 일으킬까?
 
-데이터는 다음과 같은 질문들에 답을 줄 수 있다:
+데이터는 다음과 같은 질문에 답을 줄 수 있다:
 
 \begin{itemize}
 \tightlist
 \item
   새로 심방세동으로 진단받은 환자들에 있어서, 치료 시작한지 1년 내에
-  와파린이 다비가트란보다 주요 출혈을 더 일으키는가?
+  와파린 warfarin이 다비가트란 dabigatran 보다 주요 출혈을 더
+  일으키는가?
 \item
-  메트포르민이 설사에 미치는 인과 효과가 연령에 따라 다른가?
+  메트포르민 metformin이 설사에 미치는 인과 효과가 연령에 따라 다른가?
 \end{itemize}
 
 일반적인 인구 수준 효과 추정 질문들은 다음과 같이 표현된다:
@@ -5676,7 +5677,7 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
 \item
   X가 Y에 미치는 위험이 무엇일까?
 \item
-  \ldots{} 이벤트 발생에 걸리는 시간이 얼마나 될까?
+  \ldots{} 이벤트 발생에 걸리는 시간 time-to-event이 얼마나 될까?
 \end{itemize}
 
 그리고 원하는 결과값은 다음과 같다:
@@ -5684,23 +5685,23 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
 \begin{itemize}
 \tightlist
 \item
-  상대 위험도
+  상대 위험도 relative risk
 \item
-  발생 위험비
+  발생 위험비 hazards ratio
 \item
-  승산비
+  대응위험도/교차비 odds ratio
 \item
-  평균 처치 효과
+  평균 처치 효과 average treatment effect
 \item
-  인과 관계
+  인과 효과 causal effect
 \item
-  연관 관계
+  관련성 association
 \item
-  상관 관계
+  상관성 correlation
 \item
-  안전성 감시
+  안전성 감시 safety surveillance
 \item
-  비교 효과
+  비교 효과 comparative effectiveness
 \end{itemize}
 
 \section{환자 수준 예측}\label{--}
@@ -5750,62 +5751,65 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
   확률론적 표현형
 \end{itemize}
 
-인구 수준 추정과 환자 수준 예측은 어느 정도 중복된다. 예를 들어, 예측을
-위한 중요한 이용사례는 특정 환자의 결과에 약물 A가 처방되었다고 예측하고
-약물 B가 처방된 것과 동일한 결과가 나타나는지 예측하는 것이다. 실제로 이
-약들 중 하나 (약물 A이라고 하자) 를 처방 받았고, 약물 A의 예상되는
-결과가 실제로 일어나는지를 살펴봤다고 가정해 보자. 약물 B는 처방되지
-않았고 치료 B 이후의 결과는 관찰된 적이 없으므로 예측은 할 수 있더라도
-사실과 다를 수 있다. 이러한 각각의 예측 작업은 환자 수준 예측에 속한다.
-그러나 두 결과의 차이 (또는 비율) 는 단위 수준의 \emph{인과적} 효과이며,
-인과적 영향 추정 방법을 사용하여 추정해야 한다.
+인구 수준 추정과 환자 수준 예측은 어느 정도 중복된다. 예측을 위한 중요
+이용사례로 다음 예제를 들 수 있다: 약물 A가 처방된 특정 환자의
+임상결과를 예측하는 것과, 또한 약물 B가 처방된 사람에게서 그와 똑 같은
+임상결과를 예측하는 것이다. 실제로 한 환자가 여러 약 중 하나 (약물
+A이라고 하자) 를 처방 받았고, 약물 A의 예상되는 결과가 실제로
+일어나는지를 살펴봤다고 가정해 보자. 그 환자에게 약물 B는 처방되지
+않았고 B 투여 이후의 임상결과는 관찰된 적이 없으므로 그 예상된
+임상결과는 반사실적 (counterfactual)이며, 예측은 할 수 있더라도 사실과
+다를 수 있다 . 이러한 각각의 예측 작업은 환자 수준 예측에 속한다. 그러나
+두 결과의 차이 (또는 비율) 는 단위 수준의 \emph{인과} 효과이며,
+예측모형이 아닌 인과적 영향 추정 방법론을 사용하여 추정하여야 한다.
 
 \BeginKnitrBlock{rmdimportant}
-사람들은 예측모델을 인과모델로 잘못 해석하는 자연스러운 경향이 있다.
-그러나 예측 모델은 인과성이 아닌 상관성만을 보여줄 수 있다. 예를 들자면,
-당뇨병이 심근경색의 강한 예측변수이기 때문에, 당뇨병 약의 사용이
-심근경색의 강한 예측변수일 수 있다. 그러나 이것이 당뇨병 약 복용을
-중단하는 것이 심근경색을 막는다는 것을 의미하는 것은 아니다!
+사람들은 예측모델을 인과모델로 잘못 해석하는 경향이 있다. 그러나 예측
+모델은 상관성만을 보여줄 수 있으며 결코 인과성을 보여줄 수 없다. 예를
+들자면, 당뇨병이 심근경색의 강한 예측변수이기 때문에, 당뇨병 약을
+사용하는 것은 심근경색의 강한 예측변수일 수 있다. 그러나 이것이 당뇨병
+약 복용을 중단하는 것이 심근경색을 막는다는 것을 의미하는 것은 아니다!
 \EndKnitrBlock{rmdimportant}
 
 \section{고혈압 이용 사례 예}\label{---}
 
-당신은 고혈압의 1차 요법으로서 ACE 억제제 단일요법과 타이아자이드 이뇨제
-단일요법이 급성 심근경색과 혈관부종에 미치는 영향을 연구하는데 관심이
-있는 연구자이다. 당신은 OHDSI 연구에 기반하여 인구 수준 추정 연구질문을
-도출했지만, 먼저 관심을 가지고 있는 특정 치료에 대한 특성을 어떻게
-분석할 것인지 해결해야 한다.
+당신은 고혈압의 1차 치료 요법으로서 ACE 억제제 단일요법과 타이아자이드
+이뇨제 단일요법이 급성 심근경색과 혈관부종에 미치는 영향을 연구하는데
+관심이 있는 연구자이다. 당신은 OHDSI 연구에 기반하여 인구 수준 추정
+연구질문을 도출했지만, 먼저 관심을 가지고 있는 특정 치료에 대한 특성을
+어떻게 분석할 것인지 해결해야 한다.
 
 \subsection{특성 분석 질문}\label{--}
 
 급성 심근경색은 고혈압 환자들에게 일어날 수 있는 심혈관계 합병증으로,
 고혈압에 대한 효과적인 치료로 이 위험을 줄여야 한다. 혈관부종은
 희귀하지만 잠재적으로 심각한 ACE 억제제의 알려진 부작용이다. 당신은 관심
-약제 (ACE 억제제와 타이아자이드 이뇨제) 들에 노출된 코호트
-(\ref{Cohorts}장 참고) 들을 생성하는 것으로부터 연구를 시작한다. 노출된
+약제 (ACE 억제제와 티아자이드 이뇨제) 들에 노출된 코호트
+(\ref{Cohorts}장 참고) 를 생성하는 것으로 부터 연구를 시작한다. 노출된
 환자들의 인구통계학적 정보, 병적 상태, 병용 약물 등 기저 특성을 파악하기
 위하여 특성 분석 (\ref{Characterization}장 참고) 을 수행한다. 또한 이
 노출 환자 내에서 분석하고자 하는 결과가 얼마나 발생하는지 추정하는 또
 다른 특성 분석을 수행한다. 그리고, 당신은 `얼마나 자주 1) 급성
-심근경색과 2) 혈관부종이 ACE 억제제와 타이아자이드 이뇨제에 노출된 기간
+심근경색과 2) 혈관부종이 ACE 억제제와 티아자이드 이뇨제에 노출된 기간
 동안 발생하는가?'를 묻게 된다. 이러한 특성 분석은 인구 수준 추정 연구
-수행의 실현 가능성을 판단하게 하고, 두 치료군이 비교 가능한지를 평가하게
-하며, 환자들이 받는 치료에 예측되는 위험 요소들을 파악할 수 있게 한다.
+수행의 실현 가능성을 판단하게 하고, 두 치료군이 비교 가능한 지를
+평가하게 하며, 환자들이 받는 치료에 예측되는 위험 요소들을 파악할 수
+있게 한다.
 
-\subsection{인구 수준 추정 질문}\label{---}
+\subsection{인구 수준 추정에 대한 질문}\label{----}
 
 인구 수준 효과 추정 연구 (\ref{PopulationLevelEstimation}장 참고) 는 ACE
-억제제와 타이아자이드 이뇨제가 급성 심근경색과 혈관부종에 미치는 상대
-위험을 추정한다. 더 나아가, 진료군과 음성대조군 분석을 통해 평균 치료
-효과에 대해 믿을 수 있는 추정치를 도출했는지 평가한다.
+억제제와 티아자이드 이뇨제가 급성 심근경색과 혈관부종에 미치는 상대
+위험을 추정한다. 더 나아가, 분석에 대한 평가와 음성대조군 분석을 통해
+우리가 평균 치료 효과에 대해 믿을 만한 추정치를 도출했는지 평가한다.
 
-\subsection{환자 수준 예측 질문}\label{---}
+\subsection{환자 수준 예측에 대한 질문}\label{----}
 
 당신은 노출의 인과적 영향 여부와 상관없이, 가장 위험한 결과에 처한
 환자들을 알아내고자 할 수 있다. 이것은 환자 수준 예측
 (\ref{PatientLevelPrediction}장 참고) 의 문제이다. ACE 억제제를 처음
 사용하는 환자들 중 치료 시작한지 1년 동안 급성 심근경색 발병 위험이 가장
-높은 환자들을 평가하는 예측 모델을 개발한다고 생각해 보아라. 이 모델을
+높은 환자들을 찾아내는 예측 모델을 개발한다고 생각해 보아라. 이 모델을
 통해 우리는 처음으로 ACE 처방을 받은 환자의 병력에서 관찰된 사건을
 바탕으로, 향후 1년 동안 급성 심근경색을 겪을 가능성을 예측할 수 있다.
 
@@ -5813,19 +5817,20 @@ OHDSI가 관심을 가져온 이용 사례들은 크게 3개의 카테고리로 
 
 \index{limitations of obervational research}
 
-OHDSI 데이터베이스가 답변을 제공할 수 없는 중요한 헬스케어 질문들이 많이
+OHDSI 데이터베이스가 답변을 제공할 수 없는 중요한 의료분야 질문들이 많이
 존재한다. 아래 질문들이 이에 해당한다:
 
 \begin{itemize}
 \tightlist
 \item
-  위약과 비교한 치료의 인과 효과. 때때로 치료의 인과 효과를 위약 치료가
-  아닌 비치료와 비교하여 분석하는 것은 가능하다.
+  위약과 비교한 치료의 인과 효과. 때때로 치료군의 인과 효과를 비치료군과
+  비교하여 분석하는 것은 고려해 볼 수 있지만 위약군과 비교하려고 해서는
+  안된다.
 \item
-  처방전 없이 구입할 수 있는 의약품과 관련된 모든 것
+  처방전 없이 구입할 수 있는 일반 의약품과 관련된 모든 것
 \item
-  많은 결과와 다른 변수들이 거의 기록되지 않음. 사망률, 행동 결과,
-  라이프 스타일 및 사회-경제적 지위와 같은 것들이 이에 포함된다.
+  많은 임상 결과와 여러 변수들이 아주 성기게 기록된 경우. 사망률, 행동
+  결과, 라이프 스타일 및 사회-경제적 지위와 같은 것들이 이에 포함된다.
 \item
   환자는 건강이 좋지 않을 때만 의료 시스템을 이용하는 경향이 있기
   때문에, 치료의 이점을 측정하는 것이 쉽지 않다.
@@ -5841,7 +5846,7 @@ OHDSI 데이터베이스에 기록된 임상 데이터는 의료 현실과 차�
 다루고 있으며, 모범 사례를 통해 이러한 문제들을 최대한 식별하고
 수정하고자 한다. 그럼에도 불구하고, 잘못된 데이터는 필연적으로 어느
 정도까지 존재할 수 밖에 없으며, 분석의 타당성을 약화시킬 수 있다. 매우
-많은 문헌들이 데이터 오류들을 처리하기 위한 통계적 추론 조정에 초점을
+많은 문헌들이 데이터 오류들을 처리하기 위한 통계적 추론 보정에 초점을
 맞추고 있다. - 예: \citet{fuller2009measurement} 참조
 
 \subsection{결측 데이터}\label{-}
@@ -5872,10 +5877,10 @@ OHDSI 데이터베이스에서의 결측은 감지하기 어려운 문제점들�
   \textbf{환자 수준 예측}은 ``나에게 무엇이 일어날까?''라는 질문에
   답하는 것을 목적으로 한다.
 \item
-  예측 모델은 인과 모델이 아니다; 강한 예측변수에 대한 개입이 결과에
+  예측 모델은 인과 모델이 아니다; 강한 예측변수를 통제하는 것이 결과에
   영향을 미칠 것이라고 믿을 근거가 없다.
 \item
-  헬스케어 관찰 데이터를 이용하여 연구할 수 없는 질문들도 있다.
+  관찰형 의료 데이터를 이용하여 연구할 수 없는 질문들도 있다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
@@ -5894,16 +5899,16 @@ OHDSI 데이터베이스에서의 결측은 감지하기 어려운 문제점들�
   기저 특성을 기반으로 특정 환자가 차년도에 위장관 출혈을 겪을 확률을
   계산하라.
 \item
-  셀레콕시브와 비교하여 디클로페낙이 위장관 출혈에 미치는 위험을
-  추정하라.
+  셀레콕시브 celecoxib와 비교하여 디클로페낙 diclofenac이 위장관 출혈에
+  미치는 위험을 추정하라.
 \end{enumerate}
 \EndKnitrBlock{exercise}
 
 \BeginKnitrBlock{exercise}
 \protect\hypertarget{exr:exerciseUseCases2}{}{\label{exr:exerciseUseCases2}
-}당신은 디클로페낙이 위장관 출혈에 미치는 위험을 비노출 (위약) 의 경우와
-비교하여 추정하고자 한다. 이와 같은 연구가 헬스케어 관찰 데이터를
-이용하여 수행 가능한가?
+}당신은 디클로페낙 diclofenac이 위장관 출혈에 미치는 위험을 비노출
+(위약) 의 경우와 비교하여 추정하고자 한다. 이와 같은 연구가 헬스케어
+관찰 데이터를 이용하여 수행 가능한가?
 \EndKnitrBlock{exercise}
 
 정답은 부록 \ref{UseCasesanswers}에서 확인할 수 있다.
@@ -7003,7 +7008,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.fy9kowejchildren ;"
+## [1] "SELECT * FROM temp_schema.xoz26ypychildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
@@ -15205,10 +15210,11 @@ Checks)}\label{---study-specific-checks}
 있다. 예를 들어, 관심 노출에 대한 레코드의 최소 90\%가 노출 기간을
 명시한다는 새로운 rule의 도입을 원할 수도 있다.
 
-표준 평가는 ACHILLES에서 연구에 가장 관련 있는 concept, 예를 들어 cohort
-definition으로 지정된 concept을 검토하는 것이다. 관찰된 코드와 동일한,
-시간에 따른 갑작스러운 변화는 DQ 문제에 힌트가 될 수 있다. 몇몇 예시들은
-이 장의 뒷부분에서 recommend를 설명하고 있다.
+표준으로 시행하는 검사는 연구와 가장 관련된 concept들, 예로들어 cohort
+definition에서 정의된 concept들을 ACHILLES에서 검토하는 것이다.
+전체기간에서 특정 코드의 사용 빈도가 급격히 변한다면 이것은 DQ 문제가
+있다는 것을 알려주는 힌트가 될 수도 있다. 몇몇 예시들은 이 장의
+뒷부분에서 recommend를 설명하고 있다.
 
 또 다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된
 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이
@@ -15218,48 +15224,49 @@ definition으로 지정된 concept을 검토하는 것이다. 관찰된 코드�
 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가
 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트
 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만,
-다른 데이터베이스에서는 누락된 경우, DQ 문제가 발생할 수 있다. 이러한
+다른 데이터베이스에서는 누락된 경우, DQ 문제가 있을 수 있다. 이러한
 평가는 \ref{ClinicalValidity}장에서 논의한 바와 같이, \emph{clinical
-validity}의 개념과 중복된다는 것을 유의해야 한다. 몇몇
-데이터베이스에서는 cohort definition이 실제로 관심 있는 건강 상태를
-담아내지 못하거나 다른 환자 모집단을 기록하는 데이터베이스에 따라 건강
-상태가 다를 수 있기 때문에 DQ 문제가 아닌 예기치 못한 유병률을 발견할
-수도 있다.
+validity}의 개념과 중복된다는 것을 유의해야 한다. 몇몇의
+데이터베이스에서는 예상하지 못한 유병률 결과가 나올수가 있는데, 이는 DQ
+문제가 아니라 cohort definition에서 연구 주제와 부합하는 건강 상태를
+온전히 잡아내지 못했거나 데이터베이스마다 환자 모집단이 상이하여 발생할
+수 있다.
 
 \subsection{매핑 검사하기 (Checking
 Mappings)}\label{--checking-mappings}
 
 우리가 통제할 수 있는 오류의 원인 중 한 가지는 소스 코드를 표준
-concept에 매핑하는 것이다. Vocabulary에서 매핑은 꼼꼼하게 만들어졌고,
-공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란 \footnote{\url{https://github.com/OHDSI/Vocabulary-v5.0/issues}}에
-보고되고 다음 업데이트에서 수정된다. 그런데도 불구하고 모든 매핑을 직접
-확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때,
-연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다.
-다행히도, CDM에서는 표준화 concept뿐 아니라, 소스 코드도 저장하기 때문에
-매우 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만
-아니라 그렇지 않은 소스 코드도 검토할 수 있다.
+concept에 매핑하는 것이다. Vocabulary 매핑은 정교하게 제작되었으며,
+매핑상의 문제가 있다면 공동체 구성원에 의해 발견되어 \footnote{\url{https://github.com/OHDSI/Vocabulary-v5.0/issues}}에
+보고 된후 다음 업데이트에 반영된다. 그런데도 불구하고 모든 매핑을 직접
+확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기때문에,
+연구를 수행할 때 연구와 관련있는 concept들의 매핑을 검토해보는 것을
+권장한다. 다행히도, CDM에서 표준 용어(Concept) 뿐만 아니라 소스 코드도
+같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된
+concept에 매핑된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수
+있다.
 
 소스 코드를 검토하는 한 가지 방법은
 \href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation} R
 패키지의 \texttt{checkCohortSourceCodes} 함수를 사용하는 것이다. 이
 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort
 definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스
-코드를 확인한다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데
-도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림
+코드를 확인한다. 또한 전체 기간에 대한 코드들의 빈도를 계산하여 특정
+코드에서 발생하는 시간적인 문제들을 확인하는데 도움이 될 수 있다. 그림
 \ref{fig:sourceCodes} 예시 결과는 ``우울증 (Depression disorder)''이라
 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이
 concept 세트의 가장 보편적인 concept은
 \href{http://athena.ohdsi.org/search-terms/terms/440383}{440383}
-(우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가
-이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과
-F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로
-증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를
-살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로
-설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한
-것과 같은 시간임에도 불구하고, ICD-10 코드의 결합한 유병률은 ICD-9
-코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9
-(``주요 우울 장애, 단일 에피소드, 불특정'')도 이 concept으로 매핑돼야
-했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+(우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11,
+ICD-10 코드의 F32.8과 F32.89 이 세가지 코드가 해당 concept으로 매핑이 된
+걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 concept은 시간이 지남에
+따라 초반에는 증가하지만 그 후에 급격이 감소하는 것을 볼 수 있다. 개별
+코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는
+것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기
+시작한 것과 같은 시간임에도 불구하고, 결합된 ICD-10 코드의 빈도가 ICD-9
+코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 (``주요
+우울 장애, 단일 에피소드, 불특정'')도 이 concept으로 매핑돼야 했었기
+때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 \begin{figure}
 
@@ -15314,7 +15321,7 @@ disorder)의 하위 컨셉이 아닌 컨셉
 \href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}
 패키지를 사용한다. 다양한 데이터베이스 관리 시스템(Database management
 systems, DBMS)에 필요한 특정 설정을 \texttt{?createConnectionDetails}을
-입력하여 확인할 수 있다. 예를 들어, 다음 코드를 이용하여 PostgreSQl과
+입력하여 확인할 수 있다. 예를 들어, 다음 코드를 이용하여 PostgreSQL과
 연결할 수 있다:
 
 \begin{Shaded}
@@ -15351,8 +15358,8 @@ systems, DBMS)에 필요한 특정 설정을 \texttt{?createConnectionDetails}�
 이 함수는 \texttt{resultsDatabaseSchema}에 여러 테이블을 생성하며,
 여기에서는 CDM 데이터와 동일한 데이터베이스 스키마로 설정하였다.
 
-ATLAS를 ACHILLES 결과 데이터베이스로 지정하거나 ACHILLES 결과를 JSON
-파일로 내보내서 ACHILLES 데이터베이스의 특징을 볼 수 있다:
+ATLAS를 ACHILLES 결과 데이터베이스로 지정하거나 ACHILLES 결과들를 JSON
+파일들로 내보내서 ACHILLES 데이터베이스의 특징을 볼 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15380,9 +15387,9 @@ plot은 2005년에 시작된 대량의 데이터를 보여준다. 하지만 1961
 \end{figure}
 
 또 다른 예시로는 그림 \ref{fig:achillesCodeChange}로, 당뇨병 진단 코드의
-유병률에 급격한 변화를 보여주고 있다. 이러한 변화는 특정 국가의 급여
-규정의 변경과 일치하여 더 많은 진단이 제공되었기 때문이지 실제로 기본
-인구의 유병률이 증가하지는 않았다.
+유병률에 급격한 변화를 보여주고 있다. 이러한 변화는 특정 국가에서 보험
+청구 규정이 변경됨에 따라 진단수가 증가한 것이지 실제로 유병률이 증가한
+것은 아니다.
 
 \begin{figure}
 
@@ -15561,8 +15568,8 @@ T78.3XXS & Angioneurotic edema, sequela & ICD10CM & 508\tabularnewline
 \item
   대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다.
 \item
-  대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다. 데이터
-  품질은 데이터가 연구 목적에 적합한지를 확인하기 위해 평가되어야 한다.
+  데이터 품질은 데이터가 연구 목적에 적합한지를 확인하기 위해 평가되어야
+  한다.
 \item
   보편적인 연구 목적을 위해, 특정 연구의 맥락에서 비판적으로 데이터
   품질을 평가해야 한다.
@@ -16993,7 +17000,7 @@ OHDSI에서 우리는 그러한 집합이 관심 가설에 존재하는 것을 �
 
 \index{positive controls}
 
-실제 상대 비가 1보다 작거나 클 때 방법의 행동을 이해하려면 귀무가설이
+실제 상대 위험이 1보다 작거나 클 때 방법의 행동을 이해하려면 귀무가설이
 참이 아닌 것으로 간주하는 양성 대조군을 사용해야 한다. 불행하게도, 관측
 연구에 대한 실제 양성 대조군은 세 가지 이유로 문제가 되는 경향이 있다.
 첫째, 대부분의 연구 상황에서, 예를 들어 두 치료의 효과를 비교할 때, 특정
@@ -17022,11 +17029,11 @@ OHDSI에서 우리는 그러한 집합이 관심 가설에 존재하는 것을 �
 이를 달성하기 위해 각 결과에 대해 노출 전에 포착된 공변량을 사용하여
 노출 중 결과에 대한 생존율을 예측하는 모델을 학습시킨다. 공변량들은 인구
 통계학적 뿐만 아니라, 기록된 모든 진단, 약물 노출, 측정 및 의료 처치가
-포함된다. 제약 초모수를 선택하기 위해 10회 교차 검증된 L1-regularized
-Poisson regression \citep{suchard_2013} 예측 모형을 적합시킨다. 그런
-다음, 예측된 비율을 사용하여 실제 효과 크기를 원하는 규모로 늘리기 위해
-노출 동안 모의한 결과를 표집한다. 결과적으로, 양성 대조군은 실제 결과와
-모의한 결과 모두를 포함한다.
+포함된다. 정규화된 초모수를 선택하기 위해 10회 교차 검증된
+L1-regularized Poisson regression \citep{suchard_2013} 예측 모형을
+적합시킨다. 그런 다음, 예측된 비율을 사용하여 실제 효과 크기를 원하는
+규모로 늘리기 위해 노출 동안 모의한 결과를 표집한다. 결과적으로, 양성
+대조군은 실제 결과와 모의한 결과 모두를 포함한다.
 
 그림 \ref{fig:posControlSynth}이 과정을 보여준다. 이 절차는 몇 가지
 중요한 편향을 편향 요인을 모의하지만, 모든 것을 포착하진 않는다. 예를
@@ -17070,7 +17077,7 @@ ATE도 동일하다. 모든 결과가 드물기 때문에 오즈 비는 상대 �
 \item
   \textbf{Coverage}: 실제 효과 크기가 95\% 신뢰 구간 내에 포함된 정도.
 \item
-  \textbf{Mean precision}: 정밀도는 \$ 1 / (standard ~error) \^{} 2 \$로
+  \textbf{Mean precision}: 정밀도는 \(1 / (standard \ error) ^ 2\)로
   계산되며 정밀도가 높을수록 신뢰구간이 좁아진다. 기하 평균을 사용하여
   정밀도의 치우친 분포를 설명한다.
 \item
@@ -17091,8 +17098,8 @@ ATE도 동일하다. 모든 결과가 드물기 때문에 오즈 비는 상대 �
 \end{itemize}
 
 활용 사례에 따라 이러한 작동 특성이 우리의 목표에 적합한지 평가할 수
-있다. 예를 들어, signal detection을 수행하고자 하는 경우, type 1과 type
-2 오류를 고려하거나 \(\alpha\)의 임계 값을 수정하려는 경우 AUC를 대신
+있다. 예를 들어, 징후 탐지를 수행하고자 하는 경우, type 1과 type 2
+오류를 고려하거나 \(\alpha\)의 임계 값을 수정하려는 경우 AUC를 대신
 검사할 수 있다.
 
 \subsection{P-Value 보정}\label{p-value-}
@@ -17122,9 +17129,9 @@ type 1 error를 공칭으로 복원하는 과정을 개발하였다.
 \(\theta_i + \beta_i\) 이고, 표준편차가 \(\hat{\tau}_i^2\) 인 정규
 분포를 따른다고 가정한다. 전통적인 p-value 계산에서, \(\beta_i\) 는 항상
 0과 같다고 가정하지만, \(\beta_i\) 는 평균이 \(\mu\) 이고 분산이
-\(\sigma^2\) 인 정규분포에서 구해진다. This represents the null (bias)
-distribution. 우리는 최대 우도를 통해 \(\mu\) 와 \(\sigma^2\) 를
-추정한다. 요약해서 우리는 다음과 같이 가정한다:
+\(\sigma^2\) 인 정규분포에서 구해진다. 이는 귀무 (편향) 분포를 나타낸다.
+우리는 최대 우도를 통해 \(\mu\) 와 \(\sigma^2\) 를 추정한다. 요약해서
+우리는 다음과 같이 가정한다:
 
 \[\beta_i \sim N(\mu,\sigma^2) \text{  and  } \hat{\theta}_i \sim N(\theta_i + \beta_i, \tau_i^2)\]
 
@@ -17157,12 +17164,12 @@ distribution. 우리는 최대 우도를 통해 \(\mu\) 와 \(\sigma^2\) 를
 \index{confidence interval calibration}
 
 마찬가지로, 우리는 일반적으로 95\% 신뢰 구간의 적용 범위가 95\% 미만임을
-관찰한다: the true effect size is inside the 95\% confidence interval
-less than 95\% of the time. 신뢰 구간의 보정 \citep{schuemie_2018} 을
-위해 우리는 양성 대조군을 사용하여 p-value 보정을 위한 프레임 워크를
-확장한다. 일반적으로 보정된 신뢰 구간은 공칭 신뢰 구간보다 넓지만
-표준적인 절차에서는 설명되지 않던 문제들 (측정되지 않은 교란, 선택적
-편향, 그리고 측정 오차와 같은)이 반영된다.
+관찰한다: 실제 효과 크기가 95\% 미만인 95\% 신뢰 구간에 포함. 신뢰
+구간의 보정 \citep{schuemie_2018} 을 위해 우리는 양성 대조군을 사용하여
+p-value 보정을 위한 프레임 워크를 확장한다. 일반적으로 보정된 신뢰
+구간은 공칭 신뢰 구간보다 넓지만 표준적인 절차에서는 설명되지 않던
+문제들 (측정되지 않은 교란, 선택적 편향, 그리고 측정 오차와 같은)이
+반영된다.
 
 공식적으로, 우리는 쌍 \(i\) 와 관련된 편향인 \(beta_i\) 가 다시 가우시안
 분포에서 나온다고 가정하지만, 이번에는 실제 효과 크기인 \(theta_i\) 와
@@ -17182,7 +17189,7 @@ less than 95\% of the time. 신뢰 구간의 보정 \citep{schuemie_2018} 을
 
 최대우도추정량인 \((\hat{a}, \hat{b}, \hat{c}, \hat{d})\) 를 얻는다.
 
-우리는 체계적 오차 모형을 사용하는 보정된 CI를 계산한다. 여기서
+우리는 체계적 오차 모형을 사용하는 보정된 신뢰구간를 계산한다. 여기서
 \(\hat{\theta}_{n+1}\)는 다시 추정 효과의 로그를 다시 표시하고,
 \(\hat{\tau}_{n+1}\)는 해당하는 추정의 표준 오차를 나타낸다. 위 가정에서
 \(\beta_{n+1}\)이 동일한 체계 오차 모형에서 발생한다고 가정하면 다음과
@@ -17192,7 +17199,8 @@ less than 95\% of the time. 신뢰 구간의 보정 \citep{schuemie_2018} 을
 \theta_{n+1} + \hat{a} + \hat{b} \times \theta_{n+1},
 \hat{c} + \hat{d} \times \mid \theta_{n+1} \mid) + \hat{\tau}_{n+1}^2) .\]
 
-\(\theta_{n+1}\) 에 대한 방정식의 해로 보정된 95 \% CI의 하한을 찾는다:
+\(\theta_{n+1}\) 에 대한 방정식의 해로 보정된 95 \% 신뢰구간의 하한을
+찾는다:
 
 \[\Phi\left(
 \frac{\theta_{n+1} + \hat{a} + \hat{b} \times \theta_{n+1}-\hat{\theta}_{n+1}}
@@ -17541,7 +17549,7 @@ calibration of confidence intervals'' vignette} 에 자세히 설명된 대로,
 데이터베이스에서, 우리는 다른 공통 데이터 모델 (CDM) 데이터베이스에서도
 동일한 분석 코드를 실행할 수 있다. 그림 \ref{fig:forest}은 혈관 부종의
 결과에 대한 총 5개의 데이터베이스에 대한 forest plot과 메타 분석 추정치
-(임의 요인을 가정) \citep{dersimonian_1986} 를 보여준다. 이 그림은
+(임의 효과를 가정) \citep{dersimonian_1986} 를 보여준다. 이 그림은
 \href{https://ohdsi.github.io/EvidenceSynthesis/}{EvidenceSynthesis}
 패키지의 \texttt{plotMetaAnalysisForest}함수를 사용하여 생성되었다.
 
@@ -18754,131 +18762,112 @@ THEMIS 규칙과 CDM 품질 검사로서 정보 위치와 데이터베이스가 
 \begin{description}
 \tightlist
 \item[ACHILLES]
-A database-level characterization report.
+데이터베이스 수준의 특성 보고서.
 \item[ARACHNE]
-The OHDSI platform that is being developed to allow the orchestration
-and execution of federated network studies.
+연합 네트워크의 조정 및 실행을 위해 개발중인 OHDSI 플랫폼.
 \item[ATLAS]
-A web-based application that is installed on participating sites to
-support the design and execution of observational analyses to generate
-real world evidence from patient level clinical data.
+환자 수준 임상 데이터로부터 실제 근거를 생성하기 위한 관찰 분석의 실행과
+설계를 지원하기 위하여 참여 사이트에 설치된 웹 기반 어플리케이션.
 \item[편향 (Bias)]
-The expected value of the error (the difference between the true value
-and the estimated value).
-\item[Boolean]
-Variable that has only two values (true or false).
+오류의 예상 값 (실제 값과 예상 값의 차이).
+\item[부울 (Boolean)]
+오직 두개의 값만 가지는 변수 (참 혹은 거짓).
 \item[Care site]
-A uniquely identified institutional (physical or organizational) unit
-where healthcare delivery is practiced (office, ward, hospital, clinic,
-etc.).
+의료 서비스 제공을 실천하는 고유하게 식별된 기관 (물리적 혹은 조직적)
+단위 (사무실 병동, 병원, 클리닉 등).
 \item[환자 대조군 (Case control)]
-A type of retrospective study design for population-level effect
-estimation. Case-control studies match ``cases'' with the target outcome
-to ``controls'' without the target outcome. Then they look back in time
-and compare the odds of exposure in the cases and the controls.
+인구-수준 효과 추정을 위한 회고 연구 설계(retrospective study design)의
+유형. 환자 대조군 연구는 표적 결과와의 ``사례(cases)''를 표적 결과가
+없는 ``대조(controls)''로 일치시킨다. 그 후 이전의 시간을 살펴보고
+사례와 대조의 노출 오즈(odds)를 비교한다.
 \item[인과적 영향 (Causal effect)]
-What population-level estimation concerns itself with. One definition
-equates a ``causal effect'' as the average of the ``unit-level causal
-effects'' in a target population. The unit-level causal effect is the
-contrast between the outcome had an individual been exposed and the
-outcome had that individual not been exposed (or been exposed to A as
-against B).
-\item[Characterization]
-Descriptive study of a cohort or entire database. See Chapter
-\ref{Characterization}.
+인구 수준 추정이 그 자체로 얼마나 영향을 미치는가에 대한 것. 한 가지
+정의는 ``인과적 영향''를 표적 인구 안 ``단위 수준(unit-level) 인과적
+영향''의 평균으로 일치시킨다. 단위 수준 인과적 영향은 노출된 개인의
+결과와 노출되지 않은 개인의 결과 간의 대조이다 (혹은 B에 대응하여 A에
+노출된 적이 있는지).
+\item[특성 (Characterization)]
+코호트 혹은 전체 데이터베이스의 서술적 연구. \ref{Characterization}장
+참조.
 \item[청구 자료 (Claims data)]
-Data generated for the purpose of billing a health insurance company.
+의료 보험 회사에게 청구하기 위한 목적으로 생성된 데이터
 \item[임상 시험 (Clinical trial)]
-Interventional clinical study.
+중재(Interventional) 임상 연구.
 \item[코호트 (Cohort)]
-A set of persons who satisfy one or more inclusion criteria for a
-duration of time. See Chapter \ref{Cohorts}.
+특정 기간 동안 하나 혹은 다수 기준의 포함을 만족시키는 사람들의 집합.
+\ref{Cohorts}장 참조.
 \item[Concept]
-A term (with a code) defined in a medical terminology (e.g., SNOMED CT).
-See Chapter \ref{StandardizedVocabularies}.
-\item[Concept set]
-A concept set is an expression representing a list of concepts that can
-be used as a reusable component in various analyses. See Chapter
-\ref{Cohorts}.
+의학 전문 용어에 정의된 용어 (코드 포함) (예를 들어, SNOMED CT ).
+\ref{StandardizedVocabularies}장 참조.
+\item[Concept 세트]
+concept 세트는 다양한 분석에서 재사용 가능한 요소들로 사용될 수 있는
+concept의 목록을 나타내는 표현. \ref{Cohorts}장 참조.
 \item[공통 데이터 모델 (Common Data Model, CDM)]
-A convention for representing healthcare data that allows portability of
-analysis (the same analysis unmodified can be executed on multiple
-datasets). See Chapter \ref{CommonDataModel}.
-\item[비교 효과 Comparative Effectiveness]
-A comparison of the effects of two different exposures on an outcome of
-interest. See Chapter \ref{PopulationLevelEstimation}.
-\item[Condition]
-A diagnosis, a sign, or a symptom, which is either observed by a
-provider or reported by the patient.
+분석의 이식성을 허용하는 의료 데이터를 대표하는 조약 (수정되지 않은
+동일한 분석을 여러 데이터 세트에서 실행할 수 있다).
+\ref{CommonDataModel}장 참조.
+\item[비교 효과 (Comparative Effectiveness)]
+관심 결과에 대한 두 개의 다른 노출의 영향 비교.
+\ref{PopulationLevelEstimation}장 참조.
+\item[조건 (Condition)]
+제공자가 진찰하거나 환자가 보고한 진단, 기호, 혹은 증상.
 \item[교란 (Confounding)]
-Confounding is a distortion (inaccuracy) in the estimated measure of
-association that occurs when the primary exposure of interest is mixed
-up with some other factor that is associated with the outcome.
+교란은 주요 관심 노출이 결과와 관련된 몇가지 다른 사실이 섞일 때
+일어나는 연관성 예상 측정 안의 왜곡 (불확실성) 이다.
 \item[변수 (Covariate)]
-Data element (e.g., weight) that is used in a statistical model as
-independent variable.
+독립적 변수로 통계적 모델에 사용되는 데이터 요소 (예를 들어, 체중).
 \item[데이터 질 (Data quality)]
-The state of completeness, validity, consistency, timeliness and
-accuracy that makes data appropriate for a specific use.
-\item[Device]
-A foreign physical object or instrument which is used for diagnostic or
-therapeutic purposes through a mechanism beyond chemical action. Devices
-include implantable objects (e.g.~pacemakers, stents, artificial
-joints), medical equipment and supplies (e.g.~bandages, crutches,
-syringes), other instruments used in medical procedures (e.g.~sutures,
-defibrillators) and material used in clinical care (e.g.~adhesives, body
-material, dental material, surgical material).
-\item[Drug]
-A Drug is a biochemical substance formulated in such a way that when
-administered to a Person it will exert a certain physiological effect.
-Drugs include prescription and over-the-counter medicines, vaccines, and
-large-molecule biologic therapies. Radiological devices ingested or
-applied locally do not count as Drugs.
-\item[Domain]
-A Domain defines the set of allowable Concepts for the standardized
-fields in the CDM tables. For example, the ``Condition'' Domain contains
-Concepts that describe a condition of a patient, and these Concepts can
-only be stored in the condition\_concept\_id field of the
-CONDITION\_OCCURRENCE and CONDITION\_ERA tables.
+데이터를 특정 용도에 적합하게 만드는 완전성, 유효성, 일관성, 적시성 및
+정확성의 상태.
+\item[의료 기기 (Device)]
+화학 작용을 넘어서는 매커니즘을 통해 진단 또는 치료 목적으로 사용되는
+대외 물리적 물체 혹은 기구. 의료 기기는 이식할 수 있는 물체 (예를 들면,
+심박조정기, 스텐트, 인공 관절 등), 의료 장비 및 보급품 (예를 들어, 붕대,
+목발, 주사기), 의료 절차에 사용되는 기구 (예를 들어, 봉합, 제세동기)
+그리고 임상 치료에 사용되는 재료 (예를 들어, 접착제, body 재료, 치과용
+재료, 수술용 재료)를 포함한다.
+\item[약물 (Drug)]
+약물은 사람에게 투여할 때 특정한 화학 반응을 발휘 할 수 있도록 조제된
+생화학 물질이다. 약물은 처방전 및 처방전 없이 구입 가능한 약물, 백신,
+그리고 대용량 molecule 생물학적 치료법을 포함한다. 국소 부위에
+섭취되거나 접촉되는 방사선 기기는 약물로 간주되지 않는다.
+\item[도메인 (Domain)]
+도메인은 CDM 표의 표준화된 필드에 대해 허용하는 concept의 세트를
+정의한다. 예를 들어, ``조건'' 도메인은 환자의 컨디션을 설명하는
+concept을 포함하고, 이 concept는 CONDITION\_OCCURRENCE와 CONDITION\_ERA
+테이블의 condition\_concept\_id 필드에만 저장된다.
 \item[전자 의무기록 (Electronic Health Record, EHR)]
-Data generated during course of care and recorded in an electronic
-system.
+전자기록 시스템에 기록되고 치료 기간동안 생성된 데이터를 의미한다.
 \item[역학 (Epidemiology)]
-The study of the distribution, patterns and determinants of health and
-disease conditions in defined populations.
+정의된 인구의 건강 및 질병 조건의 분포, 패턴, 결정의 연구.
 \item[근거 중심 의학 (Evidence-based medicine)]
-The use of empirical and scientific evidence in making decisions about
-the care of individual patients.
-\item[ETL (Extract-Transform-Load)]
-The process of converting data from one format to another, for example
-from a source format to the CDM. See Chapter \ref{ExtractTransformLoad}.
+개인의 환자 관리에 대한 의사 결정의 경험적, 과학적 근거의 사용.
+\item[추출-변환-적재 (Extract-Transform-Load, ETL)]
+한 형식에서 다른 형식으로 데이터를 변환하는 과정, 예를 들어 원천 포맷을
+CDM으로 변환한다. \ref{ExtractTransformLoad}장 참조.
 \item[짝짓기 (Matching)]
-Many population-level effect estimation approaches attempt to identify
-the causal effects of exposures by comparing outcomes in exposed
-patients to those same outcomes in unexposed patients (or exposed to A
-versus B). Since these two patient groups might differ in ways other
-than exposure, ``matching'' attempts to create exposed and unexposed
-patient groups that are as similar as possible at least with respect to
-measured patient characteristics.
-\item[Measurement]
-A structured value (numerical or categorical) obtained through
-systematic and standardized examination or testing of a person or
-person's sample.
+많은 인구-수준 효과 추정은 노출의 인과적 영향을 노출된 환자의 결과를
+노출되지 않은 환자의 동일한 결과로 비교함으로써 식별하는 것을 시도한다
+(혹은 A를 B의 대립으로 노출시킨다).이 두 환자 집단은 노출 이외의 방식이
+다를 수 있으므로, ``짝짓기''는 최소한 측정된 환자 특성과 관련하여 최대한
+비슷한 노출된 환자 그룹 및 노출되지 않은 환자 그룹을 생성하기 위해
+시도한다.
+\item[측정 (Measurement)]
+개인 혹은 개인의 표본에 대한 체계적이고 표준화된 검사 혹은 학습을 통하여
+얻어진 구조적 값 (숫자 혹은 범주형).
 \item[측정 오차 (Measurement error)]
-Occurs when a recorded measurement (e.g., blood pressure, patient age,
-duration of treatment) differs from the corresponding true measurement.
+기록된 측정 (혈압, 환자 연령, 치료 기간) 이 해당 참 측정과 다를 때
+발생한다.
 \item[메타데이터 (Metadata)]
-A set of data that describes and gives information about other data and
-includes descriptive metadata, structural metadata, administrative
-metadata, reference metadata and statistical metadata.
+다른 데이터에 대한 정보를 제공하고 기술하는 데이터의 집단이다. 이것은
+구체적 메타데이터, 구조적 메타데이터, 관리 메타데이터, 참조 메타데이터,
+통계적 메타데이터를 포함한다.
 \item[Methods Library]
-A set of R packages developed by the OHDSI community for performing
-observational studies.
+관찰 연구를 수행하기 위하여 OHDSI공동체에 의해 개발된 R 패키지의 집단.
 \item[Model misspecification]
-Many OHDSI methods employ statistical models such as proportional
-hazards regression or random forests. Insofar as the mechanism that
-generated the data deviate from the assumed model, the model is
-``misspecified.''
+많은 OHDSI 방법은 비례 위험 회귀 또는 무작위 forest와 같은 통계적 모델을
+채택한다. 데이터를 생성한 메커니즘이 가정된 모델에서 벗어나는 한, 모델은
+``불특정''이 된다.
 \item[음성 통제 결과 (Negative control)]
 An exposure-outcome pair where the exposure is believed to not cause or
 prevent the outcome. Can be used to assess whether effect estimation

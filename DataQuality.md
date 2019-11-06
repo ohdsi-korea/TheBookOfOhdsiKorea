@@ -139,18 +139,18 @@ SQL을 통한 테스트는 표\@ref(tab:exampleTestResults)와 같은 테이블�
 
 이러한 평가 중 일부는 특별히 연구와 관련된 DQ rule의 형태를 취할 수 있다. 예를 들어, 관심 노출에 대한 레코드의 최소 90%가 노출 기간을 명시한다는 새로운 rule의 도입을 원할 수도 있다. 
 
-표준 평가는 ACHILLES에서 연구에 가장 관련 있는 concept, 예를 들어 cohort definition으로 지정된 concept을 검토하는 것이다. 관찰된 코드와 동일한, 시간에 따른 갑작스러운 변화는 DQ 문제에 힌트가 될 수 있다. 몇몇 예시들은 이 장의 뒷부분에서 recommend를 설명하고 있다. 
+표준으로 시행하는 검사는 연구와 가장 관련된 concept들, 예로들어 cohort definition에서 정의된 concept들을 ACHILLES에서 검토하는 것이다. 전체기간에서 특정 코드의 사용 빈도가 급격히 변한다면 이것은 DQ 문제가 있다는 것을 알려주는 힌트가 될 수도 있다. 몇몇 예시들은 이 장의 뒷부분에서 recommend를 설명하고 있다. 
 
-또 다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어, 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이 지남에 따라 증가할 가능성이 있다. 유사하게 결과에 대한 유병률은 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만, 다른 데이터베이스에서는 누락된 경우, DQ 문제가 발생할 수 있다. 이러한 평가는 \@ref(ClinicalValidity)장에서 논의한 바와 같이, *clinical validity*의 개념과 중복된다는 것을 유의해야 한다. 몇몇 데이터베이스에서는 cohort definition이 실제로 관심 있는 건강 상태를 담아내지 못하거나 다른 환자 모집단을 기록하는 데이터베이스에 따라 건강 상태가 다를 수 있기 때문에 DQ 문제가 아닌 예기치 못한 유병률을 발견할 수도 있다.
+또 다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어, 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이 지남에 따라 증가할 가능성이 있다. 유사하게 결과에 대한 유병률은 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만, 다른 데이터베이스에서는 누락된 경우, DQ 문제가 있을 수 있다. 이러한 평가는 \@ref(ClinicalValidity)장에서 논의한 바와 같이, *clinical validity*의 개념과 중복된다는 것을 유의해야 한다. 몇몇의 데이터베이스에서는 예상하지 못한 유병률 결과가 나올수가 있는데, 이는 DQ 문제가 아니라 cohort definition에서 연구 주제와 부합하는 건강 상태를 온전히 잡아내지 못했거나 데이터베이스마다 환자 모집단이 상이하여 발생할 수 있다.
 
 
 ### 매핑 검사하기 (Checking Mappings)
 
-우리가 통제할 수 있는 오류의 원인 중 한 가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabulary에서 매핑은 꼼꼼하게 만들어졌고, 공동체 구성원에 의해 알려진 매핑 오류는 Vocabulary 이슈란 [^vocabIssueTrackerUrl]에 보고되고 다음 업데이트에서 수정된다. 그런데도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류는 여전히 존재한다. 연구를 수행할 때, 연구와 가장 관련이 있는 concept에 대한 매핑을 검토하는 것이 좋다. 다행히도, CDM에서는 표준화 concept뿐 아니라, 소스 코드도 저장하기 때문에 매우 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
+우리가 통제할 수 있는 오류의 원인 중 한 가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabulary 매핑은 정교하게 제작되었으며, 매핑상의 문제가 있다면 공동체 구성원에 의해 발견되어 [^vocabIssueTrackerUrl]에 보고 된후 다음 업데이트에 반영된다. 그런데도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기때문에, 연구를 수행할 때 연구와 관련있는 concept들의 매핑을 검토해보는 것을 권장한다. 다행히도, CDM에서 표준 용어(Concept) 뿐만 아니라 소스 코드도 같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
 
 [^vocabIssueTrackerUrl]: https://github.com/OHDSI/Vocabulary-v5.0/issues
 
-소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스 코드를 확인한다. 또한 특정 소스 코드와 관련된 시간적 문제를 확인하는데 도움이 되도록 시간에 따른 코드의 유병률을 계산한다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스에서 세 가지 소스 코드가 이 concept으로 매핑된다 : ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89. 왼쪽에서 그 개념이 처음에는 시간이 지남에 따라 점진적으로 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, ICD-10 코드의 결합한 유병률은 ICD-9 코드의 유병률보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스 코드를 확인한다. 또한 전체 기간에 대한 코드들의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제들을 확인하는데 도움이 될 수 있다. 그림 \@ref(fig:sourceCodes) 예시 결과는  "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은  [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세가지 코드가 해당 concept으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 concept은 시간이 지남에 따라 초반에는 증가하지만 그 후에 급격이 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합된 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 concept으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 <div class="figure" style="text-align: center">
 <img src="images/DataQuality/sourceCodes.png" alt="checkCohortSourceCodes 기능의 output 예시. " width="100%" />
@@ -168,7 +168,7 @@ SQL을 통한 테스트는 표\@ref(tab:exampleTestResults)와 같은 테이블�
 
 여기서는 CDM 형식의 데이터베이스에 대해 ACHILLES를 실행하는 방법을 보여준다.  
 
-먼저, R에서 서버를 연결하는 방법에 대해 설명할 필요가 있다. ACHILLES는 `createConnectionDetails`라는 함수를 제공하는 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용한다. 다양한 데이터베이스 관리 시스템(Database management systems, DBMS)에 필요한 특정 설정을 `?createConnectionDetails`을 입력하여 확인할 수 있다. 예를 들어, 다음 코드를 이용하여 PostgreSQl과 연결할 수 있다:
+먼저, R에서 서버를 연결하는 방법에 대해 설명할 필요가 있다. ACHILLES는 `createConnectionDetails`라는 함수를 제공하는 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용한다. 다양한 데이터베이스 관리 시스템(Database management systems, DBMS)에 필요한 특정 설정을 `?createConnectionDetails`을 입력하여 확인할 수 있다. 예를 들어, 다음 코드를 이용하여 PostgreSQL과 연결할 수 있다:
 
 
 
@@ -199,7 +199,7 @@ result <- achilles(connectionDetails,
 
 이 함수는 `resultsDatabaseSchema`에 여러 테이블을 생성하며, 여기에서는 CDM 데이터와 동일한 데이터베이스 스키마로 설정하였다. 
 
-ATLAS를 ACHILLES 결과 데이터베이스로 지정하거나 ACHILLES 결과를 JSON 파일로 내보내서 ACHILLES 데이터베이스의 특징을 볼 수 있다:
+ATLAS를 ACHILLES 결과 데이터베이스로 지정하거나 ACHILLES 결과들를 JSON 파일들로 내보내서 ACHILLES 데이터베이스의 특징을 볼 수 있다:
 
 
 
@@ -217,7 +217,7 @@ JSON 파일은 achillesOut 하위 폴더에 작성되고, 결과 확인을 위�
 <p class="caption">(\#fig:achillesDataDensity)ACHILLES 웹 뷰어의 데이터 밀도 그림.</p>
 </div>
 
-또 다른 예시로는 그림 \@ref(fig:achillesCodeChange)로, 당뇨병 진단 코드의 유병률에 급격한 변화를 보여주고 있다. 이러한 변화는 특정 국가의 급여 규정의 변경과 일치하여 더 많은 진단이 제공되었기 때문이지 실제로 기본 인구의 유병률이 증가하지는 않았다. 
+또 다른 예시로는 그림 \@ref(fig:achillesCodeChange)로, 당뇨병 진단 코드의 유병률에 급격한 변화를 보여주고 있다. 이러한 변화는 특정 국가에서 보험 청구 규정이 변경됨에 따라 진단수가 증가한 것이지 실제로 유병률이 증가한 것은 아니다.
 
 <div class="figure" style="text-align: center">
 <img src="images/DataQuality/achillesCodeChange.png" alt="ACHILLES 웹 뷰어에서 코딩된 월별 당뇨병 발생률." width="100%" />
@@ -319,7 +319,7 @@ View(orphans)
 
 \BeginKnitrBlock{rmdsummary}<div class="rmdsummary">- 대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다. 
 
-- 대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다. 데이터 품질은 데이터가 연구 목적에 적합한지를 확인하기 위해 평가되어야 한다. 
+- 데이터 품질은 데이터가 연구 목적에 적합한지를 확인하기 위해 평가되어야 한다. 
 
 - 보편적인 연구 목적을 위해, 특정 연구의 맥락에서 비판적으로 데이터 품질을 평가해야 한다.
 
