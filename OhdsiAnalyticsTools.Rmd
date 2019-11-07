@@ -116,19 +116,15 @@ The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)는 그림 \
 knitr::include_graphics("images/OhdsiAnalyticsTools/methodsLibrary.png")
 ```
 
-패키지는 완전한 관찰 연구를 수행하기 위해 함께 사용할 수 있는 R 기능을 제공하며, CDM의 데이터에서 시작하여 결과 추정치와 이를 뒷받침하는 통계, 수치 및 표를 제공한다. 패키지는 CDM의 관측 데이터와 직접 상호작용하며, 단순히 \@ref(SqlAndR)장에서 설명한 대로 완전한 사용자 정의 분석에 대한 플랫폼 간 호환성을 제공하는 데 사용하거나, 인구 특성화를 위한 고급 표준화 분석(\@ref(Characterization)장 참조), 인구 수준 효과 추정(\@ref(PopulationLevelEstimation)장 참조) 및 환자 수준 예측(\@ref(PatientLevelPrediction)장 참조)을 제공할 수 있다. The Methods Library는 (이전 또는 진행 중인 연구에서 학습한) 투명성, 재현성, 그뿐만 아니라 “특정 맥락에서 methods의 작동 특성(operating characteristics) 측정” 및 이어지는 “methods로부터 생성된 측정치의 경험적 교정(empirical calibration)”과 같은 관찰 데이터 및 관찰 연구 설계의 사용을 위한 모범 사례를 지원한다.
+패키지는 완전한 관찰 연구를 수행하기 위해 함께 사용할 수 있는 R 기능을 제공하며, CDM의 데이터에서 시작하여 결과 추정치와 이를 뒷받침하는 통계, 수치 및 표를 제공한다. 패키지는 CDM의 관찰 데이터와 직접 상호작용하며, 단순히 \@ref(SqlAndR)장에서 설명한 대로 완전한 사용자 정의 분석에 대한 플랫폼 간 호환성을 제공하는 데 사용하거나, 인구 특성화를 위한 고급 표준화 분석(\@ref(Characterization)장 참조), 인구 수준 효과 추정(\@ref(PopulationLevelEstimation)장 참조) 및 환자 수준 예측(\@ref(PatientLevelPrediction)장 참조)을 제공할 수 있다. The Methods Library는 (이전 또는 진행 중인 연구에서 학습한) 투명성, 재현성, 그뿐만 아니라 “특정 맥락에서 methods의 작동 특성(operating characteristics) 측정” 및 이어지는 “methods로부터 생성된 측정치의 경험적 교정(empirical calibration)”과 같은 관찰 데이터 및 관찰 연구 설계의 사용을 위한 모범 사례를 지원한다.
 
-Method Library는 이미 발표된 많은 임상 연구 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019]와 방법론 연구에 사용되어 왔다. [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019] The Methods Library에서 방법 구현의 타당성은 \@ref(SoftwareValidity)장에 설명되어 있다.
-
-
+Method Library는 이미 발표된 많은 임상 연구 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019]와 방법론 연구에 사용되어 왔다. [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019] The Methods Library에서 방법론 구현의 타당성은 \@ref(SoftwareValidity)장에 설명되어 있다.
 
 ### 대규모 분석 지원
 
-모든 패키지에 통합된 한 가지 주요 특징은 많은 분석을 효율적으로 실행할 수 있는 능력이다. 예를 들어 인구 수준 추정을 수행할 때 CohortMethod 패키지는 다양한 분석 설정을 사용하여 많은 노출(exposure) 및 결과(outcome)에 대한 효과 크기 추정치(effect-size estimates)를 계산할 수 있도록 하며, 패키지는 필요한 모든 중간 및 최종 데이터 세트를 계산하는 최적의 방법을 자동으로 선택한다. “공변량 추출(extraction of covariates)”이나 하나의 대상 비교기 쌍(target-comparator pair)과 복수의 결과에 사용되는 “성향 모델 장착(fitting a propensity model)”과 같이 재사용할 수 있는 단계는 한 번만 실행된다. 가능한 경우 계산 자원의 사용을 극대화하기 위해 연산은 병행으로 수행될 것이다.
+모든 패키지에 통합된 한 가지 주요 특징은 많은 분석을 효율적으로 실행할 수 있는 능력이다. 예를 들어 인구 수준 추정을 수행할 때 CohortMethod 패키지는 다양한 분석 설정을 사용하여 많은 노출(exposure) 및 결과(outcome)에 대한 효과 크기 추정치(effect-size estimates)를 계산할 수 있도록 하며, 패키지는 필요한 모든 중간 및 최종 데이터 세트를 계산하는 최적의 방법을 자동으로 선택한다. “공변량 추출(extraction of covariates)”이나 하나의 대상군-비교군 쌍(target-comparator pair)과 복수의 결과에 사용되는 “성향 모델 맞춤(fitting a propensity model)”과 같이 재사용할 수 있는 단계는 한 번만 실행된다. 가능한 경우 계산 자원의 사용을 극대화하기 위해 연산은 병렬처리 될 것이다.
 
-이러한 계산 효율은 대규모 분석을 가능하게 하여 한꺼번에 많은 질문에 답할 수 있으며, 또한 제어 가설(예를 들어, 음성 제어(negative controls)을 포함해 우리 방법의 작동 특성(operating characteristics)을 측정하고 \@ref(MethodValidity)장에 기술된 경험적 교정(empirical calibration)을 수행하는 데 필수적이다. \index{control hypotheses}
-
-
+이러한 효율적 계산은 대규모 분석을 가능하게 하여 한꺼번에 많은 질문에 답할 수 있으며, 또한 제어 가설(예를 들어, 음성대조군(negative controls)을 포함해 방법론의 작동 특성(operating characteristics)을 측정하고 \@ref(MethodValidity)장에 기술된 경험적 교정(empirical calibration)을 수행하는 데 필수적이다. \index{control hypotheses}
 
 ### 빅데이터 지원 {#BigDataSupport}
 
