@@ -8,6 +8,7 @@ require(DatabaseConnector)
 ```
 
 공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. ATLAS와 Methods Library 같은 다양한 OHDSI 도구는 백그라운드에서 데이터베이스에 질의하여 작동하지만 적절한 접근 권한이 있으면 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 보통 사용자가 데이터를 적절하게 분석을 할 수 있는 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
+
 관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 동일한 의미를 가지지만, 각 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 ```{sql,eval=FALSE}
@@ -548,7 +549,7 @@ ORDER BY -COUNT(*);
 |                    I10 |   19453451 |
 |                   3180 |   18973883 |
 
-여기서 CONDITION_OCCURRENCE 테이블의 행을 CONDITION_SOURCE_VALUE 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다.
+여기서 CONDITION_OCCURRENCE 테이블의 행을 CONDITION_SOURCE_VALUE 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다. 우리는 CONDITION_SOURCE_VALUE, count, 그리고 count의 역순을 검색했다.
 
 ## 질의할 때 Vocabulary 사용하기
 
@@ -701,9 +702,9 @@ renderTranslateExecuteSql(conn, sql,
 
 여기에서는 DRUG_EXPOSURE 테이블에서 자동으로 파생되는 CDM의 표준 테이블인 DRUG ERA 테이블을 사용한다. DRUG ERA 테이블에는 성분 수준에서 연속 노출 기간이 포함되어 있다. 따라서 lisinopril을 검색할 수 있으며, 이는 lisinopril을 함유한 약물에 대한 모든 노출을 자동으로 식별한다. 사람당 첫 번째 약물 노출을 취한 다음 OBSERVATION_PERIOD 테이블과 조인하고 한 사람이 여러 관찰 기간을 가질 수 있으므로 약물 노출이 포함된 기간에만 조인해야 한다. 그런 다음 OBSERVATION_PERIOD_START_DATE와 COHORT_START_DATE 사이에 적어도 365일이 필요하다.
 
-### Outcome(결과) 코호트
+### 결과 코호트
 
-마지막으로, 우리는 outcome(결과) 코호트를 만들어야 한다:
+마지막으로, 우리는 결과(outcome) 코호트를 만들어야 한다:
 
 ```{r eval=FALSE}
 sql <- "
@@ -811,7 +812,7 @@ results <- renderTranslateQuerySql(conn, sql,
 
 SQL에서는 필드 이름에 snake_case(대소문자를 구분하지 않는)를 사용하는 반면 R에서는 camelCase(대소문자를 구분하는)를 사용하는 경향이 있기 때문 `snakeCaseToCamelCase = TRUE`로 한다. `results` 데이터 프레임 열 이름은 이제 camelCase이다. 
 
-ggplot 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시할 수 있다:
+ggplot2 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시할 수 있다:
 
 ```{r eval=FALSE}
 # Compute incidence rate (IR) :

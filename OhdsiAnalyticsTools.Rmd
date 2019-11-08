@@ -116,7 +116,7 @@ The [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)는 그림 \
 knitr::include_graphics("images/OhdsiAnalyticsTools/methodsLibrary.png")
 ```
 
-패키지는 완전한 관찰 연구를 수행하기 위해 함께 사용할 수 있는 R 기능을 제공하며, CDM의 데이터에서 시작하여 결과 추정치와 이를 뒷받침하는 통계, 수치 및 표를 제공한다. 패키지는 CDM의 관찰 데이터와 직접 상호작용하며, 단순히 \@ref(SqlAndR)장에서 설명한 대로 완전한 사용자 정의 분석에 대한 플랫폼 간 호환성을 제공하는 데 사용하거나, 인구 특성화를 위한 고급 표준화 분석(\@ref(Characterization)장 참조), 인구 수준 효과 추정(\@ref(PopulationLevelEstimation)장 참조) 및 환자 수준 예측(\@ref(PatientLevelPrediction)장 참조)을 제공할 수 있다. The Methods Library는 (이전 또는 진행 중인 연구에서 학습한) 투명성, 재현성, 그뿐만 아니라 “특정 맥락에서 methods의 작동 특성(operating characteristics) 측정” 및 이어지는 “methods로부터 생성된 측정치의 경험적 교정(empirical calibration)”과 같은 관찰 데이터 및 관찰 연구 설계의 사용을 위한 모범 사례를 지원한다.
+패키지는 완전한 관찰 연구를 수행하기 위해 함께 사용할 수 있는 R 기능을 제공하며, CDM의 데이터에서 시작하여 결과 추정치와 이를 뒷받침하는 통계, 수치 및 표를 제공한다. 패키지는 CDM의 관찰 데이터와 직접 상호작용하며, 단순히 \@ref(SqlAndR)장에서 설명한 대로 완전한 사용자 정의 분석에 대한 플랫폼 간 호환성을 제공하는 데 사용하거나, 인구 특성화를 위한 고급 표준화 분석 (\@ref(Characterization)장 참조), 인구 수준 효과 추정 (\@ref(PopulationLevelEstimation)장 참조) 및 환자 수준 예측 (\@ref(PatientLevelPrediction)장 참조) 을 제공할 수 있다. The Methods Library는 (이전 또는 진행 중인 연구에서 학습한) 투명성, 재현성, 그뿐만 아니라 “특정 맥락에서 methods의 작동 특성(operating characteristics) 측정” 및 이어지는 “methods로부터 생성된 측정치의 경험적 교정(empirical calibration)”과 같은 관찰 데이터 및 관찰 연구 설계의 사용을 위한 모범 사례를 지원한다.
 
 Method Library는 이미 발표된 많은 임상 연구 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019]와 방법론 연구에 사용되어 왔다. [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019] The Methods Library에서 방법론 구현의 타당성은 \@ref(SoftwareValidity)장에 설명되어 있다.
 
@@ -187,11 +187,11 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/downloadR.png")
 
 2. 다운로드가 완료된 후 설치 프로그램을 실행하십시오. 다음 두 가지 예외를 제외하고 모든 곳에서 기본 옵션을 사용하십시오. 첫째, 프로그램 파일에 설치하지 않는 것이 좋다. 대신 R을 그림 \@ref(fig:rDestination)과 같이 C 드라이브의 하위 폴더로 만드십시오. 둘째, R과 Java 간의 아키텍처 차이로 인한 문제를 방지하려면 그림 \@ref(fig:no32Bits)과 같이 32-bit 아키텍처를 비활성화하십시오.
 
-```{r rDestination, fig.cap='R의 대상 폴더를 설정하시오.',echo=FALSE, out.width='80%', fig.align='center'}
+```{r rDestination, fig.cap='R의 대상 폴더 설정하기.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/rDestination.png")
 ```
 
-```{r no32Bits, fig.cap='32-bit 버전의 R을 사용하지 않도록 설정',echo=FALSE, out.width='80%', fig.align='center'}
+```{r no32Bits, fig.cap='32-bit 버전의 R을 사용하지 않도록 설정하기.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
 ```
 
