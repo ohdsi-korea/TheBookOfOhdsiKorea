@@ -130,34 +130,27 @@ Method Library는 이미 발표된 많은 임상 연구 [@boland_2017; @duke_201
 
 The Methods Library는 또한 매우 큰 데이터베이스에 대해 실행하고 대량의 데이터를 포함하는 계산을 수행할 수 있도록 설계되었다. 이는 다음과 같은 세 가지 방법으로 달성되었다:
 
-1. 대부분의 데이터 조작은 데이터베이스 서버에서 수행된다. 분석은 일반적으로 데이터베이스에 있는 전체 데이터의 극히 일부만 필요로 하며 Methods Library는 SqlRender 및 DatabaseConnector 패키지를 통해 서버에서 고급 작업을 수행하여 관련 데이터를 사전 처리하고 추출할 수 있도록 한다.
+1. 대부분의 데이터 조작은 데이터베이스 서버에서 수행된다. 분석은 일반적으로 데이터베이스에 있는 전체 데이터의 극히 일부만을 필요로 하며 Methods Library는 SqlRender 및 DatabaseConnector 패키지를 통해 서버에서 고급 작업을 수행하여 관련 데이터를 사전 처리하고 추출할 수 있도록 한다.
 2. 대용량 로컬 데이터 객체는 메모리 효율적인 방식으로 저장된다. 로컬 시스템으로 다운로드되는 데이터의 경우 Method Library는 [ff](https://cran.r-project.org/web/packages/ff) 패키지를 사용하여 대용량 데이터 객체를 저장하고 작업한다. 이것은 우리가 메모리를 직접적으로 사용하는 것보다 훨씬 더 큰 데이터로 작업할 수 있게 해준다.
-3. 필요한 곳에 고성능 컴퓨팅을 적용한다. 예를 들어, [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지는 Methods Library 전체에서 대량의 변수, 관측치로 인해 달리 방법이 없는 경우 대규모 회귀를 수행하기 위해 사용되는 매우 효율적인 회귀 엔진을 구현한다.
-
-
+3. 필요한 곳에 고성능 컴퓨팅을 적용한다. 예를 들어, [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지는 대량의 변수와 관측치로 인해 다른 방법으로는 할 수 없는 대규모 회귀를 수행할 수 있는 매우 효율적인 회귀 엔진을 구현했으며 Methods Library 전체에서 이 엔진을 사용할 수 있다. 
 
 ### 문서화
 
-R은 패키지를 문서화하는 표준화된 방법을 제공한다. 각 패키지에는 패키지에 포함된 모든 기능과 데이터 세트를 문서화하는 *패키지 설명서*가 있다. 모든 패키지 매뉴얼은 the Methods Library 웹 사이트[^methodsLibraryUrl]를 통해 온라인으로, 패키지 GitHub 저장소를 통해 사용할 수 있으며 CRAN을 통해 사용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. 또한, R 내에서 물음표를 사용하여 패키지 설명서를 참조할 수 있다. 예를 들어 DatabaseConnector 패키지를 로드한 후 `?connect` 명령을 입력하면 "연결(connect)" 기능에 대한 문서가 나타난다.
+R은 패키지를 문서화하는 표준화된 방법을 제공한다. 각 패키지에는 패키지에 포함된 모든 기능과 데이터 세트를 문서화하는 *패키지 설명서*가 있다. 모든 패키지 매뉴얼은 the Methods Library 웹 사이트[^methodsLibraryUrl]를 통해 패키지 GitHub 온라인 저장소를 통해 사용할 수 있으며 CRAN을 통해 사용할 수 있는 패키지의 경우는 CRAN에서 찾을 수 있다. 또한, R 내에서 물음표를 사용하여 패키지 설명서를 참조할 수 있다. 예를 들어 DatabaseConnector 패키지를 로드한 후 `?connect` 명령을 입력하면 "연결(connect)" 기능에 대한 문서가 나타난다.
 
 [^methodsLibraryUrl]: https://ohdsi.github.io/MethodsLibrary
 
-패키지 설명서 외에도 많은 패키지가 *vignette*를 제공한다. Vignettes는 특정 작업을 수행하기 위해 어떻게 패키지를 사용할 수 있는지 설명하는 긴 형식의 문서다. 예를 들어, 하나의 vignette[^vignetteUrl]은 CohortMethod 패키지를 사용하여 여러 가지 분석을 효율적으로 수행하는 방법을 설명한다. 또한 Vignettes는 Methods Library 웹 사이트, 패키지 GitHub 저장소를 통해 찾을 수 있으며, CRAN을 통해 이용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. Vignettes는 the Methods Library 웹 사이트를 통해 온라인으로, 패키지 GitHub 저장소를 통해 사용할 수 있으며 CRAN을 통해 사용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. \index{vignette}
+패키지 설명서 외에도 많은 패키지가 *vignette*를 제공한다. Vignettes는 특정 작업을 수행하기 위해 어떻게 패키지를 사용할 수 있는지 설명하는 긴 형식의 문서다. 예를 들어, 하나의 vignette[^vignetteUrl]은 CohortMethod 패키지를 사용하여 여러 가지 분석을 효율적으로 수행하는 방법을 설명한다. 또한 Vignettes는 Methods Library 웹 사이트, 패키지 GitHub 저장소를 통해 찾을 수 있으며, CRAN을 통해 이용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. Vignettes는 the Methods Library 웹 사이트를 통해 패키지 GitHub 온라인 저장소를 통해 사용할 수 있으며 CRAN을 통해 사용할 수 있는 패키지의 경우 CRAN에서 찾을 수 있다. \index{vignette}
 
 [^vignetteUrl]: https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html
 
-
-
-
 ###  시스템 요구 사항
 
-시스템 요구 사항을 논의할 때 두 가지 컴퓨팅 환경이 적합하다: 데이터베이스 서버 및 분석 워크스테이션  \index{system requirements}
+시스템 요구 사항을 논의할 때 두 가지 컴퓨팅 환경을 고려해야 한다: 데이터베이스 서버 및 분석 워크스테이션  \index{system requirements}
 
 데이터베이스 서버는 관찰 의료 데이터를 CDM 형식으로 보관해야 한다. Method Library는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, 그리고 Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, 그리고 Amazon RedShift) 및 빅데이터 플랫폼 (Impala를 통한 Hadoop, 그리고 Google BigQuery) 을 포함한 광범위한 데이터베이스 관리 시스템을 지원한다.
 
-분석 워크스테이션은 Methods Library가 설치되고 실행되는 곳이다. 이것은 누군가의 랩톱과 같은 로컬 시스템이나 RStudio Server를 실행하는 원격 서버일 수 있다. 모든 경우에, R은 RStudio와 함께 설치되어야 한다. Methods Library는 또한 Java를 설치할 것을 요구한다. 또한 분석 워크스테이션은 데이터베이스 서버에 연결할 수 있어야 하며, 특히 이들 사이의 방화벽은 데이터베이스 서버 액세스 포트를 워크스테이션에 개방해야 한다. 일부 분석은 계산 집약적일 수 있으므로 여러 개의 처리 코어와 충분한 메모리를 갖는 것이 분석 속도를 높이는 데 도움이 될 수 있다. 적어도 4개의 코어와 16GB의 메모리를 가질 것을 추천한다.
-
-
+분석 워크스테이션은 Methods Library가 설치되어 실행되는 곳이다. 이것은 누군가의 랩톱과 같은 로컬 시스템이나 RStudio Server를 실행하는 원격 서버일 수 있다. 모든 경우에, R은 RStudio와 함께 설치되어야 한다. Methods Library는 또한 Java가 설치되어야 한다. 분석 워크스테이션은 데이터베이스 서버에 연결할 수 있어야 하며, 특히 이들 사이의 방화벽은 데이터베이스 서버 접근스 포트를 워크스테이션에 개방해야 한다. 일부 분석은 계산 집약적일 수 있으므로 여러 개의 처리 코어와 충분한 메모리를 갖는 것이 분석 속도를 높이는 데 도움이 될 수 있다. 적어도 4개의 코어와 16GB의 메모리를 가질 것을 추천한다.
 
 ### 설치 방법 {#installR}
 
@@ -165,27 +158,24 @@ R은 패키지를 문서화하는 표준화된 방법을 제공한다. 각 패�
 
 1. **R**은 통계 컴퓨팅 환경이다. 그것은 주로 명령어 인터페이스인 기본 사용자 인터페이스와 함께 제공된다.
 2. **RTools**는 Windows에서 소스로부터 R 패키지를 만드는 데 필요한 프로그램들의 모음이다.
-3. **RStudio**는 R을 사용하기 쉽게 하는 통합 개발 환경 (IDE, Integrated Development Environment) 이다. 여기에는 코드 편집기, 디버깅 및 시각화 도구가 포함되어 있다. 좋은 R 경험을 얻기 위해 그것을 사용하라.
+3. **RStudio**는 R을 사용하기 쉽게 하는 통합 개발 환경 (IDE, Integrated Development Environment) 이다. 여기에는 코드 편집기, 디버깅 및 시각화 도구가 포함되어 있다. 사용하기 편한 유저인터페이스를 원한다면 사용하기를 권한다.
 4. **Java**는 OHDSI R 패키지의 일부 구성 요소 (예를 들어, 데이터베이스에 연결하는 데 필요한 구성 요소) 를 실행하는 데 필요한 컴퓨팅 환경이다.
 
 아래에서는 Windows 환경에 이러한 각 항목을 설치하는 방법에 대해 설명한다.
 
 ```{block2, type='rmdimportant'}
-윈도우즈에서 R과 Java는 모두 32-bit 및 64-bit 아키텍처로 제공된다. 두 아키텍처에 R을 설치하는 경우, **반드시** 두 아키텍처에 모두 Java를 설치해야 한다. R의 64-bit 버전만 설치하는 것을 추천한다.
+윈도우즈에서 R과 Java는 32-bit 및 64-bit 아키텍처를 모두 제공한다. 두 아키텍처에 R을 설치하는 경우, **반드시** 두 아키텍처에 모두 Java를 설치해야 한다. R은 64-bit 버전만 설치하는 것을 추천한다.
 ```
-
-
-
 
 #### R 설치하기 {-}
 
-1. [https://cran.r-project.org/](https://cran.r-project.org/)으로 이동하여, "Download R for Windows"를 클릭한 다음 "base"를 클릭한 다음 그림 \@ref(fig:downloadR)에 표시된 다운로드 링크를 클릭하십시오.
+1. [https://cran.r-project.org/](https://cran.r-project.org/)으로 이동하여, "Download R for Windows"를 클릭 후 "base"를 클릭한 다음 그림 \@ref(fig:downloadR)에 표시된 다운로드 링크를 클릭하라.
 
 ```{r downloadR, fig.cap='CRAN으로부터 R 다운로드',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/downloadR.png")
 ```
 
-2. 다운로드가 완료된 후 설치 프로그램을 실행하십시오. 다음 두 가지 예외를 제외하고 모든 곳에서 기본 옵션을 사용하십시오. 첫째, 프로그램 파일에 설치하지 않는 것이 좋다. 대신 R을 그림 \@ref(fig:rDestination)과 같이 C 드라이브의 하위 폴더로 만드십시오. 둘째, R과 Java 간의 아키텍처 차이로 인한 문제를 방지하려면 그림 \@ref(fig:no32Bits)과 같이 32-bit 아키텍처를 비활성화하십시오.
+2. 다운로드가 완료된 후 설치 프로그램을 실행하라. 다음 두 가지 예외를 제외하고 모든 곳에서 기본 옵션을 사용하라. 첫째, 프로그램 파일 폴더에 설치하지 않는 것이 좋다. 대신 R을 그림 \@ref(fig:rDestination)과 같이 C 드라이브의 하위 폴더로 만들라. 둘째, R과 Java 간의 아키텍처 차이로 인한 문제를 방지하려면 그림 \@ref(fig:no32Bits)과 같이 32-bit 아키텍처를 비활성화하라.
 
 ```{r rDestination, fig.cap='R의 대상 폴더를 설정하시오.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/rDestination.png")
@@ -197,45 +187,35 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
 
 완료되면 시작 메뉴에서 R을 선택할 수 있어야 한다.
 
-
-
 #### RTools 설치하기 {-}
 
-1. [https://cran.r-project.org/](https://cran.r-project.org/),으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하십시오. 
+1. [https://cran.r-project.org/](https://cran.r-project.org/),으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하라. 
 
-2. 다운로드가 완료된 후 설치 프로그램을 실행하십시오. 어디에서나 기본 옵션을 선택하십시오.
-
-
+2. 다운로드가 완료된 후 설치 프로그램을 실행하라. 어디에서나 기본 옵션을 선택하라.
 
 #### RStudio 설치하기 {-}
 
-1. [https://www.rstudio.com/](https://www.rstudio.com/)으로 이동하여, "Download RStudio"을 선택 (또는 "RStudio"에서 "Download" 버튼을 선택) 하고, 무료 버전을 선택한 후, 그림 \@ref(fig:downloadRStudio)과 같이 Windows용 설치 프로그램을 다운로드하십시오.
+1. [https://www.rstudio.com/](https://www.rstudio.com/)으로 이동하여, "Download RStudio"을 선택 (또는 "RStudio"에서 "Download" 버튼을 선택) 하고, 무료 버전을 선택한 후, 그림 \@ref(fig:downloadRStudio)과 같이 Windows용 설치 프로그램을 다운로드하라.
 
 ```{r downloadRStudio, fig.cap='RStudio 다운로드',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/downloadRStudio.png")
 ```
 
-2. 다운로드한 후, 설치 관리자를 시작하고, 모든 곳에서 기본 옵션을 선택하십시오.
-
-
-
+2. 다운로드한 후, 설치 관리자를 시작하고, 모든 곳에서 기본 옵션을 선택하라.
 
 #### Java 설치하기 {-}
 
-1. [https://java.com/en/download/manual.jsp](https://java.com/en/download/manual.jsp)으로 이동하여, 그림 \@ref(fig:downloadJava)와 같이 Windows 64-bit installer를 선택하십시오. 32-bit 버전의 R도 설치한 경우 *반드시* 다른 32-bit 버전의 Java도 설치해야 한다.
+1. [https://java.com/en/download/manual.jsp](https://java.com/en/download/manual.jsp)으로 이동하여, 그림 \@ref(fig:downloadJava)와 같이 Windows 64-bit installer를 선택하라. 32-bit 버전의 R을 설치한 경우 *반드시* 다른 32-bit 버전의 Java도 설치해야 한다.
 
 ```{r downloadJava, fig.cap='Java 다운로드',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/downloadJava.png")
 ```
 
-2. 다운로드한 후 설치 프로그램을 실행하십시오.
-
-
+2. 다운로드한 후 설치 프로그램을 실행하라.
 
 #### 설치 검수하기 {-}
 
 이제 시작할 준비를 해야 하지만, 그 전에 확실히 해야 한다. RStudio를 시작하고 및 아래의 내용을 입력하자.
-
 
 ```{r eval=FALSE}
 install.packages("SqlRender")
@@ -249,8 +229,7 @@ translate("SELECT TOP 10 * FROM person;", "postgresql")
 
 이 기능은 Java를 사용하기 때문에, 만약 모든 것이 잘 된다면, R과 Java가 모두 올바르게 설치되었다는 것을 알 수 있다!
 
-또 다른 테스트는 소스 패키지를 제대로 구축할 수 있는지 확인하는 것이다. 다음 R 코드를 실행하여 OHDSI GitHub 저장소에서 `CohortMethod` 패키지를 설치하십시오:
-
+또 다른 테스트는 소스 패키지를 제대로 구축할 수 있는지 확인하는 것이다. 다음 R 코드를 실행하여 OHDSI GitHub 저장소에서 `CohortMethod` 패키지를 설치하라:
 
 ```{r eval=FALSE}
 install.packages("drat")
@@ -258,27 +237,22 @@ drat::addRepo("OHDSI")
 install.packages("CohortMethod")
 ```
 
-
-
-
 ## 배치 전략
 
 ATLAS 및 Method Library를 포함한 전체 OHDSI 도구 스택을 조직에 배치하는 것은 어려운 작업이다. 의존성 높은 구성 요소들을 많이 고려해야 하고, 설정해야 할 환경이 많다. 이 때문에 두 이니셔티브 (Broadsea와 AWS(Amazon Web Services)) 는 일부 가상화 형태를 이용해 전체 스택을 하나의 패키지로 설치할 수 있는 통합 배치 전략을 개발했다. \index{tools deployment}
 
-
 ### Broadsea
 
-Broadsea[^broadseaUrl]은 Docker 컨테이너 기술을 사용한다. [^dockerUrl] OHDSI 도구는 의존성과 함께 Docker Image라는 단일 휴대용 이진 파일로 패키징된다. 그러면 이 이미지는 Docker 엔진 서비스에서 실행되고, 모든 소프트웨어가 설치되어 실행 준비가 된 가상 시스템(virtual machine)을 생성할 수 있다. Docker 엔진은 마이크로소프트 윈도우, 맥OS, 리눅스를 포함한 대부분의 운영 체제에 사용할 수 있다. Broadsea Docker 이미지에는 Methods Library와 ATLAS를 포함한 주요 OHDSI 도구가 포함되어 있다. \index{tools deployment!Broadsea}
+Broadsea[^broadseaUrl]는 Docker 컨테이너 기술을 사용한다. [^dockerUrl] OHDSI 도구는 라이브러리간 의존성과 함께 Docker Image라는 단일 휴대용 이진 파일로 패키징된다. 그러면 이 이미지는 Docker 엔진 서비스에서 실행되고, 모든 소프트웨어가 설치되어 실행 준비가 된 가상 시스템(virtual machine)을 생성할 수 있다. Docker 엔진은 마이크로소프트 윈도우, 맥OS, 리눅스를 포함한 대부분의 운영 체제에 사용할 수 있다. Broadsea Docker 이미지에는 Methods Library와 ATLAS를 포함한 주요 OHDSI 도구가 포함되어 있다. \index{tools deployment!Broadsea}
 
 [^broadseaUrl]: https://github.com/OHDSI/Broadsea
 [^dockerUrl]: https://www.docker.com/
 
-
 ### Amazon AWS
 
-Amazon은 버튼 클릭 한 번으로 AWS 클라우드 컴퓨팅 환경에서 인스턴스화할 수 있는 두 가지 환경, 즉 OHDSI-in-a-Box[^ohdsiInaBoxUrl]와 OHDSIonAWS.[^ohdsiOnAwsUrl]을 준비했다. \index{tools deployment!Amazon AWS}
+Amazon은 버튼 클릭 한 번으로 OHDSI환경을 AWS 클라우드 컴퓨팅 환경에서 바로 인스턴스화할 수 있는 두 가지 환경, 즉 OHDSI-in-a-Box[^ohdsiInaBoxUrl]와 OHDSIonAWS.[^ohdsiOnAwsUrl]을 준비했다. \index{tools deployment!Amazon AWS}
 
-OHDSI-in-a-Box는 특별히 학습 환경으로 만들어졌으며, OHDSI 커뮤니티에서 제공하는 대부분의 튜토리얼에 사용된다. 그것은 많은 OHDSI 도구, 샘플 데이터 세트, RStudio 및 기타 지원 소프트웨어를 저렴한 단일 윈도우즈 가상 머신에 포함한다. PostgreSQL 데이터베이스는 CDM을 저장하고 ATLAS의 중간 결과를 저장하는 데 사용된다. OMOP CDM 데이터 매핑과 ETL 툴도 OHDSI-in-a-Box에 포함되어 있다. OHDSI-in-a-Box 아키텍처는 그림 \@ref(fig:ohdsiinaboxDiagram)에 나타나 있다.
+OHDSI-in-a-Box는 특별히 학습 환경으로 만들어졌으며, OHDSI 커뮤니티에서 제공하는 대부분의 튜토리얼에 사용된다. 그것은 많은 OHDSI 도구, 샘플 데이터 세트, RStudio 및 기타 지원 소프트웨어를 저렴한 단일 윈도우즈 가상 머신에 포함했다. PostgreSQL 데이터베이스는 CDM을 저장하고 ATLAS의 중간 결과를 저장하는 데 사용된다. OMOP CDM 데이터 매핑과 ETL 툴도 OHDSI-in-a-Box에 포함되어 있다. OHDSI-in-a-Box 아키텍처는 그림 \@ref(fig:ohdsiinaboxDiagram)에 나타나 있다.
 
 [^ohdsiInaBoxUrl]: https://github.com/OHDSI/OHDSI-in-a-Box
 
@@ -286,7 +260,7 @@ OHDSI-in-a-Box는 특별히 학습 환경으로 만들어졌으며, OHDSI 커뮤
 knitr::include_graphics("images/OhdsiAnalyticsTools/OHDSI-in-a-BoxDiagram.png")
 ```
 
-OHDSIonAWS는 조직이 그들의 데이터 분석을 수행하는 데 사용할 수 있는 엔터프라이즈급, 다중 사용자, 확장 가능하고 내결함성 OHDSI 환경을 위한 참조 아키텍처다. 여기에는 몇 가지 샘플 데이터 세트가 포함되어 있으며 조직의 실제 의료 데이터를 자동으로 적재할 수도 있다. 데이터는 OHDSI 도구에 의해 지원되는 Amazon Redshift 데이터베이스 플랫폼에 배치된다. ATLAS의 중간 결과는 PostgreSQL 데이터베이스에 저장된다. 프런트 엔드에서 사용자는 웹 인터페이스(leveraging RStudio Server)를 통해 ATLAS와 RStudio에 접근할 수 있다. RStudio에는 OHDSI Methods Library가 이미 설치되어 있으며, 데이터베이스에 연결하는 데 사용할 수 있다. OHDSIonAWS를 배포하는 자동화는 오픈 소스로, 조직의 관리 툴과 모범 사례를 포함하도록 사용자 정의할 수 있다. OHDSIonAWS에 대한 아키텍처는 그림 \@ref(fig:ohdsionawsDiagram)에 설명되어 있다.
+OHDSIonAWS는 기관이 그들의 데이터 분석을 수행하는 데 사용할 수 있는 엔터프라이즈급, 다중 사용자, 확장 가능하고 내결함성 OHDSI 환경을 위한 참조 아키텍처이다. 여기에는 몇 가지 샘플 데이터 세트가 포함되어 있으며 기관의 실제 의료 데이터를 자동으로 적재할 수도 있다. 데이터는 OHDSI 도구에 의해 지원되는 Amazon Redshift 데이터베이스 플랫폼에 배치된다. ATLAS의 중간 결과는 PostgreSQL 데이터베이스에 저장된다. 프런트 엔드에서 사용자는 웹 인터페이스(leveraging RStudio Server)를 통해 ATLAS와 RStudio에 접근할 수 있다. RStudio에는 OHDSI Methods Library가 이미 설치되어 있으며, 데이터베이스에 연결하는 데 사용할 수 있다. OHDSIonAWS를 배포하는 자동화 도구는 오픈 소스로서 기관의 관리 툴과 모범 사례를 포함하도록 사용자 정의할 수 있다. OHDSIonAWS에 대한 아키텍처는 그림 \@ref(fig:ohdsionawsDiagram)에 설명되어 있다.
 
 [^ohdsiOnAwsUrl]: https://github.com/OHDSI/OHDSIonAWS
 
@@ -294,16 +268,13 @@ OHDSIonAWS는 조직이 그들의 데이터 분석을 수행하는 데 사용할
 knitr::include_graphics("images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png")
 ```
 
-
-
-
 ## 요약
 
 ```{block2, type='rmdsummary'}
-- 다음을 통해 CDM의 데이터에 대한 분석을 수행할 수 있다.
-    - 사용자 지정 코드 작성
-    - OHDSI Method Library에서 R 패키지를 사용하는 코드 작성
-    - 대화형 분석 플랫폼 ATLAS 사용
+- 다음과 같은 방식으로 CDM 데이터에 대한 분석을 수행할 수 있다.
+    - 사용자가 직접 분석코드 작성
+    - OHDSI Method Library에서 R 패키지를 사용하여 코드 작성
+    - 분석코드 작성없이 대화형 분석 플랫폼 ATLAS를 사용
 
 - OHDSI 툴은 다양한 분석 전략을 사용한다.
     - 단일 연구
