@@ -297,7 +297,7 @@ SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 �
 
 매개 변수화된 SQL을 디버깅하는 것은 약간 복잡할 수 있다. 렌더링 된 SQL만 데이터베이스 서버에 대해 테스트할 수 있지만 매개 변수화된 (사전 렌더링 된) SQL에서 코드를 변경해야 한다. \index{SqlRender!debugging}
 
-Render 패키지에 포함되어 있다. 이 앱은 다음을 사용하여 시작할 수 있다:
+SqlRender 패키지에는 대화형으로 SQL소스를 편집하여 SQL을 랜더링을 하거나 반대로 번역할 수 있는 샤이니 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:
 
 ```{r tidy=TRUE,eval=FALSE}
 launchSqlRenderDeveloper()
@@ -309,7 +309,7 @@ launchSqlRenderDeveloper()
 knitr::include_graphics("images/SqlAndR/sqlDeveloper.png")
 ```
 
-앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 매개 변수 값을 제공하면 자동으로 번역이 하단에 나타나게 된다.
+앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 매개 변수 값을 제공하면 자동으로 번역된 SQL이 하단에 나타난다.
 
 [^sqlDeveloperUrl]: http://data.ohdsi.org/SqlDeveloper/
 
@@ -321,7 +321,7 @@ knitr::include_graphics("images/SqlAndR/sqlDeveloper.png")
 install.packages("DatabaseConnector")
 ```
 
-DatabaseConnector는 기존 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite 및 Oracle), 병렬 데이터웨어 하우스 (Microsoft APS, IBM Netezza 및 Amazon RedShift) 및 빅데이터 플랫폼 (Hadoop through Impla 및 Google BigQuery) 을 포함한 다양한 기술 플랫폼을 지원한다. 패키지에는 이미 대부분의 드라이버가 포함되어 있지만, 라이센스 문제로 인해 BigQuery, Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가 획득해야 한다. 이러한 드라이버를 다운로드하는 방법에 대한 지침을 보려면 `?jdbcDrivers` 를 입력한다. 다운로드한 후 `connect`, `dbConnect`, and `createConnectionDetails` 함수의 `pathToDriver` 인수로 사용할 수 있다.
+DatabaseConnector는 기존 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite 및 Oracle), 병렬 데이터웨어 하우스 (Microsoft APS, IBM Netezza 및 Amazon RedShift) 및 빅데이터 플랫폼 (Hadoop through Impla 및 Google BigQuery) 을 포함한 다양한 기술 플랫폼을 지원한다. 패키지에는 이미 대부분의 드라이버가 포함되어 있지만, 라이센스 문제로 인해 BigQuery, Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가 구해야 한다. 이러한 드라이버를 다운로드하는 방법에 대한 지침을 보려면 `?jdbcDrivers` 를 입력한다. 다운로드한 후 `connect`, `dbConnect`, and `createConnectionDetails` 함수의 `pathToDriver` 인수로 사용할 수 있다.
 
 ### 연결 생성하기
 
@@ -338,13 +338,13 @@ conn <- connect(dbms = "postgresql",
 writeLines("Connecting using PostgreSQL driver")
 ```
 
-각 플랫폼에 필요한 세부 사항에 대한 정보는 `?connect` 를 참조하십시오. 나중에 연결을 끊는 것을 잊지 마십시오:
+각 플랫폼에 필요한 세부 사항에 대한 정보는 `?connect` 를 참조하라. 나중에 작업을 마치고 연결 끊는 것을 잊지 말라:
 
 ```{r eval=FALSE}
 disconnect(conn)
 ```  
 
-서버 이름을 제공하는 대신 JDBC connecting string을 사용하는 것이 더 편리할 경우 이를 제공할 수도 있다는 점에 유의하십시오:
+서버 이름을 제공하는 대신 JDBC connecting string을 사용하는 것이 더 편리할 경우 이를 제공할 수도 있다는 점에 유의하라:
 
 ```{r eval=FALSE}
 connString <- "jdbc:postgresql://localhost:5432/postgres"
@@ -358,7 +358,7 @@ conn <- connect(dbms = "postgresql",
 writeLines("Connecting using PostgreSQL driver")
 ```
 
-때때로 우리는 먼저 세부 사항을 지정하고 나중에 연결할 때까지 연결을 연기해야 할 수 있다. 예를 들어, 함수 내에서 연결이 설정되고 세부 사항은 인수로 전달해야 하는 경우 편리할 수 있다. 이를 목적으로 `createConnectionDetails` 함수를 사용할 수 있다:
+때때로 먼저 세부 사항을 지정하고 나중에 연결할 때까지 연결을 연기해야 할 수 있다. 예를 들어, 함수 내에서 연결이 설정되고 세부 사항은 인수로 전달해야 하는 경우에 편리할 수 있다. 이를 목적으로 `createConnectionDetails` 함수를 사용할 수 있다:
 
 ```{r eval=FALSE}
 details <- createConnectionDetails(dbms = "postgresql",
@@ -389,11 +389,11 @@ data.frame(person_id = c(1,2,3), gender_concept_id = c(8507, 8507, 8507), year_o
 executeSql(conn, "TRUNCATE TABLE foo; DROP TABLE foo;")
 ```
 
-두 함수 모두 광범위한 오류보고 기능을 제공한다: 서버에서 오류가 발생하면 오류 메시지와 문제가 되는 SQL 부분이 텍스트 파일에 기록되어 더 나은 디버깅을 허용한다. 기본적으로 `executeSql` 함수도 실행 된 SQL 문의 백분율을 나타내는 진행 표시 줄을 보여준다. 이러한 속성이 필요하지 않은 경우 패키지는 `lowLevelQuerySql`과 `lowLevelExecuteSql` 함수도 제공한다.
+두 함수 모두 광범위한 오류보고 기능을 제공한다: 서버에서 오류가 발생하면 오류 메시지와 문제가 되는 SQL 부분이 텍스트 파일에 기록되어 더 나은 디버깅을 돕는다. 기본적으로 `executeSql` 함수도 실행 된 SQL 문의 백분율을 나타내는 진행 표시 줄을 보여준다. 이러한 속성이 필요하지 않은 경우 패키지는 `lowLevelQuerySql`과 `lowLevelExecuteSql` 함수도 제공한다.
 
 ### Ffdf 객체를 사용하여 질의하기
 
-데이터베이스에서 가져올 데이터가 너무 커서 종종 메모리에 들어갈 수 없는 경우도 있다. \@ref(BigDataSupport)절에서 언급했듯이, 그러한 경우 `ff` 패키지를 사용하여 R 데이터 객체를 파일에 저장하고 메모리에서 사용할 수 있는 것처럼 사용할 수 있다. `DatabaseConnector`는 객체에 데이터를 직접 다운로드할 수 있다:
+데이터베이스에서 가져올 데이터가 너무 커서 종종 메모리에 들어갈 수 없는 경우도 있다. \@ref(BigDataSupport)절에서 언급했듯이, 그러한 경우 `ff` 패키지를 사용하여 R 데이터 객체를 디스크에 저장하고 메모리에서 사용하듯이 사용할 수 있다. `DatabaseConnector`는 객체에 데이터를 직접 다운로드할 수 있다:
 
 ```{r eval=FALSE}
 x <- querySql.ffdf(conn, "SELECT * FROM person")
@@ -420,8 +420,6 @@ SQL Server 관련 ‘TOP 10’ 구문은 PostgreSQL에서 예를 들어 ‘LIMIT
 data(mtcars)
 insertTable(conn, "mtcars", mtcars, createTable = TRUE)
 ```
-
-
 
 이 예는 mtcars 데이터 프레임을 자동으로 서버의 'mtcars'라는 테이블로 업로드하고 생성한다.
 
@@ -451,7 +449,7 @@ FROM @cdm.observation_period;
 | ---------:|
 | 1.980803  |
 
-테이블을 조인하여 추가 통계를 생성할 수 있다. 조인은 일반적으로 테이블의 특정 필드가 동일한 값을 갖도록 하여 여러 테이블의 필드를 결합한다. 예를 들어 여기서 두 테이블 모두 가지고 있는 PERSON_ID 필드로 PERSON 테이블과 OBSERVATION_PEROPD 테이블을 조인한다. 즉, 조인의 결과는 두 테이블의 모든 필드를 갖는 새로운 테이블과 같은 집합이지만, 모든 행에서 두 테이블의 PERSON_ID는 동일한 값을 가져야 한다. 예를 들어 PERSON 테이블의 YEAR_OF_BIRTH 필드와 함께 OBSERVATION_PERIOD 테이블의 OBSERVATION_PERIOD_END_DATE 필드를 사용하여 관찰 종료 최대 연력을 계산할 수 있다:
+테이블을 조인하여 추가 통계를 생성할 수 있다. 조인은 일반적으로 테이블의 특정 필드가 동일한 값을 갖도록 하여 여러 테이블의 필드를 결합한다. 예를 들어 두 테이블 모두 가지고 있는 PERSON_ID 필드로 PERSON 테이블과 OBSERVATION_PEROPD 테이블을 조인할 수 있다. 즉, 조인의 결과는 두 테이블의 모든 필드를 갖는 새로운 테이블과 같은 집합이지만, 모든 행에서 두 테이블의 PERSON_ID는 동일한 값을 가져야 한다. 예를 들어 PERSON 테이블의 YEAR_OF_BIRTH 필드와 함께 OBSERVATION_PERIOD 테이블의 OBSERVATION_PERIOD_END_DATE 필드를 사용하여 관찰 종료시 환자의 최고 나이를 계산할 수 있다:
 
 ```sql
 SELECT MAX(YEAR(observation_period_end_date) -
@@ -464,7 +462,7 @@ INNER JOIN @cdm.observation_period
 | -------:|
 |      90 |
 
-관찰 시작 당시시연령 분포를 결정하려면 훨씬 더 복잡한 질의가 필요하다. 이 질의에서는 먼저 PERSON 테이블과 OBSERVATION_PERIOD을 조인하여 관찰 당시 연령을 계산한다. 또한 연령을 기준으로 이 조인된 집합의 순서를 정렬하고 order_nr로 저장한다. 이 조인의 결과를 여러 번 사용하고 싶기 때문에 “ages”라고 하는 common table expression (CTE) (`WITH ... AS`를 사용하여 정의된) 으로 정의한다. 즉, 연령을 기존 테이블인 것처럼 나타낼 수 있다. “ages”의 행 수를 세어 “n”을 생성하고 각 사분위수에 대해 order_nr이 분수 시간 "n," 보다 작은 최소 연령을 찾는다. 예를 들어, 중앙값을 찾기 위해 $order\_nr < .50 * n$인 최소 연령을 사용한다. 최소 및 최대 연령은 별도로 계산된다:
+관찰 시작 당시 연령 분포를 결정하려면 훨씬 더 복잡한 질의가 필요하다. 이 질의에서는 먼저 PERSON 테이블과 OBSERVATION_PERIOD을 조인하여 관찰 당시 연령을 계산한다. 또한 연령을 기준으로 이 조인된 집합의 순서를 정렬하고 order_nr로 저장한다. 이 조인의 결과를 여러 번 사용하고 싶기 때문에 “ages”라고 하는 common table expression (CTE) (`WITH ... AS`를 사용하여 정의된) 으로 정의한다. 즉, 연령을 기존 테이블인 것처럼 나타낼 수 있다. “ages”의 행 수를 세어 “n”을 생성하고 각 사분위수에 대해 order_nr이 분수 시간 "n," 보다 작은 최소 연령을 찾는다. 예를 들어, 중앙값을 찾기 위해 $order\_nr < .50 * n$인 최소 연령을 사용한다. 최소 및 최대 연령은 별도로 계산된다:
 
 ```sql
 WITH ages
@@ -526,7 +524,7 @@ cat("  0%  25%  50%  75% 100%
 
 서버에서 연령을 계산하고 모든 연령들을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지의 여부를 사례별로 결정해야 한다.
 
-질의는 CDM의 source value를 사용할 수 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:
+질의는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:
 
 ```sql
 SELECT TOP 10 condition_source_value, 
@@ -552,7 +550,7 @@ ORDER BY -COUNT(*);
 
 ## 질의할 때 Vocabulary 사용하기
 
-많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 concept ID들이 포함되어 있다. 예를 들어, 성별에 따라 계층화된 데이터베이스의 인원수를 셀 수 있고 GENDER_CONCEPT_ID를 concept name으로 해결하는 것이 편리할 것이다:
+많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 concept ID들이 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 셀려고 할때, GENDER_CONCEPT_ID를 concept name으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
 
 ```sql
 SELECT COUNT(*) AS subject_count,
@@ -567,7 +565,7 @@ GROUP BY concept_name;
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-Vocabulary의 매우 강력한 특징은 계층이다. 매우 일반적인 질의는 특정 개념과 *모든 하위 개념*을 찾는다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보십시오:
+Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
 
 ```sql
 SELECT COUNT(*) AS prescription_count
