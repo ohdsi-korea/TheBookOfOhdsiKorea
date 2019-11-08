@@ -7,7 +7,7 @@ require(SqlRender)
 require(DatabaseConnector)
 ```
 
-공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. ATLAS와 Methods Library 같은 다양한 OHDSI 도구는 백그라운드에서 데이터베이스에 질의하여 작동하지만 적절한 접근 권한이 있으면 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 보통 사용자가 데이터를 적절하게 분석을 할 수 있는 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
+공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이들 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가들이 오랜시간 고려하여 만든) 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
 관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 동일한 의미를 가지지만, 각 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 ```{sql,eval=FALSE}
@@ -20,13 +20,13 @@ PostgreSQL의 동일한 질의는 다음과 같다:
 SELECT * FROM person LIMIT 10;
 ```
 
-OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고 모든 OHDSI 데이터베이스에서 동일한 SQL 언어를 사용하고자 한다. 이러한 이유로 OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다른 여러 개의 문법으로 번역해줄 수 있는 패키지인 [SqlRender](https://ohdsi.github.io/SqlRender/) 를 개발하였다. 이 표준 언어 - **OHDSI SQL** - 는 주로 SQL Server SQL 언어의 하위 집합이다. 이 장에서 제공되는 SQL 문 예는 모두 OHDSI SQL을 사용한다. \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
+OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고 모든 OHDSI 데이터베이스에서 동일한 SQL 언어를 사용하고자 한다. 이러한 이유로 OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다른 여러 개의 문법으로 번역해줄 수 있는 패키지인 [SqlRender](https://ohdsi.github.io/SqlRender/) 를 개발하였다. 이 표준 언어 - **OHDSI SQL** - 는 주로 SQL Server SQL 언어의 하위 집합이다. 이 장에서 제공되는 SQL 문에는 모두 OHDSI SQL을 사용한다. \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
 
 각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 질의하기 위한 자체 소프트웨어 도구가 제공된다. OHDSI는 여러 데이터베이스 플랫폼에 연결할 수 있는 하나의 R 패키지인 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 를 개발하였다. DatabaseConnector도 이 장의 뒤에서 논의할 것이다. \index{DatabaseConnector}
 
-따라서 OHDSI 도구를 사용하지 않고 CDM에 맞게 질의할 수 있지만 DatabaseConnector 및 SqlRender 패키지를 사용하는 것을 권장한다. 이를 통해 한 사이트에서 개발된 질의를 수정하지 않고 다른 사이트에서 사용할 수 있다. R 자체는 통계 분석 및 대화식 그래프 생성과 같이 데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접 제공한다. \index{R} 
+따라서 OHDSI 도구를 사용하지 않고도 CDM에 맞게 질의할 수 있지만 DatabaseConnector 및 SqlRender 패키지를 사용하는 것을 권장한다. 이를 통해 한 사이트에서 개발된 질의를 수정하지 않고도 다른 사이트에서 사용할 수 있다. R 자체는 통계 분석 및 대화식 그래프 생성과 같이 데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접 제공한다. \index{R} 
 
-이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. \@ref(QueryTheCdm)절에서는 SQL (OHDSI SQL) 을 사용하여 CDM에 질의하는 방법에 대해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 강조한다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다. \index{Query Library} \index{SQL Query Libary|see {Query Library}}
+이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. \@ref(QueryTheCdm)절에서는 SQL (OHDSI SQL) 을 사용하여 CDM에 질의하는 방법에 대해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다. \index{Query Library} \index{SQL Query Libary|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
@@ -40,7 +40,7 @@ SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQ
 
 ### SQL의 매개변수화
 
-패키지의 기능 중 하나는 SQL의 매개 변수화를 지원하는 것이다. 일부 매개 변수에 기반하여 SQL의 작은 변형들을 생성할 필요가 종종 있다. SqlRender는 매개 변수화를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 매개 변수를 기반으로 SQL을 렌더링하는 것은 `render()` 함수를 사용하여 수행된다. \index{SqlRender!parameterization}
+패키지의 기능 중 하나는 SQL문에 매개 변수를 지원하는 것이다. 일부 매개 변수에 기반하여 SQL문을 조금씩 변형할 필요가 종종 있다. SqlRender는 매개 변수를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 매개 변수를 기반으로 SQL을 렌더링하는 것은 `render()` 함수를 사용하여 수행한다. \index{SqlRender!parameterization}
 
 #### 매개 변수 값 대체하기 {-}
 
@@ -51,7 +51,7 @@ sql <- "SELECT * FROM concept WHERE concept_id = @a;"
 render(sql, a = 123)
 ```
 
-대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수화와 달리 테이블 또는 필드 이름을 값으로 매개 변수화하는 것이 쉽다는 것에 주목하십시오:
+대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수와 달리 테이블 또는 필드 이름을 값으로 매개 변수화하는 것이 쉽다는 것에 주목하라:
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM @x WHERE person_id = @a;"
@@ -109,7 +109,7 @@ translate(sql, targetDialect = "postgresql")
 
 #### 변환에 의해 지원되는 기능 및 구조 {-}
 
-다음과 같은 SQL Server 함수는 테스트되었으며 다양한 언어로 올바르게 변환되는 것으로 밝혀졌다: \index{SqlRender!supported functions}
+다음과 같은 SQL Server 함수는 테스트되었으며 다양한 언어로 올바르게 변환되는 것으로 확인되었다: \index{SqlRender!supported functions}
 
 Table: (\#tab:sqlFunctions) Functions supported by translate.
 
@@ -196,7 +196,7 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### 문자열 연결 {-}
 
-문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는 `SELECT first_name + ' ' + last_name AS full_name FROM table`와 같이 작성하지만 Postgres와 Oracle에서는 `SELECT first_name || ' ' || last_name AS full_name FROM table` 라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열 (작은따옴표로 묶인 공백) 이 있음으로 번역은 정확할 것이다. 그러나 `SELECT first_name + last_name AS full_name FROM table`와 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 "VARCHAR"에 대한 명시적 형변환이므로 `SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` 도 올바르게 변환된다. 모호성을 피하려면 ```CONCAT()``` 함수를 사용하여 두 개 이상의 문자열을 연결하는 것이 가장 좋다.
+문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는 `SELECT first_name + ' ' + last_name AS full_name FROM table`와 같이 작성하지만 Postgres와 Oracle에서는 `SELECT first_name || ' ' || last_name AS full_name FROM table` 라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열 (작은따옴표로 묶인 공백) 이 있으므로 번역은 정확할 것이다. 그러나 `SELECT first_name + last_name AS full_name FROM table`와 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 "VARCHAR"에 대한 명시적 형변환이므로 `SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` 도 올바르게 변환된다. 모호성을 피하려면 ```CONCAT()``` 함수를 사용하여 두 개 이상의 문자열을 연결하는 것이 가장 좋다.
 
 #### 테이블 별칭과 AS 키워드 {-}
 
@@ -224,7 +224,7 @@ ON table_1.person_id = table_2.person_id;
 
 #### 임시 테이블 {-}
 
-임시 테이블은 중간 결과를 저장하는 데 매우 유용할 수 있으며 올바르게 사용하면 질의 성능을 크게 향상할 수 있다. 대부분의 데이터베이스 플랫폼에서 임시 테이블의 매우 좋은 속성을 가지고 있다: 현재 사용자에게만 보이며 세션이 끝나면 자동으로 삭제되고 사용자에게 쓰기 권한이 없어도 생성할 수 있다. 불행히도, Oracle에서 임시테이블은 기본적으로 영구적인 테이블이며, 데이터의 내부는 현재 사용자에게만 보인다는 차이점만 있다. 이것이 Oracle에서 SqlRender가 다음을 통해 임시 테이블을 에뮬레이션하려고 시도하는 이유이다.
+임시 테이블은 중간 결과를 저장하는 데 매우 유용할 수 있으며 올바르게 사용하면 질의 성능을 크게 향상할 수 있다. 대부분의 데이터베이스 플랫폼에서 임시 테이블이라는 매우 좋은 기능을 가지고 있다: 현재 사용자에게만 보이며 세션이 끝나면 자동으로 삭제되고 사용자에게 쓰기 권한이 없어도 생성할 수 있다. 불행히도, Oracle에서는 임시테이블은 기본적으로 영구적인 테이블이며, 데이터의 내부는 현재 사용자에게만 보인다는 차이점만 있다. 이것이 Oracle에서 SqlRender가 다음과 같이 임시 테이블을 에뮬레이션하려고 시도하는 이유이다.
 
 1. 테이블 이름에 임의의 문자열을 추가하여 다른 사용자의 테이블이 충돌하지 않도록 한다.
 2. 사용자가 임시 테이블이 작성될 스키마를 지정할 수 있도록 허용한다. 
@@ -239,7 +239,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 
 또한 Oracle은 테이블 이름이 30자로 제한되어 있다. 세션 아이디를 추가한 후 이름이 너무 길어지기 때문에 **임시 테이블 이름은 최대 22자까지만 허용된다**.
 
-뿐만 아니라 Oracle은 임시 테이블은 자동 삭제되지 않음으로 Oracle 임시 테이블 스키마에 누적되는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 ```TRUNCATE``` 및 ```DROP``` 을 해야 한다.
+뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 ```TRUNCATE``` 및 ```DROP``` 을 해야 한다.
 
 #### 암묵적인 형변환 {-}
 
@@ -270,7 +270,7 @@ SELECT * FROM #temp WHERE CAST(txt AS INT) = 1;
 
 #### 문자열 비교의 대소문자 구분 {-}
 
-SQL Server와 같은 일부 DBMS 플랫폼은 대소문자를 구분하지 않는 비교를 수행하는 반면, PostgreSQL과 같은 다른 플랫폼은 대소문자를 구분한다. 따라서 항상 대소문자를 구분하는 비교를 가정하고 명확하게 모르는 경우 명시적으로 대소문자를 구분하지 않는 비교를 하는 것을 추천한다. 예를 들어,
+SQL Server와 같은 일부 DBMS 플랫폼은 대소문자를 구분하지 않는 비교를 수행하는 반면, PostgreSQL과 같은 다른 플랫폼은 대소문자를 구분한다. 따라서 항상 대소문자를 구분하는 비교를 가정하고 명확하게 모르는 경우 명시적으로 대소문자를 구분하지 않도록 하는 명령을 추가하여 비교하기 추천한다. 예를 들어,
 
 ```sql
 SELECT * FROM concept WHERE concep_class_id = 'Clinical Finding'
