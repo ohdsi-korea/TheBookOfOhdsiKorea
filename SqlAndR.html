@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 SQL과 R | 오딧세이 바이블 The Book of OHDSI</title>
+  <meta name="description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 SQL과 R | 오딧세이 바이블 The Book of OHDSI" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/" />
+  <meta property="og:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
+  <meta property="og:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="github-repo" content="OHDSI-Korea/TheBookOfOhdsiKorea" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 SQL과 R | 오딧세이 바이블 The Book of OHDSI" />
+  
+  <meta name="twitter:description" content="A book about the Observational Health Data Sciences and Informatics (OHDSI). It described the OHDSI community, open standards and open source software." />
+  <meta name="twitter:image" content="https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/images/Cover/Cover.png" />
+
+<meta name="author" content="한국 오딧세이" />
+
+
+<meta name="date" content="2019-11-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="OhdsiAnalyticsTools.html">
+<link rel="next" href="Cohorts.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104086677-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104086677-2');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Book of OHDSI</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>서문</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i>이 책의 목표</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i>이 책의 구성</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#eab8b0ec97acec9e90"><i class="fa fa-check"></i>기여자</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>소프트웨어 버전</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#eb9dbcec9db4ec84a0ec8aa4"><i class="fa fa-check"></i>라이선스</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-book-of-ohdsi--"><i class="fa fa-check"></i>The Book of OHDSI가 쓰여진 과정</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i>이 책이 번역된 과정</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>한국판에 부쳐</a></li>
+</ul></li>
+<li class="part"><span><b>I The OHDSI Community</b></span></li>
+<li class="chapter" data-level="1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html"><i class="fa fa-check"></i><b>1</b> OHDSI 커뮤니티</a><ul>
+<li class="chapter" data-level="1.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#---the-journey-from-data-to-evidence"><i class="fa fa-check"></i><b>1.1</b> 데이터에서 근거로의 여정 (The Journey from Data to Evidence)</a></li>
+<li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#-observational-medical-outcomes-partnership-omop"><i class="fa fa-check"></i><b>1.2</b> 오몹 (Observational Medical Outcomes Partnership, OMOP)</a></li>
+<li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#----ohdsi-as-an-open-science-collaborative"><i class="fa fa-check"></i><b>1.3</b> 개방형 과학 공동체로서의 오딧세이 (OHDSI as an Open-Science Collaborative)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-mission"><i class="fa fa-check"></i><b>1.3.1</b> OHDSI의 사명 (Our Mission)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-vision"><i class="fa fa-check"></i><b>1.3.2</b> OHDSI의 이상 (Our Vision)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--our-objectives"><i class="fa fa-check"></i><b>1.3.3</b> OHDSI의 목표 (Our Objectives)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#--ohdsis-progress"><i class="fa fa-check"></i><b>1.4</b> 오딧세이의 역사 (OHDSI’s Progress)</a></li>
+<li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#--collaborating-in-ohdsi"><i class="fa fa-check"></i><b>1.5</b> 오딧세이와의 협업 (Collaborating in OHDSI)</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.6</b> 한국 오딧세이의 역사</a></li>
+<li class="chapter" data-level="1.7" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#section-1.7"><i class="fa fa-check"></i><b>1.7</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> OHDSI 시작하기</a><ul>
+<li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#--join-the-journey"><i class="fa fa-check"></i><b>2.1</b> 여정에 동참하십시오 (Join the Journey)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi--ohdsi-forums"><i class="fa fa-check"></i><b>2.1.1</b> OHDSI 포럼 (OHDSI Forums)</a></li>
+<li class="chapter" data-level="2.1.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi--ohdsi-events"><i class="fa fa-check"></i><b>2.1.2</b> OHDSI 이벤트 (OHDSI Events)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi---ohdsi-community-calls"><i class="fa fa-check"></i><b>2.1.3</b> OHDSI 커뮤니티 원격회의 (OHDSI Community Calls)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi---ohdsi-workgroups"><i class="fa fa-check"></i><b>2.1.4</b> OHDSI 워크 그룹 (OHDSI Workgroups)</a></li>
+<li class="chapter" data-level="2.1.5" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi---ohdsi-regional-chapters"><i class="fa fa-check"></i><b>2.1.5</b> OHDSI 지역 지부 (OHDSI Regional Chapters)</a></li>
+<li class="chapter" data-level="2.1.6" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi---ohdsi-research-network"><i class="fa fa-check"></i><b>2.1.6</b> OHDSI 연구 네트워크 (OHDSI Research Network)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#--where-you-fit-in"><i class="fa fa-check"></i><b>2.2</b> 적합한 위치 (Where You Fit In)</a></li>
+<li class="chapter" data-level="2.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#-1"><i class="fa fa-check"></i><b>2.3</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> 오픈 사이언스</a><ul>
+<li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#--open-science"><i class="fa fa-check"></i><b>3.1</b> 오픈 사이언스 (Open Science)</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#---study-a-thon-open-science-in-action-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> 실천의 오픈 사이언스: Study-a-Thon (Open-Science in Action: the Study-a-Thon)</a></li>
+<li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#--open-standard"><i class="fa fa-check"></i><b>3.3</b> 공개 표준 (Open Standard)</a></li>
+<li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#--open-source"><i class="fa fa-check"></i><b>3.4</b> 오픈 소스 (Open Source)</a></li>
+<li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#--open-data"><i class="fa fa-check"></i><b>3.5</b> 공개 데이터 (Open Data)</a></li>
+<li class="chapter" data-level="3.6" data-path="OpenScience.html"><a href="OpenScience.html#--open-discourse"><i class="fa fa-check"></i><b>3.6</b> 열린 담론 (Open Discourse)</a></li>
+<li class="chapter" data-level="3.7" data-path="OpenScience.html"><a href="OpenScience.html#ohdsi-fair---ohdsi-and-the-fair-guiding-principles"><i class="fa fa-check"></i><b>3.7</b> OHDSI와 FAIR의 가이드 원칙 (OHDSI and the FAIR Guiding Principles)</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="OpenScience.html"><a href="OpenScience.html#-introduction"><i class="fa fa-check"></i><b>3.7.1</b> 도입 (Introduction)</a></li>
+<li class="chapter" data-level="3.7.2" data-path="OpenScience.html"><a href="OpenScience.html#-findability"><i class="fa fa-check"></i><b>3.7.2</b> 검색성 (Findability)</a></li>
+<li class="chapter" data-level="3.7.3" data-path="OpenScience.html"><a href="OpenScience.html#-accessibility"><i class="fa fa-check"></i><b>3.7.3</b> 접근성 (Accessibility)</a></li>
+<li class="chapter" data-level="3.7.4" data-path="OpenScience.html"><a href="OpenScience.html#-interoperability"><i class="fa fa-check"></i><b>3.7.4</b> 상호운용성 (Interoperability)</a></li>
+<li class="chapter" data-level="3.7.5" data-path="OpenScience.html"><a href="OpenScience.html#--reusability"><i class="fa fa-check"></i><b>3.7.5</b> 재사용 가능성 (Reusability)</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Uniform Data Representation</b></span></li>
+<li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 공통 데이터 모델</a><ul>
+<li class="chapter" data-level="4.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>4.1</b> 설계 원리</a></li>
+<li class="chapter" data-level="4.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2</b> 데이터 모델 규칙</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.2.1</b> 모델의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2.2</b> 스키마의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>4.2.3</b> 데이터 테이블의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#domains"><i class="fa fa-check"></i><b>4.2.4</b> 도메인의 일반적인 규칙</a></li>
+<li class="chapter" data-level="4.2.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concept---"><i class="fa fa-check"></i><b>4.2.5</b> Concept을 통한 내용 표현</a></li>
+<li class="chapter" data-level="4.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.2.6</b> 필드 명명 규칙</a></li>
+<li class="chapter" data-level="4.2.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concepts-Sources"><i class="fa fa-check"></i><b>4.2.7</b> concept과 원본 값과의 차이</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-cdm-"><i class="fa fa-check"></i><b>4.3</b> 표준화된 CDM 테이블</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>4.3.1</b> 실행 예제: 자궁내막증</a></li>
+<li class="chapter" data-level="4.3.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.3.2</b> PERSON 테이블</a></li>
+<li class="chapter" data-level="4.3.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.3.3</b> OBSERVATION_PERIOD 테이블</a></li>
+<li class="chapter" data-level="4.3.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.3.4</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#conditionOccurrence"><i class="fa fa-check"></i><b>4.3.5</b> CONDITION_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.3.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#drugExposure"><i class="fa fa-check"></i><b>4.3.6</b> DRUG_EXPOSURE</a></li>
+<li class="chapter" data-level="4.3.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#procedureOccurrence"><i class="fa fa-check"></i><b>4.3.7</b> PROCEDURE_OCCURRENCE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>4.4</b> 부가 정보</a></li>
+<li class="chapter" data-level="4.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-2"><i class="fa fa-check"></i><b>4.5</b> 요약</a></li>
+<li class="chapter" data-level="4.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html"><i class="fa fa-check"></i><b>5</b> OMOP 표준 용어</a><ul>
+<li class="chapter" data-level="5.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-vocabularies---"><i class="fa fa-check"></i><b>5.1</b> 왜 용어(Vocabularies)인가, 그리고 왜 표준화인가?</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>5.1.1</b> 표준화된 용어 구축</a></li>
+<li class="chapter" data-level="5.1.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#accessVocabularies"><i class="fa fa-check"></i><b>5.1.2</b> 표준 용어 이용하기</a></li>
+<li class="chapter" data-level="5.1.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#---vs-"><i class="fa fa-check"></i><b>5.1.3</b> 용어의 원천: 도입 vs 구축</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-concept"><i class="fa fa-check"></i><b>5.2</b> 개념 (Concept)</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-id-concept-ids"><i class="fa fa-check"></i><b>5.2.1</b> 개념 ID (Concept IDs)</a></li>
+<li class="chapter" data-level="5.2.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#--concept-names"><i class="fa fa-check"></i><b>5.2.2</b> 개념 이름 (Concept Names)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptDomains"><i class="fa fa-check"></i><b>5.2.3</b> 도메인</a></li>
+<li class="chapter" data-level="5.2.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-vocabularies"><i class="fa fa-check"></i><b>5.2.4</b> 용어집 (Vocabularies)</a></li>
+<li class="chapter" data-level="5.2.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#--concept-classes"><i class="fa fa-check"></i><b>5.2.5</b> 개념 계층 (Concept Classes)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#standardConcepts"><i class="fa fa-check"></i><b>5.2.6</b> 표준 개념</a></li>
+<li class="chapter" data-level="5.2.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>5.2.7</b> 비표준 개념</a></li>
+<li class="chapter" data-level="5.2.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#--classification-concepts"><i class="fa fa-check"></i><b>5.2.8</b> 분류 개념 (Classification Concepts)</a></li>
+<li class="chapter" data-level="5.2.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#--concept-codes"><i class="fa fa-check"></i><b>5.2.9</b> 개념 코드 (Concept Codes)</a></li>
+<li class="chapter" data-level="5.2.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptLifeCycle"><i class="fa fa-check"></i><b>5.2.10</b> 수명 주기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-relationships"><i class="fa fa-check"></i><b>5.3</b> 관계 Relationships</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptMapping"><i class="fa fa-check"></i><b>5.3.1</b> 매핑 관계 Mapping Relationships</a></li>
+<li class="chapter" data-level="5.3.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>5.3.2</b> 계층적 관계</a></li>
+<li class="chapter" data-level="5.3.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#------"><i class="fa fa-check"></i><b>5.3.3</b> 서로 다른 용어집에서 온 개념들 간의 관계</a></li>
+<li class="chapter" data-level="5.3.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-----"><i class="fa fa-check"></i><b>5.3.4</b> 동일 용어집 내 개념들 간의 관계</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptAncestor"><i class="fa fa-check"></i><b>5.4</b> 계층 Hierarchy</a></li>
+<li class="chapter" data-level="5.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>5.5</b> 내부 참조 테이블</a></li>
+<li class="chapter" data-level="5.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#specialSituations"><i class="fa fa-check"></i><b>5.6</b> 특수 상황</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#section-5.6.1"><i class="fa fa-check"></i><b>5.6.1</b> 성별</a></li>
+<li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-race---ethnicity"><i class="fa fa-check"></i><b>5.6.2</b> 인종 race 과 민족 ethnicity</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----omop-conditions"><i class="fa fa-check"></i><b>5.6.3</b> 진단 코딩 체계 및 OMOP Conditions</a></li>
+<li class="chapter" data-level="5.6.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>5.6.4</b> 시술 코드 시스템</a></li>
+<li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#section-5.6.5"><i class="fa fa-check"></i><b>5.6.5</b> 기기</a></li>
+<li class="chapter" data-level="5.6.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>5.6.6</b> 방문 및 서비스</a></li>
+<li class="chapter" data-level="5.6.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>5.6.7</b> 제공자 및 전문의</a></li>
+<li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>5.6.8</b> 특별한 요구사항이 있는 치료 영역</a></li>
+<li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> 약물 도메인 내의 표준 개념</a></li>
+<li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#null-"><i class="fa fa-check"></i><b>5.6.10</b> NULL의 특색</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-3"><i class="fa fa-check"></i><b>5.7</b> 요약</a></li>
+<li class="chapter" data-level="5.8" data-path="WhereToBegin.html"><a href="WhereToBegin.html#-1"><i class="fa fa-check"></i><b>5.8</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 추출 변환 적재(Extract Transform Load)</a><ul>
+<li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 서론</a></li>
+<li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-etl-"><i class="fa fa-check"></i><b>6.2</b> 1단계 : ETL 설계</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#--white-rabbit"><i class="fa fa-check"></i><b>6.2.1</b> 흰 토끼 (White Rabbit)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#---rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.2.2</b> 모자 속 토끼 (Rabbit-In-a-Hat)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>6.3</b> 2 단계: 코드 매핑 생성</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.3.1</b> 우사기(Usagi)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-etl-"><i class="fa fa-check"></i><b>6.4</b> 3 단계: ETL 수행</a></li>
+<li class="chapter" data-level="6.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>6.5</b> 4 단계: 질 관리</a></li>
+<li class="chapter" data-level="6.6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etl--convention--themis"><i class="fa fa-check"></i><b>6.6</b> ETL 협약 convention과 테미스 THEMIS</a></li>
+<li class="chapter" data-level="6.7" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#CDMandETLMaintenance"><i class="fa fa-check"></i><b>6.7</b> CDM과 ETL의 유지</a></li>
+<li class="chapter" data-level="6.8" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etl---"><i class="fa fa-check"></i><b>6.8</b> ETL에 대한 마지막 생각</a></li>
+<li class="chapter" data-level="6.9" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-4"><i class="fa fa-check"></i><b>6.9</b> 요약</a></li>
+<li class="chapter" data-level="6.10" data-path="CommonDataModel.html"><a href="CommonDataModel.html#-2"><i class="fa fa-check"></i><b>6.10</b> 예제</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Analytics</b></span></li>
+<li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> 데이터 분석 이용 사례</a><ul>
+<li class="chapter" data-level="7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.1</b> 특성 분석</a></li>
+<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.2</b> 인구 수준 추정</a></li>
+<li class="chapter" data-level="7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.3</b> 환자 수준 예측</a></li>
+<li class="chapter" data-level="7.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4</b> 고혈압 이용 사례 예</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.4.1</b> 특성 분석 질문</a></li>
+<li class="chapter" data-level="7.4.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>7.4.2</b> 인구 수준 추정에 대한 질문</a></li>
+<li class="chapter" data-level="7.4.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>7.4.3</b> 환자 수준 예측에 대한 질문</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.5</b> 관찰 연구의 한계</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.5.1</b> 잘못된 데이터</a></li>
+<li class="chapter" data-level="7.5.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.5.2</b> 결측 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#-5"><i class="fa fa-check"></i><b>7.6</b> 요약</a></li>
+<li class="chapter" data-level="7.7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#section-7.7"><i class="fa fa-check"></i><b>7.7</b> 연습문제</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html"><i class="fa fa-check"></i><b>8</b> OHDSI 분석 툴</a><ul>
+<li class="chapter" data-level="8.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysisImplementation"><i class="fa fa-check"></i><b>8.1</b> 분석 구현</a></li>
+<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 분석 전략</a></li>
+<li class="chapter" data-level="8.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#atlas"><i class="fa fa-check"></i><b>8.3</b> ATLAS</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#section-8.3.1"><i class="fa fa-check"></i><b>8.3.1</b> 보안</a></li>
+<li class="chapter" data-level="8.3.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#section-8.3.2"><i class="fa fa-check"></i><b>8.3.2</b> 설명서</a></li>
+<li class="chapter" data-level="8.3.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.3.3</b> 설치 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#methods-library"><i class="fa fa-check"></i><b>8.4</b> Methods Library</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>8.4.1</b> 대규모 분석 지원</a></li>
+<li class="chapter" data-level="8.4.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#BigDataSupport"><i class="fa fa-check"></i><b>8.4.2</b> 빅데이터 지원</a></li>
+<li class="chapter" data-level="8.4.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#section-8.4.3"><i class="fa fa-check"></i><b>8.4.3</b> 문서화</a></li>
+<li class="chapter" data-level="8.4.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>8.4.4</b> 시스템 요구 사항</a></li>
+<li class="chapter" data-level="8.4.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.4.5</b> 설치 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.5</b> 배치 전략</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.5.1</b> Broadsea</a></li>
+<li class="chapter" data-level="8.5.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.5.2</b> Amazon AWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#-6"><i class="fa fa-check"></i><b>8.6</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="SqlAndR.html"><a href="SqlAndR.html"><i class="fa fa-check"></i><b>9</b> SQL과 R</a><ul>
+<li class="chapter" data-level="9.1" data-path="SqlAndR.html"><a href="SqlAndR.html#SqlRender"><i class="fa fa-check"></i><b>9.1</b> SqlRender</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sql-"><i class="fa fa-check"></i><b>9.1.1</b> SQL의 매개변수화</a></li>
+<li class="chapter" data-level="9.1.2" data-path="SqlAndR.html"><a href="SqlAndR.html#-sql--"><i class="fa fa-check"></i><b>9.1.2</b> 다른 SQL 언어로의 변환</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="SqlAndR.html"><a href="SqlAndR.html#DatabaseConnector"><i class="fa fa-check"></i><b>9.2</b> DatabaseConnector</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>9.2.1</b> 연결 생성하기</a></li>
+<li class="chapter" data-level="9.2.2" data-path="SqlAndR.html"><a href="SqlAndR.html#section-9.2.2"><i class="fa fa-check"></i><b>9.2.2</b> 질의하기</a></li>
+<li class="chapter" data-level="9.2.3" data-path="SqlAndR.html"><a href="SqlAndR.html#ffdf---"><i class="fa fa-check"></i><b>9.2.3</b> Ffdf 객체를 사용하여 질의하기</a></li>
+<li class="chapter" data-level="9.2.4" data-path="SqlAndR.html"><a href="SqlAndR.html#-sql----"><i class="fa fa-check"></i><b>9.2.4</b> 같은 SQL을 사용하여 다른 플랫폼 질의하기</a></li>
+<li class="chapter" data-level="9.2.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>9.2.5</b> 테이블 삽입하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="SqlAndR.html"><a href="SqlAndR.html#QueryTheCdm"><i class="fa fa-check"></i><b>9.3</b> CDM 질의하기</a></li>
+<li class="chapter" data-level="9.4" data-path="SqlAndR.html"><a href="SqlAndR.html#--vocabulary-"><i class="fa fa-check"></i><b>9.4</b> 질의할 때 Vocabulary 사용하기</a></li>
+<li class="chapter" data-level="9.5" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>9.5</b> QueryLibrary</a></li>
+<li class="chapter" data-level="9.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>9.6</b> 간단한 연구 구성하기</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>9.6.1</b> 문제 정의</a></li>
+<li class="chapter" data-level="9.6.2" data-path="SqlAndR.html"><a href="SqlAndR.html#section-9.6.2"><i class="fa fa-check"></i><b>9.6.2</b> 노출</a></li>
+<li class="chapter" data-level="9.6.3" data-path="SqlAndR.html"><a href="SqlAndR.html#section-9.6.3"><i class="fa fa-check"></i><b>9.6.3</b> 결과</a></li>
+<li class="chapter" data-level="9.6.4" data-path="SqlAndR.html"><a href="SqlAndR.html#---time-at-risk"><i class="fa fa-check"></i><b>9.6.4</b> 위험 노출 기간 (Time-at-risk)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="SqlAndR.html"><a href="SqlAndR.html#sql-r---"><i class="fa fa-check"></i><b>9.7</b> SQL과 R을 사용하여 연구 구현</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>9.7.1</b> 노출 코호트</a></li>
+<li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#outcome-"><i class="fa fa-check"></i><b>9.7.2</b> Outcome(결과) 코호트</a></li>
+<li class="chapter" data-level="9.7.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>9.7.3</b> 발생률 계산</a></li>
+<li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#section-9.7.4"><i class="fa fa-check"></i><b>9.7.4</b> 마무리하기</a></li>
+<li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#section-9.7.5"><i class="fa fa-check"></i><b>9.7.5</b> 호환성</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="SqlAndR.html"><a href="SqlAndR.html#-7"><i class="fa fa-check"></i><b>9.8</b> 요약</a></li>
+<li class="chapter" data-level="9.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-3"><i class="fa fa-check"></i><b>9.9</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> 코호트 만들기</a><ul>
+<li class="chapter" data-level="10.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.1</b> 코호트란 무엇인가?</a></li>
+<li class="chapter" data-level="10.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.2</b> 규칙 기반 코호트 정의</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.3</b> 개념 모음</a></li>
+<li class="chapter" data-level="10.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.4</b> 확률적 코호트 정의</a></li>
+<li class="chapter" data-level="10.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.5</b> 코호트 정의 유효성</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi----"><i class="fa fa-check"></i><b>10.5.1</b> OHDSI의 골드 스탠다드 코호트 라이브러리</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.6</b> 고혈압 환자 코호트 작성하기</a></li>
+<li class="chapter" data-level="10.7" data-path="Cohorts.html"><a href="Cohorts.html#atlas---"><i class="fa fa-check"></i><b>10.7</b> ATLAS를 이용해 코호트 작성하기</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.1</b> 초기 이벤트 기준</a></li>
+<li class="chapter" data-level="10.7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.2</b> 컨셉 모음 정의하기</a></li>
+<li class="chapter" data-level="10.7.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.7.3</b> 추가적 초기 이벤트 기준</a></li>
+<li class="chapter" data-level="10.7.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.7.4</b> 포함 기준</a></li>
+<li class="chapter" data-level="10.7.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>10.7.5</b> 코호트 종료 기준</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#sql---"><i class="fa fa-check"></i><b>10.8</b> SQL을 사용하여 코호트 구현하기</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.1</b> 데이터베이스에 연결하기</a></li>
+<li class="chapter" data-level="10.8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.2</b> 컨셉 결정하기</a></li>
+<li class="chapter" data-level="10.8.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>10.8.3</b> 약물을 처음 복용한 환자 찾기</a></li>
+<li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#----365-----"><i class="fa fa-check"></i><b>10.8.4</b> 약물 복용 이전 최소 365일 동안 관찰될 수 있었던 환자</a></li>
+<li class="chapter" data-level="10.8.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>10.8.5</b> 이전에 고혈압을 진단받은 환자</a></li>
+<li class="chapter" data-level="10.8.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>10.8.6</b> 사전에 받은 치료가 없어야 함</a></li>
+<li class="chapter" data-level="10.8.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.7</b> 단독 요법</a></li>
+<li class="chapter" data-level="10.8.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>10.8.8</b> 코호트 종료</a></li>
+<li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#section-10.8.9"><i class="fa fa-check"></i><b>10.8.9</b> 정리하기</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="Cohorts.html"><a href="Cohorts.html#-8"><i class="fa fa-check"></i><b>10.9</b> 요약</a></li>
+<li class="chapter" data-level="10.10" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-4"><i class="fa fa-check"></i><b>10.10</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> 임상적 특성 분석</a><ul>
+<li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#----database-level-characterization"><i class="fa fa-check"></i><b>11.1</b> 데이터베이스 수준의 특성 분석 (Database Level Characterization)</a></li>
+<li class="chapter" data-level="11.2" data-path="Characterization.html"><a href="Characterization.html#---cohort-characterization"><i class="fa fa-check"></i><b>11.2</b> 코호트 특성 분석 (Cohort Characterization)</a></li>
+<li class="chapter" data-level="11.3" data-path="Characterization.html"><a href="Characterization.html#--treatment-pathways"><i class="fa fa-check"></i><b>11.3</b> 치료 경로 (Treatment Pathways)</a></li>
+<li class="chapter" data-level="11.4" data-path="Characterization.html"><a href="Characterization.html#-incidence"><i class="fa fa-check"></i><b>11.4</b> 발생 (Incidence)</a></li>
+<li class="chapter" data-level="11.5" data-path="Characterization.html"><a href="Characterization.html#----characterizing-hypertensive-persons"><i class="fa fa-check"></i><b>11.5</b> 고혈압 환자의 특성 분석 (Characterizing Hypertensive Persons)</a></li>
+<li class="chapter" data-level="11.6" data-path="Characterization.html"><a href="Characterization.html#atlas-----database-characterization-in-atlas"><i class="fa fa-check"></i><b>11.6</b> ATLAS를 활용한 데이터베이스의 특성 분석 (Database Characterization in ATLAS)</a></li>
+<li class="chapter" data-level="11.7" data-path="Characterization.html"><a href="Characterization.html#atlas-----cohort-characterization-in-atlas"><i class="fa fa-check"></i><b>11.7</b> ATLAS를 이용한 코호트 특성 분석 (Cohort Characterization in ATLAS)</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#-design"><i class="fa fa-check"></i><b>11.7.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#-executions"><i class="fa fa-check"></i><b>11.7.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#-results"><i class="fa fa-check"></i><b>11.7.3</b> 결과 (Results)</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#---defining-custom-features"><i class="fa fa-check"></i><b>11.7.4</b> 사용자 정의 속성 (Defining Custom Features)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#r-----cohort-characterization-in-r"><i class="fa fa-check"></i><b>11.8</b> R을 이용한 코호트 특성 분석 (Cohort Characterization in R)</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#--cohort-instantiation"><i class="fa fa-check"></i><b>11.8.1</b> 코호트 인스턴스화 (Cohort Instantiation)</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#--data-extraction"><i class="fa fa-check"></i><b>11.8.2</b> 데이터 추출 (Data Extraction)</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#----using-prespecified-analyses"><i class="fa fa-check"></i><b>11.8.3</b> 사전 지정 분석의 사용 (Using Prespecified Analyses)</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#---creating-aggregated-covariates"><i class="fa fa-check"></i><b>11.8.4</b> 통합된 변수의 생성 (Creating Aggregated Covariates)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#--output-format"><i class="fa fa-check"></i><b>11.8.5</b> 결과 형식 (Output Format)</a></li>
+<li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#---custom-covariates"><i class="fa fa-check"></i><b>11.8.6</b> 사용자 정의 변수 (Custom Covariates)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Characterization.html"><a href="Characterization.html#atlas---cohort-pathways-in-atlas"><i class="fa fa-check"></i><b>11.9</b> ATLAS에서 코호트 경로 (Cohort Pathways in ATLAS)</a><ul>
+<li class="chapter" data-level="11.9.1" data-path="Characterization.html"><a href="Characterization.html#-design-1"><i class="fa fa-check"></i><b>11.9.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.9.2" data-path="Characterization.html"><a href="Characterization.html#-executions-1"><i class="fa fa-check"></i><b>11.9.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.9.3" data-path="Characterization.html"><a href="Characterization.html#--viewing-results"><i class="fa fa-check"></i><b>11.9.3</b> 결과 확인 (Viewing Results)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.10" data-path="Characterization.html"><a href="Characterization.html#atlas----incidence-analysis-in-atlas"><i class="fa fa-check"></i><b>11.10</b> ATLAS를 이용한 발생 분석 (Incidence Analysis in ATLAS)</a><ul>
+<li class="chapter" data-level="11.10.1" data-path="Characterization.html"><a href="Characterization.html#-design-2"><i class="fa fa-check"></i><b>11.10.1</b> 디자인 (Design)</a></li>
+<li class="chapter" data-level="11.10.2" data-path="Characterization.html"><a href="Characterization.html#-executions-2"><i class="fa fa-check"></i><b>11.10.2</b> 실행 (Executions)</a></li>
+<li class="chapter" data-level="11.10.3" data-path="Characterization.html"><a href="Characterization.html#--viewing-results-1"><i class="fa fa-check"></i><b>11.10.3</b> 결과 확인 (Viewing Results)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.11" data-path="Characterization.html"><a href="Characterization.html#-9"><i class="fa fa-check"></i><b>11.11</b> 요약</a></li>
+<li class="chapter" data-level="11.12" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#-5"><i class="fa fa-check"></i><b>11.12</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> 인구 수준 추정</a><ul>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> 코호트 설계 방법</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>12.1.1</b> 성향 점수</a></li>
+<li class="chapter" data-level="12.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.1.2</b> 변수 선택</a></li>
+<li class="chapter" data-level="12.1.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-caliper"><i class="fa fa-check"></i><b>12.1.3</b> 캘리퍼 (Caliper)</a></li>
+<li class="chapter" data-level="12.1.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>12.1.4</b> 오버랩: 선호 점수</a></li>
+<li class="chapter" data-level="12.1.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#section-12.1.5"><i class="fa fa-check"></i><b>12.1.5</b> 균형</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-----the-self-controlled-cohort-design"><i class="fa fa-check"></i><b>12.2</b> 자가 통제 코호트 연구 설계 (The Self-Controlled Cohort Design)</a></li>
+<li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----the-case-control-design"><i class="fa fa-check"></i><b>12.3</b> 환자-대조군 연구 설계 (The Case-Control Design)</a></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----the-case-crossover-design"><i class="fa fa-check"></i><b>12.4</b> 환자-교차 연구 설계 (The Case-Crossover Design)</a></li>
+<li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-----the-self-controlled-case-series-design"><i class="fa fa-check"></i><b>12.5</b> 자기 대조군 환자군 연구 설계 (The Self-Controlled Case Series Design)</a></li>
+<li class="chapter" data-level="12.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>12.6</b> 고혈압 연구 설계하기</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>12.6.1</b> 문제 정의</a></li>
+<li class="chapter" data-level="12.6.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>12.6.2</b> 대상 및 비교기</a></li>
+<li class="chapter" data-level="12.6.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#-1"><i class="fa fa-check"></i><b>12.6.3</b> 결과</a></li>
+<li class="chapter" data-level="12.6.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--time-at-risk"><i class="fa fa-check"></i><b>12.6.4</b> 위험 노출 기간(Time-At-Risk)</a></li>
+<li class="chapter" data-level="12.6.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#section-12.6.5"><i class="fa fa-check"></i><b>12.6.5</b> 모델</a></li>
+<li class="chapter" data-level="12.6.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>12.6.6</b> 연구 요약</a></li>
+<li class="chapter" data-level="12.6.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>12.6.7</b> 대조군 질문</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#PleAtlas"><i class="fa fa-check"></i><b>12.7</b> ATLAS를 사용한 연구 구현하기</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>12.7.1</b> 비교 코호트 설정</a></li>
+<li class="chapter" data-level="12.7.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>12.7.2</b> 효과 추정 분석 설정</a></li>
+<li class="chapter" data-level="12.7.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#evaluationSettings"><i class="fa fa-check"></i><b>12.7.3</b> 평가 설정</a></li>
+<li class="chapter" data-level="12.7.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>12.7.4</b> 연구 패키지 실행</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#pleR"><i class="fa fa-check"></i><b>12.8</b> R을 사용한 연구 구현하기</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="Characterization.html"><a href="Characterization.html#--cohort-instantiation"><i class="fa fa-check"></i><b>12.8.1</b> 코호트 실체화 (Cohort Instantiation)</a></li>
+<li class="chapter" data-level="12.8.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--data-extraction-1"><i class="fa fa-check"></i><b>12.8.2</b> 데이터 추출 (Data Extraction)</a></li>
+<li class="chapter" data-level="12.8.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----defining-the-study-population"><i class="fa fa-check"></i><b>12.8.3</b> 연구 대상 집단 정의 (Defining the Study Population)</a></li>
+<li class="chapter" data-level="12.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#--propensity-scores"><i class="fa fa-check"></i><b>12.8.4</b> 성향 점수 (Propensity Scores)</a></li>
+<li class="chapter" data-level="12.8.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>12.8.5</b> 결과 모델</a></li>
+<li class="chapter" data-level="12.8.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>12.8.6</b> 다중 분석 실행하기</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#studyOutputs"><i class="fa fa-check"></i><b>12.9</b> 연구 결과 (Study Outputs)</a><ul>
+<li class="chapter" data-level="12.9.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#----propensity-scores-and-model"><i class="fa fa-check"></i><b>12.9.1</b> 성향 점수 및 모델 (Propensity Scores and Model)</a></li>
+<li class="chapter" data-level="12.9.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>12.9.2</b> 공변량 균형</a></li>
+<li class="chapter" data-level="12.9.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>12.9.3</b> 추적기간과 통계력</a></li>
+<li class="chapter" data-level="12.9.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#kaplan-meier"><i class="fa fa-check"></i><b>12.9.4</b> Kaplan-Meier</a></li>
+<li class="chapter" data-level="12.9.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>12.9.5</b> 효과 크기 추정치</a></li>
+</ul></li>
+<li class="chapter" data-level="12.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#-10"><i class="fa fa-check"></i><b>12.10</b> 요약</a></li>
+<li class="chapter" data-level="12.11" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#-6"><i class="fa fa-check"></i><b>12.11</b> 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> 환자 수준 예측</a><ul>
+<li class="chapter" data-level="13.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.1</b> 예측 문제</a></li>
+<li class="chapter" data-level="13.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.2</b> 데이터 추출</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.2.1</b> 데이터 추출 예제</a></li>
+<li class="chapter" data-level="13.2.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#section-13.2.2"><i class="fa fa-check"></i><b>13.2.2</b> 결측</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#modelFitting"><i class="fa fa-check"></i><b>13.3</b> 모형 적합</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.3.1</b> 정규화된 로지스틱 회귀</a></li>
+<li class="chapter" data-level="13.3.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#gradient-boosting-machines"><i class="fa fa-check"></i><b>13.3.2</b> Gradient Boosting Machines</a></li>
+<li class="chapter" data-level="13.3.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--random-forest"><i class="fa fa-check"></i><b>13.3.3</b> 랜덤 포레스트 (Random Forest)</a></li>
+<li class="chapter" data-level="13.3.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k---k-nearest-neighbor"><i class="fa fa-check"></i><b>13.3.4</b> K-최근접 이웃 (K-Nearest neighbor)</a></li>
+<li class="chapter" data-level="13.3.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--naive-bayes"><i class="fa fa-check"></i><b>13.3.5</b> 나이브 베이즈 (Naive Bayes)</a></li>
+<li class="chapter" data-level="13.3.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.3.6</b> AdaBoost</a></li>
+<li class="chapter" data-level="13.3.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.3.7</b> 의사 결정 트리</a></li>
+<li class="chapter" data-level="13.3.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#multilayer-perceptron"><i class="fa fa-check"></i><b>13.3.8</b> Multilayer Perceptron</a></li>
+<li class="chapter" data-level="13.3.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--deep-learning"><i class="fa fa-check"></i><b>13.3.9</b> 딥 러닝 (Deep Learning)</a></li>
+<li class="chapter" data-level="13.3.10" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.10</b> 다른 알고리즘</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.4</b> 예측 모형 평가</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.4.1</b> 평가 유형</a></li>
+<li class="chapter" data-level="13.4.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#performance"><i class="fa fa-check"></i><b>13.4.2</b> 성능 지표</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>13.5</b> 환자-수준 예측 연구 설계</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--3"><i class="fa fa-check"></i><b>13.5.1</b> 문제 정의</a></li>
+<li class="chapter" data-level="13.5.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.5.2</b> 연구 모집단 정의</a></li>
+<li class="chapter" data-level="13.5.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.5.3</b> 모형 개발 설정</a></li>
+<li class="chapter" data-level="13.5.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.5.4</b> 모형 평가</a></li>
+<li class="chapter" data-level="13.5.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>13.5.5</b> 연구 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#atlas--"><i class="fa fa-check"></i><b>13.6</b> ATLAS에서의 연구 구현하기</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.6.1</b> 예측 문제 설정</a></li>
+<li class="chapter" data-level="13.6.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.2</b> 분석 설정</a></li>
+<li class="chapter" data-level="13.6.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.3</b> 실행 설정</a></li>
+<li class="chapter" data-level="13.6.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.4</b> 학습 설정</a></li>
+<li class="chapter" data-level="13.6.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>13.6.5</b> 연구 가져오기 및 내보내기</a></li>
+<li class="chapter" data-level="13.6.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.6.6</b> 연구 패키지 다운로드</a></li>
+<li class="chapter" data-level="13.6.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.7</b> 연구 실행</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#r--"><i class="fa fa-check"></i><b>13.7</b> R에서의 연구 실행</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.1</b> 코호트 예시화</a></li>
+<li class="chapter" data-level="13.7.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>13.7.2</b> 데이터 추출</a></li>
+<li class="chapter" data-level="13.7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.7.3</b> 추가 포함 기준</a></li>
+<li class="chapter" data-level="13.7.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.4</b> 모형 개발</a></li>
+<li class="chapter" data-level="13.7.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.5</b> 내부 검증</a></li>
+<li class="chapter" data-level="13.7.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8</b> 결과 보급</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.1</b> 모델 성능</a></li>
+<li class="chapter" data-level="13.8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.2</b> 모형 비교</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>13.9</b> 추가적 환자-수준 예측 변수</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.9.1</b> 저널에 논문 작성</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#-11"><i class="fa fa-check"></i><b>13.10</b> 요약</a></li>
+<li class="chapter" data-level="13.11" data-path="SqlAndR.html"><a href="SqlAndR.html#-7"><i class="fa fa-check"></i><b>13.11</b> 예제</a></li>
+</ul></li>
+<li class="part"><span><b>IV Evidence Quality</b></span></li>
+<li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> 근거의 질</a><ul>
+<li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#----attributes-of-reliable-evidence"><i class="fa fa-check"></i><b>14.1</b> 신뢰성을 위한 근거의 속성 (Attributes of Reliable Evidence)</a></li>
+<li class="chapter" data-level="14.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>14.2</b> 근거의 질에 대한 이해</a></li>
+<li class="chapter" data-level="14.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>14.3</b> 근거 품질의 전달</a></li>
+<li class="chapter" data-level="14.4" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#-12"><i class="fa fa-check"></i><b>14.4</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> 데이터의 질</a><ul>
+<li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#-----sources-of-data-quality-problems"><i class="fa fa-check"></i><b>15.1</b> 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)</a></li>
+<li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#---data-quality-in-general"><i class="fa fa-check"></i><b>15.2</b> 보편적인 데이터 품질 (Data Quality in General)</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#---data-qualityintegrate-checks"><i class="fa fa-check"></i><b>15.2.1</b> 데이터 품질 검사 (Data Qualityintegrate Checks)</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#---study-specific-checks"><i class="fa fa-check"></i><b>15.3</b> 연구 목적 검사 (Study-Specific Checks)</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="DataQuality.html"><a href="DataQuality.html#--checking-mappings"><i class="fa fa-check"></i><b>15.3.1</b> 매핑 검사하기 (Checking Mappings)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES 실습 (ACHILLES in Practice)</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard 실습 (Data Quality Dashboard in Practice)</a></li>
+<li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#--checks--study-specific-checks-in-practice"><i class="fa fa-check"></i><b>15.6</b> 연구 목적 checks 실습 (Study-Specific Checks in Practice)</a></li>
+<li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#-13"><i class="fa fa-check"></i><b>15.7</b> 요약</a></li>
+<li class="chapter" data-level="15.8" data-path="DataQuality.html"><a href="DataQuality.html#section-15.8"><i class="fa fa-check"></i><b>15.8</b> 연습</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> 임상적 타당성</a><ul>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> 보건의료 데이터의 특성 (Characteristics of Health Care Databases)</a></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CohortValidation"><i class="fa fa-check"></i><b>16.2</b> 코호트 유효성 검사</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>16.2.1</b> 코호트 판단 측정기준</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>16.3</b> 원천 기록 검증</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>16.3.1</b> 원천 기록 검증에 대한 예시</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluator"><i class="fa fa-check"></i><b>16.4</b> PheValuator</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluator---"><i class="fa fa-check"></i><b>16.4.1</b> PheValuator에 의한 검증 예시</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> 근거의 일반화</a></li>
+<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#-14"><i class="fa fa-check"></i><b>16.6</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> 소프트웨어의 타당성</a><ul>
+<li class="chapter" data-level="17.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1</b> 분석 코드의 타당성</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#automation"><i class="fa fa-check"></i><b>17.1.1</b> 재현성 충족을 위한 자동화</a></li>
+<li class="chapter" data-level="17.1.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.1.2</b> 프로그래밍 모범 사례</a></li>
+<li class="chapter" data-level="17.1.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.1.3</b> 코드 검증</a></li>
+<li class="chapter" data-level="17.1.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>17.1.4</b> 연구 방법론 라이브러리의 활용</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#-----"><i class="fa fa-check"></i><b>17.2</b> 연구 방법론 라이브러리 소프트웨어의 개발 과정</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.1</b> 소스 코드 관리</a></li>
+<li class="chapter" data-level="17.2.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#-1"><i class="fa fa-check"></i><b>17.2.2</b> 문서화</a></li>
+<li class="chapter" data-level="17.2.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>17.2.3</b> 현재 및 과거 버전으로의 접근</a></li>
+<li class="chapter" data-level="17.2.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>17.2.4</b> 유지 보수, 지원 및 중단</a></li>
+<li class="chapter" data-level="17.2.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.5</b> 검증된 인력</a></li>
+<li class="chapter" data-level="17.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>17.2.6</b> 물리적, 논리적 보안체계</a></li>
+<li class="chapter" data-level="17.2.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.2.7</b> 복구 체계</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>17.3</b> 연구방법론 라이브러리 기능 검사</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>17.3.1</b> 단위 검사</a></li>
+<li class="chapter" data-level="17.3.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.3.2"><i class="fa fa-check"></i><b>17.3.2</b> 모의시행</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#section-17.4"><i class="fa fa-check"></i><b>17.4</b> 정리</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MethodValidity.html"><a href="MethodValidity.html"><i class="fa fa-check"></i><b>18</b> 방법론적 타당성</a><ul>
+<li class="chapter" data-level="18.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>18.1</b> 설계별 진단</a></li>
+<li class="chapter" data-level="18.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>18.2</b> 모든 추정을 위한 진단</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="MethodValidity.html"><a href="MethodValidity.html#NegativeControls"><i class="fa fa-check"></i><b>18.2.1</b> 음성 대조군</a></li>
+<li class="chapter" data-level="18.2.2" data-path="MethodValidity.html"><a href="MethodValidity.html#PositiveControls"><i class="fa fa-check"></i><b>18.2.2</b> 양성 대조군</a></li>
+<li class="chapter" data-level="18.2.3" data-path="MethodValidity.html"><a href="MethodValidity.html#metrics"><i class="fa fa-check"></i><b>18.2.3</b> 경험적 평가</a></li>
+<li class="chapter" data-level="18.2.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value-"><i class="fa fa-check"></i><b>18.2.4</b> P-Value 보정</a></li>
+<li class="chapter" data-level="18.2.5" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>18.2.5</b> 신뢰 구간 보정</a></li>
+<li class="chapter" data-level="18.2.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>18.2.6</b> 사이트 간 복제</a></li>
+<li class="chapter" data-level="18.2.7" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>18.2.7</b> 민감도 분석</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>18.3</b> 실무에서의 방법 검증</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>18.3.1</b> 음성 대조군 선택하기</a></li>
+<li class="chapter" data-level="18.3.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>18.3.2</b> 대조군 포함하기</a></li>
+<li class="chapter" data-level="18.3.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>18.3.3</b> 경험적 성과</a></li>
+<li class="chapter" data-level="18.3.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p-value--1"><i class="fa fa-check"></i><b>18.3.4</b> P-Value 보정</a></li>
+<li class="chapter" data-level="18.3.5" data-path="MethodValidity.html"><a href="MethodValidity.html#---1"><i class="fa fa-check"></i><b>18.3.5</b> 신뢰 구간 보정</a></li>
+<li class="chapter" data-level="18.3.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>18.3.6</b> 데이터베이스 간 이질성</a></li>
+<li class="chapter" data-level="18.3.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>18.3.7</b> 민감도 분석</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsi--"><i class="fa fa-check"></i><b>18.4</b> OHDSI 방법 벤치마크</a></li>
+<li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#-15"><i class="fa fa-check"></i><b>18.5</b> 요약</a></li>
+</ul></li>
+<li class="part"><span><b>V OHDSI Studies</b></span></li>
+<li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> 연구단계</a><ul>
+<li class="chapter" data-level="19.1" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>19.1</b> 일반 모범 사례 지침</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.1.1</b> 관찰 연구 정의</a></li>
+<li class="chapter" data-level="19.1.2" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>19.1.2</b> 연구 설계의 사전 지정</a></li>
+<li class="chapter" data-level="19.1.3" data-path="StudySteps.html"><a href="StudySteps.html#section-19.1.3"><i class="fa fa-check"></i><b>19.1.3</b> 프로토콜</a></li>
+<li class="chapter" data-level="19.1.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.1.4</b> 표준화된 분석</a></li>
+<li class="chapter" data-level="19.1.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.1.5</b> 연구 패키지</a></li>
+<li class="chapter" data-level="19.1.6" data-path="StudySteps.html"><a href="StudySteps.html#cdm---"><i class="fa fa-check"></i><b>19.1.6</b> CDM의 기초가 되는 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.2</b> 세부 연구 단계</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.1</b> 질문 정의</a></li>
+<li class="chapter" data-level="19.2.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>19.2.2</b> 데이터 가용성 및 품질 검토</a></li>
+<li class="chapter" data-level="19.2.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.3</b> 연구 집단</a></li>
+<li class="chapter" data-level="19.2.4" data-path="StudySteps.html"><a href="StudySteps.html#Feasibility"><i class="fa fa-check"></i><b>19.2.4</b> 실행 가능성 및 진단</a></li>
+<li class="chapter" data-level="19.2.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>19.2.5</b> 프로토콜 및 연구 패키지 마무리</a></li>
+<li class="chapter" data-level="19.2.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>19.2.6</b> 연구 수행</a></li>
+<li class="chapter" data-level="19.2.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>19.2.7</b> 해석 및 작성</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="StudySteps.html"><a href="StudySteps.html#-16"><i class="fa fa-check"></i><b>19.3</b> 요약</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI 네트워크 리서치</a><ul>
+<li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#--ohdsi"><i class="fa fa-check"></i><b>20.1</b> 연구 네트워크로서의 OHDSI</a></li>
+<li class="chapter" data-level="20.2" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsi--"><i class="fa fa-check"></i><b>20.2</b> OHDSI 네트워크 연구</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi----"><i class="fa fa-check"></i><b>20.2.1</b> OHDSI 네트워크 연구가 필요한 이유</a></li>
+<li class="chapter" data-level="20.2.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.2.2</b> OHDSI 네트워크 연구의 정의</a></li>
+<li class="chapter" data-level="20.2.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi------"><i class="fa fa-check"></i><b>20.2.3</b> OHDSI 네트워크 연구 설계를 위한 고려 사항</a></li>
+<li class="chapter" data-level="20.2.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-----"><i class="fa fa-check"></i><b>20.2.4</b> OHDSI 네트워크 연구를 위한 세부 절차</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.3</b> OHDSI 네트워크 연구 수행하기</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.1</b> 연구 설계와 타당성</a></li>
+<li class="chapter" data-level="20.3.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>20.3.2</b> 연구 실행</a></li>
+<li class="chapter" data-level="20.3.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>20.3.3</b> 결과의 보급과 출판</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#----"><i class="fa fa-check"></i><b>20.4</b> 미래의 모습: 네트워크 연구의 자동화</a></li>
+<li class="chapter" data-level="20.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi---"><i class="fa fa-check"></i><b>20.5</b> OHDSI 네트워크 연구의 정석</a></li>
+<li class="chapter" data-level="20.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#-17"><i class="fa fa-check"></i><b>20.6</b> 요약</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>A</b> Glossary</a></li>
+<li class="chapter" data-level="B" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html"><i class="fa fa-check"></i><b>B</b> Cohort definitions</a><ul>
+<li class="chapter" data-level="B.1" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitors"><i class="fa fa-check"></i><b>B.1</b> ACE Inhibitors</a></li>
+<li class="chapter" data-level="B.2" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitorsMono"><i class="fa fa-check"></i><b>B.2</b> New Users of ACE Inhibitors Monotherapy</a></li>
+<li class="chapter" data-level="B.3" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Ami"><i class="fa fa-check"></i><b>B.3</b> Acute Myocardial Infarction (AMI)</a></li>
+<li class="chapter" data-level="B.4" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Angioedema"><i class="fa fa-check"></i><b>B.4</b> Angioedema</a></li>
+<li class="chapter" data-level="B.5" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ThiazidesMono"><i class="fa fa-check"></i><b>B.5</b> New Users of Thiazide-Like Diuretics Monotherapy</a></li>
+<li class="chapter" data-level="B.6" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN1yrFO"><i class="fa fa-check"></i><b>B.6</b> Patients Initiating First-Line Therapy for Hypertension</a></li>
+<li class="chapter" data-level="B.7" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN3yrFO"><i class="fa fa-check"></i><b>B.7</b> Patients Initiating First-Line Therapy for Hypertension With &gt;3 Yr Follow-Up</a></li>
+<li class="chapter" data-level="B.8" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ACEiUse"><i class="fa fa-check"></i><b>B.8</b> ACE Inhibitor Use</a></li>
+<li class="chapter" data-level="B.9" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ARBUse"><i class="fa fa-check"></i><b>B.9</b> Angiotensin Receptor Blocker (ARB) Use</a></li>
+<li class="chapter" data-level="B.10" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#THZUse"><i class="fa fa-check"></i><b>B.10</b> Thiazide Or Thiazide-Like Diuretic Use</a></li>
+<li class="chapter" data-level="B.11" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#dCCBUse"><i class="fa fa-check"></i><b>B.11</b> Dihydropyridine Calcium Channel Blocker (dCCB) Use</a></li>
+<li class="chapter" data-level="B.12" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ndCCBUse"><i class="fa fa-check"></i><b>B.12</b> Non-Dihydropyridine Calcium Channel Blocker (ndCCB) Use</a></li>
+<li class="chapter" data-level="B.13" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#BBUse"><i class="fa fa-check"></i><b>B.13</b> Beta-Blocker Use</a></li>
+<li class="chapter" data-level="B.14" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DLoopUse"><i class="fa fa-check"></i><b>B.14</b> Diuretic-Loop Use</a></li>
+<li class="chapter" data-level="B.15" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DPUse"><i class="fa fa-check"></i><b>B.15</b> Diuretic-Potassium Sparing Use</a></li>
+<li class="chapter" data-level="B.16" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#A1BUse"><i class="fa fa-check"></i><b>B.16</b> Alpha-1 Blocker Use</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html"><i class="fa fa-check"></i><b>C</b> Negative controls</a><ul>
+<li class="chapter" data-level="C.1" data-path="NegativeControlsAppendix.html"><a href="NegativeControlsAppendix.html#AceiThzNsc"><i class="fa fa-check"></i><b>C.1</b> ACEi and THZ</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="ProtocolTemplate.html"><a href="ProtocolTemplate.html"><i class="fa fa-check"></i><b>D</b> Protocol template</a></li>
+<li class="chapter" data-level="E" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>E</b> Suggested Answers</a><ul>
+<li class="chapter" data-level="E.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>E.1</b> The Common Data Model</a></li>
+<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> Standardized Vocabularies</a></li>
+<li class="chapter" data-level="E.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>E.3</b> Extract Transform Load</a></li>
+<li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> Data Analytics Use Cases</a></li>
+<li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQL and R</a></li>
+<li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> Defining Cohorts</a></li>
+<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> Characterization</a></li>
+<li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> Population-Level Estimation</a></li>
+<li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> Patient-Level Prediction</a></li>
+<li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> Data Quality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">오딧세이 바이블 The Book of OHDSI</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="SqlAndR" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> SQL과 R</h1>
+<p><em>Chapter leads: Martijn Schuemie &amp; Peter Rijnbeek</em></p>
+<p>공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이들 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가들이 오랜시간 고려하여 만든) 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다. 관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 동일한 의미를 가지지만, 각 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다:  </p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> TOP <span class="dv">10</span> * <span class="kw">FROM</span> person;</code></pre></div>
+<p>PostgreSQL의 동일한 질의는 다음과 같다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> person <span class="kw">LIMIT</span> <span class="dv">10</span>;</code></pre></div>
+<p>OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고 모든 OHDSI 데이터베이스에서 동일한 SQL 언어를 사용하고자 한다. 이러한 이유로 OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다른 여러 개의 문법으로 번역해줄 수 있는 패키지인 <a href="https://ohdsi.github.io/SqlRender/">SqlRender</a> 를 개발하였다. 이 표준 언어 - <strong>OHDSI SQL</strong> - 는 주로 SQL Server SQL 언어의 하위 집합이다. 이 장에서 제공되는 SQL 문에는 모두 OHDSI SQL을 사용한다.    </p>
+<p>각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 질의하기 위한 자체 소프트웨어 도구가 제공된다. OHDSI는 여러 데이터베이스 플랫폼에 연결할 수 있는 하나의 R 패키지인 <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> 를 개발하였다. DatabaseConnector도 이 장의 뒤에서 논의할 것이다. </p>
+<p>따라서 OHDSI 도구를 사용하지 않고도 CDM에 맞게 질의할 수 있지만 DatabaseConnector 및 SqlRender 패키지를 사용하는 것을 권장한다. 이를 통해 한 사이트에서 개발된 질의를 수정하지 않고도 다른 사이트에서 사용할 수 있다. R 자체는 통계 분석 및 대화식 그래프 생성과 같이 데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접 제공한다. </p>
+<p>이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. <a href="SqlAndR.html#QueryTheCdm">9.3</a>절에서는 SQL (OHDSI SQL) 을 사용하여 CDM에 질의하는 방법에 대해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다.  </p>
+<div id="SqlRender" class="section level2">
+<h2><span class="header-section-number">9.1</span> SqlRender</h2>
+<p><a href="https://ohdsi.github.io/SqlRender/">SqlRender</a> 패키지는 Comprehensive R Archive Network (CRAN)에서 이용할 수 있으므로 다음을 사용하여 설치할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;SqlRender&quot;</span>)</code></pre></div>
+<p>SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite, and Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, and Amazon RedShift), 빅데이터 플랫폼 (Hadoop through Impala, and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.</p>
+<div id="sql-" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> SQL의 매개변수화</h3>
+<p>패키지의 기능 중 하나는 SQL문에 매개 변수를 지원하는 것이다. 일부 매개 변수에 기반하여 SQL문을 조금씩 변형할 필요가 종종 있다. SqlRender는 매개 변수를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 매개 변수를 기반으로 SQL을 렌더링하는 것은 <code>render()</code> 함수를 사용하여 수행한다. </p>
+<div id="---" class="section level4 unnumbered">
+<h4>매개 변수 값 대체하기</h4>
+<p><code>@</code> 문자는 렌더링 시 실제 매개 변수 값과 교환해야하는 매개 변수 이름을 나타내는데 사용할 수 있다. 다음 예에서 <code>a</code>라고 불리는 변수가 SQL에서 언급되어 있다. 렌더 함수를 호출할 때 이 매개 변수의 값이 정의된다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM concept WHERE concept_id = @a;&quot;</span>
+<span class="kw">render</span>(sql, <span class="dt">a =</span> <span class="dv">123</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM concept WHERE concept_id = 123;&quot;</code></pre>
+<p>대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수와 달리 테이블 또는 필드 이름을 값으로 매개 변수화하는 것이 쉽다는 것에 주목하라:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM @x WHERE person_id = @a;&quot;</span>
+<span class="kw">render</span>(sql, <span class="dt">x =</span> <span class="st">&quot;observation&quot;</span>, <span class="dt">a =</span> <span class="dv">123</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM observation WHERE person_id = 123;&quot;</code></pre>
+<p>매개 변수 값은 숫자, 문자열, 부울 및 쉼표를 기준으로 항목을 나눈 리스트로 변환된 벡터일 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM concept WHERE concept_id IN (@a);&quot;</span>
+<span class="kw">render</span>(sql, <span class="dt">a =</span> <span class="kw">c</span>(<span class="dv">123</span>, <span class="dv">234</span>, <span class="dv">345</span>))</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM concept WHERE concept_id IN (123,234,345);&quot;</code></pre>
+</div>
+<div id="if-then-else" class="section level4 unnumbered">
+<h4>If-Then-Else</h4>
+<p>때로는 하나 이상의 매개 변수 값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 <code>{Condition} ? {if true} : {if false}</code> 구문을 사용한다. <em>조건</em>이 참 또는 1로 평가되면, <em>if true</em> 블록이 사용되고 그렇지 않으면, <em>if false</em> 블록이 표시된다 (있는 경우).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM cohort {@x} ? {WHERE subject_id = 1}&quot;</span>
+<span class="kw">render</span>(sql, <span class="dt">x =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM cohort &quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">render</span>(sql, <span class="dt">x =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM cohort WHERE subject_id = 1&quot;</code></pre>
+<p>간단한 비교도 지원된다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM cohort {@x == 1} ? {WHERE subject_id = 1};&quot;</span>
+<span class="kw">render</span>(sql, <span class="dt">x =</span> <span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM cohort WHERE subject_id = 1;&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">render</span>(sql, <span class="dt">x =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM cohort ;&quot;</code></pre>
+<p>IN 연산자도 지원된다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM cohort {@x IN (1,2,3)} ? {WHERE subject_id = 1};&quot;</span>
+<span class="kw">render</span>(sql, <span class="dt">x =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM cohort WHERE subject_id = 1;&quot;</code></pre>
+</div>
+</div>
+<div id="-sql--" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> 다른 SQL 언어로의 변환</h3>
+<p><a href="https://ohdsi.github.io/SqlRender/">SqlRender</a> 패키지의 또 다른 기능은 OHDSI SQL에서 다른 SQL 언어로 변환하는 것이다. 예를 들면 다음과 같다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT TOP 10 * FROM person;&quot;</span>
+<span class="kw">translate</span>(sql, <span class="dt">targetDialect =</span> <span class="st">&quot;postgresql&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT  * FROM person LIMIT 10;&quot;</code></pre>
+<p><code>targetDialect</code> 매개 변수는 다음과 같은 값을 가질 수 있다: “oracle”, “postgresql”, “pdw”, “redshift”, “impala”, “netezza”, “bigquery”, “sqlite”, and “sql server”. </p>
+
+<div class="rmdimportant">
+패키지에는 제한된 변환 규칙 세트만 구현되었기 때문에 SQL의 함수 및 구성을 적절하게 번역되는 것에는 한계가 있을 뿐 아니라 일부 SQL의 특징은 모든 언어에서 동일하지 않다. OHDSI SQL이 독자적인 새로운 문법으로 개발된 주된 이유이다. 하지만 이미 있는 것을 다시 만드느라 쓸데없이 시간을 낭비하지 않기 위해 SQL Server 구문을 유지하였다.
+</div>
+
+<p>최선의 노력에도 불구하고, 지원되는 모든 플랫폼에서 오류 없이 실행될 OHDSI SQL을 작성할 때 고려해야 할 사항이 몇 가지 있다. 다음은 이러한 고려 사항에 대해 자세히 설명한다.</p>
+<div id="-----" class="section level4 unnumbered">
+<h4>변환에 의해 지원되는 기능 및 구조</h4>
+<p>다음과 같은 SQL Server 함수는 테스트되었으며 다양한 언어로 올바르게 변환되는 것으로 확인되었다: </p>
+<table>
+<caption><span id="tab:sqlFunctions">Table 9.1: </span> Functions supported by translate.</caption>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Function</th>
+<th align="left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ABS</td>
+<td align="left">EXP</td>
+<td align="left">RAND</td>
+</tr>
+<tr class="even">
+<td align="left">ACOS</td>
+<td align="left">FLOOR</td>
+<td align="left">RANK</td>
+</tr>
+<tr class="odd">
+<td align="left">ASIN</td>
+<td align="left">GETDATE</td>
+<td align="left">RIGHT</td>
+</tr>
+<tr class="even">
+<td align="left">ATAN</td>
+<td align="left">HASHBYTES*</td>
+<td align="left">ROUND</td>
+</tr>
+<tr class="odd">
+<td align="left">AVG</td>
+<td align="left">ISNULL</td>
+<td align="left">ROW_NUMBER</td>
+</tr>
+<tr class="even">
+<td align="left">CAST</td>
+<td align="left">ISNUMERIC</td>
+<td align="left">RTRIM</td>
+</tr>
+<tr class="odd">
+<td align="left">CEILING</td>
+<td align="left">LEFT</td>
+<td align="left">SIN</td>
+</tr>
+<tr class="even">
+<td align="left">CHARINDEX</td>
+<td align="left">LEN</td>
+<td align="left">SQRT</td>
+</tr>
+<tr class="odd">
+<td align="left">CONCAT</td>
+<td align="left">LOG</td>
+<td align="left">SQUARE</td>
+</tr>
+<tr class="even">
+<td align="left">COS</td>
+<td align="left">LOG10</td>
+<td align="left">STDEV</td>
+</tr>
+<tr class="odd">
+<td align="left">COUNT</td>
+<td align="left">LOWER</td>
+<td align="left">SUM</td>
+</tr>
+<tr class="even">
+<td align="left">COUNT_BIG</td>
+<td align="left">LTRIM</td>
+<td align="left">TAN</td>
+</tr>
+<tr class="odd">
+<td align="left">DATEADD</td>
+<td align="left">MAX</td>
+<td align="left">UPPER</td>
+</tr>
+<tr class="even">
+<td align="left">DATEDIFF</td>
+<td align="left">MIN</td>
+<td align="left">VAR</td>
+</tr>
+<tr class="odd">
+<td align="left">DATEFROMPARTS</td>
+<td align="left">MONTH</td>
+<td align="left">YEAR</td>
+</tr>
+<tr class="even">
+<td align="left">DATETIMEFROMPARTS</td>
+<td align="left">NEWID</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">DAY</td>
+<td align="left">PI</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">EOMONTH</td>
+<td align="left">POWER</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>* Oracle은 특별 권한이 필요하다. SQLite에는 해당되는 것이 없다.</p>
+<p>마찬가지로 많은 SQL 구문 구조가 지원된다. 다음은 우리가 잘 번역할 수 있는 표현식의 전체 목록이다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="co">-- Simple selects:</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="kw">table</span>;
+
+<span class="co">-- Selects with joins:</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> table_1 <span class="kw">INNER</span> <span class="kw">JOIN</span> table_2 <span class="kw">ON</span> a = b;
+
+<span class="co">-- Nested queries:</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> (<span class="kw">SELECT</span> * <span class="kw">FROM</span> table_1) tmp <span class="kw">WHERE</span> a = b;
+
+<span class="co">-- Limiting to top rows:</span>
+<span class="kw">SELECT</span> TOP <span class="dv">10</span> * <span class="kw">FROM</span> <span class="kw">table</span>;
+
+<span class="co">-- Selecting into a new table:</span>
+<span class="kw">SELECT</span> * <span class="kw">INTO</span> new_table <span class="kw">FROM</span> <span class="kw">table</span>;
+
+<span class="co">-- Creating tables:</span>
+<span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">table</span> (field <span class="dt">INT</span>);
+
+<span class="co">-- Inserting verbatim values:</span>
+<span class="kw">INSERT</span> <span class="kw">INTO</span> other_table (field_1) <span class="kw">VALUES</span> (<span class="dv">1</span>);
+
+<span class="co">-- Inserting from SELECT:</span>
+<span class="kw">INSERT</span> <span class="kw">INTO</span> other_table (field_1) <span class="kw">SELECT</span> <span class="fu">value</span> <span class="kw">FROM</span> <span class="kw">table</span>;
+  
+<span class="co">-- Simple drop commands:</span>
+<span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="kw">table</span>;
+
+<span class="co">-- Drop table if it exists:</span>
+<span class="kw">IF</span> OBJECT_ID(<span class="st">&#39;ACHILLES_analysis&#39;</span>, <span class="st">&#39;U&#39;</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>
+  <span class="kw">DROP</span> <span class="kw">TABLE</span> ACHILLES_analysis;
+  
+<span class="co">-- Drop temp table if it exists:</span>
+<span class="kw">IF</span> OBJECT_ID(<span class="st">&#39;tempdb..#cohorts&#39;</span>, <span class="st">&#39;U&#39;</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>
+  <span class="kw">DROP</span> <span class="kw">TABLE</span> #cohorts;  
+
+<span class="co">-- Common table expressions:</span>
+<span class="kw">WITH</span> cte <span class="kw">AS</span> (<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="kw">table</span>) <span class="kw">SELECT</span> * <span class="kw">FROM</span> cte;
+
+<span class="co">-- OVER clauses:</span>
+<span class="kw">SELECT</span> <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> a <span class="kw">ORDER</span> <span class="kw">BY</span> b)
+  <span class="kw">AS</span> <span class="ot">&quot;Row Number&quot;</span> <span class="kw">FROM</span> <span class="kw">table</span>;
+  
+<span class="co">-- CASE WHEN clauses:</span>
+<span class="kw">SELECT</span> <span class="kw">CASE</span> <span class="kw">WHEN</span> a=<span class="dv">1</span> <span class="kw">THEN</span> a <span class="kw">ELSE</span> <span class="dv">0</span> <span class="kw">END</span> <span class="kw">AS</span> <span class="fu">value</span> <span class="kw">FROM</span> <span class="kw">table</span>;
+
+<span class="co">-- UNIONs:</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> a <span class="kw">UNION</span> <span class="kw">SELECT</span> * <span class="kw">FROM</span> b;
+
+<span class="co">-- INTERSECTIONs:</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> a <span class="kw">INTERSECT</span> <span class="kw">SELECT</span> * <span class="kw">FROM</span> b;
+
+<span class="co">-- EXCEPT:</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> a <span class="kw">EXCEPT</span> <span class="kw">SELECT</span> * <span class="kw">FROM</span> b;</code></pre></div>
+</div>
+<div id="-" class="section level4 unnumbered">
+<h4>문자열 연결</h4>
+<p>문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는 <code>SELECT first_name + ' ' + last_name AS full_name FROM table</code>와 같이 작성하지만 Postgres와 Oracle에서는 <code>SELECT first_name || ' ' || last_name AS full_name FROM table</code> 라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열 (작은따옴표로 묶인 공백) 이 있으므로 번역은 정확할 것이다. 그러나 <code>SELECT first_name + last_name AS full_name FROM table</code>와 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 “VARCHAR”에 대한 명시적 형변환이므로 <code>SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table</code> 도 올바르게 변환된다. 모호성을 피하려면 <code>CONCAT()</code> 함수를 사용하여 두 개 이상의 문자열을 연결하는 것이 가장 좋다.</p>
+</div>
+<div id="--as-" class="section level4 unnumbered">
+<h4>테이블 별칭과 AS 키워드</h4>
+<p>많은 SQL 언어는 테이블 별칭을 정의할 때 <code>AS</code> 키워드를 사용할 수 있지만, 키워드 없이도 잘 동작 한다. 예를 들어, 이 두 SQL 문은 SQL Server, PostgreSQL, RedShift 등에 적합하다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="co">-- Using AS keyword</span>
+<span class="kw">SELECT</span> * 
+<span class="kw">FROM</span> my_table <span class="kw">AS</span> table_<span class="dv">1</span>
+<span class="kw">INNER</span> <span class="kw">JOIN</span> (
+  <span class="kw">SELECT</span> * <span class="kw">FROM</span> other_table
+) <span class="kw">AS</span> table_<span class="dv">2</span>
+<span class="kw">ON</span> table_1.person_id = table_2.person_id;
+
+<span class="co">-- Not using AS keyword</span>
+<span class="kw">SELECT</span> * 
+<span class="kw">FROM</span> my_table table_<span class="dv">1</span>
+<span class="kw">INNER</span> <span class="kw">JOIN</span> (
+  <span class="kw">SELECT</span> * <span class="kw">FROM</span> other_table
+) table_<span class="dv">2</span>
+<span class="kw">ON</span> table_1.person_id = table_2.person_id;</code></pre></div>
+<p>그러나 Oracle에서는 <code>AS</code> 키워드를 사용하면 오류가 발생한다. 위의 예제 중 첫 번째 질의는 실패한다. 따라서 테이블 별칭을 지정할 때 <code>AS</code> 키워드를 사용하지 않는 것이 좋다. (참고로 Oracle에서 <code>AS</code>를 사용할 수 없는 테이블 별칭과 이 <code>AS</code>를 사용해야 하는 필드 별칭을 쉽게 구별할 수 없기 때문에 SqlRender가 이 것을 처리하도록 만들 수 없다)</p>
+</div>
+<div id="-" class="section level4 unnumbered">
+<h4>임시 테이블</h4>
+<p>임시 테이블은 중간 결과를 저장하는 데 매우 유용할 수 있으며 올바르게 사용하면 질의 성능을 크게 향상할 수 있다. 대부분의 데이터베이스 플랫폼에서 임시 테이블이라는 매우 좋은 기능을 가지고 있다: 현재 사용자에게만 보이며 세션이 끝나면 자동으로 삭제되고 사용자에게 쓰기 권한이 없어도 생성할 수 있다. 불행히도, Oracle에서는 임시테이블은 기본적으로 영구적인 테이블이며, 데이터의 내부는 현재 사용자에게만 보인다는 차이점만 있다. 이것이 Oracle에서 SqlRender가 다음과 같이 임시 테이블을 에뮬레이션하려고 시도하는 이유이다.</p>
+<ol style="list-style-type: decimal">
+<li>테이블 이름에 임의의 문자열을 추가하여 다른 사용자의 테이블이 충돌하지 않도록 한다.</li>
+<li>사용자가 임시 테이블이 작성될 스키마를 지정할 수 있도록 허용한다.</li>
+</ol>
+<p>예를 들면:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM #children;&quot;</span>
+<span class="kw">translate</span>(sql, <span class="dt">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="dt">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.vfwvf7hhchildren ;&quot;</code></pre>
+<p>사용자는 <code>temp_schema</code>에 대한 쓰기 권한이 있어야 한다.</p>
+<p>또한 Oracle은 테이블 이름이 30자로 제한되어 있다. 세션 아이디를 추가한 후 이름이 너무 길어지기 때문에 <strong>임시 테이블 이름은 최대 22자까지만 허용된다</strong>.</p>
+<p>뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 <code>TRUNCATE</code> 및 <code>DROP</code> 을 해야 한다.</p>
+</div>
+<div id="-" class="section level4 unnumbered">
+<h4>암묵적인 형변환</h4>
+<p>SQL Server가 다른 언어보다 덜 명시적인 몇 가지 점 중 하나는 암묵적인 형변환을 허용한다는 것이다. 예를 들어 이 코드는 SQL Server에서 작동한다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> #temp (txt <span class="dt">VARCHAR</span>);
+
+<span class="kw">INSERT</span> <span class="kw">INTO</span> #temp
+<span class="kw">SELECT</span> <span class="st">&#39;1&#39;</span>;
+
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> #temp <span class="kw">WHERE</span> txt = <span class="dv">1</span>;</code></pre></div>
+<p>비록 <code>txt</code> 는 VARCHAR 필드이고 이것을 정수와 비교하고 있지만, SQL Server는 비교를 허용하기 위해 두 가지 중 하나를 자동으로 올바른 타입으로 변환한다. 이와 대조적으로, PostgreSQL과 같은 다른 언어는 VARCHAR와 INT를 비교하려고 할 때 오류를 일으킬 것이다.</p>
+<p>따라서 형 변환은 항상 명시적으로 해야 한다. 위의 마지막에 있는 예는</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> #temp <span class="kw">WHERE</span> txt = <span class="fu">CAST</span>(<span class="dv">1</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>);</code></pre></div>
+<p>또는 아래와 같이 대체되어야 한다.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> #temp <span class="kw">WHERE</span> <span class="fu">CAST</span>(txt <span class="kw">AS</span> <span class="dt">INT</span>) = <span class="dv">1</span>;</code></pre></div>
+</div>
+<div id="---" class="section level4 unnumbered">
+<h4>문자열 비교의 대소문자 구분</h4>
+<p>SQL Server와 같은 일부 DBMS 플랫폼은 대소문자를 구분하지 않는 비교를 수행하는 반면, PostgreSQL과 같은 다른 플랫폼은 대소문자를 구분한다. 따라서 항상 대소문자를 구분하는 비교를 가정하고 명확하게 모르는 경우 명시적으로 대소문자를 구분하지 않도록 하는 명령을 추가하여 비교하기 추천한다. 예를 들어,</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> concept <span class="kw">WHERE</span> concep_class_id = <span class="st">&#39;Clinical Finding&#39;</span></code></pre></div>
+<p>대신, 다음과 같이 사용하는 것이 좋다.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> concept <span class="kw">WHERE</span> <span class="fu">LOWER</span>(concep_class_id) = <span class="st">&#39;clinical finding&#39;</span></code></pre></div>
+</div>
+<div id="-" class="section level4 unnumbered">
+<h4>스키마와 데이터베이스</h4>
+<p>SQL Server에서 테이블은 스키마안에 있으며 스키마는 데이터베이스 안에 있다. 예를 들면, <code>cdm_data.dbo.person</code>은 <code>cdm_data</code> 데이터베이스의 <code>dbo</code> 스키마 안에 있는 <code>person</code> 테이블을 말한다. 다른 언어에서는 비슷한 계층 구조가 종종 존재하더라도 매우 다르게 사용된다. SQL Server에는 일반적으로 데이터베이스 당 하나의 스키마 (<code>dbo</code>라고 함), 가 있으며 사용자는 다른 데이터베이스의 데이터를 쉽게 사용할 수 있다. Postgres와 같은 다른 플랫폼에서는 단일 세션에서 데이터베이스 간 데이터를 사용할 수 없지만, 데이터베이스 안에는 많은 스키마를 가지고 있다. SQL Server의 데이터베이스는 PostgreSQL에서 스키마라고 할 수 있다.</p>
+<p>따라서 SQL Server의 데이터베이스와 스키마를 단일 매개변수로 연결할 것을 권장한다. 이 매개 변수는 일반적으로 <code>@databaseSchema</code> 라고 한다. 예를 들면 우리는 매개 변수화된 SQL을 가질 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> @databaseSchema.person</code></pre></div>
+<p>SQL Server에서 <code>databaseSchema = &quot;cdm_data.dbo&quot;</code>값에 데이터베이스와 스키마이름을 모두 포함할 수 있다. 다른 플랫폼에서는 동일한 코드를 사용할 수 있지만, 스키마 매개 변수 값은 다음과 같이 지정한다: <code>databaseSchema = &quot;cdm_data&quot;</code></p>
+<p>이것이 실패하는 한 가지 상황은 에러를 발생시키는 <code>USE cdm_data.dbo;</code>, 즉 <code>USE</code> 명령어를 사용했기 때문이다. 따라서 <code>USE</code> 명령어를 사용하지 말고 항상 테이블이 있는 데이터베이스 및 스키마를 지정하는 것이 바람직하다.</p>
+</div>
+<div id="---sql-" class="section level4 unnumbered">
+<h4>매개 변수화 된 SQL 디버깅하기</h4>
+<p>매개 변수화된 SQL을 디버깅하는 것은 약간 복잡할 수 있다. 렌더링 된 SQL만 데이터베이스 서버에 대해 테스트할 수 있지만 매개 변수화된 (사전 렌더링 된) SQL에서 코드를 변경해야 한다. </p>
+<p>SqlRender 패키지에는 대화형으로 SQL소스를 편집하여 SQL을 랜더링을 하거나 반대로 번역할 수 있는 샤이니 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">launchSqlRenderDeveloper</span>()</code></pre></div>
+<p>그러면 그림 <a href="SqlAndR.html#fig:sqlDeveloper">9.1</a>에 표시된 앱으로 기본 브라우저가 열린다. 이 앱은 웹에서도 공개적으로 사용할 수 있다.<a href="#fn47" class="footnoteRef" id="fnref47"><sup>47</sup></a></p>
+<div class="figure" style="text-align: center"><span id="fig:sqlDeveloper"></span>
+<img src="images/SqlAndR/sqlDeveloper.png" alt="The SqlDeveloper Shiny 앱." width="100%" />
+<p class="caption">
+Figure 9.1: The SqlDeveloper Shiny 앱.
+</p>
+</div>
+<p>앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 매개 변수 값을 제공하면 자동으로 번역된 SQL이 하단에 나타난다.</p>
+</div>
+</div>
+</div>
+<div id="DatabaseConnector" class="section level2">
+<h2><span class="header-section-number">9.2</span> DatabaseConnector</h2>
+<p><a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> 는 Java의 JDBC 드라이버를 사용하여 다양한 데이터베이스 플랫폼에 연결하기 위한 R 패키지이다. DatabaseConnector 패키지는 CRAN (종합 R 아카이브 네트워크) 에서 사용할 수 있으므로 다음을 사용하여 설치할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;DatabaseConnector&quot;</span>)</code></pre></div>
+<p>DatabaseConnector는 기존 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite 및 Oracle), 병렬 데이터웨어 하우스 (Microsoft APS, IBM Netezza 및 Amazon RedShift) 및 빅데이터 플랫폼 (Hadoop through Impla 및 Google BigQuery) 을 포함한 다양한 기술 플랫폼을 지원한다. 패키지에는 이미 대부분의 드라이버가 포함되어 있지만, 라이센스 문제로 인해 BigQuery, Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가 구해야 한다. 이러한 드라이버를 다운로드하는 방법에 대한 지침을 보려면 <code>?jdbcDrivers</code> 를 입력한다. 다운로드한 후 <code>connect</code>, <code>dbConnect</code>, and <code>createConnectionDetails</code> 함수의 <code>pathToDriver</code> 인수로 사용할 수 있다.</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> 연결 생성하기</h3>
+<p>데이터베이스에 연결하려면 데이터베이스 플랫폼, 서버의 위치, 사용자 이름 및 비밀번호와 같은 많은 세부 사항을 지정해야 한다. <code>connect</code> 함수를 호출하여 다음 세부 사항을 직접 지정할 수 있다: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">conn &lt;-<span class="st"> </span><span class="kw">connect</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
+                <span class="dt">server =</span> <span class="st">&quot;localhost/postgres&quot;</span>,
+                <span class="dt">user =</span> <span class="st">&quot;joe&quot;</span>,
+                <span class="dt">password =</span> <span class="st">&quot;secret&quot;</span>,
+                <span class="dt">schema =</span> <span class="st">&quot;cdm&quot;</span>)</code></pre></div>
+<pre><code>## Connecting using PostgreSQL driver</code></pre>
+<p>각 플랫폼에 필요한 세부 사항에 대한 정보는 <code>?connect</code> 를 참조하라. 나중에 작업을 마치고 연결 끊는 것을 잊지 말라:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">disconnect</span>(conn)</code></pre></div>
+<p>서버 이름을 제공하는 대신 JDBC connecting string을 사용하는 것이 더 편리할 경우 이를 제공할 수도 있다는 점에 유의하라:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">connString &lt;-<span class="st"> &quot;jdbc:postgresql://localhost:5432/postgres&quot;</span>
+conn &lt;-<span class="st"> </span><span class="kw">connect</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
+                <span class="dt">connectionString =</span> connString,
+                <span class="dt">user =</span> <span class="st">&quot;joe&quot;</span>,
+                <span class="dt">password =</span> <span class="st">&quot;secret&quot;</span>,
+                <span class="dt">schema =</span> <span class="st">&quot;cdm&quot;</span>)</code></pre></div>
+<pre><code>## Connecting using PostgreSQL driver</code></pre>
+<p>때때로 먼저 세부 사항을 지정하고 나중에 연결할 때까지 연결을 연기해야 할 수 있다. 예를 들어, 함수 내에서 연결이 설정되고 세부 사항은 인수로 전달해야 하는 경우에 편리할 수 있다. 이를 목적으로 <code>createConnectionDetails</code> 함수를 사용할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">details &lt;-<span class="st"> </span><span class="kw">createConnectionDetails</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
+                                   <span class="dt">server =</span> <span class="st">&quot;localhost/postgres&quot;</span>,
+                                   <span class="dt">user =</span> <span class="st">&quot;joe&quot;</span>,
+                                   <span class="dt">password =</span> <span class="st">&quot;secret&quot;</span>,
+                                   <span class="dt">schema =</span> <span class="st">&quot;cdm&quot;</span>)
+conn &lt;-<span class="st"> </span><span class="kw">connect</span>(details)</code></pre></div>
+<pre><code>## Connecting using PostgreSQL driver</code></pre>
+</div>
+<div id="section-9.2.2" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> 질의하기</h3>
+<p>데이터베이스 질의를 위한 주요 함수는 <code>querySql</code>과 <code>executeSql</code> 이다. 이러한 함수의 차이점은 <code>querySql</code>은 데이터베이스가 데이터를 반환할 것으로 예상하며, 한 번에 하나의 SQL 문만 처리할 수 있다는 것이다. 이와 대조적으로 <code>executeSql</code>은 데이터를 반환할 것을 예상하지 않으며, 단일 SQL 문자열에서 복수의 SQL 문을 수용한다. </p>
+<p>몇가지 예시:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">querySql</span>(conn, <span class="st">&quot;SELECT TOP 3 * FROM person&quot;</span>)</code></pre></div>
+<pre><code>##   person_id gender_concept_id year_of_birth
+## 1         1              8507          1975
+## 2         2              8507          1976
+## 3         3              8507          1977</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">executeSql</span>(conn, <span class="st">&quot;TRUNCATE TABLE foo; DROP TABLE foo;&quot;</span>)</code></pre></div>
+<p>두 함수 모두 광범위한 오류보고 기능을 제공한다: 서버에서 오류가 발생하면 오류 메시지와 문제가 되는 SQL 부분이 텍스트 파일에 기록되어 더 나은 디버깅을 돕는다. 기본적으로 <code>executeSql</code> 함수도 실행 된 SQL 문의 백분율을 나타내는 진행 표시 줄을 보여준다. 이러한 속성이 필요하지 않은 경우 패키지는 <code>lowLevelQuerySql</code>과 <code>lowLevelExecuteSql</code> 함수도 제공한다.</p>
+</div>
+<div id="ffdf---" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Ffdf 객체를 사용하여 질의하기</h3>
+<p>데이터베이스에서 가져올 데이터가 너무 커서 종종 메모리에 들어갈 수 없는 경우도 있다. <a href="OhdsiAnalyticsTools.html#BigDataSupport">8.4.2</a>절에서 언급했듯이, 그러한 경우 <code>ff</code> 패키지를 사용하여 R 데이터 객체를 디스크에 저장하고 메모리에서 사용하듯이 사용할 수 있다. <code>DatabaseConnector</code>는 객체에 데이터를 직접 다운로드할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">querySql.ffdf</span>(conn, <span class="st">&quot;SELECT * FROM person&quot;</span>)</code></pre></div>
+<p>x는 이제 ffdf 객체이다.</p>
+</div>
+<div id="-sql----" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> 같은 SQL을 사용하여 다른 플랫폼 질의하기</h3>
+<p>SqlRender 패키지의 <code>render</code> 및 <code>translate</code> 함수를 먼저 호출하는 다음과 같은 편의 함수를 사용할 수 있다: <code>renderTranslateExecuteSql</code>, <code>renderTranslateQuerySql</code>, <code>renderTranslateQuerySql.ffdf</code>. 예를 들면:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">renderTranslateQuerySql</span>(conn, 
+                             <span class="dt">sql =</span> <span class="st">&quot;SELECT TOP 10 * FROM @schema.person&quot;</span>,
+                             <span class="dt">schema =</span> <span class="st">&quot;cdm_synpuf&quot;</span>)</code></pre></div>
+<p>SQL Server 관련 ‘TOP 10’ 구문은 PostgreSQL에서 예를 들어 ‘LIMIT 10’으로 변환되며 SQL 매개변수 <code>@schema</code> 는 제공된 값 ‘cdm_synpuf’로 인스턴스화 되는 것에 주의해야한다.</p>
+</div>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">9.2.5</span> 테이블 삽입하기</h3>
+<p><code>executeSql</code> 함수를 사용하여 SQL 문을 전송하여 데이터베이스에 데이터를 삽입할 수도 있지만, <code>insertTable</code> 함수를 사용하는 것이 더 편리하고 빠르다 (일부 최적화로 인해):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(mtcars)
+<span class="kw">insertTable</span>(conn, <span class="st">&quot;mtcars&quot;</span>, mtcars, <span class="dt">createTable =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>이 예는 mtcars 데이터 프레임을 자동으로 서버의 ’mtcars’라는 테이블로 업로드하고 생성한다.</p>
+</div>
+</div>
+<div id="QueryTheCdm" class="section level2">
+<h2><span class="header-section-number">9.3</span> CDM 질의하기</h2>
+<p>다음 예시에서는 CDM이 적용된 데이터베이스를 질의하기 위해 OHDSI SQL을 사용한다. 이러한 쿼리는 CDM의 데이터를 찾을 수 있는 데이터베이스 스키마를 나타내기 위해 <code>@cdm</code>을 사용한다.</p>
+<p>데이터베이스에 얼마나 많은 사람이 있는지 질의하는 것부터 시작할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(*) <span class="kw">AS</span> person_count <span class="kw">FROM</span> @cdm.person;</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">PERSON_COUNT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">26299001</td>
+</tr>
+</tbody>
+</table>
+<p>그렇지 않으면 observation period의 평균에 관심이 있을 수도 있다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">AVG</span>(DATEDIFF(<span class="dt">DAY</span>, 
+                    observation_period_start_date, 
+                    observation_period_end_date) / <span class="fl">365.25</span>) <span class="kw">AS</span> num_years
+<span class="kw">FROM</span> @cdm.observation_period;</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">NUM_YEARS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1.980803</td>
+</tr>
+</tbody>
+</table>
+<p>테이블을 조인하여 추가 통계를 생성할 수 있다. 조인은 일반적으로 테이블의 특정 필드가 동일한 값을 갖도록 하여 여러 테이블의 필드를 결합한다. 예를 들어 두 테이블 모두 가지고 있는 PERSON_ID 필드로 PERSON 테이블과 OBSERVATION_PEROPD 테이블을 조인할 수 있다. 즉, 조인의 결과는 두 테이블의 모든 필드를 갖는 새로운 테이블과 같은 집합이지만, 모든 행에서 두 테이블의 PERSON_ID는 동일한 값을 가져야 한다. 예를 들어 PERSON 테이블의 YEAR_OF_BIRTH 필드와 함께 OBSERVATION_PERIOD 테이블의 OBSERVATION_PERIOD_END_DATE 필드를 사용하여 관찰 종료시 환자의 최고 나이를 계산할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">MAX</span>(<span class="dt">YEAR</span>(observation_period_end_date) -
+           year_of_birth) <span class="kw">AS</span> max_age
+<span class="kw">FROM</span> @cdm.person
+<span class="kw">INNER</span> <span class="kw">JOIN</span> @cdm.observation_period
+  <span class="kw">ON</span> person.person_id = observation_period.person_id;</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">MAX_AGE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">90</td>
+</tr>
+</tbody>
+</table>
+<p>관찰 시작 당시 연령 분포를 결정하려면 훨씬 더 복잡한 질의가 필요하다. 이 질의에서는 먼저 PERSON 테이블과 OBSERVATION_PERIOD을 조인하여 관찰 당시 연령을 계산한다. 또한 연령을 기준으로 이 조인된 집합의 순서를 정렬하고 order_nr로 저장한다. 이 조인의 결과를 여러 번 사용하고 싶기 때문에 “ages”라고 하는 common table expression (CTE) (<code>WITH ... AS</code>를 사용하여 정의된) 으로 정의한다. 즉, 연령을 기존 테이블인 것처럼 나타낼 수 있다. “ages”의 행 수를 세어 “n”을 생성하고 각 사분위수에 대해 order_nr이 분수 시간 “n,” 보다 작은 최소 연령을 찾는다. 예를 들어, 중앙값을 찾기 위해 <span class="math inline">\(order\_nr &lt; .50 * n\)</span>인 최소 연령을 사용한다. 최소 및 최대 연령은 별도로 계산된다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">WITH</span> ages
+<span class="kw">AS</span> (
+    <span class="kw">SELECT</span> age,
+        <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (
+            <span class="kw">ORDER</span> <span class="kw">BY</span> age
+            ) order_nr
+    <span class="kw">FROM</span> (
+        <span class="kw">SELECT</span> <span class="dt">YEAR</span>(observation_period_start_date) - year_of_birth <span class="kw">AS</span> age
+        <span class="kw">FROM</span> @cdm.person
+        <span class="kw">INNER</span> <span class="kw">JOIN</span> @cdm.observation_period
+            <span class="kw">ON</span> person.person_id = observation_period.person_id
+        ) age_computed
+    )
+<span class="kw">SELECT</span> <span class="fu">MIN</span>(age) <span class="kw">AS</span> min_age,
+    <span class="fu">MIN</span>(<span class="kw">CASE</span> 
+            <span class="kw">WHEN</span> order_nr &lt; .<span class="dv">25</span> * n
+                <span class="kw">THEN</span> <span class="dv">9999</span>
+            <span class="kw">ELSE</span> age
+            <span class="kw">END</span>) <span class="kw">AS</span> q25_age,
+    <span class="fu">MIN</span>(<span class="kw">CASE</span> 
+            <span class="kw">WHEN</span> order_nr &lt; .<span class="dv">50</span> * n
+                <span class="kw">THEN</span> <span class="dv">9999</span>
+            <span class="kw">ELSE</span> age
+            <span class="kw">END</span>) <span class="kw">AS</span> median_age,
+    <span class="fu">MIN</span>(<span class="kw">CASE</span> 
+            <span class="kw">WHEN</span> order_nr &lt; .<span class="dv">75</span> * n
+                <span class="kw">THEN</span> <span class="dv">9999</span>
+            <span class="kw">ELSE</span> age
+            <span class="kw">END</span>) <span class="kw">AS</span> q75_age,
+    <span class="fu">MAX</span>(age) <span class="kw">AS</span> max_age
+<span class="kw">FROM</span> ages
+<span class="kw">CROSS</span> <span class="kw">JOIN</span> (
+    <span class="kw">SELECT</span> <span class="fu">COUNT</span>(*) <span class="kw">AS</span> n
+    <span class="kw">FROM</span> ages
+    ) population_size;</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">MIN_AGE</th>
+<th align="right">Q25_AGE</th>
+<th align="right">MEDIAN_AGE</th>
+<th align="right">Q75_AGE</th>
+<th align="right">MAX_AGE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">17</td>
+<td align="right">34</td>
+<td align="right">90</td>
+</tr>
+</tbody>
+</table>
+<p>SQL을 사용하는 대신 R에서 더 복잡한 계산을 수행할 수도 있다. 예를 들어, 이 코드를 사용하여 동일한 결과를 얻을 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT YEAR(observation_period_start_date) -</span>
+<span class="st">               year_of_birth AS age</span>
+<span class="st">FROM @cdm.person</span>
+<span class="st">INNER JOIN @cdm.observation_period</span>
+<span class="st">  ON person.person_id = observation_period.person_id;&quot;</span>
+age &lt;-<span class="st"> </span><span class="kw">renderTranslateQuerySql</span>(conn, sql, <span class="dt">cdm =</span> <span class="st">&quot;cdm&quot;</span>)
+<span class="kw">quantile</span>(age[, <span class="dv">1</span>], <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##    0    6   17   34   90</code></pre>
+<p>서버에서 연령을 계산하고 모든 연령들을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지의 여부를 사례별로 결정해야 한다.</p>
+<p>질의는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> TOP <span class="dv">10</span> condition_source_value, 
+  <span class="fu">COUNT</span>(*) <span class="kw">AS</span> code_count
+<span class="kw">FROM</span> @cdm.condition_occurrence
+<span class="kw">GROUP</span> <span class="kw">BY</span> condition_source_value
+<span class="kw">ORDER</span> <span class="kw">BY</span> -COUNT(*);</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">CONDITION_SOURCE_VALUE</th>
+<th align="right">CODE_COUNT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4019</td>
+<td align="right">49094668</td>
+</tr>
+<tr class="even">
+<td align="right">25000</td>
+<td align="right">36149139</td>
+</tr>
+<tr class="odd">
+<td align="right">78099</td>
+<td align="right">28908399</td>
+</tr>
+<tr class="even">
+<td align="right">319</td>
+<td align="right">25798284</td>
+</tr>
+<tr class="odd">
+<td align="right">31401</td>
+<td align="right">22547122</td>
+</tr>
+<tr class="even">
+<td align="right">317</td>
+<td align="right">22453999</td>
+</tr>
+<tr class="odd">
+<td align="right">311</td>
+<td align="right">19626574</td>
+</tr>
+<tr class="even">
+<td align="right">496</td>
+<td align="right">19570098</td>
+</tr>
+<tr class="odd">
+<td align="right">I10</td>
+<td align="right">19453451</td>
+</tr>
+<tr class="even">
+<td align="right">3180</td>
+<td align="right">18973883</td>
+</tr>
+</tbody>
+</table>
+<p>여기서 CONDITION_OCCURRENCE 테이블의 행을 CONDITION_SOURCE_VALUE 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다.</p>
+</div>
+<div id="--vocabulary-" class="section level2">
+<h2><span class="header-section-number">9.4</span> 질의할 때 Vocabulary 사용하기</h2>
+<p>많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 concept ID들이 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 셀려고 할때, GENDER_CONCEPT_ID를 concept name으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(*) <span class="kw">AS</span> subject_count,
+  concept_name
+<span class="kw">FROM</span> @cdm.person
+<span class="kw">INNER</span> <span class="kw">JOIN</span> @cdm.concept
+  <span class="kw">ON</span> person.gender_concept_id = concept.concept_id
+<span class="kw">GROUP</span> <span class="kw">BY</span> concept_name;</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">SUBJECT_COUNT</th>
+<th align="right">CONCEPT_NAME</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">14927548</td>
+<td align="right">FEMALE</td>
+</tr>
+<tr class="even">
+<td align="right">11371453</td>
+<td align="right">MALE</td>
+</tr>
+</tbody>
+</table>
+<p>Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 <em>모든 하위 개념</em>을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(*) <span class="kw">AS</span> prescription_count
+<span class="kw">FROM</span> @cdm.drug_exposure
+<span class="kw">INNER</span> <span class="kw">JOIN</span> @cdm.concept_ancestor
+  <span class="kw">ON</span> drug_concept_id = descendant_concept_id
+<span class="kw">INNER</span> <span class="kw">JOIN</span> @cdm.concept ingredient
+  <span class="kw">ON</span> ancestor_concept_id = ingredient.concept_id
+<span class="kw">WHERE</span> <span class="fu">LOWER</span>(ingredient.concept_name) = <span class="st">&#39;ibuprofen&#39;</span>
+  <span class="kw">AND</span> ingredient.concept_class_id = <span class="st">&#39;Ingredient&#39;</span>
+  <span class="kw">AND</span> ingredient.standard_concept = <span class="st">&#39;S&#39;</span>;</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">PRESCRIPTION_COUNT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">26871214</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="querylibrary" class="section level2">
+<h2><span class="header-section-number">9.5</span> QueryLibrary</h2>
+
+<p>QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의들의 라이브러리이다. 그림 <a href="SqlAndR.html#fig:queryLibrary">9.2</a>에 표시된 응용 프로그램<a href="#fn48" class="footnoteRef" id="fnref48"><sup>48</sup></a> 및 R 패키지로 제공된다.<a href="#fn49" class="footnoteRef" id="fnref49"><sup>49</sup></a></p>
+<div class="figure" style="text-align: center"><span id="fig:queryLibrary"></span>
+<img src="images/SqlAndR/queryLibrary.png" alt="QueryLibrary: CDM에 대한 SQL 조회 라이브러리." width="100%" />
+<p class="caption">
+Figure 9.2: QueryLibrary: CDM에 대한 SQL 조회 라이브러리.
+</p>
+</div>
+<p>라이브러리의 목적은 새로운 사용자가 CDM에 질의하는 방법을 배우도록 돕는 것이다. 라이브러리의 질의는 OHDSI 커뮤니티에서 검토하고 승인하였다. 질의 라이브러리는 주로 교육 목적으로 사용되지만 숙련된 사용자에게 유용한 자원이기도 하다.</p>
+<p>QueryLibrary는 SqlRender를 사용하여 선택한 SQL 언어로 질의를 출력한다. 사용자는 CDM 데이터베이스 스키마, vocabulary 데이터베이스 스키마 (별도의 경우) 및 Oracle 임시 스키마 (필요한 경우) 를 지정할 수 있으므로 이러한 설정으로 질의가 자동으로 렌더링 된다.</p>
+</div>
+<div id="--" class="section level2">
+<h2><span class="header-section-number">9.6</span> 간단한 연구 구성하기</h2>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">9.6.1</span> 문제 정의</h3>
+<p>Angioedema(혈관 부종)은 ACE inhibitor(ACEi)의 잘 알려진 부작용이다. <span class="citation">(Slater et al. <a href="#ref-slater_1988">1988</a>)</span> ACEi 치료 첫 주에 혈관 부종의 발생률이 주당 3,000명의 환자당 1건인 것으로 추정하였다. 여기서 우리는 이 결론을 모방하고 연령과 성별에 따라 계층화한다. 간단하게 하기 위해서 우리는 하나의 ACEi: lisinopril에 중점을 둔다. 따라서 우리는 질문에 대답한다.</p>
+<blockquote>
+<p>Lisinopril 치료 개시 후 첫 주에 연령과 성별에 따라 계층화되는 혈관 부종의 비율은 얼마인가?</p>
+</blockquote>
+</div>
+<div id="section-9.6.2" class="section level3">
+<h3><span class="header-section-number">9.6.2</span> 노출</h3>
+<p>Exposure(노출)은 lisinopril에 대한 첫번째 노출로 정의한다. 먼저 이전에 lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365 일의 연속 관찰 기간이 필요하다.</p>
+</div>
+<div id="section-9.6.3" class="section level3">
+<h3><span class="header-section-number">9.6.3</span> 결과</h3>
+<p>입원 또는 응급실 방문 중 혈관 부종 진단 코드의 발생으로 혈관 부종을 정의한다.</p>
+</div>
+<div id="---time-at-risk" class="section level3">
+<h3><span class="header-section-number">9.6.4</span> 위험 노출 기간 (Time-at-risk)</h3>
+<p>환자가 일주일 동안 노출되었는지 여부와 관계없이 이 치료 시작 후 첫 주에 발생률을 계산한다.</p>
+</div>
+</div>
+<div id="sql-r---" class="section level2">
+<h2><span class="header-section-number">9.7</span> SQL과 R을 사용하여 연구 구현</h2>
+<p>OHDSI 툴 규약에 구속되지 않지만 동일한 원칙을 따르는 것은 도움이 된다. 이 경우 OHDSI 툴의 작동 방식과 유사하게 SQL을 사용하여 코호트 테이블을 채운다. 코호트 테이블은 CDM에 정의되어 있으며 사전 정의된 필드 집합도 있다. 먼저 쓰기 접근 권한이 있는 데이터베이스 스키마에 COHORT 테이블을 만들어야 하는데, 이는 CDM 형식으로 데이터를 저장하는 데이터베이스 스키마와 동일하지 않을 수 있다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DatabaseConnector)
+conn &lt;-<span class="st"> </span><span class="kw">connect</span>(<span class="dt">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,
+                <span class="dt">server =</span> <span class="st">&quot;localhost/postgres&quot;</span>,
+                <span class="dt">user =</span> <span class="st">&quot;joe&quot;</span>,
+                <span class="dt">password =</span> <span class="st">&quot;secret&quot;</span>)
+cdmDbSchema &lt;-<span class="st"> &quot;cdm&quot;</span>
+cohortDbSchema &lt;-<span class="st"> &quot;scratch&quot;</span>
+cohortTable &lt;-<span class="st"> &quot;my_cohorts&quot;</span>
+
+sql &lt;-<span class="st"> &quot;</span>
+<span class="st">CREATE TABLE @cohort_db_schema.@cohort_table (</span>
+<span class="st">  cohort_definition_id INT,</span>
+<span class="st">  cohort_start_date DATE,</span>
+<span class="st">  cohort_end_date DATE,</span>
+<span class="st">  subject_id BIGINT</span>
+<span class="st">);</span>
+<span class="st">&quot;</span>
+<span class="kw">renderTranslateExecuteSql</span>(conn, sql,
+                          <span class="dt">cohort_db_schema =</span> cohortDbSchema,
+                          <span class="dt">cohort_table =</span> cohortTable)</code></pre></div>
+<p>여기서는 데이터베이스 스키마 및 테이블 이름을 매개 변수화하여 다른 환경에 쉽게 적용할 수 있다. 결과는 데이터베이스 서버의 빈 테이블이다.</p>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">9.7.1</span> 노출 코호트</h3>
+<p>다음으로 노출 코호트를 만들어 COHORT 테이블에 삽입한다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
+<span class="st">INSERT INTO @cohort_db_schema.@cohort_table (</span>
+<span class="st">  cohort_definition_id,</span>
+<span class="st">  cohort_start_date,</span>
+<span class="st">  cohort_end_date,</span>
+<span class="st">  subject_id</span>
+<span class="st">)</span>
+<span class="st">SELECT 1 AS cohort_definition_id,</span>
+<span class="st">  cohort_start_date,</span>
+<span class="st">  cohort_end_date,</span>
+<span class="st">  subject_id</span>
+<span class="st">FROM (</span>
+<span class="st">  SELECT drug_era_start_date AS cohort_start_date,</span>
+<span class="st">    drug_era_end_date AS cohort_end_date,</span>
+<span class="st">    person_id AS subject_id</span>
+<span class="st">  FROM (</span>
+<span class="st">    SELECT drug_era_start_date,</span>
+<span class="st">      drug_era_end_date,</span>
+<span class="st">      person_id,</span>
+<span class="st">      ROW_NUMBER() OVER (</span>
+<span class="st">        PARTITION BY person_id</span>
+<span class="st">            ORDER BY drug_era_start_date</span>
+<span class="st">      ) order_nr</span>
+<span class="st">    FROM @cdm_db_schema.drug_era</span>
+<span class="st">    WHERE drug_concept_id = 1308216 -- Lisinopril</span>
+<span class="st">  ) ordered_exposures</span>
+<span class="st">  WHERE order_nr = 1</span>
+<span class="st">) first_era</span>
+<span class="st">INNER JOIN @cdm_db_schema.observation_period</span>
+<span class="st">  ON subject_id = person_id</span>
+<span class="st">    AND observation_period_start_date &lt; cohort_start_date</span>
+<span class="st">    AND observation_period_end_date &gt; cohort_start_date</span>
+<span class="st">WHERE DATEDIFF(DAY,</span>
+<span class="st">               observation_period_start_date,</span>
+<span class="st">               cohort_start_date) &gt;= 365;</span>
+<span class="st">&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, sql,
+                          <span class="dt">cohort_db_schema =</span> cohortDbSchema,
+                          <span class="dt">cohort_table =</span> cohortTable,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema)</code></pre></div>
+<p>여기에서는 DRUG_EXPOSURE 테이블에서 자동으로 파생되는 CDM의 표준 테이블인 DRUG ERA 테이블을 사용한다. DRUG ERA 테이블에는 성분 수준에서 연속 노출 기간이 포함되어 있다. 따라서 lisinopril을 검색할 수 있으며, 이는 lisinopril을 함유한 약물에 대한 모든 노출을 자동으로 식별한다. 사람당 첫 번째 약물 노출을 취한 다음 OBSERVATION_PERIOD 테이블과 조인하고 한 사람이 여러 관찰 기간을 가질 수 있으므로 약물 노출이 포함된 기간에만 조인해야 한다. 그런 다음 OBSERVATION_PERIOD_START_DATE와 COHORT_START_DATE 사이에 적어도 365일이 필요하다.</p>
+</div>
+<div id="outcome-" class="section level3">
+<h3><span class="header-section-number">9.7.2</span> Outcome(결과) 코호트</h3>
+<p>마지막으로, 우리는 outcome(결과) 코호트를 만들어야 한다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
+<span class="st">INSERT INTO @cohort_db_schema.@cohort_table (</span>
+<span class="st"> cohort_definition_id,</span>
+<span class="st"> cohort_start_date,</span>
+<span class="st"> cohort_end_date,</span>
+<span class="st">subject_id</span>
+<span class="st">)</span>
+<span class="st">SELECT 2 AS cohort_definition_id,</span>
+<span class="st">  cohort_start_date,</span>
+<span class="st">  cohort_end_date,</span>
+<span class="st">  subject_id</span>
+<span class="st">FROM (</span>
+<span class="st">  SELECT DISTINCT person_id AS subject_id,</span>
+<span class="st">    condition_start_date AS cohort_start_date,</span>
+<span class="st">    condition_end_date AS cohort_end_date</span>
+<span class="st">  FROM @cdm_db_schema.condition_occurrence</span>
+<span class="st">  INNER JOIN @cdm_db_schema.concept_ancestor</span>
+<span class="st">    ON condition_concept_id = descendant_concept_id</span>
+<span class="st">  WHERE ancestor_concept_id = 432791 -- Angioedema</span>
+<span class="st">) distinct_occurrence</span>
+<span class="st">INNER JOIN @cdm_db_schema.visit_occurrence</span>
+<span class="st">  ON subject_id = person_id</span>
+<span class="st">  AND visit_start_date &lt;= cohort_start_date</span>
+<span class="st">  AND visit_end_date &gt;= cohort_start_date</span>
+<span class="st">WHERE visit_concept_id IN (262, 9203,</span>
+<span class="st">    9201) -- Inpatient or ER;</span>
+<span class="st">&quot;</span>
+
+<span class="kw">renderTranslateExecuteSql</span>(conn, sql,
+                          <span class="dt">cohort_db_schema =</span> cohortDbSchema,
+                          <span class="dt">cohort_table =</span> cohortTable,
+                          <span class="dt">cdm_db_schema =</span> cdmDbSchema)</code></pre></div>
+<p>CONDITION OCCURRECE 테이블과 CONCEPT ANCESTOR 테이블을 조인하여 모든 혈관 부종과 그 자손을 찾는다. 같은 날에 여러 혈관 부종의 진단이 여러 혈관 부종 발생이 아닌 동일한 사건일 가능성이 높기 때문에 DISTINCT를 사용하여 하루에 하나의 행만 선택하도록 한다. 이러한 발생을 VISIT_OCCURRENCE 테이블과 조인하여 입원이나 응급실 환경에서 진단되었는지 확인한다.</p>
+</div>
+<div id="-" class="section level3">
+<h3><span class="header-section-number">9.7.3</span> 발생률 계산</h3>
+<p>코호트가 준비되었으므로 연령과 성별에 따라 계층화되는 발생률을 계산할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
+<span class="st">WITH tar AS (</span>
+<span class="st">  SELECT concept_name AS gender,</span>
+<span class="st">    FLOOR((YEAR(cohort_start_date) -</span>
+<span class="st">          year_of_birth) / 10) AS age,</span>
+<span class="st">    subject_id,</span>
+<span class="st">    cohort_start_date,</span>
+<span class="st">    CASE WHEN DATEADD(DAY, 7, cohort_start_date) &gt;</span>
+<span class="st">      observation_period_end_date</span>
+<span class="st">    THEN observation_period_end_date</span>
+<span class="st">    ELSE DATEADD(DAY, 7, cohort_start_date)</span>
+<span class="st">    END AS cohort_end_date</span>
+<span class="st">  FROM @cohort_db_schema.@cohort_table</span>
+<span class="st">  INNER JOIN @cdm_db_schema.observation_period</span>
+<span class="st">    ON subject_id = observation_period.person_id</span>
+<span class="st">      AND observation_period_start_date &lt; cohort_start_date</span>
+<span class="st">      AND observation_period_end_date &gt; cohort_start_date</span>
+<span class="st">  INNER JOIN @cdm_db_schema.person</span>
+<span class="st">    ON subject_id = person.person_id</span>
+<span class="st">  INNER JOIN @cdm_db_schema.concept</span>
+<span class="st">    ON gender_concept_id = concept_id</span>
+<span class="st">  WHERE cohort_definition_id = 1 -- Exposure</span>
+<span class="st">)</span>
+<span class="st">SELECT days.gender,</span>
+<span class="st">    days.age,</span>
+<span class="st">    days,</span>
+<span class="st">    CASE WHEN events IS NULL THEN 0 ELSE events END AS events</span>
+<span class="st">FROM (</span>
+<span class="st">  SELECT gender,</span>
+<span class="st">    age,</span>
+<span class="st">    SUM(DATEDIFF(DAY, cohort_start_date,</span>
+<span class="st">      cohort_end_date)) AS days</span>
+<span class="st">  FROM tar</span>
+<span class="st">  GROUP BY gender,</span>
+<span class="st">    age</span>
+<span class="st">) days</span>
+<span class="st">LEFT JOIN (</span>
+<span class="st">  SELECT gender,</span>
+<span class="st">      age,</span>
+<span class="st">      COUNT(*) AS events</span>
+<span class="st">  FROM tar</span>
+<span class="st">  INNER JOIN @cohort_db_schema.@cohort_table angioedema</span>
+<span class="st">    ON tar.subject_id = angioedema.subject_id</span>
+<span class="st">      AND tar.cohort_start_date &lt;= angioedema.cohort_start_date</span>
+<span class="st">      AND tar.cohort_end_date &gt;= angioedema.cohort_start_date</span>
+<span class="st">  WHERE cohort_definition_id = 2 -- Outcome</span>
+<span class="st">  GROUP BY gender,</span>
+<span class="st">    age</span>
+<span class="st">) events</span>
+<span class="st">ON days.gender = events.gender</span>
+<span class="st">  AND days.age = events.age;</span>
+<span class="st">&quot;</span>
+
+results &lt;-<span class="st"> </span><span class="kw">renderTranslateQuerySql</span>(conn, sql,
+                                   <span class="dt">cohort_db_schema =</span> cohortDbSchema,
+                                   <span class="dt">cohort_table =</span> cohortTable,
+                                   <span class="dt">cdm_db_schema =</span> cdmDbSchema,
+                                   <span class="dt">snakeCaseToCamelCase =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>우선 적절한 위험 노출 기간(time-at-risk)으로 모든 노출을 포함하는 CTE인 “tar”를 만든다. OBSERVATION_PERIOD_END_DATE에서 위험 관찰 기간을 단축한다는 점에 유의한다. 또한 10년 단위로 나이를 계산하고 성별을 파악한다. CTE를 사용하면 동일한 중간 결과 집합을 질의에서 여러 번 사용할 수 있다는 장점이 있다. 이 경우 위험 관찰 기간 동안 발생하는 혈관 부종 사건의 수와 총 위험 관찰 기간의 양을 계산하는 데 사용된다.</p>
+<p>SQL에서는 필드 이름에 snake_case(대소문자를 구분하지 않는)를 사용하는 반면 R에서는 camelCase(대소문자를 구분하는)를 사용하는 경향이 있기 때문 <code>snakeCaseToCamelCase = TRUE</code>로 한다. <code>results</code> 데이터 프레임 열 이름은 이제 camelCase이다.</p>
+<p>ggplot 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시할 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compute incidence rate (IR) :</span>
+results<span class="op">$</span>ir &lt;-<span class="st"> </span><span class="dv">1000</span> <span class="op">*</span><span class="st"> </span>results<span class="op">$</span>events <span class="op">/</span><span class="st"> </span>results<span class="op">$</span>days <span class="op">/</span><span class="st"> </span><span class="dv">7</span>
+
+<span class="co"># Fix age scale:</span>
+results<span class="op">$</span>age &lt;-<span class="st"> </span>results<span class="op">$</span>age <span class="op">*</span><span class="st"> </span><span class="dv">10</span>
+
+<span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(results, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> ir, <span class="dt">group =</span> gender, <span class="dt">color =</span> gender)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Age&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Incidence (per 1,000 patient weeks)&quot;</span>)</code></pre></div>
+<p><img src="images/SqlAndR/ir.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-9.7.4" class="section level3">
+<h3><span class="header-section-number">9.7.4</span> 마무리하기</h3>
+<p>생성한 테이블을 정리하고 연결을 닫는 것을 잊지 마십시오:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;</span>
+<span class="st">TRUNCATE TABLE @cohort_db_schema.@cohort_table;</span>
+<span class="st">DROP TABLE @cohort_db_schema.@cohort_table;</span>
+<span class="st">&quot;</span>
+<span class="kw">renderTranslateExecuteSql</span>(conn, sql,
+                          <span class="dt">cohort_db_schema =</span> cohortDbSchema,
+                          <span class="dt">cohort_table =</span> cohortTable)
+
+<span class="kw">disconnect</span>(conn)</code></pre></div>
+</div>
+<div id="section-9.7.5" class="section level3">
+<h3><span class="header-section-number">9.7.5</span> 호환성</h3>
+<p>OHDSI SQL을 DatabaseConnector 및 SQLRender와 함께 사용하기 때문에 여기서 검토한 코드는 OHDSI가 지원하는 모든 데이터베이스 플랫폼에서 실행된다.</p>
+<p>시연 목적으로 수작업으로 만든 SQL을 사용하여 코호트를 만들기로 했다는 점에 유의하십시오. ATLAS에서 코호트 정의를 구성하고 ATALS에서 생성된 SQL을 사용하여 코호트를 인스턴스화 하는 것이 더 편리했을 것이다. ATLAS는 또한 OHDSI SQL을 생성하였고, 따라서 SqlRender 및 DatabaseConnector와 함께 쉽게 사용할 수 있다.</p>
+</div>
+</div>
+<div id="-7" class="section level2">
+<h2><span class="header-section-number">9.8</span> 요약</h2>
+
+<div class="rmdsummary">
+<ul>
+<li><p><strong>SQL</strong>은 공통 데이터 모델을 따르는 데이터베이스를 포함하여 데이터베이스를 조회하기 위한 표준 언어이다.</p></li>
+<li><p>데이터베이스 플랫폼마다 SQL 언어가 다르며 이를 질의하기 위해서는 다른 툴이 필요하다.</p></li>
+<li><p><strong>SqlRender</strong> 및 <strong>DatabaseConnector</strong> R 패키지는 CDM에서 데이터를 질의하는 통합된 방법을 제공하므로 동일한 분석 코드를 수정없이 다른 환경에서 실행할 수 있다.</p></li>
+<li><p>R과 SQL을 함께 사용하면 OHDSI 툴에서 지원하지 않는 사용자 맞춤 분석 연구를 구현할 수 있다.</p></li>
+<li><strong>QueryLibrary</strong> 는 CDM에 재사용 가능한 SQL 질의 모음을 제공한다.</li>
+</ul>
+</div>
+
+</div>
+<div id="-3" class="section level2">
+<h2><span class="header-section-number">9.9</span> 예제</h2>
+<div id="-1" class="section level4 unnumbered">
+<h4>전제조건</h4>
+<p>이 연습문제에서는 <a href="OhdsiAnalyticsTools.html#installR">8.4.5</a>절에서 설명된 대로 R, R-Studio, Java가 설치되었다고 가정한다. 또한 다음을 사용하여 설치할 수 있는 <a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>, <a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a> 및 <a href="https://ohdsi.github.io/Eunomia/">Eunomia</a> 패키지도 필요하다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;devtools&quot;</span>))
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="dt">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</code></pre></div>
+<p>Eunomia 패키지는 로컬 R 세션 내에서 실행될 CDM의 시뮬레이션된 다른 데이터 세트를 제공한다. 연결 세부 사항은 다음을 사용하여 얻을 수 있다:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">connectionDetails &lt;-<span class="st"> </span>Eunomia<span class="op">::</span><span class="kw">getEunomiaConnectionDetails</span>()</code></pre></div>
+<p>CDM 데이터베이스 스키마는 “main”이다.</p>
+
+<div class="exercise">
+<p><span id="exr:exercisePeopleCount" class="exercise"><strong>Exercise 9.1  </strong></span>SQL과 R을 사용하여 데이터베이스에 몇 사람이 있는지 계산하십시오.</p>
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:exerciseCelecoxibUsers" class="exercise"><strong>Exercise 9.2  </strong></span>SQL과 R을 사용하여 celecoxib를 적어도 한번 이상 처방 한 사람을 계산하십시오.</p>
+</div>
+ 
+<div class="exercise">
+<p><span id="exr:exerciseGiBleedsDuringCelecoxib" class="exercise"><strong>Exercise 9.3  </strong></span>SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈(gastrointestinal hemorrhage)이 있는지 진단한다. (힌트: 위장 출혈의 concept ID는 <a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a>이다.)</p>
+</div>
+
+<p>제안된 답변은 부록 <a href="SuggestedAnswers.html#SqlAndRanswers">E.5</a>에서 찾을 수 있다.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-slater_1988">
+<p>Slater, Eve E., Debora D. Merrill, Harry A. Guess, Peter J. Roylance, Warren D. Cooper, William H. W. Inman, and Pamela W. Ewan. 1988. “Clinical Profile of Angioedema Associated With Angiotensin Converting-Enzyme Inhibition.” <em>JAMA</em> 260 (7): 967–70. doi:<a href="https://doi.org/10.1001/jama.1988.03410070095035">10.1001/jama.1988.03410070095035</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="47">
+<li id="fn47"><p><a href="http://data.ohdsi.org/SqlDeveloper/" class="uri">http://data.ohdsi.org/SqlDeveloper/</a><a href="SqlAndR.html#fnref47">↩</a></p></li>
+<li id="fn48"><p><a href="http://data.ohdsi.org/QueryLibrary" class="uri">http://data.ohdsi.org/QueryLibrary</a><a href="SqlAndR.html#fnref48">↩</a></p></li>
+<li id="fn49"><p><a href="https://github.com/OHDSI/QueryLibrary" class="uri">https://github.com/OHDSI/QueryLibrary</a><a href="SqlAndR.html#fnref49">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="OhdsiAnalyticsTools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Cohorts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/OHDSI/TheBookOfOhdsi/edit/master/SqlAndR.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsiKorea.pdf", "TheBookOfOhdsiKorea.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
