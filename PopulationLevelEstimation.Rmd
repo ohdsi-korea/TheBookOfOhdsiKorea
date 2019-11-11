@@ -11,7 +11,7 @@
 
 두 가지의 경우에서, 인구 수준의 효과는 사실적 효과와 대조된다. 다시 말하면, 반 사실적인 결과를 가진 노출된 환자에게 무슨 일이 일어났는가? 다시 말하면 노출이 일어나지 않았다면 (직접적) 혹은 다른 노출이 일어났다면 (상대적) 무슨 일이 일어났을까? 어떤 환자라도 하나의 사실적인 결과만 노출하기 때문에 (인과 추론의 근본적인 문제), 다양한 효과 추정 설계는 다른 분석 장치를 사용하여 반 사실적인 결과를 조명한다. \index{counterfactual}
 
-인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 signal evaluation) 하거나 다중 가설을 한 번에 탐색 (예를 들어 signal detection) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
+인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 실마리정보 평가(signal evaluation)) 하거나 다중 가설을 한 번에 탐색 (예를 들어 실마리정보 검색(signal detection)) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
 
 이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **Population-Level Estimation** study design를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다.
 마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
@@ -20,7 +20,7 @@
 
 \index{cohort method}
 
-```{r cohortMethod, fig.cap='대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여 (weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델 (Propensity model) 또는 결과 모델 (Outcome model)에 포함된 특징은 치료 시작 전에 결정된다.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r cohortMethod, fig.cap='대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여(weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델(propensity model) 또는 결과 모델 (outcome model)에 포함된 특징은 치료 시작 전에 결정된다.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 ```
 
@@ -36,7 +36,7 @@ Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
 | Time-at-risk      | At what time (often relative to the target and comparator cohort start and end dates) do we consider the risk of the outcome?  |
 | Model             | The model used to estimate the effect while adjusting for differences between the target and comparator  |
 
-모델 선택은 모델 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비(odds ratio)를 산출하는 로지스틱 회귀분석(logistic regression)을 사용할 수 있다. 로지스틱 회귀분석은 time-at-risk가 target과 comparator 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석(poisson regression)을 선택할 수 있는데, 이는 일정한 발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)을 추정한다. 콕스 회귀분석(cox regression)을 종종 사용하기도 하는데, 이는 target과 comparator 사이의 비례 위험(proportional hazard)을 가정하며, 위험 비율(hazard ratio)을 추정하려고 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
+모델 선택은 모델 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비(odds ratio)를 산출하는 로지스틱 회귀분석(logistic regression)을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간이 표적과 comparator 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석(poisson regression)을 선택할 수 있는데, 이는 일정한 발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)을 추정한다. 콕스 회귀분석(cox regression)을 종종 사용하기도 하는데, 이는 target과 comparator 사이의 비례 위험(proportional hazard)을 가정하며, 위험 비율(hazard ratio)을 추정하려고 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
 
 ```{block2, type='rmdimportant'}
 New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출 군을 정의하기 힘들어 치료와 비 치료를 비교하기 위해 이 방법을 사용하긴 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지 않을, 동일한 적응증이 적용되는 비교 대상을 관심 노출 군(exposure of interest)으로 선택하는 방법이 선호된다. 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.
@@ -50,7 +50,7 @@ New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 �
 
 무작위 시험(randomized trial)에서 (가상의) 동전 던지기는 환자를 각각의 그룹에 배정한다. 따라서, 설계상 비교 치료군과 비교하여 환자가 대상치료를 받을 확률은 어떤 식으로든 나이가 같은 환자의 특성과 관련이 없다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될 정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가 증가함에 따라 신뢰도가 증가해 두 환자군은 본질에서 **어떠한** 환자 특성이라도 **다를 수 없다**. 이 보장된 균형은 무작위 시험이 측정한 특성 (예를 들어 나이) 과 유전적 특성과 같이 무작위 시험이 측정하지 못한 특성에 적용된다. \index{randomized trial}
 
-주어진 환자의 **성향 점수(Propensity score, PS)** 는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다. [@rosenbaum_1983] 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가 실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한 모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각 환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를 들어, target 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교 대상을 허용할 수 있다. [@rassen_2012] \index{propensity model} \index{propensity score!matching} \index{propensity score!stratification} \index{propensity score!weighting} \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}} \index{variable ratio matching}
+주어진 환자의 **성향 점수(Propensity score, PS)** 는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다. [@rosenbaum_1983] 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가 실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한 모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각 환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를 들어, 표적 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교 대상을 허용할 수 있다. [@rassen_2012] \index{propensity model} \index{propensity score!matching} \index{propensity score!stratification} \index{propensity score!weighting} \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}} \index{variable ratio matching}
 
 예를 들어 one-on-one PS 매칭을 사용한다고 가정해보자. Jan이라는 환자가 대상 치료를 받을 선험 확률(priori probability)이 0.4이고, 실제로 대상 치료(target treatment)를 받고, Jun이라고 하는 또 다른 환자는 대상 치료를 받을 선험 확률이 0.4이지만, 사실상 대조 치료(comparator treatment)를 받았다면, 적어도 측정된 교란변수에 대해 Jan과 Jun의 outcome 비교는 작은 무작위 시험과 같다. 이 비교는 Jan과 Jun의 인과적인 대조를 무작위 시험으로 산출한 결과만큼 양호하게 추정할 것이다. 추정은 다음과 같이 진행된다: 대상치료를 받은 모든 환자에 대해, 대조 치료를 받았지만, 표적을 받는 선험적 확률이 동일한 하나 이상의 일치하는 환자를 찾는다. 그들의 짝지어진 환자군(matched group) 안에서 대상 환자(target group)의 결과와 비교 그룹(comparator group)의 결과를 비교한다.
 
@@ -58,7 +58,7 @@ New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 �
 
 ### 변수 선택 {#VariableSelection}
 
-이전에 성향 점수는 연구자가 임의로 선택된 특성(manually selected characteristics)을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성) 을 포함하는 것을 선호한다. [@tian_2018] 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 독특한 특성을 포함하며, 이러한 모델은 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지에서 구현되는 large-scale regularized regression [@suchard_2013]을 사용하여 적합화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
+이전에 성향 점수는 연구자가 임의로 선택된 특성(manually selected characteristics)을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성) 을 포함하는 것을 선호한다. [@tian_2018] 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 독특한 특성을 포함하며, 이러한 모델은 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지에서 구현되는 large-scale regularized regression [@suchard_2013] 을 사용하여 적합화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
 
 ```{block2, type='rmdimportant'}
 치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 해당 날짜에 기록되기 때문에 일반적으로 공변량을 정의할 때 치료 개시일의 변수를 포함한다. 이 날에 연구의 주제가 되는 대상 치료(target treatment)와 대조 치료(comparator treatment) 자체도 기록되는데, 이러한 치료는 우리가 예측하려는 바로 그것이기 때문에 성향 모델에 포함해서는 안 된다. 따라서 공변량 집합에서 대상 치료와 대조치료는 **반드시 제외해야 한다**.
@@ -364,7 +364,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/timeAtRisk.png")
 
 #### 성향 점수 조정 {-}
 
-극단적인 성향 점수를 갖는 피험자들을 제거하여, 연구 대상을 **트리밍(trimming)**할 수 있다. 상위 또는 하위 비율을 제거하도록 선택하거나, 선호도 점수(preference score)가 지정된 범위를 벗어나는 피험자를 제거할 수 있다. 코호트 트리밍은 관측치를 제거하여 통계력(statistical power)을 감소시키기 때문에 일반적으로 권장되지는 않는다. IPTW를 사용할 때처럼 경우에 따라서는 트리밍을 하는 것이 바람직할 수 있다. \index{propensity score!trimming}
+극단적인 성향 점수를 갖는 피험자들을 제거하여, 연구 대상을 **트리밍(trimming)**할 수 있다. 상위 또는 하위 비율을 제거하도록 선택하거나, 선호도 점수(preference score)가 지정된 범위를 벗어나는 피험자를 제거할 수 있다. 코호트 트리밍은 관측치를 제거하여 통계적 검정력을 감소시키기 때문에 일반적으로 권장되지는 않는다. IPTW를 사용할 때처럼 경우에 따라서는 트리밍을 하는 것이 바람직할 수 있다. \index{propensity score!trimming}
 
 트리밍에 추가하여, 또는 트리밍 대신에, 성향 점수를 이용해 **계층화(stratification)**하거나 **짝짓기(matching)**하도록 선택할 수 있다. 계층화할 때, **계층의 수(number of strata)**를 지정하고, 대상 군, 대조군, 또는 전체 연구 집단을 기준으로 계층을 선택할지 여부를 지정해야 한다. 성향 점수 짝짓기 시, 대상 군의 각 피험자와 일치시키기 위한 대조군에서의 **최대 피험자 수 비율(maximum number of people from the comparator group to match to each person in the target group)**를 지정하여야 한다. 일반적인 값은 one-on-one matching의 경우 1, variable-ratio matching의 경우 다수 (예를 들어 100) 이다. 또한, 매칭을 허용하는 성향 점수 사이의 최대 허용 차이를 뜻하는 **캘리퍼(caliper)**를 지정해야 한다: 캘리퍼는 다음과 같이 서로 다른 **캘리퍼 척도(caliper scales)**로 정의할 수 있다: \index{caliper!scale}
 
@@ -388,7 +388,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/psSettings.png")
 
 #### 결과 모델 설정 {-}
 
-먼저, 대상 코호트와 대조 코호트 간 **outcome의 상대적 위험(relative risk)을 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.** \@ref(CohortMethod)절에서 간략히 논의했던 것처럼, Cox, Poisson 및 logistic regression 중에서 선택할 수 있다. 예제에서는 Cox proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째 사건까지의 시간(time to first event)을 고려한다. 다음으로, **회귀분석에 층화 조건을 사용해야 할지(whether the regression should be conditioned on the strata)**를 명시할 필요가 있다. 쉽게 말하자면, 조건화(conditioning)는 별도의 추정치가 각 층(strata)에서 생성된 다음, 층에 걸쳐 추정치가 결합한 것으로 생각할 수 있다. One-to-one PS matching에서는 이러한 과정이 불필요할 것이며, 통계력(statistical power)감소를 유발할 것이다. 조건화는 층화(stratification) 또는 variable-ratio matching을 위해서 필요하다. \index{conditioned model} \index{stratified model|see {conditioned model}}
+먼저, 대상 코호트와 대조 코호트 간 **outcome의 상대적 위험(relative risk)을 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.** \@ref(CohortMethod)절에서 간략히 논의했던 것처럼, 콕스(Cox), 포아송(Poisson) 및 로지스틱 회귀분석 중에서 선택할 수 있다. 예제에서는 Cox proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째 사건까지의 시간(time to first event)을 고려한다. 다음으로, **회귀분석에 층화 조건을 사용해야 할지(whether the regression should be conditioned on the strata)**를 명시할 필요가 있다. 쉽게 말하자면, 조건화(conditioning)는 별도의 추정치가 각 층(strata)에서 생성된 다음, 층에 걸쳐 추정치가 결합한 것으로 생각할 수 있다. One-to-one PS matching에서는 이러한 과정이 불필요할 것이며, 통계적 검정력 감소를 유발할 것이다. 조건화는 층화(stratification) 또는 variable-ratio matching을 위해서 필요하다. \index{conditioned model} \index{stratified model|see {conditioned model}}
 
 분석을 보정하기 위해 **결과 모델(outcome model)에 공변량을 추가** 할 수도 있다. 이것을 성향 점수 모델 사용에 추가하거나 성향 점수 짝짓기 대신에 수행할 수 있다. 하지만 보통 성향 점수 모델을 적합하기에는 충분한 수의 데이터가 있지만, 결과 모델을 적합하기에는 outcome이 발생한 피험자가 적어 데이터가 모자라는 경우가 많다. 그래서 공변량을 결과 모델에 추가하지 말고, 결과 모델을 가급적 간단하게 유지하기를 권장한다.
 
@@ -725,7 +725,7 @@ result <- runCmAnalyses(connectionDetails = connectionDetails,
                         targetComparatorOutcomesList = tcosList)
 ```
 
-`result` object에는 작성된 모든 artifact에 대한 참조가 들어 있다. 예를 들어, 급성 심근경색의 outcome 모델을 추출할 수 있다.
+`result` object에는 작성된 모든 artifact에 대한 참조가 들어 있다. 예를 들어, 급성 심근경색의 결과 모델을 추출할 수 있다.
 
 ```{r tidy=FALSE,eval=FALSE}
 omFile <- result$outcomeModelFile[result$targetId == 1 &
@@ -802,15 +802,15 @@ Table: (\#tab:psModel) Top 10 predictors in the propensity model for ACEi and TH
 knitr::include_graphics("images/PopulationLevelEstimation/balance.png")
 ```
 
-### 추적기간과 통계력
+### 추적기간과 검정력
 
-Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 통계력(power)이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 통계력 계산을 수행하는 것이 좋다. 그림 \@ref(fig:attrition)과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
+결과 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 검정력이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 검정력 계산을 수행하는 것이 좋다. 그림 \@ref(fig:attrition)과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
 
-```{r attrition, fig.cap='Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 Cox 회귀 분석이다.',echo=FALSE, out.width='70%', fig.align='center'}
+```{r attrition, fig.cap='Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 콕스 회귀 분석이다.',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/attrition.png")
 ```
 
-후향적 연구에서 표본 크기가 고정되어 있고 (데이터가 이미 수집된 상태이므로), 실제 효과 크기를 알 수 없으므로, 예상 효과 크기에 대한 통계력(power)를 계산하는 것은 의미가 없다. 대신 CohortMethod 패키지는 `computeMdrr` 함수를 제공하여 MDRR(minimum detectable relative risk)을 계산한다. 이 사례에서 MDRR은 1.69이다. \index{minimum detectable relative risk (MDRR)} \index{power}
+후향적 연구에서 표본 크기가 고정되어 있고 (데이터가 이미 수집된 상태이므로), 실제 효과 크기를 알 수 없으므로, 예상 효과 크기에 대한 검정력을 계산하는 것은 의미가 없다. 대신 CohortMethod 패키지는 `computeMdrr` 함수를 제공하여 MDRR(minimum detectable relative risk)을 계산한다. 이 사례에서 MDRR은 1.69이다. \index{minimum detectable relative risk (MDRR)} \index{power}
 
 추적 기간(follow-up) 데이터를 더 잘 이해하기 위해서는 추적 기간의 분포도 검사할 수 있다. 추적 기간을 위험 노출 기간(time at risk)으로 정의했으므로 outcome 발생으로 인해서는 중도 절단되지 않는다. `getFollowUpDistribution` 그림 \@ref(fig:followUp)과 같은 간단한 개괄을 제공한다. 이는 두 코호트의 follow-up time이 비슷하다는 것을 의미한다.
 
