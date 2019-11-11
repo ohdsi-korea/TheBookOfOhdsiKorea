@@ -140,9 +140,9 @@ knitr::kable(packageVersions, col.names = c("Package", "Version"), row.names = F
 | 아주대학교   | 조재형 |
 | 성균관대학교 | 차원철 |
 
-## 한국판에 부쳐 {-}
+## 한국판 번역에 부쳐 {-}
 
-*Martijn Schumie, David Madigan
+*Martijn Schumie, David Madigan*
 
 한국 오딧세이(Korean Chapter of OHDSI)는 유전체 및 방사선 자료 등을 위한 공통 데이터 모델(CDM, common data model)의 확장, 새로운 OHDSI 소프트웨어 개발 및 OHDSI 기반 주요 임상 연구에 걸치는 OHDSI의 다양한 분야에 혁혁한 공헌을 해왔다. CDM의 광범위한 채택으로 인해 한국은 전국 규모의 탄탄한 분산연구망을 구축하였다. 한국의 OHDSI 연구자들은 OHDSI 코리아 심포지엄을 조직하여 전세계의 연구자들을 한국으로 초대할 뿐 아니라, 미국, 유럽, 아시아 각국의 OHDSI 심포지엄에도 열성적으로 참여하고 있다. 우리는 OHDSI의 공동체 정신을 한국에서 생생하게 느낄 수 있다. 
 
