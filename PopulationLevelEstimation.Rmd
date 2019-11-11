@@ -20,7 +20,7 @@
 
 \index{cohort method}
 
-```{r cohortMethod, fig.cap='대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여(weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델(propensity model) 또는 결과 모델 (outcome model)에 포함된 특징은 치료 시작 전에 결정된다.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r cohortMethod, fig.cap='대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여(weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델(propensity model) 또는 결과 모델(outcome model)에 포함된 특징은 치료 시작 전에 결정된다.',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 ```
 
