@@ -12,7 +12,7 @@
 
 이러한 표준은 공통 데이터 모델(Common Data Model, CDM)에 의해 제공된다. CDM은 표준화된 내용을 기반으로 (\@ref(StandardizedVocabularies)장 참조) 연구 방법들이 효과적으로 비교 가능하고 재현 가능한 결과를 얻을 수 있게 체계적으로 활용되게 한다. 이 장에서는 데이터 모델을 비롯한 디자인, 규칙 및 테이블 선택에 대한 논의를 제공하고자 한다.
 
-CDM내의 모든 테이블에 대한 개요는 Figure \@ref(fig:cdmDiagram) \index{Common Data Model!data model diagram}에서 살펴볼 수 있다. 
+CDM내의 모든 테이블에 대한 개요는 그림 \@ref(fig:cdmDiagram) \index{Common Data Model!data model diagram}에서 살펴볼 수 있다. 
 
 ```{r cdmDiagram, fig.cap="CDM 6.0 버전의 모든 테이블에 대한 개요. 테이블 간의 모든 관계가 표시된 것은 아님.",echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/CommonDataModel/cdmDiagram.png")
@@ -61,7 +61,7 @@ CDM은 플랫폼에 비의존적이다. 데이터 유형은 일반적으로 ANSI
 
 ### 도메인의 일반적인 규칙{#domains}
 
-서로 다른 성격의 사건들은 도메인 별로 정리되어 있다. 이러한 사건들은 도메인별로 테이블과 필드에 저장되고, 표준화된 어휘에 정의되어 있는 대로 도메인별 표준 Concept으로 표현된다 (\@ref(conceptDomains) 참조). 각 표준 Concept에 고유한 도메인이 할당되는데, 이는 어떤 테이블에 기록되어야 하는지를 정의한다. 정확한 도메인 할당은 커뮤니티내에서 항상 논의의 대상이 되지만, 엄격한 도메인-테이블-필드간 대응 규칙은 어떠한 코드나 Concept에 대해서도 항상 정확성을 보장한다. 예를 들어, 증상 및 진단 Concept은 Condition 도메인에 속하며 Condition_OCCURRENCE 테이블의CONDITION_CONCEP_ID로 기록된다. 소위 말하는 시술시 사용되는 약품은 일반적으로 원천 데이터에서는 Procedure 테이블에 Procedure 코드로 기록되지만, CDM에서는 이러한 정보는 매핑된 표준 Concept이 약물 도메인에 할당 되어있기 때문에 DRUG_EXPOSURE 테이블에 저장한다. 표 \@ref(tab:domains)과 같이 총 30개의 도메인이 있다.
+서로 다른 성격의 사건들은 도메인 별로 정리되어 있다. 이러한 사건들은 도메인별로 테이블과 필드에 저장되고, 표준화된 어휘에 정의되어 있는 대로 도메인별 표준 Concept으로 표현된다 (\@ref(conceptDomains)절 참조). 각 표준 Concept에 고유한 도메인이 할당되는데, 이는 어떤 테이블에 기록되어야 하는지를 정의한다. 정확한 도메인 할당은 커뮤니티내에서 항상 논의의 대상이 되지만, 엄격한 도메인-테이블-필드간 대응 규칙은 어떠한 코드나 Concept에 대해서도 항상 정확성을 보장한다. 예를 들어, 증상 및 진단 Concept은 Condition 도메인에 속하며 Condition_OCCURRENCE 테이블의CONDITION_CONCEP_ID로 기록된다. 소위 말하는 시술시 사용되는 약품은 일반적으로 원천 데이터에서는 Procedure 테이블에 Procedure 코드로 기록되지만, CDM에서는 이러한 정보는 매핑된 표준 Concept이 약물 도메인에 할당 되어있기 때문에 DRUG_EXPOSURE 테이블에 저장한다. 표 \@ref(tab:domains)과 같이 총 30개의 도메인이 있다.
 
 Table: (\#tab:domains) 각 도메인에 속하는 표준 Concept의 수.
 
@@ -100,7 +100,7 @@ Table: (\#tab:fieldConventions) 필드 명 규칙.
 |[Event]_ID|각 행의 고유 식별자로, 사건 테이블간 관계를 설정하는 외래 키 역할을 한다. 예를 들어 PERSON_ID는 각 개인을 고유하게 식별한다. VISIT_OCCURRENCE_ID는 방문을 고유하게 식별한다.|
 |[Event]_CONCEPT_ID|CONCEPT 참고 테이블의 표준 Concept에 대한 외래 키. 이는 모든 분석에 기반이 되는 사건의 주요 표현이다. 예를 들어 CONDITION_CONCEPT_ID = [31967](http://athena.ohdsi.org/search-terms/terms/31967)에는 SNOMED Concept인 “오심 Nausea”에 대한 참조 값을 포함하고 있다.|
 |[Event]_SOURCE _CONCEPT_ID|CONCEPT 참고 테이블의 행에 대한 외래 키.  이 Concept은 원본 값(아래)과 동등하며, 이때 [EVENT_CONCEPT_ID]와 동일한 표준 개념이거나 또 다른 비-표준 concept일 수 있다. 예를 들어, Condition_SOURCE_CONCEPT_ID = [45431665](http://athena.ohdsi.org/search-terms/terms/45431665)는 READ 용어집의 "Nausea" 개념을 나타내며, 유사한 CONDITION_CONCEPT_ID는 표준 SNOMED-CT concept으로 [31967](http://athena.ohdsi.org/search-terms/terms/31967)이다. 표준 Concept만이 사건의 의미를 모호하지 않게 표현하므로 표준 분석에 응용 시 상호 운용성이 없는 원본 개념(SOURCE _CONCEPT)을 사용하는 것은 바람직하지 않다.|
-|[Event]_TYPE_CONCEPT_ID|원본 정보의 출처를 나타내는 CONCEPT 참고 테이블(CONCEPT reference table)에 대한 외래 키. 이는 사건의 유형이나 concept의 유형을 나타내는 것이 아니라 이 기록를 생성한 메커니즘에 대한 정보를 수집하는 것을 의미한다. 예를 들면, DRUG_TYPE_CONCEPT_ID는 이 기록이 약국에서의 처방 (“Pharmacy dispensing”)으로 부터 발생하였는지 혹은 전자 처방 신청서 (“Prescription written”)로부터 발생하였는지를 구분한다.|
+|[Event]_TYPE_CONCEPT_ID|원본 정보의 출처를 나타내는 CONCEPT 참고 테이블(CONCEPT reference table)에 대한 외래 키. 이는 사건의 유형이나 concept의 유형을 나타내는 것이 아니라 이 기록를 생성한 메커니즘에 대한 정보를 수집하는 것을 의미한다. 예를 들면, DRUG_TYPE_CONCEPT_ID는 이 기록이 약국에서의 처방 (“Pharmacy dispensing”) 으로 부터 발생하였는지 혹은 전자 처방 신청서 (“Prescription written”) 로부터 발생하였는지를 구분한다.|
 |[Event]_SOURCE_VALUE|이 사건이 원천 데이터에 표현되어 있는 방식 그대로 쓰여진 코드 혹은 자유서술 문자열이다. 이 원본 값들은 데이터 원본간에 통일되어 있지 않으므로 표준 분석 방식에 사용하는 것은 좋지 않다. 예를 들면, CONDITION_SOURCE_VALUE는 ICD-9 코드 787.02에 점을 제외하고 “78702”라는 기록를 포함할 수 있다.|
 
 ### concept과 원본 값과의 차이{#concepts-Sources}
@@ -112,7 +112,7 @@ Table: (\#tab:fieldConventions) 필드 명 규칙.
 * **Source Concepts** 은 원 자료에서 사용된 코드를 나타내는 concept이다. 원본 concept은 OMOP기반의 concept이 아니라 기존에 존재하는 공개되었거나 독점적인 코딩 체계만을 위해 사용한다. 원본 concept은 데이터 테이블의 [Event] _SOURCE_CONCEPT_ID 필드에 저장된다.
 * **Standard Concepts** 은 모든 데이터 베이스에서 고유하게 임상적인 개체의 의미를 정의하는 데에 사용되고 원본에서 사용한 코딩 체계와는 독립적인 concept이다. 표준 concept은 일반적으로 이미 공개되어 있거나 독점적인 용어 원본에서 가져온다. 표준 concept과 동일한 의미를 가진 비 표준 concept은 표준 용어의 표준 concept에 매핑되어 있다. 표준 concept은 데이터 테이블의 [Event] _CONCEPT_ID 필드에서 참조된다.
 
-원본 값은 편의 및 품질 보증(Quality Assurance, QA) 목적으로만 제공된다. 여기에는 특정 데이터 원본의 맥락에서만 의미 있는 정보가 포함될 수 있다. 원본 값이나 원본 concept을 사용하는 것은 선택사항이지만, 원본 데이터가 코딩 시스템을 사용하는 경우 **강력하게 권장**된다. 하지만 표준 concept의 경우 **필수 사항**이다. 이 표준 concept을 필수적으로 사용하면 모든 CDM 인스턴스가 동일한 언어를 사용할 수 있다. 예를 들면 “Pulmonary Tuberculosis” (TB, Figure \@ref(fig:pulmTubICD9))의 condition은 TB에 대한 ICD9CM 코드가 011임을 나타낸다. 
+원본 값은 편의 및 품질 보증(Quality Assurance, QA) 목적으로만 제공된다. 여기에는 특정 데이터 원본의 맥락에서만 의미 있는 정보가 포함될 수 있다. 원본 값이나 원본 concept을 사용하는 것은 선택사항이지만, 원본 데이터가 코딩 시스템을 사용하는 경우 **강력하게 권장**된다. 하지만 표준 concept의 경우 **필수 사항**이다. 이 표준 concept을 필수적으로 사용하면 모든 CDM 인스턴스가 동일한 언어를 사용할 수 있다. 예를 들면 “Pulmonary Tuberculosis” (TB, 그림 \@ref(fig:pulmTubICD9)참조)의 condition은 TB에 대한 ICD9CM 코드가 011임을 나타낸다. 
 
 ```{r pulmTubICD9, fig.cap="Pulmonary Tuberculosis의 ICD9CM 코드",echo=FALSE, out.width="75%", fig.align="center"}
 knitr::include_graphics("images/CommonDataModel/pulmTubICD9.png")
@@ -285,7 +285,7 @@ DRUG_EXPOSURE 테이블은 환자에게 약물을 투여하고자 한 의도나 
 
 #### Lauren의 약물 노출은 어떻게 나타낼 수 있을까?  {-}
 
-월경통을 완화하기 위해 Lauren은 2010 년 1 월 6 일 방문하여 아세트아미노펜 375mg (일명 Paracetamol, 미국 NDC 코드 69842087651) 경구 제제 60알을 30일치 처방으로 받았다. 이는 DRUG_EXPOSURE 테이블에서 다음과 같이 나타난다: 
+월경통을 완화하기 위해 Lauren은 2010 년 1 월 6 일 방문하여 아세트아미노펜 375mg (일명 Paracetamol, 예를 들어, 미국에서 NDC 코드 69842087651로 판매되었다) 경구 제제 60알을 30일치 처방으로 받았다. 이는 DRUG_EXPOSURE 테이블에서 다음과 같이 나타난다: 
 
 Table: (\#tab:drugExposure) DRUG_EXPOSURE 테이블.
 
@@ -373,23 +373,23 @@ Column name|Value|Explanation
 [^atlasCdmUrl]: http://atlas-demo.ohdsi.org
 
 ```{exercise, exerciseJohnPerson}
-John은 1974 년 8 월 4 일에 태어난 흑인 남자이다. 이 정보를 인코딩하는 PERSON 테이블 항목을 정의하라.
+John은 1974 년 8 월 4 일에 태어난 흑인 남자이다. 이 정보를 인코딩하는 PERSON 테이블 항목을 정의하십시오.
 
 ```
 
 ```{exercise, exerciseJohnOp}
-John은 2015 년 1 월 1 일에 현재 이용하는 보험에 등록했다. 그의 보험 데이터베이스의 데이터는 2019 년 7 월 1 일에 추출되었다. 이 정보를 인코딩하는 OBSERVATION_PERIOD 테이블 항목을 정의하라.
+John은 2015 년 1 월 1 일에 현재 이용하는 보험에 등록했다. 그의 보험 데이터베이스의 데이터는 2019 년 7 월 1 일에 추출되었다. 이 정보를 인코딩하는 OBSERVATION_PERIOD 테이블 항목을 정의하십시오.
 
 ```
 
 ```{exercise, exerciseJohnDrug}
-John은 2019 년 5 월 1 일에 Ibuprofen 200 MG Oral 정제 (NDC 코드 : 76168009520)를 30 일간 투여하도록 처방되었다. 이 정보를 인코딩하는 DRUG_EXPOSURE 테이블 항목을 정의하라.
+John은 2019 년 5 월 1 일에 Ibuprofen 200 MG Oral 정제 (NDC 코드 : 76168009520)를 30 일간 투여하도록 처방되었다. 이 정보를 인코딩하는 DRUG_EXPOSURE 테이블 항목을 정의하십시오.
 
 ```
 
 #### 전제 조건 {-}
 
-해당 마지막 세 연습 문제에서는 \@ref(installR) 부분에 설명된 것과 같이 R,R-Studio 그리고 Java가 설치되었다고 가정한다.  [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 및 [Eunomia](https://ohdsi.github.io/Eunomia/) 패키지가 요구되고 아래 내용을 통해 설치할 수 있다:
+해당 마지막 세 연습 문제에서는 \@ref(installR)절에 설명된 것과 같이 R,R-Studio 그리고 Java가 설치되었다고 가정한다.  [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 및 [Eunomia](https://ohdsi.github.io/Eunomia/) 패키지가 요구되고 아래 내용을 통해 설치할 수 있다:
 
 ```{r eval=FALSE}
 install.packages(c("SqlRender", "DatabaseConnector", "devtools"))
