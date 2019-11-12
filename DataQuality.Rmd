@@ -17,7 +17,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 본 장에서 우리는 먼저, DQ 문제가 발생할 수 있는 원인에 대해 검토하고, 보편적인 DQ와 연구 목적의 DQ 평가 이론에 대해 논의 후, OHDSI 툴들을 사용하여 이러한 평가를 어떻게 수행하는지 단계별로 설명하고자 한다. 
 
-## 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)
+## 데이터 품질 문제에 대한 원인
 
 \@ref(EvidenceQuality)장에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소가 발생한다. @dasu_2003 은 데이터의 수명 주기에 따른 단계를 명시하였고, 각 단계를 통합한 DQ 진행을 제시하였다. 그들은 이를 DQ 연속체(DQ continuum)라 하였다:
 
@@ -32,7 +32,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 3단계 (데이터 분석) 또한 우리의 통제 아래에 있다. OHDSI에서 우리는 이 단계의 품질 이슈에 대해 DQ 용어를 사용하지 않고 각각 \@ref(ClinicalValidity)장, \@ref(SoftwareValidity)장, 그리고 \@ref(MethodValidity)장에서 다루는 *clinical validity*, *software validity* 그리고 *method validity*라는 용어를 사용한다. 
 
-## 보편적인 데이터 품질 (Data Quality in General)
+## 보편적인 데이터 품질
 
 우리는 우리의 데이터가 관찰형 연구의 보편적인 목적에 적합한지 여부에 대해 의문을 가질 수 있다. @kahn_harmonized_2016 은 보편적인 DQ가 3가지 구성요소로 구성되어있다고 정의하였다: 
 
@@ -55,7 +55,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 \index{data quality!verification} \index{data quality!validation}
 
-### 데이터 품질 검사 (Data Qualityintegrate Checks)
+### 데이터 품질 검사
 
 \index{ACHILLES} \index{data quality!checks}
 
@@ -130,7 +130,7 @@ Table: (\#tab:exampleTestResults) ETL 단위 검정 결과 예시.
 
 이 단위 검정의 강점은 ETL 프로세스가 변경될 때마다 쉽게 재실행할 수 있다는 것이다. 
 
-## 연구 목적 검사 (Study-Specific Checks)
+## 연구 중점 검사
 
 \index{data quality!study-specific checks}
 
@@ -143,7 +143,7 @@ Table: (\#tab:exampleTestResults) ETL 단위 검정 결과 예시.
 또 다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어, 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이 지남에 따라 증가할 가능성이 있다. 유사하게 결과에 대한 유병률은 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만, 다른 데이터베이스에서는 누락된 경우, DQ 문제가 있을 수 있다. 이러한 평가는 \@ref(ClinicalValidity)장에서 논의한 바와 같이, *clinical validity*의 개념과 중복된다는 것을 유의해야 한다. 몇몇의 데이터베이스에서는 예상하지 못한 유병률 결과가 나올수가 있는데, 이는 DQ 문제가 아니라 cohort definition에서 연구 주제와 부합하는 건강 상태를 온전히 잡아내지 못했거나 데이터베이스마다 환자 모집단이 상이하여 발생할 수 있다.
 
 
-### 매핑 검사하기 (Checking Mappings)
+### 매핑 검사하기
 
 우리가 통제할 수 있는 오류의 원인 중 한 가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabulary 매핑은 정교하게 제작되었으며, 매핑상의 문제가 있다면 공동체 구성원에 의해 발견되어 [^vocabIssueTrackerUrl]에 보고 된후 다음 업데이트에 반영된다. 그런데도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기때문에, 연구를 수행할 때 연구와 관련있는 concept들의 매핑을 검토해보는 것을 권장한다. 다행히도, CDM에서 표준 용어(Concept) 뿐만 아니라 소스 코드도 같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
 
@@ -161,7 +161,7 @@ knitr::include_graphics("images/DataQuality/sourceCodes.png")
 knitr::include_graphics("images/DataQuality/missingMapping.png")
 ```
 
-## ACHILLES 실습 (ACHILLES in Practice) {#achillesInPractice}
+## ACHILLES 실습 {#achillesInPractice}
 
 여기서는 CDM 형식의 데이터베이스에 대해 ACHILLES를 실행하는 방법을 보여준다.
 
@@ -253,7 +253,7 @@ knitr::include_graphics("images/DataQuality/dqdOverview.png")
 knitr::include_graphics("images/DataQuality/dqdResults.png")
 ```
 
-## 연구 목적 checks 실습 (Study-Specific Checks in Practice)
+## 연구 중점 검사 실습
 
 다음으로, 부록 \@ref(Angioedema)에 제공된 혈관 부종 cohort definition에 대한 몇 가지 checks를 수행할 것이다. \@ref(achillesInPractice)절에 설명된 것처럼 연결 세부사항이 설정되어 있고, cohort definition JSON과 cohort definition에 대한 SQL이 각각 "cohort.json"과 "cohort.sql" 파일에 저장되어있다고 가정한다. JSON 파일과 SQP 파일은 ATLAS cohort definition 기능의 내보내기 탭에서 얻을 수 있다.
 
@@ -314,9 +314,9 @@ View(orphans)
 
 ```
 
-## 연습
+## 예제
 
-#### 필수 구성 요소 {-}
+#### 전제조건 {-}
 
 예제 실습을 위해 \@ref(installR)절에서 설명한 것과 같이 R, R-studio 및 Java가 설치되어 있다고 가정한다. 또한 [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/), [ACHILLES](https://github.com/OHDSI/Achilles) 및 [Eunomia](https://ohdsi.github.io/Eunomia/) 패키지가 필요하다. 아래의 코드를 사용하여 설치할 수 있다:
 

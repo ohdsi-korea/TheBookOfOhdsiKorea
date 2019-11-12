@@ -1,6 +1,6 @@
 # 추출 변환 적재(Extract Transform Load) {#ExtractTransformLoad}
 
-*챕터 작성자 : Clair Blacketer & Erica Voss*
+*Chapter leads: Clair Blacketer & Erica Voss*
 
 ## 서론
 
@@ -54,7 +54,7 @@ White Rabbit은 구분자로 구분된 텍스트 파일(CSV)과 다양한 데이
 
 #### 데이터베이스 테이블 탐색 {-}
 
-데이터베이스에 연결한 이후에는 데이터베이스에 적재되어있는 테이블을 탐색할 수 있다. 탐색 과정은 ETL을 설계하는 데 도움을 되는 원천 데이터에 대한 정보를 담은 보고서를 생성할 수 있다. 그림 \@ref(fig:WhiteRabbitAddTables)에 보이는 Scan 탭의 “Add” (Ctrl + mouse click) 버튼을 눌러서 선택된 원천 데이터베이스의 각 테이블을 선택하거나, “Add all in DB” 누름으로써 모든 테이블을 자동으로 선택할 수 있다.
+데이터베이스에 연결한 이후에는 데이터베이스에 적재되어있는 테이블을 탐색할 수 있다. 탐색 과정은 ETL을 설계하는 데 도움이 되는 원천 데이터에 대한 정보를 담은 보고서를 생성할 수 있다. 그림 \@ref(fig:WhiteRabbitAddTables)에 보이는 Scan 탭의 “Add” (Ctrl + mouse click) 버튼을 눌러서 선택된 원천 데이터베이스의 각 테이블을 선택하거나, “Add all in DB” 누름으로써 모든 테이블을 자동으로 선택할 수 있다.
 
 ```{r WhiteRabbitAddTables, fig.cap='White Rabbit Scan 탭.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")

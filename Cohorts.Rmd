@@ -114,9 +114,9 @@ knitr::include_graphics("images/Cohorts/conceptSet.png")
 
 이 장의 시작 부분에서 언급했듯이 코호트 정의는 데이터로부터 무엇인가 관찰하고자 하는 것을 유추하려는 시도이다. 그러면 그러한 시도에서 코호트를 얼마나 잘 정의했는지 의문을 갖게 된다.  일반적으로, 규칙 기반의 코호트 정의이나 확률적 알고리즘의 검증은 작성한 코호트를 ‘절대표준 gold standard’ 참고값 (즉 수작업으로 챠트리뷰한 것)과 비교함으로써  검증할 수 있다. 이에 대해서는 \@ref(ClinicalValidity)장("임상적 타당성") 에서 자세히 설명한다.
 
-### OHDSI 절대표준 표현형 라이브러리 OHDSI Gold Standard Phenotype Library
+### OHDSI 절대표준 표현형 라이브러리
 
-커뮤니티를 지원하기 위해서 OHDSI Gold Standard Phenotype Library(GSPL) 그룹이 형성되었다. GSPL 그룹의 목표는 규칙 기반 및 확률적 방법으로 커뮤니티 기반의 코호트 라이브러리를 개발하는 것이다. GSPL은 OHDSI 커뮤니티의 멤버들이 각자의 연구를 위해 커뮤니티가 검증한 코호트를 찾아서 실행시킬 수 있게 하였다. 이 ‘절대표준 gold standard’ 코호트들은 라이브러리 안에 들어 있다. GSPL과 관련된 추가적인 정보를 얻으려면 OHDSI work group 페이지에 문의하라. 이전에 소개되었던 APHRODITE [@Banda2017APHRODITE] 와 PheValuator tool [@Swerdel2019phevaluator] 뿐만 아니라 OHDSI 네트워크에서 전자 의무 기록과 유전 정보를 공유하기 위해 만들어진 eMERGE Phenotype Library [eMERGE](https://emerge.mc.vanderbilt.edu/) [Phenotype Library](https://phekb.org/phenotypes) [@Hripcsak2019eMERGE] 도 해당 작업 그룹에서 다루고 있다. 당신이 코호트를 설계하는 데 관심이 많다면, 이 작업 그룹에 참여해 보라.
+커뮤니티를 지원하기 위해서 OHDSI 절대표준 표현형 라이브러리(OHDSI Gold Standard Phenotype Library, GSPL) 그룹이 형성되었다. GSPL 그룹의 목표는 규칙 기반 및 확률적 방법으로 커뮤니티 기반의 코호트 라이브러리를 개발하는 것이다. GSPL은 OHDSI 커뮤니티의 멤버들이 각자의 연구를 위해 커뮤니티가 검증한 코호트를 찾아서 실행시킬 수 있게 하였다. 이 ‘절대표준(gold standard)’ 코호트들은 라이브러리 안에 들어 있다. GSPL과 관련된 추가적인 정보를 얻으려면 OHDSI work group 페이지에 문의하라. 이전에 소개되었던 APHRODITE [@Banda2017APHRODITE] 와 PheValuator tool [@Swerdel2019phevaluator] 뿐만 아니라 OHDSI 네트워크에서 전자 의무 기록과 유전 정보를 공유하기 위해 만들어진 eMERGE Phenotype Library [eMERGE](https://emerge.mc.vanderbilt.edu/) [Phenotype Library](https://phekb.org/phenotypes) [@Hripcsak2019eMERGE] 도 해당 작업 그룹에서 다루고 있다. 당신이 코호트를 설계하는 데 관심이 많다면, 이 작업 그룹에 참여해 보라.
  \index{phenotype library}
 
 [^gsplUrl]: https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg
