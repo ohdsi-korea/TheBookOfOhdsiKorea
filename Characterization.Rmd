@@ -52,31 +52,29 @@ knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.p
 
 ## 발생 (Incidence)
 
-발생률과 발생비는 공중 보건에서 위험 노출 기간(time-at-risk, TAR) 동안 인구집단 내 새로운 outcome의 발생 평가에 사용되는 통계적 지표이다. 그림 \@ref(fig:incidenceTimeline)는 한 사람에게서 발생률 계산에 필요한 구성요소를 보여주고 있다: \index{incidence}
+발생률과 발생비는 공중 보건에서 위험 노출 기간(time-at-risk, TAR) 동안 인구집단 내 새로운 질병 outcome의 발생 평가에 사용되는 통계적 지표이다. 그림 \@ref(fig:incidenceTimeline)는 한 사람에게서 발생률 계산에 필요한 구성요소를 보여주고 있다: \index{incidence}
 
-```{r incidenceTimeline, fig.cap='개인 수준에서의 발생률 계산의 구성 성분. 본 예시에서는 위험 노출 기간은 코호트가 시작하고 하루 이후부터 코호트가 끝나는 시점으로 정의됨.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r incidenceTimeline, fig.cap='개인 수준에서의 발생률 계산의 구성 성분. 본 예시에서 위험 노출 기간은 코호트가 시작하고 하루 이후부터 코호트가 끝나는 시점으로 정의됨.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/incidenceTimeline.png")
 ```
 
-그림 \@ref(fig:incidenceTimeline)에서 한 사람은 데이터 내에서 관찰이 시작되고 끝나는 시점이 표시된 기간을 갖는다. 그다음, 그 사람은 몇몇 연구 기준 (eligibility criteria)에 의해 코호트에 들어가는(enter) 시점과 나오는(exit) 시점을 갖게 된다. 위험을 관찰하는 기간(time at risk, TAR)은 우리가 outcome의 발생을 보고자 하는 기간을 의미한다. 만일 outcome이 위험 노출 기간(time at risk, TAR) 내에서 발생한다면, outcome이 발생한 것으로 간주한다.
+그림 \@ref(fig:incidenceTimeline)에서 한 사람은 데이터 내에서 관찰이 시작되고 (observation period start) 끝나는 시점 (observation period end)이 표시된 기간을 갖는다. 그 다음, 그 사람은 몇몇 연구 기준 (eligibility criteria)에 의해 코호트에 들어가는 시점 (cohort start)과 나오는 시점 (cohort end)을 갖게 된다. 위험 노출 기간(time at risk, TAR)은 우리가 질병 outcome의 발생을 보고자 하는 기간을 의미한다. 만일 질병이 위험 노출 기간 내에 발생한다면, 그 질병 한 건이 발생한 것으로 계산한다.
 
-발생을 계산하기 위해서는 두 가지 측정법이 있다:
+발생 incidence을 계산하기 위해서는 두 가지 측정법이 있다:
 
 $$ 
-발생\;분율 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{\#\;TAR을\;가지면서\;코호트에\;포함된\;사람}
+발생 Incidence\;분율 Proportion= \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{\#\;TAR을\;가지면서\;코호트에\;포함된\;사람}
 $$
 
 발생 분율은 위험 노출 기간 동안 집단 내 새로운 outcome의 발생을 측정하는 방법이다. 다시 말해, 관심 집단에서 정해진 시간의 틀 안에서 발생한 outcome의 비율이다. \index{incidence!proportion}
+(역자 주: incidence proportion = cumulative incidence (누적 발생률): 코호트에서 관찰기간내 새롭게 발생하는 환자 수 / 관찰 시작 시점의 코호트 인구 수)
 
 $$
-발생률 = \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{코호트에\;포함된\;사람들의\;위험\;노출\;기간\;(TAR)로\;구한\;인-시\;(person\;time\;at\;risk)}
+발생률 Incidence Rate= \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{코호트에\;포함된\;사람들의\;위험\;노출\;기간\;(TAR)로\;구한\;인-시\;(person\;time\;at\;risk)}
 $$
 
-$$
-Incidence\;Rate = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{person\;time\;at\;risk\;contributed\;by\;persons\;in\;cohort}
-$$
-
-발생률은 인구집단에서 누적되는 위험 노출 기간의 새로 발생한 outcome의 횟수를 측정한 것이다. 만일 한 환자가 위험 노출 기간 (TAR) 내에서 outcome을 경험했을 때, 그 환자가 전체의 인-시(person-time)에 outcome이 발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 노출 기간은 **인-시(person-time)**라고 하고, 단위는 일, 월, 혹은 연으로 표현된다. \index{incidence!rate} \index{person-time}
+발생률은 인구집단에서 누적되는 위험 노출 기간의 새로 발생한 outcome의 횟수를 측정한 것이다. 만일 한 환자가 위험 노출 기간 (TAR) 내에서 outcome을 경험했을 때, 그 환자가 전체의 인-시(person-time)에 outcome이 발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 노출 기간은 **인-시(person-time)** 라고 하고, 단위는 일(인-일), 월(인-월), 혹은 연(인-년)으로 표현된다. \index{incidence!rate} \index{person-time}
+(역자 주: incidence Rate = cumulative incidence (누적 발생률): 코호트에서 관찰기간내 새롭게 발생하는 환자 수 / 코호트내 총 위험노출 인-시)
 
 치료 요법에 대하여 계산할 때, 정해진 치료 요법의 사용 비율 혹은 발생률을 계산하는 것은 전형적인 인구 집단 수준의 약물 사용 연구(population-level DUS)라 할 수 있다.
 
