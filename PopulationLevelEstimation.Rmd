@@ -57,47 +57,47 @@ New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 �
 
 ### 변수 선택 {#VariableSelection}
 
-이전에 성향 점수는 연구자가 임의로 선택된 특성(manually selected characteristics)을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성) 을 포함하는 것을 선호한다. [@tian_2018] 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 독특한 특성을 포함하며, 이러한 모델은 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지에서 구현되는 large-scale regularized regression [@suchard_2013] 을 사용하여 적합화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
+이전에 성향 점수는 연구자가 임의로 선택한 특성을 기반으로 계산하였다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성) 을 포함하는 것을 추천한다. [@tian_2018] 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 고유한 특성을 포함하며, 이러한 모델은 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지에서 구현되는 large-scale regularized regression [@suchard_2013] 을 사용하여 최적화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다. (역자 주: 전통적 관찰 연구에서는 PS 계산을 위해 연구자의 경험에 의존하여 수 십개 미만의 변수만을 사용하였지만, 혹은 HDPS (High-dimensional PS)에서 조차도 미리 선정한 수백개 정도의 변수만 사용하지만, OHDSI에서는 PS계산을 위해 수 만에서 수 십 만개의 이용가능한 모든 변수를 다 사용한다. 연구자가 유일하게 고려할 점은 계산시간 뿐이다. PS 계산에 더 많은 변수를 사용하면 할 수록 계산시간도 더 길어진다.) 
 
 ```{block2, type='rmdimportant'}
-치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 해당 날짜에 기록되기 때문에 일반적으로 공변량을 정의할 때 치료 개시일의 변수를 포함한다. 이 날에 연구의 주제가 되는 대상 치료(target treatment)와 대조 치료(comparator treatment) 자체도 기록되는데, 이러한 치료는 우리가 예측하려는 바로 그것이기 때문에 성향 모델에 포함해서는 안 된다. 따라서 공변량 집합에서 대상 치료와 대조치료는 **반드시 제외해야 한다**.
+치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 해당 날짜에 기록되기 때문에 일반적으로 공변량을 정의할 때 치료 개시일의 변수를 포함한다. 이 날에 연구의 주제가 되는 대상 치료(target treatment)와 대조 치료(comparator treatment) 자체도 기록되는데, 이러한 치료는 우리가 예측하려는 바로 그것이기 때문에 성향 모델에 포함해서는 안 된다. 따라서 공변량 집합에서 대상 치료와 대조치료는 **반드시 제외해야 한다** .
 ```
 
-일부 연구자들은 "올바른" 인과 구조를 반영하기 위해 임상적 전문지식에 의존하지 않는 데이터 기반 접근방식(data-driven approach)을 통한 공변량 선택이 소위 도구적 변수(instrumental variable)와 충돌자(collider)를 잘못 포함해 분산을 증가시키고 잠재적으로 편향을 만들어낼 위험이 있다고 주장해왔다. [@hernan_2002] 하지만 이러한 우려가 실제 시나리오에서 큰 영향을 미칠 가능성은 적다. [@schneeweiss_2018] 게다가, 의학에서 진정한 인과 관계는 거의 알려지지 않다시피 하며, 서로 다른 연구자들에게 특정 연구 주제에 대해 '올바른' 공변량을 선택해 달라고 요청한다면, 각 연구자들은 서로 다른 공변량 리스트를 주문할 것이 분명하고, 전체 과정은 재현 불가능해질 것이다. 무엇보다도, 성향 점수 모델의 검사, 모든 공변량의 균형(balance) 평가, 음성 대조군을 통한 평가 등을 통해 도구적 변수 및 충돌자들에 의해 발생하는 대부분의 문제를 진단할 수 있다. \index{instrumental variables} \index{colliders}
+일부 연구자들은 "올바른" 인과 구조를 반영하기 위해 임상적 전문지식에 의존하지 않는 데이터 기반 접근방식(data-driven approach)을 통한 공변량 선택이 소위 도구적 변수 instrumental variable와 충돌자 collider를 잘못 포함해 분산을 증가시키고 잠재적으로 편향을 만들어낼 위험이 있다고 주장해왔다. [@hernan_2002] 하지만 이러한 우려가 실제 시나리오에서 큰 영향을 미칠 가능성은 적다. [@schneeweiss_2018] 게다가, 의학에서 진정한 인과 관계는 거의 알려지지 않다시피 하며, 서로 다른 연구자들에게 특정 연구 주제에 대해 '올바른' 공변량을 선택해 달라고 요청한다면, 각 연구자들은 서로 다른 공변량 리스트를 주문할 것이 분명하고, 전체 과정은 재현 불가능해질 것이다. 무엇보다도 우리의 평가 방법은 성향 점수 모델의 검사, 모든 공변량의 균형 평가, 음성 대조군을 통한 평가 등을 통해 도구적 변수 및 충돌자들에 의해 발생하는 대부분의 문제를 진단할 수 있다. \index{instrumental variables} \index{colliders}
 
-### 캘리퍼 (Caliper)
+### 캘리퍼
 
 \index{caliper}
 
-성향 점수가 0에서 1까지의 연속성을 갖기 때문에 정확한 일치는 거의 불가능하다. 그 대신, 매칭 프로세스는 대상 환자의 성향 점수와 일치하는 환자를 “캘리퍼 (caliper)”라고 알려진 내성 범위 내에서 찾는다. 이전 연구 [@austin_2011] 에 따라, 우리는 로직 척도에서 0.2 표준편차의 기본(default) 캘리퍼를 사용한다.
+성향 점수가 0에서 1까지의 연속성을 갖기 때문에 정확한 일치는 거의 불가능하다. 그 대신, 매칭 프로세스는 대상 환자의 성향 점수와 일치하는 환자를 “캘리퍼 caliper”라고 알려진 내성 범위 내에서 적절히 찾는다. 이전 연구 [@austin_2011] 에 따라, 우리는 로직 척도에서 0.2 표준편차의 기본 캘리퍼를 사용한다.
 
 ### 오버랩: 선호 점수
 
 \index{preference score}
 
-성향 매칭 방법은 일치하는 환자가 필요하다! 따라서 주요 진단은 두 그룹의 성향 점수 분포를 보여준다. 해석을 용이하게 하기 위해 OHDSI 도구는 “선호 점수(preference score)”라는 성향 점수의 변형을 그린다. [@walker_2013] 선호 점수는 대상 치료와 대조 치료, 두 가지 치료법의 “market share”를 조정하다. 예를 들면, 10%의 환자가 대상 치료를 받고 (90%가 비교 치료를 받는 경우), 선호 점수가 0.5인 환자는 대상 치료를 받을 확률이 10%이다. 수학적으로 선호 점수는
+성향점수 매칭 방법은 일치하는 환자가 필요하다! 따라서 우리의 핵심 진단기능 두 그룹의 성향 점수 분포를 보여준다. 해석을 용이하게 하기 위해 OHDSI 도구는 “선호 점수preference score”라는 성향 점수를 변형한 점수 분포를 그린다. [@walker_2013] 선호 점수는 대상 치료와 대조 치료, 두 가지 치료법의 “market share”를 조정하다. 예를 들면, 10%의 환자가 대상 치료를 받고 (90%가 비교 치료를 받는 경우), 선호 점수가 0.5인 환자는 대상 치료를 받을 확률이 10%이다. 수학적으로 선호 점수는
 
 $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{1-P}\right)$$
 
 여기서 $F$ 는 선호 점수, $S$ 는 성향 점수, 그리고 $P$ 는 대상치료를 받은 환자의 비율이다.
 
-@walker_2013 는 “경험적 평형(empirical equipoise)”의 개념을 논의한다. 적어도 노출의 절반이 0.3과 0.7사이의 선호 점수를 갖는 환자에게 노출쌍(exposure pair)이 경험적 평형에서 나오는 것으로 받아 들인다. \index{clinical equipoise}
+@walker_2013 는 “경험적 평형 empirical equipoise”의 개념을 논의한다. 적어도 노출의 절반이 0.3과 0.7사이의 선호 점수를 갖는 환자에게 노출쌍 exposure pair이 경험적 평형에서 나오는 것으로 받아 들인다. \index{clinical equipoise}
 
 ### 균형
 
 \index{covariate balance} \index{balance|see {covariate balance}}
 
-좋은 방침(good practice)은 성향 점수 보정이 균형 잡힌 환자 그룹을 만드는 데 성공했는지 항상 확인하는 것이다. 그림 \@ref(fig:balance)는 균형을 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 성향 점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일부 지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다. [@rubin_2001]
+좋은 습관 중 하나는 성향 점수 보정이 균형 잡힌 환자 그룹을 만드는 데 성공했는지 항상 확인하는 것이다. 그림 \@ref(fig:balance)는 균형을 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 성향 점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일부 지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다. [@rubin_2001]
 
-## 자가 통제 코호트 연구 설계 (The Self-Controlled Cohort Design)
+## 자가 통제 코호트 연구 설계 The Self-Controlled Cohort Design
 
 \index{self-controlled cohort design}
 
-```{r scc, fig.cap='스스로 제어하는 코호트 디자인. 목표물에 노출되는 동안의 결과 비율은 사전 노출 시간의 결과 비율과 비교된다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r scc, fig.cap='스스로 비교하는 코호트 디자인. 목표물에 노출되는 동안의 결과 비율은 노출 이전 pre-exposure의 결과 비율과 비교된다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCohort.png")
 ```
 
-자가 통제 코호트(self-controlled cohort, SCC) 설계 [@ryan_2013]는 노출 직전의 결과 비율을 기준으로 노출 하는 동안의 결과 비율을 비교한다. 표 \@ref(tab:sccChoices)에 제시된 4가지 선택 사항은 SCC 질문을 정의한다.\index{target cohort!self-controlled cohort design} \index{outcome cohort!self-controlled cohort design}
+자가 통제 코호트(self-controlled cohort, SCC) 설계 [@ryan_2013]는 노출 직전의 결과 발생 비율을 기준으로 노출 하는 동안의 결과 발생 비율을 비교한다. 표 \@ref(tab:sccChoices)에 제시된 4가지 선택 사항은 SCC 질문을 정의한다. (역자 주: 주로 약물부작용 감시에서 사용하는 연구방법론으로서 위험노출과 결과발생간에 간격이 짧은 부작용 조사에 주로 쓰인다. 즉, 한 사람에 있어서 위험에 노출되지 않은 기간 동안에 발생하는 결과와 위험노출 기간 동안에 발생하는 결과를 쌍으로 비교한다. 한 사람의 위험노출 이전 기간이 비교군이되고 위험노출 기간이 노출군이 된다. 코호트 연구의 자가 통제 버전이다.)\index{target cohort!self-controlled cohort design} \index{outcome cohort!self-controlled cohort design}
 
 ```{r sccChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -117,17 +117,17 @@ if ( knitr:::is_latex_output()) {
 table
 ```
 
-노출 그룹을 구성하는 동일한 피험자가 대조 그룹(control group)으로 사용되기 때문에 사람간(between-person)의 차이를 조정할 필요가 없다. 그러나 이 방법은 다른 기간 간의 기존의 위험도 차이 등 다른 차이점에 대해 취약하다.
+노출군을 구성하는 동일한 피험자가 대조군으로 사용되기 때문에 사람간 between-person의 차이를 조정할 필요가 없다. 그러나 이 방법은 다른 기간 간의 기존의 위험도 차이 등 다른 차이점에 대해 취약하다.
 
-## 환자-대조군 연구 설계 (The Case-Control Design)
+## 환자-대조군 연구 설계 The Case-Control Design
 
 \index{case-control design}
 
-```{r caseControl, fig.cap='환자-대조군 설계. 결과가 있는 대상 ("케이스")은 노출 상태 측면에서 결과 ("컨트롤") 이 없는 대상과 비교된다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r caseControl, fig.cap='환자-대조군 설계. 결과가 생긴 대상 ("케이스")을 결과 ("컨트롤")가 안생긴 대상과 위험노출 유무를 비교한다. 나이와 성별 등 다양한 특성에 케이스와 컨트롤이 매칭되는 경우가 많다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/caseControl.png")
 ```
 
-환자-대조군 연구 [@vandenbroucke_2012] 는 “특정 질병 결과가 있는 사람이 질병이 없는 사람보다 특정 치료(agent)에 더 자주 노출되는가?”라는 질문을 고려한다. 따라서, 주요 아이디어는 환자(cases) (다시 말하면 관심 결과를 경험한 피험자) 를 대조군(controls) (다시 말하면 관심 결과를 경험하지 않은 피험자) 에 비교하는 것이다. 표 \@ref(tab:ccChoices)에 선택 사항은 환자-대조군(case-control) 질문을 정의한다. \index{outcome cohort!case-control design} \index{target cohort!case-control design} \index{nesting cohort!case-control design}
+환자-대조군 연구 [@vandenbroucke_2012] 는 “특정 질병 결과가 있는 사람이 질병이 없는 사람보다 특정 치료(agent)에 더 자주 노출되는가?”라는 질문을 고려한다. 따라서, 주요 아이디어는 환자(cases) (다시 말하면 관심 결과를 경험한 피험자) 를 대조군(controls) (다시 말하면 관심 결과를 경험하지 않은 피험자) 에 비교하는 것이다. 표 \@ref(tab:ccChoices)에 선택 사항은 환자-대조군(case-control) 시 필요한 질문을 정의한다. \index{outcome cohort!case-control design} \index{target cohort!case-control design} \index{nesting cohort!case-control design}
 
 ```{r ccChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -148,17 +148,17 @@ if ( knitr:::is_latex_output()) {
 table
 ```
 
-종종 우리는 나이와 성별 등 환자군들의 특성을 매칭하여 대조군을 설정한다. 또 달리 많이 사용되는 방법은, 특정 질병이 있는 환자군처럼, 특정 subgroup 환자들 군 안에서 nested analysis를 이용한다.
+종종 우리는 나이와 성별 등과 같은 환자군들의 특성을 매칭하여 대조군을 설정한다. 또 달리 많이 사용되는 방법은, 특정 질병이 있는 환자군처럼, 특정 subgroup 환자들 군 안에서 nested analysis를 이용한다.
 
-## 환자-교차 연구 설계 (The Case-Crossover Design)
+## 환자-교차 연구 설계 The Case-Crossover Design
 
 \index{case-crossover design}
 
-```{r caseCrossover, fig.cap='환자-교차 연구 설계. 결과 근처의 시간을 결과 날짜 이전의 미리 정의된 간격으로 설정된 제어 날짜와 비교한다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r caseCrossover, fig.cap='환자-교차 연구 설계. 결과가 발생한 근처의 시간 동안의 노출 유무를 결과 발생 날로부터 미리 정한 날짜 특정 날짜 이전의 시간 동안에 노출이 생겼는지 유무를 비교한다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/caseCrossover.png")
 ```
 
-환자-교차 연구(case-crossover study [@maclure_1991]) 설계는 outcome 이전의 정해진 기간 노출률(rate of exposure)의 차이가 나는지 평가하는 방법이다. 이것은 outcome 발생 시점의 특이한 사항이 있는지 확인하는 방법이다. 표 \@ref(tab:ccrChoices)는 환자-연구 연구 정의를 위한 선택지를 보여준다. \index{outcome cohort!case-crossover design} \index{target cohort!case-crossover design}
+환자-교차 연구(case-crossover study [@maclure_1991]) 설계는 outcome 발생 전 후로 노출률(rate of exposure)의 차이가 나는지 평가하는 방법이다. 이것은 결과 발생 시점에서 특이한 사항이 있는지 확인하는 방법이다 (역자 주: 한 사람에게 있어서 결과 발생 전과 후에 위험 노출에 있어서 차이가 나는지를 비교한다. 환자-대조군 연구의 자가 통제 self-control 버전이다.). 표 \@ref(tab:ccrChoices)는 환자-연구 연구 정의를 위한 선택지를 보여준다. \index{outcome cohort!case-crossover design} \index{target cohort!case-crossover design}
 
 ```{r ccrChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -188,7 +188,7 @@ table
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCaseSeries.png")
 ```
 
-자기 대조군 환자군 연구(Self-Controlled Case Series,SCCS) 설계 [@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출 사이, 노출 후) 과 노출기간의 outcome 발생의 비율(rate)를 비교한다. 즉 Poisson regression conditioned on the person이라고 할 수 있다. 따라서, 그것은 "환자에게 outcome 이 발생하였을 때, non-exposed time 에 비해 exposed time 에 발생할 가능성이 더 높은가?"이다. 표 \@ref(tab:sccsChoices)의 선택사항은 SCCS 질문을 정의한다. \index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
+자기 대조군 환자군 연구(Self-Controlled Case Series,SCCS) 설계 [@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출과 노출 사이, 노출 후) 과 노출기간의 outcome 발생의 비율(rate)를 비교한다. 즉 Poisson regression conditioned on the person이라고 할 수 있다. 따라서, 그것은 "환자에게 결과가 발생하였을 때, non-exposed time 에 비해 exposed time 에 결과가 발생할 가능성이 더 높은가?"가 주된 질문이다. 표 \@ref(tab:sccsChoices)의 선택사항은 SCCS 질문을 정의한다. \index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
 
 ```{r sccsChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -208,9 +208,9 @@ if ( knitr:::is_latex_output()) {
 table
 ```
 
-다른 자가 통제 설계(self-controlled design)와 마찬가지로, SCCS는 사람 간의 교란 변수(counfounding due to betwee-person difference)는 잘 바로잡지만, 시간의 변화에 따른 교란변수(confounding due to time-varying effect)의 영향에는 취약하다. 이를 위해 몇 가지 보정을 시도할 수 있는데, 예를 들면 나이와 계절을 바로잡는 것이다. SCCS의 특별한 변형은 관심대상의 노출뿐만 아니라 데이터베이스에 기록된 약물에 대한 다른 모든 노출 [@simpson_2013] 에 잠재적으로 수천 개의 추가변수를 모델에 추가하는 것을 포함한다. 정규화 하이퍼 파라미터를 선택하기 위해 교차검증(cross-validation)을 사용하는 L1-regularization이 관심 대상 노출을 제외한 모든 노출 계수에 적용된다.
+다른 자가 통제 설계 self-controlled design와 마찬가지로, SCCS는 사람 간의 교란 변수는 잘 바로잡지만, 시간의 변화에 따른 교란변수의 영향에는 취약하다. 이를 위해 몇 가지 보정을 시도할 수 있는데, 예를 들면 나이와 계절을 바로 잡는 것이다. SCCS의 특별한 변형은 관심대상의 노출뿐만 아니라 데이터베이스에 기록된 다른 모든 약물 노출 [@simpson_2013] 유무를 변수로 해서 수천 개의 변수를 모델에 추가하는 것을 포함한다. 정규화 하이퍼 파라미터를 선택하기 위해 교차검증(cross-validation)을 사용하는 L1-regularization이 관심 대상 노출을 제외한 모든 노출 계수에 적용된다.
 
-SCCS의 기본 가정 중 하나는 관찰 기간 종료가 결과 날짜 (outcome date)와 독립적이라는 것이다. 몇 가지 outcome의 경우, 예를 들어 뇌졸중과 같은 치명적인(fatal) 질병의 경우, 이러한 가정이 위반될 수 있다. 이러한 종속성을 수정하는 SCCS의 확장이 개발되었다. [@farrington_2011]
+SCCS의 기본 가정 중 하나는 관찰 기간 종료가 결과가 발생한 날짜와 독립적이라는 것이다. 몇 가지 결과의 경우, 예를 들어 뇌졸중과 같은 치명적인 질병의 경우, 이러한 가정이 위배될 수 있다. 이러한 종속성을 수정하는 SCCS의 확장이 개발되었다. [@farrington_2011]
 
 ## 고혈압 연구 설계하기
 
