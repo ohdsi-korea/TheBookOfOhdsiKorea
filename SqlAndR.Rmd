@@ -7,8 +7,8 @@ require(SqlRender)
 require(DatabaseConnector)
 ```
 
-공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이들 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가들이 오랜시간 고려하여 만든) 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
-관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 동일한 의미를 가지지만, 각 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
+공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이들 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가들이 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
+관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 같은 의미를 가지지만, 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 ```{sql,eval=FALSE}
 SELECT TOP 10 * FROM person;
@@ -20,13 +20,13 @@ PostgreSQL의 동일한 질의는 다음과 같다:
 SELECT * FROM person LIMIT 10;
 ```
 
-OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고 모든 OHDSI 데이터베이스에서 동일한 SQL 언어를 사용하고자 한다. 이러한 이유로 OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다른 여러 개의 문법으로 번역해줄 수 있는 패키지인 [SqlRender](https://ohdsi.github.io/SqlRender/) 를 개발하였다. 이 표준 언어 - **OHDSI SQL** - 는 주로 SQL Server SQL 언어의 하위 집합이다. 이 장에서 제공되는 SQL 문에는 모두 OHDSI SQL을 사용한다. \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
+OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고 모든 OHDSI 데이터베이스에서 동일한 SQL 언어를 사용하고자 한다. 이러한 이유로 OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다른 여러 개의 문법으로 번역해줄 수 있는 패키지인 [SqlRender](https://ohdsi.github.io/SqlRender/)를 개발하였다. 이 표준 언어 - **OHDSI SQL** - 는 주로 SQL Server SQL 언어의 하위 집합이다. 이 장에서 제공되는 SQL 문에는 모두 OHDSI SQL을 사용한다. \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
 
 각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 질의하기 위한 자체 소프트웨어 도구가 제공된다. OHDSI는 여러 데이터베이스 플랫폼에 연결할 수 있는 하나의 R 패키지인 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 를 개발하였다. DatabaseConnector도 이 장의 뒤에서 논의할 것이다. \index{DatabaseConnector}
 
 따라서 OHDSI 도구를 사용하지 않고도 CDM에 맞게 질의할 수 있지만 DatabaseConnector 및 SqlRender 패키지를 사용하는 것을 권장한다. 이를 통해 한 사이트에서 개발된 질의를 수정하지 않고도 다른 사이트에서 사용할 수 있다. R 자체는 통계 분석 및 대화식 그래프 생성과 같이 데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접 제공한다. \index{R} 
 
-이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. \@ref(QueryTheCdm)절에서는 SQL (OHDSI SQL) 을 사용하여 CDM에 질의하는 방법에 대해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다. \index{Query Library} \index{SQL Query Libary|see {Query Library}}
+이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. \@ref(QueryTheCdm)절에서는 SQL(OHDSI SQL)을 사용하여 CDM에 질의하는 방법에 대해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다. \index{Query Library} \index{SQL Query Libary|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
@@ -38,20 +38,20 @@ install.packages("SqlRender")
 
 SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite, and Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, and Amazon RedShift), 빅데이터 플랫폼 (Hadoop through Impala, and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
 
-### SQL의 매개변수화
+### SQL의 매개 변수화
 
 패키지의 기능 중 하나는 SQL문에 매개 변수를 지원하는 것이다. 일부 매개 변수에 기반하여 SQL문을 조금씩 변형할 필요가 종종 있다. SqlRender는 매개 변수를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 매개 변수를 기반으로 SQL을 렌더링하는 것은 `render()` 함수를 사용하여 수행한다. \index{SqlRender!parameterization}
 
-#### 매개 변수 값 대체하기 {-}
+#### 매개 변수값 대체하기 {-}
 
-`@` 문자는 렌더링 시 실제 매개 변수 값과 교환해야하는 매개 변수 이름을 나타내는데 사용할 수 있다. 다음 예에서 `a`라고 불리는 변수가 SQL에서 언급되어 있다. 렌더 함수를 호출할 때 이 매개 변수의 값이 정의된다:
+`@` 문자는 렌더링 시 실제 매개 변수값과 교환해야 하는 매개 변수 이름을 나타내는 데 사용할 수 있다. 다음 예에서 `a`라고 불리는 변수가 SQL에서 언급되어 있다. 렌더 함수를 호출할 때 이 매개 변수의 값이 정의된다:
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM concept WHERE concept_id = @a;"
 render(sql, a = 123)
 ```
 
-대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수와 달리 테이블 또는 필드 이름을 값으로 매개 변수화하는 것이 쉽다는 것에 주목하라:
+대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수와 달리 테이블 또는 필드 이름을 값으로 매개 변수화하기가 쉽다는 것에 주목하라:
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM @x WHERE person_id = @a;"
@@ -162,7 +162,7 @@ INSERT INTO other_table (field_1) VALUES (1);
 
 -- Inserting from SELECT:
 INSERT INTO other_table (field_1) SELECT value FROM table;
-  
+
 -- Simple drop commands:
 DROP TABLE table;
 
