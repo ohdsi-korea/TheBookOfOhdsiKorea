@@ -546,7 +546,7 @@ ORDER BY -COUNT(*);
 |                    I10 |   19453451 |
 |                   3180 |   18973883 |
 
-여기서 CONDITION_OCCURRENCE 테이블의 행을 CONDITION_SOURCE_VALUE 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다.
+여기서 CONDITION_OCCURRENCE 테이블의 행을 CONDITION_SOURCE_VALUE 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다. 우리는 CONDITION_SOURCE_VALUE, count, 그리고 count의 역순을 검색했다.
 
 ## 질의할 때 Vocabulary 사용하기
 
@@ -699,9 +699,9 @@ renderTranslateExecuteSql(conn, sql,
 
 여기에서는 DRUG_EXPOSURE 테이블에서 자동으로 파생되는 CDM의 표준 테이블인 DRUG ERA 테이블을 사용한다. DRUG ERA 테이블에는 성분 수준에서 연속 노출 기간이 포함되어 있다. 따라서 lisinopril을 검색할 수 있으며, 이는 lisinopril을 함유한 약물에 대한 모든 노출을 자동으로 식별한다. 사람당 첫 번째 약물 노출을 취한 다음 OBSERVATION_PERIOD 테이블과 조인하고 한 사람이 여러 관찰 기간을 가질 수 있으므로 약물 노출이 포함된 기간에만 조인해야 한다. 그런 다음 OBSERVATION_PERIOD_START_DATE와 COHORT_START_DATE 사이에 적어도 365일이 필요하다.
 
-### Outcome(결과) 코호트
+### 결과 코호트
 
-마지막으로, 우리는 outcome(결과) 코호트를 만들어야 한다:
+마지막으로, 우리는 결과(outcome) 코호트를 만들어야 한다:
 
 ```{r eval=FALSE}
 sql <- "
@@ -809,7 +809,7 @@ results <- renderTranslateQuerySql(conn, sql,
 
 SQL에서는 필드 이름에 snake_case(대소문자를 구분하지 않는)를 사용하는 반면 R에서는 camelCase(대소문자를 구분하는)를 사용하는 경향이 있기 때문 `snakeCaseToCamelCase = TRUE`로 한다. `results` 데이터 프레임 열 이름은 이제 camelCase이다. 
 
-ggplot 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시할 수 있다:
+ggplot2 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시할 수 있다:
 
 ```{r eval=FALSE}
 # Compute incidence rate (IR) :
