@@ -3,7 +3,7 @@
 
 *Chapter leads: Martijn Schuemie, Vojtech Huser & Clair Blacketer* 
 
-관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자 건강기록(Electronic Health Records, EHRs)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터를 임상 연구에 사용하는것이 적합한가 여부에 의문을 가지고 있으며 심지어, @vanDerLei_1991 은 "데이터는 수집된 목적으로만 사용되어야 한다(Data shall be used only for the purpose for which they were collected)"고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:
+관찰형 의료 연구에서 사용되는 대부분의 데이터는 연구를 목적으로 수집되지 않는다. 예를 들어, 전자 의무 기록(Electronic Health Records, EHR)은 환자의 진료를 지원하는데 필요한 정보를 수집하기 위해, 청구 데이터는 비용 지불자에게 비용을 할당하기 위한 근거를 제공하기 위해 수집된다. 많은 이들이 이러한 데이터를 임상 연구에 사용하는것이 적합한가 여부에 의문을 가지고 있으며 심지어, @vanDerLei_1991 은 "데이터는 수집된 목적으로만 사용되어야 한다(Data shall be used only for the purpose for which they were collected)"고 주장하였다. 문제는 데이터가 우리가 원하는 연구를 위해 수집되지 않았기 때문에, 충분한 품질을 보장할 수 없다는 것이다. 데이터의 품질이 낮으면 (garbage in), 그 데이터를 사용한 연구 결과의 품질도 낮을 수밖에 없다 (garbage out). 따라서 관찰형 의료 연구에 있어서 데이터 품질을 평가하는 것은 중요하며, 다음의 질문에 대한 답을 목표로 한다:
 
 > 연구 목적에 적합한 데이터인가 (Are the data of sufficient quality for our research purposes) ?
 
@@ -17,11 +17,11 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 본 장에서 우리는 먼저, DQ 문제가 발생할 수 있는 원인에 대해 검토하고, 보편적인 DQ와 연구 목적의 DQ 평가 이론에 대해 논의 후, OHDSI 툴들을 사용하여 이러한 평가를 어떻게 수행하는지 단계별로 설명하고자 한다. 
 
-## 데이터 품질 문제에 대한 원인 (Sources of Data Quality Problems)
+## 데이터 품질 문제에 대한 원인
 
 \@ref(EvidenceQuality)장에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소가 발생한다. @dasu_2003 은 데이터의 수명 주기에 따른 단계를 명시하였고, 각 단계를 통합한 DQ 진행을 제시하였다. 그들은 이를 DQ 연속체(DQ continuum)라 하였다:
 
-1. **데이터 수집 및 통합(Data gathering and integration)**. 자료의 수기 입력시 오류와 편향등의 발생가능한 문제 (예를 들어 upcoding in claims ;청구를 위하여 진단명과 시술 등을 보다 심각하게 혹은 높은 비용으로 작성하는것), EHR에서 잘못된 테이블간의 결합, 결측값을 기본값으로 대체하는 것 등을 포함한다. 
+1. **데이터 수집 및 통합(Data gathering and integration)**. 자료의 수기 입력시 오류와 비뚤림등의 발생가능한 문제 (예를 들어 upcoding in claims; 청구를 위하여 진단명과 시술 등을 보다 심각하게 혹은 높은 비용으로 작성하는것), EHR에서 잘못된 테이블간의 결합, 결측값을 기본값으로 대체하는 것 등을 포함한다. 
 2. **데이터 저장 및 지식 공유(Data storage and knowledge sharing)**. 데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이 잠재적인 문제로 여겨진다. 
 3. **데이터 분석(Data analysis)**. 잘못된 데이터 변환, 부정확한 데이터 해석, 그리고 부적절한 방법론 사용 등의 문제가 포함될 수 있다. 
 4. **데이터 공유(Data publishing)**. 후속 사용을 위해 데이터를 게시하는 경우 (When publishing data for downstream use).
@@ -32,7 +32,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 3단계 (데이터 분석) 또한 우리의 통제 아래에 있다. OHDSI에서 우리는 이 단계의 품질 이슈에 대해 DQ 용어를 사용하지 않고 각각 \@ref(ClinicalValidity)장, \@ref(SoftwareValidity)장, 그리고 \@ref(MethodValidity)장에서 다루는 *clinical validity*, *software validity* 그리고 *method validity*라는 용어를 사용한다. 
 
-## 보편적인 데이터 품질 (Data Quality in General)
+## 보편적인 데이터 품질
 
 우리는 우리의 데이터가 관찰형 연구의 보편적인 목적에 적합한지 여부에 대해 의문을 가질 수 있다. @kahn_harmonized_2016 은 보편적인 DQ가 3가지 구성요소로 구성되어있다고 정의하였다: 
 
@@ -55,7 +55,7 @@ DQ를 직접적으로 관찰할 수는 없지만, 이를 평가하기 위한 방
 
 \index{data quality!verification} \index{data quality!validation}
 
-### 데이터 품질 검사 (Data Qualityintegrate Checks)
+### 데이터 품질 검사
 
 \index{ACHILLES} \index{data quality!checks}
 
@@ -131,7 +131,7 @@ Table: (\#tab:exampleTestResults) ETL 단위 검정 결과 예시.
 
 이 단위 검정의 강점은 ETL 프로세스가 변경될 때마다 쉽게 재실행할 수 있다는 것이다. 
 
-## 연구 목적 검사 (Study-Specific Checks)
+## 연구 중점 검사
 
 \index{data quality!study-specific checks}
 
@@ -139,18 +139,18 @@ Table: (\#tab:exampleTestResults) ETL 단위 검정 결과 예시.
 
 이러한 평가 중 일부는 특별히 연구와 관련된 DQ rule의 형태를 취할 수 있다. 예를 들어, 관심 노출에 대한 레코드의 최소 90%가 노출 기간을 명시한다는 새로운 rule의 도입을 원할 수도 있다. 
 
-표준으로 시행하는 검사는 연구와 가장 관련된 concept들, 예로들어 cohort definition에서 정의된 concept들을 ACHILLES에서 검토하는 것이다. 전체기간에서 특정 코드의 사용 빈도가 급격히 변한다면 이것은 DQ 문제가 있다는 것을 알려주는 힌트가 될 수도 있다. 몇몇 예시들은 이 장의 뒷부분에서 recommend를 설명하고 있다. 
+표준으로 시행하는 검사는 연구와 가장 관련된 concept들, 예로들어 코호트 정의에서 정의된 concept들을 ACHILLES에서 검토하는 것이다. 전체기간에서 특정 코드의 사용 빈도가 급격히 변한다면 이것은 DQ 문제가 있다는 것을 알려주는 힌트가 될 수도 있다. 몇몇 예시들은 이 장의 뒷부분에서 recommend를 설명하고 있다. 
 
-또 다른 평가는 연구를 위해 설정된 cohort definition을 사용해 생성된 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어, 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이 지남에 따라 증가할 가능성이 있다. 유사하게 결과에 대한 유병률은 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만, 다른 데이터베이스에서는 누락된 경우, DQ 문제가 있을 수 있다. 이러한 평가는 \@ref(ClinicalValidity)장에서 논의한 바와 같이, *clinical validity*의 개념과 중복된다는 것을 유의해야 한다. 몇몇의 데이터베이스에서는 예상하지 못한 유병률 결과가 나올수가 있는데, 이는 DQ 문제가 아니라 cohort definition에서 연구 주제와 부합하는 건강 상태를 온전히 잡아내지 못했거나 데이터베이스마다 환자 모집단이 상이하여 발생할 수 있다.
+또 다른 평가는 연구를 위해 설정된 코호트 정의를 사용해 생성된 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어, 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이 지남에 따라 증가할 가능성이 있다. 유사하게 결과에 대한 유병률은 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만, 다른 데이터베이스에서는 누락된 경우, DQ 문제가 있을 수 있다. 이러한 평가는 \@ref(ClinicalValidity)장에서 논의한 바와 같이, *clinical validity*의 개념과 중복된다는 것을 유의해야 한다. 몇몇의 데이터베이스에서는 예상하지 못한 유병률 결과가 나올수가 있는데, 이는 DQ 문제가 아니라 코호트 정의에서 연구 주제와 부합하는 건강 상태를 온전히 잡아내지 못했거나 데이터베이스마다 환자 모집단이 상이하여 발생할 수 있다.
 
 
-### 매핑 검사하기 (Checking Mappings)
+### 매핑 검사하기
 
-우리가 통제할 수 있는 오류의 원인 중 한 가지는 소스 코드를 표준 concept에 매핑하는 것이다. Vocabulary 매핑은 정교하게 제작되었으며, 매핑상의 문제가 있다면 공동체 구성원에 의해 발견되어 [^vocabIssueTrackerUrl]에 보고 된후 다음 업데이트에 반영된다. 그런데도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기때문에, 연구를 수행할 때 연구와 관련있는 concept들의 매핑을 검토해보는 것을 권장한다. 다행히도, CDM에서 표준 용어(Concept) 뿐만 아니라 소스 코드도 같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
+우리가 통제할 수 있는 오류의 원인 중 한 가지는 원천 코드를 표준 concept에 매핑하는 것이다. 용어 매핑은 정교하게 제작되었으며, 매핑상의 문제가 있다면 공동체 구성원에 의해 발견되어 [^vocabIssueTrackerUrl]에 보고 된후 다음 업데이트에 반영된다. 그런데도 불구하고 모든 매핑을 직접 확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기때문에, 연구를 수행할 때 연구와 관련있는 concept들의 매핑을 검토해보는 것을 권장한다. 다행히도, CDM에서 표준 용어(Concept) 뿐만 아니라 소스 코드도 같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 소스 코드뿐만 아니라 그렇지 않은 소스 코드도 검토할 수 있다.
 
 [^vocabIssueTrackerUrl]: https://github.com/OHDSI/Vocabulary-v5.0/issues
 
-소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 cohort definition을 input으로 사용하고 cohort definition에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스 코드를 확인한다. 또한 전체 기간에 대한 코드들의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제들을 확인하는데 도움이 될 수 있다. 그림 \@ref(fig:sourceCodes) 예시 결과는 "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은 [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세가지 코드가 해당 concept으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 concept은 시간이 지남에 따라 초반에는 증가하지만 그 후에 급격이 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합된 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정") 도 이 concept으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+소스 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 코호트 정의를 input으로 사용하고 코호트 정의에서 사용된 각 concept 세트에 대해 concept과 매핑되는 소스 코드를 확인한다. 또한 전체 기간에 대한 코드들의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제들을 확인하는데 도움이 될 수 있다. 그림 \@ref(fig:sourceCodes) 예시 결과는 "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 세트의 가장 보편적인 concept은 [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세가지 코드가 해당 concept으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 concept은 시간이 지남에 따라 초반에는 증가하지만 그 후에 급격이 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합된 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정") 도 이 concept으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 <div class="figure" style="text-align: center">
 <img src="images/DataQuality/sourceCodes.png" alt="checkCohortSourceCodes 기능의 output 예시. " width="100%" />
@@ -164,7 +164,7 @@ Table: (\#tab:exampleTestResults) ETL 단위 검정 결과 예시.
 <p class="caption">(\#fig:missingMapping)orphan 소스 코드 예시. </p>
 </div>
 
-## ACHILLES 실습 (ACHILLES in Practice) {#achillesInPractice}
+## ACHILLES 실습 {#achillesInPractice}
 
 여기서는 CDM 형식의 데이터베이스에 대해 ACHILLES를 실행하는 방법을 보여준다.
 
@@ -266,9 +266,9 @@ viewDqDashboard(jsonPath)
 <p class="caption">(\#fig:dqdResults)Drilldown into Data Quality Checks in the Data Quality Dashboard 에서의 데이터 품질 구체적 관찰.</p>
 </div>
 
-## 연구 목적 checks 실습 (Study-Specific Checks in Practice)
+## 연구 중점 검사 실습
 
-다음으로, 부록 \@ref(Angioedema)에 제공된 혈관 부종 cohort definition에 대한 몇 가지 checks를 수행할 것이다. \@ref(achillesInPractice)절에 설명된 것처럼 연결 세부사항이 설정되어 있고, cohort definition JSON과 cohort definition에 대한 SQL이 각각 "cohort.json"과 "cohort.sql" 파일에 저장되어있다고 가정한다. JSON 파일과 SQP 파일은 ATLAS cohort definition 기능의 내보내기 탭에서 얻을 수 있다.
+다음으로, 부록 \@ref(Angioedema)에 제공된 혈관 부종 코호트 정의에 대한 몇 가지 검사를 수행할 것이다. \@ref(achillesInPractice)절에 설명된 것처럼 연결 세부사항이 설정되어 있고, 코호트 정의 JSON과 코호트 정의에 대한 SQL이 각각 "cohort.json"과 "cohort.sql" 파일에 저장되어있다고 가정한다. JSON 파일과 SQP 파일은 ATLAS 코호트 정의 기능의 내보내기 탭에서 얻을 수 있다.
 
 
 
@@ -284,7 +284,7 @@ checkCohortSourceCodes(connectionDetails,
 ```
 
 
-그림 \@ref(fig:sourceCodesAngioedema)과 같이 웹 브라우저에서 output(출력) 파일을 열 수 있다. 여기서 혈관 부종 cohort definition에 "Inpatient or ER visit"과 "Angioedema" 두 가지 concept이 있는 것을 확인할 수 있다. 이 예제 데이터베이스에서, 방문은 ETL 중에 표준 concept과 매핑되었지만, Vocabulary에는 없는, "ER"과 "IP"라는 데이터베이스 특정 소스 코드를 통해 발견되었다. 혈관 부종은 하나의 ICD-9 코드와 두 개의 ICD-10 코드를 통해 발견되었다. 개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두 가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만, 전체적인 concept에서는 불연속성이 없다. 
+그림 \@ref(fig:sourceCodesAngioedema)과 같이 웹 브라우저에서 output(출력) 파일을 열 수 있다. 여기서 혈관 부종 코호트 정의에 "Inpatient or ER visit"과 "Angioedema" 두 가지 concept이 있는 것을 확인할 수 있다. 이 예제 데이터베이스에서, 방문은 ETL 중에 표준 concept과 매핑되었지만, Vocabulary에는 없는, "ER"과 "IP"라는 데이터베이스 특정 소스 코드를 통해 발견되었다. 혈관 부종은 하나의 ICD-9 코드와 두 개의 ICD-10 코드를 통해 발견되었다. 개별 코드에 대한 스파크 라인(spark-line)을 봤을 때, 두 가지 코딩 시스템 간의 컷 오버(cut-over) 시점을 명확하게 알 수 있지만, 전체적인 concept에서는 불연속성이 없다. 
 
 <div class="figure" style="text-align: center">
 <img src="images/DataQuality/sourceCodesAngioedema.png" alt="Angioedema 코호트 정의에서 사용된 소스 코드." width="100%" />
@@ -328,9 +328,9 @@ View(orphans)
 - 특정 연구와 관련된 코드 매핑을 평가하기 위한 다른 툴들이 있다.
 </div>\EndKnitrBlock{rmdsummary}
 
-## 연습
+## 예제
 
-#### 필수 구성 요소 {-}
+#### 전제조건 {-}
 
 예제 실습을 위해 \@ref(installR)절에서 설명한 것과 같이 R, R-studio 및 Java가 설치되어 있다고 가정한다. 또한 [SqlRender](https://ohdsi.github.io/SqlRender/), [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/), [ACHILLES](https://github.com/OHDSI/Achilles) 및 [Eunomia](https://ohdsi.github.io/Eunomia/) 패키지가 필요하다. 아래의 코드를 사용하여 설치할 수 있다:
 
