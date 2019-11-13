@@ -8,9 +8,9 @@
 
 이 장에서는 먼저 기초적인 부분을 이해하고 활용하기 위해, 표준 용어의 주요 원칙, 구성 요소 및 관련 규칙, 규약 및 일반적인 상황에 대해 설명하고자 한다. 또한 이를 지속적으로 개선하기 위해 커뮤니티의 지원이 필요한 곳을 언급할 것이다.
 
-## 왜 용어인가, 그리고 왜 표준화인가?
+## 왜 용어(Vocabularies)인가, 그리고 왜 표준화인가?
 
-의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서(Bills of Mortality)까지 거슬러 올라간다. (그림 \@ref(fig:bill) 참조) \index{Bill of Mortality}
+의학 용어는 흑사병 (plague: 페스트) 및 기타 질병들을 관리하기 위해 사용했던, 중세 런던의 사망 증명서(Bills of Mortality) 까지 거슬러 올라간다. (그림 \@ref(fig:bill) 참조) \index{Bill of Mortality}
 
 ```{r bill, fig.cap='1660 London Bill of Mortality, 당시 알려진 62가지 질병의 분류 체계를 사용하여 사망한 거주자의 사망 원인을 보여준다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/bill.jpg")
@@ -20,7 +20,7 @@ knitr::include_graphics("images/StandardizedVocabularies/bill.jpg")
 
 그 결과, 각 국가, 지역, 의료시스템 및 의료기관은 그 용어가 사용되는 지역에서만 쓰이는 자체 질병분류체계를 갖고 있을 가능성이 높다. 이러한 무수히 많은 용어집은 사용 중인 시스템의 상호운용성을 방해한다. 표준화는 환자 데이터 교환을 가능하게 하고, 전 세계적 수준의 의료 데이터 분석의 길을 열어주고, 성능 특성 분석 및 품질 평가를 포함한 체계적이고 표준화된 연구를 가능하게 하는 핵심 요소이다. 이러한 문제를 해결하기 위해, 위에서 언급된 WHO와 the Standard Nomenclature of Medicine(SNOMED) 또는 Logical Observation Identifiers Names and Codes(LOINC) 같은 다국적 기관들이 생겨나고 광범위한 표준들을 만들기 시작했다. 미국의 보건 IT 표준 위원회 HITAC(Health IT Standards Committee)는 다양한 단체 간의 건강 정보 교환을 위한 공통 플랫폼에서 사용하기 위해 ONC(National Coordinator for Health IT)의 표준으로 SNOMED, LOINC 및 약물용어인 RxNorm을 사용할 것을 권장하고 있다. 
 
-OHDSI는 관찰 연구를 위한 국제 표준인 OMOP CDM을 개발했다. CDM의 일부로, OMOP 표준 용어는 다음 두 가지 목적으로 사용할 수 있다:
+OHDSI는 관찰 연구를 위한 국제 표준인 OMOP CDM을 개발했다. CDM의 일부로, OMOP 표준 용어는 다음 두 가지 목적으로 사용 할 수 있다:
 
 - 커뮤니티에서 사용되는 모든 용어의 공통 저장 자료
 - 연구에 사용하기 위한 표준화와 매핑 
@@ -41,7 +41,7 @@ OHDSI는 관찰 연구를 위한 국제 표준인 OMOP CDM을 개발했다. CDM�
 
 [^athenaUrl]: http://athena.ohdsi.org
 
-모든 표준 용어 테이블에 포함된 zip 파일을 다운로드하려면, OMOP CDM에 필요한 모든 용어집을 선택해야 한다. 표준 concept을 가진 용어집은 (\@ref(standardConcepts)절 참조) 미리 선택되어 있다. 원천 데이터에 사용되는 용어를 추가한다. 저작권이 있는 용어집은 선택할 수 없다. 해당 용어집을 리스트에 포함하려면 "License required" 버튼을 클릭해야 한다. 용어팀이 당신에게 연락할 것이고, 당신이 라이센스를 제출하도록 요청하거나, 해당 라이센스를 얻는데 적절한 사람들과 연결해줄 것이다.
+모든 표준 용어 테이블에 포함된 zip 파일을 다운로드하려면, OMOP CDM에 필요한 모든 용어집을 선택해야 한다. 표준 concept을 가진 용어집은 (\@ref(standardConcepts)절 참조) 미리 선택되어 있다. source data에 사용되는 vocabularies를 추가한다. 저작권이 있는 용어집은 선택할 수 없다. 해당 용어집을 리스트에 포함하려면 "License required" 버튼을 클릭해야 한다. 용어팀이 당신에게 연락할 것이고, 당신이 라이센스를 제출하도록 요청하거나, 해당 라이센스를 얻는데 적절한 사람들과 연결해줄 것이다.
 
 ### 용어의 원천: 도입 vs 구축 
 
@@ -63,12 +63,12 @@ knitr::include_graphics("images/StandardizedVocabularies/concept.png")
 
 ### Concept 이름
 
-각 concept에는 하나의 이름이 있다. 그 이름은 항상 영어로 되어있다. concept들은 용어집의 원천으로부터 가져온다. 원천 용어집에 둘 이상의 이름을 가지고 있으면, 가장 표현력이 높은 이름이 선택되고, 나머지 이름은 동일한 CONCEPT_KEY로 CONCEPT_SYNONYM 테이블에 저장된다. 영어 이외의 이름은 CONCEPT_SYNONYM에 기록되며, 적합한 language concept ID가 LANGUAGE_CONCEPT_ID 필드에 기록된다. 이름은 255자까지의 길이를 가지는데, 너무 긴 이름은 잘라내고 최대 1,000자까지 저장 가능한 다른 이름의 동의어로 기록된다. 
+각 concept에는 하나의 이름이 있다. 그 이름은 항상 영어로 되어있다. concept들은 용어집의 source로부터 가져온다. source vocabulary에 둘 이상의 이름을 가지고 있으면, 가장 표현력이 높은 이름이 선택되고, 나머지 이름은 동일한 CONCEPT_KEY로 CONCEPT_SYNONYM 테이블에 저장된다. 영어 이외의 이름은 CONCEPT_SYNONYM에 기록되며, 적합한 language concept ID가 LANGUAGE_CONCEPT_ID 필드에 기록된다. 이름은 255자까지의 길이를 가지는데, 너무 긴 이름은 잘라내고 최대 1,000자까지 저장 가능한 다른 이름의 동의어로 기록된다. 
 
 ### 도메인 {#conceptDomains}
 
 각 concept에는 DOMAIN_ID가 필드에 할당되는데, 숫자 CONCEPT_ID와 달리 도메인의 대소문자를 구분하면서 길이가 짧은 고유한 영 숫자 ID이다. 이러한 각 도메인의 예로는 "Condition", "Drug", "Procedure", "Visit", "Device", "Specimen" 등이 있다. 모호하거나 pre-coordinated(combination) concepts의 경우 combination 도메인에 속할 수 있으나, 표준 concept은 (\@ref(standardConcepts)절 참조) 항상 단일 도메인에 할당된다. 도메인은 또한 어떤 임상 사건 또는 임상 속성 등이 어떤 CDM 테이블과 필드에 기록되어야 하는지 알려준다.
-도메인 할당은 [Pallas](https://github.com/ohDSI/vocabulary-v5.0) 내에 경험적 지식을 이용한 용어 수집 중에 수행되는 OMOP 고유의 특징이다. 원천 용어집은 서로 다른 도메인들이 함께 혼재되어 있는 경우가 많으나, 그 정도는 각기 다르다 (그림\@ref(fig:domains) 참조). \index{domain!concept}
+도메인 할당은 [Pallas](https://github.com/ohDSI/vocabulary-v5.0) 내에 경험적 지식을 이용한 용어 수집 중에 수행되는 OMOP 고유의 특징이다. Source vocabularies는 서로 다른 도메인들이 함께 혼재되어 있는 경우가 많으나, 그 정도는 각기 다르다 (그림\@ref(fig:domains) 참조). \index{domain!concept}
 
 ```{r domains, fig.cap='시술 용어인 CPT4와 HCPCS의 도메인 할당 비율. 직관적으론, 이러한 용어집은 한 도메인의 코드와 concept을 포함하고 있어야 하지만, 실제로는 여러 도메인들이 혼재되어있다.',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/domains.png")
@@ -77,13 +77,13 @@ knitr::include_graphics("images/StandardizedVocabularies/domains.png")
 경험적 지식을 이용한 도메인 할당 방법은 도메인의 정의를 따라 진행한다.
 이러한 정의는 CDM의 테이블 및 필드 정의에서 파생된다 (\@ref(CommonDataModel)장 참조). 경험적 지식은 완벽하지 않으며, 불분명하다 (\@ref(specialSituations)절의 "Special Situations" 참조). 만일, 잘못 지정된 concept 도메인을 발견한다면, [Forums](https://forums.ohdsi.org) 또는 [CDM issue](https://github.com/OHDSI/CommonDataModel/issues) 게시판을 통하여, 문제점을 보고하고 개선하도록 해야 한다.
 
-### 용어집
+### 용어집 (Vocabularies)
 
-각 용어집(Vocabularies)에는 대소문자를 구분하는 고유한 영 숫자 ID가 있으며, 일반적으로 용어집의 약어 이름을 쓰고, 대시는 생략한다. 예를 들자면, ICD-9-CM의 용어 ID는 "ICD9CM" 이다. 현재 OHDSI가 지원하는 용어집은 11개로, 그중 78개가 외부 source에서 채택되었고, 나머지는 OMOP 내부 용어집이다. 이러한 용어는 일반적으로 분기별 일정에 따라 갱신된다. 용어집의 버전은 VOCABULARY reference file에 따라 정의되어 있다. \index{vocabulary}
+각 용어집에는 대소문자를 구분하는 고유한 영 숫자 ID가 있으며, 일반적으로 용어집의 약어 이름을 쓰고, 대시는 생략한다. 예를 들자면, ICD-9-CM의 용어 ID는 "ICD9CM" 이다. 현재 OHDSI가 지원하는 용어집은 11개로, 그중 78개가 외부 source에서 채택되었고, 나머지는 OMOP 내부 용어집이다. 이러한 용어는 일반적으로 분기별 일정에 따라 갱신된다. 용어집의 버전은 VOCABULARY reference file에 따라 정의되어 있다. \index{vocabulary}
 
-### Concept 계층
+### Concept 계층 (Concept Classes)
 
-일부 용어집은 대소문자를 구분하는 고유한 영 숫자 ID를 통해 표현되는 코드나 concept을 분류한다. 예를 들어, SNOMED에는 "semantic tag"라고 불리는 33가지 concept 계층(class)을 가지고 있다: "clinical finding", social context, body structure 등 concept 계층은 concept들의 수직적 구분을 말한다. MedDRA 또는 RxNorm과 같은 다른 concept들은 계층화된 계급 내에서 수평적인 수준에서 분류하는 concept 계층들을 가지고 있다. HCPCS와 같이 concept 계층이 없는 용어들은 Concept Class ID를 vocabulary ID로 사용해야 한다. \index{concept!class}
+일부 용어집은 대소문자를 구분하는 고유한 영 숫자 ID를 통해 표현되는 코드나 concept을 분류한다. 예를 들어, SNOMED에는 "semantic tag"라고 불리는 33가지 concept 계층을 가지고 있다: "clinical finding", social context, body structure 등 concept 계층은 concept들의 수직적 구분을 말한다. MedDRA 또는 RxNorm과 같은 다른 concept들은 계층화된 계급 내에서 수평적인 수준에서 분류하는 concept 계층들을 가지고 있다. HCPCS와 같이 concept 계층이 없는 용어들은 Concept Class ID를 vocabulary ID로 사용해야 한다. \index{concept!class}
 
 Table: (\#tab:sublassification)concept 계층에서 수평 및 수직 하위분류 원칙에 따른 용어집들
 
@@ -170,15 +170,15 @@ Concept ID | Concept Code | Concept Name | Domain ID | Vocabulary ID | Concept C
 	
 일반적으로 concept 코드는 재사용하지 않는다. 하지만 이 규칙에서 벗어나는 몇몇 용어집으로 HCPCS, NDC, DRG가 있다. 그들 용어집에서는 동일한 concept 코드가 같은 용어집 내에서 하나 이상의 concept에 사용된다. 그들의 CONCEPT_ID 값은 고유값을 유지한다. 재사용된 concept 코드는 INVALID_REASON 필드에 "R"로 표시되며 VALID_START_DATE 부터 VALID_END_DATE 까지의 기간을 이용하여 concept 코드는 같지만 서로 다른 concept을 구별하는데 사용해야 한다.
 
-## 관계
+## 관계 Relationships
 
 두 concept이 동일한 도메인 또는 용어집에 속하는지 여부와 관계없이 두 concept은 지정된 관계를 맺을 수 있다. 관계의 특성은 CONCPET_RELATIONSHIP 테이블의 RELATIONSHIP_ID 필드에서 대소문자를 구분하는 고유한 짧은 영 숫자 ID로 표시한다. 각 관계에 대해서 전후가 바뀐 대칭 관계가 존재하며, CONCEPT_ID_1, CONCEPT_ID_2 필드의 내용이 교환되고, RELATIONSHIP_ID는 반대로 바뀌게 된다. 예를 들어, "Maps to" 관계는 "Mapped from"과 반대의 관계를 갖는다. \index{concept!relationship}
  
 CONCEPT_RELATIONSHIP 테이블 레코드에는 수명 주기 필드인 RELATIONSHIP_START_DATE, RELATIONSHIP_END_DATE, INVALID_REASON이 있다. 그러나, INVALID_REASON = NULL인 유효한 기록들만 ATHENA에서 이용할 수 있다. 비활성화된 관계는 Pallas 시스템 내에서 내부처리 용도로만 사용되도록 보관된다. RELATIONSHIP 테이블은 전체 relationship IDs 목록 및 그 반대의 목록과 함께 참조로 사용된다.
 
-### 매핑 관계 {#conceptMapping}
+### 매핑 관계 Mapping Relationships {#conceptMapping}
 
-이러한 관계는 두 개의 relationship ID 쌍을 이용하여 비표준화 concept에서 표준 concept으로 변환하게 해준다. (표 \@ref(tab:mappingRelationships) 참조). \index{concept!mapping}
+이러한 관계는 두 개의 relationship ID 쌍을 이용하여 비표준화 concept에서 표준concept으로 변환 하게 해준다. (표 \@ref(tab:mappingRelationships) 참조). \index{concept!mapping}
 
 Table: (\#tab:mappingRelationships) 매핑관계의 유형.
 
@@ -200,7 +200,7 @@ Relationship ID pair | Purpose
 - 물질에 대한 알레르기
 - 예방접종 필요
 
-이런 상황들에서 원천 concept은 속성(test or history)과 값(test result or disease)의 조합이다. "Maps to" 관계는 소스를 속성 concept에 매핑하고, "Maps to value" 관계는 value concept을 매핑한다. (예로 그림 \@ref(fig:conceptValue)참조)
+이런 상황들에서 source concept은 속성(test or history)과 값(test result or disease)의 조합이다. "Maps to" 관계는 소스를 속성 concept에 매핑하고, "Maps to value" 관계는 value concept을 매핑한다. (예로 그림 \@ref(fig:conceptValue)참조)
 
 ```{r conceptValue, fig.cap='원천 concept과 표준 concept 사이의 일대다 매핑. 선 조합 pre-coordinated concept은 두 가지 concept으로 나뉘는데, 하나는 속성(여기서는 임상 소견의 과거력)과 다른 하나는 값(소화성 궤양 peptic ulcer)이다. "Maps to" 관계는 measurement 또는 observation 도메인에 매핑되는 반면, "Maps to value" concept에는 도메인 제한이 없다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/conceptValue.png")
@@ -218,7 +218,7 @@ concept 매핑은 네트워크 연구를 수행하는 구성원들의 노력을 
 
 ### 서로 다른 용어집에서 온 concept들 간의 관계
 
-이들 관계는 일반적으로 "Vocabulary A – Vocabulary B equivalent"의 유형으로, 기존 용어집 소스에서 제공되거나, OHDSI 용어팀에 의해 구축된다. 그것들은 대략적인 매핑 역할을 할 수 있지만, 종종 잘 정리된 매핑보다는 관계의 정확도가 떨어진다. High-quality equivalence 관교 (예를 들어 Source – RxNorm equivalent) 는 항상 "Maps to" 관계에 의해 복제된다.
+이들 관계는 일반적으로 "Vocabulary A – Vocabulary B equivalent"의 유형으로, 기존 용어집 소스에서 제공되거나, OHDSI 용어팀에 의해 구축된다. 그것들은 대략적인 매핑 역할을 할 수 있지만, 종종 잘 정리된 매핑보다는 관계의 정확도가 떨어진다. High-quality equivalence 관교 (예: Source – RxNorm equivalent) 는 항상 "Maps to" 관계에 의해 복제된다.
 
 ### 동일 용어집 내 concept들 간의 관계
 
@@ -237,9 +237,9 @@ CONCEPT_ID_1 | CONCEPT_ID_2
 	
 이러한 관계의 품질과 포괄성은 기존 용어집의 질에 따라 다르다. 일반적으로, SNOMED와 같은 표준 concept을 도출하는데 사용되는 용어집은 자료 분류와 구조화를 더 잘해주기 때문에, 내부 관계의 품질을 높여주는 데 도움이 된다.
 
-## 계층 {#conceptAncestor}
+## 계층 Hierarchy {#conceptAncestor}
 
-도메인 내에서 표준 및 분류 체계는 계층(Hierarchy) 구조로 구성되며, CONCEPT_ANCESTOR 테이블에 저장된다. 이를 통해 concepts과 모든 계층적 하위 항목을 쿼리로 검색할 수 있게 된다. 이 하위 항목들은 그들의 상위 항목과 같은 속성을 가지고 있지만, 추가로 정의된 것들도 있다. 
+도메인 내에서 표준 및 분류 체계는 계층 구조로 구성되며, CONCEPT_ANCESTOR 테이블에 저장된다. 이를 통해 concepts과 모든 계층적 하위 항목을 쿼리로 검색할 수 있게 된다. 이 하위 항목들은 그들의 상위 항목과 같은 속성을 가지고 있지만, 추가로 정의된 것들도 있다. 
 
 계층적 관계를 통해 연결된 모든 가능한 concepts을 내포한 CONCEPT_RELATIONSHIP 테이블로부터 자동으로 CONCEPT_ANCESTOR 테이블이 생성된다. 이들은 "Is a" – "Subsumes" (그림 \@ref(fig:conceptAncestor) 참조), 또는 다른 종류의 관계를 서로 다른 용어집들 간에 계층화하여 연결한다. 한 관계가 계층 구조 생성자에 참여할 것 인가, 말 것인가의 선택은 RELATIONSHIP 참조 테이블의 DEFINIES_ANCESTRY라는 표시를 달아서 정의해준다.
 
@@ -251,13 +251,13 @@ knitr::include_graphics("images/StandardizedVocabularies/conceptAncestor.png")
 
 상위와 하위 항목 사이의 단계(step) 개수를 의미하는 ancestor degree는 MIN_LEVELS_OF_SEPARATION과 MAX_LEVELS_OF_SEPARATION으로 표현되고, 최단 또는 최장의 가능한 연결 정도를 정의해준다. 모든 계층적 관계가 분리 수준 계산에 동일하게 기여하는 것은 아니다. Degree를 구하기 위한 단계는 각 relationship ID에 대한 RELATIONSHIP 참조 테이블의 IS_HIERARCHICAL 표시 flag로 결정된다.
 
-현재, 고품질의 포괄적인 계층구조는 약물(drug)와 질환(condition) 두 개의 도메인에만 존재한다. 시술(procedure), 측정(measurement), 관찰(observation) 도메인은 부분적으로만 적용되며 현재 구축 중에 있다. 조상(ancestry) concept은 출처, 상품명 또는 다른 속성들과 무관하게 특정 성분이나 약물 등급의 구성원을 가지는 모든 약물을 탐색할 수 있기 때문에 특히 약물 도메인에서 유용하다.
+현재, 고품질의 포괄적인 계층구조는 drug와 condition 두 개의 도메인에만 존재한다. Procedure, measurement, observation 도메인은 부분적으로만 적용되며 현재 구축 중에 있다. 조상(ancestry) concept은 출처, 상품명 또는 다른 속성들과 무관하게 특정 성분이나 약물 등급의 구성원을 가지는 모든 약물을 탐색할 수 있기 때문에 특히 약물 도메인에서 유용하다.
 
 ## 내부 참조 테이블
 
-DOMAIN_ID, VOCABULARY_ID, CONCEPT_CLASS_ID (셋 모두 CONCEPT 레코드 안에 있는) 및 CONCEPT_RELATIONSHIP_ID (CONCEPT_RELATIONSHIP 안에 있는)는 모두 자체 용어집에 의해 제어된다. 이들은 4개의 참조 테이블인 DOMAIN, VOCABULARY, CONCEPT_CLASS 및 RELATIONSHIP에 정의되어 있으며, *_ID 필드를 primary keys로 하여 더욱 자세한 *_NAME 필드 및 *_CONCEPT_ID 필드를 포함하는 CONCEPT 테이블에 대한 참조가 포함된 4개의 참조 테이블에 정의되어 있다. 이들 중복 레코드들의 목적은 정보 모델이 자동 탐색 엔진을 허용하도록 지원하기 위한 것이다.
+DOMAIN_ID, VOCABULARY_ID, CONCEPT_CLASS_ID (셋 모두 CONCEPT 레코드안에 있는) 및 CONCEPT_RELATIONSHIP_ID (CONCEPT_RELATIONSHIP 안에 있는)는 모두 자체 용어집에 의해 제어된다. 이들은 4개의 참조 테이블인 DOMAIN, VOCABULARY, CONCEPT_CLASS 및 RELATIONSHIP에 정의되어 있으며, *_ID 필드를 primary keys로 하여 더욱 자세한 *_NAME 필드 및 *_CONCEPT_ID 필드를 포함하는 CONCEPT 테이블에 대한 참조가 포함된 4개의 참조 테이블에 정의되어 있다. 이들 중복 레코드들의 목적은 정보 모델이 자동 탐색 엔진을 허용하도록 지원하기 위한 것이다.
 
-VOCABULARY 테이블에는 기존 용어의 원천과 버전을 참조하는 VOCABULARY_REFERENCE 및 VOCABULARY_VERSION 필드가 포함되어 있다. RELATIONSHIP 테이블에는 추가 필드인 DEFINES_ANCESTRY, IS_HIERARCHICAL 및 REVERSE_RELATIONSHIP 필드가 있다. 후자는 한 쌍의 관계에 대해 반대의(counter) relationship ID를 정의한다.
+VOCABULARY 테이블에는 기존 vocabulary의 source와 버전을 참조하는 VOCABULARY_REFERENCE 및 VOCABULARY_VERSION 필드가 포함되어 있다. RELATIONSHIP 테이블에는 추가 필드인 DEFINES_ANCESTRY, IS_HIERARCHICAL 및 REVERSE_RELATIONSHIP 필드가 있다. 후자는 한 쌍의 관계에 대해 반대의(counter) relationship ID를 정의한다.
 
 ## 특수 상황 {#specialSituations}
 
@@ -279,15 +279,15 @@ ICD-9 또는 ICD-10과 같은 일반적으로 사용되는 코딩 체계는 적�
 
 ### 기기
 
-기기 concept(Device concepts)은 원천 표준 concept에 사용될 수 있는 표준화된 코드 체계를 가지고 있지 않다. 많은 원천 데이터에서 기기들은 코드화되어 있지 않고, 외부 코딩 체계에도 포함되지 않는다. 이와 같은 이유로, 현재 사용 가능한 계층 시스템이 없다.
+기기 concept(Device concepts)은 원천 표준 concept에 사용될 수 있는 표준화된 코드 체계를 가지고 있지 않다. 많은 source 데이터에서 기기들은 코드화되어 있지 않고, 외부 코딩 체계에도 포함되지 않는다. 이와 같은 이유로, 현재 사용 가능한 계층 시스템이 없다.
 
 ### 방문 및 서비스
 
-방문 concept은 의료 서비스의 성격을 정의한다. 많은 원천 시스템에서 병원과 같은 일부 기관이나, 물리적 구조를 나타내는 장소를 서비스 공간이라고 한다. 다른 곳에서는 서비스라고 한다. 방문 concept은 또한 국가마다 다르며, 정의하기 쉽지 않다. 진료 장소(Care sites)는 일반적으로 방문을 몇 번 했는지로 특정한다 (예를 들어, XYZ병원) 그러나 그 방문 숫자만으로는 정의하지는 않아야 한다. (예를 들어, XYZ병원에서 조차 환자들은 진료 목적이 아닌 방문을 할 수도 있기 때문이다)
+방문 concept은 의료 서비스의 성격을 정의한다. 많은 source system에서 병원과 같은 일부 기관이나, 물리적 구조를 나타내는 장소를 서비스 공간이라고 한다. 다른 곳에서는 서비스라고 한다. 방문 concept은 또한 국가마다 다르며, 정의하기 쉽지 않다. 진료 장소(Care sites)는 일반적으로 방문을 몇 번 했는지로 특정한다 (예를 들어, XYZ병원) 그러나 그 방문 숫자만으로는 정의하지는 않아야 한다. (예를 들어, XYZ병원에서 조차 환자들은 진료 목적이 아닌 방문을 할 수도 있기 때문이다)
 
 ### 제공자 및 전문의 
 
-모든 인간 제공자들은 provider 도메인에 정의되어 있다. 이 제공자들은 의사 및 간호사와 같은 의료 전문가일 수도 있지만, 검안사나, 신발 제조업자와 같은 비의료 서비스 제공자(non-medical provider)일 수도 있다. 전문의는 제공자인 "의사"(Physician)의 하위 concept이다. 진료 장소는 전문성을 보유할 수 없으나, 주요 직원의 전문성에 의해 정의되는 경우가 많다 ("외과 Surgical department").
+모든 인간 제공자들은 provider 도메인에 정의되어 있다. 이 제공자들은 의사 및 간호사와 같은 의료 전문가일 수도 있지만, 검안사나, 신발 제조업자와 같은 비의료 서비스 제공자(non-medical provider)일 수도 있다. 전문의는 제공자인 "의사"(Physician)의 하위concept이다. Care sites는 전문성을 보유할 수 없으나, 주요 직원의 전문성에 의해 정의되는 경우가 많다 ("외과 Surgical department").
 
 ### 특별한 요구사항이 있는 치료 영역
 
@@ -299,7 +299,7 @@ Drug 도메인의 많은 concept은 미국 국립 의학 도서관(National Libr
 
 ### NULL의 특색
 
-많은 용어집에는 정보가 없는 코드들을 포함하고 있다. 예를 들어, 5개의 성별 concept인 8507 "Male", 8532 "Female", 8570 "Ambiguous", 8551 "Unknown", 8521 "기타" 중 앞의 2개인 8507 "Male", 8532 "Female"만 표준이며, 나머지 3개는 매핑이 되어있지 않은 원천 concepts이다. 표준 용어집에서는 왜 정보가 없는지에 대한 구분은 없다. 환자가 정보를 철회하거나, 결측값, 정의되지 않거나 표준화되지 않은 값 때문일 수도 있으며 COCEPT_RELATIONSHIP에 매핑 레코드가 없는 경우 일 수도 있다. 이러한 concept은 매핑되지 않으며, 이는 concept ID = 0인 표준 concept 기본 매핑에 해당한다.
+많은 용어집에는 정보가 없는 코드들을 포함하고 있다. 예를 들어, 5개의 성별 concept인 8507 "Male", 8532 "Female", 8570 "Ambiguous", 8551 "Unknown", 8521 "기타" 중 앞의 2개인 8507 "Male", 8532 "Female"만 표준이며, 나머지 3개는 매핑이 되어있지 않은 source concepts이다. 표준 용어집에서는 왜 정보가 없는지에 대한 구분은 없다. 환자가 정보를 철회하거나, 결측값, 정의되지 않거나 표준화되지 않은 값 때문일 수도 있으며 COCEPT_RELATIONSHIP에 매핑 레코드가 없는 경우 일 수도 있다. 이러한 concept은 매핑되지 않으며, 이는 concept ID = 0인 표준 concept 기본 매핑에 해당한다.
 
 ## 요약 
 
@@ -309,7 +309,7 @@ Drug 도메인의 많은 concept은 미국 국립 의학 도서관(National Libr
 - 모든 concept은 한 개의 도메인을 가지는데, 그런데 그 도메인은 concept으로 표현되는 그 사건이 CDM의 어떤 테이블에 저장될 지를 결정한다.
 - 다른 용어집에서 동등한 의미가 있는 concept들은 그중 하나에 매칭되는데, 그것이 표준concept으로 지정된 concept이다. 다른 concept들은 원천 concept들이다.
 - 매핑은 "Maps to"와 "Maps to value" concept relationships을 통해 수행된다.
-- 분류 concept이라 불리는 추가 concept 계층이 있는데, 이는 비표준이지만, 원천 concept과 달리 계층으로 존재한다. 비표준인, 분류 concept이라고 불리는 추가적인 concepts class가 있다. 하지만, 원천 concept과는 다르게 계층으로 존재한다.
+- 분류 concept이라 불리는 추가 concept 계층이 있는데, 이는 비표준이지만, 원천 concept과 달리 계층으로 존재한다. 비표준인, 분류 concept이라고 불리는 추가적인 concepts class가 있다. 하지만, source concepts과는 다르게 계층으로 존재한다.
 - concept은 시간이 지남에 따라 수명 주기(life-cycle)를 갖는다.
 - 도메인 내의 concept은 계층으로 구성된다. 계층구조의 품질은 도메인마다 상이하며, 계층 구조 시스템의 완성을 위해 아직 진행 중이다. 
 - 실수나, 오류를 발견한 경우 커뮤니티에 참여할 것을 적극적으로 권장한다.
