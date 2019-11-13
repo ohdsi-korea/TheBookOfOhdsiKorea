@@ -4,30 +4,29 @@
 
 \index{population-level estimation}
 
-관찰형 헬스케어 데이터 (예를 들어 보험청구자료, 전자 의무 기록) 는 환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실제 증거를 생성할 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는 시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
+관찰형 보건의료 데이터 (예를 들어 보험청구자료, 전자 의무 기록) 는 환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실세계 증거를 생성할 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는 시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
 
-- **직접 효과 추정(direct effect estimation)**: 노출 위험과 결과의 위험에 대한 노출 효과를 추정. \index{direct effect estimation}
-- **비교 효과 추정(comparative effect estimation)**: 다른 노출(comparator exposure)과 비교하여 노출(target exposure)의 결과 위험에 대한 영향 추정. \index{comparative effect estimation}
+- **직접 효과 추정(direct effect estimation)**: 위험인자 비노출에 비교하여 위험인자 노출의 질병 outocme 발생 위험에 대한 영향 추정. \index{direct effect estimation}
+- **비교 효과 추정(comparative effect estimation)**: 다른 노출(comparator exposure)과 비교하여 노출(target exposure)의 질병 발생 위험에 대한 영향 추정. \index{comparative effect estimation}
 
-두 가지의 경우에서, 인구 수준의 효과는 사실적 효과와 대조된다. 다시 말하면, 반 사실적인 결과를 가진 노출된 환자에게 무슨 일이 일어났는가? 다시 말하면 노출이 일어나지 않았다면 (직접적) 혹은 다른 노출이 일어났다면 (상대적) 무슨 일이 일어났을까? 어떤 환자라도 하나의 사실적인 결과만 노출하기 때문에 (인과 추론의 근본적인 문제), 다양한 효과 추정 설계는 다른 분석 장치를 사용하여 반 사실적인 결과를 조명한다. \index{counterfactual}
+두 가지의 경우에서, 인구 수준의 효과는 사실적 효과와 대조된다. 다시 말하면, 반 사실적인 counterfactual 결과를 가진 노출된 환자에게 무슨 일이 일어났는가? 노출이 일어나지 않았다면 (직접적) 혹은 다른 노출이 일어났다면 (상대적) 무슨 일이 일어났을까? 어떤 환자라도 하나의 사실적인 결과만 노출 가능하기 때문에 (인과 추론의 근본적인 문제), 다양한 효과 추정 설계는 여러 분석 장치를 사용하여 반 사실적인 counterfactual 결과를 조명한다. (역자 주: counterfactual이란 이론상의 가정으로서 A란 사람에게 B란 시점에 C란 약물을 투여하고 D란 질병발생유무를 측정한 후에, 타이머신을 타고 다시 시간을 거슬러 올라 B란 시점으로 돌아간 후에, 그 동일한 A에게 C를 투여하지 않고 관찰하여 D란 질병발생유무를 측정하는 것을 말한다. 이렇게 한다면 각종 삐뚤림과 교란인자를 완전히 통제할 수 있다. 이론상으로만 가능하다.) \index{counterfactual}
 
-인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 signal evaluation) 하거나 다중 가설을 한 번에 탐색 (예를 들어 signal detection) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
+인구 수준 효과 추정의 사용 사례 use-cases는 치료 선택, 안전 감시 safety surveillance, 비교 효과연구 comparative effectiveness를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 부작용 실마리정보 평가 signal evaluation) 하거나 다중 가설을 한 번에 탐색 (예를 들어 부작용 실마리정보 감지 signal detection) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
 
-이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **Population-Level Estimation** study design를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다.
-마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
+이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **Population-Level Estimation** 연구설계를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다. 마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
 
-## 코호트 설계 방법 {#CohortMethod}
+## 코호트 방법론 설계 {#CohortMethod}
 
 \index{cohort method}
 
 <div class="figure" style="text-align: center">
-<img src="images/PopulationLevelEstimation/cohortMethod.png" alt="대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여 (weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델 (Propensity model) 또는 결과 모델 (Outcome model)에 포함된 특징은 치료 시작 전에 결정된다." width="90%" />
-<p class="caption">(\#fig:cohortMethod)대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여 (weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델 (Propensity model) 또는 결과 모델 (Outcome model)에 포함된 특징은 치료 시작 전에 결정된다.</p>
+<img src="images/PopulationLevelEstimation/cohortMethod.png" alt="new-user cohort design: 대상 치료 target treatment를 시작하기 위해 관찰된 대상은 비교 대상 치료 comparator treatment를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화 stratification , 매칭 matching , 성향 점수에 의한 가중치 부여 weighting by propensity score, 결과 모델에 기저 특징 baseline characteristics 보정 추가와 같은 다양한 보정법 adjustment strategy을 사용할 수 있다. 성향 모델 propensity model 또는 결과 모델 outcome model에 포함된 특징은 치료 시작 전에 결정된다. (역자 주: new-user란 대상 위험에 생애 처음 노출된 환자를 말한다) " width="90%" />
+<p class="caption">(\#fig:cohortMethod)new-user cohort design: 대상 치료 target treatment를 시작하기 위해 관찰된 대상은 비교 대상 치료 comparator treatment를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화 stratification , 매칭 matching , 성향 점수에 의한 가중치 부여 weighting by propensity score, 결과 모델에 기저 특징 baseline characteristics 보정 추가와 같은 다양한 보정법 adjustment strategy을 사용할 수 있다. 성향 모델 propensity model 또는 결과 모델 outcome model에 포함된 특징은 치료 시작 전에 결정된다. (역자 주: new-user란 대상 위험에 생애 처음 노출된 환자를 말한다) </p>
 </div>
 
-코호트 방법은 무작위 임상 시험을 모방하려고 한다. [@hernan_2016] 하나의 치료를 시작한 환자(target)는 다른 치료를 시작한 환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를 받는 기간) 추적 관찰된다. 표 \@ref(tab:cmChoices) 에서 강조하는 5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다. \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
+코호트 방법론은 무작위 임상 시험을 모방하려고 한다. [@hernan_2016] 하나의 치료를 시작한 환자(target)는 다른 치료를 시작한 환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를 받는 기간) 추적 관찰된다. 표 \@ref(tab:cmChoices) 에서 강조하는 5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다. \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
 
-Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
+Table: (\#tab:cmChoices) 코호트 비교연구 설계에서 주된 고려사항.
 
 | Choice            | Description                                              |
 |:----------------- |:-------------------------------------------------------- |
@@ -37,19 +36,19 @@ Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
 | Time-at-risk      | At what time (often relative to the target and comparator cohort start and end dates) do we consider the risk of the outcome?  |
 | Model             | The model used to estimate the effect while adjusting for differences between the target and comparator  |
 
-모델 선택은 모델 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비(odds ratio)를 산출하는 로지스틱 회귀분석(logistic regression)을 사용할 수 있다. 로지스틱 회귀분석은 time-at-risk가 target과 comparator 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석(poisson regression)을 선택할 수 있는데, 이는 일정한 발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)을 추정한다. 콕스 회귀분석(cox regression)을 종종 사용하기도 하는데, 이는 target과 comparator 사이의 비례 위험(proportional hazard)을 가정하며, 위험 비율(hazard ratio)을 추정하려고 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
+모델 선택은 결과 모델의 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비 odds ratio를 산출하는 로지스틱 회귀분석 logistic regression을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간  Time-at-risk이 실험군 target cohort과 비교군 comparator cohort 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석 poisson regression을 선택할 수 있는데, 이는 일정한 발생률 incidence rate을 가정하고, 발생률 비율 incidence rate ratio을 추정한다. 콕스 회귀분석 Cox regression을 종종 사용하기도 하는데, 이는 실험군과 비교군 사이의 비례 위험 proportional hazard을 가정하며, 위험 비율 hazard ratio을 추정하려고 대상 질병이 처음 발생할 때까지의 시간 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
 
-\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출 군을 정의하기 힘들어 치료와 비 치료를 비교하기 위해 이 방법을 사용하긴 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지 않을, 동일한 적응증이 적용되는 비교 대상을 관심 노출 군(exposure of interest)으로 선택하는 방법이 선호된다. 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.</div>\EndKnitrBlock{rmdimportant}
+\BeginKnitrBlock{rmdimportant}<div class="rmdimportant">New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출 군을 정의하기 힘들기 때문에, 치료와 비 치료를 비교하기 위해 이 방법을 사용하긴 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지 않을 동일한 적응증이 적용되는 비교 대상을 관심 노출 군 exposure of interest으로 선택하는 방법이 선호된다 (역자 주: 예를 들면 ACE inhibitor노출군과 고혈압 치료제 비 노출군을 비교하기는 어렵다. 왜냐하면 그 두 군은 본질적으로 기저 특성이 다르기 때문이다. 사과와 생선을 비교한다고 가정해 보라. 대신 ACE inhibitor 노출군과 ARB 노출군을 비교해 볼 수는 있다. 그 둘다 기저 특성이 비슷할 것이기 때문이다. 부사 사과와 홍옥 사과를 비교 (within-class comparison)한다고 상상해 보라). 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.</div>\EndKnitrBlock{rmdimportant}
 
-주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로(systemically) 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는 실험군(target cohort)이 평균 60세이지만, 해당 치료를 받지 않은 대조군(comparator cohort) 이 평균 40세라고 가정하자. 연령과 관련된 건강 결과 (예를 들어 뇌졸중) 는 양 군 간에 상당히 차이가 날 것이다. 이런 정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한 인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지 않았다면 실험군의 환자들이 뇌졸중에 걸리지 않으리라 생각할 수 있다. 이러한 결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높아서 뇌졸중을 많이 경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는 “교란변수(confounder)”이다. 관찰형 연구에서 교란변수를 통제하는 한 가지 방법은 성향 점수(propensity score)를 이용하는 것이다. \index{confounder}
+주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로 systemically 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는 실험군 target cohort이 평균 60세이지만, 해당 치료를 받지 않은 대조군 comparator cohort 이 평균 40세라고 가정하자. 연령과 관련된 건강 결과 (예를 들어 뇌졸중) 는 양 군 간에 상당히 차이가 날 것이다. 이런 정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한 인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지 않았다면 실험군의 환자들이 뇌졸중에 걸리지 않으리라 생각할 수 있다. 이러한 결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높아서 뇌졸중을 많이 경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는 “교란변수 confounder”이다. 관찰형 연구에서 교란변수를 통제하는 한 가지 방법은 성향 점수 propensity score를 이용하는 것이다. \index{confounder}
 
 ### 성향 점수
 
 \index{propensity score}
 
-무작위 시험(randomized trial)에서 (가상의) 동전 던지기는 환자를 각각의 그룹에 배정한다. 따라서, 설계상 비교 치료군과 비교하여 환자가 대상치료를 받을 확률은 어떤 식으로든 나이가 같은 환자의 특성과 관련이 없다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될 정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가 증가함에 따라 신뢰도가 증가해 두 환자군은 본질에서 **어떠한** 환자 특성이라도 **다를 수 없다**. 이 보장된 균형은 무작위 시험이 측정한 특성 (예를 들어 나이) 과 유전적 특성과 같이 무작위 시험이 측정하지 못한 특성에 적용된다. \index{randomized trial}
+무작위 배정 시험 randomized trial에서 (가상의) 동전 던지기를 통해 환자를 각각의 그룹에 무작위로 배정한다. 이렇게 하면 설계상 치료군과 비교군에 속한 환자가 대상치료를 받을 확률은 나이와 같은 환자의 기본 특성과 관련이 없게 된다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될 정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가 증가함에 따라 신뢰도가 증가해 두 환자군은 본질에서 **어떠한** 환자 특성이라도 **다를 수 없다**. 이 보장된 균형은 무작위 배정 시험이 측정한 특성 (예를 들어 나이) 뿐 아니라 유전적 특성과 같이 무작위 시험이 측정하지 못한 특성에도 모두 적용된다. \index{randomized trial}
 
-주어진 환자의 **성향 점수(Propensity score, PS)** 는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다. [@rosenbaum_1983] 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가 실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한 모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각 환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를 들어, target 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교 대상을 허용할 수 있다. [@rassen_2012] \index{propensity model} \index{propensity score!matching} \index{propensity score!stratification} \index{propensity score!weighting} \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}} \index{variable ratio matching}
+주어진 환자의 **성향 점수 Propensity score, PS** 는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다. [@rosenbaum_1983] 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가 실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한 모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각 환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를 들어, 표적 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교 대상을 허용할 수 있다. [@rassen_2012] \index{propensity model} \index{propensity score!matching} \index{propensity score!stratification} \index{propensity score!weighting} \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}} \index{variable ratio matching}
 
 예를 들어 one-on-one PS 매칭을 사용한다고 가정해보자. Jan이라는 환자가 대상 치료를 받을 선험 확률(priori probability)이 0.4이고, 실제로 대상 치료(target treatment)를 받고, Jun이라고 하는 또 다른 환자는 대상 치료를 받을 선험 확률이 0.4이지만, 사실상 대조 치료(comparator treatment)를 받았다면, 적어도 측정된 교란변수에 대해 Jan과 Jun의 outcome 비교는 작은 무작위 시험과 같다. 이 비교는 Jan과 Jun의 인과적인 대조를 무작위 시험으로 산출한 결과만큼 양호하게 추정할 것이다. 추정은 다음과 같이 진행된다: 대상치료를 받은 모든 환자에 대해, 대조 치료를 받았지만, 표적을 받는 선험적 확률이 동일한 하나 이상의 일치하는 환자를 찾는다. 그들의 짝지어진 환자군(matched group) 안에서 대상 환자(target group)의 결과와 비교 그룹(comparator group)의 결과를 비교한다.
 
@@ -57,7 +56,7 @@ Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
 
 ### 변수 선택 {#VariableSelection}
 
-이전에 성향 점수는 연구자가 임의로 선택된 특성(manually selected characteristics)을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성) 을 포함하는 것을 선호한다. [@tian_2018] 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 독특한 특성을 포함하며, 이러한 모델은 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지에서 구현되는 large-scale regularized regression [@suchard_2013]을 사용하여 적합화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
+이전에 성향 점수는 연구자가 임의로 선택된 특성(manually selected characteristics)을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라 선택되지 않은 특성) 을 포함하는 것을 선호한다. [@tian_2018] 이러한 특성에는 인구학적인 특성뿐만 아니라 치료 개시일 전과 개시일에 관찰된 모든 진단, 약물 노출, 측정 및 의료절차가 포함된다. 모델은 전형적으로 10,000 – 100,000가지의 독특한 특성을 포함하며, 이러한 모델은 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지에서 구현되는 large-scale regularized regression [@suchard_2013] 을 사용하여 적합화한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이 알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
 
 \BeginKnitrBlock{rmdimportant}<div class="rmdimportant">치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 해당 날짜에 기록되기 때문에 일반적으로 공변량을 정의할 때 치료 개시일의 변수를 포함한다. 이 날에 연구의 주제가 되는 대상 치료(target treatment)와 대조 치료(comparator treatment) 자체도 기록되는데, 이러한 치료는 우리가 예측하려는 바로 그것이기 때문에 성향 모델에 포함해서는 안 된다. 따라서 공변량 집합에서 대상 치료와 대조치료는 **반드시 제외해야 한다**.</div>\EndKnitrBlock{rmdimportant}
 
@@ -67,7 +66,7 @@ Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
 
 \index{caliper}
 
-성향 점수가 0에서 1까지의 연속성을 갖기 때문에 정확한 일치는 거의 불가능하다. 그 대신, 매칭 프로세스는 대상 환자의 성향 점수와 일치하는 환자를 “캘리퍼 (caliper)”라고 알려진 내성 범위 내에서 찾는다. 이전 연구 [@austin_2011]에 따라, 우리는 로직 척도에서 0.2 표준편차의 기본(default) 캘리퍼를 사용한다.
+성향 점수가 0에서 1까지의 연속성을 갖기 때문에 정확한 일치는 거의 불가능하다. 그 대신, 매칭 프로세스는 대상 환자의 성향 점수와 일치하는 환자를 “캘리퍼 (caliper)”라고 알려진 내성 범위 내에서 찾는다. 이전 연구 [@austin_2011] 에 따라, 우리는 로직 척도에서 0.2 표준편차의 기본(default) 캘리퍼를 사용한다.
 
 ### 오버랩: 선호 점수
 
@@ -184,30 +183,29 @@ SCCS의 기본 가정 중 하나는 관찰 기간 종료가 결과 날짜 (outco
 
 ## 고혈압 연구 설계하기
 
-
 ### 문제 정의
 
-ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 울혈성 심부전, 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리 사용된다. [@zaman_2002] 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈 주위 부위가 부어오르는 심각한 중증도의 때로는 생명을 위협하는 부작용은 이러한 약물의 사용과 관련이 있다. [@sabroe_1997] 그러나 이러한 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한 정보는 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한 특정 코호트 (예를 들어 주로 남성 퇴역 군인이나 메디케이드 수혜자) 에 대한 조사 또는 불안정한 위험 추정치를 제공하는 경위가 거의 없는 조사를 기반으로 한다. [@powers_2012] 다수의 관찰 연구는 혈관부종의 위험에 대한 ACEi를 베타 차단제와 비교하지만 [@magid_2010; @toh_2012], 베타 차단제는 더 이상 고혈압의 1차 치료제로 권장되지 않는다. [@whelton_2018] 사용 가능한 대체 치료제는 thiazide 또는 thiazide-like 이뇨제일 수 있으며, 이는 혈관부종의 위험 증가 없이 급성 심근경색과 같은 고혈압 관련 위험을 관리하는데 ACEi만큼 효과적이다.
+ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 울혈성 심부전, 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리 사용된다. [@zaman_2002] 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈 주위 부위가 부어오르는 심각한 중증도의 때로는 생명을 위협하는 혈관부종 부작용은 이러한 약물의 사용과 관련이 있다. [@sabroe_1997] 그러나 이러한 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한 정보는 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한 특정 코호트 (예를 들어 주로 남성 퇴역 군인이나 메디케이드 (역자 주: Medicaid는 미국의 65세 미만 저소득층과 장애인을 위한 의료 보조 제도) 수혜자) 에 대한 조사 또는 불안정한 위험 추정치를 제공하는 경위가 거의 없는 조사를 기반으로 한다. [@powers_2012] 많은 관찰 연구에서 혈관부종의 위험에 대해서 ACEi와 베타 차단제를 비교하였지만 [@magid_2010; @toh_2012], 베타 차단제는 더 이상 고혈압의 1차 치료제로 권장되지 않는다. [@whelton_2018] 사용 가능한 대체 치료제는 thiazide 또는 thiazide-like 이뇨제일 수 있으며, 이는 혈관부종의 위험 증가 없이 급성 심근경색과 같은 고혈압 관련 위험을 관리하는데 ACEi만큼 효과적이다.
 
-다음은 다음과 같은 비교 추정 질문을 다루기 위해 인구 수준 평가(population-level estimation) 프레임워크를 관찰 보건 데이터(observational healthcare data)에 적용하는 방법을 보여준다
+다음은 비교 추정 질문을 다루기 위한 인구 수준 평가(population-level estimation) 프레임워크를 관찰 보건 데이터(observational healthcare data)에 적용하는 방법을 보여준다:
 
 >Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를 새로 사용하는 환자들에서 혈관부종의 위험도는 어떻게 되는가?
 
 > Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를 새로 사용하는 환자들에서 급성 심근경색의 위험도는 어떻게 되는가?
 
-이들이 비교 효과 추정(comparative effect estimation) 질문이기 때문에 \@ref(CohortMethod)장에서 설명한 대로 Cohort Method를 적용할 것이다.
+이들은 비교 효과 추정(comparative effect estimation) 질문이기 때문에 \@ref(CohortMethod)장에서 설명한 대로 Cohort Method를 적용할 것이다.
 
-### 대상 및 비교기 
+### 대상군 및 비교군 
 
-첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을 단독요법으로 사용하는 경우를 new-user로 간주한다. 이 중 치료 시작 후 7일 동안 다른 항고혈압제를 시작하지 않은 경우를 단독요법으로 정의한다. 환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속해서 관찰되고, 치료 시작 전 또는 그 이전에 기록된 고혈압 진단을 받도록 정의했다.
+첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을 단독요법으로 사용하는 경우를 new-user로 간주한다. 이 중 치료 시작 후 7일 동안 다른 항고혈압제를 시작하지 않은 경우를 단독요법으로 정의한다. 환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속해서 관찰되고, 치료 시작 전 또는 그 이전에 기록된 고혈압 진단이 있는 경우로 정의했다.
 
 ### 결과
 
-입원 또는 응급실 방문 중에 혈관부종이 발생하고, 그 이전 일주일간 혈관부종 발생이 없었던 경우를 혈관부종으로 정의했다. 입원 또는 응급실 방문 중에 심근경색이 발생하고, 그 이전 180일간 심근경색 발생이 없었던 경우를 심근경색으로 정의했다.
+입원 또는 응급실 방문 중에 혈관부종 기록이 있고, 그 이전 일주일간 혈관부종 발생이 없었던 경우를 혈관부종으로 정의하였다. 입원 또는 응급실 방문 중에 심근경색 기록이 있고, 그 이전 180일간 심근경색 발생 기록이 없었던 경우를 심근경색으로 정의하였다.
 
-### 위험 노출 기간(Time-At-Risk)
+### 위험 노출 기간 Time-At-Risk
 
-30일까지의 차이(30-day gap)를 인정하여, 치료 시작 다음 날부터 시작하여 연속적인 약물 노출이 중단될 때까지를 위험 노출 기간(time-at-risk)으로 정의했다.
+30일까지의 차이(30-day gap)를 인정하여, 치료 시작 다음 날부터 시작하여 연속적인 약물 노출이 (30일 이상) 중단될 때까지를 위험 노출 기간 time-at-risk로 정의하였다.
 
 ### 모델
 
@@ -237,7 +235,7 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 ### 비교 코호트 설정 {#ComparisonSettings}
 
-한 연구에는 하나 이상의 비교 대상이 있을 수 있다. “Add Comparison”을 클릭하면 새 대화 상자가 열린다. 대상(target) 및 비교(comparator) 코호트를 선택하려면 ![](images/PopulationLevelEstimation/open.png) 을 클릭하면 된다. “Add Outcome”을 클릭하면, 두 개의 결과(outcome) 코호트를 추가할 수 있다. 우리는 \@ref(Cohorts)장에서 설명한 대로 이미 코호트들이 생성된 것으로 가정한다. 부록에서 대상군 (Appendix \@ref(AceInhibitorsMono)), 대조군 (Appendix \@ref(ThiazidesMono)), outcome (Appendix \@ref(Angioedema 과 Appendix \@ref(Ami)) 코호트에 대해 자세히 볼 수 있다. 완료되면 그림 \@ref(fig:comparisons)에서와 같은 창이 생성될 것이다.
+한 연구에는 하나 이상의 비교 대상이 있을 수 있다. “Add Comparison”을 클릭하면 새 대화 상자가 열린다. 대상(target) 및 비교(comparator) 코호트를 선택하려면 ![](images/PopulationLevelEstimation/open.png) 을 클릭하면 된다. “Add Outcome”을 클릭하면, 두 개의 결과(outcome) 코호트를 추가할 수 있다. 우리는 \@ref(Cohorts)장에서 설명한 대로 이미 코호트들이 생성된 것으로 가정한다. 부록에서 대상군 (부록 \@ref(AceInhibitorsMono)), 대조군 (부록 \@ref(ThiazidesMono)), outcome (부록 \@ref(Angioedema)과 부록 \@ref(Ami)) 코호트에 대해 자세히 볼 수 있다. 완료되면 그림 \@ref(fig:comparisons)에서와 같은 창이 생성될 것이다.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/comparisons.png" alt="비교 dialog" width="100%" />
@@ -247,31 +245,31 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 #### 음성 대조군 결과 {-}
 
-음성 대조군 결과(Negative Control Outcome)는 대상군 또는 비교군에 의해 야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험 비는 1과 동일해야 한다. 이상적으로는 우리는 각 결과 코호트에 대해 적절한 코호트 정의를 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 통제 결과 당 하나의 컨셉 세트(concept set)와 이를 결과 코호트로 변환하는 표준 논리만 가진다. 여기서는 \@ref(MethodValidity)장에서 설명한 대로 컨셉 셋이 이미 생성되었다고 가정하고 간단하게 선택할 수 있다. 음성 통제 컨셉 집합에는 음성 통제 당 하나의 컨셉만을 포함해야 하며, 하위 컨셉들은 포함하지 않아야 한다. 그림 \@ref(fig:ncConceptSet) 은 본 연구에 사용된 음성 대조군 컨셉 집합을 보여준다.
+음성 대조군 결과(Negative Control Outcome)는 대상군 또는 비교군에 의해 야기된 것으로 생각되지 않는 결과이며, 따라서 실제 위험 비는 1과 동일해야 한다. 이상적으로는 우리는 각 결과 코호트에 대해 적절한 코호트 정의를 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 통제 결과 당 하나의 concept 세트(concept set)와 이를 결과 코호트로 변환하는 표준 논리만 가진다. 여기서는 \@ref(MethodValidity)장에서 설명한 대로 concept 세트가 이미 생성되었다고 가정하고 간단하게 선택할 수 있다. 음성 통제 concept 집합에는 음성 통제 당 하나의 concept만을 포함해야 하며, 하위 concept들은 포함하지 않아야 한다. 그림 \@ref(fig:ncConceptSet) 은 본 연구에 사용된 음성 대조군 concept 집합을 보여준다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PopulationLevelEstimation/ncConceptSet.png" alt="음성 대조군 컨셉 집합." width="100%" />
-<p class="caption">(\#fig:ncConceptSet)음성 대조군 컨셉 집합.</p>
+<img src="images/PopulationLevelEstimation/ncConceptSet.png" alt="음성 대조군 concept 집합." width="100%" />
+<p class="caption">(\#fig:ncConceptSet)음성 대조군 concept 집합.</p>
 </div>
 
-#### 포함 컨셉 {-}
+#### 포함 concept {-}
 
-포함 컨셉(concept to include) 선택 시, 우리는 성향점수 모델 등에 어떠한 공변량이 생성되기를 원하는지 선택할 수 있다. 공변량을 지정하면, 모든 다른 공변량 (선택하지 않은) 은 제외된다. 보통 우리는 환자들의 모든 기저 공변량을 추가하여 regularized regression이 모든 공변량의 균형을 맞출 수 있는 모델을 만들기를 바란다. 만약 특정 공변량만을 선택하기 원한다면, 그것은 연구자들이 직접 공변량을 고른 다른 연구를 복제해보기 위해서일 것이다. 이러한 공변량 추가들은 비교(comparison) 섹션 또는 분석(analysis) 섹션에서 정의될 수 있는데, 공변량들이 특정 비교 (비교시 알고 있는 교란변수) 또는 분석 (특정 공변량 선택 전략의 평가) 에 연계될 수 있기 때문이다.
+포함 concept(concept to include) 선택 시, 우리는 성향점수 모델 등에 어떠한 공변량이 생성되기를 원하는지 선택할 수 있다. 공변량을 지정하면, 모든 다른 공변량 (선택하지 않은) 은 제외된다. 보통 우리는 환자들의 모든 기저 공변량을 추가하여 regularized regression이 모든 공변량의 균형을 맞출 수 있는 모델을 만들기를 바란다. 만약 특정 공변량만을 선택하기 원한다면, 그것은 연구자들이 직접 공변량을 고른 다른 연구를 복제해보기 위해서일 것이다. 이러한 공변량 추가들은 비교(comparison) 섹션 또는 분석(analysis) 섹션에서 정의될 수 있는데, 공변량들이 특정 비교 (비교시 알고 있는 교란변수) 또는 분석 (특정 공변량 선택 전략의 평가) 에 연계될 수 있기 때문이다.
 
-#### 배제 컨셉 {-}
+#### 배제 concept {-}
 
-추가하는 컨셉보다는 **배제** 컨셉을 지정하는 경우가 많다. 배제 컨셉을 지정하면, 배제 컨셉을 제외한 모든 공변량을 사용함을 뜻한다. 기본 공변량 집합(default set of covoariate) 설정을 이용하면, 치료 시작 시의 모든 약물, 시술을 이용하기 때문에, 우리는 대상 치료 및 비교 치료에 해당하거나 이것들과 직접적으로 관련된 컨셉들을 배제해야 한다. 예를 들어, 만약 대상 치료가 약물 정맥 주입 치료라면, 우리는 약물뿐 아니라 정맥 주입 시술 역시도 성향 점수 모델에서 제외해야 한다. 이 예제에서 우리는 ACEi와 THZ를 배제했다. 그림 \@ref(fig:covsToExclude)에서 ACEi와 THZ 과 그들의 하위 컨셉을 포함하여 배제 컨셉 집합을 구성함을 볼 수 있다.
+추가하는 concept보다는 **배제** concept을 지정하는 경우가 많다. 배제 concept을 지정하면, 배제 concept을 제외한 모든 공변량을 사용함을 뜻한다. 기본 공변량 집합(default set of covoariate) 설정을 이용하면, 치료 시작 시의 모든 약물, 시술을 이용하기 때문에, 우리는 대상 치료 및 비교 치료에 해당하거나 이것들과 직접적으로 관련된 concept들을 배제해야 한다. 예를 들어, 만약 대상 치료가 약물 정맥 주입 치료라면, 우리는 약물뿐 아니라 정맥 주입 시술 역시도 성향 점수 모델에서 제외해야 한다. 이 예제에서 우리는 ACEi와 THZ를 배제했다. 그림 \@ref(fig:covsToExclude)에서 ACEi와 THZ 과 그들의 하위 concept을 포함하여 배제 concept 집합을 구성함을 볼 수 있다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PopulationLevelEstimation/covsToExclude.png" alt="배제 컨셉을 정의하는 개념 집합." width="100%" />
-<p class="caption">(\#fig:covsToExclude)배제 컨셉을 정의하는 개념 집합.</p>
+<img src="images/PopulationLevelEstimation/covsToExclude.png" alt="배제 concept을 정의하는 개념 집합." width="100%" />
+<p class="caption">(\#fig:covsToExclude)배제 concept을 정의하는 개념 집합.</p>
 </div>
 
-음성 대조군과 배제 컨셉을 지정한 후, 비교 섹션의 아래쪽 절반 창은 그림 \@ref(fig:comparisons2)과 같이 보일 것이다.
+음성 대조군과 배제 concept을 지정한 후, 비교 섹션의 아래쪽 절반 창은 그림 \@ref(fig:comparisons2)과 같이 보일 것이다.
 
 <div class="figure" style="text-align: center">
-<img src="images/PopulationLevelEstimation/comparisons2.png" alt="음성 대조군에 대한 개념 집합과 배제 컨셉을 보여주는 비교 창." width="100%" />
-<p class="caption">(\#fig:comparisons2)음성 대조군에 대한 개념 집합과 배제 컨셉을 보여주는 비교 창.</p>
+<img src="images/PopulationLevelEstimation/comparisons2.png" alt="음성 대조군에 대한 개념 집합과 배제 concept을 보여주는 비교 창." width="100%" />
+<p class="caption">(\#fig:comparisons2)음성 대조군에 대한 개념 집합과 배제 concept을 보여주는 비교 창.</p>
 </div>
 
 ### 효과 추정 분석 설정
@@ -313,9 +311,9 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 여기서 우리는 사용할 공변량을 지정한다. 이러한 공변량은 일반적으로 성향 점수 모델에서 사용되지만, 결과 모델 (이 경우 Cox proportional hazards model)에도 포함될 수 있다. 우리가 **공변량 설정의 세부 사항(click to view details)** 을 클릭을 하면, 사용할 공변량 셋을 선택할 수 있다. 하지만, 인구학적 정보, 모든 진단명, 약물, 시술, 검사 등에 대한 공변량을 구성하는 기본 집합(default set)을 사용하길 권장한다.
 
-**포함** 하거나 **배제** 할 컨셉을 지정하여 공변량 셋을 수정할 수 있다. 이러한 설정은 비교 설정의 \@ref(ComparisonSettings)절에 있는 설정과 동일하다. 두 곳에서 이 설정이 가능한 이유는, 비교하는 약물들을 제외하기 위해서이기 하고, 때로는 이 설정이 특정 분석과 관련 있을 수도 있기 때문이다. 특정 분석 설정을 사용하여 특정 비교에 대한 분석을 실행하면 OHDSI 툴이 이러한 셋을 통합한다.
+**포함** 하거나 **배제** 할 concept을 지정하여 공변량 셋을 수정할 수 있다. 이러한 설정은 비교 설정의 \@ref(ComparisonSettings)절에 있는 설정과 동일하다. 두 곳에서 이 설정이 가능한 이유는, 비교하는 약물들을 제외하기 위해서이기 하고, 때로는 이 설정이 특정 분석과 관련 있을 수도 있기 때문이다. 특정 분석 설정을 사용하여 특정 비교에 대한 분석을 실행하면 OHDSI 툴이 이러한 셋을 통합한다.
 
-그림 \@ref(fig:covariateSettings)은 이 연구에 대한 선택을 보여준다. 그림 \@ref(fig:comparisons2)의 비교 셋팅에서 배제 컨셉에 하위 컨셉을 포함하도록 설정했다는 점에 주의하자.
+그림 \@ref(fig:covariateSettings)는 이 연구에 대한 선택을 보여준다. 그림 \@ref(fig:comparisons2)의 비교 셋팅에서 배제 concept에 하위 concept을 포함하도록 설정했다는 점에 주의하자.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/covariateSettings.png" alt="공변량 설정." width="100%" />
@@ -328,7 +326,7 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 코호트 종료일을 time-at-risk 종료일로 설정하여, 약물 노출이 중지된 시점으로 설정하였다. 예를 들어, 치료 종료 후에 발생한 event가 노출로 인한 것으로 판단될 경우, time-at-risk의 종료일을 나중으로 설정할 수 있다. 극단적인 경우, time-at-risk 종료를 코호트 종료일 후에 매우 이후 (예를 들어 99999일)로 설정할 수 있다. 이는 관찰 종료까지 피험자를 추적 관찰하는 것을 의미한다. 이러한 연구 설계를 때로는 *intent-to-treat* 설계라고도 한다.
 
-index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days at risk)**가 0일인 환자는 추가적인 정보가 없기 때문에, **최소 관찰 기간 (minimum days at risk)**은 보통 1일로 설정한다. 노출과 outcome 발생에 대한 지연시간(latency)이 알려져 있다면, 이러한 일수를 늘려 더 유익한 비율(more informative proportion)을 얻을 수도 있을 것이다. 이러한 설정은 무작위 임상 시험과 유사한 연구 설계를 위해서도 사용할 수 있다 (예를 들어, 임상시험에 참여한 피험자가 최소한 N 일 동안은 관찰되었다고 할 때).
+index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간(days at risk)**가 0일인 환자는 추가적인 정보가 없기 때문에, **최소 관찰 기간(minimum days at risk)**은 보통 1일로 설정한다. 노출과 outcome 발생에 대한 지연시간(latency)이 알려져 있다면, 이러한 일수를 늘려 더 유익한 비율(more informative proportion)을 얻을 수도 있을 것이다. 이러한 설정은 무작위 임상 시험과 유사한 연구 설계를 위해서도 사용할 수 있다 (예를 들어, 임상시험에 참여한 피험자가 최소한 N 일 동안은 관찰되었다고 할 때).
 
 \BeginKnitrBlock{rmdimportant}<div class="rmdimportant">코호트 연구를 설계할 때, 황금률(golden rule)은 편향(bias)이 개입될 수 있으므로 연구 대상을 정의하기 위해 코호트 시작일 이후의 정보를 절대로 사용하지 않는 것이다. 예를 들어, 모든 피험자들에게 적어도 1년의 time-at-risk가 요구된다면, 우리는 치료를 잘 견디는 피험자들로 분석을 제한했다는 뜻이다. 따라서, 이러한 설정은 세심한 주의를 기울여 사용해야 한다.</div>\EndKnitrBlock{rmdimportant}
 
@@ -339,9 +337,9 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 
 #### 성향 점수 조정 {-}
 
-극단적인 성향 점수를 갖는 피험자들을 제거하여, 연구 대상을 **트리밍(trimming)**할 수 있다. 상위 또는 하위 비율을 제거하도록 선택하거나, 선호도 점수(preference score)가 지정된 범위를 벗어나는 피험자를 제거할 수 있다. 코호트 트리밍은 관측치를 제거하여 통계력(statistical power)을 감소시키기 때문에 일반적으로 권장되지는 않는다. IPTW를 사용할 때처럼 경우에 따라서는 트리밍을 하는 것이 바람직할 수 있다. \index{propensity score!trimming}
+극단적인 성향 점수를 갖는 피험자들을 제거하여, 연구 대상을 **트리밍(trimming)**할 수 있다. 상위 또는 하위 비율을 제거하도록 선택하거나, 선호도 점수(preference score)가 지정된 범위를 벗어나는 피험자를 제거할 수 있다. 코호트 트리밍은 관측치를 제거하여 통계적 검정력을 감소시키기 때문에 일반적으로 권장되지는 않는다. IPTW를 사용할 때처럼 경우에 따라서는 트리밍을 하는 것이 바람직할 수 있다. \index{propensity score!trimming}
 
-트리밍에 추가하여, 또는 트리밍 대신에, 성향 점수를 이용해 **계층화(stratification)**하거나 **짝짓기(matching)**하도록 선택할 수 있다. 계층화할 때, **계층의 수(number of strata)**를 지정하고, 대상 군, 대조군, 또는 전체 연구 집단을 기준으로 계층을 선택할지 여부를 지정해야 한다. 성향 점수 짝짓기 시, 대상 군의 각 피험자와 일치시키기 위한 대조군에서의 **최대 피험자 수 비율(maximum number of people from the comparator group to match to each person in the target group)**를 지정하여야 한다. 일반적인 값은 one-on-one matching의 경우 1, variable-ratio matching의 경우 다수 (예를 들어 100) 이다. 또한, 매칭을 허용하는 성향 점수 사이의 최대 허용 차이를 뜻하는 **캘리퍼(caliper)**를 지정해야 한다: 캘리퍼는 다음과 같이 서로 다른 **캘리퍼 척도(caliper scales)**로 정의할 수 있다. \index{caliper!scale}
+트리밍에 추가하여, 또는 트리밍 대신에, 성향 점수를 이용해 **계층화(stratification)**하거나 **짝짓기(matching)**하도록 선택할 수 있다. 계층화할 때, **계층의 수(number of strata)**를 지정하고, 대상 군, 대조군, 또는 전체 연구 집단을 기준으로 계층을 선택할지 여부를 지정해야 한다. 성향 점수 짝짓기 시, 대상 군의 각 피험자와 일치시키기 위한 대조군에서의 **최대 피험자 수 비율(maximum number of people from the comparator group to match to each person in the target group)**를 지정하여야 한다. 일반적인 값은 one-on-one matching의 경우 1, variable-ratio matching의 경우 다수 (예를 들어 100) 이다. 또한, 매칭을 허용하는 성향 점수 사이의 최대 허용 차이를 뜻하는 **캘리퍼(caliper)**를 지정해야 한다: 캘리퍼는 다음과 같이 서로 다른 **캘리퍼 척도(caliper scales)**로 정의할 수 있다: \index{caliper!scale}
 
 * **성향 점수 척도(propensity score scale)**: 성향 점수 자체
 * **표준화 척도(standardized scale)**: 성향 점수 분포의 표준편차
@@ -355,7 +353,7 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 
 **모델 적합시에 정규화를 사용하시겠습니까? (Use regularization when fitting the model?)** 일반적으로 매우 많은 공변량 (일반적으로 만 개 이상) 이 성향 점수 모델 계산 시 사용된다. 이러한 대규모 모델을 적합하기 위해서는 정규화(regularization)가 필요하다. 만약 수동으로 몇 개의 공변량만 사용된다면, 정규화를 사용하지 않아도 모델을 적합할 수 있다.
 
-그림 \@ref(fig:psSettings)은 이 연구에 대한 우리의 선택을 보여준다. 최대 짝짓기 비율을 100으로 설정하여 variable-ratio matching을 선택하였다.
+그림 \@ref(fig:psSettings)는 이 연구에 대한 우리의 선택을 보여준다. 최대 짝짓기 비율을 100으로 설정하여 variable-ratio matching을 선택하였다.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/psSettings.png" alt="성향 점수 조절 설정." width="100%" />
@@ -364,7 +362,7 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 
 #### 결과 모델 설정 {-}
 
-먼저, 대상 코호트와 대조 코호트 간 **outcome의 상대적 위험(relative risk)을 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.** \@ref(CohortMethod)절에서 간략히 논의했던 것처럼, Cox, Poisson 및 logistic regression 중에서 선택할 수 있다. 예제에서는 Cox proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째 사건까지의 시간(time to first event)을 고려한다. 다음으로, **회귀분석에 층화 조건을 사용해야 할지(whether the regression should be conditioned on the strata)**를 명시할 필요가 있다. 쉽게 말하자면, 조건화(conditioning)는 별도의 추정치가 각 층(strata)에서 생성된 다음, 층에 걸쳐 추정치가 결합한 것으로 생각할 수 있다. One-to-one PS matching에서는 이러한 과정이 불필요할 것이며, 통계력(statistical power)감소를 유발할 것이다. 조건화는 층화(stratification) 또는 variable-ratio matching을 위해서 필요하다. \index{conditioned model} \index{stratified model|see {conditioned model}}
+먼저, 대상 코호트와 대조 코호트 간 **outcome의 상대적 위험(relative risk)을 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.** \@ref(CohortMethod)절에서 간략히 논의했던 것처럼, 콕스(Cox), 포아송(Poisson) 및 로지스틱 회귀분석 중에서 선택할 수 있다. 예제에서는 Cox proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째 사건까지의 시간(time to first event)을 고려한다. 다음으로, **회귀분석에 층화 조건을 사용해야 할지(whether the regression should be conditioned on the strata)**를 명시할 필요가 있다. 쉽게 말하자면, 조건화(conditioning)는 별도의 추정치가 각 층(strata)에서 생성된 다음, 층에 걸쳐 추정치가 결합한 것으로 생각할 수 있다. One-to-one PS matching에서는 이러한 과정이 불필요할 것이며, 통계적 검정력 감소를 유발할 것이다. 조건화는 층화(stratification) 또는 variable-ratio matching을 위해서 필요하다. \index{conditioned model} \index{stratified model|see {conditioned model}}
 
 분석을 보정하기 위해 **결과 모델(outcome model)에 공변량을 추가** 할 수도 있다. 이것을 성향 점수 모델 사용에 추가하거나 성향 점수 짝짓기 대신에 수행할 수 있다. 하지만 보통 성향 점수 모델을 적합하기에는 충분한 수의 데이터가 있지만, 결과 모델을 적합하기에는 outcome이 발생한 피험자가 적어 데이터가 모자라는 경우가 많다. 그래서 공변량을 결과 모델에 추가하지 말고, 결과 모델을 가급적 간단하게 유지하기를 권장한다.
 
@@ -372,7 +370,7 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 
 만약 모든 공변량을 결과 모델에 추가한다면, 공변량이 매우 많기 때문에 결과 모델 적합 시 정규화를 이용하는 것이 합리적일 것이다. 편향이 없는 추정(unbiased estimation)을 위해서 치료 공변량(treatment variable) 자체에는 정규화가 적용되지 않음에 유의하자.
 
-그림 \@ref(fig:outcomeModelSettings)은 이 연구에 대한 선택을 보여준다. Variable-ratio matching을 사용하기 때문에, 회귀분석에 층화 조건화(condition the regression on the strata (다른 말로 the matched sets))를 해야 함에 주목하자.
+그림 \@ref(fig:outcomeModelSettings)는 이 연구에 대한 선택을 보여준다. Variable-ratio matching을 사용하기 때문에, 회귀분석에 층화 조건화(condition the regression on the strata (다른 말로 the matched sets))를 해야 함에 주목하자.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/outcomeModelSettings.png" alt="결과 모델 설정." width="100%" />
@@ -385,7 +383,7 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 
 #### 음성 대조군 결과 코호트 정의 {-}
 
-\@ref(ComparisonSettings)절 에서 우리는 음성 대조군을 지정하는 컨셉 군을 선택했다. 컨셉을 지정하는 것뿐 아니라, 분석을 위해서는 컨셉을 기반으로 코호트를 생성하는 프로세스가 필요하다. ATLAS는 세 가지 선택 사항을 가진 표준 프로세스를 제공한다. 첫 번째 선택은 **모든 발생** 을 사용할지 또는 컨셉의 **첫 번째 발생** 만을 사용할지 여부이다. 두 번째 선택은 **하위 컨셉의 발생을 포함할지** 여부를 결정한다. 예를 들어, 하위 컨셉 "내성 발톱(ingrown nail of foot)"의 발생은 상위 컨셉 "내성 손발톱(ingrown nail)"의 발생으로 간주할 수 있다. 세 번째 선택사항은 컨셉을 찾을 때 고려할 도메인(domain)을 지정한다.
+\@ref(ComparisonSettings)절 에서 우리는 음성 대조군을 지정하는 concept 군을 선택했다. concept을 지정하는 것뿐 아니라, 분석을 위해서는 concept을 기반으로 코호트를 생성하는 프로세스가 필요하다. ATLAS는 세 가지 선택 사항을 가진 표준 프로세스를 제공한다. 첫 번째 선택은 **모든 발생** 을 사용할지 또는 concept의 **첫 번째 발생** 만을 사용할지 여부이다. 두 번째 선택은 **하위 concept의 발생을 포함할지** 여부를 결정한다. 예를 들어, 하위 concept "내성 발톱(ingrown nail of foot)"의 발생은 상위 concept "내성 손발톱(ingrown nail)"의 발생으로 간주할 수 있다. 세 번째 선택사항은 concept을 찾을 때 고려할 도메인(domain)을 지정한다.
 
 <div class="figure" style="text-align: center">
 <img src="images/PopulationLevelEstimation/ncSettings.png" alt="음성 대조 결과 코호트 정의 설정." width="100%" />
@@ -403,7 +401,7 @@ index date이후 절단 또는 outcome 발생 전까지의 **관찰 기간 (days
 
 ### 연구 패키지 실행
 
-이제 연구를 완전히 정의했으므로, 실행 가능한 R 패키지로 export 할 수 있다. 이 패키지는 CDM 데이터가 있는 사이트에서 연구를 실행하는데 필요한 모든 것이 들어있다. 여기에는 분석을 실행하기 위한 R 코드뿐만 아니라 대상, 대조 및 결과 코호트, 음성 대조군을 정의하기 위한 컨셉 군과 코호트 생성 프로세스가 포함된다. 패키지를 생성하기 전에 연구를 저장한 다음, **Utilities** 탭을 클릭하면, 수행될 일련의 분석을 검토할 수 있다. 앞서 언급했듯이, 개개의 비교와 분석 설정의 조합은 별도의 분석 결과를 생성할 것이다. 이번 예시에서는 성향 점수 매칭을 사용하여 두 가지 분석을 지정하였다: 급성 심근경색 위험에 대한 ACEi 대 THZ 비교, 혈관 부종에 대한 ACEi 대 THZ 비교.
+이제 연구를 완전히 정의했으므로, 실행 가능한 R 패키지로 export 할 수 있다. 이 패키지는 CDM 데이터가 있는 사이트에서 연구를 실행하는데 필요한 모든 것이 들어있다. 여기에는 분석을 실행하기 위한 R 코드뿐만 아니라 대상, 대조 및 결과 코호트, 음성 대조군을 정의하기 위한 concept 군과 코호트 생성 프로세스가 포함된다. 패키지를 생성하기 전에 연구를 저장한 다음, **Utilities** 탭을 클릭하면, 수행될 일련의 분석을 검토할 수 있다. 앞서 언급했듯이, 개개의 비교와 분석 설정의 조합은 별도의 분석 결과를 생성할 것이다. 이번 예시에서는 성향 점수 매칭을 사용하여 두 가지 분석을 지정하였다: 급성 심근경색 위험에 대한 ACEi 대 THZ 비교, 혈관 부종에 대한 ACEi 대 THZ 비교.
 
 "Download"를 클릭하여 zip 파일을 다운로드하기 위해, 패키지의 이름을 입력해야 한다. zip 파일에는 R 패키지의 일반적인 필수 폴더 구조와 함께, R 패키지가 포함되어 있다. [@Wickham_2015] 이 패키지를 사용하려면 R Studio를 사용하는 것이 좋다. R Studio를 로컬로 실행하는 경우 파일의 압축을 푼 다음, .Rproj 파일을 더블 클릭하여 R Studio에서 연다. R Studio 서버에서 R Studio를 실행하는 경우, ![](images/PopulationLevelEstimation/upload.png) 버튼을 클릭하여 파일을 업로드하고 압축을 해제한 다음, .Rproj 파일을 클릭하여 프로젝트를 연다.
 
@@ -485,7 +483,7 @@ cmData
 ## Outcome concept ID(s): 3
 ```
 
-많은 파라미터가 있지만, [CohortMethod 매뉴얼](https://ohdsi.github.io/CohortMethod/reference/)에 모두 설명되어 있다. `createDefaultCovariateSettings` 함수는 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지에 설명되어 있다. 간단히 말해, 코호트를 포함하는 테이블에 함수를 지정하고 해당 테이블의 cohort definition ID가 대상, 대조 및 outcome 코호트를 식별하도록 지정한다. index data 당일 혹은 이전에 발견된 모든 진단명, 약물 노출, 시술 기록에 대한 공변량을 포함하여 공변량의 기본 세트를 구성하도록 지시한다. \@ref(CohortMethod)절에서 언급했듯이, 공변량 집합에서 대상 및 대조 치료를 배제하여야 하며, 이 예제에서는 두 가지의 약물군에 해당하는 약물 성분(ingredient)을 나열하여 이를 달성한다. 또한, FeatureExtraction에 모든 하위 컨셉을 포함하여 배제하도록 지시하여 나열된 성분을 포함하는 모든 약물 노출을 공변량에서 제외한다.
+많은 파라미터가 있지만, [CohortMethod 매뉴얼](https://ohdsi.github.io/CohortMethod/reference/)에 모두 설명되어 있다. `createDefaultCovariateSettings` 함수는 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지에 설명되어 있다. 간단히 말해, 코호트를 포함하는 테이블에 함수를 지정하고 해당 테이블의 cohort definition ID가 대상, 대조 및 outcome 코호트를 식별하도록 지정한다. index data 당일 혹은 이전에 발견된 모든 진단명, 약물 노출, 시술 기록에 대한 공변량을 포함하여 공변량의 기본 세트를 구성하도록 지시한다. \@ref(CohortMethod)절에서 언급했듯이, 공변량 집합에서 대상 및 대조 치료를 배제하여야 하며, 이 예제에서는 두 가지의 약물군에 해당하는 약물 성분(ingredient)을 나열하여 이를 달성한다. 또한, FeatureExtraction에 모든 하위 concept을 포함하여 배제하도록 지시하여 나열된 성분을 포함하는 모든 약물 노출을 공변량에서 제외한다.
 
 코호트, 결과 및 공변량에 대한 모든 데이터는 서버에서 추출되어 `cohortMethodData` object에 저장된다. 이러한 object는 `ff` 패키지를 사용하여 \@ref(BigDataSupport)절에서 언급한 것처럼 데이터가 크더라도, R이 메모리를 모두 소모하지 않도록 보장한다.
 
@@ -526,7 +524,7 @@ saveCohortMethodData(cmData, "AceiVsThzForAngioedema")
 
 #### 새로운 사용자 정의하기 {-}
 
-일반적으로 **새로운 사용자 (new user)**는 약물 (대상 또는 비교) 의 최초 사용으로 정의되며, 최초 사용을 보장하는 확률을 높이기 위해 최초 사용 이전의 최소 기간을 뜻하는 휴식기(washout period)를 사용할 수 있다. CohortMethod 패키지를 사용할 때 다음 세 가지 방법으로 새로운 사용자를 정의할 수 있다.
+일반적으로 **새로운 사용자(new user)**는 약물 (대상 또는 비교) 의 최초 사용으로 정의되며, 최초 사용을 보장하는 확률을 높이기 위해 최초 사용 이전의 최소 기간을 뜻하는 휴식기(washout period)를 사용할 수 있다. CohortMethod 패키지를 사용할 때 다음 세 가지 방법으로 새로운 사용자를 정의할 수 있다.
 
 1. 코호트 정의 시 지정
 2. `getDbCohortMethodData`함수를 사용하여 코호트를 로딩할 때, `firstExposureOnly`, `removeDuplicateSubjects`, `restrictToCommonPeriod`, `washoutPeriod` 전달 인자(argument)를 사용하여 지정
@@ -579,7 +577,7 @@ ps <- createPs(cohortMethodData = cmData, population = studyPop)
 ```
 `createPs` 함수는 대규모 정규화 로지스틱 회귀분석(large-scale regularized logistic regression)을 적합화하기 위해 [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지를 사용한다. 성향 점수 모델을 적합화하기 위해, Cyclops는 prior의 분산을 지정하는 하이퍼파라미터(hyperparameter) 값을 알아야 한다. 디폴트로, Cyclops는 최적의 하이퍼파라미터를 추정하기 위해 교차 유효성 검사(cross-validation)를 사용할 것이다. 다만, 이 작업은 오랜 시간이 걸릴 수 있음을 알아 두어야 한다. `createPs` 함수의 `prior` 및 `control` 의 매개변수(parameter)를 사용하여 병렬 처리를 사용하여 교차 유효성 검사 속도를 높이는 등 Cyclops의 동작을 지정할 수 있다.
 
-예제에서는 성향점수 기반의 variable-ratio matching을 수행했다.
+예제에서는 성향점수 기반의 variable-ratio matching을 수행했다:
 
 
 ```r
@@ -614,7 +612,7 @@ outcomeModel
 
 ### 다중 분석 실행하기 {#MultipleAnalyses}
 
-음성 대조군을 포함하여 다수의 결과에 대해 하나 이상의 분석을 수행하기 원할 수 있다. [CohortMethod](https://ohdsi.github.io/CohortMethod/)는 이러한 연구를 효율적으로 수행하는 기능을 제공한다. 이것은 다중 분석 실행에 대한 패키지 설명([package vignette on running multiple analyses](https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html))에 자세히 설명되어 있다. 간단히 말해서 먼저 필요한 코호트가 모두 생성되어 있다면, 분석하고자 하는 모든 대상-대조-outcome 조합을 지정할 수 있다.
+음성 대조군을 포함하여 다수의 결과에 대해 하나 이상의 분석을 수행하기 원할 수 있다. [CohortMethod](https://ohdsi.github.io/CohortMethod/)는 이러한 연구를 효율적으로 수행하는 기능을 제공한다. 이것은 다중 분석 실행에 대한 패키지 설명([package vignette on running multiple analyses](https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html))에 자세히 설명되어 있다. 간단히 말해서 먼저 필요한 코호트가 모두 생성되어 있다면, 분석하고자 하는 모든 대상-대조-결과 조합을 지정할 수 있다.
 
 
 ```r
@@ -719,7 +717,7 @@ result <- runCmAnalyses(connectionDetails = connectionDetails,
                         targetComparatorOutcomesList = tcosList)
 ```
 
-`result` object에는 작성된 모든 artifact에 대한 참조가 들어 있다. 예를 들어, 급성 심근경색의 outcome 모델을 추출할 수 있다.
+`result` object에는 작성된 모든 artifact에 대한 참조가 들어 있다. 예를 들어, 급성 심근경색의 결과 모델을 추출할 수 있다.
 
 
 ```r
@@ -800,16 +798,16 @@ Table: (\#tab:psModel) Top 10 predictors in the propensity model for ACEi and TH
 <p class="caption">(\#fig:balance)공변량 균형, 성향 점수 매칭 전과 후의 절대 표준화 평균 차이를 보여준다. 각 점은 공변량을 나타낸다.</p>
 </div>
 
-### 추적기간과 통계력
+### 추적기간과 검정력
 
-Outcome 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 통계력(power)이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 통계력 계산을 수행하는 것이 좋다. 그림 \@ref(fig:attrition)과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
+결과 모델을 적합하기 전에, 특정 효과 크기를 감지할 수 있는 충분한 검정력이 있는지 파악해보고 싶을 수 있다. 연구 대상 집단이 완전히 정의되면, 다양한 포함/제외 기준 (예를 들어 이전 결과 없음) 과 매칭 및/또는 트리밍으로 인한 손실을 고려하여 이러한 검정력 계산을 수행하는 것이 좋다. 그림 \@ref(fig:attrition)과 같이 `drawAttritionDiagram` 함수를 사용하여 연구에서 피험자의 소모를 볼 수 있다. \index{attrition diagram}
 
 <div class="figure" style="text-align: center">
-<img src="images/PopulationLevelEstimation/attrition.png" alt="Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 Cox 회귀 분석이다." width="70%" />
-<p class="caption">(\#fig:attrition)Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 Cox 회귀 분석이다.</p>
+<img src="images/PopulationLevelEstimation/attrition.png" alt="Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 콕스 회귀 분석이다." width="70%" />
+<p class="caption">(\#fig:attrition)Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수들이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 콕스 회귀 분석이다.</p>
 </div>
 
-후향적 연구에서 표본 크기가 고정되어 있고 (데이터가 이미 수집된 상태이므로), 실제 효과 크기를 알 수 없으므로, 예상 효과 크기에 대한 통계력(power)를 계산하는 것은 의미가 없다. 대신 CohortMethod 패키지는 `computeMdrr` 함수를 제공하여 MDRR(minimum detectable relative risk)을 계산한다. 이 사례에서 MDRR은 1.69이다. \index{minimum detectable relative risk (MDRR)} \index{power}
+후향적 연구에서 표본 크기가 고정되어 있고 (데이터가 이미 수집된 상태이므로), 실제 효과 크기를 알 수 없으므로, 예상 효과 크기에 대한 검정력을 계산하는 것은 의미가 없다. 대신 CohortMethod 패키지는 `computeMdrr` 함수를 제공하여 MDRR(minimum detectable relative risk)을 계산한다. 이 사례에서 MDRR은 1.69이다. \index{minimum detectable relative risk (MDRR)} \index{power}
 
 추적 기간(follow-up) 데이터를 더 잘 이해하기 위해서는 추적 기간의 분포도 검사할 수 있다. 추적 기간을 위험 노출 기간(time at risk)으로 정의했으므로 outcome 발생으로 인해서는 중도 절단되지 않는다. `getFollowUpDistribution` 그림 \@ref(fig:followUp)과 같은 간단한 개괄을 제공한다. 이는 두 코호트의 follow-up time이 비슷하다는 것을 의미한다.
 
@@ -873,7 +871,7 @@ Eunomia::createCohorts(connectionDetails)
 
 > Diclofenac의 새 사용자와 비교하였을 때 celecoxib의 새 사용자의 위장 출혈의 위험은 무엇인가?
 
-celecoxib의 새 사용자 코호트는 COHORT_DEFINITION_ID = 1 값을 가진다. diclofenac 새 사용자 코호트는 COHORT_DEFINITION_ID = 2 값을 가진다. 위장 출혈 코호트는 COHORT_DEFINITION_ID = 3 값을 가진다. Celecoxib와 Diclofenac의 성분 컨셉트 ID는 각각 1118084과 1124300이다. 위험 노출 기간은 치료가 시작된 날부터 시작하며, 관찰이 종료될 때 멈춘다 (intent-to-treat 분석이라고 부른다).
+celecoxib의 새 사용자 코호트는 COHORT_DEFINITION_ID = 1 값을 가진다. diclofenac 새 사용자 코호트는 COHORT_DEFINITION_ID = 2 값을 가진다. 위장 출혈 코호트는 COHORT_DEFINITION_ID = 3 값을 가진다. Celecoxib와 Diclofenac의 성분 concept ID는 각각 1118084과 1124300이다. 위험 노출 기간은 치료가 시작된 날부터 시작하며, 관찰이 종료될 때 멈춘다 (intent-to-treat 분석이라고 부른다).
 
 \BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exercisePle1"><strong>(\#exr:exercisePle1) </strong></span>CohortMethod R 패키지를 사용하여, 공변량의 기본 세트를 사용하고 CDM에서 CohortMethodData 추출해 보십시오. CohortMethodData의 요약본을 생성해 보십시오.
 </div>\EndKnitrBlock{exercise}
