@@ -1,6 +1,6 @@
 # 임상적 특성 분석 {#Characterization}
 
-*작성자 : Anthony Sena & Daniel Prieto-Alhambra*
+*Chapter leads: Anthony Sena & Daniel Prieto-Alhambra*
 
 관찰형 보건의료 데이터는 다양한 특성을 바탕으로 인구집단의 변화를 이해할 수 있는 귀중한 자원이다. 기술통계를 통해 인구집단의 특성을 확인하는 것은 건강과 질병에 영향을 주는 요인에 대한 가설 설정을 위한 중요한 첫 번째 단계이다. 이번 장에서는 특성 분석(characterization)을 위한 방법에 대해 살펴보기로 한다:
 
@@ -19,7 +19,7 @@
 
 ## 데이터베이스 수준의 특성 분석 Database Level Characterization
 
-관심 집단에 대한 특성 분석을 시행하기 전, 사용하고자 하는 데이터베이스의 특성을 이해하는 것이 선행되어야 한다. 데이터베이스 수준의 특성 분석은 전체 데이터베이스에 대한 시간의 흐름에 따른 경향과 분포 측면에서 데이터 전체를 설명하기 위해 사용한다. 데이터베이스의 정량적 분석은 일반적으로 다음과 같은 질문을 포함한다:
+관심 집단에 대한 특성 분석을 시행하기 전, 사용하고자 하는 데이터베이스의 특성을 이해하는 것이 선행되어야 한다. 데이터베이스 수준의 특성 분석(Database Level Characterization)은 전체 데이터베이스에 대한 시간의 흐름에 따른 경향과 분포 측면에서 데이터 전체를 설명하기 위해 사용한다. 데이터베이스의 정량적 분석은 일반적으로 다음과 같은 질문을 포함한다:
 
 * 이 데이터베이스의 총 사람 수는 몇인가?
 * 환자들의 연령 분포는 어떠한가?
@@ -30,7 +30,7 @@
 
 ## 코호트 특성 분석 Cohort Characterization
 
-코호트 특성 분석은 기준날짜와 기준날짜 이후 코호트 구성원의 특징들을 기술한다. OHDSI는 상태 condition, 약물 drug, 치료 재료 device, 시술 procedure, 임상 관찰 clinical observation 등 개인의 의무기록에 존재하는 모든 것에 대한 기술 통계량을 바탕으로 특성 분석에 접근한다. 또한, 기준날짜 시점에서 코호트 구성원에 대한 사회인구학적 내용에 대해 요약해준다. 이와 같은 접근 방식을 통해 관심 코호트에 대한 완벽한 요약을 제공한다. 특히, 이러한 접근을 통해 데이터의 변화에 대한 안목을 가지고 코호트에 대한 전체적인 탐색을 가능하게 하는 한편, 잠재적인 결측값을 찾을 수 있도록 한다.
+코호트 특성 분석(Cohort Characterization)은 기준날짜와 기준날짜 이후 코호트 구성원의 특징들을 기술한다. OHDSI는 상태 condition, 약물 drug, 치료 재료 device, 시술 procedure, 임상 관찰 clinical observation 등 개인의 의무기록에 존재하는 모든 것에 대한 기술 통계량을 바탕으로 특성 분석에 접근한다. 또한, 기준날짜 시점에서 코호트 구성원에 대한 사회인구학적 내용에 대해 요약해준다. 이와 같은 접근 방식을 통해 관심 코호트에 대한 완벽한 요약을 제공한다. 특히, 이러한 접근을 통해 데이터의 변화에 대한 안목을 가지고 코호트에 대한 전체적인 탐색을 가능하게 하는 한편, 잠재적인 결측값을 찾을 수 있도록 한다.
 
 코호트 특성 분석 방법은 이미 치료를 받은 사람에게서 치료의 적응증 유발률과 금기를 추정하는 개인 수준의 개인 수준의 약물 사용 연구(person-level drug utilization studies : DUS)에 이용될 수 있다. 코호트 특성 분석의 보급은 STROBE (Strengthening the Reporting of Observational Studies in Epidemiology) 가이드라인에서 자세히 제시하고 있는 관찰 연구에 권장되는 모범사례이다. [@VONELM2008344] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
 
@@ -38,7 +38,7 @@
 
 인구 집단의 특성을 분석하는 또 하나의 방법은 기준날짜 이후(post-index) 시간 동안의 치료 순서를 기술하는 것이다. 예를 들어, 이전 연구 [@Hripcsak7329] 에서 OHDSI의 공통 데이터 모델을 활용해 제2형 당뇨, 고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를 고안하였다. 이러한 분석 방법을 표준화함으로써, Hripcsak과 그 연구팀은 관심 집단의 특성 분석을 OHDSI 네트워크상에서 같은 통계 방법으로 실행하였다. \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
 
-치료 경로 분석은 가장 처음 처방/조제된 약물 이후 특정 상태에 있는 환자에 대한 치료행위 events를 요약하기 위해 시행한다. 이 연구에서는 제2형 당뇨, 고혈압, 우울증의 진단 이후의 치료행위들을 기술하였다. 개개인이 받은 치료행위는 이후 요약 통계량으로 합쳐지고 각각의 질병과 각각의 데이터베이스 별로 시각화하였다. 
+치료 경로(Treatment Pathways) 분석은 가장 처음 처방/조제된 약물 이후 특정 상태에 있는 환자에 대한 치료행위 events를 요약하기 위해 시행한다. 이 연구에서는 제2형 당뇨, 고혈압, 우울증의 진단 이후의 치료행위들을 기술하였다. 개개인이 받은 치료행위는 이후 요약 통계량으로 합쳐지고 각각의 질병과 각각의 데이터베이스 별로 시각화하였다. 
 
 ```{r treatmentPathwaysSunburstDataViz, fig.cap='고혈압 환자의 OHDSI 치료 경로 "sunburst" 시각화 사례', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.png")
@@ -84,7 +84,7 @@ $$
 
 WHO가 수행한 고혈압 환자의 특성 분석과 동일한 분석을 관찰형 데이터를 이용해 수행 할 수 있다. 이 장의 다음 절에서는 고혈압 환자 집단의 구성을 이해하기 위한 데이터베이스 탐색을 ATLAS와 R을 이용해 시행하는 방법을 살펴볼 것이다. 또한, 동일한 툴을 사용해 고혈압 환자의 자연 경과와 치료 패턴을 기술하려고 한다.
 
-## ATLAS를 활용한 데이터베이스 특성 분석 (Database Characterization in ATLAS)
+## ATLAS를 활용한 데이터베이스의 특성 분석
 
 여기서는 ATLAS에 탑재된 데이터 탐색 모듈을 사용하여 [ACHILLES](https://github.com/OHDSI/Achilles)로 생성된 데이터베이스의 통계치를 살펴보고, 고혈압 환자와 관련된 데이터베이스 수준의 특성을 찾아내는 방법을 설명하고자 한다. 시작하기 위해 ATLAS의 왼쪽 바에 위치한 ![](images/Characterization/atlasDataSourcesMenuItem.png)을 클릭하자. ATLAS의 첫 번째 드롭다운 목록에서 데이터 탐색(database to explore)을 선택한다. 그리고, 데이터베이스 아래의 드롭다운 목록을 통해 보고서 탐색을 시작할 수 있다. 고혈압 환자에 대한 데이터베이스 수준의 특성 분석을 위해 두 번째 드롭다운 목록인 report 드롭다운 목록에서 Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병에 대한 트리맵 시각화 결과가 표시된다:
 
@@ -300,7 +300,7 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
 
 ### 통합된 변수의 생성 Creating Aggregated Covariates
 
-다음의 코드는 코호트에 대한 통합 변수를 생성하도록 한다: 
+다음의 코드는 코호트에 대한 통합 공변량을 생성하도록 한다: 
 
 ```{r tidy=FALSE,eval=FALSE}
 covariateSettings <- createDefaultCovariateSettings() 
