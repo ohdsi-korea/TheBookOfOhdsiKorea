@@ -4,29 +4,28 @@
 
 \index{population-level estimation}
 
-관찰형 보건의료 데이터 (예를 들어 보험청구자료, 전자 의무 기록) 는 환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실제 증거를 생성할 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는 시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
+관찰형 보건의료 데이터 (예를 들어 보험청구자료, 전자 의무 기록) 는 환자의 삶을 의미 있게 향상할 수 있는 치료 효과에 대한 실세계 증거를 생성할 기회를 제공한다. 이 장에서는 인구 수준 효과 추정(population-level effect estimation), 즉 특정 건강 결과에 대한 노출 (예를 들어, 약물 노출 또는 시술과 같은 의료개입) 의 평균 인과 관계 효과에 대한 추정에 초점을 맞춘다. 두 가지의 다른 추정 업무를 고려한다.
 
-- **직접 효과 추정(direct effect estimation)**: 노출 위험과 결과의 위험에 대한 노출 효과를 추정. \index{direct effect estimation}
-- **비교 효과 추정(comparative effect estimation)**: 다른 노출(comparator exposure)과 비교하여 포적 노출(target exposure)의 결과 위험에 대한 영향 추정. \index{comparative effect estimation}
+- **직접 효과 추정(direct effect estimation)**: 위험인자 비노출에 비교하여 위험인자 노출의 질병 outocme 발생 위험에 대한 영향 추정. \index{direct effect estimation}
+- **비교 효과 추정(comparative effect estimation)**: 다른 노출(comparator exposure)과 비교하여 노출(target exposure)의 질병 발생 위험에 대한 영향 추정. \index{comparative effect estimation}
 
-두 가지의 경우에서, 인구 수준의 효과는 사실적 효과와 대조된다. 다시 말하면, 반 사실적인 결과를 가진 노출된 환자에게 무슨 일이 일어났는가? 다시 말하면 노출이 일어나지 않았다면 (직접적) 혹은 다른 노출이 일어났다면 (상대적) 무슨 일이 일어났을까? 어떤 환자라도 하나의 사실적인 결과만 노출하기 때문에 (인과 추론의 근본적인 문제), 다양한 효과 추정 설계는 다른 분석 장치를 사용하여 반 사실적인 결과를 조명한다. \index{counterfactual}
+두 가지의 경우에서, 인구 수준의 효과는 사실적 효과와 대조된다. 다시 말하면, 반 사실적인 counterfactual 결과를 가진 노출된 환자에게 무슨 일이 일어났는가? 노출이 일어나지 않았다면 (직접적) 혹은 다른 노출이 일어났다면 (상대적) 무슨 일이 일어났을까? 어떤 환자라도 하나의 사실적인 결과만 노출 가능하기 때문에 (인과 추론의 근본적인 문제), 다양한 효과 추정 설계는 여러 분석 장치를 사용하여 반 사실적인 counterfactual 결과를 조명한다. (역자 주: counterfactual이란 이론상의 가정으로서 A란 사람에게 B란 시점에 C란 약물을 투여하고 D란 질병발생유무를 측정한 후에, 타이머신을 타고 다시 시간을 거슬러 올라 B란 시점으로 돌아간 후에, 그 동일한 A에게 C를 투여하지 않고 관찰하여 D란 질병발생유무를 측정하는 것을 말한다. 이렇게 한다면 각종 삐뚤림과 교란인자를 완전히 통제할 수 있다. 이론상으로만 가능하다.) \index{counterfactual}
 
-인구 수준 효과 추정의 사용 사례(use-cases)는 치료 선택, 안전 감시(safety surveillance), 비교 효과(comparative effectiveness)를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 실마리정보 평가(signal evaluation)) 하거나 다중 가설을 한 번에 탐색 (예를 들어 실마리정보 검색(signal detection)) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
+인구 수준 효과 추정의 사용 사례 use-cases는 치료 선택, 안전 감시 safety surveillance, 비교 효과연구 comparative effectiveness를 포함한다. 방법은 특정 가설을 한 번에 하나씩 테스트 (예를 들어 부작용 실마리정보 평가 signal evaluation) 하거나 다중 가설을 한 번에 탐색 (예를 들어 부작용 실마리정보 감지 signal detection) 할 수 있다. 모든 경우에 있어, 목적은 고품질의 인과 관계 추정을 산출하는 것이다. \index{safety surveillance} \index{comparative effectiveness|see {comparative effect estimation}}
 
-이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **인구 수준 추정 Population-Level Estimation** 연구 설계를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다.
-마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
+이 장에서는 우선 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)에 R 패키지로 구현되어 있는 다양한 **인구 수준 추정 Population-Level Estimation** 연구설계를 설명한다. 예제 평가 연구의 설계를 자세히 설명한 다음, ATLAS 및 R을 사용하여 설계를 구현하는 방법에 대한 단계별 가이드를 또한 설명한다. 마지막으로 연구 진단 및 효과 크기 추정을 포함하여 연구에서 생성된 다양한 결과를 검토한다.
 
-## 코호트 설계 방법 {#CohortMethod}
+## 코호트 방법론 설계 {#CohortMethod}
 
 \index{cohort method}
 
-```{r cohortMethod, fig.cap='대상 치료(target treatment)를 시작하기 위해 관찰된 대상은 비교 대상 치료(comparator treatment)를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화(stratification), 매칭(matching), 성향 점수에 의한 가중치 부여(weighting), 결과 모델에 기저 특징(baseline characteristics) 보정 추가와 같은 다양한 조정 방법(adjustment strategy)을 사용할 수 있다. 성향 모델(propensity model) 또는 결과 모델(outcome model)에 포함된 특징은 치료 시작 전에 결정된다.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r cohortMethod, fig.cap='new-user cohort design: 대상 치료 target treatment를 시작하기 위해 관찰된 대상은 비교 대상 치료 comparator treatment를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화 stratification , 매칭 matching , 성향 점수에 의한 가중치 부여 weighting by propensity score, 결과 모델에 기저 특징 baseline characteristics 보정 추가와 같은 다양한 보정법 adjustment strategy을 사용할 수 있다. 성향 모델 propensity model 또는 결과 모델 outcome model에 포함된 특징은 치료 시작 전에 결정된다. (역자 주: new-user란 대상 위험에 생애 처음 노출된 환자를 말한다) ',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 ```
 
-코호트 방법은 무작위 임상 시험을 모방하려고 한다. [@hernan_2016] 하나의 치료를 시작한 환자(target)는 다른 치료를 시작한 환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를 받는 기간) 추적 관찰된다. 표 \@ref(tab:cmChoices) 에서 강조하는 5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다. \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
+코호트 방법론은 무작위 임상 시험을 모방하려고 한다. [@hernan_2016] 하나의 치료를 시작한 환자(target)는 다른 치료를 시작한 환자(comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를 받는 기간) 추적 관찰된다. 표 \@ref(tab:cmChoices) 에서 강조하는 5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다. \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
 
-Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
+Table: (\#tab:cmChoices) 코호트 비교연구 설계에서 주된 고려사항.
 
 | Choice            | Description                                              |
 |:----------------- |:-------------------------------------------------------- |
@@ -36,21 +35,21 @@ Table: (\#tab:cmChoices) Main design choices in a comparative cohort design.
 | Time-at-risk      | At what time (often relative to the target and comparator cohort start and end dates) do we consider the risk of the outcome?  |
 | Model             | The model used to estimate the effect while adjusting for differences between the target and comparator  |
 
-모델 선택은 모델 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비(odds ratio)를 산출하는 로지스틱 회귀분석(logistic regression)을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간이 target과 comparator 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석(poisson regression)을 선택할 수 있는데, 이는 일정한 발생률(incidence rate)을 가정하고, 발생률 비율(incidence rate ratio)을 추정한다. 콕스 회귀분석(cox regression)을 종종 사용하기도 하는데, 이는 target과 comparator 사이의 비례 위험(proportional hazard)을 가정하며, 위험 비율(hazard ratio)을 추정하려고 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
+모델 선택은 결과 모델의 유형을 지정한다. 예를 들어, 결과가 발생했는지 여부를 평가하고 교차비 odds ratio를 산출하는 로지스틱 회귀분석 logistic regression을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간  Time-at-risk이 실험군 target cohort과 비교군 comparator cohort 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석 poisson regression을 선택할 수 있는데, 이는 일정한 발생률 incidence rate을 가정하고, 발생률 비율 incidence rate ratio을 추정한다. 콕스 회귀분석 Cox regression을 종종 사용하기도 하는데, 이는 실험군과 비교군 사이의 비례 위험 proportional hazard을 가정하며, 위험 비율 hazard ratio을 추정하려고 대상 질병이 처음 발생할 때까지의 시간 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
 
 ```{block2, type='rmdimportant'}
-New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출 군을 정의하기 힘들어 치료와 비 치료를 비교하기 위해 이 방법을 사용하긴 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지 않을, 동일한 적응증이 적용되는 비교 대상을 관심 노출 군(exposure of interest)으로 선택하는 방법이 선호된다. 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.
+New-user cohort method는 본질적으로 하나의 치료를 다른 치료에 비교하여 비교 효과를 추정하는 방법이다. 치료 노출 군의 비교 대상인 치료 비노출 군을 정의하기 힘들기 때문에, 치료와 비 치료를 비교하기 위해 이 방법을 사용하긴 어렵다. 직접 효과 추정에 이 방법을 사용하려는 경우, 결과에 영향을 미치지 않을 동일한 적응증이 적용되는 비교 대상을 관심 노출 군 exposure of interest으로 선택하는 방법이 선호된다 (역자 주: 예를 들면 ACE inhibitor노출군과 고혈압 치료제 비 노출군을 비교하기는 어렵다. 왜냐하면 그 두 군은 본질적으로 기저 특성이 다르기 때문이다. 사과와 생선을 비교한다고 가정해 보라. 대신 ACE inhibitor 노출군과 ARB 노출군을 비교해 볼 수는 있다. 그 둘다 기저 특성이 비슷할 것이기 때문이다. 부사 사과와 홍옥 사과를 비교 (within-class comparison)한다고 상상해 보라). 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.
 ```
 
-주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로(systemically) 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는 실험군(target cohort)이 평균 60세이지만, 해당 치료를 받지 않은 대조군(comparator cohort) 이 평균 40세라고 가정하자. 연령과 관련된 건강 결과 (예를 들어 뇌졸중) 는 양 군 간에 상당히 차이가 날 것이다. 이런 정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한 인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지 않았다면 실험군의 환자들이 뇌졸중에 걸리지 않으리라 생각할 수 있다. 이러한 결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높아서 뇌졸중을 많이 경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는 “교란변수(confounder)”이다. 관찰형 연구에서 교란변수를 통제하는 한 가지 방법은 성향 점수(propensity score)를 이용하는 것이다. \index{confounder}
+주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로 systemically 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는 실험군 target cohort이 평균 60세이지만, 해당 치료를 받지 않은 대조군 comparator cohort 이 평균 40세라고 가정하자. 연령과 관련된 건강 결과 (예를 들어 뇌졸중) 는 양 군 간에 상당히 차이가 날 것이다. 이런 정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한 인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지 않았다면 실험군의 환자들이 뇌졸중에 걸리지 않으리라 생각할 수 있다. 이러한 결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높아서 뇌졸중을 많이 경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는 “교란변수 confounder”이다. 관찰형 연구에서 교란변수를 통제하는 한 가지 방법은 성향 점수 propensity score를 이용하는 것이다. \index{confounder}
 
 ### 성향 점수
 
 \index{propensity score}
 
-무작위 시험(randomized trial)에서 (가상의) 동전 던지기는 환자를 각각의 그룹에 배정한다. 따라서, 설계상 비교 치료군과 비교하여 환자가 대상치료를 받을 확률은 어떤 식으로든 나이가 같은 환자의 특성과 관련이 없다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될 정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가 증가함에 따라 신뢰도가 증가해 두 환자군은 본질에서 **어떠한** 환자 특성이라도 **다를 수 없다**. 이 보장된 균형은 무작위 시험이 측정한 특성 (예를 들어 나이) 과 유전적 특성과 같이 무작위 시험이 측정하지 못한 특성에 적용된다. \index{randomized trial}
+무작위 배정 시험 randomized trial에서 (가상의) 동전 던지기를 통해 환자를 각각의 그룹에 무작위로 배정한다. 이렇게 하면 설계상 치료군과 비교군에 속한 환자가 대상치료를 받을 확률은 나이와 같은 환자의 기본 특성과 관련이 없게 된다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에 노출될 정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자 수가 증가함에 따라 신뢰도가 증가해 두 환자군은 본질에서 **어떠한** 환자 특성이라도 **다를 수 없다**. 이 보장된 균형은 무작위 배정 시험이 측정한 특성 (예를 들어 나이) 뿐 아니라 유전적 특성과 같이 무작위 시험이 측정하지 못한 특성에도 모두 적용된다. \index{randomized trial}
 
-주어진 환자의 **성향 점수(Propensity score, PS)** 는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다. [@rosenbaum_1983] 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가 실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 대상 치료를 받았는지 여부를 예측하는 적합한 모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각 환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를 들어, 대상 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교 대상을 허용할 수 있다. [@rassen_2012] \index{propensity model} \index{propensity score!matching} \index{propensity score!stratification} \index{propensity score!weighting} \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}} \index{variable ratio matching}
+주어진 환자의 **성향 점수 Propensity score, PS** 는 환자가 비교 치료군과 비교하여 대상 치료를 받을 확률이다. [@rosenbaum_1983] 균형 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가 실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를 받을 환자들의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다. 환자가 표적 치료를 받았는지 여부를 예측하는 적합한 모델 (예를 들어 로지스틱 회귀분석) 을 만들고, 이 모델을 사용하여 각 환자에 대한 예측 확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를 들어, 표적 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS matching)하거나, 성향 점수를 기반으로 연구 집단을 층화(PS stratification)하거나, 성향 점수에서 파생된 IPTW(Inverse Probability of Treatment Weighting)을 사용하여 피험자에게 가중치를 적용하여 사용할 수 있다. 매칭할 때, 각 대상에 대하여 한 명의 비교 대상을 선택하거나, variable-ratio matching을 활용하여 대상당 두 명 이상의 비교 대상을 허용할 수 있다. [@rassen_2012] \index{propensity model} \index{propensity score!matching} \index{propensity score!stratification} \index{propensity score!weighting} \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}} \index{variable ratio matching}
 
 예를 들어 one-on-one PS 매칭을 사용한다고 가정해보자. Jan이라는 환자가 대상 치료를 받을 선험 확률(priori probability)이 0.4이고, 실제로 대상 치료(target treatment)를 받고, Jun이라고 하는 또 다른 환자는 대상 치료를 받을 선험 확률이 0.4이지만, 사실상 대조 치료(comparator treatment)를 받았다면, 적어도 측정된 교란변수에 대해 Jan과 Jun의 결과 비교는 작은 무작위 시험과 같다. 이 비교는 Jan과 Jun의 인과적인 대조를 무작위 시험으로 산출한 결과만큼 양호하게 추정할 것이다. 추정은 다음과 같이 진행된다: 대상치료를 받은 모든 환자에 대해, 대조 치료를 받았지만, 대상을 받는 선험적 확률이 동일한 하나 이상의 일치하는 환자를 찾는다. 그들의 짝지어진 환자군(matched group) 안에서 대상 환자(target group)의 결과와 비교 그룹(comparator group)의 결과를 비교한다.
 
@@ -215,30 +214,29 @@ SCCS의 기본 가정 중 하나는 관찰 기간 종료가 결과 날짜(outcom
 
 ## 고혈압 연구 설계하기
 
-
 ### 문제 정의
 
-ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 울혈성 심부전, 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리 사용된다. [@zaman_2002] 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈 주위 부위가 부어오르는 심각한 중증도의 때로는 생명을 위협하는 부작용은 이러한 약물의 사용과 관련이 있다. [@sabroe_1997] 그러나 이러한 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한 정보는 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한 특정 코호트 (예를 들어 주로 남성 퇴역 군인이나 메디케이드 수혜자) 에 대한 조사 또는 불안정한 위험 추정치를 제공하는 경위가 거의 없는 조사를 기반으로 한다. [@powers_2012] 다수의 관찰 연구는 혈관부종의 위험에 대한 ACEi를 베타 차단제와 비교하지만 [@magid_2010; @toh_2012], 베타 차단제는 더 이상 고혈압의 1차 치료제로 권장되지 않는다. [@whelton_2018] 사용 가능한 대체 치료제는 thiazide 또는 thiazide-like 이뇨제일 수 있으며, 이는 혈관부종의 위험 증가 없이 급성 심근경색과 같은 고혈압 관련 위험을 관리하는데 ACEi만큼 효과적이다.
+ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 울혈성 심부전, 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리 사용된다. [@zaman_2002] 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈 주위 부위가 부어오르는 심각한 중증도의 때로는 생명을 위협하는 혈관부종 부작용은 이러한 약물의 사용과 관련이 있다. [@sabroe_1997] 그러나 이러한 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한 정보는 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한 특정 코호트 (예를 들어 주로 남성 퇴역 군인이나 메디케이드 (역자 주: Medicaid는 미국의 65세 미만 저소득층과 장애인을 위한 의료 보조 제도) 수혜자) 에 대한 조사 또는 불안정한 위험 추정치를 제공하는 경위가 거의 없는 조사를 기반으로 한다. [@powers_2012] 많은 관찰 연구에서 혈관부종의 위험에 대해서 ACEi와 베타 차단제를 비교하였지만 [@magid_2010; @toh_2012], 베타 차단제는 더 이상 고혈압의 1차 치료제로 권장되지 않는다. [@whelton_2018] 사용 가능한 대체 치료제는 thiazide 또는 thiazide-like 이뇨제일 수 있으며, 이는 혈관부종의 위험 증가 없이 급성 심근경색과 같은 고혈압 관련 위험을 관리하는데 ACEi만큼 효과적이다.
 
-다음은 다음과 같은 비교 추정 질문을 다루기 위해 인구 수준 평가(population-level estimation) 프레임워크를 관찰 보건 데이터(observational healthcare data)에 적용하는 방법을 보여준다:
+다음은 비교 추정 질문을 다루기 위한 인구 수준 평가(population-level estimation) 프레임워크를 관찰 보건 데이터(observational healthcare data)에 적용하는 방법을 보여준다:
 
 >Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를 새로 사용하는 환자들에서 혈관부종의 위험도는 어떻게 되는가?
 
 > Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자들에 비교해 ACEi를 새로 사용하는 환자들에서 급성 심근경색의 위험도는 어떻게 되는가?
 
-이들이 비교 효과 추정(comparative effect estimation) 질문이기 때문에 \@ref(CohortMethod)장에서 설명한 대로 Cohort Method를 적용할 것이다.
+이들은 비교 효과 추정(comparative effect estimation) 질문이기 때문에 \@ref(CohortMethod)장에서 설명한 대로 Cohort Method를 적용할 것이다.
 
-### 대상 및 비교기 
+### 대상군 및 비교군 
 
-첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을 단독요법으로 사용하는 경우를 new-user로 간주한다. 이 중 치료 시작 후 7일 동안 다른 항고혈압제를 시작하지 않은 경우를 단독요법으로 정의한다. 환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속해서 관찰되고, 치료 시작 전 또는 그 이전에 기록된 고혈압 진단을 받도록 정의했다.
+첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을 단독요법으로 사용하는 경우를 new-user로 간주한다. 이 중 치료 시작 후 7일 동안 다른 항고혈압제를 시작하지 않은 경우를 단독요법으로 정의한다. 환자가 첫 번째 노출 전 데이터베이스에서 적어도 1년 동안 지속해서 관찰되고, 치료 시작 전 또는 그 이전에 기록된 고혈압 진단이 있는 경우로 정의했다.
 
 ### 결과
 
-입원 또는 응급실 방문 중에 혈관부종이 발생하고, 그 이전 일주일간 혈관부종 발생이 없었던 경우를 혈관부종으로 정의했다. 입원 또는 응급실 방문 중에 심근경색이 발생하고, 그 이전 180일간 심근경색 발생이 없었던 경우를 심근경색으로 정의했다.
+입원 또는 응급실 방문 중에 혈관부종 기록이 있고, 그 이전 일주일간 혈관부종 발생이 없었던 경우를 혈관부종으로 정의하였다. 입원 또는 응급실 방문 중에 심근경색 기록이 있고, 그 이전 180일간 심근경색 발생 기록이 없었던 경우를 심근경색으로 정의하였다.
 
-### 위험 노출 기간
+### 위험 노출 기간 Time-At-Risk
 
-30일까지의 차이(30-day gap)를 인정하여, 치료 시작 다음 날부터 시작하여 연속적인 약물 노출이 중단될 때까지를 위험 노출 기간(time-at-risk)으로 정의했다.
+30일까지의 차이(30-day gap)를 인정하여, 치료 시작 다음 날부터 시작하여 연속적인 약물 노출이 (30일 이상) 중단될 때까지를 위험 노출 기간 time-at-risk로 정의하였다.
 
 ### 모델
 
