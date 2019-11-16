@@ -126,7 +126,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-11-14}
+    \date{2019-11-16}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -316,11 +316,11 @@
 \chapter*{서문}
 \addcontentsline{toc}{chapter}{서문}
 
- 이 책은 오딧세이(OHDSI, Observational Health Data Sicence and
-Informatics) 커뮤니티가 작성한 \href{book.ohdsi.org}{The Book of
-OHDSI}의 번역판이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을
-담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해
-관리되는 생명력있는 문서로 계속 진화하고 있다. 또한
+ 이 책은 오딧세이 OHDSI, Observational Health Data Sicence and
+Informatics 커뮤니티가 작성한 \href{book.ohdsi.org}{The Book of OHDSI}의
+번역판이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자
+쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는
+생명력있는 문서로 계속 진화하고 있다. 또한
 \href{https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/}{ohdsi-korea.github.io/TheBookOfOhdsiKorea/}에서
 온라인으로 최신 버전의 책을 무료로 받아 볼 수 있으며 서점에서 실물을
 구입을 할 수도 있다.
@@ -364,8 +364,8 @@ Population-level prediction, 이 3가지 주요 이용 사례들을 배우게 �
   OHDSI 연구
 \end{enumerate}
 
-각각의 섹션은 다수의 장으로 구성되어 있으며 각각의 장은 아래의 순서대로
-해당 장에 맞게 구성되어 있다: 서론, 이론, 실행, 요약, 예제.
+각각의 섹션은 다수의 장 Chapter으로 구성되어 있으며 각각의 장은 아래의
+순서대로 해당 장에 맞게 구성되어 있다: 서론, 이론, 실행, 요약, 예제.
 
 \section*{기여자}
 \addcontentsline{toc}{section}{기여자}
@@ -542,8 +542,8 @@ Commons Zero v1.0 Universal license}.로 인가되었다.
 
 \emph{Martijn Schumie, David Madigan}
 
-한국 오딧세이(Korean Chapter of OHDSI)는 유전체 및 방사선 자료 등을 위한
-공통 데이터 모델(CDM, common data model)의 확장, 새로운 OHDSI 소프트웨어
+한국 오딧세이 Korean Chapter of OHDSI는 유전체 및 방사선 영상 자료 등을
+위한 공통 데이터 모델 common data model의 확장, 새로운 OHDSI 소프트웨어
 개발 및 OHDSI 기반 주요 임상 연구에 걸치는 OHDSI의 다양한 분야에 혁혁한
 공헌을 해왔다. CDM의 광범위한 채택으로 인해 한국은 전국 규모의 탄탄한
 분산연구망을 구축하였다. 한국의 OHDSI 연구자들은 OHDSI 코리아 심포지엄을
@@ -551,10 +551,11 @@ Commons Zero v1.0 Universal license}.로 인가되었다.
 아시아 각국의 OHDSI 심포지엄에도 열성적으로 참여하고 있다. 우리는
 OHDSI의 공동체 정신을 한국에서 생생하게 느낄 수 있다.
 
-오딧세이 바이블은 한국의 연구자들을 포함한 전세계 OHDSI 커뮤니티에 의해
-OHDSI 커뮤니티를 위하여 작성되었다. 우리는 한국 오딧세이가 이 책을
-한국어로 번역한 것에 대해 경탄을 금치 않으며, 이 책의 번역이 한국
-오딧세이에 중요한 이정표가 되리라 믿어 의심치 않는다.
+이 책의 원문인 The Book of OHDSI는 한국의 연구자들을 포함한 전세계 OHDSI
+커뮤니티에 의해 OHDSI 커뮤니티를 위하여 작성되었다. 우리는 한국
+오딧세이가 이 책을 단기간 내에 한국어로 번역한 것에 대해 경탄을 금치
+않으며, 이 책의 번역이 한국 오딧세이에 중요한 이정표가 되리라 믿어
+의심치 않는다.
 
 \mainmatter
 
@@ -573,30 +574,31 @@ OHDSI 커뮤니티를 위하여 작성되었다. 우리는 한국 오딧세이�
 
 대학병원과 의원, 규제 기관 및 의료 제품 제조업체, 보험 회사 및 정책
 기관, 그리고 환자와 의료 제공자 간의 모든 상호관계를 포함하는 전 세계
-보건 의료의 어느 곳에서나 공통적인 과제가 있다: 어떻게 우리가 과거에서
-배운 것을 토대로 미래를 위해 더 나은 결정을 내릴 수 있을 것인가?
+보건 의료의 어느 곳에서나 다음과 같은 공통적인 과제가 있다. 우리는
+과거를 통해 배운 것을 어떻게 미래를 위하여 적용하여 더 나은 결정을 내릴
+수 있을 것인가?
 
-10년이 넘도록, 많은 사람이 \textbf{스스로 학습하는 보건의료
-체계(learning healthcare system)}의 비전에 대해서 논의해 왔다. ``그것은,
-각 환자와 의료 제공자에게 상호 협력에 의한 의료행위 결정에 있어서 최상의
-근거를 생성하여 적용하기 위함이다. 또한, 환자 치료의 부산물로서 새로운
-의학적 발견이 가능하도록 유도하며, 보건의료의 혁신, 질, 안전 및 가치를
-보장하기 위함이다.'' \citep{olsen2007learning} 이 원대한 계획의 주요한
-요소는 일상적인 임상 치료 과정에서 수집된 환자 수준(patient-level)
-데이터를 분석하여 \textbf{실세계 근거(real-world evidence)}를 생성할 수
-있으며, 의료 시스템에 전파되어 실제 임상에 정보를 제공 할 수 있으리라는
-흥미로운 전망에 있다. 미국 의학 연구소(Institute of Medicine)의 근거
-중심 의학 원탁회(Roundtable on Evidence-Based Medicine)가 발간한 2007년
-보고서에서 ``2020년까지 90\%의 임상 결정이 정확하고, 시기적절하고,
-최신의 임상 정보에 의해 뒷받침될 것이며, 그것은 가능한 최선의 근거를
-반영할 것이다.''라고 예측했다. \citep{olsen2007learning} 비록 여러 가지
-면에서 엄청난 발전이 있었지만, 우리는 여전히 이 위대한 열망에는 한참
-미치지 못하고 있다.
+10년이 넘도록, 많은 사람들이 \textbf{스스로 학습하는 보건의료 체계
+learning healthcare system}의 비전에 대해서 논의해 왔다. ``그것은 각
+환자와 의료 제공자가 함께 의료 행위를 결정할 때 필요한 최상의 근거를
+생성하고 적용하기 위함이다. 또한, 환자 치료의 부산물로서 새로운 의학적
+발견이 가능하도록 유도하며, 보건의료의 혁신, 질, 안전 및 가치를 보장하기
+위함이다.'' \citep{olsen2007learning} 이 원대한 계획의 주요한 요소는
+일상적인 임상 치료 과정에서 수집된 환자 수준 patient-level의 데이터를
+분석하여 \textbf{실세계 근거(real-world evidence)}를 생성할 수 있으며,
+의료 시스템에 전파되어 실제 임상에 정보를 제공 할 수 있으리라는 야심찬
+전망에 있다. 미국 의학 연구소 Institute of Medicine의 근거 중심 의학
+원탁회 Roundtable on Evidence-Based Medicine는 2007년 보고서에서
+``2020년까지 90\%의 임상 결정이 정확하고, 시기적절하고, 최신의 임상
+정보에 의해 뒷받침될 것이며, 그것은 가능한 최선의 근거를 반영할
+것이다.''라고 예측했다. \citep{olsen2007learning} 비록 여러 가지 면에서
+엄청난 발전이 있었지만, 우리는 여전히 이 위대한 열망에는 한참 미치지
+못하고 있다.
 
-무엇 때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거까지의
-여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는 데에는
-정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지 않는다.
-사실, ``데이터(data)'' 가 무엇인지, 그리고 ``근거(evidence)''가
+무엇 때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거를
+생성하는 여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는
+과정에는 정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지
+않는다. 사실, ``데이터 data'' 가 무엇인지, 그리고 ``근거 evidence''가
 무엇인지에 대한 통일된 관념도 존재하지 않는다.
 
 \begin{figure}
@@ -608,38 +610,38 @@ OHDSI 커뮤니티를 위하여 작성되었다. 우리는 한국 오딧세이�
 \caption{데이터에서 근거로의 여정}\label{fig:datajourney}
 \end{figure}
 
-기반 시스템에는 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰형
-데이터베이스(observational database)가 있다. 이 데이터베이스는 서로 다른
+원천 시스템에는 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰형
+데이터베이스 observational database가 있다. 이 데이터베이스는 서로 다른
 의료 시스템 내부의 인구, 치료 설정 및 데이터 수집 프로세스의 이질성만큼
 다양하다. 의사 결정에 도움이 될 수 있는 다양한 유형의 근거가 있으며,
-분석 방법론에 따라 임상적 특성 분석(clinical characterization), 인구
-수준 추정(population-level estimation) 및 환자 수준 예측(patient-level
-prediction)으로 분류할 수 있다. 출발지(원본 데이터) 및 원하는
+분석 방법론에 따라 임상적 특성 분석 clinical characterization, 인구 수준
+추정 population-level estimation 및 환자 수준 예측 patient-level
+prediction으로 분류할 수 있다. 출발지(원천 데이터) 및 원하는
 목적지(근거) 와는 별도로, 여정을 수행하는 데 필요한 광범위한 임상, 과학
 및 기술 역량들은 문제를 더욱 복잡하게 만든다. 보험 청구나 진료 과정이
 데이터로 수집되면서 보건 정책이나 보험 환급과 관련된 행동 동기들로 인해
 데이터 수집 및 정제 과정에서 발생할 수 있는 비뚤림을 비롯하여 환자와
-의료 제공자 간의 진료현장에서 원본 데이터가 발생하는 전반적인 과정에
+의료 제공자 간의 진료현장에서 원천 데이터가 수집되는 전반적인 과정에
 대한 철저한 의료정보학적 이해도 필요하다. 임상적 의문으로부터 해답을
-도출하는 데 적합한 관찰 연구 설계로 변환하기 위해선 역학 원칙과 통계적
-방법을 숙지해야 한다. 수백만 명의 환자의 수년간의 종적 추적에 걸친
-수십억 건의 임상 관찰을 가진 데이터 세트에 대해 계산적으로 효율적인
+도출하는 데 적합한 관찰 연구 설계를 설계하기 위해선 역학 원칙과 통계적
+방법도 숙지하고 있어야 한다. 수백만 명의 환자의 수년간의 종적 추적에
+걸친 수십억 건의 임상 관찰을 가진 데이터 세트에 대해 계산적으로 효율적인
 데이터 처리 알고리즘을 구현하고 실행할 수 있는 기술적 능력 역시
 필요하다. 관찰형 연구를 통해 습득한 내용을 다른 근거와 통합하고, 이
-새로운 지식이 건강 정책 및 임상 관행에 어떤 영향을 미칠지 결정하기
-위해서는 임상 지식 또한 필요하다. 따라서, 한 개인이 데이터에서 근거를
-성공적으로 만들어 내는 데 필요한 기술과 자원을 모두 보유하는 것은 매우
-드문 일이다. 이처럼 이용 가능한 최선의 데이터를 가장 적절한 방법으로
-분석하여 모든 이해당사자가 그들의 의사결정 과정에 믿고 사용할 수 있는
-근거를 생산하기 위해서는, 종종 많은 개인이나 기관과의 협력을 필요로
-한다.
+새로운 지식이 건강 정책 및 임상 관행에 어떤 영향을 미칠지 고려하기
+위해서는 임상 지식 또한 필요하다. 따라서, 한 개인이 데이터를 이용하여
+근거를 성공적으로 만들어 내는 데 필요한 기술과 자원을 모두 보유하는 것은
+매우 드문 일이다. 따라서 이용 가능한 최선의 데이터를 가장 적절한
+방법으로 분석하여 모든 이해당사자가 그들의 의사결정 과정에 믿고 사용할
+수 있는 근거를 생산하기 위해서는, 종종 많은 개인이나 기관과의 협력을
+필요로 한다.
 
 \section{OMOP (Observational Medical Outcomes
 Partnership)}\label{omop-observational-medical-outcomes-partnership}
 
 협력 관찰형 연구 모델의 주목할만한 예시로 OMOP(Observational Medical
-Outcomes Partnership)이 있다. OMOP은 미국 식품의약국(FDA)이 주관하고,
-미국 국립 보건원(National Institutes of Health) 관리하에 학술 연구자,
+Outcomes Partnership)이 있다. OMOP은 미국 식품의약국 FDA이 주관하고,
+미국 국립 보건원 National Institutes of Health 관리하에 학술 연구자,
 보건 데이터 파트너 및 협력 제약사간의 컨소시엄으로 구성되었으며, 관찰형
 보건의료 데이터를 이용하여 능동적 의료 제품 안전성 감시의 발전을
 꾀하고자 만들어진 민관 협력체였다. \citep{stang2010omop} OMOP은 다수의
@@ -651,57 +653,54 @@ Outcomes Partnership)이 있다. OMOP은 미국 식품의약국(FDA)이 주관�
 분산된 관찰형 데이터베이스를 통해 연구를 진행하면서 기술적인 난제를
 인식하고, 연구진들은 데이터의 구조, 내용 및 용어를 표준화하여 하나의
 통계 분석 코드가 모든 데이터 파트너에서 공통으로 사용될 수 있도록, OMOP
-공통 데이터 모델(Common Data Model, CDM)을 설계하였다.
+공통 데이터 모델 Common Data Model(CDM)을 설계하였다.
 \citep{overhage2012cdm} OMOP 실험은 공통 데이터 모델과 표준화된 어휘를
 확립하는 것이 가능하다는 것을 증명하였으며, 이는 서로 다른 의료체계에서
 다른 용어체계를 통해서 생성된 다른 데이터 유형을 수용하여 기관 간 협업과
 계산적으로 효율적인 분석을 용이하게 할 수 있는 방식으로 구현되었다.
 
-OMOP는 처음부터 연구 설계, 데이터 표준, 분석 코드, 경험적 결과 등 모든
-작업 제품을 공공에 배포하여 투명성을 증진하고, OMOP이 수행하고 있는
-연구에 대한 신뢰를 쌓을 뿐 아니라, 또한 다른 이들의 연구 목적을 위하여
-발전할 수 있도록 개방형 과학(open science) 정책을 채택하였다. OMOP의
-원래 초점은 약물 안전성이었지만, 의학적 개입이나 보건 시스템 정책에 대한
-비교효과연구를 포함하여 다양한 분석 사용사례를 지원하기 위해 지속해서
-발전했다.
+OMOP는 처음부터 오픈 사이언스 정책을 채택하여 연구 설계, 데이터 표준,
+분석 코드, 경험적 결과 등 모든 작업의 결과를 공공에 배포함으로써
+투명성을 증진하고, OMOP이 수행하고 있는 연구에 대한 신뢰를 쌓을 뿐
+아니라, 또한 다른 이들의 연구 목적을 위하여 발전할 수 있도록 하였다.
+OMOP의 원래 초점은 약물 안전성이었지만, 의학적 개입이나 보건 시스템
+정책에 대한 비교효과연구를 포함하여 다양한 분석 사용사례를 지원하기 위해
+지속해서 발전했다.
 
-비록 OMOP이 대규모의 경험적 실험을 완성하는 데 성공하였고,
+OMOP은 대규모의 경험적 실험을 완성하는 데 성공하였고,
 \citep{ryan2012omop, ryan2013omop} 방법론적인 혁신을 만들고,
 \citep{schuemie_2014} 관찰형 데이터를 이용한 안정성에 관련된 의사결정에
-유용한 지식 생성을 위한 적절한 방법론을 제시하였지만,
-\citep{madigan_2013, madigan2013design} 이제 OMOP의 유산은 OHDSI
-커뮤니티의 형성에 동기를 부여한 자극과 개방형 과학 원칙을 조기에 채택한
-것으로 더 기억될 수 있다.
+유용한 지식 생성을 위한 적절한 방법론을
+제시하였다.\citep{madigan_2013, madigan2013design} OMOP 프로젝트는
+종료되었지만, 오픈 사이언스 원칙과 함께 OMOP의 유산은 OHDSI가 이어
+받았다.
 
-OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 수 있는 관찰론적 연구를
+OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 수 있는 관찰형 연구를
 완료하고 종료된 이후, 사람들은 OMOP 여정의 끝이 새로운 여정의 시작이
-되어야 한다고 생각했다. OMOP의 방법론적 연구가 관찰 데이터에서 생성되는
-근거의 품질을 명시적으로 개선할 수 있는 과학적 모범 사례에 대한 가시적
-통찰력을 제공하지만, 그러한 모범 사례의 채택은 느렸다. 몇 가지
-장애물들이 있었는데, 1) 방법론 적인 혁신을 내세우기엔 그 보다 훨씬 더
-중요성이 높은 관찰형 자료의 품질에 대한 근본적인 우려 2) 방법론적 문제와
-해결책에 대한 불충분한 개념적 이해 3) 개별 데이터 파트너의 로컬 환경
-내에서 솔루션을 독립적으로 구현할 수 없다는 점 4) 이러한 접근방식이
-그들이 관심을 가지고 있는 임상적 문제에 적용 가능한지에 대한 불확실성
-등이었다. 이러한 모든 장애물에 대한 하나의 공통된 실마리는 한 사람
-혼자만으로는 변화를 만드는 데 필요한 모든 것을 다 가질 수 없지만, 여러
-사람이 협력하면 이러한 문제들을 극복할 수 있다는 것이었다. 다음과 같은
-협력 분야가 필요했다:
+되어야 한다고 생각했다. OMOP의 방법론적 연구가 관찰형 데이터에서
+생성되는 근거의 품질을 명시적으로 개선할 수 있는 모범 사례best
+practice를 제시하였지만, 그러한 모범 사례의 채택은 느렸다. 몇 가지
+장애물들이 있었는데, 1) 방법론적인 혁신을 내세우기 전 관찰형 자료의
+품질에 대한 근본적인 우려 2) 방법론적 문제와 해결책에 대한 불충분한
+개념적 이해 3) 개별 데이터 파트너의 로컬 환경 내에서 솔루션을 독립적으로
+구현할 수 없다는 점 4) 이러한 접근방식이 다른 연구자들이 관심을 가지고
+있는 임상적 문제에 적용 가능한지에 대한 불확실성 등이었다. 이러한 모든
+장애물에 대해 변화를 만들기 위해서는 한 개인의 힘이 아니라, 여러 사람이
+협력하여야만 한다는 것을 깨달을 수 있었다. 다음과 같은 협력이 필요했다:
 
 \begin{itemize}
 \tightlist
 \item
   기초 데이터 품질에 대한 신뢰도를 높이며 구조, 콘텐츠 및 의미론적
-  일관성을 촉진하여 표준화된 분석이 가능하도록 개방형 커뮤니티(open
-  community)의 데이터 구조, 어휘 및 추출 변환
-  적재(Extract-Transform-Load, ETL) 표준규약 구축을 위한 협업
+  일관성을 촉진하여 표준화된 분석이 가능하도록 개방형 커뮤니티open
+  community의 데이터 구조, 어휘 및 추출 변환 적재Extract-Transform-Load
+  (ETL) 표준규약 구축을 위한 협업
 \item
-  약물 안전성 연구 외에도 임상적 특성 분석(clinical characterization),
-  인구 수준 효과추정(population-level effect estimation), 환자 수준
-  예측(patient-level prediction)을 위한 보다 광범위한 모범 사례(best
-  practice)를 확립하기 위한 협업. 방법론적 연구를 통해 입증된 과학적
-  모범 사례 구현을 코드화하고 연구자들이 쉽게 채택할 수 있는 오픈 소스
-  분석 소프트웨어 개발에 대한 협업
+  약물 안전성 연구 외에도 clinical characterization, population-level
+  effect estimation, patient-level prediction을 위한 보다 광범위한 모범
+  사례를 확립하기 위한 협업. 방법론적 연구를 통해 입증된 과학적 모범
+  사례를 코드로 구현하고 연구자들이 쉽게 채택할 수 있는 오픈 소스 분석
+  소프트웨어 개발에 대한 협업
 \item
   주요한 보건 문제를 해결할 공통의 질문에 대한 임상적용을 위한
   협업으로서, 커뮤니티를 아울러서 데이터에서 근거로의 여정을 총괄적으로
@@ -715,17 +714,17 @@ OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 수 있는 관찰론�
 OHDSI(Observational Health data Sciences and Informatics)는 보다 더 나은
 의료 결정과 더 나은 보건 관리를 촉진할 수 있는 과학적 근거를 공동으로
 생성하도록 함으로써 보건 수준을 향상하는 것을 목표로 하는 개방형 과학
-공동체다. \citep{Hripcsak2015} OHDSI는 관찰 건강 데이터(observational
+공동체다. \citep{Hripcsak2015} OHDSI는 관찰형 건강 데이터(observational
 health data)의 적절한 사용에 대한 과학적 모범 사례를 확립하기 위한
 방법론적 연구를 수행하고, 이러한 연구방법론을 일관되고 투명하며 재현
 가능한 솔루션으로 코드화하는 오픈 소스 분석 소프트웨어를 개발하여,
 보건의료 정책 및 환자 치료에 도움이 될 수 있는 임상적 근거를 마련하는
 데에 적용할 수 있도록 노력한다.
 
-\hypertarget{ohdsi-}{\subsection{OHDSI의 사명}\label{ohdsi-}}
+\subsection{OHDSI의 사명 Mission}\label{ohdsi--mission}
 
-더 나은 의학적 결정과 의료를 촉진할 수 있는 근거를 상호협력하여 생성할
-수 있도록 공동체에 힘을 실어줌으로써 보건을 개선한다.
+더 나은 의학적 결정과 의료 발전을 촉진할 수 있는 근거를 상호협력하여
+생성할 수 있도록 공동체에 힘을 실어줌으로써 보건을 개선한다.
 
 \begin{quote}
 To improve health by empowering a community to collaboratively generate
@@ -733,23 +732,23 @@ the evidence that promotes better health decisions and better care.
 \index{mission}
 \end{quote}
 
-\hypertarget{ohdsi-}{\subsection{OHDSI의 이상}\label{ohdsi-}}
+\subsection{OHDSI의 이상 Vision}\label{ohdsi--vision}
 
-관찰연구를 통해 건강과 질병에 대한 포괄적인 이해가 가능한 세상
+관찰형 연구를 통해 건강과 질병에 대한 포괄적인 이해가 가능한 세상
 
 \begin{quote}
 A world in which observational research produces a comprehensive
 understanding of health and disease. \index{vision}
 \end{quote}
 
-\hypertarget{ohdsi-}{\subsection{OHDSI의 목표}\label{ohdsi-}}
+\subsection{OHDSI의 목표 Objectives}\label{ohdsi--objectives}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{혁신 Innovation}: 관찰연구는 파괴적 사유를 통해서 가장 혜택을
-  얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인 접근을
-  적극적으로 찾고 격려한다.
+  \textbf{혁신 Innovation}: 관찰형 연구는 파괴적 사유를 통해서 가장
+  혜택을 얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인
+  접근을 적극적으로 찾고 격려한다.
 \end{itemize}
 
 \begin{quote}
@@ -841,12 +840,12 @@ OHDSI 협력자 지도 (Figure \ref{fig:collaboratormap}) 는 폭넓은 국제
 
 }
 
-\caption{2019년 8월 현재 OHDSI 협력자 지도}\label{fig:collaboratormap}
+\caption{2019년 8월 기준 OHDSI 협력자 지도}\label{fig:collaboratormap}
 \end{figure}
 
 OHDSI는 OMOP-CDM이라는 개방형 공동체 데이터 표준 기반으로 2019년 8월
-기준으로 20여 개국, 100개 이상의 의료 데이터베이스들로 구성된 분산형
-연구망(distributed research network, DRN)을 구축했다. 분산형 연구망이란
+기준으로 20여 개국, 100개 이상의 의료 데이터베이스들로 구성된 분산
+연구망 distributed research network(DRN)을 구축했다. 분산 연구망이란
 환자 수준의 데이터를 개인이나 조직 간에 공유할 필요가 없다는 것을
 의미한다. 분산 연구망에서는, 데이터를 기관 폐쇄망 안에 두고 연구자는
 프로토콜 형태의 분석 코드/프로그램을 공유한다. 데이터 파트너들은
@@ -855,18 +854,18 @@ OHDSI는 OMOP-CDM이라는 개방형 공동체 데이터 표준 기반으로 201
 연구자에게 회신하는 방식으로, 연구자는 폐쇄망 안에 있는 환자의 개별
 정보를 보거나 취득하지 않는다. OHDSI 분산망에서 각 데이터 파트너는 환자
 수준 데이터의 사용에 대한 완전한 자율성을 유지하고, 각 기관의 데이터
-거버넌스 정책을 지속해서 준수한다.
+거버넌스 정책을 지속해서 준수할 수 있다.
 
 OHDSI 개발자 커뮤니티는 3가지의 사용 사례를 지원하기 위해 OMOP CDM 위에
 다음 3가지의 강력한 오픈 소스 분석 소프트웨어 라이브러리를 구축하였는데
 이는 다음과 같다. 1) 임상적 특성 분석(clinical characterization): 질병의
-자연 경과, 치료 행태 및 질 향상을 위한 임상 특성 분석 2) 인구 수준 효과
-추정 (population-level effect estimation): 의약품 안전성 감시 및 비교
-효과 연구에서의 인과성 분석 3) 환자 수준 예측(patient-level prediction):
+자연 경과, 치료 행태 및 질 향상을 위한 임상 특성 분석 2) 인구 수준 추정
+(population-level effect estimation): 의약품 안전성 감시 및 비교 효과
+연구에서의 인과성 분석 3) 환자 수준 예측(patient-level prediction):
 기계학습 알고리즘을 활용한 정밀 의학 또는 의료 개입. OHDSI 개발자들은
-또한 OMOP CDM의 채택, 데이터 품질 평가, OHDSI 네트워크 연구의 촉진을
-지원하는 애플리케이션을 개발했다. 이러한 소프트웨어에는 R과 Python에
-내장된 백 엔드 통계 패키지 및 HTML과 Javascript로 개발된 프론트엔드 웹
+OMOP CDM의 채택, 데이터 품질 평가, OHDSI 네트워크 연구의 촉진을 지원하는
+애플리케이션을 개발하고 있다. 이러한 소프트웨어에는 R과 Python에 내장된
+백 엔드 통계 패키지 및 HTML과 Javascript로 개발된 프론트엔드 웹
 어플리케이션이 포함된다. 모든 OHDSI 소프트웨어들은 오픈 소스 정책을
 채택하여 Github을 통해 공개된다. \footnote{\url{https://github.com/OHDSI}}
 
@@ -881,10 +880,12 @@ PNAS(Proceedings of the National Academy of Science)에 출판된 연구는, 그
 제시하였고, \citep{tian_2018} 인과성 검증 능력에 대해 검증하였고,
 \citep{schuemie_2018} 이러한 방법론을 뇌전증 약제의 개별 안전성 연구
 \citep{duke_2017} 및 당뇨병의 이차 약제의 비교 효과 연구
-\citep{vashisht_2018} 및 우울증 치료의 대규모 비교 효과 연구
-\citep{schuemie_2018b} 에 활용하였다. OHDSI 공동체는 또한 관찰형
-보건의료 데이터의 기계학습 알고리즘을 활용한 프레임 워크를 구축
-\citep{reps2018} 하여 다양한 치료 분야에 활용하였다.
+\citep{vashisht_2018}, 우울증 치료의 대규모 비교 효과 연구
+\citep{schuemie_2018b}, 고혈압 환자의 이제 병합 요법의 비교 효과
+연구\citep{you_olmesartan_2019}, 대규모 고혈압 약제 비교
+연구\citep{suchard_comprehensive_2019} 에 활용하였다. OHDSI 공동체는
+또한 관찰형 보건의료 데이터의 기계학습 알고리즘을 활용한 프레임 워크를
+구축 \citep{reps2018} 하여 다양한 치료 분야에 활용하였다.
 \citep{johnston_2019, cepeda_2018, reps_2019}
 
 \hypertarget{ohdsi-}{\section{OHDSI와의 협업}\label{ohdsi-}}
@@ -7032,7 +7033,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.hgkocc6gchildren ;"
+## [1] "SELECT * FROM temp_schema.zshinsqhchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
@@ -16344,82 +16345,62 @@ DRUG\_EXPOSURE 등을 찾을 수 있는 CDM 데이터베이스의 위치를
 사람들은, 우리가 이전에 이미 예측 모델 (p(O)) 을 사용하여 건강 결과의
 가능성을 예측했었다.
 
-우리는 다음과 같이 True Positives, True Negatives, False Positives,
-False Negatives의 값을 예상하였다. (그림 \ref{fig:phevaluatorDiagram}의
-B 부분 참조):
+다음과 같이 진양성, 진음성, 위양성, 위음성 결과를 예상하였다. (그림
+\ref{fig:phevaluatorDiagram}의 B 부분 참조):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  If the cohort definition included a person from the evaluation cohort,
-  i.e., the cohort definition considered the person a ``positive.'' The
-  predicted probability for the health outcome indicated the expected
-  value of the number of counts contributed by that person to the True
-  Positives, and one minus the probability indicated the expected value
-  of the number of counts contributed by that person to the False
-  Positives for that person. We added all the expected values of counts
-  across persons to get the total expected value. For example, PersonId
-  016 had a predicted probability of 99\% for the presence of the health
-  outcome, 0.99 was added to the True Positives (expected value of
-  counts added 0.99) and 1.00--0.99 = 0.01 was added to the False
-  Positives (0.01 expected value). This was repeated for all the persons
-  from the evaluation cohort included in the cohort definition (i.e.,
-  PersonIds 019, 022, 023, and 025).
+  사용자가 정의한 코호트가 평가용 코호트의 한 사람을 포함한다면, 즉
+  사용자 정의 코호트가 어떤 사람을 '양성'으로 간주하는 확률, 즉 양성에
+  대한 기대값이 진양성에 추가되며, 1에서 해당 확률을 뺀, 음성에 대한
+  확률이 기대값으로 진음성에 추가된다. 예를 들어 Person ID 016 인 사람이
+  해당 임상 outcome을 가질 (양성일) 확률이 99\%라면, 기대값으로 0.99가
+  진양성에 더해지고, 기대값으로 0.01(1.00-0.99)이 위양성에 더해진다.
+  이러한 과정이 사용자가 정의한 코호트의 모든 사람 (예를 들어 Person
+  ID가 19, 22, 23, 25인 사람들)에 대해 적용된다.
 \item
-  Similarly, if the cohort definition did not include a person from the
-  evaluation cohort, i.e.~the cohort definition considered the person a
-  ``negative,'' one minus the predicted probability for the phenotype
-  for that person was the expected value of counts contributed to True
-  Negatives and was added to it, and, in parallel, the predicted
-  probability for the phenotype was the expected value of counts
-  contributed to the False Negatives and was added to it. For example,
-  PersonId 017 had a predicted probability of 1\% for the presence of
-  the health outcome (and, correspondingly, 99\% for the absence of the
-  health outcome) and 1.00 -- 0.01 = 0.99 was added to the True
-  Negatives and 0.01 was added to the False Negatives. This was repeated
-  for all the persons from the evaluation cohort not included in the
-  cohort definition (i.e., PersonIds 018, 020, 021, and 024).
+  마찬가지로, 평가 코호트에 존재하는 사람이 사용자 정의 코호트에
+  포함되지 않는 경우, 즉 사용자 정의 코호트가 음성으로 예측한 사람의
+  경우, 1에서 표현형에 대한 예측 확률에서 뺀 값이 음성에 대한 기대값으로
+  진음성에 추가되고, 표현형에 대한 예측 확률이 기대값을오 진양성에
+  추가된다. 예를 들어 Person ID가 17인 사람이 outcome을 가질 확률이
+  1\%라고 예측했다면 (outcome이 없을 확률이 99\%라고 예측했다면), 1.00
+  -- 0.01 = 0.99 가 진음성에 추가되고 0.01이 위음성에 추가된다. 이런
+  과정이 사용자 정의 코호트에 포함되지 않은 평가용 코호트의 사람들 모두
+  (예를 들어 Person ID 018,020,021,024인 사람들)에게 반복된다.
 \end{enumerate}
 
-After adding these values over the full set of persons in the evaluation
-cohort, we filled the four cells of the confusion matrix with the
-expected values of counts for each cell, and we were able to create
-point estimates of the PA performance characteristics like sensitivity,
-specificity, and positive predictive value (Figure 1C). We emphasize
-that these expected cell counts cannot be used to assess the variance of
-the estimates, only the point estimates. In the example, the
-sensitivity, specificity, PPV, and NPV were 0.99, 0.63, 0.42, and 0.99,
-respectively.
+평가용 코호트의 전체 집합에 대해 이러한 값을 추가한 후, 혼동 행렬의 4개
+칸을 모두 예상 값으로 채울 수 있다. 그리고 민감도, 특이도, 양성예측도와
+같이 PA 성능의 추정치 point estimate 를 만들 수 있다
+(\ref{fig:phevaluatorDiagram} C). 추정치만을 예측할 수 있고, 추정치의
+분산을 측정할 수 없다는 것에 주의하자. 이 예제에서는 민감도, 특이도,
+양성 예측도, 음성 예측도는 각각 0.99, 0.63, 0.42, 0.99로 나타났다.
 
-Determining the performance characteristics of the cohort definition
-uses the function \texttt{testPhenotype}. This function uses the output
-from the prior two steps where we created the model and evaluation
-cohorts. We would set the modelFileName parameter to the RDS file output
-from createPhenoModel function, in this example,
-``c:/temp/lr\_results\_5XMI\_train\_myCDM\_ePPV0.75\_20181206V1.rds''.
-We would set the resultsFileName parameter to the RDS file output from
-createEvalCohort function, in this example,
-``c:/temp/lr\_results\_5XMI\_eval\_myCDM\_ePPV0.75\_20181206V1.rds''. To
-test the cohort definition we wish to use in our study, we set the
-\texttt{cohortPheno} to the cohort ID for that cohort definition. We can
-set the \texttt{phenText} parameter to some human readable description
-for the cohort definition, such as ``MI Occurrence, Hospital In-Patient
-Setting''. We will set the \texttt{testText} parameter to some human
-readable description for the xSpec definition, such as ``5 X MI.'' The
-output from this step is a data frame that contains the performance
-characteristics for the cohort definition tested. The settings for the
-\texttt{cutPoints} parameter is a list of values that will be used to
-develop the performance characteristics results. The performance
-characteristics are usually calculated using the ``expected values'' as
-described in Figure 1. To retrieve the performance characteristics based
-on the expected values, we include ``EV'' in the list for the
-\texttt{cutPoints} parameter. We may also want to see the performance
-characteristics based on specific predicted probabilities, i.e., cut
-points. For example, if we wanted to see the performance characteristics
-of all those at or above a predicted probability of 0.5 were considered
-positive for the health outcome and all those under a predicted
-probability of 0.5 were considered negative, we would add ``0.5'' to the
-\texttt{cutPoints} parameter list. For example:
+\texttt{testPhenotype} 함수를 이용하여 사용자 정의 코호트의 성능을
+측정할 수 있다. 이 함수는 우리가 모델과 평용가 코호트를 만들었던 이전 두
+단계의 결과값을 사용한다. \texttt{createPhenoModel} 함수의 결과상 나오는
+RDS file 에 대한 \texttt{modelFilName} 을 입력한다. 이 예제에서는
+``c:/temp/lr\_results\_5XMI\_train\_myCDM\_ePPV0.75\_20181206V1.rds'' 을
+입력했다. \texttt{createEvalCohort} 함수의 결과로 출력되는 RDS 파일의
+이름을 resultsFileName 인자로 정할 수 있다. 이 예제에서는
+``c:/temp/lr\_results\_5XMI\_eval\_myCDM\_ePPV0.75\_20181206V1.rds''를
+사용했다. 사용자 정의 코호트의 성능을 테스트하기 위해,
+\texttt{cohortPheno}의 cohort ID를 해당 코호트의 ID로 입력한다.
+\texttt{phenText} 인자에는 'MI Occurrence, Hospital In-Patient
+Setting'과 같이 해당 코호트 정의에 대한 설명을 입력한다.
+\texttt{testText}에는 ``5 X MI''와 같이 xSpec 정의에 대한 설명을
+입력한다. 이 단계의 출력물은 코호트 정의의 성능의 추정치를 data frame
+형태이다. \texttt{cutPoints} 인자에는 성능 추정치에 대한 참고치 값들을
+list 형태로 입력한다. 코호트 정의 성능은 @ref(fig:phevaluatorDiagram
+그림에서 본 것과 같이 ``기대값 expected value''으로 계산된다. 예측값
+기반으로 성능을 추정하기 위하여, 우리는 \texttt{cutPoints} 인자에
+``EV''를 포함한 list를 입력한다. 특정한 예측값을 기준으로 성능을
+평가하고 싶을 수도 있을 것이다. 예를 들어, 예측 확률 0.5 이상에서 모든
+성능이 outcome에 대해 양성으로 간주되고 예측 확률 0.5 미만에서 모두
+음성으로 간주되는 것을 확인하려면 ``0.5''를 \texttt{cutPoints} 인자
+목록에 추가한다. 예를 들어 다음과 같다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16446,27 +16427,23 @@ probability of 0.5 were considered negative, we would add ``0.5'' to the
 \end{Highlighting}
 \end{Shaded}
 
-In this example, a wide range of prediction thresholds are provided
-(cutPoints) including the expected value (``EV''). Given that parameter
-setting, the output from this step will provide performance
-characteristics (i.e, sensitivity, specificity, etc.) at each prediction
-threshold as well as those using the expected value calculations. The
-evaluation uses the prediction information for the evaluation cohort
-developed in the prior step. The data frames produced from this step may
-be saved to a csv file for detailed examination.
+이 예제에서 넓은 범위의 예측 임계값prediction threshold이 예측값expected
+value(``EV'')와 함께 cutPoints로 사용되었다. 주어진 셋팅에서, 이
+단계에서 각각의 예측 임계값에 대한 민감도와 특이도와 같은 성능을
+측정하여 제공한다. 평가는 이전 단ㄱ뎨에서 만든 평가용 코호트과의 비교를
+통해 이루어진다. 보다 자세한 정보는 결과값으로 나온 data frame을 csv로
+저장하여 확인할 수 있다.
 
-Using this process, Table \ref{tab:phevalStats} displays the performance
-characteristics for four cohort definitions for MI across five datasets.
-For a cohort definition similar to the one evaluated by Cutrona and
-colleagues, ``\textgreater{}=1 X HOI, In-Patient'', we found a mean PPV
-of 67\% (range: 59\%-74\%).
+이러한 과정을 통해서 5개의 데이터셋에서 4가지의 심근경색 코호트의 성능을
+평가한 자료를 \ref{tab:phevalStats} 표에서 볼 수 있다. Cutrona 등이
+평가한 것과 비슷한 코호트 (``\textgreater{}=1 X HOI, In-Patient'')의
+경우 우리가 확인한 양성 예측도는 67\% (59\%-74\%)이다.
 
 \begin{longtable}[]{@{}llcccc@{}}
-\caption{\label{tab:phevalStats} Performance characteristics of four cohort
-definitions using diagnostic condition codes to determine myocardial
-infarction on multiple datasets using pheValuator. Sens -- Sensitivity ;
-PPV -- Positive Predictive Value ; Spec -- Specificity; NPV -- Negative
-Predictive Value; Dx Code -- Diagnosis code for the
+\caption{\label{tab:phevalStats} pheValuator을 이용하여 여러 데이터셋에서
+심근경색에 대한 4가지 코호트 정의에 대한 성능 평가. Sens -- Sensitivity
+; PPV -- Positive Predictive Value ; Spec -- Specificity; NPV --
+Negative Predictive Value; Dx Code -- Diagnosis code for the
 cohort.}\tabularnewline
 \toprule
 Phenotype Algorithm & Database & Sens & PPV & Spec & NPV\tabularnewline

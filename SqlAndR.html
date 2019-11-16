@@ -24,7 +24,7 @@
 <meta name="author" content="한국 오딧세이" />
 
 
-<meta name="date" content="2019-11-14" />
+<meta name="date" content="2019-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -127,9 +127,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>1.1</b> 데이터에서 근거로의 여정</a></li>
 <li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#omop-observational-medical-outcomes-partnership"><i class="fa fa-check"></i><b>1.2</b> OMOP (Observational Medical Outcomes Partnership)</a></li>
 <li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#---ohdsi"><i class="fa fa-check"></i><b>1.3</b> 개방형 과학 공동체로서의 OHDSI</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi-"><i class="fa fa-check"></i><b>1.3.1</b> OHDSI의 사명</a></li>
-<li class="chapter" data-level="1.3.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi-"><i class="fa fa-check"></i><b>1.3.2</b> OHDSI의 이상</a></li>
-<li class="chapter" data-level="1.3.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi-"><i class="fa fa-check"></i><b>1.3.3</b> OHDSI의 목표</a></li>
+<li class="chapter" data-level="1.3.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--mission"><i class="fa fa-check"></i><b>1.3.1</b> OHDSI의 사명 Mission</a></li>
+<li class="chapter" data-level="1.3.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--vision"><i class="fa fa-check"></i><b>1.3.2</b> OHDSI의 이상 Vision</a></li>
+<li class="chapter" data-level="1.3.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi--objectives"><i class="fa fa-check"></i><b>1.3.3</b> OHDSI의 목표 Objectives</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi-"><i class="fa fa-check"></i><b>1.4</b> OHDSI의 역사</a></li>
 <li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsi-"><i class="fa fa-check"></i><b>1.5</b> OHDSI와의 협업</a></li>
@@ -919,7 +919,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>예를 들면:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM #children;&quot;</span>
 <span class="kw">translate</span>(sql, <span class="dt">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="dt">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.uelh11g4children ;&quot;</code></pre>
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.no5hfr3lchildren ;&quot;</code></pre>
 <p>사용자는 <code>temp_schema</code>에 대한 쓰기 권한이 있어야 한다.</p>
 <p>또한 Oracle은 테이블 이름이 30자로 제한되어 있다. 세션 아이디를 추가한 후 이름이 너무 길어지기 때문에 <strong>임시 테이블 이름은 최대 22자까지만 허용된다</strong>.</p>
 <p>뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 <code>TRUNCATE</code> 및 <code>DROP</code> 을 해야 한다.</p>
