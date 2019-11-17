@@ -366,7 +366,7 @@ Table: (\#tab:sensAnalysis) Uncalibrated and calibrated hazard ratios (95\% conf
 
 [^methodEvalViewerUrl]: http://data.ohdsi.org/MethodEvalViewer/
 
-```{r methodEval, fig.cap='Methods Libraryd에서 방법에 대한 95\\% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.',echo=FALSE, out.width='100%', fig.align='center', fig.pos='h'}
+```{r methodEval, fig.cap='Methods Libraryd에서 방법에 대한 95\\% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95\\% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.',echo=FALSE, out.width='100%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/MethodValidity/methodEval.png")
 ```
 
