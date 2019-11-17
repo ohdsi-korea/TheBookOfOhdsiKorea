@@ -335,8 +335,8 @@ oiEstimates$p
 한 데이터베이스에서 분석을 수행한 것처럼, IBM MarketScan Medcaid (MDCD) 데이터베이스에서, 우리는 다른 공통 데이터 모델 (CDM) 데이터베이스에서도 동일한 분석 코드를 실행할 수 있다. 그림 \@ref(fig:forest)은 혈관 부종의 결과에 대한 총 5개의 데이터베이스에 대한 forest plot과 메타 분석 추정치 (임의 효과를 가정) [@dersimonian_1986] 를 보여준다. 이 그림은 [EvidenceSynthesis](https://ohdsi.github.io/EvidenceSynthesis/) 패키지의 `plotMetaAnalysisForest`함수를 사용하여 생성되었다.
 
 <div class="figure" style="text-align: center">
-<img src="images/MethodValidity/forest.png" alt="혈관부종의 위험을 위해 ACE 억제제를 thiazide 및 thiazides 유사이뇨제와 비교할 때 5개 데이터베이스의 효과 크기 추정 및 95% 신뢰 구간(CI)." width="90%" />
-<p class="caption">(\#fig:forest)혈관부종의 위험을 위해 ACE 억제제를 thiazide 및 thiazides 유사이뇨제와 비교할 때 5개 데이터베이스의 효과 크기 추정 및 95% 신뢰 구간(CI).</p>
+<img src="images/MethodValidity/forest.png" alt="혈관부종의 위험을 위해 ACE 억제제를 thiazide 및 thiazides 유사이뇨제와 비교할 때 5개 데이터베이스의 효과 크기 추정 및 95\% 신뢰 구간(CI)." width="90%" />
+<p class="caption">(\#fig:forest)혈관부종의 위험을 위해 ACE 억제제를 thiazide 및 thiazides 유사이뇨제와 비교할 때 5개 데이터베이스의 효과 크기 추정 및 95\% 신뢰 구간(CI).</p>
 </div>
 
 모든 신뢰 구간이 1 이상이지만 효과가 있다는 사실에 대한 합의를 제안하지만 $I^2$는 데이터베이스 간 이질성을 제안한다.
@@ -344,8 +344,8 @@ oiEstimates$p
 그러나 그림 \@ref(fig:forestCal)과 같이 보정된 신뢰구간을 사용하여 $I^2$를 계산하면 이질성이 음성 및 양성 대조군을 통해 각 데이터베이스에서 측정된 비뚤림에 의해 설명될 수 있음을 알 수 있다. 경험적 보정은 이 비뚤림을 올바르게 고려한 것으로 보인다. 
 
 <div class="figure" style="text-align: center">
-<img src="images/MethodValidity/forestCal.png" alt="ACE 억제제를 thiazide 및 thiazide 유사 이뇨제와 비교할 때 5가지 데이터베이스에서 보정된 효과 크기 추정치 및 95% 신뢰 구간 및 혈관부종의 위험 비율에 대한 메타 분석 추정치." width="90%" />
-<p class="caption">(\#fig:forestCal)ACE 억제제를 thiazide 및 thiazide 유사 이뇨제와 비교할 때 5가지 데이터베이스에서 보정된 효과 크기 추정치 및 95% 신뢰 구간 및 혈관부종의 위험 비율에 대한 메타 분석 추정치.</p>
+<img src="images/MethodValidity/forestCal.png" alt="ACE 억제제를 thiazide 및 thiazide 유사 이뇨제와 비교할 때 5가지 데이터베이스에서 보정된 효과 크기 추정치 및 95\% 신뢰 구간 및 혈관부종의 위험 비율에 대한 메타 분석 추정치." width="90%" />
+<p class="caption">(\#fig:forestCal)ACE 억제제를 thiazide 및 thiazide 유사 이뇨제와 비교할 때 5가지 데이터베이스에서 보정된 효과 크기 추정치 및 95\% 신뢰 구간 및 혈관부종의 위험 비율에 대한 메타 분석 추정치.</p>
 </div>
 
 ### 민감도 분석
@@ -376,8 +376,8 @@ Table: (\#tab:sensAnalysis) Uncalibrated and calibrated hazard ratios (95\% conf
 [^methodEvalViewerUrl]: http://data.ohdsi.org/MethodEvalViewer/
 
 <div class="figure" style="text-align: center">
-<img src="images/MethodValidity/methodEval.png" alt="Methods Libraryd에서 방법에 대한 95% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease." width="100%" />
-<p class="caption">(\#fig:methodEval)Methods Libraryd에서 방법에 대한 95% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.</p>
+<img src="images/MethodValidity/methodEval.png" alt="Methods Libraryd에서 방법에 대한 95\% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95\% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease." width="100%" />
+<p class="caption">(\#fig:methodEval)Methods Libraryd에서 방법에 대한 95\% 신뢰 구간 적용 범위. 각 점은 특정 분석 선택 세트의 성능을 나타낸다. 점선은 nominal performance를 나타낸다 (95\% 적용 범위). SCCS = Self-Controlled Case Series, GI = Gastrointestinal, IBD = inflammatory bowel disease.</p>
 </div>
 
 

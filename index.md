@@ -1,7 +1,7 @@
 ---
 title: "오딧세이 바이블 The Book of OHDSI"
 author: "한국 오딧세이"
-date: "2019-11-16"
+date: "2019-11-17"
 classoption: 11pt
 geometry:
 - paperheight=10in
