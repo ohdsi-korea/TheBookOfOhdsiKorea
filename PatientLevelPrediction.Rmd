@@ -18,7 +18,7 @@ OHDSI CDM을 통해 전례 없는 규모의 데이터를 균일하고 투명하�
 
 ## 예측 문제
 
-그림 \@ref(fig:figure1)은 우리가 다루는 예측 문제를 보여준다. 위험에 처한 모집단 중에서, 우리는 정의된 특정 시점 (t = 0) 에서 어떤 환자가 위험에 처하는 동안 어떤 결과를 경험할 것인지 예측하는 것을 목표로 한다. 예측은 해당 시점 이전의 관찰 기간에서 환자에 대한 정보만 사용하여 수행된다.
+그림 \@ref(fig:figure1)은 우리가 다루는 예측 문제를 보여준다. 연구 대상군 중 어떤 환자가 위험노출시간 동안에 어떤 결과를 경험할 것인지 특정 시점 (t = 0) 에서 예측하는 것을 목표로 한다. 예측은 해당 시점 (t = 0) 이전의 관찰 기간 observation window에서 관찰된 환자정보 만 사용하여 수행된다.
 
 ```{r figure1, fig.cap='예측 문제',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/Figure1.png")
