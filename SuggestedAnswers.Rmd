@@ -1,6 +1,6 @@
 # Suggested Answers {#SuggestedAnswers}
 
-이 부록은 이 책의 예제에 대한 제안된 답변을 포함합니다.
+이 부록은 이 책의 예제에 대한 제안된 답변을 포함한다.
 
 
 
@@ -9,7 +9,7 @@
 
 #### 예제 \@ref(exr:exerciseJohnPerson) {-}
 
-예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnPerson)처럼 보여져야 한다.
+예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnPerson)처럼 보여야 한다.
 
 Table: (\#tab:johnPerson) The PERSON table.
 
@@ -37,7 +37,7 @@ Column name|Value|Explanation
 
 #### 예제 \@ref(exr:exerciseJohnOp) {-}
 
-예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnOp) 처럼 보여져야 한다.
+예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnOp) 처럼 보여야 한다.
 
 Table: (\#tab:johnOp) The OBSERVATION_PERIOD table.
 
@@ -51,7 +51,7 @@ Column name|Value|Explanation
 
 #### 예제 \@ref(exr:exerciseJohnDrug) {-}
 
-예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnDrug) 처럼 보여져야 한다.
+예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnDrug) 처럼 보여야 한다.
 
 Table: (\#tab:johnDrug) The DRUG_EXPOSURE table.
 
@@ -170,7 +170,7 @@ ICD-9CM 코드:
 
 #### 예제 \@ref(exr:exerciseVocab3) {-}
 
-MedDRA 선호되는 용어:
+MedDRA의 선호되는 용어:
 
 - "Gastrointestinal haemorrhage" (Concept ID 35707864)
 - "Intestinal haemorrhage" (Concept ID 35707858)
@@ -228,7 +228,7 @@ VISIT_SOURCE_VALUE | inpatient
 
 #### 예제 \@ref(exr:exerciseUseCases2) {-}
 
-아마 아닐 것이다. 디클로페낙 노출 코호트와 비교할 수 있는 비 노출 코호트를 정의한다는 것은 사람들이 이유가 있어 디클로페낙을 복용하기 때문에 보통 불가능하다. 이것은 사람 간의 비교를 금지한다. 사람 내 비교가 가능할 수 있어서, 디클로페낙 코호트 안의 각각의 환자는 그들이 노출이 되지 않았을 때의 시간을 정의할 수 있다. 그러나, 비슷한 문제가 여기서 발생한다: 이런 시기는 비교가 되지 않는다. 왜냐하면 어떤 때는 누군가 노출되고, 누군가는 노출이 되지 않는 이유에서다.
+아마 아닐 것이다. 디클로페낙 diclofenac노출 코호트와 비교할 수 있는 비노출 코호트를 정의한다는 것은 보통 불가능 한데 이는 사람들이 각각의 이유가 있어 디클로페낙을 복용하기 때문이다. 이것은 사람 간의 비교를 금지한다. 사람 내 비교가 가능할 수는 있어서, 디클로페낙 코호트 안의 각각의 환자는 그들이 노출되지 않았을 때의 시간을 정의할 수 있다. 그러나, 비슷한 문제가 여기서 발생한다: 이런 시기는 비교가 되지 않는다. 왜냐하면 어떤 때 누군가는 노출되고, 누군가는 노출이 되지 않는 이유에서다.
 
 
 
@@ -257,7 +257,7 @@ cat("  PERSON_COUNT
 
 #### 예제 \@ref(exr:exerciseCelecoxibUsers) {-}
 
-최소 한번이라도 celecoxib의 처방을 받은 사람의 수를 계산하기 위해서는, 우리는 테이블 DRUG_EXPOSURE를 쿼리할 수 있다. 성분 celecoxib을 포함하는 모든 약물을 찾기 위해서, 우리는 테이블 CONCEPT_ANCESTOR와 CONCEPT를 조인해야 한다:
+최소 한 번이라도 celecoxib의 처방을 받은 사람의 수를 계산하기 위해서는, 우리는 테이블 DRUG_EXPOSURE를 쿼리할 수 있다. 성분 celecoxib을 포함하는 모든 약물을 찾기 위해서, 우리는 테이블 CONCEPT_ANCESTOR과 CONCEPT를 조인해야 한다:
 
 ```{r eval=FALSE}
 library(DatabaseConnector)
@@ -280,9 +280,9 @@ cat("  PERSON_COUNT
 ")
 ```
 
-개인이 두 개 이상의 처방을 가질 수 있다는 점을 고려하여, 겹치지 않는 개인의 수를 찾기 위해 `COUNT(DISTINCT(person_id))`를 사용하는 것을 기억하십시오. 또한 대소문자 구별 없이 "celecoxib"를 찾기 위하여 `LOWER` 기능을 사용하는 것도 기억하십시오.
+개인이 두 개 이상의 처방을 가질 수 있다는 점을 고려하여, 겹치지 않는 개인의 수를 찾기 위해 `COUNT(DISTINCT(person_id))`를 사용하는 것을 기억하십시오. 또한 대소문자 구별 없이 "celecoxib"을 찾기 위하여 `LOWER` 기능을 사용하는 것도 기억하십시오.
 
-대신에, 우리는 성분 레벨까지 이미 롤업된 테이블 DRUG_ERA를 사용할 수 있다.
+대신에, 우리는 성분 레벨까지 이미 롤업 된 테이블 DRUG_ERA를 사용할 수 있다.
 
 ```{r eval=FALSE}
 library(DatabaseConnector)
@@ -306,7 +306,7 @@ cat("  PERSON_COUNT
 
 #### 예제 \@ref(exr:exerciseGiBleedsDuringCelecoxib) {-}
 
-노출되는 동안 증상의 수를 계산하기 위하여 이전의 쿼리를 테이블 CONDITION_OCCURRENCE을 조인함으로써 확장한다. 위장 출혈을 암시하는 모든 condition concept을 찾기 위하여 테이블 CONCEPT_ANCESTOR를 조인한다:
+노출되는 동안 증상의 수를 계산하기 위하여 이전의 쿼리를 테이블 CONDITION_OCCURRENCE를 조인함으로써 확장한다. 위장 출혈을 암시하는 모든 condition concept을 찾기 위하여 테이블 CONCEPT_ANCESTOR를 조인한다:
 
 ```{r eval=FALSE}
 library(DatabaseConnector)
@@ -340,13 +340,13 @@ cat("  DIAGNOSE_COUNT
 
 
 
-## Defining Cohorts {#Cohortsanswers}
+## 코호트 만들기 {#Cohortsanswers}
 
 #### 예제 \@ref(exr:exerciseCohortsAtlas) {-}
 
 아래의 요구사항을 암호화 하는 초기 사례 기준을 생성한다:
 
-- diclofenac을 복용하기 시작한 환자
+- 디클로페낙 diclofenac을 복용하기 시작한 환자
 - 16세 이상의 환자
 - 노출 전 최소 365일의 계속된 관찰이 있던 환자
 
@@ -356,7 +356,7 @@ cat("  DIAGNOSE_COUNT
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInitialEvents.png")
 ```
 
-diclofenac의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet1)과 비슷해야 할 것이며, 'Diclofenac' 성분과 'Diclofenac'의 모든 하위요소도 모두 포함하여 diclofenac 성분이 포함된 모든 약물을 포함한다.
+디클로페낙의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet1)과 비슷해야 할 것이며, '디클로페낙' 성분과 '디클로페낙'의 모든 하위요소도 모두 포함하여 디클로페낙 성분이 포함된 모든 약물을 포함한다.
 
 ```{r cohortsAtlasConceptSet1, fig.cap='diclofenac의 concept 세트 표현.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet1.png")
@@ -473,53 +473,53 @@ knitr::include_graphics("images/SuggestedAnswers/dataSourcesAtlas.png")
 knitr::include_graphics("images/SuggestedAnswers/conceptSearchAtlas.png")
 ```
 
-Click on the left arrow shown at the top left of Figure \@ref(fig:conceptSearchAtlas) to return to your cohort definition. Click on "+Add Initial Event" and then "Add Drug Era". Select your previously created concept set for the drug era criterion. Click on "Add attribute..." and select "Add First Exposure Criteria." Set the required continuous observation to at least 365 days before the index date. The result should look like Figure \@ref(fig:celecoxibCohortDefinition). Leave the Inclusion Criteria, Cohort Exit, and Cohort Eras section as they are. Make sure to save the cohort definition by clicking ![](images/Cohorts/save.png), and close it by clicking ![](images/SuggestedAnswers/close.png).
+코호트 정의로 돌아가기 위해서는 그림 \@ref(fig:conceptSearchAtlas)의 상위 왼편에 보이는 왼쪽 화살표를 클릭하십시오. "+Add Initial Event"를 클릭한 후 "Add Drug Era"를 클릭하십시오. 이미 생성된 약물 범위 기준의 concept 세트를 선택하십시오. "Add attribute..."를 클릭하고 "Add First Exposure Criteria."를 선택하십시오. 발생 시점 전으로부터 최소 365일이 요구되는 지속적인 관찰을 설정하십시오. 결과는 그림 \@ref(fig:celecoxibCohortDefinition)와 비슷해야 한다. 포함 기준, 코호트 종료, 코호트 범위 세션을 그대로 두고 나가십시오. ![](images/Cohorts/save.png)를 클릭하여 코호트 정의를 저장하고, ![](images/SuggestedAnswers/close.png)를 클릭하여 확실히 닫아주십시오.
 
-```{r celecoxibCohortDefinition, fig.cap='A simple celecoxib new user cohort definition.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r celecoxibCohortDefinition, fig.cap='간단한 celecoxib 새 사용자의 코호트 정의.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCohortDefinition.png")
 ```
 
-Now that we have our cohort defined, we can characterize it. Click on ![](images/Characterization/atlasCharacterizationMenuItem.png) and then "New Characterization". Give you characterization a meaningful name (e.g. "Celecoxib new users characterization"). Under Cohort Definitions, click on "Import" and select your recently created cohort definition. Under "Feature Analyses", click on "Import" and select at least one condition analysis and one drug analysis, for example "Drug Group Era Any Time Prior" and "Condition Group Era Any Time Prior". Your characterization definition should now look like Figure \@ref(fig:celecoxibCharacterization). Make sure to save the characterization settings by clicking ![](images/Cohorts/save.png).
+이제 코호트가 정의 되었으니, 특성화 할 수 있다. ![](images/Characterization/atlasCharacterizationMenuItem.png)를 클릭한 후 "New Characterization"를 클릭하십시오. 임상적 특성에 의미있는 이름을 부여하십시오 (예를 들어, "Celecoxib 새 사용자의 임상적 특성"). 코호트 정의 아래에, "Import"를 클릭하고 최근에 생성한 코호트 정의를 선택하십시오. "Feature Analyses" 아래에, "Import"를 클릭한 후 최소 하나의 condition 분석과 하나의 약물 분석을 선택하십시오. 예를 들면 "Drug Group Era Any Time Prior"와 "Condition Group Era Any Time Prior"이다. 임상적 특성 정의는 그림 \@ref(fig:celecoxibCharacterization)와 비슷해야 한다. ![](images/Cohorts/save.png)를 클릭하여 임상적 특성 설정을 확실히 저장하십시오.
 
-```{r celecoxibCharacterization, fig.cap='Characterization settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r celecoxibCharacterization, fig.cap='임상적 특성 설정하기.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterization.png")
 ```
 
-Click on the "Exections" tab, and click on "Generate" for one of the data sources. It may take a while for the generation to complete. When done, we can click on "View latest results". The resulting screen will look something like Figure \@ref(fig:celecoxibCharacterizationResults), showing for example that pain and arthropathy are commonly observed, which should not surprise use as these are indications for celecoxib. Lower on the list we may see conditions we were not expecting.
+"Exections" 탭을 클릭한 후, 데이터 원천 중의 하나로 "Generate"를 클릭하십시오. 생성이 끝날 때까지 시간이 걸릴 수 있다. 끝나면, "View latest results"를 클릭할 수 있다. 결과 화면은 그림 \@ref(fig:celecoxibCharacterizationResults)와 비슷하고, 이는 예를 들어 고통과 arthropathy가 흔히 관찰되는 것으로 보여지는데, 이는 celecoxib의 조짐이므로 놀랄만한 사용은 아니다. 목록의 아레쪽에 기대하지 않은 conditions이 보일 수 있다.
 
-```{r celecoxibCharacterizationResults, fig.cap='Characterization settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r celecoxibCharacterizationResults, fig.cap='임상적 특성 설명.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterizationResults.png")
 ```
 
 #### 예제 \@ref(exr:exerciseCharacterization3) {-}
 
-Click on ![](images/Cohorts/cohortdefinition.png) and then "New cohort" to create a new cohort. Give the cohort a meaningful name (e.g. "GI bleed") and go to the "Concept Sets" tab. Click on "New Concept Set", and give your concept set a meaningful names (e.g. "GI bleed"). Open the  ![](images/Cohorts/search-2.png) module, search for "Gastrointestinal hemorrhage", and click the ![](images/Cohorts/shoppingcart.png) next to the top concept to add the concept to your concept set as show in Figure \@ref(fig:giBleedSearch). 
+![](images/Cohorts/cohortdefinition.png)를 클릭한 후 새로운 코호트를 생성하기 위해 "New cohort"를 클릭하십시오. 코호트에 의미있는 이름을 부여하십시오 (예를 들어 "GI bleed"). ![](images/Cohorts/search-2.png) 모둘을 열고, "Gastrointestinal hemorrhage"를 검색한 후, 그림 \@ref(fig:giBleedSearch)와 같이 concept을 당신의 concept 세트에 추가하기 위해 상위 concept 옆의 ![](images/Cohorts/shoppingcart.png)를 클릭하십시오.
 
-```{r giBleedSearch, fig.cap='Selecting the standard concept for "Gastrointestinal hemorrhage".',echo=FALSE, out.width='100%', fig.align='center'}
+```{r giBleedSearch, fig.cap='"Gastrointestinal hemorrhage"의 표준 concept 선택하기.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedSearch.png")
 ```
 
-Click on the left arrow shown at the top left of Figure \@ref(fig:giBleedSearch) to return to your cohort definition. Open the "Concept Sets" tab again, and check "Descendants" next to the GI hemorrhage concept, as shown in Figure \@ref(fig:giBleedDescendants).
+당신의 코호트 정의로 돌아가기 위해서는 그림 \@ref(fig:giBleedSearch)의 상위 왼쪽에 위치한 왼쪽 화살표를 클릭하십시오. "Concept Sets" 탭을 다시 열고, GI hemorrhage concept 옆에 있는 "Descendants"를 그림 \@ref(fig:giBleedDescendants)처럼 체크하십시오.
 
-```{r giBleedDescendants, fig.cap='Adding all descendants to "Gastrointestinal hemorrhage".',echo=FALSE, out.width='100%', fig.align='center'}
+```{r giBleedDescendants, fig.cap='"Gastrointestinal hemorrhage"의 하위요소 추가하기.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedDescendants.png")
 ```
 
-Return to the "Definition" tab, click on "+Add Initial Event" and then "Add Condition Occurrence". Select your previously created concept set for the condition occurrence criterion. The result should look like Figure \@ref(fig:giBleedCohortDefinition). Leave the Inclusion Criteria, Cohort Exit, and Cohort Eras section as they are. Make sure to save the cohort definition by clicking ![](images/Cohorts/save.png), and close it by clicking ![](images/SuggestedAnswers/close.png).
+"Definition" 탭으로 돌아간 후, "+Add Initial Event"를 클릭하고, "Add Condition Occurrence"를 클릭하십시오. 이전에 생성한 condition 발생 기준의 concept 세트를 선택하십시오. 결과는 \@ref(fig:giBleedCohortDefinition)와 비슷해야 한다. 포함 기준, 코호트 종료, 코호트 범위 세션을 그대로 두고 나가십시오. ![](images/Cohorts/save.png)를 클릭하여 코호트 정의를 저장하고, ![](images/SuggestedAnswers/close.png)를 클릭하여 확실히 닫아주십시오.
 
-```{r giBleedCohortDefinition, fig.cap='A simple gastrointestinal bleed cohort definition.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r giBleedCohortDefinition, fig.cap='간단한 gastrointestinal bleed 코호트 정의.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedCohortDefinition.png")
 ```
 
-Now that we have our cohort defined, we can compute the incidence rate. Click on ![](images/Characterization/atlasIncidenceMenuItem.png) and then "New Analysis". Give your analysis a meaningful name (e.g. "Incidence of GI bleed after celecoxib initiation"). Click "Add Target Cohort" and select our celecoxib new user cohort. Click on "Add Outcome Cohort" and add our new GI bleed cohort. Set the Time At Risk to end 1095 days after the start date. The analysis should now look like Figure \@ref(fig:irAnalysis). Make sure to save the analysis settings by clicking ![](images/Cohorts/save.png).
+이제 코호트가 정의 되었으면, 발생률을 계산할 수 있다. ![](images/Characterization/atlasIncidenceMenuItem.png)를 클릭하고, "New Analysis"를 클릭하십시오. 분석에 의미있는 이름을 부여하십시오 (예를 들어 "Incidence of GI bleed after celecoxib initiation"). "Add Target Cohort"를 클릭한 후 celecoxib 새로운 사용자 코호트를 선택하십시오. "Add Outcome Cohort"를 클릭한 후 새로운 GI bleed 코호트를 추가하십시오. 위험 노출 기간을 시작일 이후로 1095일이 지난 시점을 종료일로 지정하십시오. 분석은 그림 \@ref(fig:irAnalysis)과 비슷해야 한다. ![](images/Cohorts/save.png)를 클릭해서 분석 설정을 확실히 저장한다.
 
-```{r irAnalysis, fig.cap='A incidence rate analysis.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r irAnalysis, fig.cap='발생률 분석.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/irAnalysis.png")
 ```
 
-Click on the "Generation" tab, and click on "Generate". Select one of the data sources and click "Generate". When done, we can see the computed incidence rate and proportion, as shown in Figure \@ref(fig:irResults).
+"Generation" 탭을 클릭한 후, "Generate"를 클릭하십시오. 데이터 원천 중 하나를 선택하고 "Generate"를 클릭하십시오. 끝났다면, 그림 \@ref(fig:irResults)에 보이는 것과 같이 계산된 발생률과 분율을 볼 수 있다.
 
-```{r irResults, fig.cap='Incidence results.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r irResults, fig.cap='발생 결과.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/irResults.png")
 ```
 
@@ -528,11 +528,11 @@ knitr::include_graphics("images/SuggestedAnswers/irResults.png")
 
 
 
-## Population-Level Estimation {#Pleanswers}
+## 인구 수준 추정 {#Pleanswers}
 
 #### 예제 \@ref(exr:exercisePle1) {-}
 
-We specify the default set of covariates, but we must exclude the two drugs we're comparing, including all their descendants, because else our propensity model will become perfectly predictive:
+공변량의 기본 세트를 명시하고 있지만 반드시 비교하는 두 개의 약물은 제외하고, 그것의 하위호환은 포함해야 한다. 그렇지 않으면 성향 모델은 완벽하게 예측이 가능해질 것이다:
 
 ```{r eval=FALSE}
 library(CohortMethod)
@@ -577,7 +577,7 @@ Number of non-zero covariate values: 26923
 
 #### 예제 \@ref(exr:exercisePle2) {-}
 
-We create the study population following the specifications, and output the attrition diagram:
+specification을 따르는 인구 모집단을 생성하고, 소모 도표를 출력한다:
 
 ```{r eval=FALSE}
 studyPop <- createStudyPopulation(
@@ -595,11 +595,11 @@ drawAttritionDiagram(studyPop)
 knitr::include_graphics("images/SuggestedAnswers/attrition.png")
 ```
 
-We see that we did not lose any subjects compared to the original cohorts, probably because the restrictions used here were already applied in the cohort definitions.
+기존의 코호트와 비교하여 어떤 대상도 잃지 않은 것을 볼 수 있는데, 아마도 왜냐하면 여기서 사용한 제한이 이미 코호트 정의에서 사용된 것이기 때문이다.
 
 #### 예제 \@ref(exr:exercisePle3) {-}
 
-We fit a simple outcome model using a Cox regression:
+콕스 회귀를 사용하여 간단한 결과 모델을 적합한다:
 
 ```{r eval=FALSE}
 model <- fitOutcomeModel(population = studyPop,
@@ -618,11 +618,11 @@ treatment  1.34612   1.10065   1.65741 0.29723  0.1044
 ")
 ```
 
-It is likely that celecoxib users are not exchangeable with diclofenac users, and that these baseline differences already lead to different risks of the outcome. If we do not adjust for these difference, like in this analysis, we are likely producing biased estimates.
+celecoxib 사용자가 diclofenac 사용자와 교환될 수 없고, 이 기저 차이는 이미 다른 결과의 위험으로 이어질 가능성이 있다. 이 차이를 조절하지 않으면, 이 분석과 같이 편향된 측정을 생성할 가능성이 있다.
 
 #### 예제 \@ref(exr:exercisePle4) {-}
 
-We fit a propensity model on our study population, using all covariates we extracted. We then show the preference score distribution:
+추출한 모든 공변량을 사용하여 연구 모집단에 성향 모델을 적합했다. 그 후 선호 점수 분포도를 보여준다:
 
 ```{r eval=FALSE}
 ps <- createPs(cohortMethodData = cmData,
@@ -633,14 +633,14 @@ plotPs(ps, showCountsLabel = TRUE, showAucLabel = TRUE)
 knitr::include_graphics("images/SuggestedAnswers/ps.png")
 ```
 
-Note that this distribution looks a bit odd, with several spikes. This is because we are using a very small simulated dataset. Real preference score distributions tend to be much smoother.
+몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 왜냐하면 정말 작은 시뮬레이션 된 데이터 세트를 사용하기 때문이다. 실제의 선호 점수 분포는 더 매끄러운 경향이 있다.
 
-The propensity model achieves an AUC of 0.63, suggested there are differences between target and comparator cohort. We see quite a lot overlap between the two groups suggesting PS adjustment can make them more comparable.
+성향 모델은 0.63의 AUC를 달성하는데, target과 comparator 코호트 간의 차이가 있다는 것을 제안한다. PS 조정이 그들을 더욱 비교 가능하게 함을 시사하는 두 집단 간의 꽤 많은 교차를 볼 수 있다.
 
 
 #### 예제 \@ref(exr:exercisePle5) {-}
 
-We stratify the population based on the propensity scores, and compute the covariate balance before and after stratification:
+모집단을 성향 점수에 근거하여 계층화하고, 층화 전과 후의 공변량 균형을 계산한다:
 
 ```{r eval=FALSE}
 strataPop <- stratifyByPs(ps, numberOfStrata = 5)
@@ -655,11 +655,11 @@ plotCovariateBalanceScatterPlot(bal,
 knitr::include_graphics("images/SuggestedAnswers/scatter.png")
 ```
 
-We see that various baseline covariates showed a large (>0.3) standardized difference of means before stratification (x-axis). After stratification, balance is increased, with the maximum standardized difference <= 0.1.
+다양한 기저 공변량은 층화 전의 (x-axis) 큰 (>0.3) 표준화된 평균의 차이를 보여준다. 층화 후에, 최대 표준화 차이 <= 0.1와 같이 균형은 상승된다.
 
 #### 예제 \@ref(exr:exercisePle6) {-}
 
-We fit a outcome model using a Cox regression, but stratify it by the PS strata:
+콕스 회귀를 사용하여 결과 모델을 적합하나 PS strata로 계층화한다:
 
 ```{r eval=FALSE}
 adjModel <- fitOutcomeModel(population = strataPop,
@@ -679,18 +679,18 @@ treatment  1.13211   0.92132   1.40008 0.12409  0.1068
 ")
 ```
 
-We see the adjusted estimate is lower than the unadjusted estimate, and that the 95% confidence interval now includes 1. This is because we are now adjusting for baseline differences between the two exposure groups, thus reducing bias.
+조정된 추정치는 조정되지 않은 추청지보다 낮고, 95% 신뢰 구간은 현재 1을 포함하는 것을 볼 수 있따. 왜냐하면 현재 두 개의 노출 집단, 즉 감소하는 비뚤림 사이의 기저 차이를 조절하는 중이기 때문이다.
 
 
 
 
 
 
-## Patient-Level Prediction {#Plpanswers}
+## 환자 수준 예측 {#Plpanswers}
 
 #### 예제 \@ref(exr:exercisePlp1) {-}
 
-We specify a set of covariate settings, and use the `getPlpData` function to extract the data from the database:
+공변량 설정의 세트를 지정하고, `getPlpData` 기능을 데이터베이스에서 데이터를 추출하기 위하여 사용한다:
 
 ```{r eval=FALSE}
 library(PatientLevelPrediction)
@@ -737,7 +737,7 @@ Number of non-zero covariate values: 54079
 
 #### 예제 \@ref(exr:exercisePlp2) {-}
 
-We create a study population for the outcome of interest (in this case the only outcome for which we extracted data), removing subjects who experienced the outcome before they started the NSAID, and requiring 364 days of time-at-risk:
+관심 결과의 연구 모집단을 생성하고 (이 경우에는 추출한 데이터의 유일한 결과만), 364일의 위험 노출 시간을 필요로 하며, NSAID를 시작하기 전의 결과를 경험한 피험자를 제거한다:
 
 ```{r eval=FALSE}
 population <- createStudyPopulation(plpData = plpData,
@@ -759,11 +759,11 @@ nrow(population)
 cat("[1] 2578")
 ```
 
-In this case we have lost a few people by removing those that had the outcome prior, and by requiring a time-at-risk of at least 364 days.
+이 경우에 사전의 결과를 가진 피험자를 제거하고, 최소 364일의 위험 노출 기간을 필요로 함으로써 몇 사람들을 잃게 된다.
 
 #### 예제 \@ref(exr:exercisePlp3) {-}
 
-We run a LASSO model by first creating a model settings object, and then calling the `runPlp` function. In this case we do a person split, training the model on 75% of the data and evaluating on 25% of the data:
+먼저 모델 설정 객체를 만든 후에, `runPlp` 기능을 호출함으로써 LASSO 모델을 실행한다. 이 경우에는 person split을 행하고, 75%의 데이터를 모델에 학습시키며, 25%의 데이터로 평가한다:
 
 ```{r eval=FALSE}
 lassoModel <- setLassoLogisticRegression(seed = 0)
@@ -777,17 +777,17 @@ lassoResults <- runPlp(population = population,
                        splitSeed = 0)
 ```
 
-Note that for this example set the random seeds both for the LASSO cross-validation and for the train-test split to make sure the results will be the same on multiple runs.
+이 예시에서는 LASSO 교차 검증과 학습-검증 데이터 분리를 위한 무작위 seed를 지정하여 여러번 실행해도 결과가 동일한지 확인하십시오.
 
-We can now view the results using the Shiny app:
+Shiny 앱을 사용하여 결과를 볼 수 있다:
 
 ```{r eval=FALSE}
 viewPlp(lassoResults)
 ```
 
-This will launch the app as shown in Figure \@ref(fig:plpShiny). Here we see an AUC on the test set of 0.645, which is better than random guessing, but maybe not good enough for clinical pratice.
+이것은 그림 \@ref(fig:plpShiny)에서 보이는 것과 같이 앱을 실행할 것이다. 여기 0.645의 테스트 세트의 AUC가 있는데 이는 무작위 추측보다 더 나을 수 있으나 임상적 실천에는 충분하지 않을 것이다.
 
-```{r plpShiny, fig.cap='Patient-level prediction Shiny app.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r plpShiny, fig.cap='환자 수준 예측 Shiny 앱.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/plpShiny.png")
 ```
 
@@ -795,11 +795,11 @@ knitr::include_graphics("images/SuggestedAnswers/plpShiny.png")
 
 
 
-## Data Quality {#DataQualityanswers}
+## 데이터의 질 {#DataQualityanswers}
 
 #### 예제 \@ref(exr:exerciseRunAchilles) {-}
 
-To run ACHILLES:
+ACHILLES을 실행하기 위해서:
 
 ```{r eval=FALSE}
 library(ACHILLES)
@@ -813,7 +813,7 @@ result <- achilles(connectionDetails,
 
 #### 예제 \@ref(exr:exerciseRunDQD) {-}
 
-To run the Data Quality Dashboard:
+데이터의 질 Dashboard를 실행하기 위해서:
 
 ```{r eval=FALSE}
 DataQualityDashboard::executeDqChecks(
@@ -826,7 +826,7 @@ DataQualityDashboard::executeDqChecks(
 
 #### 예제 \@ref(exr:exerciseViewDQD) {-}
 
-To view the list of data quality checks:
+데이터의 질 검사 목록을 보기 위해서:
 
 ```{r eval=FALSE}
 DataQualityDashboard::viewDqDashboard(
