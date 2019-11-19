@@ -24,7 +24,7 @@ OHDSI CDM을 통해 전례 없는 규모의 데이터를 균일하고 투명하�
 knitr::include_graphics("images/PatientLevelPrediction/Figure1.png")
 ```
 
-표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 표적 코호트(target cohort)의 t = 0, 결과 코호트(outcome cohort)에 의해 예측하고자 하는 결과, 그리고 위험 노출 시간(time-at-risk)을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다: \index{target cohort} \index{outcome cohort} \index{time-at-risk}
+표 \@ref(tab:plpDesign)에서 볼 수 있듯이 예측 문제를 밝히려면 대상 코호트 target cohort의 t = 0, 결과 코호트에 의해 예측하고자 하는 결과, 그리고 위험 노출 시간을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다: \index{target cohort} \index{outcome cohort} \index{time-at-risk}
 
 > *[표적 코호트, T]*에서, 누가  *[위험에 노출된 시간, t]* 내에 *[결과 코호트, O]*가 발생하는가?
 
