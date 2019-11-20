@@ -42,10 +42,10 @@ Table: (\#tab:plpDesign) Main design choices in a prediction design.
 이 개념적 프레임워크는 다음과 같은 모든 유형의 예측 문제에 적용된다, 예를 들면:
 
 - 질병 발병 및 진행
-  - **구조**: *[질병 A]*로 새로 진단된 환자 중, *[진단 시점 t]* 내에 *[또 다른 질병이나 합병증, B]* 이 생길 사람은 누구인가?
+  - **구조**: *[질병 A]*로 새로 진단된 환자 중, *[진단 시점 t]* 내에 *[또 다른 질병이나 합병증, B*]* 이 생길 사람은 누구인가?
   - **예제**: 새로 진단된 심방세동 환자 중 향후 3년 이내에 허혈성 뇌졸중이 발생할 사람은 누구인가?
 - 치료 선택
-  - **구조**: *[치료 1]* 또는 *[치료 2]*로 치료한 *[대상 질병, D]*에 걸린 환자 중 *[치료 1]*로 치료받은 환자는 누구인가?
+  - **구조**: *[치료 1]* 또는 *[치료 2]*로 치료한 *[대상 질병, D]*에 걸린 환자 중 [치료 1]로 치료받은 환자는 누구인가?
   - **예제**: 와파린 또는 리바록사반을 복용한 심방세동 환자 중 어떤 환자가 와파린을 복용했는가? (예를 들어 성향 모형의 경우)
 - 치료 반응
   - **구조**: *[치료 1]*을 처음 사용하는 사람 중, 누가 *[시간대 t]*에서 *[어떤 효과, E]*를 경험했는가? 
@@ -59,11 +59,11 @@ Table: (\#tab:plpDesign) Main design choices in a prediction design.
   
 ## 데이터 추출
 
-예측 모형을 만들 때 상태에 따라 분류된 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습 프로세스를 사용한다. \index{supervised learning} 따라서, 대상 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그 결과 레이블을 얻을 필요가 있다.
+예측 모형을 만들 때 상태에 따라 분류된 예제들 기반으로 공변량과 결과 상태 간의 관계를 유추하기 위하여 기계학습과 같은 지도 학습이라는 프로세스를 사용한다. \index{supervised learning} 따라서, 대상 코호트에 있는 사람들의 CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레이블을 얻을 필요가 있다.
 
-**공변량** ("예측변수", "특징" 또는 "독립 변수"라고도 함)은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명돼 있다. 예측을 하기 위해서는 각 환자별로 대상 코호트에 들어간 그날 혹은 그 이전의 데이터만 사용할 수 있다. 이 날짜를 기준 날짜라고 한다.\index{index date} 
+**공변량** ("예측변수", "특징" 또는 "독립 변수"라고도 함)은 환자의 특성을 묘사한다. 공변량은 연령, 성별, 특정 질병 존재, 그리고 환자 기록에 있는 노출 코드 그리고 그 외 여러 가지가 될 수 있다. 공변량은 [FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/) 패키지를 사용하여 구성되었고, \@ref(Characterization)장에 자세히 설명돼 있다. 예측을 위해 우리는 오직 대상 코호트에 들어오는 날짜 기준으로 환자의 이전 또는 그때의 데이터만 사용할 수 있다. 이 날짜를 인덱스 날짜라고 한다.\index{index date} 
 
-또한 위험 노출 기간 동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간 안에 발생할 경우 그 결과 상태는 “양성”으로 정의한다.\index{outcome status} \index{labels} \index{classes}
+또한 위험 노출 기간(time-at-risk) 동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간 안에 발생하거나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
 
 ### 데이터 추출 예제
 
@@ -77,7 +77,7 @@ Table: (\#tab:plpExampleCohorts) Example COHORT table. For simplicity the COHORT
 | 1                    |   2        | 2001-06-01        |
 | 2                    |   2        | 2001-07-01        |
 
-표 \@ref(tab:plpExampleConditions)은 CONDITION_OCCURRENCE에 대한 예제이다. 개념 ID [320128](http://athena.ohdsi.org/search-terms/terms/320128)은 "본태성 고혈압"을 나타낸다.
+표 \@ref(tab:plpExampleConditions)은 CONDITION_OCCURRENCE에 대한 예제이다. 개념(concept) ID [320128](http://athena.ohdsi.org/search-terms/terms/320128)은 "본태성 고혈압"을 나타낸다.
 
 Table: (\#tab:plpExampleConditions) Example CONDITION_OCCURRENCE table. For simplicity only three columns are shown.
 
@@ -86,31 +86,31 @@ Table: (\#tab:plpExampleConditions) Example CONDITION_OCCURRENCE table. For simp
 | 1         | 320128               | 2000-10-01           |
 | 2         | 320128               | 2001-05-01           |
 
-이 예제 데이터를 기반으로, 위험에 노출된 시간이 기준 날짜 (대상 코호트 시작 날짜) 의 다음 연도라고 가정하고 다음과 같이 공변량 및 결과 상태를 구성할 수 있다. Person ID (= SUBJECT ID)가 1인 환자 (기준 날짜 *이후*에 발생한 질병) 의 경우 "이전 해의 본태성 고혈압"을 나타내는 공변량은 값 0 (현재 아님) 으로 하고, person ID가 2인 환자는 값 1 (현재 진행) 을 갖는다. 유사하게, 결과 상태는 person ID가 1인 환자 (이 사람은 결과 코호트에 못 들어감) 의 경우는 값 0을 갖고 person ID가 2인 환자 (인덱스 날짜 다음 1년 내에 결과가 발생하였음) 의 경우에는 값 1을 갖는다. (역자 주: 표 \@ref(tab:plpExampleCohorts) 에서 1번 환자는 2000년 6월 1일이 기준날짜가 시작되며, 표 \@ref(tab:plpExampleConditions) 를 보면 2000년 10월 1일에 본태성 고혈압이 발생하였으므로 기준 날짜 이전에는 본태성 고혈압이 없었고 (따라서 이전 해의 본태성 고혈압  = 0), 2번 환자는 표 \@ref(tab:plpExampleCohorts) 를 보면 2001년 6월 1일이 기준 날짜이고, 표 \@ref(tab:plpExampleConditions) 를 보면 기준 날짜 이전인 2001년 5월 1일에 이미 본태성 고혈압이 있다. 따라서 2번 환자는 이전 해의 본태성 고혈압  = 1이 된다.)
+이 예제 데이터를 기반으로, 위험에 노출된 시간이 인덱스 날짜 (대상 코호트 시작 날짜) 의 다음 연도라고 가정하고 다음과 같이 공변량 및 결과 상태를 구성할 수 있다. Person ID가 1인 환자 (인덱스 날짜 *이후*에 발생한 질병) 의 경우 "이전 해의 본태성 고혈압"을 나타내는 공변량은 값 0 (현재 아님) 으로 하고, person ID가 2인 환자는 값 1 (현재 진행) 을 갖는다. 유사하게, 결과 상태는 person ID가 1인 환자 (이 사람은 결과 코호트에 못 들어감) 의 경우는 값 0을 갖고 person ID가 2인 환자 (인덱스 날짜 다음 1년 내에 결과가 발생하였음) 의 경우에는 값 1을 갖는다.
 
-### 음성 VS 결측
+### 결측
 
-관찰 의료 데이터는 데이터 누락 여부를 거의 반영하지 않는다. 이전의 예제에서, 우리는 person ID가 1인 환자가 인덱스 날짜 이전에 본태성 고혈압이 없었음을 관찰했다. 이는 그 당시 본태성 고혈압이 없었거나 (역자 주: 음성), 혹은 기록되지 않았기 때문 (역자 주: 결측)일 수 있다. 머신 러닝 알고리즘은 두 시나리오 (음성 vs 결측)를 구분할 수 없고 단지 사용 가능한 데이터 안에서 예측값을 평가한다는 것을 인지해야 한다. \index{missing data}
+관찰 의료 데이터는 데이터 누락 여부를 거의 반영하지 않는다. 이전의 예제에서, 우리는 person ID가 1인 환자가 인덱스 날짜 이전에 본태성 고혈압이 없었음을 관찰했다. 이는 그 당시 본태성 고혈압이 없었거나 기록되지 않았기 때문일 수 있다. 머신 러닝 알고리즘은 두 시나리오를 구분할 수 없고 사용 가능한 데이터 안에서 예측값을 대략 평가한다는 것을 인지해야 한다. \index{missing data}
 
 ## 모형 적합 {#modelFitting}
 
-예측 모형을 최적화할 때 결과 상태에 따라 분류된 증례를 이용하여 공변량과 결과 간의 관계를 알려고 노력한다. 만약 수축기 혈압과 이완기 혈압의 두 가지 공변량이 있다고 가정하면 그림 \@ref(fig:decisionBoundary)와 같이 2차원 공간에서 각 환자를 나타낼 수 있다. 이 그림에서 데이터를 나타내는 점의 모양은 환자의 결과 상태 (예를 들어, 뇌졸중 유무) 를 나타낸다.
+예측 모형을 적합할 때 상태에 따라 분류된 예제들로부터 공변량과 관찰된 결과 상태 간의 관계를 알려고 노력한다. 만약 수축기 혈압과 이완기 혈압의 두 가지 공변량이 있다고 가정하면 그림 \@ref(fig:decisionBoundary)와 같이 2차원 공간에서 그림으로 각 환자를 나타낼 수 있다. 이 그림에서 데이터를 나타내는 점의 모양은 환자의 결과 상태 (예를 들어, 뇌졸중) 를 나타낸다.
 
-지도 학습 모형은 두 결과 분류 classes를 최적으로 분리하는 결정 경계 decision boundaries를 찾아내려고 노력할 것이다. 지도 학습 기법에 따라서 분류 결정 경계를 정하는 방법이 달라지게 되고, 하이퍼파라미터(hyper-parameters)에 따라 종종 분류 결정 경계의 복잡성도 달라진다. \index{decision boundary}
+지도 학습 모형은 두 결과 분류(classes)를 최적으로 분리하는 결정 경계(decision boundaries)를 찾아내려고 노력할 것이다. 다른 지도 학습 기법은 다른 분류 결정 경계로 이어지고 분류 결정 경계의 복잡성에 영향을 줄 수 있는 하이퍼-파라미터(hyper-parameters)가 종종 있다. \index{decision boundary}
 
 ```{r decisionBoundary, fig.cap='결정 경계.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/decisionBoundary.png")
 ```
 
-그림 \@ref(fig:decisionBoundary)에서 세 가지 다른 결정 경계를 볼 수 있다. 그 경계들은 새로운 데이터 포인트의 결과 상태를 추론하기 위하여 사용되기도 한다. 새 데이터 포인트가 음영이 있는 영역에 포함되면 모형은 "결과가 있음"을 예측하고, 그렇지 않으면 "결과가 없음"으로 예측한다. 이상적으로는 결정 경계가 두 분류를 완벽하게 구분해야 한다. 그러나 너무 복잡한 모형은 데이터에 "과적합(overfit)"할 위험이 있다. 이는 새로운 데이터에 대한 모형의 일반화에 부정적인 영향을 줄 수 있다. 예를 들어 데이터에 레이블이 없거나 잘못 지정된 데이터 포인트를 갖는 잡음이 포함된 경우에, 만들려고 하는 예측 모형을 해당 잡음에도 최적화 하고 싶지 않을 것이다. 그러므로 학습 데이터를 완벽하게 판별하지는 않지만 “실제의” 복잡성을 반영할 수 있도록 결정 경계를 정의하는 것을 선호 할 수 있다. 정규화 regularization와 같은 기술은 복잡성을 최소화하면서 모형 성능을 극대화하는 것을 목표로 한다. 
+그림 \@ref(fig:decisionBoundary)에서 세 가지 다른 결정 경계를 볼 수 있다. 그 경계들은 새로운 데이터 포인트의 결과 상태를 추론하기 위하여 사용되기도 한다. 새 데이터 포인트가 음영이 있는 영역에 포함되면 모형은 "결과가 있음"을 예측하고, 그렇지 않으면 "결과가 없음"으로 예측한다. 이상적으로는 결정 경계가 두 분류(class)를 완벽하게 구분해야 한다. 그러나 너무 복잡한 모형은 데이터에 "과적합(overfit)"할 위험이 있다. 이는 보이지 않는 데이터에 대한 모형의 일반화에 부정적인 영향을 줄 수 있다. 예를 들어, 데이터에 레이블이 없거나 잘못 지정된 데이터 포인트를 갖는 잡음(noise)이 포함된 경우 해당 잡음(noise)에 예측 모형을 적합하고 싶지 않을 것이다. 그러므로 우리는 학습 데이터(training data)를 갖고 완벽하게 판별하지는 않지만 “실제의” 복잡성을 반영하는 결정 경계를 정의하는 것을 선호 할 수 있다. 정규화(regularization)와 같은 기술은 복잡성을 최소화하면서 모형 성능을 최대화하는 것을 목표로 한다. 
 
-각각의 지도 학습 알고리즘마다 의사 결정 경계를 학습하는 방법이 다르므로 어떤 알고리즘이 데이터에 가장 적합할지 아는 것은 간단하지 않다. No Free Lunch 정리 (역자 주: '공짜 점심은 없다'는 의미로 David Wolpert와 William Macready의 'No Free Lunch Theorems for Optimization'에서 소개됨) 에 따르면 하나의 알고리즘이 모든 문제의 예측에서 언제나 다른 알고리즘보다 성능이 더 우수할 수는 없다는 것을 알 수 있다.\index{no free lunch} 따라서 환자-수준 예측 모형을 개발할 때 다양한 하이퍼-파라미터 설정으로 여러 개의 지도 학습 알고리즘을 사용하는 것이 좋다. 
+각각의 지도 학습 알고리즘마다 의사 결정 경계를 학습하는 방법이 다르므로 어떤 알고리즘이 데이터에 가장 적합한지 간단하지 않다. No Free Lunch 정리에 따르면 모든 예측 문제에서 하나의 알고리즘이 언제나 다른 알고리즘보다 성능이 우수하지는 않다는 것을 알 수 있다.\index{no free lunch} 따라서 환자-수준 예측 모형을 개발할 때 다양한 하이퍼-파라미터 설정으로 여러 개의 지도 학습 알고리즘을 사용하는 것이 좋다. 
 
 다음의 알고리즘은 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지에서 사용할 수 있다:
 
 ### 정규화된 로지스틱 회귀
 
-LASSO(least absolute shrinkage and selection operator) 로지스틱 회귀는 변수간의 선형결합을 찾아내는 일반화 선형 모형 generalized linear models에 속하고, 로지스틱 함수는 변수간의 선형결합을 0과 1 사이의 값으로 변환한다. LASSO 정규화는 모델 학습 시 모형 복잡도에 따른 비용을 목적 함수(objective function)에 추가한다. 이 비용은 계수들의 선형 결합의 절댓값의 합이다. 모델은 이 비용을 최소화하면서 자동적으로 모델 구축에 필요한 특징  선택 (변수의 수를 제한)을 수행한다. 우리는 대규모 정규화 로지스틱 회귀 분석을 수행하기 위하여 [Cyclops](https://ohdsi.github.io/Cyclops/)(Cyclic coordinate descent for logistic, Poisson and survival analysis) 패키지를 사용한다. \index{LASSO} \index{logistic regression} \index{regularization} \index{Cyclops}
+LASSO(least absolute shrinkage and selection operator) 로지스틱 회귀는 변수의 선형결합을 알 수 있는 일반화 선형 모형(generalized linear models)에 속하고 로지스틱 함수는 결국 0과 1 사잇값으로 배치구조를 나타낸다. LASSO 정규화는 모형 학습 시 모형 복잡도에 따른 비용을 목적 함수(objective function)에 추가한다. 이 비용은 계수들의 선형 결합의 절댓값의 합이다. 모형은 이 비용을 최소화하면서 특징 선택(feature selection)을 자동으로 수행한다. 우리는 대규모 정규화 로지스틱 회귀 분석을 수행하기 위하여 [Cyclops](https://ohdsi.github.io/Cyclops/)(Cyclic coordinate descent for logistic, Poisson and survival analysis) 패키지를 사용한다. \index{LASSO} \index{logistic regression} \index{regularization} \index{Cyclops}
 
 Table: (\#tab:lassoParameters) Hyper-parameters for the regularized logistic regression.
 
@@ -118,12 +118,12 @@ Table: (\#tab:lassoParameters) Hyper-parameters for the regularized logistic reg
 |:-------- |:----------- |:-------------- |
 | Starting variance | The starting variance of the prior distribution. | 0.1 |
 
-교차 검증에서 표본 외(out-of-sample) 우도(likelihood)를 최대화하여 분산을 최적화 하므로, 시작할 때의 최초 분산값은 모델 결과물의 성능에 거의 영향을 미치지 않는다. 그러나 초기 분산이 최적값에서 너무 차이가 나면 모형 적합 시간이 길어질 수 있다. \index{variance} \index{hyper-parameter} \index{cross-validation}
+교차 검증에서 표본 외(out-of-sample) 우도(likelihood)를 최대화하여 분산이 최적화되므로 시작 분산은 결과 모형의 성능에 거의 영향을 미치지 않는다. 그러나 시작 분산이 최적값에서 너무 차이가 나면 모형 적합 시간이 길어질 수 있다. \index{variance} \index{hyper-parameter} \index{cross-validation}
 
 
 ### Gradient Boosting Machines
 
-Gradient boosting machines은 부스팅 앙상블 기법 boosting ensemble technique이며 프레임워크 안에서 다중 의사 결정 나무를 연결한다. 부스팅은 의사 결정 나무를 반복적으로 추가하는 것이지만, 다음에 생성될 의사 결정 나무를 학습할 때 비용 함수cost function로서 이전 의사 결정 나무에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 추가한다 (역자 주: 오답에 집중하여 가중치를 더 준다. 최초로 만든 의사 결정 나무로부터 마지막 의사 결정 나무까지 순차적으로 연결하여 모델 별 가중치를 조정한다). CRAN에서 제공하는 xgboost R 패키지로 수행된 gradient boosting framework를 효율적으로 구현하는 Extreme Gradient Boosting을 사용한다. \index{gradient boosting} \index{xgboost}
+Gradient boosting machines은 부스팅 앙상블 기법(boosting ensemble technique)이며 프레임워크 안에서 다중 의사 결정 나무를 연결한다. 부스팅은 의사 결정 나무를 반복적으로 추가하는 것이지만, 다음에 생성될 의사 결정 나무를 학습할 때 비용 함수(cost function)에서 이전 의사 결정 나무에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 추가한다. CRAN에서 제공하는 xgboost R 패키지로 수행된 gradient boosting framework를 효율적으로 구현하는 Extreme Gradient Boosting을 사용한다. \index{gradient boosting} \index{xgboost}
 
 Table: (\#tab:gbmParameters) Hyper-parameters for gradient boosting machines.
 
@@ -138,7 +138,7 @@ Table: (\#tab:gbmParameters) Hyper-parameters for gradient boosting machines.
 
 ### 랜덤 포레스트
 
-랜덤 포레스트 Random forest는 다중 의사 결정 나무를 연결하는 배깅 앙상블 기법 bagging ensemble technique이다. 배깅의 기본 개념은 유사도가 낮은 여러 classfiers를 사용하여 유사도가 높은 classfier로 결합하여 과적합 가능성을 줄이는 것이다. 이후 이들간의 투표 한 후 랜덤 포레스트는 전체 변수 중 일부 만을 사용하여 여러개의 의사 결정 나무를 만들되 각 의사 결정 나무마다 사용하는 변수 셋을 다르게 한다 (역자 주: 배깅은 전체 데이터 중에서 일부를 (복원) 무작위 샘플링하여 의사 결정 나무를 만들고, 이를 반복하여 여러개의 의사 결정 나무를 만든 후 여러 의사 결정 나무들 간의 결과를 집계하여 최종 결과를 판단한다. outlier에 강하며 과적합을 방지한다). PLP 패키지에서는 Python에서 Random Forest의 sklearn을 사용한다. \index{random forest} \index{python} \index{sklearn}
+랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 연결하는 배깅 앙상블 기법(bagging ensemble technique)이다. 배깅의 기본 개념은 유사도가 낮은 classfiers들을 사용하여 유사도가 높은 classfier로 결합하여 과적합 가능성을 줄이는 것이다. 랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 학습하여 저장하는 것으로 하지만 각 나무(trees)에서 변수의 하위 집합만 사용하며 변수 하위 집합은 의사 결정 나무마다 다르다. 우리 패키지는 Python에서 Random Forest의 sklearn 수행을 사용한다. \index{random forest} \index{python} \index{sklearn}
 
 Table: (\#tab:randomForestParameters) Hyper-parameters for random forests.
 
@@ -151,7 +151,7 @@ Table: (\#tab:randomForestParameters) Hyper-parameters for random forests.
 
 ### K-최근접 이웃
 
-K-최근접 이웃(K-nearest neighbors, KNN)은 몇 개의 거리 척도 distance metric를 사용하여 레이블이 지정되지 않은 새로운 데이터 포인트에 가장 가까운 K 개의 레이블이 있는 데이터 포인트를 찾는 알고리즘이다. 새로운 데이터 포인트의 예측은 K-최근접의 레이블이 된 데이터 포인트의 가장 보편적인 분류이다. 새 데이터에 대한 예측을 수행하기 위해 레이블이 지정된 기존 데이터가 필요하므로 여러 기관간에 자료를 공유하기에 종종 어려움이 있다 (역자 주: 새로운 데이터가 들어왔을 때 그 데이터와 가장 가까운 K개의 데이터를 살펴보고 그 K개의 데이터가 속한 그룹을 새 데이터가 속할 그룹으로 정한다). 우리는 대규모 KNN classfier인 OHDSI에서 개발한 [BigKnn](https://github.com/OHDSI/BigKnn) 패키지를 PLP에 포함했다. \index{k-nearest neighbors} \index{bigknn}
+K-최근접 이웃(K-nearest neighbors, KNN)은 몇 개의 거리 척도(distance metric)를 사용하여 레이블이 지정되지 않은 새로운 데이터 포인트에 가장 가까운 K 개의 레이블이 있는 데이터 포인트를 찾는 알고리즘이다. 새로운 데이터 포인트의 예측은 K-최근접의 레이블이 된 데이터 포인트의 가장 보편적인 분류이다. 모형에 새 데이터에 대한 예측을 수행하기 위해 레이블이 지정된 데이터가 필요하므로 KNN의 공유 제한이 있으며 데이터 사이트 간에 이 데이터를 공유할 수 없는 경우가 종종 있다. 우리는 대규모 KNN classfier인 OHDSI에서 개발된 [BigKnn](https://github.com/OHDSI/BigKnn) 패키지를 포함했다. \index{k-nearest neighbors} \index{bigknn}
 
 Table: (\#tab:knnParameters) Hyper-parameters for K-nearest neighbors.
 
@@ -161,11 +161,11 @@ Table: (\#tab:knnParameters) Hyper-parameters for K-nearest neighbors.
 
 ### 나이브 베이즈
 
-나이브 베이즈 Naive Bayes 알고리즘은 베이즈(Bayes) 이론을 적용함에 있어서 각 변수들이 상호간에 독립적이라고 간주한다. 클래스 (라벨)의 사전 확률분포와 데이터가 클래스에 속할 가능도 likelihood를 이용해서 사후 확률분포를 얻는다. 나이브 베이즈는 하이퍼-파라미터를 갖지 않는다. \index{naive bayes}
+나이브 베이즈(Naive Bayes) 알고리즘은 클래스 변수의 값이 주어지는 모든 특징 사이의 조건부 독립성의 나이브 추정을 가진 베이즈(Bayes) 이론을 적용한다. 클래스의 사전 배포와 데이터가 클래스에 속할 가능성에 기초하여, 사후 배포가 얻어진다. 나이브 베이즈는 하이퍼-파라미터를 갖지 않는다. \index{naive bayes}
 
 ### AdaBoost
 
-AdaBoost는 부스팅 앙상블 기법이다. 부스팅은 분류기를 반복적으로 추가하여 수행되지만, 다음 분류기가 학습될 때 비용 함수에서 이전 분류기에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 준다. PLP는 Python에 있는 sklearn AdaboostClassifier를 사용한다. \index{adaboost} \index{python}
+AdaBoost는 부스팅 앙상블 기법(boosting ensemble technique)이다. 부스팅은 classfier를 반복적으로 추가하여 수행되지만, 다음 classfier가 학습될 때 비용 함수에서 이전 classfier에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 준다. 우리는 파이썬에 있는 sklearn AdaboostClassifier 구현을 사용한다. \index{adaboost} \index{python}
 
 Table: (\#tab:adaBoostParameters) Hyper-parameters for AdaBoost.
 
@@ -174,9 +174,9 @@ Table: (\#tab:adaBoostParameters) Hyper-parameters for AdaBoost.
 | nEstimators | The maximum number of estimators at which boosting is terminated | 4 |
 | learningRate | Learning rate shrinks the contribution of each classifier by learning_rate. There is a trade-off between learningRate and nEstimators | 1 |
 
-### 의사 결정 나무
+### 의사 결정 트리
 
-의사 결정 나무는 탐욕 접근 greedy approach방식을 사용하여 선택한 개별 테스트를 사용하여 가변 공간을 분할하는 분류기이다. 이것은 클래스를 분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로 한다. 의사 결정 나무는 많은 수의 파티션(tree depth)을 사용하게 되면 쉽게 과적합 되기 때문에 종종 일부 정규화 (예를 들어, 모형의 복잡성을 제한하는 하이퍼파라미터의 정리 또는 지정) 가 필요하다. PLP는 Python의 sklearn DecisionTreeClassifier를 사용한다. \index{decision tree} \index{python}
+의사 결정 나무는 탐욕 접근(greedy approach)방식을 사용하여 선택한 개별 테스트를 사용하여 가변 공간을 분할하는 classifier이다. 이것은 클래스를 분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로 한다. 의사 결정 나무는 많은 수의 파티션(tree depth)을 사용하게 되면 쉽게 과적합 되기 때문에 종종 일부 정규화 (예를 들어, 모형의 복잡성을 제한하는 하이퍼-파라미터의 정리 또는 지정) 가 필요하다. 우리는 파이썬에 있는 sklearn DecisionTreeClassifier 구현을 사용한다. \index{decision tree} \index{python}
 
 Table: (\#tab:decisionTreeParameters) Hyper-parameters for decision trees.
 
@@ -189,9 +189,9 @@ Table: (\#tab:decisionTreeParameters) Hyper-parameters for decision trees.
 | minSamplesSplit | The minimum samples per split | 2 |
 
 
-### 다층 퍼셉트론
+### Multilayer Perceptron
 
-다층 퍼셉트론 multilayer perceptrons은 비선형 함수를 사용하여 입력에 가중치를 부여하는 여러 계층의 노드를 포함하는 신경망이다. 첫 번째 레이어는 입력 층 input layer이고 마지막 레이어는 출력 층 output layer이며 그리고 그 사이에는 은닉 층 hidden layers가 있다. 신경망은 일반적으로 역 전파 back-propagation를 사용하여 학습된다. 즉, 학습 입력 training input이 네트워크를 통해 앞으로 전달되어 출력을 생성하고, 출력과 결과 상태 사이의 오류가 계산되며, 이 오류는 네트워크를 통해 뒤로 전달되어 선형 함수 가중치를 업데이트한다. \index{neural network} \index{perceptron} \index{back-propagation}
+Multilayer perceptrons은 비선형 함수를 사용하여 입력에 가중치를 부여하는 여러 계층의 노드를 포함하는 신경망이다. 첫 번째 레이어는 입력 레이어(input layer)이고 마지막 레이어는 출력 레이어(output layer)이며 그리고 그 사이에는 히든 레이어(hidden layers)가 있다. 신경망은 일반적으로 역 전파(back-propagation)를 사용하여 학습된다. 즉, 학습 입력(training input)이 네트워크를 통해 앞으로 전달되어 출력을 생성하고, 출력과 결과 상태 사이의 오류가 계산되며, 이 오류는 네트워크를 통해 뒤로 전달되어 선형 함수 가중치를 업데이트한다. \index{neural network} \index{perceptron} \index{back-propagation}
 
 Table: (\#tab:mpParameters) Hyper-parameters for Multilayer Perceptrons.
 
@@ -203,7 +203,7 @@ Table: (\#tab:mpParameters) Hyper-parameters for Multilayer Perceptrons.
 
 ### 딥 러닝
 
-Deep net, convolutional neural networks 또는 recurrent neural networks와 같은 딥 러닝은 다층 퍼셉트론과 유사하지만, 예측에 유용한 잠재 표현을 학습하는 것을 목표로 하는 은닉 층을 여러 개 가지고 있다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지에 별도의 [vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/BuildingDeepLearningModels.html)에 이 모델과 하이퍼파라미터에 대해 자세히 기술하였다.\index{deep learning} \index{convolutional neural network} \index{recurrent neural networks}
+Deep net, convolutional neural networks 또는 recurrent neural networks와 같은 딥 러닝(deep learning)은 Multilayer perceptrons와 유사하지만, 예측에 유용한 잠재 표현을 학습하는 것을 목표로 하는 숨겨진 레이어를 여러 개 가지고 있다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지의 별도의 [vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/BuildingDeepLearningModels.html) 이러한 모형과 하이퍼-파라미터에 대해 자세히 기술되어 있다.\index{deep learning} \index{convolutional neural network} \index{recurrent neural networks}
 
 ### 다른 알고리즘
 
@@ -213,32 +213,31 @@ Deep net, convolutional neural networks 또는 recurrent neural networks와 같�
 
 ### 평가 유형
 
-모형의 예측과 관측된 결과 상태 간의 일치도(agreement)를 측정하여 예측 모형을 평가할 수 있고 그렇게 하려면, 결과 상태를 알 수 있는 데이터가 필요하다. \index{evaluating prediction models}
-
+예측값과 관측값의 일치여부를 평가함으로써 여측 모델을 평가할 수 있는데, 그렇게 하려면 결과 상태가 있는 데이터가 필요하다. \index{evaluating prediction models}
 
 ```{block2, type='rmdimportant'}
-평가를 위해서는 모형을 개발하는 데 사용된 것과 다른 데이터 세트를 사용해야 한다. 그렇지 않으면 과잉 적합 (\@ref(modelFitting)절 참조) 되었거나 새로운 환자에게 잘 맞지 않는 모형을 선호하게 되는 위험이 발생할 수 있다.
+평가를 위해서는 모델을 개발하는 데 사용된 것과 다른 데이터 세트를 사용해야 한다. 그렇지 않으면 과적합 (\@ref(modelFitting)절 참조) 되거나 새로운 환자에게 잘 맞지 않는 모형을 만들 위험성이 있다.
 ```
 
-우리는 내적 타당도와 외적 타당도로 구분할 수 있다. 
+평가는 다음 두가지로 나뉜다: 
 
 - **내적 타당도**: 동일한 데이터베이스에서 추출된 다른 데이터 세트를 사용하여 모형을 개발하고 평가. 
 - **외적 타당도**: 한 데이터베이스에서 모형을 개발하고 다른 데이터베이스에서 평가. \index{validation!internal validation} \index{validation!external validation}
 
-아래는 내적 타당도를 수행하는 두 가지 방법에 대한 소개이다:
+내적 타당도를 수행하는 데는 두 가지 방법이 있다:
 
-- **홀드 아웃 세트(holdout set) 접근법**은 레이블이 지정된 데이터를 두 개의 독립된 세트로 나눈 것이다: 검증데이터 세트(train set)와 테스트 세트(test set). 검증 세트(train set)는 모형 학습에 사용되고, 테스트 세트(test set)는 모형평가에 사용된다. 환자를 무작위로 검증과 테스트 세트로 나누거나 또는 다음과 같이 선택할 수 있다:
-    - 날짜를 기반으로 데이터를 분할한다. (시점 타당도) 예를 들어, 특정 날짜 이전의 데이터를 학습시키거나, 그 특정 날짜 이후로는 데이터를 평가하는 것이다. 이것은 모형이 서로 다른 시간대에서도 일반화가 가능한지의 여부를 알 수 있게 해준다.
-    - 지리적 위치를 기반으로 데이터를 분할한다. (공간 타당도) \index{validation!temporal validation} \index{validation!spatial validation}
-- **교차 검증**은 데이터가 제한적일 때 유용하다. 데이터는 $n$개의 동일한 크기의 세트로 구분된다. 여기서 $n$은 미리 정해져야 한다 (예를 들어, $n=10$). 이러한 각 세트에 대해 모형은 해당 세트의 데이터를 제외한 모든 데이터에 대해 학습되며 홀드 아웃 세트에 대한 예측을 생성하는 데 사용된다. 이러한 방식으로 모든 데이터가 한 번 사용되어 모형 작성 알고리즘을 평가한다. 환자 수준 예측 프레임 워크에서 교차 검증을 사용하여 최적의 하이퍼-파라미터를 선택한다. \index{cross-validation}
+- **홀드아웃 세트 holdout set 접근법**은 레이블이 지정된 데이터를 두 개의 독립된 훈련 세트와 테스트 세트로 나누는 것이다. 훈련 세트는 모델 학습에 사용되고, 테스트 세트는 모델 평가에 사용된다. 환자군을 무작위로 훈련 세트와 테스트 세트로 나누거나 또는 다음과 같이 선택할 수 있다:
+    - 날짜를 기반으로 데이터를 분할한다 (시점 타당도). 예를 들어, 특정 날짜 이전의 데이터로 학습시키고, 그 특정 날짜 이후 데이터로 평가하는 것이다. 이것은 모형이 서로 다른 기간에서도 일반화가 가능한지 여부를 알 수 있게 해준다. \index{validation!temporal validation}
+    - 지리적 위치를 기반으로 데이터를 분할한다 (공간 타당도). \index{validation!spatial validation}
+- **교차 검증**은 데이터가 제한적일 때 유용하다. 데이터를 $n$개의 동일 크기의 세트로 분할한다. 여기서 $n$은 미리 정해져야 한다 (예를 들어, $n=10$). 이러한 각 세트에 대해 한 세트의 데이터를 제외한 모든 데이터를 이용해 모델을 학습하며, 감추어 둔 한 세트 (홀드아웃 세트)는 예측 (평가)에 사용된다. 이를 $n$번 반복하여 모든 데이터가 한 번씩 모델을 구축하는 알고리듬을 평가하는데 사용된다. PLP 프레임 워크에서는 최적의 하이퍼파라미터를 선택하는데 교차 검증을 이용한다. \index{cross-validation}
 
-외적 타당도는 다른 데이터베이스, 즉 개발에 사용된 데이터베이스가 아닌 다른 데이터베이스로부터 데이터를 얻어 모형 성능을 평가하는 것을 목표로 한다. 이 모형의 타당성을 확보할 수 있는지에 대한 측정은 학습된 데이터베이스뿐만 아니라 모형에 예측 모형에 적용하기 때문에 중요하다. 다른 데이터베이스는 다른 환자 모집단, 다른 의료 시스템 및 다른 데이터 캡처 프로세스를 말할 것이다. 우리는 대규모 데이터베이스 세트에 대한 예측 모형의 외적 타당도 검증이 임상 실무에서 모형이 수행되고 구현되기 위한 중요한 단계라고 생각한다.
+외적 타당도는 다른 데이터베이스, 즉 개발에 사용된 데이터베이스가 아닌 다른 데이터베이스로부터 데이터를 얻어 모델의 성능을 평가하는 것을 목표로 한다. 훈련에 사용한 그 데이터베이스뿐 만 아니라 다른 데이터베이스에도 우리가 개발한 모델을 적용하기를 원하기 때문에 모델의 타 기관 적용 방법론은 중요하다. 다른 데이터베이스란 다른 환자 집단, 다른 의료 시스템 및 다른 데이터 획득 프로세스를 대변한다. 대규모 데이터베이스 세트에 대한 예측 모형의 외적 타당도 검증은 임상 실무에서 예측 모델을 수용하고 구현하기 위해 결정적이라고 생각한다.
 
 ### 성능 지표 {#performance}
 
-#### 임계값 측정 {-}
+#### 임계값 지표 {-}
 
-예측 모형은 위험에 노출된 시간 동안 관심 결과가 발생할 위험에 해당하는 각 환자에 대해 0과 1 사이의 값을 할당한다. 0값은 0% 위험을 의미하고 0.5값은 50% 위험을 의미하고 1값은 100% 위험을 의미한다. 정확도, 민감도, 특이도, 양성 예측도와 같은 일반적인 측정 지표들은 위험에 처한 시간 동안 환자가 관심 결과를 갖는지의 여부를 분류하는 데 사용되는 임계값을 먼저 지정하여 계산할 수 있다. 예를 들어, 표 \@ref(tab:tabletheorytab)에서 임계값을 0.5로 설정하면 환자 1, 3, 7 및 10은 예상 위험이 임계값 0.5보다 크거나 같으므로 관심 결과가 발생할 것으로 예측된다. 다른 모든 환자는 0.5 미만의 예측 위험을 가지고 있으므로 관심 결과는 없을 것으로 예측된다. \index{performance metrics} \index{accuracy} \index{sensitivity} \index{specificity} \index{positive predictive value}
+예측 모델은 위험에 노출된 시간 동안 관심 결과가 발생할 위험이 있는 각 환자에 대해 0과 1 사이의 값을 할당한다. 0값은 0% 위험을 의미하고 0.5값은 50% 위험을 의미하고 1값은 100% 위험을 의미한다. 위험에 처한 시간 동안 환자가 관심 결과를 갖는지 여부를 결정하는 임계치(기준치)를 정하면 정확도, 민감도, 특이도, 양성 예측도와 같은 일반적인 측정 지표를 계산해 낼 수 있다. 예를 들어, 표 \@ref(tab:tabletheorytab)에서 임계값을 0.5로 설정하면 환자 1, 3, 7 및 10은 예상 위험이 임계값 0.5보다 크거나 같으므로 관심 결과가 발생할 것으로 예측된다. 다른 모든 환자는 0.5 미만의 예측 위험을 가지고 있으므로 관심 결과는 없을 것으로 예측된다. \index{performance metrics} \index{accuracy} \index{sensitivity} \index{specificity} \index{positive predictive value}
 
 Table: (\#tab:tabletheorytab) Example of using a threshold on the predicted probability.
 
@@ -264,24 +263,24 @@ Table: (\#tab:tabletheorytab) Example of using a threshold on the predicted prob
 -	특이도(specificity): $TN/(TN+FP)$
 -	양성예측도(positive predictive value): $TP/(TP+FP)$
 
-임계값을 낮추면 이러한 값이 감소하거나 증가 할 수 있다. classifier의 임계값을 낮추면 반영되는 결과 수가 증가하여 분모가 증가할 수 있다. 임계값이 이전에 너무 높게 설정된 경우, 새로운 결과는 모두 진양성일 수 있으며, 이는 양성 예측도를 증가시킨다. 이전 임계값이 맞거나 또는 너무 낮다면 임계값을 더 낮추게 되면 거짓 양성이 발생하여 양성 예측도가 감소한다. 민감도의 분모는 classifirer 임계값 ($TP+FN$은 상수) 에 의존하지 않는다. 이는 classifier 임계값을 낮추면 진양성 결과 수를 증가 시켜 민감도를 높일 수 있음을 의미한다. 또한, 임계값을 낮추면 민감도가 바뀌지 않고 양성 예측도가 변할 수 있다.
+임계값을 낮추면 이러한 값이 감소하거나 증가 할 수 있다. 분류기의 임계값을 낮추면 반영되는 결과 수가 증가하여 분모가 증가할 수 있다. 이전에 임계값을 너무 높게 설정한 경우, 새로운 결과는 모두 진양성이 될 수 있으며, 이는 양성 예측도를 증가시킨다. 이전 임계값이 적절하거나 또는 너무 낮다면 임계값을 더 낮추게 되면 거짓 양성이 발생하여 양성 예측도가 감소한다. 민감도의 분모는 분류기의 임계값 ($TP+FN$은 상수) 에 의존하지 않는다. 이는 분류기의 임계값을 낮추면 진양성 결과 수를 증가 시켜 민감도를 높일 수 있음을 의미한다. 또한, 임계값을 낮추면 민감도가 바뀌지 않고 양성 예측도가 변할 수 있다.
 
 #### 판별력 {-}
 
-판별력(discrimination)은 위험에 노출된 시간 동안 관심 결과를 경험할 환자에게 더 높은 위험을 할당하는 능력이다. ROC(Receiver Operating Characteristics) 곡선은 가능한 모든 임계값에 대하여 x축은 1-특이도를 그리고 y축에는 민감도를 나타낸다. ROC 곡선은 이 장의 뒷부분에 있는 그림 \@ref(fig:shinyROC)에 나와 있다. AUC(area under the receiver operating characteristic curve)가 0.5이면 위험에 무작위로 할당되는 것을 의미하고 값이 1이면 완벽하게 판별한다는 의미이다. 대부분 출판된 예측 모형의 AUC는 0.6-0.8 사이의 값을 갖고 있다. \index{AUC} \index{ROC} \index{discrimination}
+판별력 discrimination은 위험에 노출된 시간 동안 관심 결과를 경험할 환자에게 더 높은 위험을 할당하는 능력이다. ROC (Receiver Operating Characteristics) 곡선은 가능한 모든 임계값에 대하여 x축은 1-특이도를 그리고 y축에는 민감도를 그린 것이다. ROC 곡선은 이 장의 뒷부분에 있는 그림 \@ref(fig:shinyROC)에 나와 있다. AUC (area under the receiver operating characteristic curve)가 0.5이면 위험에 무작위로 할당되는 것을 의미하고 값이 1이면 완벽하게 판별한다는 의미이다. 대부분 출판된 예측 모형의 AUC는 0.6-0.8 사이의 값을 갖고 있다. \index{AUC} \index{ROC} \index{discrimination}
 
 AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 그렇지 않은 환자 간에 예측된 위험 분포가 얼마나 다른지 결정하는 방법을 제공한다. AUC가 높으면 위험 분포가 대부분 분리되지만, 겹치는 부분이 많을 때는 그림 \@ref(fig:figuretheoryroctheory)과 같이 AUC가 0.5에 가까워진다.
 
 
-```{r figuretheoryroctheory, fig.cap='ROC 플롯이 어떻게 차별과 연관되어 있는지를 설명한다. 두 등급의 예측 위험 분포가 유사한 경우, ROC는 대각선에 가까우며 AUC는 0.5에 가깝다.',echo=FALSE, out.width='100%'}
+```{r figuretheoryroctheory, fig.cap='ROC 플롯이 어떻게 판별력과 연관되어 있는지를 설명한다. 두 등급의 예측 위험 분포가 유사한 경우, ROC는 대각선에 가까우며 AUC는 0.5에 가깝다 (좌측 상단).',echo=FALSE, out.width='100%'}
 knitr::include_graphics("images/PatientLevelPrediction/theory/roctheory.png")
 ```
 
-결과가 드물게 발생할 경우, AUC가 높은 값을 갖는 모형이라도 주어진 임계값을 초과하는 모든 양성에 대해 음성이 많을 수 있으므로 (즉, 양성 예측도가 낮을 수 있기 때문에) 실용적이지 않을 수 있다. 결과의 심각성과 일부 중재에 대한 비용 (건강 위험/ 금전적) 에 따라, 거짓 양성비가 높아질 수 있다. 결과가 드물게 발생하는 것이라면 AUPRC(area under the precision-recall curve)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 민감도 (재현율이라고도 함) 와 y축은 양성예측도 (정밀도라고도 함) 을 나타내는 곡선하 면적이다. \index{area under the precision-recall curve} 
+결과가 드물게 발생할 경우, AUC가 높은 값을 갖는 모델이라도 주어진 임계값을 초과하는 모든 양성에 대해 음성이 많을 수 있으므로 (즉, 양성 예측도가 낮을 수 있기 때문에) 실용적이지 않을 수 있다. 결과의 심각성과 일부 중재에 대한 비용 (건강 위험/ 금전적) 에 따라, 거짓 양성비가 높아질 수 있다. 결과가 드물게 발생하는 것이라면 AUPRC(area under the precision-recall curve)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 민감도 (재현율 recall이라고도 함) 와 y축은 양성예측도 (정밀도 precision라고도 함) 을 나타내는 곡선하 면적이다. \index{area under the precision-recall curve} 
 
 #### 적합도 {-}
 
-적합도(calibration)는 모형이 정확한 위험을 적합한지에 대한 것이다. 예를 들어, 모형에 100명의 환자에게 10%의 위험이 발생 가능성이 있다고 할 경우 10명의 환자가 위험에 노출된 시간 동안 결과를 경험해야 한다. 모형에 100명의 환자에게 80%의 위험이 발생 가능성이 있다면 80명의 환자가 위험에 노출되는 시간 동안 결과를 경험해야 한다. 적합도(calibration)는 일반적으로 예측된 위험에 기초하여 환자를 십분 위로 분할하고 각 그룹에서 평균 예측 위험과 위험에 노출 시간 동안 결과를 경험한 환자의 비율이 계산된다. 그런 다음 10개의 점 (y축에 예측 위험과 x축에 관찰된 위험)을 그리고 x = y에 있는지 확인하여 모형이 잘 보정되었음을 나타낸다. 적합도 그래프는 이 장의 뒷부분에 있는 그림 \@ref(fig:shinyCal)에 나와 있다. 또한 점을 사용하여 절편 (0에 가까워 야 함) 과 기울기 (1에 가까워야 함) 를 계산하여야 선형 모형으로 적합하다. 기울기가 1보다 크면 모형이 실제 위험보다 높은 위험을 할당하고 있고 기울기가 1보다 작으면 모형이 실제 위험보다 낮은 위험을 나타내는 것이다. 또한 예측된 위험과 관찰된 위험 사이의 비선형 관계를 보다 잘 포착하기 위해 R 패키지에 Smooth Calibration Curves를 수행했다. \index{calibration}
+적합도 calibration는 모델이 정확한 위험을 할당하는 능력이다. 예를 들어, 모델이 100명의 환자에게 10%의 위험이 발생 가능성이 있다고 할 경우 10명의 환자는 위험 노출 시간 중에 결과를 경험해야 한다. 모형이 100명의 환자에게 80%의 위험 발생 가능성이 있다고 하면 80명의 환자는 위험 노출 시간 동안 결과를 경험해야 한다. 적합도는 일반적으로 예측된 위험에 따라 환자를 십분 위(열 등분)로 분할하고 각 그룹에서 평균 예측 위험과 실제 결과를 경험한 환자의 비율을 이용하여 계산한다. 그런 다음 10개의 점 (y축에 예측 위험과 x축에 관찰된 위험)을 그린 후 그 점들이 x = y인 선에 가까이 있는지, 즉 모형이 잘 보정되었는지를 확인한다. 적합도 그래프는 이 장의 뒷부분에 있는 그림 \@ref(fig:shinyCal)에 나와 있다. 또한 점을 사용하여 절편 (0에 가까워 야 함) 과 기울기 (1에 가까워야 함) 를 계산하여 선형 모델을 만든다. 기울기가 1보다 크면 모형이 실제 위험보다 높은 위험을 할당하고 있고 기울기가 1보다 작으면 모형이 실제 위험보다 낮은 위험을 나타내는 것이다. 예측된 위험과 관찰된 위험 사이의 비선형 관계를 보다 잘 포착하기 위해서, PLP R 패키지에 Smooth Calibration Curves를 구현했다. \index{calibration}
 
 ## 환자-수준 예측 연구 설계
 
