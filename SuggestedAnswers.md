@@ -1,15 +1,15 @@
 # Suggested Answers {#SuggestedAnswers}
 
-This Appendix contains suggested answers for the exercises in the book.
+이 부록은 이 책의 예제에 대한 제안된 답변을 포함한다.
 
 
 
 
-## The Common Data Model {#Cdmanswers}
+## 공통 데이터 모델 {#Cdmanswers}
 
-#### Exercise \@ref(exr:exerciseJohnPerson) {-}
+#### 예제 \@ref(exr:exerciseJohnPerson) {-}
 
-Based on the description in the exercise, John's record should look like Table \@ref(tab:johnPerson).
+예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnPerson)처럼 보여야 한다.
 
 Table: (\#tab:johnPerson) The PERSON table.
 
@@ -35,9 +35,9 @@ Column name|Value|Explanation
 |ETHNICITY_SOURCE_ VALUE|NULL||
 |ETHNICITY_SOURCE_ CONCEPT_ID|0||
 
-#### Exercise \@ref(exr:exerciseJohnOp) {-}
+#### 예제 \@ref(exr:exerciseJohnOp) {-}
 
-Based on the description in the exercise, John's record should look like Table \@ref(tab:johnOp).
+예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnOp) 처럼 보여야 한다.
 
 Table: (\#tab:johnOp) The OBSERVATION_PERIOD table.
 
@@ -49,9 +49,9 @@ Column name|Value|Explanation
 |OBSERVATION_PERIOD_ END_DATE|2019-07-01|No data can be expected after the data extraction date.|
 |PERIOD_TYPE_ CONCEPT_ID|44814722| [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) refers to "Period while enrolled in insurance".|
 
-#### Exercise \@ref(exr:exerciseJohnDrug) {-}
+#### 예제 \@ref(exr:exerciseJohnDrug) {-}
 
-Based on the description in the exercise, John's record should look like Table \@ref(tab:johnDrug).
+예제의 설명에 기반하여, John의 기록은 표 \@ref(tab:johnDrug) 처럼 보여야 한다.
 
 Table: (\#tab:johnDrug) The DRUG_EXPOSURE table.
 
@@ -80,9 +80,9 @@ Column name|Value|Explanation
 |DRUG_SOURCE_ CONCEPT_ID|583945| [583945](http://athena.ohdsi.org/search-terms/terms/750264) represents the drug source value (NDC code "76168009520").|
 |ROUTE_SOURCE_ VALUE|NULL||
 
-#### Exercise \@ref(exr:exerciseGiBleedRecords) {-}
+#### 예제 \@ref(exr:exerciseGiBleedRecords) {-}
 
-To find the set of records, we can query the CONDITION_OCCURRENCE table:
+기록의 세트를 찾기 위해서, 우리는 테이블 CONDITION_OCCURRENCE를 쿼리할 수 있다:
 
 
 ```r
@@ -106,9 +106,9 @@ head(result)
 ## 6                    1997       116               192671 ...
 ```
 
-#### Exercise \@ref(exr:exercisePersonSource) {-}
+#### 예제 \@ref(exr:exercisePersonSource) {-}
 
-To find the set of records, we can query the CONDITION_OCCURRENCE table using the CONDITION_SOURCE_VALUE field:
+기록의 세트를 찾기 위해서, CONDITION_SOURCE_VALUE 필드를 사용하여 테이블 CONDITION_OCCURRENCE를 쿼리할 수 있다:
 
 
 ```r
@@ -130,9 +130,9 @@ head(result)
 ## 6                    1997       116               192671 ...
 ```
 
-#### Exercise \@ref(exr:exercisePerson61Records) {-}
+#### 예제 \@ref(exr:exercisePerson61Records) {-}
 
-This information is stored in the OBSERVATION_PERIOD table:
+이 정보는 테이블 OBSERVATION_PERIOD에 저장되어 있다:
 
 
 ```r
@@ -152,27 +152,27 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 
 
-## Standardized Vocabularies {#Vocabanswers}
+## OMOP 표준 용어 {#Vocabanswers}
 
-#### Exercise \@ref(exr:exerciseVocab1) {-}
+#### 예제 \@ref(exr:exerciseVocab1) {-}
 
 Concept ID 192671 ("Gastrointestinal hemorrhage")
 
-#### Exercise \@ref(exr:exerciseVocab2) {-}
+#### 예제 \@ref(exr:exerciseVocab2) {-}
 
-ICD-10CM codes:
+ICD-10CM 코드:
 
 - K29.91 "Gastroduodenitis, unspecified, with bleeding"
 - K92.2 "Gastrointestinal hemorrhage, unspecified"
 
-ICD-9CM codes:
+ICD-9CM 코드:
 
 - 578 "Gastrointestinal hemorrhage"
 - 578.9 "Hemorrhage of gastrointestinal tract, unspecified"
 
-#### Exercise \@ref(exr:exerciseVocab3) {-}
+#### 예제 \@ref(exr:exerciseVocab3) {-}
 
-MedDRA preferred terms:
+MedDRA의 선호되는 용어:
 
 - "Gastrointestinal haemorrhage" (Concept ID 35707864)
 - "Intestinal haemorrhage" (Concept ID 35707858)
@@ -181,16 +181,16 @@ MedDRA preferred terms:
 
 
 
-## Extract Transform Load {#Etlanswers}
+## 추출 변환 적재 {#Etlanswers}
 
-#### Exercise \@ref(exr:exerciseEtl1) {-}
+#### 예제 \@ref(exr:exerciseEtl1) {-}
 
-A) Data experts and CDM experts together design the ETL
-C) People with medical knowledge create the code mappings
-B) A technical person implements the ETL
-D) All are involved in quality control 
+A) 데이터 전문가와 CDM 전문가가 함께 ETL을 설계할 것
+C) 의학 지식이 있는 사람들이 코드 매핑을 할 것
+B) 기술자가 ETL을 수행할 것
+D) 모든 사람이 질 관리에 참여할 것
 
-#### Exercise \@ref(exr:exerciseEtl2) {-}
+#### 예제 \@ref(exr:exerciseEtl2) {-}
 
 Column | Value | Answer
 :---------------- |:----------- |:-----------------------
@@ -206,7 +206,7 @@ GENDER_SOURCE_ VALUE | F |
 RACE_SOURCE_VALUE | WHITE | 
 ETHNICITY_SOURCE_ VALUE | NONE PROVIDED | 
 
-#### Exercise \@ref(exr:exerciseEtl3) {-}
+#### 예제 \@ref(exr:exerciseEtl3) {-}
 
 Column | Value
 :------------------------ |:------------- 
@@ -218,30 +218,30 @@ VISIT_CONCEPT_ID | 9201
 VISIT_SOURCE_VALUE | inpatient
 
 
-## Data Analytics Use Cases {#UseCasesanswers}
+## 데이터 분석 이용 사례 {#UseCasesanswers}
 
-#### Exercise \@ref(exr:exerciseUseCases1) {-}
+#### 예제 \@ref(exr:exerciseUseCases1) {-}
 
-1. Characterization
+1. 임상적 특성 분석
 
-2. Patient-level prediction
+2. 환자 수준 예측
 
-3. Population-level estimation
+3. 인구 수준 추정
 
-#### Exercise \@ref(exr:exerciseUseCases2) {-}
+#### 예제 \@ref(exr:exerciseUseCases2) {-}
 
-Probably not. Defining a non-exposure cohort that is comparable to your diclofenac exposure cohort is often impossible, since people take diclofenac for a reason. This precludes a between-person comparison. It might possible to a within-person comparison, so for each patient in the diclofenac cohort identifying time when they are not exposed, but a similar problem occurs here: these times are likely incomparable, because there are reasons when at one time someone is exposed and at other times not.
-
-
+아마 아닐 것이다. 디클로페낙 diclofenac 노출 코호트와 비교할 수 있는 비노출 코호트를 정의한다는 것은 보통 불가능한데 이는 사람들이 각각의 이유가 있어 디클로페낙을 복용하기 때문이다. 이것은 사람 간의 비교를 금지한다. 사람 내 비교가 가능할 수는 있어서, 디클로페낙 코호트 안의 각각의 환자는 그들이 노출되지 않았을 때의 시간을 정의할 수 있다. 그러나, 비슷한 문제가 여기서 발생한다: 이런 시기는 비교가 되지 않는다. 왜냐하면 어떤 때 누군가는 노출되고, 누군가는 노출이 되지 않는 이유에서다.
 
 
 
 
-## SQL and R {#SqlAndRanswers}
 
-#### Exercise \@ref(exr:exercisePeopleCount) {-}
 
-To compute the number of people we can simply query the PERSON table:
+## SQL과 R {#SqlAndRanswers}
+
+#### 예제 \@ref(exr:exercisePeopleCount) {-}
+
+간단하게 테이블 PERSON을 쿼리하여 사람의 수를 계산하기 위해서는:
 
 
 ```r
@@ -258,9 +258,9 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 ## 1         2694
 ```
 
-#### Exercise \@ref(exr:exerciseCelecoxibUsers) {-}
+#### 예제 \@ref(exr:exerciseCelecoxibUsers) {-}
 
-To compute the number of people with at least one prescription of celecoxib, we can query the DRUG_EXPOSURE table. To find all drugs containing the ingredient celecoxib, we join to the CONCEPT_ANCESTOR and CONCEPT tables:
+최소 한 번이라도 celecoxib의 처방을 받은 사람의 수를 계산하기 위해서, 테이블 DRUG_EXPOSURE를 쿼리할 수 있다. 성분 celecoxib을 포함하는 모든 약물을 찾기 위해서, 우리는 테이블 CONCEPT_ANCESTOR과 CONCEPT를 조인해야 한다:
 
 
 ```r
@@ -284,9 +284,9 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 ## 1         1844
 ```
 
-Note that we use `COUNT(DISTINCT(person_id))` to find the number of distinct persons, considering that a person might have more than one prescription. Also note that we use the `LOWER` function to make our search for "celecoxib" case-insensitive.
+개인이 두 개 이상의 처방을 가질 수 있다는 점을 고려하여, 겹치지 않는 개인의 수를 찾기 위해 `COUNT(DISTINCT(person_id))`를 사용하는 것을 명심한다. 또한 대소문자 구별 없이 "celecoxib"을 찾기 위하여 `LOWER` 기능을 사용하는 것도 명심한다.
 
-Alternatively, we can use the DRUG_ERA table, which is already rolled up to the ingredient level:
+대신에, 우리는 성분 레벨까지 이미 롤업 된 테이블 DRUG_ERA를 사용할 수 있다.
 
 
 ```r
@@ -309,9 +309,9 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 ## 1         1844
 ```
 
-#### Exercise \@ref(exr:exerciseGiBleedsDuringCelecoxib) {-}
+#### 예제 \@ref(exr:exerciseGiBleedsDuringCelecoxib) {-}
 
-To compute the number of diagnoses during exposure we extend our previous query by joining to the CONDITION_OCCURRENCE table. We join to the CONCEPT_ANCESTOR table to find all condition concepts that imply a gastrointestinal haemorrhage:
+노출되는 동안 증상의 수를 계산하기 위해서는 이전의 쿼리를 테이블 CONDITION_OCCURRENCE를 조인해서 확장한다. 위장 출혈을 암시하는 모든 condition concept을 찾기 위해서는 테이블 CONCEPT_ANCESTOR를 조인한다:
 
 
 ```r
@@ -339,75 +339,75 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 ## 1         41
 ```
 
-Note that in this case it is essential to use the DRUG_ERA table instead of the DRUG_EXPOSURE table, because drug exposures with the same ingredient can overlap, but drug eras can. This could lead to double counting. For example, imagine a person received two drug drugs containing celecoxib at the same time. This would be recorded as two drug exposures, so any diagnoses occurring during the exposure would be counted twice. The two exposures will be merged into a single non-overlapping drug era.
+이런 경우에는 테이블 DRUG_EXPOSURE 대신에 테이블 DRUG_ERA를 사용하는 것이 중요하다는 것을 명심한다. 왜냐하면 같은 성분을 가진 약물 노출은 겹칠 수 있지만, 약물 범위도 그렇다. 이것은 이중 계산으로 이어질 수도 있다. 예를 들어, 한 개인이 동시에 celecoxib를 포함하는 두 개의 약물을 받았다고 상상해 보십시오. 이것은 두 개의 약물 노출로 기록될 것이며, 그러므로 노출 중에 일어나는 모든 증상이 두 번으로 집계될 것이다. 이 두 개의 노출은 하나의 비-겹침 약물 범위로 합병될 것이다.
 
 
 
 
 
 
-## Defining Cohorts {#Cohortsanswers}
+## 코호트 만들기 {#Cohortsanswers}
 
-#### Exercise \@ref(exr:exerciseCohortsAtlas) {-}
+#### 예제 \@ref(exr:exerciseCohortsAtlas) {-}
 
-We create initial event criteria encoding these requirements:
+아래의 요구사항을 암호화 하는 초기 사례 기준을 생성한다:
 
-- New users of diclofenac
-- Ages 16 or older
-- With at least 365 days of continuous observation prior to exposure
+- 디클로페낙 diclofenac 을 복용하기 시작한 환자
+- 16세 이상의 환자
+- 노출 전 최소 365일의 계속된 관찰이 있던 환자
 
-When done, the cohort entry event section should look like Figure \@ref(fig:cohortsAtlasInitialEvents).
-
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasInitialEvents.png" alt="Cohort entry event settings for new users of diclofenac" width="100%" />
-<p class="caption">(\#fig:cohortsAtlasInitialEvents)Cohort entry event settings for new users of diclofenac</p>
-</div>
-
-The concept set expression for diclofenac should look like Figure \@ref(fig:cohortsAtlasConceptSet1), including the ingredient 'Diclofenac' and all of its descendant, thus including all drugs containing the ingredient diclofenac.
+마무리 했다면, 코호트 입력 사례 섹션은 그림 \@ref(fig:cohortsAtlasInitialEvents)와 같아야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasConceptSet1.png" alt="Concept set expression for diclofenac." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasConceptSet1)Concept set expression for diclofenac.</p>
+<img src="images/SuggestedAnswers/cohortsAtlasInitialEvents.png" alt="diclofenac을 복용하기 시작한 환자를 위한 코호트 입력 사례 설정" width="100%" />
+<p class="caption">(\#fig:cohortsAtlasInitialEvents)diclofenac을 복용하기 시작한 환자를 위한 코호트 입력 사례 설정</p>
 </div>
 
-Next, we require no prior exposure to any NSAID, as shown in Figure \@ref(fig:cohortsAtlasInclusion1). 
+디클로페낙의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet1)과 비슷해야 할 것이며, '디클로페낙' 성분과 '디클로페낙'의 모든 하위요소도 모두 포함하여 디클로페낙 성분이 포함된 모든 약물을 포함한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasInclusion1.png" alt="Requiring no prior exposure to any NSAID." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasInclusion1)Requiring no prior exposure to any NSAID.</p>
+<img src="images/SuggestedAnswers/cohortsAtlasConceptSet1.png" alt="diclofenac의 concept 세트 표현." width="100%" />
+<p class="caption">(\#fig:cohortsAtlasConceptSet1)diclofenac의 concept 세트 표현.</p>
 </div>
 
-The concept set expression for NSAIDs should look like Figure \@ref(fig:cohortsAtlasConceptSet2), including the NSAIDs class and all of its descendant, thus including all drugs containing any NSAID.
+다음으로, 그림 \@ref(fig:cohortsAtlasInclusion1)에서 보이는 것과 같이, 모든 NSAID에 대한 이전의 노출이 없는 것을 필요로 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasConceptSet2.png" alt="Concept set expression for NSAIDs" width="100%" />
-<p class="caption">(\#fig:cohortsAtlasConceptSet2)Concept set expression for NSAIDs</p>
+<img src="images/SuggestedAnswers/cohortsAtlasInclusion1.png" alt="모든 NSAID에 대한 이전의 노출이 없는 것이 필요하다." width="100%" />
+<p class="caption">(\#fig:cohortsAtlasInclusion1)모든 NSAID에 대한 이전의 노출이 없는 것이 필요하다.</p>
 </div>
 
-Additionally, we require no prior diagnosis of cancer, as shown in Figure \@ref(fig:cohortsAtlasInclusion2). 
+NSAID의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet2)와 비슷해야 할 것이며, NSAID 클래스와 NSAID의 모든 하위요소도 모두 포함하여 NSAID이 포함된 모든 약물을 포함한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasInclusion2.png" alt="Requiring no prior cancer diagnosis." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasInclusion2)Requiring no prior cancer diagnosis.</p>
+<img src="images/SuggestedAnswers/cohortsAtlasConceptSet2.png" alt="NSAID의 concept 세트 표현" width="100%" />
+<p class="caption">(\#fig:cohortsAtlasConceptSet2)NSAID의 concept 세트 표현</p>
 </div>
 
-The concept set expression for "Broad malignancies" should look like Figure \@ref(fig:cohortsAtlasConceptSet3), including the high level concept "Malignant neoplastic disease" and all of its descendant.
+추가적으로, 그림 \@ref(fig:cohortsAtlasInclusion2)에서 보이는 것과 같이, 이전의 암 증상이 없는 것을 필요로 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasConceptSet3.png" alt="Concept set expression for broad malignancies" width="100%" />
-<p class="caption">(\#fig:cohortsAtlasConceptSet3)Concept set expression for broad malignancies</p>
+<img src="images/SuggestedAnswers/cohortsAtlasInclusion2.png" alt="이전의 암 증상이 없는 것이 필요하다." width="100%" />
+<p class="caption">(\#fig:cohortsAtlasInclusion2)이전의 암 증상이 없는 것이 필요하다.</p>
 </div>
 
-Finally, we define the cohort exit criteria as discontinuation of exposure (allowing for a 30-day gap), as shown in Figure \@ref(fig:cohortsAtlasExit). 
+"Broad malignancies"의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet3)와 비슷해야 할 것이며, 고 레벨 concept의 "Malignant neoplastic disease"와 그의 모든 하위요소도 포함해야 한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasExit.png" alt="Setting the cohort exit date." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasExit)Setting the cohort exit date.</p>
+<img src="images/SuggestedAnswers/cohortsAtlasConceptSet3.png" alt="broad malignancies의 concept 세트 표현" width="100%" />
+<p class="caption">(\#fig:cohortsAtlasConceptSet3)broad malignancies의 concept 세트 표현</p>
 </div>
 
-#### Exercise \@ref(exr:exerciseCohortsSql) {-}
+마지막으로, 그림 \@ref(fig:cohortsAtlasExit)에서 보이는 것과 같이, 코호트 종료 기준을 노출의 중단 (30일 간격 허용) 으로 정의한다.
 
-For readability we here split the SQL into two steps. We first find all condition occurrences of myocardial infarction, and store these in a temp table called "#diagnoses":
+<div class="figure" style="text-align: center">
+<img src="images/SuggestedAnswers/cohortsAtlasExit.png" alt="코호트 종료 날짜 설정하기." width="100%" />
+<p class="caption">(\#fig:cohortsAtlasExit)코호트 종료 날짜 설정하기.</p>
+</div>
+
+#### 예제 \@ref(exr:exerciseCohortsSql) {-}
+
+가독성을 위하여 SQL을 두 개의 과정으로 나누었다. 첫 번째로, 심근경색의 모든 증상 발생을 찾고, 이를 "#diagnoses"로 불리는 임시 테이블에 저장한다:
 
 
 ```r
@@ -431,7 +431,7 @@ WHERE condition_concept_id IN (
 renderTranslateExecuteSql(connection, sql, cdm = "main")
 ```
 
-We then select only those that occur during an inpatient or ER visit, using some unique COHORT_DEFINITION_ID (we selected '1'):
+그리고 몇몇의 특별한 COHORT_DEFINITION_ID (우리는 '1'을 선택하였다) 를 사용하여 입원 중이거나 응급실에 방문한 환자들에게 일어난 것만 선택한다:
 
 
 ```r
@@ -453,11 +453,11 @@ WHERE visit_concept_id IN (9201, 9203, 262); -- Inpatient or ER;"
 renderTranslateExecuteSql(connection, sql, cdm = "main")
 ```
 
-Note that an alternative approach would have been to join the conditions to the visits based on the VISIT_OCCURRENCE_ID, instead of requiring the condition date to fall within the visit start and end date. This would likely be more accurate, as it would guarantee that the condition was recorded in relation to the inpatient or ER visit. However, many observational databases do not record the link between visit and diagnose, and we therefore chose to use the dates instead, likely giving us a higher sensitivity but perhaps lower specificity.
+대체 접근 방식은 방문 시작과 종료 날짜 사이에 부합하는 condition 날짜를 요구하는 대신, VISIT_OCCURRENCE_ID에 근거하여 방문의 condition에 조인한 적이 있을 수도 있음을 명심한다. 이는 입원 혹은 응급실 방문과 관련되어 condition 기록되었음을 보장하기 때문에 더 정확할 수 있다. 하지만, 많은 관찰 데이터베이스는 방문과 증상의 관계를 기록하지 않고, 그러므로 날짜를 대신 사용하는 것을 선택하여, 아마 낮은 특이도일 수 있으나 높은 민감도를 줄 수도 있다.
 
-Note also that we ignored the cohort end date. Often, when a cohort is used to define an outcome we are only interested in the cohort start date, and there is no point in creating an (ill-defined) cohort end date.
+또한 코호트 종료 날짜를 무시했다는 것을 명심한다. 종종, 결과를 정의하기 위해 코호트가 사용되었을 때 우리는 코호트 시작 날짜만 염두하고, (병명이 정의된) 코호트 종료 날짜를 생성하는 것은 의미가 없다.
 
-It is recommended to clean up any temp tables when no longer needed:
+임시 테이블은 더는 필요가 없다면 정리하는 것을 추천한다:
 
 
 ```r
@@ -470,83 +470,83 @@ renderTranslateExecuteSql(connection, sql)
 
 
 
-## Characterization {#Characterizationanswers}
+## 임상적 특성 분석 {#Characterizationanswers}
 
-#### Exercise \@ref(exr:exerciseCharacterization1) {-}
+#### 예제 \@ref(exr:exerciseCharacterization1) {-}
 
-In ATLAS we click on ![](images/Characterization/atlasDataSourcesMenuItem.png) and select the data source we're interested in. We could select the Drug Exposure report, select the "Table" tab, and search for "celecoxib" as shown in Figure \@ref(fig:dataSourcesAtlas). Here we see that this particular database has exposures to various formulations of celecoxib. We could click on any of these drugs to get a more detailed view, for example showing age and gender distributions for these drugs.
+아틀라스에서 ![](images/Characterization/atlasDataSourcesMenuItem.png)를 클릭하고, 관심 있는 데이터 원천을 선택한다. 약물 노출 기록을 선택할 수 있고, "Table" 탭을 선택할 수 있으며, 그림 \@ref(fig:dataSourcesAtlas)과 같이 "celecoxib"를 찾을 수 있다. 여기에서 이 특정한 데이터베이스가 celecoxib의 다양한 제형들의 노출을 포함하는 것을 볼 수 있다. 더욱 자세히 보기 위해서는 여기에서의 아무 약물을 클릭할 수 있다. 예를 들어, 이 약물에 대한 나이나 성별 분포를 나타내기 위함이다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/dataSourcesAtlas.png" alt="Data source characterization." width="100%" />
-<p class="caption">(\#fig:dataSourcesAtlas)Data source characterization.</p>
+<img src="images/SuggestedAnswers/dataSourcesAtlas.png" alt="데이터 원천 특성." width="100%" />
+<p class="caption">(\#fig:dataSourcesAtlas)데이터 원천 특성.</p>
 </div>
 
 
-#### Exercise \@ref(exr:exerciseCharacterization2) {-}
+#### 예제 \@ref(exr:exerciseCharacterization2) {-}
 
-Click on ![](images/Cohorts/cohortdefinition.png) and then "New cohort" to create a new cohort. Give the cohort a meaningful name (e.g. "Celecoxib new users") and go to the "Concept Sets" tab. Click on "New Concept Set", and give your concept set a meaningful names (e.g. "Celecoxib"). Open the  ![](images/Cohorts/search-2.png) module, search for "celecoxib", restrict the Class to "Ingredient" and Standard Concept to "Standard", and click the ![](images/Cohorts/shoppingcart.png) to add the concept to your concept set as show in Figure \@ref(fig:conceptSearchAtlas).
-
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/conceptSearchAtlas.png" alt="Selecting the standard concept for the ingredient &quot;celecoxib&quot;." width="100%" />
-<p class="caption">(\#fig:conceptSearchAtlas)Selecting the standard concept for the ingredient "celecoxib".</p>
-</div>
-
-Click on the left arrow shown at the top left of Figure \@ref(fig:conceptSearchAtlas) to return to your cohort definition. Click on "+Add Initial Event" and then "Add Drug Era". Select your previously created concept set for the drug era criterion. Click on "Add attribute..." and select "Add First Exposure Criteria." Set the required continuous observation to at least 365 days before the index date. The result should look like Figure \@ref(fig:celecoxibCohortDefinition). Leave the Inclusion Criteria, Cohort Exit, and Cohort Eras section as they are. Make sure to save the cohort definition by clicking ![](images/Cohorts/save.png), and close it by clicking ![](images/SuggestedAnswers/close.png).
+![](images/Cohorts/cohortdefinition.png)를 클릭하고 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미 있는 이름을 부여하고 (예를 들어, "Celecoxib new users"가 있다) "Concept Sets" 탭으로 이동한다. "New Concept Set"를 클릭하고, concept 세트에 의미있는 이름을 부여한다 (예를 들어, "Celecoxib"). ![](images/Cohorts/search-2.png) 모듈을 열고, "celecoxib"를 검색하여, 클래스를 "Ingredient"로, 표준 concept을 "Standard"로 제한한 후, 그림 \@ref(fig:conceptSearchAtlas)와 같이 concept을 당신의 concept 세트에 추가하기 위해 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/celecoxibCohortDefinition.png" alt="A simple celecoxib new user cohort definition." width="100%" />
-<p class="caption">(\#fig:celecoxibCohortDefinition)A simple celecoxib new user cohort definition.</p>
+<img src="images/SuggestedAnswers/conceptSearchAtlas.png" alt="&quot;celecoxib&quot; 성분의 표준 concept 선택하기." width="100%" />
+<p class="caption">(\#fig:conceptSearchAtlas)"celecoxib" 성분의 표준 concept 선택하기.</p>
 </div>
 
-Now that we have our cohort defined, we can characterize it. Click on ![](images/Characterization/atlasCharacterizationMenuItem.png) and then "New Characterization". Give you characterization a meaningful name (e.g. "Celecoxib new users characterization"). Under Cohort Definitions, click on "Import" and select your recently created cohort definition. Under "Feature Analyses", click on "Import" and select at least one condition analysis and one drug analysis, for example "Drug Group Era Any Time Prior" and "Condition Group Era Any Time Prior". Your characterization definition should now look like Figure \@ref(fig:celecoxibCharacterization). Make sure to save the characterization settings by clicking ![](images/Cohorts/save.png).
+코호트 정의로 돌아가기 위해서는 그림 \@ref(fig:conceptSearchAtlas)의 상위 왼편에 보이는 왼쪽 화살표를 클릭한다. "+Add Initial Event"를 클릭한 후 "Add Drug Era"를 클릭한다. 이미 생성된 약물 범위 기준의 concept 세트를 선택한다. "Add attribute..."를 클릭하고 "Add First Exposure Criteria."를 선택한다. 발생 시점 전으로부터 최소 365일이 요구되는 지속적인 관찰을 설정한다. 결과는 그림 \@ref(fig:celecoxibCohortDefinition)와 비슷해야 한다. 포함 기준, 코호트 종료, 코호트 범위 세션을 그대로 두고 나간다. ![](images/Cohorts/save.png)를 클릭하여 코호트 정의를 저장하고, ![](images/SuggestedAnswers/close.png)를 클릭하여 확실히 닫는다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/celecoxibCharacterization.png" alt="Characterization settings." width="100%" />
-<p class="caption">(\#fig:celecoxibCharacterization)Characterization settings.</p>
+<img src="images/SuggestedAnswers/celecoxibCohortDefinition.png" alt="간단한 celecoxib 새 사용자의 코호트 정의." width="100%" />
+<p class="caption">(\#fig:celecoxibCohortDefinition)간단한 celecoxib 새 사용자의 코호트 정의.</p>
 </div>
 
-Click on the "Exections" tab, and click on "Generate" for one of the data sources. It may take a while for the generation to complete. When done, we can click on "View latest results". The resulting screen will look something like Figure \@ref(fig:celecoxibCharacterizationResults), showing for example that pain and arthropathy are commonly observed, which should not surprise use as these are indications for celecoxib. Lower on the list we may see conditions we were not expecting.
+이제 코호트가 정의 되었으니, 특성화 할 수 있다. ![](images/Characterization/atlasCharacterizationMenuItem.png)를 클릭한 후 "New Characterization"를 클릭한다. 임상적 특성에 의미있는 이름을 부여한다 (예를 들어, "Celecoxib 새 사용자의 임상적 특성"). 코호트 정의 아래에, "Import"를 클릭하고 최근에 생성한 코호트 정의를 선택한다. "Feature Analyses" 아래에, "Import"를 클릭한 후 최소 하나의 condition 분석과 하나의 약물 분석을 선택한다. 예를 들면 "Drug Group Era Any Time Prior"와 "Condition Group Era Any Time Prior"이다. 임상적 특성 정의는 그림 \@ref(fig:celecoxibCharacterization)와 비슷해야 한다. ![](images/Cohorts/save.png)를 클릭하여 임상적 특성 설정을 확실히 저장한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/celecoxibCharacterizationResults.png" alt="Characterization settings." width="100%" />
-<p class="caption">(\#fig:celecoxibCharacterizationResults)Characterization settings.</p>
+<img src="images/SuggestedAnswers/celecoxibCharacterization.png" alt="임상적 특성 설정하기." width="100%" />
+<p class="caption">(\#fig:celecoxibCharacterization)임상적 특성 설정하기.</p>
 </div>
 
-#### Exercise \@ref(exr:exerciseCharacterization3) {-}
-
-Click on ![](images/Cohorts/cohortdefinition.png) and then "New cohort" to create a new cohort. Give the cohort a meaningful name (e.g. "GI bleed") and go to the "Concept Sets" tab. Click on "New Concept Set", and give your concept set a meaningful names (e.g. "GI bleed"). Open the  ![](images/Cohorts/search-2.png) module, search for "Gastrointestinal hemorrhage", and click the ![](images/Cohorts/shoppingcart.png) next to the top concept to add the concept to your concept set as show in Figure \@ref(fig:giBleedSearch). 
+"Exections" 탭을 클릭한 후, 데이터 원천 중의 하나로 "Generate"를 클릭한다. 생성이 끝날 때까지 시간이 걸릴 수 있다. 끝나면, "View latest results"를 클릭할 수 있다. 결과 화면은 그림 \@ref(fig:celecoxibCharacterizationResults)와 비슷하고, 이는 예를 들어 고통과 arthropathy가 흔히 관찰되는 것으로 보여지는데, 이는 celecoxib의 조짐이므로 놀랄만한 사용은 아니다. 목록의 아레쪽에 기대하지 않은 conditions이 보일 수 있다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/giBleedSearch.png" alt="Selecting the standard concept for &quot;Gastrointestinal hemorrhage&quot;." width="100%" />
-<p class="caption">(\#fig:giBleedSearch)Selecting the standard concept for "Gastrointestinal hemorrhage".</p>
+<img src="images/SuggestedAnswers/celecoxibCharacterizationResults.png" alt="임상적 특성 설명." width="100%" />
+<p class="caption">(\#fig:celecoxibCharacterizationResults)임상적 특성 설명.</p>
 </div>
 
-Click on the left arrow shown at the top left of Figure \@ref(fig:giBleedSearch) to return to your cohort definition. Open the "Concept Sets" tab again, and check "Descendants" next to the GI hemorrhage concept, as shown in Figure \@ref(fig:giBleedDescendants).
+#### 예제 \@ref(exr:exerciseCharacterization3) {-}
+
+![](images/Cohorts/cohortdefinition.png)를 클릭한 후 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미있는 이름을 부여한다 (예를 들어 "GI bleed"). ![](images/Cohorts/search-2.png) 모둘을 열고, "Gastrointestinal hemorrhage"를 검색한 후, 그림 \@ref(fig:giBleedSearch)와 같이 concept을 당신의 concept 세트에 추가하기 위해 상위 concept 옆의 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/giBleedDescendants.png" alt="Adding all descendants to &quot;Gastrointestinal hemorrhage&quot;." width="100%" />
-<p class="caption">(\#fig:giBleedDescendants)Adding all descendants to "Gastrointestinal hemorrhage".</p>
+<img src="images/SuggestedAnswers/giBleedSearch.png" alt="&quot;Gastrointestinal hemorrhage&quot;의 표준 concept 선택하기." width="100%" />
+<p class="caption">(\#fig:giBleedSearch)"Gastrointestinal hemorrhage"의 표준 concept 선택하기.</p>
 </div>
 
-Return to the "Definition" tab, click on "+Add Initial Event" and then "Add Condition Occurrence". Select your previously created concept set for the condition occurrence criterion. The result should look like Figure \@ref(fig:giBleedCohortDefinition). Leave the Inclusion Criteria, Cohort Exit, and Cohort Eras section as they are. Make sure to save the cohort definition by clicking ![](images/Cohorts/save.png), and close it by clicking ![](images/SuggestedAnswers/close.png).
+당신의 코호트 정의로 돌아가기 위해서는 그림 \@ref(fig:giBleedSearch)의 상위 왼쪽에 위치한 왼쪽 화살표를 클릭한다. "Concept Sets" 탭을 다시 열고, GI hemorrhage concept 옆에 있는 "Descendants"를 그림 \@ref(fig:giBleedDescendants)처럼 체크한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/giBleedCohortDefinition.png" alt="A simple gastrointestinal bleed cohort definition." width="100%" />
-<p class="caption">(\#fig:giBleedCohortDefinition)A simple gastrointestinal bleed cohort definition.</p>
+<img src="images/SuggestedAnswers/giBleedDescendants.png" alt="&quot;Gastrointestinal hemorrhage&quot;의 하위요소 추가하기." width="100%" />
+<p class="caption">(\#fig:giBleedDescendants)"Gastrointestinal hemorrhage"의 하위요소 추가하기.</p>
 </div>
 
-Now that we have our cohort defined, we can compute the incidence rate. Click on ![](images/Characterization/atlasIncidenceMenuItem.png) and then "New Analysis". Give your analysis a meaningful name (e.g. "Incidence of GI bleed after celecoxib initiation"). Click "Add Target Cohort" and select our celecoxib new user cohort. Click on "Add Outcome Cohort" and add our new GI bleed cohort. Set the Time At Risk to end 1095 days after the start date. The analysis should now look like Figure \@ref(fig:irAnalysis). Make sure to save the analysis settings by clicking ![](images/Cohorts/save.png).
+"Definition" 탭으로 돌아간 후, "+Add Initial Event"를 클릭하고, "Add Condition Occurrence"를 클릭한다. 이전에 생성한 condition 발생 기준의 concept 세트를 선택한다. 결과는 \@ref(fig:giBleedCohortDefinition)와 비슷해야 한다. 포함 기준, 코호트 종료, 코호트 범위 세션을 그대로 두고 나간다. ![](images/Cohorts/save.png)를 클릭하여 코호트 정의를 저장하고, ![](images/SuggestedAnswers/close.png)를 클릭하여 확실히 닫는다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/irAnalysis.png" alt="A incidence rate analysis." width="100%" />
-<p class="caption">(\#fig:irAnalysis)A incidence rate analysis.</p>
+<img src="images/SuggestedAnswers/giBleedCohortDefinition.png" alt="간단한 gastrointestinal bleed 코호트 정의." width="100%" />
+<p class="caption">(\#fig:giBleedCohortDefinition)간단한 gastrointestinal bleed 코호트 정의.</p>
 </div>
 
-Click on the "Generation" tab, and click on "Generate". Select one of the data sources and click "Generate". When done, we can see the computed incidence rate and proportion, as shown in Figure \@ref(fig:irResults).
+이제 코호트가 정의 되었으면, 발생률을 계산할 수 있다. ![](images/Characterization/atlasIncidenceMenuItem.png)를 클릭하고, "New Analysis"를 클릭한다. 분석에 의미있는 이름을 부여한다 (예를 들어 "Incidence of GI bleed after celecoxib initiation"). "Add Target Cohort"를 클릭한 후 celecoxib 새로운 사용자 코호트를 선택한다. "Add Outcome Cohort"를 클릭한 후 새로운 GI bleed 코호트를 추가한다. 위험 노출 기간을 시작일 이후로 1095일이 지난 시점을 종료일로 지정한다. 분석은 그림 \@ref(fig:irAnalysis)과 비슷해야 한다. ![](images/Cohorts/save.png)를 클릭해서 분석 설정을 확실히 저장한다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/irResults.png" alt="Incidence results." width="100%" />
-<p class="caption">(\#fig:irResults)Incidence results.</p>
+<img src="images/SuggestedAnswers/irAnalysis.png" alt="발생률 분석." width="100%" />
+<p class="caption">(\#fig:irAnalysis)발생률 분석.</p>
+</div>
+
+"Generation" 탭을 클릭한 후, "Generate"를 클릭한다. 데이터 원천 중 하나를 선택하고 "Generate"를 클릭한다. 끝났다면, 그림 \@ref(fig:irResults)에 보이는 것과 같이 계산된 발생률과 분율을 볼 수 있다.
+
+<div class="figure" style="text-align: center">
+<img src="images/SuggestedAnswers/irResults.png" alt="발생 결과." width="100%" />
+<p class="caption">(\#fig:irResults)발생 결과.</p>
 </div>
 
 
@@ -554,11 +554,11 @@ Click on the "Generation" tab, and click on "Generate". Select one of the data s
 
 
 
-## Population-Level Estimation {#Pleanswers}
+## 인구 수준 추정 {#Pleanswers}
 
-#### Exercise \@ref(exr:exercisePle1) {-}
+#### 예제 \@ref(exr:exercisePle1) {-}
 
-We specify the default set of covariates, but we must exclude the two drugs we're comparing, including all their descendants, because else our propensity model will become perfectly predictive:
+공변량의 기본 세트를 명시하고 있지만, 반드시 비교하는 두 개의 약물은 제외하고, 그것의 하위호환은 포함해야 한다. 그렇지 않으면 성향 모델은 완벽하게 예측이 가능해질 것이다:
 
 
 ```r
@@ -602,9 +602,9 @@ summary(cmData)
 ## Number of non-zero covariate values: 26923
 ```
 
-#### Exercise \@ref(exr:exercisePle2) {-}
+#### 예제 \@ref(exr:exercisePle2) {-}
 
-We create the study population following the specifications, and output the attrition diagram:
+사양 specification 을 따르는 인구 모집단을 생성하고, 소모 도표를 출력한다:
 
 
 ```r
@@ -621,11 +621,11 @@ drawAttritionDiagram(studyPop)
 ```
 <img src="images/SuggestedAnswers/attrition.png" width="80%" style="display: block; margin: auto;" />
 
-We see that we did not lose any subjects compared to the original cohorts, probably because the restrictions used here were already applied in the cohort definitions.
+기존의 코호트와 비교하여 어떤 대상도 잃지 않은 것을 볼 수 있는데, 아마도 왜냐하면 여기서 사용한 제한이 이미 코호트 정의에서 사용된 것이기 때문이다.
 
-#### Exercise \@ref(exr:exercisePle3) {-}
+#### 예제 \@ref(exr:exercisePle3) {-}
 
-We fit a simple outcome model using a Cox regression:
+콕스 회귀를 사용하여 간단한 결과 모델을 적합한다:
 
 
 ```r
@@ -645,11 +645,11 @@ model
 ## treatment  1.34612   1.10065   1.65741 0.29723  0.1044
 ```
 
-It is likely that celecoxib users are not exchangeable with diclofenac users, and that these baseline differences already lead to different risks of the outcome. If we do not adjust for these difference, like in this analysis, we are likely producing biased estimates.
+celecoxib 사용자가 diclofenac 사용자와 교환될 수 없고, 이 기저 차이는 이미 다른 결과의 위험으로 이어질 가능성이 있다. 이 차이를 조절하지 않으면, 이 분석과 같이 편향된 측정을 생성할 가능성이 있다.
 
-#### Exercise \@ref(exr:exercisePle4) {-}
+#### 예제 \@ref(exr:exercisePle4) {-}
 
-We fit a propensity model on our study population, using all covariates we extracted. We then show the preference score distribution:
+추출한 모든 공변량을 사용하여 연구 모집단에 성향 모델을 적합했다. 그 후 선호 점수 분포도를 보여준다:
 
 
 ```r
@@ -659,14 +659,14 @@ plotPs(ps, showCountsLabel = TRUE, showAucLabel = TRUE)
 ```
 <img src="images/SuggestedAnswers/ps.png" width="80%" style="display: block; margin: auto;" />
 
-Note that this distribution looks a bit odd, with several spikes. This is because we are using a very small simulated dataset. Real preference score distributions tend to be much smoother.
+몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 왜냐하면 시뮬레이션 된 정말 작은 데이터 세트를 사용하기 때문이다. 실제의 선호 점수 분포는 더 매끄러운 경향이 있다.
 
-The propensity model achieves an AUC of 0.63, suggested there are differences between target and comparator cohort. We see quite a lot overlap between the two groups suggesting PS adjustment can make them more comparable.
+성향 모델은 0.63의 AUC를 달성하는데, target과 comparator 코호트 간의 차이가 있다는 것을 제안한다. PS 조정이 그들을 더욱 비교할 수 있게 함을 시사하는 두 집단 간의 꽤 많은 교차를 볼 수 있다.
 
 
-#### Exercise \@ref(exr:exercisePle5) {-}
+#### 예제 \@ref(exr:exercisePle5) {-}
 
-We stratify the population based on the propensity scores, and compute the covariate balance before and after stratification:
+모집단을 성향 점수에 근거하여 계층화하고, 층화 전과 후의 공변량 균형을 계산한다:
 
 
 ```r
@@ -680,11 +680,11 @@ plotCovariateBalanceScatterPlot(bal,
 ```
 <img src="images/SuggestedAnswers/scatter.png" width="70%" style="display: block; margin: auto;" />
 
-We see that various baseline covariates showed a large (>0.3) standardized difference of means before stratification (x-axis). After stratification, balance is increased, with the maximum standardized difference <= 0.1.
+다양한 기저 공변량은 층화 전의 (x-axis) 큰 (>0.3) 표준화된 평균의 차이를 보여준다. 층화 후에, 최대 표준화 차이 <= 0.1와 같이 균형은 상승된다.
 
-#### Exercise \@ref(exr:exercisePle6) {-}
+#### 예제 \@ref(exr:exercisePle6) {-}
 
-We fit a outcome model using a Cox regression, but stratify it by the PS strata:
+콕스 회귀를 사용하여 결과 모델을 적합하나 PS strata로 계층화한다:
 
 
 ```r
@@ -705,18 +705,18 @@ adjModel
 ## treatment  1.13211   0.92132   1.40008 0.12409  0.1068
 ```
 
-We see the adjusted estimate is lower than the unadjusted estimate, and that the 95% confidence interval now includes 1. This is because we are now adjusting for baseline differences between the two exposure groups, thus reducing bias.
+조정된 추정치는 조정되지 않은 추청지보다 낮고, 95% 신뢰 구간은 현재 1을 포함하는 것을 볼 수 있다. 왜냐하면 현재 두 개의 노출 집단, 즉 감소하는 비뚤림 사이의 기저 차이를 조절하는 중이기 때문이다.
 
 
 
 
 
 
-## Patient-Level Prediction {#Plpanswers}
+## 환자 수준 예측 {#Plpanswers}
 
-#### Exercise \@ref(exr:exercisePlp1) {-}
+#### 예제 \@ref(exr:exercisePlp1) {-}
 
-We specify a set of covariate settings, and use the `getPlpData` function to extract the data from the database:
+공변량 설정의 세트를 지정하고, `getPlpData` 기능을 데이터베이스에서 데이터를 추출하기 위해 사용한다:
 
 
 ```r
@@ -762,9 +762,9 @@ summary(plpData)
 ## Number of non-zero covariate values: 54079
 ```
 
-#### Exercise \@ref(exr:exercisePlp2) {-}
+#### 예제 \@ref(exr:exercisePlp2) {-}
 
-We create a study population for the outcome of interest (in this case the only outcome for which we extracted data), removing subjects who experienced the outcome before they started the NSAID, and requiring 364 days of time-at-risk:
+관심 결과의 연구 모집단을 생성하고 (이 경우에는 추출한 데이터의 유일한 결과만), 364일의 위험 노출 시간을 필요로 하며, NSAID를 시작하기 전의 결과를 경험한 피험자를 제거한다:
 
 
 ```r
@@ -788,11 +788,11 @@ nrow(population)
 ## [1] 2578
 ```
 
-In this case we have lost a few people by removing those that had the outcome prior, and by requiring a time-at-risk of at least 364 days.
+이 경우에 사전의 결과를 가진 피험자를 제거하고, 최소 364일의 위험 노출 기간을 요구하기 때문에 몇 사람들을 잃게 된다.
 
-#### Exercise \@ref(exr:exercisePlp3) {-}
+#### 예제 \@ref(exr:exercisePlp3) {-}
 
-We run a LASSO model by first creating a model settings object, and then calling the `runPlp` function. In this case we do a person split, training the model on 75% of the data and evaluating on 25% of the data:
+먼저 모델 설정 객체를 만든 후에, `runPlp` 기능을 호출함으로써 LASSO 모델을 실행한다. 이 경우에는 person split을 행하고, 75%의 데이터를 모델에 학습시키며, 25%의 데이터로 평가한다:
 
 
 ```r
@@ -807,31 +807,31 @@ lassoResults <- runPlp(population = population,
                        splitSeed = 0)
 ```
 
-Note that for this example set the random seeds both for the LASSO cross-validation and for the train-test split to make sure the results will be the same on multiple runs.
+이 예시에서는 LASSO 교차 검증과 학습-검증 데이터 분할을 위한 무작위 seed를 지정하여 여러 번 실행해도 결과가 동일한지 확인한다.
 
-We can now view the results using the Shiny app:
+Shiny 앱을 사용하여 결과를 볼 수 있다:
 
 
 ```r
 viewPlp(lassoResults)
 ```
 
-This will launch the app as shown in Figure \@ref(fig:plpShiny). Here we see an AUC on the test set of 0.645, which is better than random guessing, but maybe not good enough for clinical pratice.
+이것은 그림 \@ref(fig:plpShiny)에서 보이는 것과 같이 앱을 실행할 것이다. 여기 0.645의 테스트 세트의 AUC가 있는데 이는 무작위 추측보다 더 나을 수 있으나 임상적 실천에는 충분하지 않을 것이다.
 
 <div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/plpShiny.png" alt="Patient-level prediction Shiny app." width="100%" />
-<p class="caption">(\#fig:plpShiny)Patient-level prediction Shiny app.</p>
+<img src="images/SuggestedAnswers/plpShiny.png" alt="환자 수준 예측 Shiny 앱." width="100%" />
+<p class="caption">(\#fig:plpShiny)환자 수준 예측 Shiny 앱.</p>
 </div>
 
 
 
 
 
-## Data Quality {#DataQualityanswers}
+## 데이터의 질 {#DataQualityanswers}
 
-#### Exercise \@ref(exr:exerciseRunAchilles) {-}
+#### 예제 \@ref(exr:exerciseRunAchilles) {-}
 
-To run ACHILLES:
+ACHILLES을 실행하기 위해서는:
 
 
 ```r
@@ -843,9 +843,9 @@ result <- achilles(connectionDetails,
                    cdmVersion = "5.3.0")
 ```
 
-#### Exercise \@ref(exr:exerciseRunDQD) {-}
+#### 예제 \@ref(exr:exerciseRunDQD) {-}
 
-To run the Data Quality Dashboard:
+데이터의 질 Dashboard를 실행하기 위해서는:
 
 
 ```r
@@ -857,9 +857,9 @@ DataQualityDashboard::executeDqChecks(
   outputFolder = "C:/dataQualityExample") 
 ```
 
-#### Exercise \@ref(exr:exerciseViewDQD) {-}
+#### 예제 \@ref(exr:exerciseViewDQD) {-}
 
-To view the list of data quality checks:
+데이터의 질 검사 목록을 보기 위해서는:
 
 
 ```r

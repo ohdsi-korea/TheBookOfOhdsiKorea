@@ -430,7 +430,7 @@ sunburst plot의 세션을 클릭하면 오른편에 세부 경로가 나타난�
 
 ### 디자인
 
-이미 이전 \@ref(Cohorts)장에서 ATLAS로 예제에 사용할 코호트를 만들었다고 가정해 보자. 부록에서 예제에 사용할 표적 코호트 (부록 \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)) 의 모든 정의와 결과 (부록 \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) 를 확인할 수 있다.
+이미 이전 \@ref(Cohorts)장에서 ATLAS로 예제에 사용할 코호트를 만들었다고 가정해 보자. 부록에서 예제에 사용할 대상 코호트 (부록 \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)) 의 모든 정의와 결과 (부록 \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) 를 확인할 수 있다.
 
 <div class="figure" style="text-align: center">
 <img src="images/Characterization/atlasIncidenceCohortSelection.png" alt="발생률 분석에 사용할 대상 코호트와 결과 코호트의 정의." width="100%" />
