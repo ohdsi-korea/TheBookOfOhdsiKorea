@@ -480,11 +480,11 @@ knitr::include_graphics("images/PatientLevelPrediction/analysisSettings.png")
 
 여기에는 세 가지의 옵션이 있다:
 
-- “**표본추출 실행**”: 표본추출을 실행할지 말지 선택할 수 있다 (기본값 = “아니오 [NO]”). 만약 “예 [yes] ”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?**”. 여기서 표본 크기는 결정될 수 있다. 표본추출은 대규모 모집단 (예로 1,000만 환자)의 모델이 환자의 표본을 가지고 모델을 테스트하고 작성함으로써 예측 가능한지 여부를 결정하는 효율적인 수단이 될 수 있다. 예를 들어, 그 표본에서 AUC가 0.5에 가까우면, 그 모델은 쓸모가 없다. 
-- “**최소 공변량 발생: 만약 어떤 공변량이 이 값보다 작은 대상 모집단의 일부에서 발생하면 제거된다:**” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
-- “**공변량 표준화**”: 여기서 공변량을 표준화할 것인지 선택할 수 있다 (기본값 = “예 [yse]”). 공변량의 표준화는 보통 LASSO 모델의 성공적인 요소로 필요로 한다.
+- “**표본추출 실행 Perform sampling**”: 표본추출을 실행할지 말지 선택할 수 있다 (기본값 = “아니오 NO”). 만약 “예 yes”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?** ”. 여기서 표본 크기는 결정될 수 있다. 표본추출은 대규모 모집단 (예로 1,000만 환자)을 대상으로 한 모형에서 환자의 표본을 가지고 모형을 테스트하여 구축함으로써 그 모델이 예측력이 있는지 아는데 효율적 수단이 될 것이다. 예를 들어, 그 추출한 표본에서 AUC가 0.5에 가까우면, 그 모형은 쓸모가 없으므로 버려야 할 것이다. 
+- “**최소 공변량 발생: 만약 어떤 공변량이 지정한 값보다 작적 수의 대상에서만 발생하면 제거된다: Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed:** ” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
+- “**공변량 정규화 Normalize covariate**”: 여기서 공변량을 표준화할 것인지 선택할 수 있다 (기본값 = yes). 공변량의 표준화는 LASSO 모형을 적용하기 위해서는 늘 필요하다.
 
-예를 들어, 그림 \@ref(fig:executionSettings)에 나타난 선택을 한다.
+예를 들어, 그림 \@ref(fig:executionSettings)처럼 선택한다.
 
 ```{r executionSettings, fig.cap='실행 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
@@ -494,12 +494,12 @@ knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
 
 여기에는 네 가지 옵션이 있다:
 
-- "**검증/학습 세트를 분할하는 방법 지정:**" 학습/검증 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모델을 학습하기 위해 이전 데이터, 나중에 모델을 평가하기 위한 이전 데이터) 별로 구분할지를 선택한다.
-- "**테스트 세트로 사용될 데이터의 백분율 (0~100%)**": 테스트 데이터에서 사용될 데이터의 백분율을 선택한다 (기본값 = 25%).
-- "**교차 검정에 사용된 폴드 수**": 최적의 하이퍼-파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
-- "**사용자 유형 testSplit 사용 시 검증/학습 세트를 분할하는 데 사용되는 초기값 (선택적)**”: 사용자 유형 testSplit에서 학습/검증 세트를 분할하는 데 사용되는 임의의 초기값을 선택한다.
+- "**검증/학습 세트를 분할하는 방법 지정 Specify how to split the test/train se:**" 학습/검증 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모형을 학습하기 위해서는 이전 데이터를, 모형을 평가하기 위해서는 최근 데이터 사용) 별로 구분할지를 선택한다.
+- "**테스트 세트로 사용될 데이터의 백분율 Percentage of the data to be used as the test set (0-100%)**": 테스트 데이터로 사용될 데이터의 백분율을 선택한다 (기본값 = 25%).
+- "**교차 검정에 사용된 폴드 수 The number of folds used in the cross validation**": 최적 하이퍼파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
+- "**사람을 기준으로 검증/학습 세트를 분할하는 경우, 사용할 시드 (선택적) The seed used to split the test/train set when using a person type testSplit** ” : 사용자 유형 testSplit에서 학습/검증 세트를 분할하는 데 사용되는 seed로 임의의 초기값을 선택한다.
 
-이 예에서는 그림 \@ref(fig:trainingSettings)와 같이 선택을 한다.
+이 예에서는 그림 \@ref(fig:trainingSettings)와 같이 선택했다.
 
 ```{r trainingSettings, fig.cap='학습 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/trainingSettings.png")
@@ -507,12 +507,12 @@ knitr::include_graphics("images/PatientLevelPrediction/trainingSettings.png")
 
 ### 연구 가져오기 및 내보내기
 
-연구를 내보내려면 “유틸리티 [Utilities] ” 아래의 “내보내기 [Export] ”탭을 클릭한다. ATLAS는 연구를 실행할 때 필요한 연구 이름, 코호트 정의, 선택된 모델, 공변량, 설정과 같은 모든 데이터를 포함하는 파일에 직접 복사하여 붙여넣을 수 있는 JSON을 생성할 것이다. 
-연구를 가져오려면 “유틸리티 [Utilities] ”아래의 “가져오기 [Import] ” 탭을 클릭한다. 환자 수준 예측 연구 JSON의 내용을 이 창에 붙여넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로 비어있는 새 연구 디자인을 사용할 때 수행된다는 점을 유의해야 한다.
+연구를 내보내려면 “유틸리티 Utilities” 아래의 “내보내기 Export”탭을 클릭한다. ATLAS는 연구를 실행할 때 필요한 연구 이름, 코호트 정의, 선택된 모형, 공변량, 설정과 같은 모든 데이터를 직접 복사하여 붙여넣을 수 있는 JSON 형식의 파일을 생성할 것이다. 
+연구를 가져오려면 “유틸리티 Utilities” 아래의 “가져오기 Import” 탭을 클릭한다. 환자 수준 예측 연구 JSON 파일의 내용을 이 창에 붙여넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로 비어있는 새 연구 디자인에다 수행해야 된다는 점을 유의해야 한다.
 
 ### 연구 패키지 다운로드
 
-“유틸리티 [Utilities] ”탭 아래의 “리뷰 & 다운로드 [Review & Download] ” 클릭한다. “연구 패키지 다운로드 [Download Study Package] ” 부분에서 R의 허용되지 않은 모든 문자가 ATLAS에 의해 파일 이름에서 자동으로 제거된다는 점에 유의하여 R 패키지 서술 이름을 입력해야 한다. ![](images/PatientLevelPrediction/download.png)를 클릭하여 R 패키지를 로컬 폴더로 다운로드할 수 있다.
+“유틸리티 Utilities” 탭 아래의 “리뷰 & 다운로드 Review & Download” 클릭한다. “연구 패키지 다운로드 Download Study Package” 부분에서 R 패키지 이름으로 허용되지 않은 모든 문자는 ATLAS가 파일 이름에서 자동으로 제거한다는 점에 유의하여 R 패키지 이름을 작성해야 한다. ![](images/PatientLevelPrediction/download.png)를 클릭하여 R 패키지를 로컬 폴더로 다운로드할 수 있다.
 
 ### 연구 실행
 
@@ -524,11 +524,11 @@ drat::addRepo("OHDSI")
 install.packages("PatientLevelPrediction")
 ```
 
-머신 러닝 알고리즘의 몇몇은 추가적인 소프트웨어 설치를 요구한다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지를 설치하는 방법에 대한 자세한 내용은 ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html)를 참조하면 된다.
+기계학습 알고리즘의 몇몇은 추가적인 소프트웨어 설치를 요구한다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지를 설치하는 방법에 대한 자세한 내용은 ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html)를 참조하면 된다.
 
-연구 R 패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두 번 누르면 RStudio에서 열린다. RStudio 서버에서 RStudio를 실행 중인 경우 파일을 업로드하고 압축을 푼 다음 ![](images/PopulationLevelEstimation/upload.png)을 클릭하여 연구프로젝트를 열면 된다.
+작성된 연구 R 패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두 번 누르면 RStudio에서 열린다. RStudio 서버에서 RStudio를 실행 중인 경우 파일을 업로드하고 압축을 푼 다음 ![](images/PopulationLevelEstimation/upload.png)을 클릭하여 연구프로젝트를 열면 된다.
 
-일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 설명을 따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경해야 한다.
+일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 그 설명을 따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경해야 한다.
 
 ## R에서의 연구 실행
 
