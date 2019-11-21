@@ -480,11 +480,11 @@ knitr::include_graphics("images/PatientLevelPrediction/analysisSettings.png")
 
 여기에는 세 가지의 옵션이 있다:
 
-- “**표본추출 실행**”: 표본추출을 실행할지 말지 선택할 수 있다 (기본값 = “아니오 [NO]”). 만약 “예 [yes] ”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?**”. 여기서 표본 크기는 결정될 수 있다. 표본추출은 대규모 모집단 (예로 1,000만 환자)의 모델이 환자의 표본을 가지고 모델을 테스트하고 작성함으로써 예측 가능한지 여부를 결정하는 효율적인 수단이 될 수 있다. 예를 들어, 그 표본에서 AUC가 0.5에 가까우면, 그 모델은 쓸모가 없다. 
-- “**최소 공변량 발생: 만약 어떤 공변량이 이 값보다 작은 대상 모집단의 일부에서 발생하면 제거된다:**” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
-- “**공변량 표준화**”: 여기서 공변량을 표준화할 것인지 선택할 수 있다 (기본값 = “예 [yse]”). 공변량의 표준화는 보통 LASSO 모델의 성공적인 요소로 필요로 한다.
+- “**표본추출 실행 Perform sampling**”: 표본추출을 실행할지 말지 선택할 수 있다 (기본값 = “아니오 NO”). 만약 “예 yes”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?** ”. 여기서 표본 크기는 결정될 수 있다. 표본추출은 대규모 모집단 (예로 1,000만 환자)을 대상으로 한 모형에서 환자의 표본을 가지고 모형을 테스트하여 구축함으로써 그 모델이 예측력이 있는지 아는데 효율적 수단이 될 것이다. 예를 들어, 그 추출한 표본에서 AUC가 0.5에 가까우면, 그 모형은 쓸모가 없으므로 버려야 할 것이다. 
+- “**최소 공변량 발생: 만약 어떤 공변량이 지정한 값보다 작적 수의 대상에서만 발생하면 제거된다: Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed:** ” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
+- “**공변량 정규화 Normalize covariate**”: 여기서 공변량을 표준화할 것인지 선택할 수 있다 (기본값 = yes). 공변량의 표준화는 LASSO 모형을 적용하기 위해서는 늘 필요하다.
 
-예를 들어, 그림 \@ref(fig:executionSettings)에 나타난 선택을 한다.
+예를 들어, 그림 \@ref(fig:executionSettings)처럼 선택한다.
 
 ```{r executionSettings, fig.cap='실행 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
@@ -494,12 +494,12 @@ knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
 
 여기에는 네 가지 옵션이 있다:
 
-- "**검증/학습 세트를 분할하는 방법 지정:**" 학습/검증 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모델을 학습하기 위해 이전 데이터, 나중에 모델을 평가하기 위한 이전 데이터) 별로 구분할지를 선택한다.
-- "**테스트 세트로 사용될 데이터의 백분율 (0~100%)**": 테스트 데이터에서 사용될 데이터의 백분율을 선택한다 (기본값 = 25%).
-- "**교차 검정에 사용된 폴드 수**": 최적의 하이퍼-파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
-- "**사용자 유형 testSplit 사용 시 검증/학습 세트를 분할하는 데 사용되는 초기값 (선택적)**”: 사용자 유형 testSplit에서 학습/검증 세트를 분할하는 데 사용되는 임의의 초기값을 선택한다.
+- "**검증/학습 세트를 분할하는 방법 지정 Specify how to split the test/train se:**" 학습/검증 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모형을 학습하기 위해서는 이전 데이터를, 모형을 평가하기 위해서는 최근 데이터 사용) 별로 구분할지를 선택한다.
+- "**테스트 세트로 사용될 데이터의 백분율 Percentage of the data to be used as the test set (0-100%)**": 테스트 데이터로 사용될 데이터의 백분율을 선택한다 (기본값 = 25%).
+- "**교차 검정에 사용된 폴드 수 The number of folds used in the cross validation**": 최적 하이퍼파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
+- "**사람을 기준으로 검증/학습 세트를 분할하는 경우, 사용할 시드 (선택적) The seed used to split the test/train set when using a person type testSplit** ” : 사용자 유형 testSplit에서 학습/검증 세트를 분할하는 데 사용되는 seed로 임의의 초기값을 선택한다.
 
-이 예에서는 그림 \@ref(fig:trainingSettings)와 같이 선택을 한다.
+이 예에서는 그림 \@ref(fig:trainingSettings)와 같이 선택했다.
 
 ```{r trainingSettings, fig.cap='학습 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/trainingSettings.png")
@@ -507,12 +507,12 @@ knitr::include_graphics("images/PatientLevelPrediction/trainingSettings.png")
 
 ### 연구 가져오기 및 내보내기
 
-연구를 내보내려면 “유틸리티 [Utilities] ” 아래의 “내보내기 [Export] ”탭을 클릭한다. ATLAS는 연구를 실행할 때 필요한 연구 이름, 코호트 정의, 선택된 모델, 공변량, 설정과 같은 모든 데이터를 포함하는 파일에 직접 복사하여 붙여넣을 수 있는 JSON을 생성할 것이다. 
-연구를 가져오려면 “유틸리티 [Utilities] ”아래의 “가져오기 [Import] ” 탭을 클릭한다. 환자 수준 예측 연구 JSON의 내용을 이 창에 붙여넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로 비어있는 새 연구 디자인을 사용할 때 수행된다는 점을 유의해야 한다.
+연구를 내보내려면 “유틸리티 Utilities” 아래의 “내보내기 Export”탭을 클릭한다. ATLAS는 연구를 실행할 때 필요한 연구 이름, 코호트 정의, 선택된 모형, 공변량, 설정과 같은 모든 데이터를 직접 복사하여 붙여넣을 수 있는 JSON 형식의 파일을 생성할 것이다. 
+연구를 가져오려면 “유틸리티 Utilities” 아래의 “가져오기 Import” 탭을 클릭한다. 환자 수준 예측 연구 JSON 파일의 내용을 이 창에 붙여넣은 다음 다른 탭 버튼 아래에 있는 가져오기 버튼을 클릭한다. 이 작업은 해당 연구에 대한 이전 설정을 모두 덮어쓰므로 일반적으로 비어있는 새 연구 디자인에다 수행해야 된다는 점을 유의해야 한다.
 
 ### 연구 패키지 다운로드
 
-“유틸리티 [Utilities] ”탭 아래의 “리뷰 & 다운로드 [Review & Download] ” 클릭한다. “연구 패키지 다운로드 [Download Study Package] ” 부분에서 R의 허용되지 않은 모든 문자가 ATLAS에 의해 파일 이름에서 자동으로 제거된다는 점에 유의하여 R 패키지 서술 이름을 입력해야 한다. ![](images/PatientLevelPrediction/download.png)를 클릭하여 R 패키지를 로컬 폴더로 다운로드할 수 있다.
+“유틸리티 Utilities” 탭 아래의 “리뷰 & 다운로드 Review & Download” 클릭한다. “연구 패키지 다운로드 Download Study Package” 부분에서 R 패키지 이름으로 허용되지 않은 모든 문자는 ATLAS가 파일 이름에서 자동으로 제거한다는 점에 유의하여 R 패키지 이름을 작성해야 한다. ![](images/PatientLevelPrediction/download.png)를 클릭하여 R 패키지를 로컬 폴더로 다운로드할 수 있다.
 
 ### 연구 실행
 
@@ -524,23 +524,23 @@ drat::addRepo("OHDSI")
 install.packages("PatientLevelPrediction")
 ```
 
-머신 러닝 알고리즘의 몇몇은 추가적인 소프트웨어 설치를 요구한다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지를 설치하는 방법에 대한 자세한 내용은 ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html)를 참조하면 된다.
+기계학습 알고리즘의 몇몇은 추가적인 소프트웨어 설치를 요구한다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지를 설치하는 방법에 대한 자세한 내용은 ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html)를 참조하면 된다.
 
-연구 R 패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두 번 누르면 RStudio에서 열린다. RStudio 서버에서 RStudio를 실행 중인 경우 파일을 업로드하고 압축을 푼 다음 ![](images/PopulationLevelEstimation/upload.png)을 클릭하여 연구프로젝트를 열면 된다.
+작성된 연구 R 패키지를 사용하려면 R Studio를 이용하는 것을 추천한다. 로컬에서 R Studio를 사용 중인 경우 ATLAS에서 생성한 파일의 압축을 풀고 .Rproj를 두 번 누르면 RStudio에서 열린다. RStudio 서버에서 RStudio를 실행 중인 경우 파일을 업로드하고 압축을 푼 다음 ![](images/PopulationLevelEstimation/upload.png)을 클릭하여 연구프로젝트를 열면 된다.
 
-일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 설명을 따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경해야 한다.
+일단 R Studio에서 연구프로젝트를 열면 README 파일을 열 수 있고 그 설명을 따르면 된다. 모든 파일 경로를 시스템의 기존 경로로 변경해야 한다.
 
 ## R에서의 연구 실행
 
-ATLAS 대신 R에서 코드를 직접 작성해서 연구 디자인을 할 수도 있다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지에서 제공하는 함수를 사용할 수 있다. PLP 패키지는 OMOP CDM으로 변환된 데이터로부터 데이터 추출, 모델 구축 및 모델 평가를 가능하게 한다.
+ATLAS 사용하여 연구 디자인을 실행하는 방법은 R에서 코드를 직접 작성하는 것이다. [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 패키지에서 제공하는 함수를 사용할 수 있다. 패키지는 OMOP CDM으로 변환된 데이터로부터 데이터 추출, 모델 구축 및 모델 평가를 가능하게 한다.
 
-### 코호트 작성
+### 코호트 예시화
 
 우선 대상 코호트와 결과 코호트를 만들어야 한다. 코호트 만드는 것은 \@ref(Cohorts)장에 설명되어 있다. 부록에선 대상 코호트 (부록 \@ref(AceInhibitors)) 와 결과 코호트 (부록 \@ref(Angioedema)) 에 대한 전체 정의를 제공한다. 이 예제에서 우리는 ACE 억제제 코호트를 ID 1, 혈관부종 코호트를 ID 2로 가정한다.
 
 ### 데이터 추출
 
-우선 R을 서버와 연결해야 한다. [`PatientLevelPrediction`](https://ohdsi.github.io/PatientLevelPrediction/)은 다양한 데이터베이스 관리 시스템(DBMS) 연결에 필요한 구체적인 설정을 위한 `createConnectionDetails`. Type `?createConnectionDetails` 라고 불리는 기능을 제공하는 [`DatabaseConnector`](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용한다. 예를 들어 이 코드를 사용하여 PostgreSQL 데이터베이스에 연결할 수 있다.
+우선 R에서 서버를 연결해야 한다. [`PatientLevelPrediction`](https://ohdsi.github.io/PatientLevelPrediction/)은 다양한 데이터베이스 관리 시스템(DBMS)에 필요한 구체적인 설정을 위한 `createConnectionDetails`. Type `?createConnectionDetails` 라고 불리는 기능을 제공하는 [`DatabaseConnector`](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용한다. 예를 들어 이 코드를 사용하여 PostgreSQL 데이터베이스에 연결할 수 있다.
 
 ```{r tidy=FALSE,eval=FALSE}
 library(PatientLevelPrediction)
@@ -588,7 +588,7 @@ useDemographicsGender = TRUE,
                           endDays = -1)
 ```
 
-데이터를 추출의 마지막 단계는 `getPlpData` 함수를 실행하고 코호트가 저장되는 데이터베이스 스키마, 코호트와 결과를 위한 코호트 정의 ID, 해당 사람이 데이터에 포함되도록 관찰되어야 하는 코호트 기준 날짜 이전의 최소 기저 관찰 기간인 휴약기 washout period와 같은 세부사항들을 입력하는 것이고 마지막으로 이전에 생성된 공변량 설정을 입력하는 것이다.
+데이터를 추출의 마지막 단계는 `getPlpData` 함수를 실행하고 코호트가 저장되는 데이터베이스 스키마, 코호트와 결과를 위한 코호트 정의 ID, 해당 사람이 데이터에 포함되도록 관찰되어야 하는 코호트 색인 일자 이전의 최소 일자인 최소 휴약기(washout period)와 같은 연결 세부사항들을 입력하는 것이고 마지막으로 이전에 생성된 공변량 설정을 입력하는 것이다.
 
 ```{r tidy=FALSE,eval=FALSE}
 plpData <- getPlpData(connectionDetails = connDetails,
@@ -604,19 +604,20 @@ plpData <- getPlpData(connectionDetails = connDetails,
 )
 ```
 
-[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 매뉴얼을 보면 `getPlpData` 기능에 사용할 수 있는 많은 변수 설정이 설명되어 있다.
-
-`plpData` 오브젝트 만드는데는 상당한 계산시간이 필요하므로 다음에 하도록 하자. `plpData` 는 `ff` 를 쓰기 때문에 통상적인 R의 저장기능을 쓸 수 없다. 대신에 우리는 `savePlpData` function을 쓰도록 하자.
+(번역 생략된 부분)
+There are many additional parameters for the `getPlpData` function which are all documented in the [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) manual. The resulting `plpData` object uses the package `ff` to store information in a way that ensures R does not run out of memory, even when the data are large.
+(번역 생략된 부분)
+Creating the `plpData` object can take considerable computing time, and it is probably a good idea to save it for future sessions. Because `plpData` uses `ff`, we cannot use R's regular save function. Instead, we'll have to use the `savePlpData` function:
 
 ```{r tidy=FALSE,eval=FALSE}
 savePlpData(plpData, "angio_in_ace_data")
 ```
-
-나중에 저장한 내용을 불러오려면 `loadPlpData()` 기능을 쓰면 된다.
+(번역 생략된 부분)
+We can use the `loadPlpData()` function to load the data in a future session.
 
 ### 추가 포함 기준
 
-최종 연구 모집단은 이전에 정의된 2개의 코호트에서 추가적인 제약조건을 적용하여 얻어진다. 예를 들어 최소 위험 노출 기간을 적용할 수 있으며 (`requireTimeAtRisk, minTimeAtRisk`), 이것이 결과를 가진 환자에게도 적용되는지 여부를 지정할 수 있다 (`includeAllOutcomes`). 또한 여기서 대상 코호트 시작에 관련된 위험 기간(risk window)의 시작과 끝을 지정한다. 예를 들어 위험 코호트가 시작된 후 30일부터를 위험 기간의 시작으로 하고 1년 후 종료하려면 `riskWindowStart = 30`, `riskWindowEnd = 365`로 설정할 수 있다. 어떤 경우는 위험 노출 기간이 코호트 종료일에 시작해야 하는 경우가 있다. `addExposureToStart = Ture` 로 설정하면 코호트 (노출) 시간을 시작일에 추가할 수 있다.
+최종 연구 모집단은 이전에 정의된 2개의 코호트에서 추가적인 제약조건을 적용하여 얻어진다. 예를 들어 최소 위험에 노출된 시간을 적용할 수 있으며 (`requireTimeAtRisk, minTimeAtRisk`), 이것이 결과를 가진 환자에게도 적용되는지 여부를 지정할 수 있다 (`includeAllOutcomes`). 또한 여기서 대상 코호트 시작에 관련된 위험 기간(risk window)의 시작과 끝을 지정한다. 예를 들어 위험 코호트가 시작된 후 30일부터 위험 기간으로 시작하고 1년 후 종료하려면 `riskWindowStart = 30`, `riskWindowStart = 365`로 설정할 수 있다. 때에 따라 위험 기간은 코호트 종료일에 시작해야 한다. `addExposureToStart = Ture` 로 설정하면 코호트 (노출) 시간을 시작일에 추가할 수 있다.
 
 아래의 예에서는 연구를 위해 정의한 모든 설정을 시행한 것이다:
 
@@ -640,9 +641,9 @@ population <- createStudyPopulation(plpData = plpData,
 
 ### 모델 개발
 
-알고리즘 설정 기능에서 사용자는 각 하이퍼파라미터에 대한 적합한 값의 목록을 지정할 수 있다. 하이퍼파라미터에서 가능한 모든 조합은 학습 세트에 교차 검증을 사용하는 이른바 그리드서치에 포함된다. 만일 사용자가 어떤 값도 지정하지 않으면 기본값이 사용된다.
+알고리즘의 설정 기능에서 사용자는 각 하이퍼-파라미터에 대한 적합한 값의 목록을 지정할 수 있다. 하이퍼-파라미터에서 가능한 모든 조합은 학습 세트에 교차 검증을 사용하는 이른바 그리드서치에 포함된다. 만일 사용자가 어떤 값도 지정하지 않으면 기본값이 사용된다.
 
-예를 들어 점진적 부스팅 머신에 다음 설정을 사용하는 경우: `ntrees = c(100,200), maxDepth = 4` 그리드서치는 점진적 부스팅 머신 알고리즘을 다른 하이퍼파라미터의 기본 설정과 조합하여 `ntrees = 100`과 `maxDepth = 4`로 설정하여 적용하고, 또한 `ntrees = 200`과 `maxDepth = 4`로도 조합하여 각각 적용할 것이다. 최고의 교차 검증 실행을 이끄는 하이퍼파라미터가 최종 모델으로 선택될 것이다. 우리 예제에서는 여러 하이퍼파라미터값을 조합하여 점진적 부스팅 머신을 만들기로 하였다: 
+예를 들어 점진적 부스팅 머신에 다음 설정을 사용하는 경우: `ntrees = c(100,200), maxDepth = 4` 그리드서치는 점진적 부스팅 머신 알고리즘을 다른 하이퍼-파라미터의 기본 설정을 더한 `ntrees = 100`과 `maxDepth = 4` , 다른 하이퍼-파라미터의 기본 설정을 더한 `ntrees = 200`과 `maxDepth = 4`에적용할 것이다. 최고의 교차 검증 실행을 이끄는 하이퍼-파라미터는 마지막 모델으로 선택될 것이다. 이 문제를 위해 여러 하이퍼-파라미터값을 가지고 점진적 부스팅 머신을 만들기로 하였다: 
 
 ```{r tidy=FALSE,eval=FALSE}
 gbmModel <- setGradientBoostingMachine(ntrees = 5000, 
@@ -650,7 +651,7 @@ gbmModel <- setGradientBoostingMachine(ntrees = 5000,
                                        learnRate = c(0.001,0.01,0.1,0.9))
 ```
 
-`runPIP` 함수는 모집단 `plpData`와 설정한 세팅값을 이용하여 모델을 훈련하고 평가한다. `testSplit` 과 `testFraction` 매개변수를 이용해서 사람 기준 또는 시간 기준으로 훈련데이터와 평가데이터를 75%-25%로 설정하여 환자 수준 예측 파이프라인을 실행할 수 있다:
+`runPIP` 함수는 모델을 훈련하고 평가하기 위해 모집단, `plpData` 및 모델 설정을 사용한다. 데이터를 75% ~ 25%로 분할하기 위해 `testSplit`(사람/시간)과 `testFraction` 파라미터를 사용하고 환자 수준 예측 파이프라인을 실행할 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 gbmResults <- runPlp(population = population, 
@@ -662,29 +663,28 @@ gbmResults <- runPlp(population = population,
                      splitSeed = 1234)
 ```
 
-이상의 설정으로 PLP패키지는 R의 xgboost 패키지를 사용하여 데이터의 75%로 점진적 부스팅 머신 모델을 만들고, 나머지 25%의 데이터로 모델을 평가한다. 실행 후 반환되는 데이터에는 모델과 성능 등에 대한 정보가 포함되어 있다.
+패키지 안에 R xgboost 패키지를 사용하여 데이터의 75%를 사용하는 점진적 부스팅 머신 모델(gradient boosting machine model)을 맞추고 나머지 25%에 대해 모델을 평가한다. 결과 데이터 구조는 모델과 성능에 대한 정보가 포함되어 있다.
 
-`runPIP` 함수에는 기본적으로 `TRUE`로 설정된 `plpData`, `plpResults`, `plpplots`, `evaluation` 등을 저장할 수 있는 몇 가지 매개변수가 있다.
+`runPIP` 함수에는 기본적으로 `TRUE`로 설정된 `plpData`, `plpResults`, `plpplots`, `evaluation` 등을 저장할 수 있는 몇 가지 파라미터가 있다.
 
 다음을 사용하여 모델을 저장할 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 savePlpModel(gbmResults$model, dirPath = "model")
 ```
-다음 명령으로 모델을 불러들일 수 있다:
+(번역 생략된 부분)
 We can load the model using:
 
 ```{r tidy=FALSE,eval=FALSE}
 plpModel <- loadPlpModel("model")
 ```
-
-전체 결과물을 다음 명령어로 저장할 수 있다:
+(번역 생략된 부분)
+You can also save the full results structure using:
 
 ```{r tidy=FALSE,eval=FALSE}
 savePlpResult(gbmResults, location = "gbmResults")
 ```
-
-다음 명령어로 전체 결과물을 불러들일 수 있다:
+(번역 생략된 부분)
 To load the full results structure use:
 
 ```{r tidy=FALSE,eval=FALSE}
@@ -693,9 +693,9 @@ gbmResults <- loadPlpResult("gbmResults")
 
 ### 내부 검증
 
-연구를 실행하면 `runPLP`함수는 학습된 모델과 각 학습/테스트 세트에서의 모델 성능을 반환해준다. `viewPLP(runPLP = gbmResults)`를 실행하여 결과를 대화형으로 볼 수 있다. 이것은 프레임워크가 생성한 모든 성능 측정값과 대화형 도표를 볼 수 있는 Shiny 앱을 열 것이다 (Shiny 어플리케이션 섹션의 그림 \@ref(fig:shinySummary) 참조). 
+연구를 실행하면 `runPLP`함수는 학습/테스트 세트에서 학습된 모델과 학습/테스트 세트에서 모델의 평가를 해준다. `viewPLP(runPLP = gbmResults)`를 실행하여 양방향의 결과를 볼 수 있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든 측정값을 볼 수 있는 Shiny 앱을 열 것이다 (Shiny 어플리케이션 섹션의 그림 \@ref(fig:shinySummary) 참조). 
 
-모든 평가 도표를 폴더에 저장하려면 다음 코드를 실행하면 된다:
+모든 평가 그림을 폴더에 생성하고 저장하려면 다음 코드를 실행하면 된다:
 
 ```{r tidy=FALSE,eval=FALSE}
 plotPlp(gbmResults, "plots")
@@ -705,7 +705,7 @@ plotPlp(gbmResults, "plots")
 
 ### 외부 검증
 
-항상 외적 타당도를 수행하는 것을 권장한다. 즉 가능한 많은 새로운 데이터에 최종모델을 적용하고 성능을 평가해야 한다. 여기서 이미 다른 데이터베이스에서 데이터 추출이 수행되어 `newData` 폴더에 저장되었다고 가정한다. 이전에 만든 모델을 `model` 폴더로부터 로딩한다.
+항상 외적 타당도를 수행하는 것을 권장한다. 즉 가능한 많은 새로운 데이터에 최종모델을 적용하고 성능을 평가해야 한다. 여기서 이미 두 번째 데이터베이스에서 데이터 추출이 수행되어 `newData` 폴더에 저장되었다고 가정한다. 이전에 장착된 모델을 `model` 폴더로부터 로딩한다.
 
 ```{r tidy=FALSE,eval=FALSE}
 # load the trained model
@@ -733,7 +733,7 @@ population <- createStudyPopulation(plpData = plpData,
 validationResults <- applyModel(population, plpData, plpModel)
 ```
 
-외부 검증 및 필요한 데이터 추출을 보다 쉽게 하기 위해 PLP 패키지는 `externalValidatePLP` 라는 함수를 제공한다. `result <- runPlp(...)`을 실행했다고 가정했을 때 모델에 필요한 데이터를 추출하여 새 데이터에 대해 평가할 수 있다. 검증 코호트가 ID 1과 2가 있는 테이블 `mainschema.dob.cohort` 과 CMD 데이터가 스키마 `cdmschema.dob` 라고 가정한다: 
+또한 필요한 데이터를 추출하는 외부 검증을 보다 쉽게 하기 위해 `externalValidatePLP` 함수를 제공한다. `result <- runPlp(...)`을 실행했다고 가정했을 때 모델에 필요한 데이터를 추출하여 새 데이터에 대해 평가할 수 있다. 검증 코호트가 ID 1과2가 있는 테이블 `mainschema.dob.cohort` 과CMD 데이터가 스키마 `cdmschema.dob` 라고 가정한다: 
 
 ```{r tidy=FALSE,eval=FALSE}
 valResult <- externalValidatePlp(
@@ -750,7 +750,7 @@ valResult <- externalValidatePlp(
 )
 ```
 
-모델을 검증할 데이터베이스가 여러 개 있는 경우 다음과 같이 실행 할 수 있다:
+모델을 검증할 데이터베이스가 여러 개 있는 경우 다음을 실행 할 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 valResults <- externalValidatePlp(
@@ -783,7 +783,7 @@ valResults <- externalValidatePlp(
 
 ### 모델 성능
 
-`viewPlp` 함수를 사용하면 예측 모델의 성능을 탐색하기 가장 쉽다. 이 함수는 **입력 결과 객체**가 필요하다. R에서 모델을 개발하는 경우 입력을 위해 runPLp 결과를 사용할 수 있다. 연구패키지로 만들어진 ATLAS에서 사용한다면 모델 중 하나를 로딩해야 한다 (이 예제에서는 Analysis_1을 로딩할 것이다): \index{model viewer app}
+`viewPlp` 함수를 사용하면 예측 모델의 성능을 탐색하기에 가장 쉽다. 이 함수는 결과 객체를 입력값으로 한다. R에서 모델을 개발하는 경우에는 `runPLp`의 결과를 입력값으로 사용할 수 있다. ATLAS로 만든 연구 패키지를 이용한다면 모델 중 하나를 로딩해야 한다 (이 예제에서는 Analysis_1을 로딩할 것이다): \index{model viewer app}
 
 ```{r tidy=FALSE,eval=FALSE}
 plpResult <- loadPlpResult(file.path(outputFolder, 
@@ -791,7 +791,7 @@ plpResult <- loadPlpResult(file.path(outputFolder,
                                      'plpResult'))
 ```
 
-여기서 “Analysis_1”은 앞에서 지정한 분석에 해당한다.
+여기서 “Analysis_1”은 앞에서 설명한 분석에 해당한다.
 
 이후에 다음을 실행하여 Shiny 앱을 시작할 수 있다:
 
@@ -799,7 +799,7 @@ plpResult <- loadPlpResult(file.path(outputFolder,
 viewPlp(plpResult)
 ```
 
-Shiny 앱은 그림 \@ref(fig:shinySummary)에서 볼 수 있듯이 테스트와 트레인 세트에 있는 실행 메트릭스의 요약본을 함께 보여준다. 이 결과는 트레인 세트에 있는 AUC가 0.78이고 테스트 세트에서는 0.74까지 떨어지는 것을 보여준다. 테스트 세트 AUC가 좀 더 정확한 측정이다. 전반적으로 이 모델은 ACE 억제제를 처음 사용하는 사용자에서 결과를 예측할 수 있을 것처럼 보이지만 트레인세트가 테스트 세트보다 실행력이 더 높기 때문에 다소 과적합 되었다. ROC 도표는 그림 \@ref(fig:shinyROC)에 제시되어 있다.
+Shiny 앱은 그림 \@ref(fig:shinySummary)에서 볼 수 있듯이 훈련 세트와 평가 세트에 있는 성능 지표의 요약본을 보여준다. 결과를 보면 훈련 세트에서 AUC가 0.78이고 평가 세트에서는 0.74까지 떨어지는 것을 보여준다. 평가 세트 AUC가 좀 더 정확한 측정 값이다. 전반적으로 이 모델은 ACE 억제제를 처음 사용하는 사용자에서 결과를 예측할 수 있을 것처럼 보이지만 훈련 세트가 평가 세트보다 성능이 더 좋기 때문에 다소 과적합 되었다. ROC 도표는 그림 \@ref(fig:shinyROC)에 제시되어 있다.
 
 ```{r shinySummary, fig.cap='Shiny 앱에서의 요약 평가 통계.', echo=FALSE, out.width='100%'}
  knitr::include_graphics("images/PatientLevelPrediction/shinysummary.png")
@@ -809,9 +809,9 @@ Shiny 앱은 그림 \@ref(fig:shinySummary)에서 볼 수 있듯이 테스트와
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyRoc.png")
 ```
 
-그림 \@ref(fig:shinyCal)에 있는 모델 적합 도표는 점들이 대각선 주위에 있을 때 일반적으로 관찰된 위험이 예측된 위험과 일치함을 보여준다. 그러나 그림 \@ref(fig:shinyDemo)에 있는 인구통계학적 그래프는 곡선 (예측위험) 이 40세 미만의 적색선 (관측위험) 모델과 다르기 때문에 모델이 젊은 환자에 대해 잘 보정되지 않았음을 보여준다. 이것은 대상 모집단(target population)에서 40대 미만을 제거해야 할 필요가 있다는 것을 알 수 있다 (젊은 환자들의 관찰된 위험이 거의 0이므로).
+그림 \@ref(fig:shinyCal)에 있는 모델 적합 도표는 점들이 대각선 주위에 있을 때 일반적으로 관찰된 위험이 예측된 위험과 일치함을 보여준다. 그러나 그림 \@ref(fig:shinyDemo)에 있는 인구통계학적 그래프는 하늘색 선 (예측위험) 이 40세 미만의 적색선 (관측된 위험)과 다르기 때문에 모델이 젊은 환자에 대해 잘 보정되지 않았음을 보여준다. 이것은 대상 모집단 target population에서 40대 미만을 제거해야 할 필요가 있다는 것을 보여 준다 (젊은 환자에서는 관찰된 위험이 거의 0이므로).
 
-```{r shinyCal, fig.cap='모델의 보정',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyCal, fig.cap='모델 보정',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyCal.png")
 ```
 
@@ -819,36 +819,35 @@ Shiny 앱은 그림 \@ref(fig:shinySummary)에서 볼 수 있듯이 테스트와
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyDemo.png")
 ```
 
-마지막으로, 손실표(attrition plot)는 선정/제외 기준에 기초한 라벨링 된 데이터에서 손실된 환자의 수를 나타낸다 (그림 \@ref(fig:shinyAtt) 참조). 이 표는 위험에 노출된 전체 기간 동안 관찰되지 않았기 때문에 대상 모집단의 많은 부분을 잃었다는 것을 보여준다 (1년 후). 흥미롭게도, 위험에 노출된 환자들의 수가 완전히 부족하지는 않은 것으로 나타났다.
+마지막으로, 손실 도표 attrition plot는 선정/제외 기준에 기초해서 라벨링 된 데이터에서 손실된 환자 수를 나타낸다 (그림 \@ref(fig:shinyAtt) 참조). 아래 표는 대상 모집단에서 많은 연구대상자가 위험 노출 기간 조건 (1년)을 만족하지 못해서 손실됐다는 것을 보여준다. 흥미롭게도, 결과가 발생한 환자들은 상대적으로 적게 손실되었다.
 
-```{r shinyAtt, fig.cap='예측 문제의 손실표',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyAtt, fig.cap='분석한 예측 문제에서의 손실 도표',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyAtt.png")
 ```
 
+### 모델간 비교
 
-### 모델 비교
-
-ATLAS에서 생성된 연구 패키지는 다른 예측 문제에 대해 다양한 예측 모델을 생성하고 평가할 수 있다. 그러므로 연구 패키지에 의해 생성된 결과에 대해 여러 모델을 볼 수 있도록 Shiny 앱이 개발되었다. 앱을 시작하기 위해서는 `execute` 명령을 실행할 때 지정된 분석 결과를 포함하는 경로인 `outputFolder`에 있는 `viewMultiplePlp(outputFolder)`을 실행한다 (그리고 예를 들어 “Analysis_1”이라는 하위 폴더를 포함해야 함).
+ATLAS가 생성한 연구 패키지는 다른 예측 문제에 대해 다른 예측 모델을 생성하고 평가하는데 사용할 수 있다. 이를 위해서 특별히, 연구 패키지가 생성한 결과에 대해 여러 모델을 볼 수 있도록 Shiny 앱을 개발하였다. 앱을 시작하기 위해서는 `viewMultiplePlp(outputFolder)`라고 실행하는데 `outputFolder`는 `execute` 명령을 실행할 때 지정된 분석 결과를 저장하는 경로이다 (우리 예제에서는 “Analysis_1”이라는 하위 폴더가 포함되어야 한다).
 
 #### 모델 요약 보기 및 설정 {-}
 
-상호적인 Shiny 앱은 그림 \@ref(fig:multiShinySummary)과 같이 요약 페이지에서 시작된다.
+대화영 Shiny 앱은 그림 \@ref(fig:multiShinySummary)과 같이 요약 페이지를 보여준다.
 
-```{r multiShinySummary, fig.cap='학습된 각 모델에 대한 key hold out set 성능 지표를 포함하는 shiny 요약 페이지',echo=FALSE, out.width='100%', fig.align='center'}
+```{r multiShinySummary, fig.cap='학습된 각 모델에 대해서 핵심 성능 지표를 보여주는 shiny 요약 페이지',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyFilter.png")
 ```
 
 요약 페이지 테이블에는 아래 내용이 있다:
 
-- 모델에 관한 기본 정보 (예를 들어, 데이터베이스 정보, 분류 유형, 위험에 노출된 시간 설정, 대상 모집단, 결과 명)
+- 모델에 관한 기본 정보 (예를 들어, 데이터베이스 정보, 분류 유형, 위험 노출 기간 설정, 대상 모집단, 결과 명)
 - 대상 모집단 수와 결과 발생률
-- 예측 행렬(discrimination metrics): AUC, AUPRC
+- 판별 지표 discrimination metrics: AUC, AUPRC
 
-표 왼쪽에는 필터 옵션이 있는데 여기서는 초점을 맞출 개발/검증 데이터베이스, 모델 유형, 관심 있는 위험에 노출된 시간 설정 그리고/또는 관심 코호트가 있다. 예를 들어, 대상 모집단 “고혈압의 일차 단일 요법으로 ACE 억제제의 신규 사용자[New users of ACE inhibitors as first line mono-therapy for hypertension”에 해당하는 모델을 선택하려면 *대상 코호트[Target Cohort]* 옵션을 선택하면 된다.
+표 왼쪽에는 필터 옵션이 있는데 여기서는 해당 코호트의 개발/검증 데이터베이스, 모델 유형, 관심 있는 위험 노출 기간 설정이 있다. 예를 들어, 대상 모집단 “고혈압의 일차 단일 요법으로 ACE 억제제의 신규 사용자[New users of ACE inhibitors as first line mono-therapy for hypertension”에 해당하는 모델을 선택하려면 *대상 코호트[Target Cohort]* 옵션을 선택하면 된다.
 
-해당 행을 클릭하여 모델을 탐색하면, 선택된 행이 강조 표시된다. 행을 선택하면 *모델 설정[Model Settings]* 탭을 클릭하여 모델을 개발할 때 사용되는 모델 설정을 탐색할 수 있다:
+해당 행을 클릭하여 모델을 탐색하면, 선택된 행이 강조 표시된다. 행을 선택하면 *모델 설정 Model Settings* 탭을 클릭하여 모델을 개발할 때 사용되는 모델 설정을 탐색할 수 있다:
 
-```{r shinyModel, fig.cap='모델을 개발할 때 사용되는 모델 설정 보기.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyModel, fig.cap='모델을 개발에 사용된 설정 보기.',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyModel.png")
 ```
 
@@ -858,35 +857,33 @@ ATLAS에서 생성된 연구 패키지는 다른 예측 문제에 대해 다양�
 
 일단 모델 행을 선택하면 모델 성능도 볼 수 있다. 임계값 성능 요약을 보기 위하여 ![](images/PatientLevelPrediction/performance.png) 를 클릭하면 그림 \@ref(fig:shinyPerformanceSum)처럼 나타난다. 
 
-```{r shinyPerformanceSum, fig.cap='요약 성능은 설정된 임계값을 측정한다.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyPerformanceSum, fig.cap='설정된 임계값에 따른 성능 측정값 요약표',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceSum.png")
 ```
 
-이 요약 보기에서는 선택한 예측 질문을 표준 형식, 임계값 선택기(threshold selector) 및 대시보드에 양성예측도(PPV), 음성예측도(NPV), 민감도 및 특이도 (\@ref(performance)절 참조) 와 같은 주요 임계값 기반 메트릭을 포함하고 있다. 그림 \@ref(fig:shinyPerformanceSum)에서 0.00482 임계값에서 민감도는 83.4% (다음 해(following year)에 결과를 가진 83.4% 환자가 0.00482보다 크거나 같은 위험을 가지고 있다) 이고 PPV는 1.2% (0.00482보다 크거나 같은 위험을 가진 환자의 1.2%는 다음 해에 그 결과를 가진다) 이다. 연간 결과 발생률이 0.741%이므로 위험이 0.00482보다 크거나 같은 환자를 식별하는 것은 모집단의 평균 위험의 거의 두 배가 되는 환자의 하위그룹에서 찾을 수 있다. 다른 값의 실행을 보여주는 슬라이더를 사용하여 임계값을 조정할 수 있다.
+이 요약 보기에는 표준화한 형식의 예측 질문, 임계값 선택기 threshold selector 및 대시보드에 양성예측도 PPV, 음성예측도 NPV, 민감도 및 특이도 (\@ref(performance)절 참조) 와 같은 주요 임계값 기반 지표를 포함하고 있다. 그림 \@ref(fig:shinyPerformanceSum)에서 임계값 0.00482에서 민감도는 83.4% (다음 1년간 결과가 발생한 83.4% 환자는 0.00482 이상의 위험을 가지고 있다) 이고 PPV는 1.2% (0.00482보다 크거나 같은 위험을 가진 환자의 1.2%는 다음 1 년간 그 결과가 발생한다) 이다. 연간 결과 발생률이 0.741%이므로 위험이 0.00482 이상인 환자를 식별하는 것은 모집단의 평균 위험의 거의 두 배 (1.2%)가 되는 환자그룹을 찾을 수 있다는 것이다. 슬라이더를 사용하여 임계값을 조정할 수 있다.
 
-모델의 전체적인 예측력을 보려면 “Discrimination” 탭을 클릭하면 ROC 도표, 정밀도-검출률(precision-recall) 도표, 분포 도표를 볼 수 있다. 그림의 선은 선택한 임계값 포인트에 해당한다. 그림 \@ref(fig:shinyPerformanceDisc)는 ROC와 정밀도-검출률 도표를 보여준다. ROC 도표는 모델이 연내에 결과를 얻을 사람과 그렇지 않은 사람을 구별할 수 있음을 보여준다. 그러나 결과 발생률이 낮다는 것은 거짓 양성률이 높다는 것을 의미하기 때문에 정밀도-재현율 도표를 보면 그 실행이 덜 인상적으로 보인다.
+모델의 전체적인 예측력을 보려면 “Discrimination” 탭을 클릭하면 ROC 도표, 정밀도-검출률(precision-recall) 도표, 분포 도표를 볼 수 있다. 그림의 수직 선은 선택한 임계값 포인트에 해당한다. 그림 \@ref(fig:shinyPerformanceDisc)는 ROC와 정밀도-검출률 도표를 보여준다. ROC 도표는 모델이 1년 내에 결과가 생길 사람과 그렇지 않은 사람을 구별할 수 있음을 보여준다. 그러나 결과 발생률이 낮다는 것은 거짓 양성률이 높다는 것을 의미하기 때문에 정밀도-재현율 도표를 보면 성능이 그다지 인상적이지는 않아 보인다.
 
-```{r shinyPerformanceDisc, fig.cap='모델의 전체적인 예측력에 접근하기 위해 사용되는 ROC와 정밀도-검출률 도표.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyPerformanceDisc, fig.cap='모델의 전체적인 판별도를 평가하기 위한 ROC와 정밀도-검출률 도표.',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceDisc.png")
 ```
 
 그림 \@ref(fig:shinyPerformanceDist)는 예측과 선호 점수 분포를 보여준다.
 
-```{r shinyPerformanceDist, fig.cap='결과를 가지거나 가지고 있지 않은 경우를 모두 포함하는 예측된 위험 분포. 이것들이 중복될수록 그 차별은 더 심해진다.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyPerformanceDist, fig.cap='결과가 생긴 군과 생기지 않은 군에서 예측 위험 분포. 이 도표들간에 중복이 심할 수록 판별력은 나빠진다.',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceDist.png")
 ```
 
-마지막으로 “Calibration” 탭을 클릭하여 모델의 보정(calibration)을 검사할 수 있다. 그림 \@ref(fig:shinyPerformanceCal)은 적합력 그림과 인구통계학적 적합력을 보여준다.
+마지막으로 “Calibration” 탭을 클릭하여 모델의 보정 calibration을 조사할 수 있다. 그림 \@ref(fig:shinyPerformanceCal)은 보정 도표 calibration plo와 인구통계학적 보정을 보여준다.
 
-```{r shinyPerformanceCal, fig.cap='위험 계층화 보정 및 인구통계학적 보정',echo=FALSE, out.width='100%', fig.align='center'}
+```{r shinyPerformanceCal, fig.cap='위험 층화 보정 및 인구통계학적 보정',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceCal.png")
 ```
 
+평균 예측 위험은 1년 이내 결과를 경험한 관측된 비율과 일치하는 것으로 나타나므로 모델은 잘 보정되어 있다. 흥미롭게도 인구통계학적 보정을 보면 젊은 환자들에게서 기대 선이  관찰 선보다 더 높게 나왔다는 것을 보여주고 있어서, 모델이 젊은 연령 집단에 있어서 위험을 실제보다 더 높게 예측하는 것을 알 수 있다. 이것은 젊은 환자나 고령 환자를 위한 모델을 분리하여 별도로 개발해야 할 수도 있다는 것을 의미한다.
 
-평균 예측 위험은 1년 이내 결과를 경험한 관측된 비율과 일치하는 것으로 나타나므로 모델은 잘 보정되어 있다. 흥미롭게도 인구통계학적 적합력은 기대 선이 젊은 환자들에게 관찰된 선보다 더 높게 나왔다는 것을 보여주어서 젊은 연령 집단이 더 높은 위험을 예측한다. 이것은 젊은 환자나 고령 환자를 위한 별도의 모델을 개발해야 할 수도 있다.
-
-
-#### 모델 확인 {-}
+#### 모델 보기 {-}
 
 최종 모델을 확인하려면 왼쪽 메뉴에서 ![](images/PatientLevelPrediction/modelButton.png) 옵션을 선택하면 된다. 옵션을 선택하면 그림 \@ref(fig:shinyModelPlots)과 \@ref(fig:shinyModelTable)과 같이 모델의 각 변수에 대한 그래프와 공변량에 대한 요약표를 볼 수 있다. 변수 그래프는 범주형 변수와 연속형 변수로 구분된다. x축은 결과가 없는 환자의 유병률/평균이고 y축은 결과가 있는 환자의 유병률/평균이다. 그래프를 보면 결과가 있는 환자는 대각선 아래보다 대각선 위에 더 많이 분포하고 있다.
 
@@ -894,21 +891,21 @@ ATLAS에서 생성된 연구 패키지는 다른 예측 문제에 대해 다양�
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyModelPlots.png")
 ```
 
-그림 \@ref(fig:shinyModelTable)의 표에는 공변량과 공변량으로 사용될 수 있는 모든 변수의 값 (일반 선형 모델을 사용할 경우 계수, 그렇지 않을 경우 변수 중요도), 그리고 결과 평균 (결과가 있는 사람들의 평균), 비결과 평균 (결과가 없는 사람들의 평균) 이 나타나 있다.
+그림 \@ref(fig:shinyModelTable)의 표에는 공변량과 공변량으로 사용될 수 있는 모든 변수의 값 (일반 선형 모델을 사용할 경우 계수, 그렇지 않을 경우 변수 중요도), 그리고 결과 평균 (결과가 있는 사람들의 평균), 비-결과 평균 (결과가 없는 사람들의 평균) 이 나타나 있다.
 
 ```{r shinyModelTable, fig.cap='모델 세부사항 표.',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyModelTable.png")
 ```
 
 ```{block2, type='rmdimportant'}
-예측 모델은 인과관계를 판단하는 모델이 아니며 예측 변수들을 결과의 원인으로 오인해서는 안 된다. 그림 \@ref(fig:shinyModelTable)의 변수를 수정해도 결과의 위험에 영향을 미친다는 보장은 없다.
+예측 모델은 인과관계를 판단하는 모델이 아니며 예측 변수들을 결과의 원인으로 오인해서는 안 된다. 그림 \@ref(fig:shinyModelTable)의 변수를 수정한다 해도 결과 발생 위험에 영향을 미친다는 보장은 할 수 없다.
 ```
 
 ## 추가적 환자-수준 예측 변수
 
-### 저널에 논문 작성
+### 논문 제출용 문서 작성
 
-저널에 논문을 실을 때 목차를 자동으로 생성하는 기능이 추가되었다. 이 기능에는 작성된 연구의 많은 세부사항과 결과들을 포함한다. 외적 타당도를 수행한 경우 그 결과도 추가 할 수 있다. 선택적으로, 대상 집단의 공변량이 포함된 표를 추가할 수 있다. 다음 기능을 사용하여 학술지의 초안을 작성할 수 있다:
+논문지에 논문을 실을 수 있도록 워드 문서를 자동으로 생성하는 기능이 추가되었다. 그 문서에는 도출된 연구의 많은 세부사항과 결과가 포함되어 있다. 외적 타당도를 수행한 경우 그 결과도 추가 할 수 있다. 선택적으로, 대상 집단의 공변량이 포함된 표를 추가할 수 있다. 다음 기능을 사용하여 논문의 초안을 작성할 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 
@@ -926,18 +923,18 @@ ATLAS에서 생성된 연구 패키지는 다른 예측 문제에 대해 다양�
              outputLocation = "<your location>")
 ````
 
-더욱 자세한 내용에 대해서는 기능의 도움 페이지를 참조하십시오.
+더욱 자세한 내용에 대해서는 기능의 도움 페이지를 참조하라.
 
 ## 요약
 
 ```{block2, type='rmdsummary'}
 - 환자-수준 예측은 과거의 데이터를 사용하여 미래의 사건을 예측하는 모델을 개발하는 것을 목표로 한다.
 
-- 모델 개발을 위한 최고의 머신 알고리즘 선택은 경험적인 문제이다. 즉 당면한 문제와 데이터에 의해 결정된다.
+- 모델 개발을 위한 최고의 기계학습 알고리즘 선택은 경험적인 문제이다. 즉 당면한 문제와 데이터에 의해 결정된다.
 
 - PatientLevelPrediction 패키지는 OMOP-CDM의 데이터를 사용하여 예측 모델을 개발하고 검증하기 위한 사례를 제공한다.
 
-- 모델 예측 및 모델 성능 측도는 인터랙티브 대시보드(interactive dashboard)로 수행된다.
+- 모델 및 그 성능 지표 보급은 대화식 대시보드로 수행된다.
 
 - OHDSI의 예측 프레임워크는 임상 허가의 전제 조건인 예측 모델의 대규모 외적 타당도 검증을 가능하게 한다.
 
@@ -956,7 +953,7 @@ devtools::install_github("ohdsi/Eunomia", ref = "v1.0.0")
 devtools::install_github("ohdsi/PatientLevelPrediction")
 ```
 
-Eunomia 패키지는 R에서 실행될 CDM에 있는 훈련된 데이터를 제공한다. 세부 내용은 다음을 통해 확인 할 수 있다:
+Eunomia 패키지는 자신의 PC에서 R을 실행할 수 있도록 모의 CDM 데이터를 제공한다. 세부 내용은 다음을 통해 확인 할 수 있다:
 
 ```{r eval=FALSE}
 connectionDetails <- Eunomia::getEunomiaConnectionDetails()
@@ -970,23 +967,23 @@ Eunomia::createCohorts(connectionDetails)
 
 #### 문제 정의 {-}
 
-> NSAID를 처음 사용하기 시작한 환자의 경우, 내년에 위장관 출혈(GI)을 일으킬지 예측하자.
+> NSAID를 처음 사용하기 시작한 환자에서 누가 내년에 위장관 출혈을 일으킬지 예측.
 
 NSAID 신규 사용자 코호트는 COHORT_DEFINITION_ID = 4를 갖고, 위장관 출혈 코호트는 COHORT_DEFINITION_ID = 3을 갖는다.
 
 ```{exercise, exercisePlp1}
-PatientLevelPrediction R 패키지를 사용하여 예측에 사용할 공변량을 정의하고, CDM에서 PLP 데이터를 추출하고, PLP 데이터를 요약하십시오.
+PatientLevelPrediction R 패키지를 사용하여 예측에 사용할 공변량을 정의하고, CDM에서 PLP 데이터를 추출하고, PLP 데이터를 요약하라.
 
 ```
 
 ```{exercise, exercisePlp2}
-최종 모집단을 정의하고 `createStudyPopulation` 함수를 사용하여 이를 지정하기 위해 디자인 선택을 다시 검토해야 한다. 선택한 것이 최종 모집단의 크기에 어떤 영향을 미칠 것인가?
+최종 대상 모집단을 정의하기 위하여 연구 선택사항을 다시 살펴보고 `createStudyPopulation` 함수를 사용하여 이를 지정하라. 선택한 것이 최종 모집단의 크기에 어떤 영향을 미칠 것인가?
   
 ```
 
 ```{exercise, exercisePlp3}
-LASSO를 사용하여 예측 모델을 만들고 Shiny 어플리케이션을 사용하여 성능을 평가해야 한다. 모델 성능은 어느 정도인가?
+LASSO를 사용하여 예측 모델을 만들고 Shiny 앱을 사용하여 성능을 평가하라. 모델 성능은 어느 정도인가?
   
 ```
 
-제안된 답변은 부록 \@ref(Plpanswers)에서 찾을 수 있다.
+답안은 부록 \@ref(Plpanswers)에서 찾을 수 있다.
