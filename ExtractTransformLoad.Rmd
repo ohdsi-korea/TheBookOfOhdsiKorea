@@ -157,7 +157,7 @@ Synthea 데이터의 CDM으로의 변환에 대한 더 자세한 설명은 전�
 
 ## 2단계: 코드 매핑 생성
 
-점점 더 많은 원천 코드가 OMOP 용어에 추가되고 있다. 이것은 CDM으로 변환된 데이터의 코딩 체계가 이미 CDM에 포함되거나 매핑되었을 수도 있다는 것을 의미한다. OMOP Vocabulary의 VOCABULARY 테이블을 통해 어떤 용어들이 포함되었는지 확인할 수 있다. 비표준인 원천 코드 (예를 들어 ICD-10CM codes)에서 표준용어 (예를 들어 SNOMED codes)로의 매핑을 확인하려면 CONCEPT_RELATIONSHIP 테이블 내의 relationship_id = “Maps to” 인 값들을 찾으면 확인할 수 있다. 예를 들면 ICD-10CM 코드 ‘I21’ (“Acute Myocardial Infarction”)의 표준용어 ID를 확인하기 위해 다음과 같은 SQL을 사용할 수 있다:
+점점 더 많은 원천 코드가 OMOP 용어에 추가되고 있다. 이것은 CDM으로 변환된 데이터의 코딩 체계가 이미 CDM에 포함되거나 매핑되었을 수도 있다는 것을 의미한다. OMOP 용어의 VOCABULARY 테이블을 통해 어떤 용어들이 포함되었는지 확인할 수 있다. 비표준인 원천 코드 (예를 들어 ICD-10CM codes)에서 표준용어 (예를 들어 SNOMED codes)로의 매핑을 확인하려면 CONCEPT_RELATIONSHIP 테이블 내의 relationship_id = “Maps to” 인 값들을 찾으면 확인할 수 있다. 예를 들면 ICD-10CM 코드 ‘I21’ (“Acute Myocardial Infarction”)의 표준용어 ID를 확인하기 위해 다음과 같은 SQL을 사용할 수 있다:
 
 ```sql
 SELECT concept_id_2 standard_concept_id
@@ -187,16 +187,16 @@ Usagi는 코드 매핑 절차를 도와주는 도구이다. Usagi는 코드 설�
 
 #### 범위와 목표 {-}
 
-매핑이 필요한 원천 코드를 Usagi로 불러올 수 있다 (만약 코드가 영어가 아닐 경우, 추가로 번역한 열이 필요하다). 단어 유사도 접근법은 원천 코드와 Vocabulary 개념들을 연결하기 위해 필요하다. 하지만 이러한 코드 연결은 수동적으로 검토해야 하고, Usagi는 이를 수행하기 위한 인터페이스를 제공한다. Usagi는 Vocabulary에 표준 개념만을 제안한다.
+매핑이 필요한 원천 코드를 Usagi로 불러올 수 있다 (만약 코드가 영어가 아닐 경우, 추가로 번역한 열이 필요하다). 단어 유사도 접근법은 원천 코드와 용어 개념들을 연결하기 위해 필요하다. 하지만 이러한 코드 연결은 수동적으로 검토해야 하고, Usagi는 이를 수행하기 위한 인터페이스를 제공한다. Usagi는 용어에 표준 개념만을 제안한다.
 
 #### 절차 개요 {-}
 
 소프트웨어를 사용하기 위한 일반적인 순서:
 
-1. 원천 시스템 ("원천 코드")로부터 Vocabulary concepts들로의 매핑을 진행하고 싶은 코드들을 올림.
-2. Usagi 단어 유사도 접근법을 이용하여 Vocabulary concepts들로의 매핑을 진행.
+1. 원천 시스템 ("원천 코드")로부터 용어 개념으로의 매핑을 진행하고 싶은 코드들을 올림.
+2. Usagi 단어 유사도 접근법을 이용하여 용어 개념으로의 매핑을 진행.
 3. Usagi 인터페이스를 활용하여 제안된 매핑을 확인하고 필요할 경우 개선. 코딩 시스템과 의학 지식이 있는 사람이 리뷰를 진행하는 것이 바람직함. 
-4. 매핑 결과를 Vocabulary의 SOURCE_TO_CONCEPT_MAP으로 내보냄.
+4. 매핑 결과를 용어의 SOURCE_TO_CONCEPT_MAP으로 내보냄.
 
 #### Usagi로 원천 코드 가져오기
 
@@ -210,11 +210,11 @@ Usagi는 코드 매핑 절차를 도와주는 도구이다. Usagi는 코드 설�
 knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 ```
 
-“Column mapping” 부분 (왼쪽 아래)은 Usagi가 불러온 테이블을 어떻게 사용할 것인지 정하는 단계이다. 마우스를 끌어다 놓으면, 각 칼럼을 정의하는 팝업창이 나타날 것이다. Usagi는 원천 코드를 용어Vocabulary concept 코드에 연결하는 정보로써 “Additional info” 칼럼을 사용하지 않을 것이다; 하지만 이 추가적인 정보는 개인이 원천 코드 매핑을 검토하는 데 도움을 줄 수 있기에 포함되어야 한다.
+“Column mapping” 부분 (왼쪽 아래)은 Usagi가 불러온 테이블을 어떻게 사용할 것인지 정하는 단계이다. 마우스를 끌어다 놓으면, 각 칼럼을 정의하는 팝업창이 나타날 것이다. Usagi는 원천 코드를 용어 개념Vocabulary concept 코드에 연결하는 정보로써 “Additional info” 칼럼을 사용하지 않을 것이다; 하지만 이 추가적인 정보는 개인이 원천 코드 매핑을 검토하는 데 도움을 줄 수 있기에 포함되어야 한다.
 
 마지막으로 “Filters” 부분 (아래 오른쪽)에서 Usagi로 매핑할 때의 몇 가지 제한을 설정할 수 있다. 예를 들어 그림 \@ref(fig:usagiImport)에서 사용자는 Condition 도메인에만 원천 코드를 매핑하고 있다. 기본적으로 Usagi는 표준 개념에만 매핑을 진행하지만, 만약 “Filter standard concepts” 옵션이 아닐 경우, Usagi는 분류 개념 또한 검토할 것이다. 마우스를 다른 필터에 올려놓으면 해당 필터에 대한 추가적인 정보가 나타날 것이다.
 
-한 가지 특별한 필터는 “Filter by automatically selected concepts / ATC code”이다. 만약 검색에 조건을 걸어야 한다면, 자동 concept ID로 표시되는 칼럼 (세미콜론으로 구분)에 CONCEPT_ID 목록이나 ATC 코드들을 제공하면 된다. 예를 들어 약물의 경우 이미 각 약에 ATC 코드가 이미 할당되어 있을 수 있다. 비록 ATC 코드가 하나의 RxNorm 약물 코드로 인지되지 않더라도, Vocabulary의 ATC 코드 한정으로 검색을 제한하는데 도와줄 수 있다. ATC 코드를 사용하려면 다음 절차를 따르면 된다:
+한 가지 특별한 필터는 “Filter by automatically selected concepts / ATC code”이다. 만약 검색에 조건을 걸어야 한다면, 자동 concept ID로 표시되는 칼럼 (세미콜론으로 구분)에 CONCEPT_ID 목록이나 ATC 코드들을 제공하면 된다. 예를 들어 약물의 경우 이미 각 약에 ATC 코드가 이미 할당되어 있을 수 있다. 비록 ATC 코드가 하나의 RxNorm 약물 코드로 인지되지 않더라도, 용어의 ATC 코드 한정으로 검색을 제한하는데 도와줄 수 있다. ATC 코드를 사용하려면 다음 절차를 따르면 된다:
 
 1. 칼럼 매핑 부분에서, "Auto concept ID column"을 "ATC column"으로 바꾸십시오.
 2. 칼럼 매핑 부분에서, ATC 코드가 포함된 열을 "ATC column"으로 선택하십시오.
@@ -224,7 +224,7 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 
 일단 모든 설정을 마치고 나면, “Import” 버튼을 눌러서 파일을 불러와야 한다. 파일 불러오기를 할 때 단어 유사도 알고리즘을 이용하여 원천 코드를 매핑하기 때문에 대략 몇 분 정도 소요될 수 있다. 
 
-#### 원천 코드의 Vocabulary Concept 매핑 검토 {-}
+#### 원천 코드의 용어 개념 매핑 검토 {-}
 
 일단 원천 코드의 파일을 불러오면, 매핑 절차가 시작된다. 그림 \@ref(fig:usagiOverview)에서 Usagi 화면이 3가지 주요 기능으로 구분된 것을 확인할 수 있다: 개요 테이블, 선택된 매핑 테이블, 검색 기능. 이때, 오른쪽 마우스 클릭을 하여 어떤 테이블에 대해서도 칼럼들을 선택하여 숨기거나 가려서 시각적 복잡성을 줄일 수 있다는 것을 참고하십시오.
 
@@ -234,9 +234,9 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiOverview.png")
 
 #### 제안된 매핑의 승인 {-}
 
-“Overview Table”은 현재의 원천 코드의 매핑을 보여준다. 원천 코드를 불러온 직후, 검색 설정과 단어 유사도를 기반으로 자동으로 생성되어 제안된 매핑을 포함하고 있다. 그림 \@ref(fig:usagiOverview)에서 나타나듯이, 사용자가 검색 옵션을 Condition으로 설정했기에 네덜란드어 Condition 코드의 영어 이름은 Condition 도메인의 표준용어로 매핑되는 것을 볼 수 있다. Usagi는 원천 코드 기술서의 concept 이름과 동의어를 비교함으로써 최적의 매칭을 수행한다. 사용자가 “Include source terms”를 선택하였기 때문에 Usagi는 vocabulary의 특정 코드로 매핑되는 모든 원천 코드의 이름과 동의어까지 검토하게 된다. 만약 Usagi가 매핑을 진행할 수 없으면, CONCEPT_ID = 0으로 매핑될 것이다.
+“Overview Table”은 현재의 원천 코드의 매핑을 보여준다. 원천 코드를 불러온 직후, 검색 설정과 단어 유사도를 기반으로 자동으로 생성되어 제안된 매핑을 포함하고 있다. 그림 \@ref(fig:usagiOverview)에서 나타나듯이, 사용자가 검색 옵션을 Condition으로 설정했기에 네덜란드어 Condition 코드의 영어 이름은 Condition 도메인의 표준용어로 매핑되는 것을 볼 수 있다. Usagi는 원천 코드 기술서의 concept 이름과 동의어를 비교함으로써 최적의 매칭을 수행한다. 사용자가 “Include source terms”를 선택하였기 때문에 Usagi는 용어의 특정 코드로 매핑되는 모든 원천 코드의 이름과 동의어까지 검토하게 된다. 만약 Usagi가 매핑을 진행할 수 없으면, CONCEPT_ID = 0으로 매핑될 것이다.
 
-코딩 시스템에 익숙한 사람이 원천 코드를 표준 용어로 매핑하는 것을 도와주는 것이 권장된다. 각 개인은 “Overview Table” 탭에서 각 코드에 대하여 Usagi가 권장하는 매핑을 받아들이거나 아니면 새로운 매핑을 선택하는 작업을 하게 된다. 예를 들어 그림 \@ref(fig:usagiOverview)에서 우리는 네덜란드어 “Hoesten”가 영어 “Cough”로 번역되는 것을 볼 수 있다. Usagi는 “Cough”를 사용하고 Vocabulary 개념 “4158493-C/O - cough”로 매핑을 한다. 이때의 매핑에 대하여 매칭 점수는 0.58 (매칭 점수는 일반적으로 0에서 1의 값을 가지며, 1이 더 신뢰할만한 매칭임) 이였고, 이는 Usagi가 이 네덜란드어 코드를 SNOMED로 매핑한 결과에 대한 확신을 가지기 어렵다는 것을 의미한다. 이 예시에서는 해당 매핑 결과에 동의하였고, 화면의 하단 우측의 “Approve” 버튼을 클릭함으로써 승인하였다.
+코딩 시스템에 익숙한 사람이 원천 코드를 표준 용어로 매핑하는 것을 도와주는 것이 권장된다. 각 개인은 “Overview Table” 탭에서 각 코드에 대하여 Usagi가 권장하는 매핑을 받아들이거나 아니면 새로운 매핑을 선택하는 작업을 하게 된다. 예를 들어 그림 \@ref(fig:usagiOverview)에서 우리는 네덜란드어 “Hoesten”가 영어 “Cough”로 번역되는 것을 볼 수 있다. Usagi는 “Cough”를 사용하고 용어 개념 “4158493-C/O - cough”로 매핑을 한다. 이때의 매핑에 대하여 매칭 점수는 0.58 (매칭 점수는 일반적으로 0에서 1의 값을 가지며, 1이 더 신뢰할만한 매칭임) 이였고, 이는 Usagi가 이 네덜란드어 코드를 SNOMED로 매핑한 결과에 대한 확신을 가지기 어렵다는 것을 의미한다. 이 예시에서는 해당 매핑 결과에 동의하였고, 화면의 하단 우측의 “Approve” 버튼을 클릭함으로써 승인하였다.
 
 #### 새로운 매핑의 탐색 {-}
 
@@ -256,7 +256,7 @@ Usagi가 제시하는 매핑에 대하여 사용자가 새로운 매핑을 찾�
 knitr::include_graphics("images/ExtractTransformLoad/usagiConceptInfo.png")
 ```
 
-그림 \@ref(fig:usagiConceptInfo)는 개념 정보 패널을 보여준다. 개념의 일반적인 정보부터, 부모, 자식, 그리고 다른 원천 코드들과의 정보도 보여준다. 사용자는 이 패널을 이용해서 계층 구조를 탐색할 수 있고, 다른 목표 concept을 정할 수도 있다. 
+그림 \@ref(fig:usagiConceptInfo)는 개념 정보 패널을 보여준다. 개념의 일반적인 정보부터, 부모, 자식, 그리고 다른 원천 코드들과의 정보도 보여준다. 사용자는 이 패널을 이용해서 계층 구조를 탐색할 수 있고, 다른 목표 개념을 정할 수도 있다. 
 
 모든 코드가 끝날 때까지 코드를 따라 이 절차를 진행하면 된다. 화면의 맨 위의 원천 코드 목록에서, 열 머리글별로 코드들을 정렬할 수 있다. 종종 최고빈도부터 최저빈도의 코드까지 살펴보는 것을 권장한다. 화면의 하단 왼쪽에는 매핑을 허용한 코드들의 개수, 그리고 그에 따라 얼마나 많은 코드가 발생했는지를 확인할 수 있다. 
 
@@ -271,11 +271,11 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiConceptInfo.png")
 
 #### 생성된 Usagi Map 내보내기 {-}
 
-일단 Usagi를 통해 매핑을 생성하였으면, 이를 사용하기 가장 좋은 방법은 매핑을 내보낸 다음 Vocabulary의 SOURCE_TO_CONCEPT_MAP 테이블에 추가하는 것이다. 
+일단 Usagi를 통해 매핑을 생성하였으면, 이를 사용하기 가장 좋은 방법은 매핑을 내보낸 다음 용어의 SOURCE_TO_CONCEPT_MAP 테이블에 추가하는 것이다. 
 
 매핑을 내보내기 위해서는, File -> Export source_to_concept_map으로 가면 된다. 이때 어느 SOURCE_VOCABULARY_ID를 이용할 것인지 묻는 팝업창이 나타나는데 짧은 식별자를 입력하면 된다. Usagi는 입력된 이 식별자를 SOURCE_TO_CONCEPT_MAP 테이블에서 특정 매핑을 식별할 수 있게 해주는 SOURCE_VOCABULARY_ID로 이용할 것이다.
 
-SOURCE_VOCABULARY_ID를 선택한 후에는, 내보낼 CSV 파일의 이름과 파일 경로를 입력하게 된다. 내보내는 CSV 파일의 구조는 SOURCE_TO_CONCEPT_MAP 테이블과 동일하다. 이 매핑은 Vocabulary의 SOURCE_TO_CONCEPT 테이블로 추가될 수 있다. 그리고 앞선 단계에서 정의한 SOURCE_VOCABULARY_ID를 정의하는 VOCABULARY 테이블에 단일 행으로 추가하는 것 역시 가능하다. 마지막으로, “Approved” 상태인 매핑들만을 CSV 파일로 내보내는 것이 중요하다; 매핑을 내보내기 위해서는 Usagi에서 매핑을 완료해야만 한다.
+SOURCE_VOCABULARY_ID를 선택한 후에는, 내보낼 CSV 파일의 이름과 파일 경로를 입력하게 된다. 내보내는 CSV 파일의 구조는 SOURCE_TO_CONCEPT_MAP 테이블과 동일하다. 이 매핑은 용어의 SOURCE_TO_CONCEPT 테이블로 추가될 수 있다. 그리고 앞선 단계에서 정의한 SOURCE_VOCABULARY_ID를 정의하는 VOCABULARY 테이블에 단일 행으로 추가하는 것 역시 가능하다. 마지막으로, “Approved” 상태인 매핑들만을 CSV 파일로 내보내는 것이 중요하다; 매핑을 내보내기 위해서는 Usagi에서 매핑을 완료해야만 한다.
 
 #### Usagi Map 업데이트 {-}
 
@@ -292,7 +292,7 @@ SOURCE_VOCABULARY_ID를 선택한 후에는, 내보낼 CSV 파일의 이름과 �
 1. Athena에서 새로운 용어 파일들을 다운받는다.
 2. Usagi 인덱스를 다시 생성한다 (Help -> Rebuild index).
 3. 매핑 파일을 연다.
-4. 새로운 용어 버전에 따라 표준 용어가 아닌 코드들을 식별하여 적절한 목표 concept들을 찾는다.
+4. 새로운 용어 버전에 따라 표준 용어가 아닌 코드들을 식별하여 적절한 목표 개념들을 찾는다.
 
 ## 3단계: ETL 수행
 

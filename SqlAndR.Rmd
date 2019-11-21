@@ -297,7 +297,7 @@ SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 �
 
 매개 변수화된 SQL을 디버깅하는 것은 약간 복잡할 수 있다. 렌더링 된 SQL만 데이터베이스 서버에 대해 테스트할 수 있지만 매개 변수화된 (사전 렌더링 된) SQL에서 코드를 변경해야 한다. \index{SqlRender!debugging}
 
-SqlRender 패키지에는 대화형으로 SQL 소스를 편집하여 SQL을 렌더링을 하거나 반대로 번역할 수 있는 샤이니 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:
+SqlRender 패키지에는 대화형으로 SQL 소스를 편집하여 SQL을 렌더링하거나 반대로 번역할 수 있는 샤이니 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:
 
 ```{r tidy=TRUE,eval=FALSE}
 launchSqlRenderDeveloper()
@@ -550,7 +550,7 @@ ORDER BY -COUNT(*);
 
 ## 질의할 때 Vocabulary 사용하기
 
-많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 concept ID들이 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 concept name으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
+많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID들이 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
 
 ```sql
 SELECT COUNT(*) AS subject_count,
@@ -565,7 +565,7 @@ GROUP BY concept_name;
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
+용어Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
 
 ```sql
 SELECT COUNT(*) AS prescription_count
@@ -894,7 +894,7 @@ SQL과 R을 사용하여 celecoxib을 적어도 한 번 이상 처방 한 사람
 
 ```
 ```{exercise, exerciseGiBleedsDuringCelecoxib}
-SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈gastrointestinal hemorrhage이 있는지 진단한다. (힌트: 위장 출혈의 concept ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
+SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈gastrointestinal hemorrhage이 있는지 진단한다. (힌트: 위장 출혈의 개념 ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
 
 ```
 
