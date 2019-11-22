@@ -180,15 +180,15 @@ table
 
 환자군은 자신들이 대조군으로 사용된다. 자가 통제 코호트 연구 설계처럼, 환자간 차이에 의한 교란변수를 통제할 수 있도록 환자군이 잘 선택되어야 한다. 한 가지 우려는, outcome 일시가 항상 대조군 일시보다 뒤에 오기 때문에, 전반적인 노출 빈도가 시간이 갈수록 높아져 양성 편향 (만약 노출빈도가 시간이 갈수록 줄어든다면 음성 편향이) 이 일어날 수 있다는 점이다. 이를 통제하기 위하여 환자-교차 연구 연구 설계에 나이, 성별을 이용한 짝짓기를 통한 대조군을 추가하여 노출률을 보정하는 환자-시간-대조군 연구 설계(case-time-control design [@suissa_1995])가 개발되었다. \index{case-time-control design}
 
-## 자기 대조군 환자군 연구 설계
+## 자기대조 환자군 연구 설계
 
 \index{self-controlled case series (SCCS) design}
 
-```{r selfControlledCaseSeries, fig.cap='자기 대조군 환자군 연구 설계. 노출 중 결과의 비율은 노출되지 않은 결과의 비율과 비교된다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
+```{r selfControlledCaseSeries, fig.cap='자기대조 환자군 연구설계. 노출 중 결과발생의 비율은 노출되지 않는 중 발생한 결과의 비율과 비교된다.',echo=FALSE, out.width='90%', fig.align='center', fig.pos='h'}
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCaseSeries.png")
 ```
 
-자기 대조군 환자군 연구(Self-Controlled Case Series,SCCS) 설계 [@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출 사이, 노출 후) 과 노출기간의 outcome 발생의 비율(rate)를 비교한다. 즉 Poisson regression conditioned on the person이라고 할 수 있다. 따라서, 그것은 "환자에게 outcome 이 발생하였을 때, non-exposed time 에 비해 exposed time 에 발생할 가능성이 더 높은가?"이다. 표 \@ref(tab:sccsChoices)의 선택사항은 SCCS 질문을 정의한다. \index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
+자기대조 환자군 연구(Self-Controlled Case Series,SCCS) 설계 [@farrington_1995; @whitaker_2006]는 전체 비노출 기간 (노출 이전, 노출 사이, 노출 후) 과 노출기간의 outcome 발생의 비율(rate)를 비교한다. 즉 Poisson regression conditioned on the person이라고 할 수 있다. 따라서, 그것은 "환자에게 outcome 이 발생하였을 때, non-exposed time 에 비해 exposed time 에 발생할 가능성이 더 높은가?"이다. 표 \@ref(tab:sccsChoices)의 선택사항은 SCCS 질문을 정의한다. \index{outcome cohort!SCCS design} \index{target cohort!SCCS design}
 
 ```{r sccsChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
