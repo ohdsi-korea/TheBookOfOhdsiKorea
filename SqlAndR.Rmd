@@ -7,8 +7,8 @@ require(SqlRender)
 require(DatabaseConnector)
 ```
 
-공통 데이터 모델Common Data Model(CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이들 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가들이 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
-관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 같은 의미를 가지지만, 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
+공통 데이터 모델Common Data Model(CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가가 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있어서 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
+관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 같은 의미가 있지만, 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 ```{sql,eval=FALSE}
 SELECT TOP 10 * FROM person;
@@ -288,7 +288,7 @@ SQL Server에서 테이블은 스키마 안에 있으며 스키마는 데이터�
 ```sql
 SELECT * FROM @databaseSchema.person
 ```
-SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마이름을 모두 포함할 수 있다. 다른 플랫폼에서는 동일한 코드를 사용할 수 있지만, 스키마 매개 변수값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
+SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마 이름을 모두 포함할 수 있다. 다른 플랫폼에서는 같은 코드를 사용할 수 있지만, 스키마 매개 변수값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
 
 이것이 실패하는 한 가지 상황은 에러를 발생시키는 `USE cdm_data.dbo;`, 즉 `USE` 명령어를 사용했기 때문이다. 따라서 `USE` 명령어를 사용하지 말고 항상 테이블이 있는 데이터베이스 및 스키마를 지정하는 것이 바람직하다. 
 
@@ -522,7 +522,7 @@ cat("  0%  25%  50%  75% 100%
 ")
 ```
 
-서버에서 연령을 계산하고 모든 연령들을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지를 사례별로 결정해야 한다.
+서버에서 연령을 계산하고 모든 연령을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지를 사례별로 결정해야 한다.
 
 질의는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:
 
@@ -550,7 +550,7 @@ ORDER BY -COUNT(*);
 
 ## 질의할 때 Vocabulary 사용하기
 
-많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID들이 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
+많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID가 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
 
 ```sql
 SELECT COUNT(*) AS subject_count,
@@ -586,7 +586,7 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
 
 \index{QueryLibrary}
 
-QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의들의 라이브러리이다. 그림 \@ref(fig:queryLibrary)에 표시된 응용 프로그램[^queryLibraryUrl] 및 R 패키지로 제공된다.[^queryLibraryPackageUrl]
+QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의의 라이브러리이다. 그림 \@ref(fig:queryLibrary)에 표시된 응용 프로그램[^queryLibraryUrl] 및 R 패키지로 제공된다.[^queryLibraryPackageUrl]
 
 [^queryLibraryUrl]: http://data.ohdsi.org/QueryLibrary
 
