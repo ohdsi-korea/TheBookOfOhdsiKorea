@@ -18,7 +18,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/implementations.png")
 
 두 번째 접근방식은 R을 이용하고, [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)의 패키지를 이용하는 것이다. 최소한 \@ref(SqlAndR)장에 설명된 [SqlRender](https://ohdsi.github.io/SqlRender/) 및 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 패키지를 사용하여 PostgreSQL, SQL Server, 그리고 Oracle과 같은 다양한 데이터베이스 플랫폼에서 동일한 코드를 실행할 수 있다. [CohortMethod](https://ohdsi.github.io/CohortMethod/)와 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)과 같은 다른 패키지는 자신의 코드로 호출할 수 있는 CDM에 대한 고급 분석을 위한 R 기능을 제공한다. 이것은 여전히 많은 기술적 전문지식이 필요하지만, Methods Library의 검증된 구성요소를 다시 사용함으로써 사용자가 모든 코드를 다 짜는 것보다 더 효율적이고 오류가 덜 발생할 수 있다.
 
-세 번째 접근법은 프로그래머가 아닌 사람들이 다양한 분석을 효율적으로 수행할 수 있도록 해주는 웹 기반 툴인 대화형 분석 플랫폼 [ATLAS](https://github.com/OHDSI/Atlas/wiki)에 의존한다. ATLAS는 Method Libraries를 사용하지만, 분석을 설계하기 위한 간단한 그래픽 인터페이스를 제공하며 많은 경우 분석을 실행하는 데 필요한 R 코드를 생성한다. 그러나 ATLAS는 Methods Library에서 사용할 수 있는 모든 옵션을 다 지원하지는 않는다. 대부분의 연구가 ATLAS를 통해 수행될 수 있을 것으로 예상되지만, 일부 연구는 두 번째 접근방식이 제공하는 유연성을 필요로 할 수 있다.
+세 번째 접근법은 프로그래머가 아닌 사람이 다양한 분석을 효율적으로 수행할 수 있도록 해주는 웹 기반 툴인 대화형 분석 플랫폼 [ATLAS](https://github.com/OHDSI/Atlas/wiki)에 의존한다. ATLAS는 Method Libraries를 사용하지만, 분석을 설계하기 위한 간단한 그래픽 인터페이스를 제공하며 많은 경우 분석을 실행하는 데 필요한 R 코드를 생성한다. 그러나 ATLAS는 Methods Library에서 사용할 수 있는 모든 옵션을 다 지원하지는 않는다. 대부분의 연구가 ATLAS를 통해 수행될 수 있을 것으로 예상되지만, 일부 연구는 두 번째 접근방식이 제공하는 유연성을 필요로 할 수 있다.
 
 ATLAS와 Methods Library는 독립적이지 않다. ATLAS에서 호출할 수 있는 더 복잡한 분석 중 일부는 Methods Library의 패키지에 대한 호출을 통해 실행된다. 마찬가지로 Methods Library에 사용되는 코호트는 ATLAS에서 설계되는 경우가 많다.
 
@@ -60,7 +60,7 @@ Concept Sets \index{ATLAS!concept sets}
 : 개념 집합 concept set은 표준화된 분석에서 사용할 개념 집합을 식별하는 데 사용할 수 있는 논리 표현식의 집합을 만들 수 있게 한다. 개념 집합은 단순한 코드나 값 리스트보다 더 정교하게 만들어 준다. 개념 집합은 사용자가 용어 계층에 관련 개념을 포함하거나 배제할 수 있도록 하는 논리적 지표와 함께 표준화된 어휘에서 나온 여러 개념으로 구성되어 있다. 용어를 검색하고, 개념 집합을 식별하며, 개념 집합을 해결하기 위해 사용할 논리를 명시하는 것은 분석 계획에서 흔히 접하는 모호한 의학 언어를 명확히 정의할 수 있게 하는 강력한 메커니즘을 제공한다. 이러한 개념 집합은 ATLAS 내에 저장한 다음 코호트 정의 또는 분석 규격의 일부로 분석 내내 사용할 수 있다.
 
 Cohort Definitions \index{ATLAS!cohort definitions}
-: 코호트 정의 Cohort Definition는 일정 기간 동안 하나 이상의 기준을 충족하는 일련의 사람들을 구성할 수 있게 하며, 이러한 코호트는 이후 모든 분석 시 입력의 기초basis of input가 된다. 이 특성은 \@ref(Cohorts)장에서 논한다.
+: 코호트 정의 Cohort Definition는 일정 기간 하나 이상의 기준을 충족하는 일련의 사람을 구성할 수 있게 하며, 이러한 코호트는 이후 모든 분석 시 입력의 기초basis of input가 된다. 이 특성은 \@ref(Cohorts)장에서 논한다.
 
 Characterizations \index{ATLAS!cohort characterization}
 : 특성은 당신이 정의한 하나 이상의 코호트를 보고 그 환자군에 대한 특성을 요약할 수 있는 분석 기능이다. 이 기능은 실시간 쿼리 전략을 사용하며, \@ref(Characterization)장에서 논한다.
@@ -148,16 +148,16 @@ R은 패키지를 문서화하는 표준화된 방법을 제공한다. 각 패�
 
 시스템 요구 사항을 논의할 때 두 가지 컴퓨팅 환경을 고려해야 한다: 데이터베이스 서버 및 분석 워크스테이션 \index{system requirements}
 
-데이터베이스 서버는 관찰 의료 데이터를 CDM 형식으로 보관해야 한다. Method Library는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, 그리고 Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, 그리고 Amazon RedShift) 및 빅데이터 플랫폼 (Impala를 통한 Hadoop, 그리고 Google BigQuery) 을 포함한 광범위한 데이터베이스 관리 시스템을 지원한다.
+데이터베이스 서버는 관찰 의료 데이터를 CDM 형식으로 보관해야 한다. Method Library는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, 그리고 Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, 그리고 Amazon RedShift) 및 빅데이터 플랫폼 (Impala를 통한 Hadoop, 그리고 Google BigQuery)을 포함한 광범위한 데이터베이스 관리 시스템을 지원한다.
 
-분석 워크스테이션은 Methods Library가 설치되어 실행되는 곳이다. 이것은 누군가의 랩톱과 같은 로컬 시스템이나 RStudio Server를 실행하는 원격 서버일 수 있다. 모든 경우에, R은 RStudio와 함께 설치되어야 한다. Methods Library는 또한 Java가 설치되어야 한다. 분석 워크스테이션은 데이터베이스 서버에 연결할 수 있어야 하며, 특히 이들 사이의 방화벽은 데이터베이스 서버 접근 포트를 워크스테이션에 개방해야 한다. 일부 분석은 계산 집약적일 수 있으므로 여러 개의 처리 코어와 충분한 메모리를 갖는 것이 분석 속도를 높이는 데 도움이 될 수 있다. 적어도 4개의 코어와 16GB의 메모리를 가질 것을 추천한다.
+분석 워크스테이션은 Methods Library가 설치되어 실행되는 곳이다. 이것은 누군가의 랩톱과 같은 로컬 시스템이나 RStudio Server를 실행하는 원격 서버일 수 있다. 모든 경우에, R은 RStudio와 함께 설치되어야 한다. Methods Library는 또한 Java가 설치되어야 한다. 분석 워크스테이션은 데이터베이스 서버에 연결할 수 있어야 하며, 특히 이 사이의 방화벽은 데이터베이스 서버 접근 포트를 워크스테이션에 개방해야 한다. 일부 분석은 계산 집약적일 수 있으므로 여러 개의 처리 코어와 충분한 메모리를 갖는 것이 분석 속도를 높이는 데 도움이 될 수 있다. 적어도 4개의 코어와 16GB의 메모리를 가질 것을 추천한다.
 
 ### 설치 방법 {#installR}
 
 다음은 OHDSI R 패키지를 실행하는 데 필요한 환경을 설치하는 단계다. 다음 네 가지를 설치해야 한다: \index{R!installation}
 
 1. **R**은 통계 컴퓨팅 환경이다. 그것은 주로 명령어 인터페이스인 기본 사용자 인터페이스와 함께 제공된다.
-2. **RTools**는 Windows에서 소스로부터 R 패키지를 만드는 데 필요한 프로그램들의 모음이다.
+2. **RTools**는 Windows에서 소스로부터 R 패키지를 만드는 데 필요한 프로그램의 모음이다.
 3. **RStudio**는 R을 사용하기 쉽게 하는 통합 개발 환경Integrated Development Environment(IDE)이다. 여기에는 코드 편집기, 디버깅 및 시각화 툴이 포함되어 있다. 사용하기 편한 유저인터페이스를 원한다면 사용하기를 권한다.
 4. **Java**는 OHDSI R 패키지의 일부 구성 요소 (예를 들어, 데이터베이스에 연결하는 데 필요한 구성 요소)를 실행하는 데 필요한 컴퓨팅 환경이다.
 
@@ -189,7 +189,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
 
 #### RTools 설치하기 {-}
 
-1. [https://cran.r-project.org/](https://cran.r-project.org/),으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하라. 
+1. [https://cran.r-project.org/](https://cran.r-project.org/)으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하라. 
 
 2. 다운로드가 완료된 후 설치 프로그램을 실행하라. 어디에서나 기본 옵션을 선택하라.
 
@@ -239,7 +239,7 @@ install.packages("CohortMethod")
 
 ## 배치 전략
 
-ATLAS 및 Method Library를 포함한 전체 OHDSI 툴 스택을 조직에 배치하는 것은 어려운 작업이다. 의존성 높은 구성 요소들을 많이 고려해야 하고, 설정해야 할 환경이 많다. 이 때문에 두 이니셔티브 (Broadsea와 AWS(Amazon Web Services))는 일부 가상화 형태를 이용해 전체 스택을 하나의 패키지로 설치할 수 있는 통합 배치 전략을 개발했다. \index{tools deployment}
+ATLAS 및 Method Library를 포함한 전체 OHDSI 툴 스택을 조직에 배치하는 것은 어려운 작업이다. 의존성 높은 구성 요소를 많이 고려해야 하고, 설정해야 할 환경이 많다. 이 때문에 두 이니셔티브 (Broadsea와 AWS(Amazon Web Services))는 일부 가상화 형태를 이용해 전체 스택을 하나의 패키지로 설치할 수 있는 통합 배치 전략을 개발했다. \index{tools deployment}
 
 ### Broadsea
 
@@ -274,7 +274,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png")
 - 다음과 같은 방식으로 CDM 데이터에 대한 분석을 수행할 수 있다.
     - 사용자가 직접 분석코드 작성
     - OHDSI Method Library에서 R 패키지를 사용하여 코드 작성
-    - 분석코드 작성없이 대화형 분석 플랫폼 ATLAS를 사용
+    - 분석 코드 작성 없이 대화형 분석 플랫폼 ATLAS를 사용
 
 - OHDSI 툴은 다양한 분석 전략을 사용한다.
     - 단일 연구
