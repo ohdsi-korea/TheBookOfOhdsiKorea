@@ -106,7 +106,7 @@ expect_person(PERSON_ID = 103, GENDER_CONCEPT_ID = 8532)
 
 ENROLLMENT 테이블에는 다른 필드가 많이 존재하지만, 이 테스트의 맥락에서는 다른 필드가 어떤 값을 가지는지를 설명하지 않을 것이다. 하지만 이러한 값을 비워두면 (예를 들어 생년월일), 레코드를 삭제하거나 오류를 발생시키는 ETL의 원인이 될 수 있다. 테스트 코드를 읽기 쉽게 유지하면서 이러한 문제를 해결하기 위해서, add_enrollment 함수는 사용자가 명확하게 지정하지 않은 필드의 값에 기본값 (White Rabbit 스캔 보고서에서 관찰된 가장 일반적인 값)을 할당한다. 
 
-ETL의 모든 다른 논리에 대해 유사한 단위 검정Unit test이 만들어질 수 있으며, 일반적으로 수백 개의 시험을 진행할 수 있다. 테스트를 정의하는 것이 끝나면 프레임워크를 사용하여 두 개의 SQL 구문 세트를 만들 수 있다. 하나는 가짜 원천 데이터를 만드는 것이고, 다른 하나는 ETL된 데이터에 대한 테스트를 진행할 수 있는 구문이다. 
+ETL의 모든 다른 논리에 대해 유사한 단위 검정Unit test이 만들어질 수 있으며, 일반적으로 수백 개의 시험을 진행할 수 있다. 테스트를 정의하는 것이 끝나면 프레임워크를 사용하여 두 개의 SQL 구문 모음을 만들 수 있다. 하나는 가짜 원천 데이터를 만드는 것이고, 다른 하나는 ETL된 데이터에 대한 테스트를 진행할 수 있는 구문이다. 
 
 ```{r eval=FALSE}
 insertSql <- generateInsertSql(databaseSchema = "source_schema")
@@ -149,7 +149,7 @@ Table: (\#tab:exampleTestResults) ETL 단위 검정 결과 예시.
 
 [^vocabIssueTrackerUrl]: https://github.com/OHDSI/Vocabulary-v5.0/issues
 
-원천 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 코호트 정의를 input으로 사용하고 코호트 정의에서 사용된 각 개념 세트에 대해 개념과 매핑되는 원천 코드를 확인한다. 또한 전체 기간에 대한 코드의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제를 확인하는 데 도움이 될 수 있다. 그림 \@ref(fig:sourceCodes) 예시 결과는 "우울증 (Depression disorder)"이라 불리는 concpet 세트의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 개념 세트의 가장 보편적인 개념은 [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세 가지 코드가 해당 개념으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 개념은 시간이 지남에 따라 초반에는 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합한 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 개념으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
+원천 코드를 검토하는 한 가지 방법은 [MethodEvaluation](https://ohdsi.github.io/MethodEvaluation/) R 패키지의 `checkCohortSourceCodes` 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 코호트 정의를 input으로 사용하고 코호트 정의에서 사용된 각 개념 모음에 대해 개념과 매핑되는 원천 코드를 확인한다. 또한 전체 기간에 대한 코드의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제를 확인하는 데 도움이 될 수 있다. 그림 \@ref(fig:sourceCodes) 예시 결과는 "우울증 (Depression disorder)"이라 불리는 개념 모음의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 개념 모음의 가장 보편적인 개념은 [440383](http://athena.ohdsi.org/search-terms/terms/440383) (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세 가지 코드가 해당 개념으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 개념은 시간이 지남에 따라 초반에는 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합한 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 ("주요 우울 장애, 단일 에피소드, 불특정")도 이 개념으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.
 
 ```{r sourceCodes, fig.cap='checkCohortSourceCodes 기능의 output 예시. ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/DataQuality/sourceCodes.png")
@@ -328,7 +328,7 @@ devtools:install_github("ohdsi/DataQualityDashboard")
 devtools::install_github("ohdsi/Eunomia", ref = "v1.0.0")
 ```
 
-Eunomia 패키지는 로컬 R 세션 내에서 실행되는 CDM에서 시뮬레이션 된 데이터 세트를 제공한다. 자세한 접속정보는 아래를 활용하여 얻을 수 있다:
+Eunomia 패키지는 로컬 R 세션 내에서 실행되는 CDM에서 시뮬레이션 된 데이터 모음을 제공한다. 자세한 접속정보는 아래를 활용하여 얻을 수 있다:
 
 
 ```{r eval=FALSE}
