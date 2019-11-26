@@ -1,4 +1,4 @@
-stringOfInterest<-"methodEval"
+stringOfInterest<-"관찰형"
 
 rmdFiles<-list.files()[grepl(".Rmd",list.files())]
 

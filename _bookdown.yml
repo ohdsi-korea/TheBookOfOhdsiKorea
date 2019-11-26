@@ -25,36 +25,36 @@ new_session: true
 rmd_files: [
   "index.Rmd",
 
-  "OhdsiCommunity.Rmd",
-  "WhereToBegin.Rmd",
-  "OpenScience.Rmd",
+  "01.OhdsiCommunity.Rmd",
+  "02.WhereToBegin.Rmd",
+  "03.OpenScience.Rmd",
 
-  "CommonDataModel.Rmd",
-  "StandardizedVocabularies.Rmd",
-  "ExtractTransformLoad.Rmd",
+  "04.CommonDataModel.Rmd",
+  "05.StandardizedVocabularies.Rmd",
+  "06.ExtractTransformLoad.Rmd",
 
-  "DataAnalyticsUseCases.Rmd",
-  "OhdsiAnalyticsTools.Rmd",
-  "SqlAndR.Rmd",
-  "Cohorts.Rmd",
-  "Characterization.Rmd",
-  "PopulationLevelEstimation.Rmd",
-  "PatientLevelPrediction.Rmd",
+  "07.DataAnalyticsUseCases.Rmd",
+  "08.OhdsiAnalyticsTools.Rmd",
+  "09.SqlAndR.Rmd",
+  "10.Cohorts.Rmd",
+  "11.Characterization.Rmd",
+  "12.PopulationLevelEstimation.Rmd",
+  "13.PatientLevelPrediction.Rmd",
 
-  "EvidenceQuality.Rmd",
-  "DataQuality.Rmd",
-  "ClinicalValidity.Rmd",
-  "SoftwareValidity.Rmd",
-  "MethodValidity.Rmd",
+  "14.EvidenceQuality.Rmd",
+  "15.DataQuality.Rmd",
+  "16.ClinicalValidity.Rmd",
+  "17.SoftwareValidity.Rmd",
+  "18.MethodValidity.Rmd",
 
-  "StudySteps.Rmd",
-  "NetworkResearch.Rmd",
+  "19.StudySteps.Rmd",
+  "20.NetworkResearch.Rmd",
 
-  "Glossary.Rmd",
-  "CohortDefinitions.Rmd",
-  "NegativeControls.Rmd",
-  "ProtocolTemplate.Rmd",
-  "SuggestedAnswers.Rmd",
+  "21.Glossary.Rmd",
+  "22.CohortDefinitions.Rmd",
+  "23.NegativeControls.Rmd",
+  "24.ProtocolTemplate.Rmd",
+  "25.SuggestedAnswers.Rmd",
 
-  "References.Rmd"
+  "26.References.Rmd"
 ]

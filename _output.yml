@@ -24,5 +24,12 @@ bookdown::epub_book:
   stylesheet: style.css
   pandoc_args: --webtex=https://latex.codecogs.com/svg.latex?
   epub_version: epub3
-bookdown::word_document2:
-  toc: true
+#bookdown::word_document2:
+#  toc: yes
+#  pandoc_args: [
+#    #"--csl", "./csl/apa6.csl",
+#    "--bibliography", "./book.bib",
+#    #"--reference-doc", "./assets/2018-05-17-aim1-draft.docx",
+#    #"--filter", "pandoc-citeproc"
+#    #"--filter", "./assets/fix-apa-ampersands.py"
+#  ]
