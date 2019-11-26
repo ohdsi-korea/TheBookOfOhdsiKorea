@@ -358,52 +358,31 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 마무리 했다면, 코호트 입력 사례 섹션은 그림 \@ref(fig:cohortsAtlasInitialEvents)와 같아야 한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasInitialEvents.png" alt="diclofenac을 복용하기 시작한 환자를 위한 코호트 입력 사례 설정" width="100%" />
-<p class="caption">(\#fig:cohortsAtlasInitialEvents)diclofenac을 복용하기 시작한 환자를 위한 코호트 입력 사례 설정</p>
-</div>
+![(\#fig:cohortsAtlasInitialEvents)diclofenac을 복용하기 시작한 환자를 위한 코호트 입력 사례 설정](images/SuggestedAnswers/cohortsAtlasInitialEvents.png)
 
 디클로페낙의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet1)과 비슷해야 할 것이며, '디클로페낙' 성분과 '디클로페낙'의 모든 하위요소도 모두 포함하여 디클로페낙 성분이 포함된 모든 약물을 포함한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasConceptSet1.png" alt="diclofenac의 concept 세트 표현." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasConceptSet1)diclofenac의 concept 세트 표현.</p>
-</div>
+![(\#fig:cohortsAtlasConceptSet1)diclofenac의 concept 세트 표현.](images/SuggestedAnswers/cohortsAtlasConceptSet1.png)
 
 다음으로, 그림 \@ref(fig:cohortsAtlasInclusion1)에서 보이는 것과 같이, 모든 NSAID에 대한 이전의 노출이 없는 것을 필요로 한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasInclusion1.png" alt="모든 NSAID에 대한 이전의 노출이 없는 것이 필요하다." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasInclusion1)모든 NSAID에 대한 이전의 노출이 없는 것이 필요하다.</p>
-</div>
+![(\#fig:cohortsAtlasInclusion1)모든 NSAID에 대한 이전의 노출이 없는 것이 필요하다.](images/SuggestedAnswers/cohortsAtlasInclusion1.png)
 
 NSAID의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet2)와 비슷해야 할 것이며, NSAID 클래스와 NSAID의 모든 하위요소도 모두 포함하여 NSAID이 포함된 모든 약물을 포함한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasConceptSet2.png" alt="NSAID의 concept 세트 표현" width="100%" />
-<p class="caption">(\#fig:cohortsAtlasConceptSet2)NSAID의 concept 세트 표현</p>
-</div>
+![(\#fig:cohortsAtlasConceptSet2)NSAID의 concept 세트 표현](images/SuggestedAnswers/cohortsAtlasConceptSet2.png)
 
 추가적으로, 그림 \@ref(fig:cohortsAtlasInclusion2)에서 보이는 것과 같이, 이전의 암 증상이 없는 것을 필요로 한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasInclusion2.png" alt="이전의 암 증상이 없는 것이 필요하다." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasInclusion2)이전의 암 증상이 없는 것이 필요하다.</p>
-</div>
+![(\#fig:cohortsAtlasInclusion2)이전의 암 증상이 없는 것이 필요하다.](images/SuggestedAnswers/cohortsAtlasInclusion2.png)
 
 "Broad malignancies"의 concept 세트 표현은 그림 \@ref(fig:cohortsAtlasConceptSet3)와 비슷해야 할 것이며, 고 레벨 concept의 "Malignant neoplastic disease"와 그의 모든 하위요소도 포함해야 한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasConceptSet3.png" alt="broad malignancies의 concept 세트 표현" width="100%" />
-<p class="caption">(\#fig:cohortsAtlasConceptSet3)broad malignancies의 concept 세트 표현</p>
-</div>
+![(\#fig:cohortsAtlasConceptSet3)broad malignancies의 concept 세트 표현](images/SuggestedAnswers/cohortsAtlasConceptSet3.png)
 
 마지막으로, 그림 \@ref(fig:cohortsAtlasExit)에서 보이는 것과 같이, 코호트 종료 기준을 노출의 중단 (30일 간격 허용) 으로 정의한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/cohortsAtlasExit.png" alt="코호트 종료 날짜 설정하기." width="100%" />
-<p class="caption">(\#fig:cohortsAtlasExit)코호트 종료 날짜 설정하기.</p>
-</div>
+![(\#fig:cohortsAtlasExit)코호트 종료 날짜 설정하기.](images/SuggestedAnswers/cohortsAtlasExit.png)
 
 #### 예제 \@ref(exr:exerciseCohortsSql) {-}
 
@@ -476,78 +455,48 @@ renderTranslateExecuteSql(connection, sql)
 
 아틀라스에서 ![](images/Characterization/atlasDataSourcesMenuItem.png)를 클릭하고, 관심 있는 데이터 원천을 선택한다. 약물 노출 기록을 선택할 수 있고, "Table" 탭을 선택할 수 있으며, 그림 \@ref(fig:dataSourcesAtlas)과 같이 "celecoxib"를 찾을 수 있다. 여기에서 이 특정한 데이터베이스가 celecoxib의 다양한 제형들의 노출을 포함하는 것을 볼 수 있다. 더욱 자세히 보기 위해서는 여기에서의 아무 약물을 클릭할 수 있다. 예를 들어, 이 약물에 대한 나이나 성별 분포를 나타내기 위함이다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/dataSourcesAtlas.png" alt="데이터 원천 특성." width="100%" />
-<p class="caption">(\#fig:dataSourcesAtlas)데이터 원천 특성.</p>
-</div>
+![(\#fig:dataSourcesAtlas)데이터 원천 특성.](images/SuggestedAnswers/dataSourcesAtlas.png)
 
 
 #### 예제 \@ref(exr:exerciseCharacterization2) {-}
 
 ![](images/Cohorts/cohortdefinition.png)를 클릭하고 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미 있는 이름을 부여하고 (예를 들어, "Celecoxib new users"가 있다) "Concept Sets" 탭으로 이동한다. "New Concept Set"를 클릭하고, concept 세트에 의미있는 이름을 부여한다 (예를 들어, "Celecoxib"). ![](images/Cohorts/search-2.png) 모듈을 열고, "celecoxib"를 검색하여, 클래스를 "Ingredient"로, 표준 concept을 "Standard"로 제한한 후, 그림 \@ref(fig:conceptSearchAtlas)와 같이 concept을 당신의 concept 세트에 추가하기 위해 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/conceptSearchAtlas.png" alt="&quot;celecoxib&quot; 성분의 표준 concept 선택하기." width="100%" />
-<p class="caption">(\#fig:conceptSearchAtlas)"celecoxib" 성분의 표준 concept 선택하기.</p>
-</div>
+![(\#fig:conceptSearchAtlas)"celecoxib" 성분의 표준 concept 선택하기.](images/SuggestedAnswers/conceptSearchAtlas.png)
 
 코호트 정의로 돌아가기 위해서는 그림 \@ref(fig:conceptSearchAtlas)의 상위 왼편에 보이는 왼쪽 화살표를 클릭한다. "+Add Initial Event"를 클릭한 후 "Add Drug Era"를 클릭한다. 이미 생성된 약물 범위 기준의 concept 세트를 선택한다. "Add attribute..."를 클릭하고 "Add First Exposure Criteria."를 선택한다. 발생 시점 전으로부터 최소 365일이 요구되는 지속적인 관찰을 설정한다. 결과는 그림 \@ref(fig:celecoxibCohortDefinition)와 비슷해야 한다. 포함 기준, 코호트 종료, 코호트 범위 세션을 그대로 두고 나간다. ![](images/Cohorts/save.png)를 클릭하여 코호트 정의를 저장하고, ![](images/SuggestedAnswers/close.png)를 클릭하여 확실히 닫는다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/celecoxibCohortDefinition.png" alt="간단한 celecoxib 새 사용자의 코호트 정의." width="100%" />
-<p class="caption">(\#fig:celecoxibCohortDefinition)간단한 celecoxib 새 사용자의 코호트 정의.</p>
-</div>
+![(\#fig:celecoxibCohortDefinition)간단한 celecoxib 새 사용자의 코호트 정의.](images/SuggestedAnswers/celecoxibCohortDefinition.png)
 
 이제 코호트가 정의 되었으니, 특성화 할 수 있다. ![](images/Characterization/atlasCharacterizationMenuItem.png)를 클릭한 후 "New Characterization"를 클릭한다. 임상적 특성에 의미있는 이름을 부여한다 (예를 들어, "Celecoxib 새 사용자의 임상적 특성"). 코호트 정의 아래에, "Import"를 클릭하고 최근에 생성한 코호트 정의를 선택한다. "Feature Analyses" 아래에, "Import"를 클릭한 후 최소 하나의 condition 분석과 하나의 약물 분석을 선택한다. 예를 들면 "Drug Group Era Any Time Prior"와 "Condition Group Era Any Time Prior"이다. 임상적 특성 정의는 그림 \@ref(fig:celecoxibCharacterization)와 비슷해야 한다. ![](images/Cohorts/save.png)를 클릭하여 임상적 특성 설정을 확실히 저장한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/celecoxibCharacterization.png" alt="임상적 특성 설정하기." width="100%" />
-<p class="caption">(\#fig:celecoxibCharacterization)임상적 특성 설정하기.</p>
-</div>
+![(\#fig:celecoxibCharacterization)임상적 특성 설정하기.](images/SuggestedAnswers/celecoxibCharacterization.png)
 
 "Exections" 탭을 클릭한 후, 데이터 원천 중의 하나로 "Generate"를 클릭한다. 생성이 끝날 때까지 시간이 걸릴 수 있다. 끝나면, "View latest results"를 클릭할 수 있다. 결과 화면은 그림 \@ref(fig:celecoxibCharacterizationResults)와 비슷하고, 이는 예를 들어 고통과 arthropathy가 흔히 관찰되는 것으로 보여지는데, 이는 celecoxib의 조짐이므로 놀랄만한 사용은 아니다. 목록의 아레쪽에 기대하지 않은 conditions이 보일 수 있다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/celecoxibCharacterizationResults.png" alt="임상적 특성 설명." width="100%" />
-<p class="caption">(\#fig:celecoxibCharacterizationResults)임상적 특성 설명.</p>
-</div>
+![(\#fig:celecoxibCharacterizationResults)임상적 특성 설명.](images/SuggestedAnswers/celecoxibCharacterizationResults.png)
 
 #### 예제 \@ref(exr:exerciseCharacterization3) {-}
 
 ![](images/Cohorts/cohortdefinition.png)를 클릭한 후 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미있는 이름을 부여한다 (예를 들어 "GI bleed"). ![](images/Cohorts/search-2.png) 모둘을 열고, "Gastrointestinal hemorrhage"를 검색한 후, 그림 \@ref(fig:giBleedSearch)와 같이 concept을 당신의 concept 세트에 추가하기 위해 상위 concept 옆의 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/giBleedSearch.png" alt="&quot;Gastrointestinal hemorrhage&quot;의 표준 concept 선택하기." width="100%" />
-<p class="caption">(\#fig:giBleedSearch)"Gastrointestinal hemorrhage"의 표준 concept 선택하기.</p>
-</div>
+![(\#fig:giBleedSearch)"Gastrointestinal hemorrhage"의 표준 concept 선택하기.](images/SuggestedAnswers/giBleedSearch.png)
 
 당신의 코호트 정의로 돌아가기 위해서는 그림 \@ref(fig:giBleedSearch)의 상위 왼쪽에 위치한 왼쪽 화살표를 클릭한다. "Concept Sets" 탭을 다시 열고, GI hemorrhage concept 옆에 있는 "Descendants"를 그림 \@ref(fig:giBleedDescendants)처럼 체크한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/giBleedDescendants.png" alt="&quot;Gastrointestinal hemorrhage&quot;의 하위요소 추가하기." width="100%" />
-<p class="caption">(\#fig:giBleedDescendants)"Gastrointestinal hemorrhage"의 하위요소 추가하기.</p>
-</div>
+![(\#fig:giBleedDescendants)"Gastrointestinal hemorrhage"의 하위요소 추가하기.](images/SuggestedAnswers/giBleedDescendants.png)
 
 "Definition" 탭으로 돌아간 후, "+Add Initial Event"를 클릭하고, "Add Condition Occurrence"를 클릭한다. 이전에 생성한 condition 발생 기준의 concept 세트를 선택한다. 결과는 \@ref(fig:giBleedCohortDefinition)와 비슷해야 한다. 포함 기준, 코호트 종료, 코호트 범위 세션을 그대로 두고 나간다. ![](images/Cohorts/save.png)를 클릭하여 코호트 정의를 저장하고, ![](images/SuggestedAnswers/close.png)를 클릭하여 확실히 닫는다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/giBleedCohortDefinition.png" alt="간단한 gastrointestinal bleed 코호트 정의." width="100%" />
-<p class="caption">(\#fig:giBleedCohortDefinition)간단한 gastrointestinal bleed 코호트 정의.</p>
-</div>
+![(\#fig:giBleedCohortDefinition)간단한 gastrointestinal bleed 코호트 정의.](images/SuggestedAnswers/giBleedCohortDefinition.png)
 
 이제 코호트가 정의 되었으면, 발생률을 계산할 수 있다. ![](images/Characterization/atlasIncidenceMenuItem.png)를 클릭하고, "New Analysis"를 클릭한다. 분석에 의미있는 이름을 부여한다 (예를 들어 "Incidence of GI bleed after celecoxib initiation"). "Add Target Cohort"를 클릭한 후 celecoxib 새로운 사용자 코호트를 선택한다. "Add Outcome Cohort"를 클릭한 후 새로운 GI bleed 코호트를 추가한다. 위험 노출 기간을 시작일 이후로 1095일이 지난 시점을 종료일로 지정한다. 분석은 그림 \@ref(fig:irAnalysis)과 비슷해야 한다. ![](images/Cohorts/save.png)를 클릭해서 분석 설정을 확실히 저장한다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/irAnalysis.png" alt="발생률 분석." width="100%" />
-<p class="caption">(\#fig:irAnalysis)발생률 분석.</p>
-</div>
+![(\#fig:irAnalysis)발생률 분석.](images/SuggestedAnswers/irAnalysis.png)
 
 "Generation" 탭을 클릭한 후, "Generate"를 클릭한다. 데이터 원천 중 하나를 선택하고 "Generate"를 클릭한다. 끝났다면, 그림 \@ref(fig:irResults)에 보이는 것과 같이 계산된 발생률과 분율을 볼 수 있다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/irResults.png" alt="발생 결과." width="100%" />
-<p class="caption">(\#fig:irResults)발생 결과.</p>
-</div>
+![(\#fig:irResults)발생 결과.](images/SuggestedAnswers/irResults.png)
 
 
 
@@ -619,7 +568,7 @@ studyPop <- createStudyPopulation(
   riskWindowEnd = 99999)
 drawAttritionDiagram(studyPop)
 ```
-<img src="images/SuggestedAnswers/attrition.png" width="80%" style="display: block; margin: auto;" />
+![](images/SuggestedAnswers/attrition.png)<!-- -->
 
 기존의 코호트와 비교하여 어떤 대상도 잃지 않은 것을 볼 수 있는데, 아마도 왜냐하면 여기서 사용한 제한이 이미 코호트 정의에서 사용된 것이기 때문이다.
 
@@ -657,7 +606,7 @@ ps <- createPs(cohortMethodData = cmData,
                population = studyPop)
 plotPs(ps, showCountsLabel = TRUE, showAucLabel = TRUE)
 ```
-<img src="images/SuggestedAnswers/ps.png" width="80%" style="display: block; margin: auto;" />
+![](images/SuggestedAnswers/ps.png)<!-- -->
 
 몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 왜냐하면 시뮬레이션 된 정말 작은 데이터 세트를 사용하기 때문이다. 실제의 선호 점수 분포는 더 매끄러운 경향이 있다.
 
@@ -678,7 +627,7 @@ plotCovariateBalanceScatterPlot(bal,
                                 beforeLabel = "Before stratification", 
                                 afterLabel = "After stratification")
 ```
-<img src="images/SuggestedAnswers/scatter.png" width="70%" style="display: block; margin: auto;" />
+![](images/SuggestedAnswers/scatter.png)<!-- -->
 
 다양한 기저 공변량은 층화 전의 (x-axis) 큰 (>0.3) 표준화된 평균의 차이를 보여준다. 층화 후에, 최대 표준화 차이 <= 0.1와 같이 균형은 상승된다.
 
@@ -818,10 +767,7 @@ viewPlp(lassoResults)
 
 이것은 그림 \@ref(fig:plpShiny)에서 보이는 것과 같이 앱을 실행할 것이다. 여기 0.645의 테스트 세트의 AUC가 있는데 이는 무작위 추측보다 더 나을 수 있으나 임상적 실천에는 충분하지 않을 것이다.
 
-<div class="figure" style="text-align: center">
-<img src="images/SuggestedAnswers/plpShiny.png" alt="환자 수준 예측 Shiny 앱." width="100%" />
-<p class="caption">(\#fig:plpShiny)환자 수준 예측 Shiny 앱.</p>
-</div>
+![(\#fig:plpShiny)환자 수준 예측 Shiny 앱.](images/SuggestedAnswers/plpShiny.png)
 
 
 

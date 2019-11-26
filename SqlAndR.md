@@ -4,8 +4,8 @@
 
 
 
-공통 데이터 모델(Common Data Model, CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이들 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가들이 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있기 때문에 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
-관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 같은 의미를 가지지만, 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
+공통 데이터 모델Common Data Model(CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가가 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있어서 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
+관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 같은 의미가 있지만, 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 
 ```sql
@@ -21,11 +21,11 @@ SELECT * FROM person LIMIT 10;
 
 OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고 모든 OHDSI 데이터베이스에서 동일한 SQL 언어를 사용하고자 한다. 이러한 이유로 OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다른 여러 개의 문법으로 번역해줄 수 있는 패키지인 [SqlRender](https://ohdsi.github.io/SqlRender/)를 개발하였다. 이 표준 언어 - **OHDSI SQL** - 는 주로 SQL Server SQL 언어의 하위 집합이다. 이 장에서 제공되는 SQL 문에는 모두 OHDSI SQL을 사용한다. \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
 
-각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 질의하기 위한 자체 소프트웨어 도구가 제공된다. OHDSI는 여러 데이터베이스 플랫폼에 연결할 수 있는 하나의 R 패키지인 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 를 개발하였다. DatabaseConnector도 이 장의 뒤에서 논의할 것이다. \index{DatabaseConnector}
+각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 질의하기 위한 자체 소프트웨어 도구가 제공된다. OHDSI는 여러 데이터베이스 플랫폼에 연결할 수 있는 하나의 R 패키지인 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)를 개발하였다. DatabaseConnector도 이 장의 뒤에서 논의할 것이다. \index{DatabaseConnector}
 
 따라서 OHDSI 도구를 사용하지 않고도 CDM에 맞게 질의할 수 있지만 DatabaseConnector 및 SqlRender 패키지를 사용하는 것을 권장한다. 이를 통해 한 사이트에서 개발된 질의를 수정하지 않고도 다른 사이트에서 사용할 수 있다. R 자체는 통계 분석 및 대화식 그래프 생성과 같이 데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접 제공한다. \index{R} 
 
-이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. \@ref(QueryTheCdm)절에서는 SQL(OHDSI SQL)을 사용하여 CDM에 질의하는 방법에 대해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다. \index{Query Library} \index{SQL Query Libary|see {Query Library}}
+이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저 SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를 사용할 의도가 없는 경우 이 절은 건너뛸 수 있다. \@ref(QueryTheCdm)절에서는 SQL(OHDSI SQL)을 사용하여 CDM에 질의하는 방법에 관해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를 사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를 구현한다. \index{Query Library} \index{SQL Query Libary|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
@@ -68,7 +68,7 @@ render(sql, x = "observation", a = 123)
 ## [1] "SELECT * FROM observation WHERE person_id = 123;"
 ```
 
-매개 변수 값은 숫자, 문자열, 부울 및 쉼표를 기준으로 항목을 나눈 리스트로 변환된 벡터일 수 있다:
+매개 변수값은 숫자, 문자열, 부울 및 쉼표를 기준으로 항목을 나눈 리스트로 변환된 벡터일 수 있다:
 
 
 ```r
@@ -82,7 +82,7 @@ render(sql, a = c(123, 234, 345))
 
 #### If-Then-Else {-}
 
-때로는 하나 이상의 매개 변수 값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 `{Condition} ? {if true} : {if false}` 구문을 사용한다. *조건*이 참 또는 1로 평가되면, *if true* 블록이 사용되고 그렇지 않으면, *if false* 블록이 표시된다 (있는 경우).
+때로는 하나 이상의 매개 변수값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 `{Condition} ? {if true} : {if false}` 구문을 사용한다. *조건*이 참 또는 1로 평가되면, *if true* 블록이 사용되고 그렇지 않으면, *if false* 블록이 표시된다 (있는 경우).
 
 
 ```r
@@ -156,7 +156,7 @@ translate(sql, targetDialect = "postgresql")
 
 #### 변환에 의해 지원되는 기능 및 구조 {-}
 
-다음과 같은 SQL Server 함수는 테스트되었으며 다양한 언어로 올바르게 변환되는 것으로 확인되었다: \index{SqlRender!supported functions}
+다음과 같은 SQL Server 함수는 테스트 되었으며 다양한 언어로 올바르게 변환되는 것으로 확인되었다: \index{SqlRender!supported functions}
 
 Table: (\#tab:sqlFunctions) Functions supported by translate.
 
@@ -181,7 +181,7 @@ Table: (\#tab:sqlFunctions) Functions supported by translate.
 |DAY               |PI         |           |
 |EOMONTH           |POWER      |           |
 
-\* Oracle은 특별 권한이 필요하다. SQLite에는 해당되는 것이 없다.
+\* Oracle은 특별 권한이 필요하다. SQLite에는 해당하는 것이 없다.
 
 마찬가지로 많은 SQL 구문 구조가 지원된다. 다음은 우리가 잘 번역할 수 있는 표현식의 전체 목록이다:
 
@@ -243,7 +243,7 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### 문자열 연결 {-}
 
-문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는 `SELECT first_name + ' ' + last_name AS full_name FROM table`와 같이 작성하지만 Postgres와 Oracle에서는 `SELECT first_name || ' ' || last_name AS full_name FROM table` 라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열 (작은따옴표로 묶인 공백) 이 있으므로 번역은 정확할 것이다. 그러나 `SELECT first_name + last_name AS full_name FROM table`와 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 "VARCHAR"에 대한 명시적 형변환이므로 `SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` 도 올바르게 변환된다. 모호성을 피하려면 ```CONCAT()``` 함수를 사용하여 두 개 이상의 문자열을 연결하는 것이 가장 좋다.
+문자열 연결은 SQL Server가 다른 언어보다 덜 구체적인 영역이다. SQL Server에서는 `SELECT first_name + ' ' + last_name AS full_name FROM table`과 같이 작성하지만 Postgres와 Oracle에서는 `SELECT first_name || ' ' || last_name AS full_name FROM table`이라고 작성한다. SqlRender는 연결되는 값이 문자열인지 추측하려고 한다. 위의 예에서 명시적인 문자열 (작은따옴표로 묶인 공백) 이 있으므로 번역은 정확할 것이다. 그러나 `SELECT first_name + last_name AS full_name FROM table`과 같이 작성한다면 SqlRender는 두 필드가 문자열이라는 단서가 없으며, 잘못된 더하기 기호를 남겼다. 값이 문자열이라는 또 다른 단서는 "VARCHAR"에 대한 명시적 형 변환이므로 `SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table`도 올바르게 변환된다. 모호성을 피하려면 ```CONCAT()``` 함수를 사용하여 두 개 이상의 문자열을 연결하는 것이 가장 좋다.
 
 #### 테이블 별칭과 AS 키워드 {-}
 
@@ -267,7 +267,7 @@ INNER JOIN (
 ON table_1.person_id = table_2.person_id;
 ```
 
-그러나 Oracle에서는 `AS` 키워드를 사용하면 오류가 발생한다. 위의 예제 중 첫 번째 질의는 실패한다. 따라서 테이블 별칭을 지정할 때 `AS` 키워드를 사용하지 않는 것이 좋다. (참고로 Oracle에서 `AS`를 사용할 수 없는 테이블 별칭과 이 `AS`를 사용해야 하는 필드 별칭을 쉽게 구별할 수 없기 때문에 SqlRender가 이 것을 처리하도록 만들 수 없다)
+그러나 Oracle에서는 `AS` 키워드를 사용하면 오류가 발생한다. 위의 예제 중 첫 번째 질의는 실패한다. 따라서 테이블 별칭을 지정할 때 `AS` 키워드를 사용하지 않는 것이 좋다. (참고로 Oracle에서 `AS`를 사용할 수 없는 테이블 별칭과 이 `AS`를 사용해야 하는 필드 별칭을 쉽게 구별할 수 없기 때문에 SqlRender가 이것을 처리하도록 만들 수 없다)
 
 #### 임시 테이블 {-}
 
@@ -284,18 +284,18 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.bpfk2ehuchildren ;"
+## [1] "SELECT * FROM temp_schema.tt2z85m9children ;"
 ```
 
 사용자는 `temp_schema`에 대한 쓰기 권한이 있어야 한다.
 
 또한 Oracle은 테이블 이름이 30자로 제한되어 있다. 세션 아이디를 추가한 후 이름이 너무 길어지기 때문에 **임시 테이블 이름은 최대 22자까지만 허용된다**.
 
-뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 ```TRUNCATE``` 및 ```DROP``` 을 해야 한다.
+그뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 ```TRUNCATE``` 및 ```DROP```을 해야 한다.
 
-#### 암묵적인 형변환 {-}
+#### 암묵적인 형 변환 {-}
 
-SQL Server가 다른 언어보다 덜 명시적인 몇 가지 점 중 하나는 암묵적인 형변환을 허용한다는 것이다. 예를 들어 이 코드는 SQL Server에서 작동한다:
+SQL Server가 다른 언어보다 덜 명시적인 몇 가지 점 중 하나는 암묵적인 형 변환을 허용한다는 것이다. 예를 들어 이 코드는 SQL Server에서 작동한다:
 
 ```sql
 CREATE TABLE #temp (txt VARCHAR);
@@ -306,7 +306,7 @@ SELECT '1';
 SELECT * FROM #temp WHERE txt = 1;
 ```
 
-비록 `txt` 는 VARCHAR 필드이고 이것을 정수와 비교하고 있지만, SQL Server는 비교를 허용하기 위해 두 가지 중 하나를 자동으로 올바른 타입으로 변환한다. 이와 대조적으로, PostgreSQL과 같은 다른 언어는 VARCHAR와 INT를 비교하려고 할 때 오류를 일으킬 것이다.
+비록 `txt`는 VARCHAR 필드이고 이것을 정수와 비교하고 있지만, SQL Server는 비교를 허용하기 위해 두 가지 중 하나를 자동으로 올바른 타입으로 변환한다. 이와 대조적으로, PostgreSQL과 같은 다른 언어는 VARCHAR과 INT를 비교하려고 할 때 오류를 일으킬 것이다.
 
 따라서 형 변환은 항상 명시적으로 해야 한다. 위의 마지막에 있는 예는
 
@@ -334,22 +334,22 @@ SELECT * FROM concept WHERE LOWER(concep_class_id) = 'clinical finding'
 
 #### 스키마와 데이터베이스 {-}
 
-SQL Server에서 테이블은 스키마안에 있으며 스키마는 데이터베이스 안에 있다. 예를 들면, `cdm_data.dbo.person`은 `cdm_data` 데이터베이스의 `dbo` 스키마 안에 있는 `person` 테이블을 말한다. 다른 언어에서는 비슷한 계층 구조가 종종 존재하더라도 매우 다르게 사용된다. SQL Server에는 일반적으로 데이터베이스 당 하나의 스키마 (`dbo`라고 함), 가 있으며 사용자는 다른 데이터베이스의 데이터를 쉽게 사용할 수 있다. Postgres와 같은 다른 플랫폼에서는 단일 세션에서 데이터베이스 간 데이터를 사용할 수 없지만, 데이터베이스 안에는 많은 스키마를 가지고 있다. SQL Server의 데이터베이스는 PostgreSQL에서 스키마라고 할 수 있다.
+SQL Server에서 테이블은 스키마 안에 있으며 스키마는 데이터베이스 안에 있다. 예를 들면, `cdm_data.dbo.person`은 `cdm_data` 데이터베이스의 `dbo` 스키마 안에 있는 `person` 테이블을 말한다. 다른 언어에서는 비슷한 계층 구조가 종종 존재하더라도 매우 다르게 사용된다. SQL Server에는 일반적으로 데이터베이스 당 하나의 스키마 (`dbo`라고 함), 가 있으며 사용자는 다른 데이터베이스의 데이터를 쉽게 사용할 수 있다. Postgres와 같은 다른 플랫폼에서는 단일 세션에서 데이터베이스 간 데이터를 사용할 수 없지만, 데이터베이스 안에는 많은 스키마를 가지고 있다. SQL Server의 데이터베이스는 PostgreSQL에서 스키마라고 할 수 있다.
 
 따라서 SQL Server의 데이터베이스와 스키마를 단일 매개변수로 연결할 것을 권장한다. 이 매개 변수는 일반적으로 `@databaseSchema` 라고 한다. 예를 들면 우리는 매개 변수화된 SQL을 가질 수 있다.
 ```sql
 SELECT * FROM @databaseSchema.person
 ```
-SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마이름을 모두 포함할 수 있다. 다른 플랫폼에서는 동일한 코드를 사용할 수 있지만, 스키마 매개 변수 값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
+SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마 이름을 모두 포함할 수 있다. 다른 플랫폼에서는 같은 코드를 사용할 수 있지만, 스키마 매개 변수값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
 
 이것이 실패하는 한 가지 상황은 에러를 발생시키는 `USE cdm_data.dbo;`, 즉 `USE` 명령어를 사용했기 때문이다. 따라서 `USE` 명령어를 사용하지 말고 항상 테이블이 있는 데이터베이스 및 스키마를 지정하는 것이 바람직하다. 
 
 
-#### 매개 변수화 된 SQL 디버깅하기 {-}
+#### 매개 변수화된 SQL 디버깅하기 {-}
 
 매개 변수화된 SQL을 디버깅하는 것은 약간 복잡할 수 있다. 렌더링 된 SQL만 데이터베이스 서버에 대해 테스트할 수 있지만 매개 변수화된 (사전 렌더링 된) SQL에서 코드를 변경해야 한다. \index{SqlRender!debugging}
 
-SqlRender 패키지에는 대화형으로 SQL소스를 편집하여 SQL을 랜더링을 하거나 반대로 번역할 수 있는 샤이니 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:
+SqlRender 패키지에는 대화형으로 SQL 소스를 편집하여 SQL을 렌더링하거나 반대로 번역할 수 있는 Shiny 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:
 
 
 ```r
@@ -358,18 +358,15 @@ launchSqlRenderDeveloper()
 
 그러면 그림 \@ref(fig:sqlDeveloper)에 표시된 앱으로 기본 브라우저가 열린다. 이 앱은 웹에서도 공개적으로 사용할 수 있다.[^sqlDeveloperUrl] 
 
-<div class="figure" style="text-align: center">
-<img src="images/SqlAndR/sqlDeveloper.png" alt="The SqlDeveloper Shiny 앱." width="100%" />
-<p class="caption">(\#fig:sqlDeveloper)The SqlDeveloper Shiny 앱.</p>
-</div>
+![(\#fig:sqlDeveloper)The SqlDeveloper Shiny 앱.](images/SqlAndR/sqlDeveloper.png)
 
-앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 매개 변수 값을 제공하면 자동으로 번역된 SQL이 하단에 나타난다.
+앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 매개 변수값을 제공하면 자동으로 번역된 SQL이 하단에 나타난다.
 
 [^sqlDeveloperUrl]: http://data.ohdsi.org/SqlDeveloper/
 
 ## DatabaseConnector {#DatabaseConnector}
 
-[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 는 Java의 JDBC 드라이버를 사용하여 다양한 데이터베이스 플랫폼에 연결하기 위한 R 패키지이다. DatabaseConnector 패키지는 CRAN (종합 R 아카이브 네트워크) 에서 사용할 수 있으므로 다음을 사용하여 설치할 수 있다:
+[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/) 는 Java의 JDBC 드라이버를 사용하여 다양한 데이터베이스 플랫폼에 연결하기 위한 R 패키지이다. DatabaseConnector 패키지는 CRAN (종합 R 아카이브 네트워크)에서 사용할 수 있으므로 다음을 사용하여 설치할 수 있다:
 
 
 ```r
@@ -438,7 +435,7 @@ conn <- connect(details)
 
 데이터베이스 질의를 위한 주요 함수는 `querySql`과 `executeSql` 이다. 이러한 함수의 차이점은 `querySql`은 데이터베이스가 데이터를 반환할 것으로 예상하며, 한 번에 하나의 SQL 문만 처리할 수 있다는 것이다. 이와 대조적으로 `executeSql`은 데이터를 반환할 것을 예상하지 않으며, 단일 SQL 문자열에서 복수의 SQL 문을 수용한다. \index{DatabaseConnector!querying}
 
-몇가지 예시:
+몇 가지 예시:
 
 
 ```r
@@ -457,7 +454,7 @@ querySql(conn, "SELECT TOP 3 * FROM person")
 executeSql(conn, "TRUNCATE TABLE foo; DROP TABLE foo;")
 ```
 
-두 함수 모두 광범위한 오류보고 기능을 제공한다: 서버에서 오류가 발생하면 오류 메시지와 문제가 되는 SQL 부분이 텍스트 파일에 기록되어 더 나은 디버깅을 돕는다. 기본적으로 `executeSql` 함수도 실행 된 SQL 문의 백분율을 나타내는 진행 표시 줄을 보여준다. 이러한 속성이 필요하지 않은 경우 패키지는 `lowLevelQuerySql`과 `lowLevelExecuteSql` 함수도 제공한다.
+두 함수 모두 광범위한 오류 보고 기능을 제공한다: 서버에서 오류가 발생하면 오류 메시지와 문제가 되는 SQL 부분이 텍스트 파일에 기록되어 더 나은 디버깅을 돕는다. 기본적으로 `executeSql` 함수도 실행된 SQL 문의 백분율을 나타내는 진행 표시줄을 보여준다. 이러한 속성이 필요하지 않은 경우 패키지는 `lowLevelQuerySql`과 `lowLevelExecuteSql` 함수도 제공한다.
 
 ### Ffdf 객체를 사용하여 질의하기
 
@@ -480,7 +477,7 @@ x <- renderTranslateQuerySql(conn,
                              sql = "SELECT TOP 10 * FROM @schema.person",
                              schema = "cdm_synpuf")
 ```
-SQL Server 관련 ‘TOP 10’ 구문은 PostgreSQL에서 예를 들어 ‘LIMIT 10’으로 변환되며 SQL 매개변수 `@schema` 는 제공된 값 ‘cdm_synpuf’로 인스턴스화 되는 것에 주의해야한다.
+SQL Server 관련 ‘TOP 10’ 구문은 PostgreSQL에서 예를 들어 ‘LIMIT 10’으로 변환되며 SQL 매개변수 `@schema`는 제공된 값 ‘cdm_synpuf’로 인스턴스화 되는 것에 주의해야 한다.
 
 ### 테이블 삽입하기
 
@@ -520,7 +517,7 @@ FROM @cdm.observation_period;
 | ---------:|
 | 1.980803  |
 
-테이블을 조인하여 추가 통계를 생성할 수 있다. 조인은 일반적으로 테이블의 특정 필드가 동일한 값을 갖도록 하여 여러 테이블의 필드를 결합한다. 예를 들어 두 테이블 모두 가지고 있는 PERSON_ID 필드로 PERSON 테이블과 OBSERVATION_PEROPD 테이블을 조인할 수 있다. 즉, 조인의 결과는 두 테이블의 모든 필드를 갖는 새로운 테이블과 같은 집합이지만, 모든 행에서 두 테이블의 PERSON_ID는 동일한 값을 가져야 한다. 예를 들어 PERSON 테이블의 YEAR_OF_BIRTH 필드와 함께 OBSERVATION_PERIOD 테이블의 OBSERVATION_PERIOD_END_DATE 필드를 사용하여 관찰 종료시 환자의 최고 나이를 계산할 수 있다:
+테이블을 조인하여 추가 통계를 생성할 수 있다. 조인은 일반적으로 테이블의 특정 필드가 동일한 값을 갖도록 하여 여러 테이블의 필드를 결합한다. 예를 들어 두 테이블 모두 가지고 있는 PERSON_ID 필드로 PERSON 테이블과 OBSERVATION_PEROPD 테이블을 조인할 수 있다. 즉, 조인의 결과는 두 테이블의 모든 필드를 갖는 새로운 테이블과 같은 집합이지만, 모든 행에서 두 테이블의 PERSON_ID는 동일한 값을 가져야 한다. 예를 들어 PERSON 테이블의 YEAR_OF_BIRTH 필드와 함께 OBSERVATION_PERIOD 테이블의 OBSERVATION_PERIOD_END_DATE 필드를 사용하여 관찰 종료 시 환자의 최고 나이를 계산할 수 있다:
 
 ```sql
 SELECT MAX(YEAR(observation_period_end_date) -
@@ -533,7 +530,7 @@ INNER JOIN @cdm.observation_period
 | -------:|
 |      90 |
 
-관찰 시작 당시 연령 분포를 결정하려면 훨씬 더 복잡한 질의가 필요하다. 이 질의에서는 먼저 PERSON 테이블과 OBSERVATION_PERIOD을 조인하여 관찰 당시 연령을 계산한다. 또한 연령을 기준으로 이 조인된 집합의 순서를 정렬하고 order_nr로 저장한다. 이 조인의 결과를 여러 번 사용하고 싶기 때문에 “ages”라고 하는 common table expression (CTE) (`WITH ... AS`를 사용하여 정의된) 으로 정의한다. 즉, 연령을 기존 테이블인 것처럼 나타낼 수 있다. “ages”의 행 수를 세어 “n”을 생성하고 각 사분위수에 대해 order_nr이 분수 시간 "n," 보다 작은 최소 연령을 찾는다. 예를 들어, 중앙값을 찾기 위해 $order\_nr < .50 * n$인 최소 연령을 사용한다. 최소 및 최대 연령은 별도로 계산된다:
+관찰 시작 당시 연령 분포를 결정하려면 훨씬 더 복잡한 질의가 필요하다. 이 질의에서는 먼저 PERSON 테이블과 OBSERVATION_PERIOD을 조인하여 관찰 당시 연령을 계산한다. 또한 연령을 기준으로 이 조인된 집합의 순서를 정렬하고 order_nr로 저장한다. 이 조인의 결과를 여러 번 사용하고 싶기 때문에 “ages”라고 하는 common table expression(CTE) (`WITH ... AS`를 사용하여 정의된) 으로 정의한다. 즉, 연령을 기존 테이블인 것처럼 나타낼 수 있다. “ages”의 행 수를 세어 “n”을 생성하고 각 사분위 수에 대해 order_nr이 분수 시간 "n," 보다 작은 최소 연령을 찾는다. 예를 들어, 중앙값을 찾기 위해 $order\_nr < .50 * n$인 최소 연령을 사용한다. 최소 및 최대 연령은 별도로 계산된다:
 
 ```sql
 WITH ages
@@ -594,7 +591,7 @@ quantile(age[, 1], c(0, 0.25, 0.5, 0.75, 1))
 ##    0    6   17   34   90
 ```
 
-서버에서 연령을 계산하고 모든 연령들을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지의 여부를 사례별로 결정해야 한다.
+서버에서 연령을 계산하고 모든 연령을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지를 사례별로 결정해야 한다.
 
 질의는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:
 
@@ -622,7 +619,7 @@ ORDER BY -COUNT(*);
 
 ## 질의할 때 Vocabulary 사용하기
 
-많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 concept ID들이 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 셀려고 할때, GENDER_CONCEPT_ID를 concept name으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
+많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID가 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
 
 ```sql
 SELECT COUNT(*) AS subject_count,
@@ -637,7 +634,7 @@ GROUP BY concept_name;
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
+용어Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
 
 ```sql
 SELECT COUNT(*) AS prescription_count
@@ -658,40 +655,37 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
 
 \index{QueryLibrary}
 
-QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의들의 라이브러리이다. 그림 \@ref(fig:queryLibrary)에 표시된 응용 프로그램[^queryLibraryUrl] 및 R 패키지로 제공된다.[^queryLibraryPackageUrl]
+QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의의 라이브러리이다. 그림 \@ref(fig:queryLibrary)에 표시된 응용 프로그램[^queryLibraryUrl] 및 R 패키지로 제공된다.[^queryLibraryPackageUrl]
 
 [^queryLibraryUrl]: http://data.ohdsi.org/QueryLibrary
 
 [^queryLibraryPackageUrl]: https://github.com/OHDSI/QueryLibrary
 
-<div class="figure" style="text-align: center">
-<img src="images/SqlAndR/queryLibrary.png" alt="QueryLibrary: CDM에 대한 SQL 조회 라이브러리." width="100%" />
-<p class="caption">(\#fig:queryLibrary)QueryLibrary: CDM에 대한 SQL 조회 라이브러리.</p>
-</div>
+![(\#fig:queryLibrary)QueryLibrary: CDM에 대한 SQL 조회 라이브러리.](images/SqlAndR/queryLibrary.png)
 
 라이브러리의 목적은 새로운 사용자가 CDM에 질의하는 방법을 배우도록 돕는 것이다. 라이브러리의 질의는 OHDSI 커뮤니티에서 검토하고 승인하였다. 질의 라이브러리는 주로 교육 목적으로 사용되지만 숙련된 사용자에게 유용한 자원이기도 하다.
 
-QueryLibrary는 SqlRender를 사용하여 선택한 SQL 언어로 질의를 출력한다. 사용자는 CDM 데이터베이스 스키마, vocabulary 데이터베이스 스키마 (별도의 경우) 및 Oracle 임시 스키마 (필요한 경우) 를 지정할 수 있으므로 이러한 설정으로 질의가 자동으로 렌더링 된다.
+QueryLibrary는 SqlRender를 사용하여 선택한 SQL 언어로 질의를 출력한다. 사용자는 CDM 데이터베이스 스키마, vocabulary 데이터베이스 스키마 (별도의 경우) 및 Oracle 임시 스키마 (필요한 경우)를 지정할 수 있으므로 이러한 설정으로 질의가 자동으로 렌더링 된다.
 
 ## 간단한 연구 구성하기
 
 ### 문제 정의
 
-Angioedema(혈관 부종)은 ACE inhibitor(ACEi)의 잘 알려진 부작용이다. [@slater_1988] ACEi 치료 첫 주에 혈관 부종의 발생률이 주당 3,000명의 환자당 1건인 것으로 추정하였다. 여기서 우리는 이 결론을 모방하고 연령과 성별에 따라 계층화한다. 간단하게 하기 위해서 우리는 하나의 ACEi: lisinopril에 중점을 둔다. 따라서 우리는 질문에 대답한다.
+혈관 부종Angioedema은 ACE inhibitor(ACEi)의 잘 알려진 부작용이다. [@slater_1988] ACEi 치료 첫 주에 혈관 부종의 발생률이 주당 3,000명의 환자당 1건인 것으로 추정하였다. 여기서 우리는 이 결론을 모방하고 나이와 성별에 따라 계층화한다. 간단하게 하기 위해서 우리는 하나의 ACEi: lisinopril에 중점을 둔다. 따라서 우리는 질문에 대답한다.
 
-> Lisinopril 치료 개시 후 첫 주에 연령과 성별에 따라 계층화되는 혈관 부종의 비율은 얼마인가?
+> Lisinopril 치료 개시 후 첫 주에 나이와 성별에 따라 계층화되는 혈관 부종의 비율은 얼마인가?
 
 ### 노출
 
-Exposure(노출)은 lisinopril에 대한 첫번째 노출로 정의한다. 먼저 이전에 lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365 일의 연속 관찰 기간이 필요하다.
+노출Exposure은 lisinopril에 대한 첫 번째 노출로 정의한다. 먼저 이전에 lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365일의 연속 관찰 기간이 필요하다.
 
 ### 결과
 
 입원 또는 응급실 방문 중 혈관 부종 진단 코드의 발생으로 혈관 부종을 정의한다. 
 
-### 위험 노출 기간 (Time-at-risk)
+### 위험 노출 기간Time-at-risk
 
-환자가 일주일 동안 노출되었는지 여부와 관계없이 이 치료 시작 후 첫 주에 발생률을 계산한다.
+환자가 일주일 동안 노출되었는지와 관계없이 이 치료 시작 후 첫 주에 발생률을 계산한다.
 
 ## SQL과 R을 사용하여 연구 구현
 
@@ -776,7 +770,7 @@ renderTranslateExecuteSql(conn, sql,
 
 ### 결과 코호트
 
-마지막으로, 우리는 결과(outcome) 코호트를 만들어야 한다:
+마지막으로, 우리는 결과outcome 코호트를 만들어야 한다:
 
 
 ```r
@@ -902,7 +896,7 @@ ggplot(results, aes(x = age, y = ir, group = gender, color = gender)) +
   xlab("Age") +
   ylab("Incidence (per 1,000 patient weeks)")
 ```
-<img src="images/SqlAndR/ir.png" width="80%" style="display: block; margin: auto;" />
+![](images/SqlAndR/ir.png)<!-- -->
 
 ### 마무리하기
 
@@ -933,7 +927,7 @@ OHDSI SQL을 DatabaseConnector 및 SQLRender와 함께 사용하기 때문에 �
 
 - 데이터베이스 플랫폼마다 SQL 언어가 다르며 이를 질의하기 위해서는 다른 툴이 필요하다.
 
-- **SqlRender** 및 **DatabaseConnector** R 패키지는 CDM에서 데이터를 질의하는 통합된 방법을 제공하므로 동일한 분석 코드를 수정없이 다른 환경에서 실행할 수 있다.
+- **SqlRender** 및 **DatabaseConnector** R 패키지는 CDM에서 데이터를 질의하는 통합된 방법을 제공하므로 동일한 분석 코드를 수정 없이 다른 환경에서 실행할 수 있다.
 
 - R과 SQL을 함께 사용하면 OHDSI 툴에서 지원하지 않는 사용자 맞춤 분석 연구를 구현할 수 있다.
 
@@ -952,7 +946,7 @@ install.packages(c("SqlRender", "DatabaseConnector", "devtools"))
 devtools::install_github("ohdsi/Eunomia", ref = "v1.0.0")
 ```
 
-Eunomia 패키지는 로컬 R 세션 내에서 실행될 CDM의 시뮬레이션된 다른 데이터 세트를 제공한다. 연결 세부 사항은 다음을 사용하여 얻을 수 있다:
+Eunomia 패키지는 로컬 R 세션 내에서 실행될 CDM의 시뮬레이션 된 다른 데이터 세트를 제공한다. 연결 세부 사항은 다음을 사용하여 얻을 수 있다:
 
 
 ```r
@@ -964,9 +958,9 @@ CDM 데이터베이스 스키마는 "main"이다.
 \BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exercisePeopleCount"><strong>(\#exr:exercisePeopleCount) </strong></span>SQL과 R을 사용하여 데이터베이스에 몇 사람이 있는지 계산하십시오.
 </div>\EndKnitrBlock{exercise}
 
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCelecoxibUsers"><strong>(\#exr:exerciseCelecoxibUsers) </strong></span>SQL과 R을 사용하여 celecoxib를 적어도 한번 이상 처방 한 사람을 계산하십시오.
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseCelecoxibUsers"><strong>(\#exr:exerciseCelecoxibUsers) </strong></span>SQL과 R을 사용하여 celecoxib을 적어도 한 번 이상 처방 한 사람을 계산하십시오.
 </div>\EndKnitrBlock{exercise}
-\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseGiBleedsDuringCelecoxib"><strong>(\#exr:exerciseGiBleedsDuringCelecoxib) </strong></span>SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈(gastrointestinal hemorrhage)이 있는지 진단한다. (힌트: 위장 출혈의 concept ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
+\BeginKnitrBlock{exercise}<div class="exercise"><span class="exercise" id="exr:exerciseGiBleedsDuringCelecoxib"><strong>(\#exr:exerciseGiBleedsDuringCelecoxib) </strong></span>SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈gastrointestinal hemorrhage이 있는지 진단한다. (힌트: 위장 출혈의 개념 ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
 </div>\EndKnitrBlock{exercise}
 
 제안된 답변은 부록 \@ref(SqlAndRanswers)에서 찾을 수 있다.
