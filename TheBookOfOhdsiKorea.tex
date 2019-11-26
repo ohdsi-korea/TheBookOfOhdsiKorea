@@ -1,5 +1,7 @@
-\documentclass[11pt]{book}
+\documentclass[10.5pt]{book}
 \usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.5}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -22,7 +24,7 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[paperheight=10in,paperwidth=7in,margin=1in,inner=1in,outer=0.65in,top=0.8in,bottom=0.8in]{geometry}
+\usepackage[paperheight=257mm,paperwidth=188mm,margin=20mm,inner=1in,outer=0.65in,top=0.8in,bottom=0.8in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={오딧세이 바이블 The Book of OHDSI},
@@ -520,6 +522,7 @@ Commons Zero v1.0 Universal license}.로 인가되었다.
 박유진 & 아주대학교\tabularnewline
 박지명 & 아주대학교\tabularnewline
 박철형 & 아주대학교\tabularnewline
+신서정 & 아주대학교\tabularnewline
 양영모 & 아주대학교\tabularnewline
 오송희 & 아주대학교\tabularnewline
 유승찬 & 아주대학교\tabularnewline
@@ -579,17 +582,17 @@ OHDSI의 공동체 정신을 한국에서 생생하게 느낄 수 있다.
 과거를 통해 배운 것을 어떻게 미래를 위하여 적용하여 더 나은 결정을 내릴
 수 있을 것인가?
 
-10년이 넘도록, 많은 사람들이 \textbf{스스로 학습하는 보건의료
-체계learning healthcare system}의 비전에 대해서 논의해 왔다. ``그것은 각
+10년이 넘도록, 많은 사람들이 \textbf{스스로 학습하는 보건의료 체계
+learning healthcare system}의 비전에 대해서 논의해 왔다. ``그것은 각
 환자와 의료 제공자가 함께 의료 행위를 결정할 때 필요한 최상의 근거를
 생성하고 적용하기 위함이다. 또한, 환자 치료의 부산물로서 새로운 의학적
 발견이 가능하도록 유도하며, 보건의료의 혁신, 질, 안전 및 가치를 보장하기
 위함이다.'' \citep{olsen2007learning} 이 원대한 계획의 주요한 요소는
-일상적인 임상 치료 과정에서 수집된 환자 수준patient-level의 데이터를
-분석하여 \textbf{실세계 근거real-world evidence}를 생성할 수 있으며,
+일상적인 임상 치료 과정에서 수집된 환자 수준 patient-level의 데이터를
+분석하여 \textbf{실세계 근거 real-world evidence}를 생성할 수 있으며,
 의료 시스템에 전파되어 실제 임상에 정보를 제공 할 수 있으리라는 야심 찬
 전망에 있다. 미국 의학 연구소 Institute of Medicine의 근거 중심 의학
-원탁회Roundtable on Evidence-Based Medicine은 2007년 보고서에서
+원탁회 Roundtable on Evidence-Based Medicine은 2007년 보고서에서
 ``2020년까지 90\%의 임상 결정이 정확하고, 시기적절하고, 최신의 임상
 정보에 의해 뒷받침될 것이며, 그것은 가능한 최선의 근거를 반영할
 것이다.''라고 예측했다. \citep{olsen2007learning} 비록 여러 가지 면에서
@@ -599,7 +602,7 @@ OHDSI의 공동체 정신을 한국에서 생생하게 느낄 수 있다.
 무엇 때문인가? 부분적으로는 환자 수준의 데이터에서 신뢰할만한 근거를
 생성하는 여정이 몹시 고되기 때문일 것이다. 데이터로부터 근거를 생성하는
 과정에는 정해진 하나의 길이 없으며, 어떠한 지도도 그 길을 안내해주지
-않는다. 사실, ``데이터data''가 무엇인지, 그리고 ``근거evidence''가
+않는다. 사실, ``데이터 data''가 무엇인지, 그리고 ``근거 evidence''가
 무엇인지에 대한 통일된 관념도 존재하지 않는다.
 
 \begin{figure}
@@ -611,12 +614,12 @@ OHDSI의 공동체 정신을 한국에서 생생하게 느낄 수 있다.
 \caption{데이터에서 근거로의 여정}\label{fig:datajourney}
 \end{figure}
 
-원천 시스템에는 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰형
-데이터베이스observational database가 있다. 이 데이터베이스는 서로 다른
+원천 시스템에는 다양한 환자 수준의 데이터를 수집하는 여러 유형의 관찰
+데이터베이스 observational database가 있다. 이 데이터베이스는 서로 다른
 의료 시스템 내부의 인구, 치료 설정 및 데이터 수집 프로세스의 이질성만큼
 다양하다. 의사 결정에 도움이 될 수 있는 다양한 유형의 근거가 있으며,
-분석 방법론에 따라 임상적 특성 분석clinical characterization, 인구 수준
-추정population-level estimation 및 환자 수준 예측patient-level
+분석 방법론에 따라 임상적 특성 분석 clinical characterization, 인구 수준
+추정 population-level estimation 및 환자 수준 예측 patient-level
 prediction으로 분류할 수 있다. 출발지(원천 데이터) 및 원하는
 목적지(근거)와는 별도로, 여정을 수행하는 데 필요한 광범위한 임상, 과학
 및 기술 역량들은 문제를 더욱 복잡하게 만든다. 보험 청구나 진료 과정이
@@ -642,8 +645,8 @@ Partnership)}\label{omop-observational-medical-outcomes-partnership}
 
 협력 관찰형 연구 모델의 주목할만한 예시로 OMOP(Observational Medical
 Outcomes Partnership)이 있다. OMOP은 미국 식품의약국 FDA이 주관하고,
-미국 국립 보건원National Institutes of Health 관리하에 학술 연구자, 보건
-데이터 파트너 및 협력 제약 사간의 컨소시엄으로 구성되었으며, 관찰형
+미국 국립 보건원 National Institutes of Health 관리하에 학술 연구자,
+보건 데이터 파트너 및 협력 제약 사간의 컨소시엄으로 구성되었으며, 관찰형
 보건의료 데이터를 이용하여 능동적 의료 제품 안전성 감시의 발전을
 꾀하고자 만들어진 민관 협력체였다. \citep{stang2010omop} OMOP은 다수의
 이해관계자 간의 거버넌스 구조를 확립했고, 다수의 청구자료 및 전자 의무
@@ -654,7 +657,7 @@ Outcomes Partnership)이 있다. OMOP은 미국 식품의약국 FDA이 주관하
 분산된 관찰형 데이터베이스를 통해 연구를 진행하면서 기술적인 난제를
 인식하고, 연구진들은 데이터의 구조, 내용 및 용어를 표준화하여 하나의
 통계 분석 코드가 모든 데이터 파트너에서 공통으로 사용될 수 있도록, OMOP
-공통 데이터 모델Common Data Model(CDM)을 설계하였다.
+공통 데이터 모델 Common Data Model(CDM)을 설계하였다.
 \citep{overhage2012cdm} OMOP 실험은 공통 데이터 모델과 표준화된 어휘를
 확립하는 것이 가능하다는 것을 증명하였으며, 이는 서로 다른 의료체계에서
 다른 용어체계를 통해서 생성된 다른 데이터 유형을 수용하여 기관 간 협업과
@@ -677,24 +680,25 @@ OMOP은 대규모의 경험적 실험을 완성하는 데 성공하였고,
 
 OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 수 있는 관찰형 연구를
 완료하고 종료된 이후, 사람들은 OMOP 여정의 끝이 새로운 여정의 시작이
-되어야 한다고 생각했다. OMOP의 방법론적 연구가 관찰형 데이터에서
-생성되는 근거의 품질을 명시적으로 개선할 수 있는 모범 사례best
-practice를 제시하였지만, 그러한 모범 사례의 채택은 느렸다. 몇 가지
-장애물들이 있었는데, 1) 방법론적인 혁신을 내세우기 전 관찰형 자료의
-품질에 대한 근본적인 우려 2) 방법론적 문제와 해결책에 대한 불충분한
-개념적 이해 3) 개별 데이터 파트너의 로컬 환경 내에서 솔루션을 독립적으로
-구현할 수 없다는 점 4) 이러한 접근방식이 다른 연구자들이 관심이 있는
-임상적 문제에 적용 가능한지에 대한 불확실성 등이었다. 이러한 모든
-장애물에 대해 변화를 만들기 위해서는 한 개인의 힘이 아니라, 여러 사람이
-협력하여야만 한다는 것을 깨달을 수 있었다. 다음과 같은 협력이 필요했다:
+되어야 한다고 생각했다. OMOP의 방법론적 연구가 관찰 데이터에서 생성되는
+근거의 품질을 명시적으로 개선할 수 있는 모범 사례 best practice를
+제시하였지만, 그러한 많은 연구자들은 이러한 모범 사례를 채택하기를
+주저했다. 이를 방해하는 몇 가지 장애물들이 있었는데, 1) 방법론적인
+혁신을 내세우기 전 관찰형 자료의 품질에 대한 근본적인 우려 2) 방법론적
+문제와 해결책에 대한 불충분한 개념적 이해 3) 개별 데이터 파트너의 로컬
+환경 내에서 솔루션을 독립적으로 구현할 수 없다는 점 4) 이러한 접근방식이
+다른 연구자들이 관심이 있는 임상적 문제에 적용 가능한지에 대한 불확실성
+등이었다. 이러한 모든 장애물에 대해 변화를 만들기 위해서는 한 개인의
+힘이 아니라, 여러 사람이 협력하여야만 한다는 것을 깨달을 수 있었다.
+다음과 같은 협력이 필요했다:
 
 \begin{itemize}
 \tightlist
 \item
   기초 데이터 품질에 대한 신뢰도를 높이며 구조, 콘텐츠 및 의미론적
-  일관성을 촉진하여 표준화된 분석이 가능하도록 개방형 커뮤니티open
-  community의 데이터 구조, 어휘 및 추출 변환
-  적재Extract-Transform-Load(ETL) 표준규약 구축을 위한 협업
+  일관성을 촉진하여 표준화된 분석이 가능하도록 개방형 커뮤니티 open
+  community의 데이터 구조, 어휘 및 추출 변환 적재
+  Extract-Transform-Load(ETL) 표준규약 구축을 위한 협업
 \item
   약물 안전성 연구 외에도 임상적 특성 분석, 인구 수준 추정 및 환자 수준
   예측을 위한 보다 광범위한 모범 사례를 확립하기 위한 협업. 방법론적
@@ -713,7 +717,7 @@ practice를 제시하였지만, 그러한 모범 사례의 채택은 느렸다. 
 OHDSI(Observational Health data Sciences and Informatics)는 보다 더 나은
 의료 결정과 더 나은 보건 관리를 촉진할 수 있는 과학적 근거를 공동으로
 생성하도록 함으로써 보건 수준을 향상하는 것을 목표로 하는 개방형 과학
-공동체다. \citep{Hripcsak2015} OHDSI는 관찰형 건강 데이터observational
+공동체다. \citep{Hripcsak2015} OHDSI는 관찰 보건 데이터 observational
 health data의 적절한 사용에 대한 과학적 모범 사례를 확립하기 위한
 방법론적 연구를 수행하고, 이러한 연구방법론을 일관되고 투명하며 재현
 가능한 솔루션으로 코드화하는 오픈 소스 분석 소프트웨어를 개발하여,
@@ -745,9 +749,9 @@ understanding of health and disease. \index{vision}
 \begin{itemize}
 \tightlist
 \item
-  \textbf{혁신 Innovation}: 관찰형 연구는 파괴적 사유를 통해서 가장
-  혜택을 얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인
-  접근을 적극적으로 찾고 격려한다.
+  \textbf{혁신 Innovation}: 관찰 연구는 파괴적 사유를 통해서 가장 혜택을
+  얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인 접근을
+  적극적으로 찾고 격려한다.
 \end{itemize}
 
 \begin{quote}
@@ -946,13 +950,12 @@ OHDSI 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십
 포함하여 3일간 개최되었다.
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC01956} \caption{2017년 한국에서의 OHDSI 국제 심포지엄}\label{fig:OHDSIInternationalSymposium2017inKorea1}
-\end{figure}\begin{figure}
-\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC01861} \caption{2017년 한국에서의 OHDSI 국제 심포지엄}\label{fig:OHDSIInternationalSymposium2017inKorea1}
-\end{figure}
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/DSC02166} \caption{2017년 한국에서의 OHDSI 국제 심포지엄 튜토리얼}\label{fig:OHDSIInternationalSymposium2017inKorea2}
+{\centering \includegraphics[width=1\linewidth]{images/OhdsiCommunity/DSC01956} 
+
+}
+
+\caption{2017년 한국에서의 OHDSI 국제 심포지엄}\label{fig:OHDSIInternationalSymposium2017inKorea1}
 \end{figure}
 
 한국 OHDSI 네트워크에 참여를 희망하는 병원 관계자들과 함께 2017년 3월
@@ -990,22 +993,22 @@ OHDSI 커뮤니티는 학계, 산업계 및 정부 기관 전반에 걸쳐 다�
 이해관계자들을 대표하고 있다. 본 커뮤니티의 작업으로 의료 시스템뿐
 아니라 환자, 의료제공자, 연구자들을 포함한 다양한 개인들과 기관들이
 혜택을 받게 된다. 이러한 이점은 의료 데이터를 더 유용하도록 개선할 뿐만
-아니라 의료데이터 분석의 질을 향상함으로써 얻어지게 된다. 관찰형 연구는
-파괴적인 생각disruptive thinking으로부터 크게 혜택을 받을 수 있는
+아니라 의료데이터 분석의 질을 향상함으로써 얻어지게 된다. 관찰 연구는
+파괴적인 생각 disruptive thinking으로부터 크게 혜택을 받을 수 있는
 분야이다. 이 분야에서는 적극적인 새로운 방법론적 도입이 필요하다.
 \index{community}
 
-\section{여정에 동참하십시오}\label{-}
+\section{여정에 동참하기}\label{-}
 
 환자, 의료 전문가, 연구자 혹은 단순히 OHDSI의 목적에 동감하는 사람이면
 누구든지 OHDSI 커뮤니티에 적극적으로 참여할 수 있다. OHDSI는 포용적
 멤버십 모델을 추구하며 OHDSI의 공동연구자가 되기 위한 멤버십 비용은
-없다. 참여를 원하는 사람은 단지 손을 들어서 매년 OHDSI 멤버십 카운트에
-포함되면 된다. 참여는 전적으로 자의에 의한 것이며 매주 커뮤니티의
-네트워크 스터디나 OHDSI 작업 그룹에 참여하는 것만으로도 충분하다. 꼭
-데이터를 보유하고 있어야만 OHDSI 커뮤니티의 액티브 멤버가 되는 것은
-아니다. 본 커뮤니티는 데이터 보유자, 연구자, 헬스케어 제공자, 환자와
-소비자 모두에게 도움을 주고자 한다. 공동연구자의 프로필은 OHDSI
+없다. 참여를 원하는 사람은 단지 손을 들기만 하면, 매년 OHDSI 멤버십
+카운트에 포함될 것이다. 참여는 전적으로 자의에 의한 것이며 매주
+커뮤니티의 네트워크 스터디나 OHDSI 작업 그룹에 참여하는 것만으로도
+충분하다. 꼭 데이터를 보유하고 있어야만 OHDSI 커뮤니티의 액티브 멤버가
+되는 것은 아니다. 본 커뮤니티는 데이터 보유자, 연구자, 헬스케어 제공자,
+환자와 소비자 모두에게 도움을 주고자 한다. 공동연구자의 프로필은 OHDSI
 웹사이트에서 관리되고 정기적으로 업데이트되고 있다. 멤버십은 OHDSI
 커뮤니티 원격회의, 워크그룹, 지역별 모임을 통해 육성되고 있다.
 \index{join the journey} \index{workgroups} \index{chapters}
@@ -7002,7 +7005,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.ghlvb35jchildren ;"
+## [1] "SELECT * FROM temp_schema.uq3cxainchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.

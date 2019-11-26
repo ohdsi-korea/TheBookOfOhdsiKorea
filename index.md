@@ -2,11 +2,12 @@
 title: "오딧세이 바이블 The Book of OHDSI"
 author: "한국 오딧세이"
 date: "2019-11-26"
-classoption: 11pt
+classoption: 10.5pt
+linestretch: 1.5
 geometry:
-- paperheight=10in
-- paperwidth=7in
-- margin=1in
+- paperheight=257mm
+- paperwidth=188mm
+- margin=20mm
 - inner=1in
 - outer=0.65in
 - top=0.8in
@@ -132,6 +133,7 @@ SqlRender                  1.6.2
 | 박유진 | 아주대학교   |
 | 박지명 | 아주대학교   |
 | 박철형 | 아주대학교   |
+| 신서정 | 아주대학교   |
 | 양영모 | 아주대학교   |
 | 오송희 | 아주대학교   |
 | 유승찬 | 아주대학교   |
