@@ -7,7 +7,7 @@ require(SqlRender)
 require(DatabaseConnector)
 ```
 
-공통 데이터 모델Common Data Model(CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가가 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있어서 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
+공통 데이터 모델 Common Data Model(CDM)은 모든 데이터가 필드가 있는 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다. 사용자는 ATLAS와 연구방법론 라이브러리 Methods Library같은 다양한 OHDSI 도구를 통해 데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이 있으면 이 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다. 데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를 적절하게 분석을 할 수 있도록 (전문가가 오랜 시간 고려하여 만든) 지침을 안내하도록 설계되어 있어서 직접 데이터베이스에 질의하는 것은 실수를 범할 위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다.
 관계형 데이터베이스에 질의하기 위한 표준 언어는 Structured Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에 대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고 소프트웨어 플랫폼 전반에 걸쳐 같은 의미가 있지만, 플랫폼마다 미묘한 변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON 테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 ```{sql,eval=FALSE}
@@ -30,35 +30,35 @@ OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고
 
 ## SqlRender {#SqlRender}
 
-[SqlRender](https://ohdsi.github.io/SqlRender/) 패키지는 Comprehensive R Archive Network (CRAN)에서 이용할 수 있으므로 다음을 사용하여 설치할 수 있다: 
+[SqlRender](https://ohdsi.github.io/SqlRender/) 패키지는 Comprehensive R Archive Network(CRAN)에서 이용할 수 있으므로 다음을 사용하여 설치할 수 있다: 
 
 ```{r, eval=FALSE}
 install.packages("SqlRender")
 ```
 
-SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite, and Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, and Amazon RedShift), 빅데이터 플랫폼 (Hadoop through Impala, and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
+SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite, and Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, and Amazon RedShift), 빅데이터 플랫폼 (Hadoop through Impala, and Google BigQuery)을 포함한 다수의 기술 플랫폼을 지원한다.
 
-### SQL의 매개 변수화
+### SQL의 파라미터화
 
-패키지의 기능 중 하나는 SQL문에 매개 변수를 지원하는 것이다. 일부 매개 변수에 기반하여 SQL문을 조금씩 변형할 필요가 종종 있다. SqlRender는 매개 변수를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 매개 변수를 기반으로 SQL을 렌더링하는 것은 `render()` 함수를 사용하여 수행한다. \index{SqlRender!parameterization}
+패키지의 기능 중 하나는 SQL문에 파라미터를 지원하는 것이다. 일부 파라미터에 기반하여 SQL문을 조금씩 변형할 필요가 종종 있다. SqlRender는 파라미터를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 파라미터를 기반으로 SQL을 렌더링하는 것은 `render()` 함수를 사용하여 수행한다. \index{SqlRender!parameterization}
 
-#### 매개 변수값 대체하기 {-}
+#### 파라미터값 대체하기 {-}
 
-`@` 문자는 렌더링 시 실제 매개 변수값과 교환해야 하는 매개 변수 이름을 나타내는 데 사용할 수 있다. 다음 예에서 `a`라고 불리는 변수가 SQL에서 언급되어 있다. 렌더 함수를 호출할 때 이 매개 변수의 값이 정의된다:
+`@` 문자는 렌더링 시 실제 파라미터값과 교환해야 하는 파라미터 이름을 나타내는 데 사용할 수 있다. 다음 예에서 `a`라고 불리는 변수가 SQL에서 언급되어 있다. 렌더 함수를 호출할 때 이 파라미터의 값이 정의된다:
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM concept WHERE concept_id = @a;"
 render(sql, a = 123)
 ```
 
-대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수와 달리 테이블 또는 필드 이름을 값으로 매개 변수화하기가 쉽다는 것에 주목하라:
+대부분의 데이터베이스 관리 시스템에서 제공하는 파라미터와 달리 테이블 또는 필드 이름을 값으로 파라미터화하기가 쉽다는 것에 주목하라:
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM @x WHERE person_id = @a;"
 render(sql, x = "observation", a = 123)
 ```
 
-매개 변수값은 숫자, 문자열, 부울 및 쉼표를 기준으로 항목을 나눈 리스트로 변환된 벡터일 수 있다:
+파라미터값은 숫자, 문자열, 부울 및 쉼표를 기준으로 항목을 나눈 리스트로 변환된 벡터일 수 있다:
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM concept WHERE concept_id IN (@a);"
@@ -67,7 +67,7 @@ render(sql, a = c(123, 234, 345))
 
 #### If-Then-Else {-}
 
-때로는 하나 이상의 매개 변수값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 `{Condition} ? {if true} : {if false}` 구문을 사용한다. *조건*이 참 또는 1로 평가되면, *if true* 블록이 사용되고 그렇지 않으면, *if false* 블록이 표시된다 (있는 경우).
+때로는 하나 이상의 파라미터값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 `{Condition} ? {if true} : {if false}` 구문을 사용한다. *조건*이 참 또는 1로 평가되면, *if true* 블록이 사용되고 그렇지 않으면, *if false* 블록이 표시된다 (있는 경우).
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM cohort {@x} ? {WHERE subject_id = 1}"
@@ -99,7 +99,7 @@ sql <- "SELECT TOP 10 * FROM person;"
 translate(sql, targetDialect = "postgresql")
 ```
 
-`targetDialect` 매개 변수는 다음과 같은 값을 가질 수 있다: "oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", and "sql server". \index{SqlRender!translation}
+`targetDialect` 파라미터는 다음과 같은 값을 가질 수 있다: "oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", and "sql server". \index{SqlRender!translation}
 
 ```{block2, type='rmdimportant'}
 패키지에는 제한된 변환 규칙 세트만 구현되었기 때문에 SQL의 함수 및 구성을 적절하게 번역되는 것에는 한계가 있을 뿐 아니라 일부 SQL의 특징은 모든 언어에서 동일하지 않다. OHDSI SQL이 독자적인 새로운 문법으로 개발된 주된 이유이다. 하지만 이미 있는 것을 다시 만드느라 쓸데없이 시간을 낭비하지 않기 위해 SQL Server 구문을 유지하였다.
@@ -284,18 +284,18 @@ SELECT * FROM concept WHERE LOWER(concep_class_id) = 'clinical finding'
 
 SQL Server에서 테이블은 스키마 안에 있으며 스키마는 데이터베이스 안에 있다. 예를 들면, `cdm_data.dbo.person`은 `cdm_data` 데이터베이스의 `dbo` 스키마 안에 있는 `person` 테이블을 말한다. 다른 언어에서는 비슷한 계층 구조가 종종 존재하더라도 매우 다르게 사용된다. SQL Server에는 일반적으로 데이터베이스 당 하나의 스키마 (`dbo`라고 함), 가 있으며 사용자는 다른 데이터베이스의 데이터를 쉽게 사용할 수 있다. Postgres와 같은 다른 플랫폼에서는 단일 세션에서 데이터베이스 간 데이터를 사용할 수 없지만, 데이터베이스 안에는 많은 스키마를 가지고 있다. SQL Server의 데이터베이스는 PostgreSQL에서 스키마라고 할 수 있다.
 
-따라서 SQL Server의 데이터베이스와 스키마를 단일 매개변수로 연결할 것을 권장한다. 이 매개 변수는 일반적으로 `@databaseSchema` 라고 한다. 예를 들면 우리는 매개 변수화된 SQL을 가질 수 있다.
+따라서 SQL Server의 데이터베이스와 스키마를 단일 매개변수로 연결할 것을 권장한다. 이 파라미터는 일반적으로 `@databaseSchema` 라고 한다. 예를 들면 우리는 파라미터화된 SQL을 가질 수 있다.
 ```sql
 SELECT * FROM @databaseSchema.person
 ```
-SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마 이름을 모두 포함할 수 있다. 다른 플랫폼에서는 같은 코드를 사용할 수 있지만, 스키마 매개 변수값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
+SQL Server에서 `databaseSchema = "cdm_data.dbo"`값에 데이터베이스와 스키마 이름을 모두 포함할 수 있다. 다른 플랫폼에서는 같은 코드를 사용할 수 있지만, 스키마 파라미터값은 다음과 같이 지정한다: `databaseSchema = "cdm_data"`
 
 이것이 실패하는 한 가지 상황은 에러를 발생시키는 `USE cdm_data.dbo;`, 즉 `USE` 명령어를 사용했기 때문이다. 따라서 `USE` 명령어를 사용하지 말고 항상 테이블이 있는 데이터베이스 및 스키마를 지정하는 것이 바람직하다. 
 
 
-#### 매개 변수화된 SQL 디버깅하기 {-}
+#### 파라미터화된 SQL 디버깅하기 {-}
 
-매개 변수화된 SQL을 디버깅하는 것은 약간 복잡할 수 있다. 렌더링 된 SQL만 데이터베이스 서버에 대해 테스트할 수 있지만 매개 변수화된 (사전 렌더링 된) SQL에서 코드를 변경해야 한다. \index{SqlRender!debugging}
+파라미터화된 SQL을 디버깅하는 것은 약간 복잡할 수 있다. 렌더링 된 SQL만 데이터베이스 서버에 대해 테스트할 수 있지만 파라미터화된 (사전 렌더링 된) SQL에서 코드를 변경해야 한다. \index{SqlRender!debugging}
 
 SqlRender 패키지에는 대화형으로 SQL 소스를 편집하여 SQL을 렌더링하거나 반대로 번역할 수 있는 Shiny 앱이 포함되어 있다. 이 앱은 다음과 같이 시작한다:
 
@@ -309,7 +309,7 @@ launchSqlRenderDeveloper()
 knitr::include_graphics("images/SqlAndR/sqlDeveloper.png")
 ```
 
-앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 매개 변수값을 제공하면 자동으로 번역된 SQL이 하단에 나타난다.
+앱에서 OHDSI SQL을 입력하고 대상 언어를 선택하고 SQL에 파라미터값을 제공하면 자동으로 번역된 SQL이 하단에 나타난다.
 
 [^sqlDeveloperUrl]: http://data.ohdsi.org/SqlDeveloper/
 
@@ -524,7 +524,7 @@ cat("  0%  25%  50%  75% 100%
 
 서버에서 연령을 계산하고 모든 연령을 다운로드한 다음 연령 분포를 계산한다. 그러나 이를 위해서는 데이터베이스 서버에서 수백만 행의 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘 수행되는지 R에서 가장 잘 수행되는지를 사례별로 결정해야 한다.
 
-질의는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:
+질의는 CDM의 원천 값 source value을 사용할 수도 있다. 예를 들어, 다음을 사용하여 가장 빈번한 상위 10개의 condition 원천 코드 source code를 검색할 수 있다:
 
 ```sql
 SELECT TOP 10 condition_source_value, 
@@ -548,9 +548,9 @@ ORDER BY -COUNT(*);
 
 여기서 CONDITION_OCCURRENCE 테이블의 행을 CONDITION_SOURCE_VALUE 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다. 우리는 CONDITION_SOURCE_VALUE, count, 그리고 count의 역순을 검색했다.
 
-## 질의할 때 Vocabulary 사용하기
+## 질의할 때 용어 사용하기
 
-많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID가 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
+많은 작업에서 용어 Vocabulary는 유용하다. 용어 테이블은 CDM의 일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. 용어에 대한 질의가 CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는 CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID가 포함되어 있다. 예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때, GENDER_CONCEPT_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할 것이다:
 
 ```sql
 SELECT COUNT(*) AS subject_count,
@@ -565,7 +565,7 @@ GROUP BY concept_name;
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-용어Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
+용어의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는 *모든 하위 개념*을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고 상상해보라:
 
 ```sql
 SELECT COUNT(*) AS prescription_count
@@ -586,7 +586,7 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
 
 \index{QueryLibrary}
 
-QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의의 라이브러리이다. 그림 \@ref(fig:queryLibrary)에 표시된 응용 프로그램[^queryLibraryUrl] 및 R 패키지로 제공된다.[^queryLibraryPackageUrl]
+QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의 라이브러리이다. 그림 \@ref(fig:queryLibrary)에 표시된 응용 프로그램[^queryLibraryUrl] 및 R 패키지로 제공된다.[^queryLibraryPackageUrl]
 
 [^queryLibraryUrl]: http://data.ohdsi.org/QueryLibrary
 
@@ -604,19 +604,19 @@ QueryLibrary는 SqlRender를 사용하여 선택한 SQL 언어로 질의를 출�
 
 ### 문제 정의
 
-혈관 부종Angioedema은 ACE inhibitor(ACEi)의 잘 알려진 부작용이다. [@slater_1988] ACEi 치료 첫 주에 혈관 부종의 발생률이 주당 3,000명의 환자당 1건인 것으로 추정하였다. 여기서 우리는 이 결론을 모방하고 나이와 성별에 따라 계층화한다. 간단하게 하기 위해서 우리는 하나의 ACEi: lisinopril에 중점을 둔다. 따라서 우리는 질문에 대답한다.
+혈관 부종 Angioedema은 ACE inhibitor(ACEi)의 잘 알려진 부작용이다. [@slater_1988] ACEi 치료 첫 주에 혈관 부종의 발생률이 주당 3,000명의 환자당 1건인 것으로 추정하였다. 여기서 우리는 이 결론을 모방하고 나이와 성별에 따라 계층화한다. 간단하게 하기 위해서 우리는 하나의 ACEi: lisinopril에 중점을 둔다. 따라서 우리는 질문에 대답한다.
 
 > Lisinopril 치료 개시 후 첫 주에 나이와 성별에 따라 계층화되는 혈관 부종의 비율은 얼마인가?
 
 ### 노출
 
-노출Exposure은 lisinopril에 대한 첫 번째 노출로 정의한다. 먼저 이전에 lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365일의 연속 관찰 기간이 필요하다.
+노출 Exposure은 lisinopril에 대한 첫 번째 노출로 정의한다. 먼저 이전에 lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365일의 연속 관찰 기간이 필요하다.
 
 ### 결과
 
 입원 또는 응급실 방문 중 혈관 부종 진단 코드의 발생으로 혈관 부종을 정의한다. 
 
-### 위험 노출 기간Time-at-risk
+### 위험 노출 기간 Time-at-risk
 
 환자가 일주일 동안 노출되었는지와 관계없이 이 치료 시작 후 첫 주에 발생률을 계산한다.
 
@@ -647,7 +647,7 @@ renderTranslateExecuteSql(conn, sql,
                           cohort_table = cohortTable)
 ```
 
-여기서는 데이터베이스 스키마 및 테이블 이름을 매개 변수화하여 다른 환경에 쉽게 적용할 수 있다. 결과는 데이터베이스 서버의 빈 테이블이다.
+여기서는 데이터베이스 스키마 및 테이블 이름을 파라미터화하여 다른 환경에 쉽게 적용할 수 있다. 결과는 데이터베이스 서버의 빈 테이블이다.
 
 ### 노출 코호트
 
@@ -894,7 +894,7 @@ SQL과 R을 사용하여 celecoxib을 적어도 한 번 이상 처방 한 사람
 
 ```
 ```{exercise, exerciseGiBleedsDuringCelecoxib}
-SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈gastrointestinal hemorrhage이 있는지 진단한다. (힌트: 위장 출혈의 개념 ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
+SQL과 R을 사용하여 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈 gastrointestinal hemorrhage이 있는지 진단한다. (힌트: 위장 출혈의 개념 ID는 [192671](http://athena.ohdsi.org/search-terms/terms/192671)이다.)
 
 ```
 
