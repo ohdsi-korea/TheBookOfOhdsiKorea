@@ -120,7 +120,7 @@ knitr::include_graphics("images/OhdsiCommunity/2014f2fmeeting_korea.png")
 
 그는 2014년 6월 이후 본격적으로 한국 사회에 OHDSI를 알리기 시작하였고, 이후 국민건강보험공단을 시작으로 가천길병원 등이 OHDSI에 참여하기 시작하였다. 이후 계속 국내외에서 OMOP-CDM, OHDSI 전파를 위해 노력한 결과, 2016년부터는 최초로 국제 OHDSI committee에서 개별 국가를 위한 포럼 [Korean chapter](http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean) 을 개설하고, 한국의 OHDSI 참여가 본격화되었다. 첫 한국 국제 OHDSI 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십 미팅을 포함하여 3일간 개최되었다.
 
-```{r OHDSIInternationalSymposium2017inKorea1, fig.cap='2017년 한국에서의 OHDSI 국제 심포지엄',echo=FALSE, out.width='100%', fig.align='center'}
+```{r OHDSIInternationalSymposium2017inKorea1, fig.cap='2017년 한국에서의 OHDSI 국제 심포지엄',echo=FALSE, out.width='140%', fig.align='center'}
 knitr::include_graphics("images/OhdsiCommunity/DSC01956.png")
 #knitr::include_graphics("images/OhdsiCommunity/DSC01861.png")
 #knitr::include_graphics("images/OhdsiCommunity/DSC02166.png")
