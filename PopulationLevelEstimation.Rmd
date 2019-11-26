@@ -240,7 +240,7 @@ ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 �
 
 ### 모델
 
-인구학적 특징, 상태, 약물, 절차, 측정, 관찰 결과, 다양한 병존 질환을 포함하는 공변량 기본 모음을 사용하여 적합한 성향 점수 모델을 구하는데, 공변량에서 ACEi와 THZ를 제외한다. 여기에서 다 비율 짝짓기variable-ratio matching을 수행하고, 성향 점수 짝짓기 된 모음에 대해 조건화된 콕스 회귀분석을 실시한다.
+인구학적 특징, 상태, 약물, 절차, 측정, 관찰 결과, 다양한 병존 질환을 포함하는 공변량 기본 모음을 사용하여 적합한 성향 점수 모델을 구하는데, 공변량에서 ACEi와 THZ를 제외한다. 여기에서 일-대-다 비율 짝짓기 variable-ratio matching을 수행하고, 성향 점수 짝짓기 된 모음에 대해 조건화된 콕스 회귀분석을 실시한다.
 
 ### 연구 요약
 
@@ -266,7 +266,7 @@ Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
 
 ### 비교 코호트 설정 {#ComparisonSettings}
 
-한 연구에는 하나 이상의 비교 대상이 있을 수 있다. “Add Comparison”을 클릭하면 새 대화 상자가 열린다. 표적target 및 대조comparator 코호트를 선택하려면 ![](images/PopulationLevelEstimation/open.png) 을 클릭하면 된다. “Add Outcome”을 클릭하면, 위에서 정의한 두 개의 결과 코호트를 추가할 수 있다. \@ref(Cohorts)장에서 설명한 대로 이미 코호트가 생성된 것으로 가정한다. 부록에서 대상군 (부록 \@ref(AceInhibitorsMono)), 대조군 (부록 \@ref(ThiazidesMono)), 결과 (부록 \@ref(Angioedema)과 부록 \@ref(Ami)) 코호트에 대해 자세히 볼 수 있다. 완료되면 그림 \@ref(fig:comparisons)에서와 같은 창이 생성될 것이다.
+한 연구에는 하나 이상의 비교 대상이 있을 수 있다. “Add Comparison”을 클릭하면 새 대화 상자가 열린다. 대상 target 및 대조 comparator 코호트를 선택하려면 ![](images/PopulationLevelEstimation/open.png) 을 클릭하면 된다. “Add Outcome”을 클릭하면, 위에서 정의한 두 개의 결과 코호트를 추가할 수 있다. \@ref(Cohorts)장에서 설명한 대로 이미 코호트가 생성된 것으로 가정한다. 부록에서 대상군 (부록 \@ref(AceInhibitorsMono)), 대조군 (부록 \@ref(ThiazidesMono)), 결과 (부록 \@ref(Angioedema)과 부록 \@ref(Ami)) 코호트에 대해 자세히 볼 수 있다. 완료되면 그림 \@ref(fig:comparisons)에서와 같은 창이 생성될 것이다.
 
 ```{r comparisons, fig.cap='비교 dialog',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/comparisons.png")
@@ -377,7 +377,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/timeAtRisk.png")
 
 **모델 적합시에 정규화를 사용하시겠습니까? Use regularization when fitting the model?** 매우 많은 공변량 (일반적으로 만 개 이상) 이 성향 점수 모델 계산 시 사용된다. 이러한 대규모 모델을 적합하기 위해서는 정규화regularization가 필요하다. 만약 수동으로 몇 개의 공변량만 사용된다면, 정규화를 사용하지 않아도 모델을 적합할 수 있다.
 
-그림 \@ref(fig:psSettings)는 이 연구에 대한 우리의 선택을 보여준다. 최대 짝짓기 비율을 100으로 설정하여 다 비율 짝짓기variable-ratio matching를 선택하였다.
+그림 \@ref(fig:psSettings)는 이 연구에 대한 우리의 선택을 보여준다. 최대 짝짓기 비율을 100으로 설정하여 일-대-다 비율 짝짓기를 선택하였다.
 
 ```{r psSettings, fig.cap='성향 점수 보정 설정.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/psSettings.png")
@@ -385,7 +385,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/psSettings.png")
 
 #### 결과 모델 설정 {-}
 
-먼저, 대상 코호트와 대조 코호트 간 **결과의 상대 위험도relative risk를 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.** \@ref(CohortMethod)절에서 간략히 논의했던 것처럼, 콕스Cox, 포아송Poisson 및 로지스틱 회귀분석 중에서 선택할 수 있다. 예제에서는 콕스 비례위험모형Cox proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째 사건까지의 시간time to first event을 고려한다. 다음으로, **층화에 조건부 회귀분석을 사용할지 whether the regression should be conditioned on the strata**를 명시할 필요가 있다. 쉽게 말하자면, 조건부 conditioning는 각 층strata 내에서 추정치를 계산한 다음, 여러 층의 추정치를 결합한 것이라고 생각하면 된다. One-to-one PS matching에서는 이러한 과정이 불필요할 것이며, 통계적 검정력 감소를 유발할 것이다. 조건부는 층화stratification 또는 다 비율 짝짓기variable-ratio matching를 위해서 필요하다. \index{conditioned model} \index{stratified model|see {conditioned model}}
+먼저, 대상 코호트와 대조 코호트 간 **결과의 상대 위험도relative risk를 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.** \@ref(CohortMethod)절에서 간략히 논의했던 것처럼, 콕스Cox, 포아송Poisson 및 로지스틱 회귀분석 중에서 선택할 수 있다. 예제에서는 콕스 비례위험모형Cox proportional hazards model을 사용하는데, 이 모델은 중도절단을 고려하여 첫 번째 사건까지의 시간time to first event을 고려한다. 다음으로, **층화에 조건부 회귀분석을 사용할지 whether the regression should be conditioned on the strata**를 명시할 필요가 있다. 쉽게 말하자면, 조건부 conditioning는 각 층strata 내에서 추정치를 계산한 다음, 여러 층의 추정치를 결합한 것이라고 생각하면 된다. One-to-one PS matching에서는 이러한 과정이 불필요할 것이며, 통계적 검정력 감소를 유발할 것이다. 조건부는 층화stratification 또는 일-대-다 비율 짝짓기를 위해서 필요하다. \index{conditioned model} \index{stratified model|see {conditioned model}}
 
 분석을 보정하기 위해 **결과 모델outcome model에 공변량을 추가** 할 수도 있다. 이것을 성향 점수 모델 사용에 추가하거나 성향 점수 짝짓기 대신에 수행할 수 있다. 하지만 보통 성향 점수 모델을 적합하기에는 충분한 수의 데이터가 있지만, 결과 모델을 적합하기에는 결과가 발생한 피험자가 적어 데이터가 모자라는 경우가 많다. 그래서 공변량을 결과 모델에 추가하지 말고, 결과 모델을 가급적 간단하게 유지하기를 권장한다.
 
