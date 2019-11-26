@@ -124,6 +124,7 @@ knitr::kable(packageVersions, col.names = c("Package", "Version"), row.names = F
 | 박유진 | 아주대학교   |
 | 박지명 | 아주대학교   |
 | 박철형 | 아주대학교   |
+| 신서정 | 아주대학교   |
 | 양영모 | 아주대학교   |
 | 오송희 | 아주대학교   |
 | 유승찬 | 아주대학교   |
