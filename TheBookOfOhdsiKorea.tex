@@ -128,7 +128,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-11-26}
+    \date{2019-11-27}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -332,19 +332,19 @@ Informatics 커뮤니티가 작성한 \href{book.ohdsi.org}{The Book of OHDSI}�
 
 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며
 OHDSI 커뮤니티, CDM 데이터 기준과 OHDSI 도구들에 중점을 두었다. OHDSI의
-초보자와 숙련자 모두를 위해 현실적으로 필요 이론과 사용방법에 대한
-교육을 제공하는 실용적인 부분에 목표를 두고 있다. 이 책을 읽은 뒤 당신은
+초보자와 숙련자 모두를 위해 현실적으로 필요한 이론과 사용방법에 대한
+교육을 제공하는 실용적인 목표를 가지고 있다. 이 책을 읽은 뒤 당신은
 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여 이해하게
 될 것이다. 또한 CDM과 표준화된 용어들이 무엇인지, 이러한 것들이 관찰
 보건 데이터베이스의 표준화에 어떻게 사용되는지 알게 될 것이다. 이
-데이터에 대해 Clinical characterization, Population-level estimation,
-Population-level prediction, 이 3가지 주요 이용 사례들을 배우게 될
-것이다. 이 책을 통해 이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와
-사용법에 대해 익히게 될 것이다. 데이터 품질, 임상적 타당성, 소프트웨어
-타당성, 방법론적 타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의
-품질을 어떻게 확립했는지를 설명할 것이다. 마지막으로, 분산 연구망에서
-이러한 연구들을 실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될
-것이다.
+데이터에 대해 임상적 특성 분석 clinical characterization, 인구 수준 측정
+population-level estimation, 환자 수준 예측 patient-level prediction, 이
+3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을
+지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다. 데이터
+품질, 임상적 타당성, 소프트웨어 타당성, 방법론적 타당성 등에 관한
+장들에서 CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할
+것이다. 마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI
+를 어떻게 사용하는지를 배우게 될 것이다.
 
 \section*{이 책의 구성}\label{--}
 \addcontentsline{toc}{section}{이 책의 구성}
@@ -475,7 +475,7 @@ SqlRender & 1.6.2\\
 
 이 책은
 \href{http://creativecommons.org/publicdomain/zero/1.0/}{Creative
-Commons Zero v1.0 Universal license}.로 인가되었다.
+Commons Zero v1.0 Universal license} 정책을 따르고 있다.
 
 \begin{figure}
 \centering
@@ -548,8 +548,8 @@ Commons Zero v1.0 Universal license}.로 인가되었다.
 
 한국 오딧세이 Korean Chapter of OHDSI는 유전체 및 방사선 영상 자료 등을
 위한 공통 데이터 모델 Common Data Model의 확장, 새로운 OHDSI 소프트웨어
-개발 및 OHDSI 기반 주요 임상 연구에 걸치는 OHDSI의 다양한 분야에 혁혁한
-공헌을 해왔다. CDM의 광범위한 채택으로 인해 한국은 전국 규모의 탄탄한
+개발 및 OHDSI 기반 주요 임상 연구 등 OHDSI의 다양한 분야에 혁혁한 공헌을
+해왔다. CDM의 광범위한 채택으로 인해 한국은 전국 규모의 탄탄한
 분산연구망을 구축하였다. 한국의 OHDSI 연구자들은 한국 오딧세이
 심포지엄을 조직하여 전세계의 연구자들을 한국으로 초대할 뿐 아니라, 미국,
 유럽, 아시아 각국의 OHDSI 심포지엄에도 열성적으로 참여하고 있다. 우리는
@@ -620,25 +620,25 @@ learning healthcare system}의 비전에 대해서 논의해 왔다. ``그것은
 다양하다. 의사 결정에 도움이 될 수 있는 다양한 유형의 근거가 있으며,
 분석 방법론에 따라 임상적 특성 분석 clinical characterization, 인구 수준
 추정 population-level estimation 및 환자 수준 예측 patient-level
-prediction으로 분류할 수 있다. 출발지(원천 데이터) 및 원하는
-목적지(근거)와는 별도로, 여정을 수행하는 데 필요한 광범위한 임상, 과학
-및 기술 역량들은 문제를 더욱 복잡하게 만든다. 보험 청구나 진료 과정이
-데이터로 수집되면서 보건 정책이나 보험 환급과 관련된 행동 동기들로 인해
-데이터 수집 및 정제 과정에서 발생할 수 있는 비뚤림을 비롯하여 환자와
-의료 제공자 간의 진료 현장에서 원천 데이터가 수집되는 전반적인 과정에
-대한 철저한 의료정보학적 이해도 필요하다. 임상적 의문으로부터 해답을
-도출하는 데 적합한 관찰 연구 설계를 설계하기 위해선 역학 원칙과 통계적
-방법도 숙지하고 있어야 한다. 수백만 명의 환자의 수년간의 종적 추적에
-걸친 수십억 건의 임상 관찰을 가진 데이터 세트에 대해 계산적으로 효율적인
+prediction으로 분류할 수 있다. 출발지(원천 데이터)와 원하는 목적지(근거)
+자체에 대한 이해뿐 아니라, 광범위한 임상, 과학 및 기술 역량들이 모두
+필요하기에 이 여정은 더욱 어려워진다. 보험 청구나 진료 과정이 데이터로
+수집되면서 보건 정책이나 보험 환급과 관련된 행동 동기들로 인해 데이터
+수집 및 정제 과정에서 발생할 수 있는 비뚤림을 비롯하여 환자와 의료
+제공자 간의 진료 현장에서 원천 데이터가 수집되는 전반적인 과정에 대한
+철저한 의료정보학적 이해도 필요하다. 임상적 의문으로부터 해답을 도출하는
+데 적합한 관찰 연구 설계를 설계하기 위해선 역학 원칙과 통계적 방법도
+숙지하고 있어야 한다. 수백만 명의 환자의 수년간의 종적 추적에 걸친
+수십억 건의 임상 관찰을 가진 데이터 세트에 대해 계산적으로 효율적인
 데이터 처리 알고리즘을 구현하고 실행할 수 있는 기술적 능력 역시
 필요하다. 관찰형 연구를 통해 습득한 내용을 다른 근거와 통합하고, 이
 새로운 지식이 건강 정책 및 임상 관행에 어떤 영향을 미칠지 고려하기
-위해서는 임상 지식 또한 필요하다. 따라서, 한 개인이 데이터를 이용하여
-근거를 성공적으로 만들어 내는 데 필요한 기술과 자원을 모두 보유하는 것은
-매우 드문 일이다. 따라서 이용 가능한 최선의 데이터를 가장 적절한
-방법으로 분석하여 모든 이해당사자가 그들의 의사결정 과정에 믿고 사용할
-수 있는 근거를 생산하기 위해서는, 종종 많은 개인이나 기관과의 협력이
-필요하다.
+위해서는 임상 지식 또한 필요하다. 그렇기 때문에 한 개인이 데이터를
+이용하여 근거를 성공적으로 만들어 내는 데 필요한 기술과 자원을 모두
+보유하는 것은 매우 드문 일이다. 따라서 이용 가능한 최선의 데이터를 가장
+적절한 방법으로 분석하여 모든 이해당사자가 그들의 의사결정 과정에 믿고
+사용할 수 있는 근거를 생산하기 위해서는, 종종 많은 개인이나 기관과의
+협력이 필요하다.
 
 \section{OMOP (Observational Medical Outcomes
 Partnership)}\label{omop-observational-medical-outcomes-partnership}
@@ -646,7 +646,7 @@ Partnership)}\label{omop-observational-medical-outcomes-partnership}
 협력 관찰형 연구 모델의 주목할만한 예시로 OMOP(Observational Medical
 Outcomes Partnership)이 있다. OMOP은 미국 식품의약국 FDA이 주관하고,
 미국 국립 보건원 National Institutes of Health 관리하에 학술 연구자,
-보건 데이터 파트너 및 협력 제약 사간의 컨소시엄으로 구성되었으며, 관찰형
+보건 데이터 파트너 및 협력 제약사간의 컨소시엄으로 구성되었으며, 관찰형
 보건의료 데이터를 이용하여 능동적 의료 제품 안전성 감시의 발전을
 꾀하고자 만들어진 민관 협력체였다. \citep{stang2010omop} OMOP은 다수의
 이해관계자 간의 거버넌스 구조를 확립했고, 다수의 청구자료 및 전자 의무
@@ -671,23 +671,23 @@ OMOP의 원래 초점은 약물 안전성이었지만, 의학적 개입이나 �
 정책에 대한 비교 효과연구를 포함하여 다양한 분석 사용사례를 지원하기
 위해 지속해서 발전했다.
 
-OMOP은 대규모의 경험적 실험을 완성하는 데 성공하였고,
-\citep{ryan2012omop, ryan2013omop} 방법론적인 혁신을 만들고,
-\citep{schuemie_2014} 관찰형 데이터를 이용한 안정성에 관련된 의사결정에
-유용한 지식 생성을 위한 적절한 방법론을 제시하였다.
+OMOP은 대규모의 경험적 실험 large-scale empirical experiments을
+성공적으로 수행하였고, \citep{ryan2012omop, ryan2013omop} 방법론적인
+혁신을 이루고, \citep{schuemie_2014} 관찰형 데이터를 이용한 안정성에
+관련된 의사결정에 유용한 지식 생성을 위한 적절한 방법론을 제시하였다.
 \citep{madigan_2013, madigan2013design} OMOP 프로젝트는 종료되었지만,
 오픈 사이언스 원칙과 함께 OMOP의 유산은 OHDSI가 이어받았다.
 
 OMOP 프로젝트가 FDA의 능동 감시에 도움을 줄 수 있는 관찰형 연구를
-완료하고 종료된 이후, 사람들은 OMOP 여정의 끝이 새로운 여정의 시작이
+완료하고 종료된 이후, 사람들은 OMOP 의 종료가 새로운 여정의 시작이
 되어야 한다고 생각했다. OMOP의 방법론적 연구가 관찰 데이터에서 생성되는
 근거의 품질을 명시적으로 개선할 수 있는 모범 사례 best practice를
-제시하였지만, 그러한 많은 연구자들은 이러한 모범 사례를 채택하기를
-주저했다. 이를 방해하는 몇 가지 장애물들이 있었는데, 1) 방법론적인
-혁신을 내세우기 전 관찰형 자료의 품질에 대한 근본적인 우려 2) 방법론적
-문제와 해결책에 대한 불충분한 개념적 이해 3) 개별 데이터 파트너의 로컬
-환경 내에서 솔루션을 독립적으로 구현할 수 없다는 점 4) 이러한 접근방식이
-다른 연구자들이 관심이 있는 임상적 문제에 적용 가능한지에 대한 불확실성
+제시하였지만, 많은 연구자들은 이러한 모범 사례를 채택하기를 주저했다.
+이를 방해하는 몇 가지 장애물들이 있었는데, 1) 방법론적인 혁신을 내세우기
+전 관찰형 자료의 품질에 대한 근본적인 우려 2) 방법론적 문제와 해결책에
+대한 불충분한 개념적 이해 3) 개별 데이터 파트너의 로컬 환경 내에서
+솔루션을 독립적으로 구현할 수 없다는 점 4) 이러한 접근방식이 다른
+연구자들이 관심이 있는 임상적 문제에 적용 가능한지에 대한 불확실성
 등이었다. 이러한 모든 장애물에 대해 변화를 만들기 위해서는 한 개인의
 힘이 아니라, 여러 사람이 협력하여야만 한다는 것을 깨달을 수 있었다.
 다음과 같은 협력이 필요했다:
@@ -726,7 +726,7 @@ health data의 적절한 사용에 대한 과학적 모범 사례를 확립하�
 
 \subsection{OHDSI의 사명 Mission}\label{ohdsi--mission}
 
-더 나은 의학적 결정과 의료 발전을 촉진할 수 있는 근거를 상호협력하여
+더 나은 의학적 결정과 의료 발전을 촉진할 수 있는 근거를 상호협력하에
 생성할 수 있도록 공동체에 힘을 실어줌으로써 보건을 개선한다.
 
 \begin{quote}
@@ -749,9 +749,9 @@ understanding of health and disease. \index{vision}
 \begin{itemize}
 \tightlist
 \item
-  \textbf{혁신 Innovation}: 관찰 연구는 파괴적 사유를 통해서 가장 혜택을
-  얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인 접근을
-  적극적으로 찾고 격려한다.
+  \textbf{혁신 Innovation}: 관찰 연구는 파괴적 사유를 통해서 가장 큰
+  혜택을 얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인
+  접근을 적극적으로 찾고 격려한다.
 \end{itemize}
 
 \begin{quote}
@@ -848,16 +848,16 @@ OHDSI 협력자 지도 (Figure \ref{fig:collaboratormap})는 폭넓은 국제
 
 OHDSI는 OMOP-CDM이라는 개방형 공동체 데이터 표준 기반으로 2019년 8월
 기준으로 20여 개국, 100개 이상의 의료 데이터베이스들로 구성된 분산
-연구망 distributed research network(DRN)를 구축했다. 분산 연구망이란
-환자 수준의 데이터를 개인이나 조직 간에 공유할 필요가 없다는 것을
-의미한다. 분산 연구망에서는, 데이터를 기관 폐쇄망 안에 두고 연구자는
-프로토콜 형태의 분석 코드/프로그램을 공유한다. 데이터 파트너들은
-연구자의 요청에 따라 기관 안에서 연구 프로토콜을 실행해 자동으로
-생성되는 요약 집합정보 (평균, 합, 표준편차, 교차비, 위험도 등)만
-연구자에게 회신하는 방식으로, 연구자는 폐쇄망 안에 있는 환자의 개별
-정보를 보거나 취득하지 않는다. OHDSI 분산망에서 각 데이터 파트너는 환자
-수준 데이터의 사용에 대한 완전한 자율성을 유지하고, 각 기관의 데이터
-거버넌스 정책을 지속해서 준수할 수 있다.
+연구망 distributed research network(DRN)를 구축했다. 분산 연구망에서는
+환자 수준의 데이터를 개인이나 조직 간에 공유할 필요가 없다. 분산
+연구망에서는 데이터를 기관 폐쇄망 안에 두고 연구자는 프로토콜 형태의
+분석 코드/프로그램을 공유하기 때문이다. 데이터 파트너들은 연구자의
+요청에 따라 기관 안에서 연구 프로토콜을 실행해 자동으로 생성되는 요약
+집합정보 (평균, 합, 표준편차, 교차비, 위험도 등)만 연구자에게 회신하는
+방식으로, 연구자는 폐쇄망 안에 있는 환자의 개별 정보를 보거나 취득하지
+않는다. OHDSI 분산망에서 각 데이터 파트너는 환자 수준 데이터의 사용에
+대한 완전한 자율성을 유지하고, 각 기관이 기관의 데이터 거버넌스 정책을
+지속해서 준수할 수 있다.
 
 OHDSI 개발자 커뮤니티는 3가지의 사용 사례를 지원하기 위해 OMOP CDM 위에
 다음 3가지의 강력한 오픈 소스 분석 소프트웨어 라이브러리를 구축하였는데
@@ -875,7 +875,7 @@ OHDSI 개발자 커뮤니티는 3가지의 사용 사례를 지원하기 위해 
 관찰형 연구의 발전을 가능하게 했다. 첫 번째 OHDSI 네트워크 연구는 당뇨,
 우울증, 고혈압의 3가지 만성 질병에 대한 치료 패턴을 분석하는 것이었다.
 PNAS(Proceedings of the National Academy of Science)에 출판된 연구는,
-그때까지 수행된 최대 규모의 관찰형 연구로써 11개의 데이터베이스에서 2억
+그때까지 수행된 최대 규모의 관찰 연구로써 11개의 데이터베이스에서 2억
 5천만 명의 환자 데이터를 이용하여 이전에 보고된 적 없는 치료 패턴의
 지역적 차이 및 환자별 치료 선택에 대한 이질성에 대해 발표하였다.
 \citep{Hripcsak7329} OHDSI는 교란변수를 통제하는 새로운 통계적 방법론을
@@ -933,7 +933,7 @@ Achilles 페이지였다.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{images/OhdsiCommunity/2014f2fmeeting_korea} 
+{\centering \includegraphics[width=1\linewidth]{images/OhdsiCommunity/2014f2fmeeting_korea} 
 
 }
 
@@ -951,7 +951,7 @@ OHDSI 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{images/OhdsiCommunity/DSC01956} 
+{\centering \includegraphics[width=1.4\linewidth]{images/OhdsiCommunity/DSC01956} 
 
 }
 
@@ -971,12 +971,12 @@ OHDSI 심포지엄은 2017년 3월 아주대학교에서 튜토리얼, 리더십
   OHDSI의 사명은 참여 공동체의 상호협력 하에 의료 발전을 촉진하는 근거를
   생성하는 능력을 부여하는 것이다.
 \item
-  OHDSI의 이상은 혁신성, 재현성, 공동체 정신, 개방성, 협력 정신, 선행의
-  정신을 바탕으로 의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한
-  포괄적인 이해를 제공하는 것이다.
+  OHDSI의 이상은 혁신, 재현, 공동체, 개방, 협력, 선행의 목표를 바탕으로
+  의료 빅데이터의 분석을 통해 세계에 건강과 질병에 대한 포괄적인 이해를
+  제공하는 것이다.
 \item
   OHDSI 참가자들은 개방형 공동체로서의 데이터 표준, 방법론 연구,
-  오픈소스 분석 소프트웨어 개발 및 임상적 적용을 통해 데이터로부터
+  오픈소스 분석 소프트웨어 개발 및 임상적 적용을 통해 데이터에서부터
   근거로의 여정을 발전시키고자 노력한다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
@@ -1048,10 +1048,10 @@ OHDSI 포럼에서는 다음을 포함한 콘텐츠 카테고리를 찾을 수 �
   \textbf{연구자 Researchers}: OHDI 연구 네트워크 기반의 근거 생성, 공동
   연구, 통계적 방법과 기타 CDM 기반 연구에 대한 토론
 \item
-  \textbf{CDM 개발자 CDM Builders}: 진행 중인 CDM을 위한 조건,
-  vocabulary 그리고 테크닉적인 요소들에 관한 토론
+  \textbf{CDM 개발자 CDM Builders}: 진행 중인 CDM을 위한 조건, 용어
+  vocabulary 그리고 엔지니어링 요소들에 관한 토론
 \item
-  \textbf{Vocabulary 유저 Vocabulary Users}: Vocabulary 콘텐츠에 관한
+  \textbf{용어 사용자 Vocabulary Users}: 용어 vocabulary 콘텐츠에 관한
   토론
 \item
   \textbf{지역 지부 Regional Chapters(예를 들면, 한국, 중국, 유럽)}:
@@ -1060,7 +1060,7 @@ OHDSI 포럼에서는 다음을 포함한 콘텐츠 카테고리를 찾을 수 �
 \end{itemize}
 
 개별적인 주제로 포스팅을 올리려면 계정 등록을 먼저 해야 한다. 포럼
-계정을 오픈하고 나면 General Topic 아래 ``Welcome to OHDSI! -- Please
+계정을 만들고 나면 General Topic 아래 ``Welcome to OHDSI! -- Please
 introduce yourself''라는 토픽에 하기와 같이 본인 소개를 하는 것을
 추천한다. 1) 본인 소개 및 본인의 업무 소개 2) 커뮤니티 안에서 어떤
 방식으로 도움을 줄 수 있는지 (예를 들면, 소프트웨어 개발, 연구, 논문
@@ -1086,21 +1086,21 @@ OHDSI웹사이트를 통해 전달되며 참석에 관심이 있는 사람들에
 OHDSI 심포지엄은 미국, 유럽, 아시아 등에서 매년 개최되는 과학
 컨퍼런스로, 이를 통해 공동 연구자들은 총회, 포스터 발표 및 소프트웨어
 시연 등을 통해 각각의 최신 연구를 발표할 수 있다. OHDSI 심포지엄은 OHDSI
-커뮤니티에서 진행되고 있는 최신의 상황을 배울 수 있는 최적의 장소이다.
+커뮤니티에서 진행되고 있는 최신의 동향을 배울 수 있는 최적의 장소이다.
 일반적으로 OHDSI 심포지엄에서는 새로운 커뮤니티 참여자들이 데이터
-표준이나 분석에 대한 모범사례에 관한 주제들에 대해 배울 수 있는 OHDSI
-튜토리얼이 함께 진행된다.
+표준이나 분석 방법 등에 대해 배울 수 있도록 OHDSI 튜토리얼을 같이
+진행한다.
 
-OHDSI 공동연구자들의 대면 이벤트face-to-face event는 좀 더 규모가 작은
+OHDSI 공동연구자들의 대면 이벤트 face-to-face event는 좀 더 규모가 작은
 포럼인데, 일반적으로 공동으로 관심이 있는 특정 문제들을 중심으로
-구성된다. 지난 이벤트 중에는 표현형 해커톤phenotype hack-a-thon, 데이터
-질 해커톤data quality hack-a-thon, 오픈소스
-소프트웨어documentation-a-thon 등이 있었다. OHDSI는 다양한
-스터디톤study-a-thon 이벤트를 개최해 왔으며, 이를 통해 공동연구자들이
-며칠간 함께 팀이 되어 특정 연구주제에 대하여 적절한 관찰형 분석과 OHDSI
-네트워크에 관한 학습, 많은 사람에게 알릴 수 있는 근거를 생성할 기회를
-제공하였다. 이런 행사들에서는 공통의 문제를 해결하려는 열망뿐 아니라,
-배움과 지속적인 발전을 도모하는 우호적 환경을 제공하고자 하는 관심도
+구성된다. 지난 이벤트 중에는 표현형 해커톤 phenotype hack-a-thon, 데이터
+질 해커톤 data quality hack-a-thon, 오픈소스 다큐멘테이션톤 소프트웨어
+documentation-a-thon 등이 있었다. OHDSI는 다양한 스터디톤 study-a-thon
+이벤트를 개최해 왔으며, 이를 통해 공동연구자들이 며칠간 함께 팀이 되어
+특정 연구주제를 위한 적절한 분석을 수행하고 OHDSI 네트워크에 관한 학습,
+많은 사람에게 알릴 수 있는 근거를 생성할 기회를 제공하였다. 이런
+행사들을 통해 공통의 문제를 해결하려는 열망뿐 아니라, 배움과 지속적인
+발전을 도모하는 우호적 환경을 OHDSI 내에서 제공하고자 하는 관심도
 대두되었다.
 
 OHDSI 커뮤니티의 힘을 보다 자세히 배우기 바란다. OHDSI 웹사이트의
@@ -1120,9 +1120,9 @@ OHDSI 커뮤니티 주간 원격회의OHDSI call는 매주 OHDSI 커뮤니티 �
 토론을 위한 주제를 제안하기를 바란다. OHDSI 커뮤니티 원격회의는 연구
 결과를 공유하고 현재 활발히 진행 중인 작업에 대한 의견을 제시하고
 피드백을 얻으며, 개발 중인 오픈소스 소프트웨어를 시연하고, 데이터
-모델링과 분석에 대한 모범사례를 커뮤니티와 함께 논의하고,
-보조금/간행/컨퍼런스 워크샵 등을 위한 미래의 공동 작업 기회에 대해 많은
-아이디어를 논의하는 장이 될 수 있다. 만약 원격회의 발표와 관련한
+모델링과 분석에 대한 모범사례를 커뮤니티와 함께 논의하고, 연구비
+grant/논문 출판/컨퍼런스 워크샵 등을 위한 미래의 공동 작업 기회에 대해
+많은 아이디어를 논의하는 장이 될 수 있다. 만약 원격회의 발표와 관련한
 아이디어가 있다면 OHDSI 포럼에 글을 올릴 수 있다.
 
 OHDSI 신입이라면 원격회의를 통해 OHDSI 네트워크 내에서 일어나는 일들에
@@ -1154,29 +1154,29 @@ Wiki}에서 관리되고 있다. \index{workgroups}
 워크그룹}\tabularnewline
 \toprule
 \begin{minipage}[b]{0.11\columnwidth}\raggedright\strut
-Workgroup Name\strut
+워크그룹 이름\strut
 \end{minipage} & \begin{minipage}[b]{0.44\columnwidth}\raggedright\strut
-Objective\strut
+목적\strut
 \end{minipage} & \begin{minipage}[b]{0.37\columnwidth}\raggedright\strut
-Target Audience\strut
+대상 인원\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
 \begin{minipage}[b]{0.11\columnwidth}\raggedright\strut
-Workgroup Name\strut
+워크그룹 이름\strut
 \end{minipage} & \begin{minipage}[b]{0.44\columnwidth}\raggedright\strut
-Objective\strut
+목적\strut
 \end{minipage} & \begin{minipage}[b]{0.37\columnwidth}\raggedright\strut
-Target Audience\strut
+대상 인원\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Atlas \& WebAPI\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-Atlas \& WebAPI는 OHDSI 오픈소스 소프트웨어 중 하나로 OMOP-CDM 기반의
-표준화된 분석 기능을 제공하는 것에 중점을 두고 있다.\strut
+Atlas \& WebAPI는 OHDSI 오픈소스 소프트웨어 중 하나로 OMOP CDM 기반의
+표준화된 분석 기능을 제공하고 있다. 이를 발전시키는 것이 목적\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 오픈소스 Atlas/WebAPI 플랫폼의 개선과 기여하고 싶은 Java와 JavaScript
 소프트웨어 개발자들\strut
@@ -1184,36 +1184,34 @@ Atlas \& WebAPI는 OHDSI 오픈소스 소프트웨어 중 하나로 OMOP-CDM 기
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 CDM \& Vocabulary\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-임상 환자 빅데이터의 대규모 분석을 위한 체계적이고 표준화된 OMOP-CDM의
+임상 환자 빅데이터의 대규모 분석을 위한 체계적이고 표준화된 OMOP CDM의
 지속적인 개발. 타 워크그룹에 의해 개발된 표준화된 분석을 지원하고, 국제
-코딩 시스템의 커버리지를 확장하기 위해 표준화된 Vocabulary의 질적
-개선.\strut
+코딩 시스템의 커버리지를 확장하기 위해 표준화된 Vocabulary의 질적 개선이
+목적\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-모든 필요와 사례들에 적용될 OMOP-CDM과 표준 Vocabulary를 개선하고 싶은
-사람\strut
+OMOP CDM의 데이터 구조와 표준 용어를 개선하고 싶은 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Genomics\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-다양한 시퀀싱 작업의 결과로 나오는 유전자 변이 정보를 위한 Genomic CDM
-확장 모델 개발한다.\strut
+다양한 시퀀싱 작업의 결과로 나오는 유전자 변이 정보를 OMOP CDM과
+연동가능한 형태로 저장하기 위한 Genomic CDM 확장 모델 개발\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-제한 없음\strut
+유전자 데이터 연구에 관심이 있거나 경험이 있는 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Population- Level Estimation\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-정확하고 믿을 수 있으며 재현 가능한 관찰형 연구의 과학적 방법을 개발하며
-이러한 방법의 사용을 촉진한다.\strut
+정확하고 믿을 수 있으며 재현 가능한 관찰 연구의 방법론을 개발하며 이러한
+방법의 사용을 촉진\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 제한 없음\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Natural Language Processing\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-OHDSI 관찰형 데이터베이스의 문서 데이터 사용을 촉진. 이 목표를 증진하기
-위해 OHDSI 연구에 문서 데이터를 활용하기 위한 소프트웨어와 방법을
-개발한다.\strut
+OHDSI 관찰 데이터베이스에서 문서 데이터의 사용을 촉진하고 이를 위한
+소프트웨어와 방법론을 개발\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 제한 없음\strut
 \end{minipage}\tabularnewline
@@ -1230,49 +1228,48 @@ Patient- Level Prediction\strut
 Gold Standard Phenotype Library\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
 OHDSI 참여자들이 함께 검증한 표현형 phenotype 정의와 다른 커뮤니티에서
-개발한 표현형 정의를 발견, 평가, 활용하도록 함.\strut
+개발한 표현형 정의를 발견, 평가, 활용하도록 함\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 표현형(Phenotype)의 큐레이션과 입증에 관심이 있는 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 FHIR Workgroup\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-OMOP-CDM과 FHIR 통합에 대한 로드맵을 수립하고 OHDSI와 FHIR 상호 간에
-서로의 툴과 API를 활용하여 데이터와 연구의 발전을 꾀한다.\strut
+OMOP CDM과 FHIR 통합에 대한 로드맵을 수립하고 OHDSI와 FHIR 상호 간에
+서로의 툴과 API를 활용하여 데이터와 연구의 발전을 꾀함\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-상호 운용성(interoperability)에 관심 있는 사람\strut
+상호 운용성 interoperability에 관심 있는 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 GIS\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-OMOP CDM을 확장하며 OHDSI 툴을 활용하여 환자의 환경 노출 역사가 그들의
-임상적phenotype과 관련이 있게 함.\strut
+OMOP CDM을 확장하며 OHDSI 툴을 활용하여 환경적 요인과 환자의 임상적
+표현형간의 관련성을 조사하고자 함\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-건강 관련 지리적 특성에 관심 있는 사람\strut
+보건 관련 지리학적 연구에 관심 있는 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Clinical Trials\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-OHDSI 플랫폼과 어떤 측면에서도 실험에 도움이 되는 에코시스템의 임상 실험
-케이스의 이해 그리고 OHDSI 툴의 업데이트 도움을 통한 서포트\strut
+OHDSI 플랫폼과 에코시스템을 활용하여 임상 시험 개념 및 수행을 지원하고자
+함\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-임상 실험에 관심 있는 사람\strut
+임상 시험에 관심 있는 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 THEMIS\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-OMOP 사이트에서 디자인된 ETL 프로토콜들이 높은 퀄리티와 재현할 수 있으며
-효율적으로 확인할 수 있도록 OMOP CDM 규칙에 더하여 표준 규칙의
-개발\strut
+OMOP CDM ETL 프로토콜들의 질과 재현성을 촉진하기 위하여 기본적인 OMOP
+CDM 규칙에 더하여 표준 규약을 발전시킴\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 제한 없음\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Metadata \& Annotations\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-인간과 기계가 작성한 메타데이터 저장의 표준 프로세스와 공통 데이터
-모델의 주석을 정의하여 연구자들이 관찰 데이터 세트의 유용한 데이터
-아티팩트를 소비하고 만들어 낼 수 있도록 함.\strut
+수작업 또는 컴퓨터로 작성한 메타데이터 저장의 표준 프로세스와 CDM의 주석
+annotation 형태를 정의하여 연구자들이 관찰 데이터 세트에서 유용한 데이터
+아티팩트를 소비하고 만들어 낼 수 있도록 함\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 제한 없음\strut
 \end{minipage}\tabularnewline
@@ -1290,27 +1287,27 @@ Women of OHDSI\strut
 OHDSI 커뮤니티 내부의 여성들이 함께 모여 과학계, 테크놀로지, 엔지니어링,
 수학(STEM) 분야에서 여성으로 겪는 도전을 나누기 위한 포럼 제공. 여성들의
 입장에서 관점, 우려 사항, 아이디어를 나누며 OHDSI 커뮤니티가 STEM 분야의
-여성들을 지원할 수 있을지에 대한 의견 교환 촉진. 궁극적으로 여성들이
-존경받는 분야에서 여성이 리더가 될 수 있도록 장려.\strut
+여성들을 지원할 수 있을지에 대한 의견 교환. 궁극적으로 여성들이 존경받는
+분야에서 여성이 리더가 될 수 있도록 장려\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
 이 목표에 동감하는 사람\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.11\columnwidth}\raggedright\strut
 Steering Committee\strut
 \end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright\strut
-모든 OHDSI 활동과 이벤트가 발전해나가는 커뮤니티의 필요사항과 부합하도록
-확인함으로 OHDSI의 사명과 비전, 가치를 유지함. 또한 미래 방향에 대한
-지침을 제공함으로 컬럼비아 대학에 기반을 둔 OHDSI coordination center의
-자문그룹 역할을 수행 중.\strut
+모든 OHDSI 활동과 이벤트가 발전해나가는 커뮤니티의 필요사항과 부합하고
+있는지 확인함으로 OHDSI의 사명과 비전, 가치를 유지함. 또한 미래 방향에
+대한 지침을 제공함으로 콜럼비아 대학에 기반을 둔 OHDSI coordination
+center의 자문그룹 역할을 수행\strut
 \end{minipage} & \begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-커뮤니티 내부의 리더들\strut
+커뮤니티 내의 리더들\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
 \subsection{OHDSI 지역 지부}\label{ohdsi--}
 
-OHDSI 지역 지부Regional Chapter는 각각의 지리적 위치의 특정 문제를
+OHDSI 지역 지부 Regional Chapter는 각각의 지리적 위치의 특정 문제를
 해결하기 위해 로컬 네트워킹 이벤트 및 회의를 개최하고자 하는 지리적
 영역에 위치한 OHDSI 공동 작업자 그룹을 대표한다. 현재 OHDSI 지역 지부는
 한국\footnote{\url{http://forums.ohdsi.org/c/For-collaborators-wishing-to-communicate-in-Korean}},
@@ -1324,13 +1321,14 @@ website}에 설명된 OHDSI 지역 지부 프로세스를 따라 진행할 수 �
 \subsection{OHDSI 연구 네트워크}\label{ohdsi--}
 
 다수의 OHDSI 공동연구자들은 자신의 데이터를 OMOP CDM으로 변환하는 것에
-관심이 있다. OHDSI 연구 네트워크는 OMOP 호환성을 준수하기 위해 추출 변환
-적재Extract Transform Load(ETL) 프로세스를 거친 관찰형 데이터베이스의
-다양하고 글로벌한 커뮤니티를 대표한다. 만약 OHDSI 커뮤니티에서 당신의
-여정에 데이터 변환이 포함되어 있다면 OMOP CDM 및 용어vocabulary에 대한
-튜토리얼, 변환을 지원하는 무료 툴, 특정 도메인 또는 데이터 타입의 유형을
-타깃으로 하는 워크그룹이 있다. OHDSI 공동연구자들은 OHDSI 포럼을
-활용하여 CDM 변환 중에 발생하는 문제를 논의하고 해결하는 것을 권장한다.
+관심이 있다. OHDSI 연구 네트워크는 OMOP CDM의 호환성을 준수하기 위해
+추출 변환 적재 Extract Transform Load(ETL) 프로세스를 거친 관찰형
+데이터베이스의 다양하고 글로벌한 커뮤니티를 대표한다. 만약 OHDSI
+커뮤니티에서 당신의 역할에 데이터 변환이 포함되어 있다면 OMOP CDM 및
+용어 vocabulary에 대한 튜토리얼, 변환을 지원하는 무료 소프트웨어, 특정
+도메인 또는 데이터 타입의 유형을 타깃으로 하는 워크그룹이 있다. OHDSI
+공동연구자들은 OHDSI 포럼을 활용하여 CDM 변환 중에 발생하는 문제를
+논의하고 해결하는 것을 권장한다.
 
 \section{적합한 위치}\label{-}
 
@@ -1338,89 +1336,89 @@ website}에 설명된 OHDSI 지역 지부 프로세스를 따라 진행할 수 �
 고민을 할 것이다.
 
 \textbf{나는 연구를 시작하려는 임상 연구자입니다.} 만약 당신이 OHDSI
-연구 네트워크를 사용하여 특정 질문에 답하거나, 논문을 제출하려는 임상
-연구자라면, 맞게 찾아온 것이다. 우선 OHDSI 포럼의
-\href{https://forums.ohdsi.org/c/researchers}{OHDSI Researchers Topic}에
-당신의 아이디어를 게시할 수 있다. 이것은 당신과 비슷한 관심사를 가진
-연구자와 연결하는 데 도움이 된다. OHDSI는 논문출판을 사랑하며 당신의
-연구 주제를 데이터 분석 및 논문으로 신속하게 전환할 수 있는 많은 자원을
-보유하고 있다. 이에 관한 자세한 내용은 \ref{Characterization}장,
-\ref{PopulationLevelEstimation}장, \ref{PatientLevelPrediction}장에서
-확인할 수 있다.
+연구 네트워크를 사용하여 특정 임상 질문에 답을 하는 연구를 하고
+싶다거나, 논문을 제출하려는 임상 연구자라면, 맞게 찾아온 것이다. 우선
+OHDSI 포럼의 \href{https://forums.ohdsi.org/c/researchers}{OHDSI
+Researchers Topic}에 당신의 아이디어를 게시할 수 있다. 이것은 당신과
+비슷한 관심사를 가진 연구자와 연결하는 데 도움이 된다. OHDSI는
+논문출판을 적극 권장하며 당신의 연구 주제를 데이터 분석 및 논문으로
+신속하게 전환할 수 있는 많은 자원을 보유하고 있다. 이에 관한 자세한
+내용은 \ref{Characterization}장, \ref{PopulationLevelEstimation}장,
+\ref{PatientLevelPrediction}장에서 확인할 수 있다.
 
 \textbf{OHDSI 커뮤니티가 생산하는 정보를 읽고 소비하고 싶습니다.} 당신이
-환자, 임상의사 혹은 의료 분야 세부 전문가이든, OHDSI는 건강 결과health
-outcome를 더 잘 이해할 수 있도록 고품질의 근거를 제공하고자 한다. 어쩌면
-당신은 코딩해본 지 오래되었을 수도 있고, 프로그래밍을 한 번도 해본 적이
-없을 수도 있다. 그래도 당신은 이 커뮤니티의 일환이 될 수 있다. 우리는
-당신을 근거 소비자\emph{evidence consumer} -- OHDSI 연구를 행동으로
-옮기는 개인- 라고 부른다. 당신은 OHDSI가 어떤 근거를 만들었거나, 만들고
-있는지를 파악하기 위해 정밀하게 선별하고, 아마도 당신과 관련된 질문들을
-제안하기를 원할지도 모른다. 이런 당신을 토론에 초대한다.
-\href{http://forum.ohdsi.org}{OHDSI Forum}에 질문을 올리기 바란다.
-커뮤니티 원격회의에 참석하여 최신 연구를 들어보십시오. OHDSI 심포지엄 및
-대면 미팅에 참석하여 커뮤니티에 직접 참여하십시오. 당신의 질문은 OHDSI
-커뮤니티의 중요한 부분이다. 당신이 어떤 근거를 찾고 있는지 우리가 알 수
-있도록 목소리를 높여주십시오!
+환자, 임상의사 혹은 의료 분야 세부 전문가이든, OHDSI는 임상에 대해 더 잘
+이해할 수 있도록 고품질의 근거를 제공하고자 한다. 어쩌면 당신은 오랫동안
+코딩을 해 온 프로그래밍 전문가일 수도 있고, 프로그래밍을 한 번도 해본
+적이 없을 수도 있다. 어찌되었든 당신은 이 커뮤니티의 일환이 될 수 있다.
+우리는 당신을 근거 소비자 \emph{evidence consumer} -- OHDSI 연구를
+행동으로 옮기는 개인- 라고 부른다. 당신은 OHDSI가 어떤 근거를
+만들었거나, 만들고 있는지를 파악하고 싶거나, 혹은 당신과 관련된 질문들
+하고 싶을 수도 있다. 이런 당신을 토론에 초대한다.
+\href{http://forum.ohdsi.org}{OHDSI 포럼}에 질문을 올리기 바란다.
+커뮤니티 원격회의에 참석하여 최신 연구를 들어보고, OHDSI 심포지엄 및
+대면 미팅에 참석하여 커뮤니티에 직접 참여하도록 해라. OHDSI는 당신의
+질문을 중요하게 여긴다. 당신이 어떤 근거를 찾고 있는지 우리가 알 수
+있도록 목소리를 높여주기를 바란다!
 
 \textbf{나는 보건의료 분야에서 의사결정을 할 수 있는 위치에 있습니다.
-나는 데이터 소유자거나 그 소유자를 대표할 수 있습니다. 나는 내 조직에
-있어서 OMOP CDM 및 OHDSI 분석 도구의 유용성을 평가하고 있습니다.} 조직의
+나는 데이터 소유자거나 그 소유자를 대표할 수 있습니다. 나는 내 기관에서
+OMOP CDM 및 OHDSI 분석 도구의 유용성을 평가하고 있습니다.} 조직의
 관리자/리더로서 OHDSI에 관해 들어봤을 수 있으며 OMOP CDM이 어떻게 당신의
 경우에 이용될 수 있는지 궁금할 수 있다. 그렇다면,
 \href{https://www.ohdsi.org/past-events/}{OHDSI Past Events}의 자료를
-통해 연구의 본문을 보는 것으로 시작할 수 있다. 커뮤니티 원격회의에
-참여하여 단순히 청취만 할 수도 있다.
-\ref{DataAnalyticsUseCases}장(데이터 분석 사용 사례)은 OMOP CDM 및 OHDSI
-분석 도구가 사용할 수 있는 연구의 종류를 이해하는 데 도움이 될 것이다.
-당신을 위해 OHDSI 커뮤니티가 당신의 여정에 있다. 관심 있는 특정 영역이
-있다면 이에 대한 예를 물어보는 것에 두려워하지 마십시오. 전 세계 200개
-이상의 조직이 OHDSI 내에서 협력하고 있으며 이 커뮤니티의 가치를 보여주는
-데 도움이 되는 성공 사례가 많다.
+통해 OHDSI의 성과를 보는 것으로 시작할 수 있다. 커뮤니티 원격회의에
+참여하여 단순히 듣기만 해도 된다. \ref{DataAnalyticsUseCases}장(데이터
+분석 이용 사례)은 OMOP CDM 및 OHDSI 분석 도구를 활용하여 시행할 수 있는
+연구의 종류를 이해하는 데 도움이 될 것이다. 당신을 위해 OHDSI 커뮤니티가
+당신의 여정에 함께 할 수 있다. 관심 있는 특정 영역이 있다면 이에 대한
+예를 물어보는 것에 두려워하지 마라. 전 세계 200개 이상의 조직이 OHDSI
+내에서 협력하고 있으며 이 커뮤니티의 가치를 보여주는 데 도움이 되는 성공
+사례가 많다.
 
 \textbf{나는 내 기관의 데이터를 ETL 및 변환하여 OMOP CDM으로 변환하고자
-하는 데이터베이스 관리자입니다.} 당신의 데이터를 ``OMOP'' 하고자 하는
-것은 고귀하고 가치 있는 사업이다. 만약 ETL 프로세스를 막 시작하는
-경우에는
+하는 데이터베이스 관리자입니다.} 당신의 데이터를 ``OMOP-CDM''으로
+변환하고자 하는 것은 고귀하고 가치 있는 일이다. 만약 ETL 프로세스를 막
+시작하는 경우에는
 \href{https://www.ohdsi-europe.org/images/symposium-2019/tutorials/OHDSI_Vocabulary_CDM_Tutorial.pdf}{OHDSI
-Community ETL Tutorial Slides}를 참조하거나 다가오는 OHDSI 심포지엄에
-등록하십시오. THEMIS 워크그룹 원격회의에 참여하거나 OHDSI 포럼에 질문을
-올리는 것을 고려해 보십시오. OMOP CDM의 성공적인 구현을 돕는 것에 관심이
-많은 커뮤니티에서 풍부한 지식을 찾을 수 있을 것이다. 부끄러워하지
-마십시오.
+커뮤니티 ETL 튜토리얼 슬라이드}를 참조하거나 다가오는 OHDSI 심포지엄에
+등록하여 튜토리얼을 듣기 바란다. THEMIS 워크그룹 원격회의에 참여하거나
+OHDSI 포럼에 질문을 올릴 수도 있다. OMOP CDM의 성공적인 구현을 돕는 것에
+관심이 많은 OHDSI 커뮤니티에서 풍부한 지식을 찾을 수 있을 것이다.
+부끄러워하지 말고 모르는 것이 있으면 언제든 질문하라!
 
 \textbf{나는 OHDSI 툴 스택에 기여를 하고 싶은 생물통계학자 혹은 방법
 개발자입니다.} 무엇보다도 OHDSI method 라이브러리에 당신의 전문 지식을
-도입하고 이런 방법을 더욱 잘 개발하기 위한 당신의 열정에 감사를 표한다.
-우선 인구 수준 추정이나 환자 수준 예측 워크그룹 원격회의에 참여하여
-커뮤니티의 현 우선순위에 대하여 자세히 들어 보기를 추천한다. OHDSI
-도구를 사용하면서 각 GitHub Repo에 문제를 제기할 수도 있다. (예를 들면,
-SQL 렌더 패키지의 문제일 경우 OHDSI/SqlRender에 대한 GitHub Repo에
-문제를 제기하면 된다) 당신의 기여를 환영한다!
+이용하여 기여하고자 하는 마음과, 방법론을 더욱 잘 개발하기 위한 당신의
+열정에 감사를 표한다. 우선 인구 수준 추정이나 환자 수준 예측 워크그룹
+원격회의에 참여하여 커뮤니티의 현 우선순위에 대하여 자세히 들어 보기를
+추천한다. OHDSI 도구를 사용하면서 각 GitHub Repo에 문제를 제기할 수도
+있다. (예를 들면, SQL 렌더 패키지의 문제일 경우 OHDSI/SqlRender에 대한
+GitHub Repo에 문제를 제기하면 된다) 당신의 기여를 환영한다!
 
-\textbf{나는 OHDSI 도구 스택을 보완하는 도구 만드는 것에 관심이 있는
-소프트웨어 개발자입니다.} 커뮤니티에 오신 것을 환영한다! OHDSI 임무의
-일환으로 우리의 툴은 오픈소스이며 Apache licenses에 따라 관리된다. OHDSI
-도구 스택을 보완하는 솔루션 개발을 환영한다. 언제든 워크그룹에 참여하여
-아이디어를 제안해 주길 바란다. 다만, OHDSI는 오픈 사이언스 (개방형 과학)
-개방형 협업에 많은 투자를 하는 점을 유의하십시오. 독점적인 알고리즘과
-소프트웨어 솔루션도 환영하지만, 그러한 작업은 우리 소프트웨어 개발
-작업에서 주요 관심사는 아니다.
+\textbf{나는 OHDSI 툴 스택을 보완하는 도구 만드는 것에 관심이 있는
+소프트웨어 개발자입니다.} 커뮤니티에 온 것을 환영한다! OHDSI 임무의
+일환으로 우리의 툴은 오픈소스로서 Apache licenses에 따라 관리된다.
+우리는 OHDSI 툴 스택을 보완하는 솔루션 개발을 환영한다. 언제든
+워크그룹에 참여하여 아이디어를 제안해 주길 바란다. 다만, OHDSI는 오픈
+사이언스 기반의 개방형 협업에 많은 투자를 하는 점을 유의하자. 독점적인
+알고리즘과 소프트웨어 솔루션도 환영하지만, 우리 소프트웨어 개발 작업에서
+그런 작업은 주요 관심사가 아니다.
 
-\textbf{나는 OHDSI 커뮤니티에 조언하고 싶은 컨설턴트입니다.} 커뮤니티에
-오신 것을 환영한다! 당신의 전문 지식은 매우 귀중하다. 필요에 따라 OHDSI
-포럼에 적절히 본인의 서비스를 홍보해도 된다. OHDSI 튜토리얼에 참여하길
-바라며 매년 열리는 심포지엄의 절차와 OHDSI 대면 미팅에서 당신의 전문
-지식으로 기여하는 것을 고려해 보자.
+\textbf{나는 OHDSI 커뮤니티에 조언하고 싶은 컨설턴트입니다.} 환영한다!
+당신의 전문 지식은 매우 귀중하다. 필요에 따라 OHDSI 포럼에 적절히 본인의
+서비스를 홍보해도 된다. OHDSI 튜토리얼에 참여하길 바라며 당신의
+전문성으로 매년 열리는 심포지엄 및 OHDSI 대면 미팅 행사 개최 등을 도와줄
+수 있으면 좋겠다.
 
 \textbf{나는 OHDSI에 대하여 더 배우고 싶은 학생입니다.} 올바르게
 찾아왔다! OHDSI 커뮤니티 원격회의에 참여하여 본인을 소개하는 것을
-고려하십시오. OHDSI 튜토리얼을 참고하고 OHDSI 심포지엄의 대면 미팅에
-참여하여 OHDSI 커뮤니티가 제공하는 방법과 툴에 관하여 자세히
-알아보십시오. 만약 특정 연구에 관심이 있다면 OHDSI 포럼의 연구자 토픽에
-글을 올려보기 바란다. 다양한 조직에서 OHDSI가 후원하는 연구 기회 (예를
-들면 박사후과정, 연구 펠로우십)를 제공한다. OHDSI 포럼은 이러한 기회
-등에 대한 최신 정보를 제공할 것이다.
+고려하자. OHDSI 튜토리얼을 참고하고 OHDSI 심포지엄의 대면 미팅에
+참여하여 OHDSI 커뮤니티가 제공하는 방법과 툴에 관하여 자세히 알아보라.
+만약 특정 연구에 관심이 있다면 OHDSI 포럼의 연구자 토픽에 글을 올려보기
+바란다. 다양한 조직에서 OHDSI가 후원하는 연구 기회 (예를 들면
+박사후과정, 연구 펠로우십)를 제공한다. OHDSI 포럼은 이러한 기회 등에
+대한 최신 정보를 제공할 것이다.
 
 \section{요약}\label{-1}
 
@@ -1428,7 +1426,7 @@ SQL 렌더 패키지의 문제일 경우 OHDSI/SqlRender에 대한 GitHub Repo�
 \begin{itemize}
 \item
   OHDSI 커뮤니티를 시작하기란 매우 쉽다! \textbf{OHDSI Forum}에 글을
-  올리고 원격 회의에 참여하십시오.
+  올리고 원격 회의에 참여하라.
 \item
   OHDSI 포럼에 본인의 연구나 CDM, ETL 질문을 올리기 바란다.
 \end{itemize}
@@ -7005,7 +7003,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.uq3cxainchildren ;"
+## [1] "SELECT * FROM temp_schema.rawy0hthchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
