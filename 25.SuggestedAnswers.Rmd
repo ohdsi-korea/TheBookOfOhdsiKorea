@@ -154,7 +154,7 @@ cat("  OBSERVATION_PERIOD_ID PERSON_ID OBSERVATION_PERIOD_START_DATE ...
 
 #### 예제 \@ref(exr:exerciseVocab1) {-}
 
-개념 ID 192671 ("Gastrointestinal hemorrhage")
+Concept ID 192671 ("Gastrointestinal hemorrhage")
 
 #### 예제 \@ref(exr:exerciseVocab2) {-}
 
@@ -172,8 +172,8 @@ ICD-9CM 코드:
 
 MedDRA의 선호되는 용어:
 
-- "Gastrointestinal haemorrhage" (개념 ID 35707864)
-- "Intestinal haemorrhage" (개념 ID 35707858)
+- "Gastrointestinal haemorrhage" (Concept ID 35707864)
+- "Intestinal haemorrhage" (Concept ID 35707858)
 
 
 
@@ -306,7 +306,7 @@ cat("  PERSON_COUNT
 
 #### 예제 \@ref(exr:exerciseGiBleedsDuringCelecoxib) {-}
 
-노출되는 동안 증상의 수를 계산하기 위해서는 이전의 쿼리를 테이블 CONDITION_OCCURRENCE를 조인해서 확장한다. 위장 출혈을 암시하는 모든 condition 개념을 찾기 위해서는 테이블 CONCEPT_ANCESTOR를 조인한다:
+노출되는 동안 증상의 수를 계산하기 위해서는 이전의 쿼리를 테이블 CONDITION_OCCURRENCE를 조인해서 확장한다. 위장 출혈을 암시하는 모든 condition concept을 찾기 위해서는 테이블 CONCEPT_ANCESTOR를 조인한다:
 
 ```{r eval=FALSE}
 library(DatabaseConnector)
@@ -356,7 +356,7 @@ cat("  DIAGNOSE_COUNT
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInitialEvents.png")
 ```
 
-디클로페낙의 개념 모음 표현은 그림 \@ref(fig:cohortsAtlasConceptSet1)과 비슷해야 할 것이며, '디클로페낙' 성분과 '디클로페낙'의 모든 하위목록도 모두 포함하여 디클로페낙 성분이 포함된 모든 약물을 포함한다.
+디클로페낙의 개념 모음 concept set 표현은 그림 \@ref(fig:cohortsAtlasConceptSet1)과 비슷해야 할 것이며, '디클로페낙' 성분과 '디클로페낙'의 모든 하위목록도 모두 포함하여 디클로페낙 성분이 포함된 모든 약물을 포함한다.
 
 ```{r cohortsAtlasConceptSet1, fig.cap='디클로페낙의 개념 모음 표현.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet1.png")
@@ -467,7 +467,7 @@ knitr::include_graphics("images/SuggestedAnswers/dataSourcesAtlas.png")
 
 #### 예제 \@ref(exr:exerciseCharacterization2) {-}
 
-![](images/Cohorts/cohortdefinition.png)를 클릭하고 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미 있는 이름을 부여하고 (예를 들어, "Celecoxib new users"가 있다) "Concept Sets" 탭으로 이동한다. "New Concept Set"를 클릭하고, 개념 모음에 의미있는 이름을 부여한다 (예를 들어, "Celecoxib"). ![](images/Cohorts/search-2.png) 모듈을 열고, "celecoxib"를 검색하여, 클래스를 "Ingredient"로, 표준 개념을 "Standard"로 제한한 후, 그림 \@ref(fig:conceptSearchAtlas)와 같이 개념을 당신의 개념 모음에 추가하기 위해 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
+![](images/Cohorts/cohortdefinition.png)를 클릭하고 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미 있는 이름을 부여하고 (예를 들어, "Celecoxib new users"가 있다) "Concept Sets" 탭으로 이동한다. "New Concept Set"를 클릭하고, 개념 모음 concept set에 의미있는 이름을 부여한다 (예를 들어, "Celecoxib"). ![](images/Cohorts/search-2.png) 모듈을 열고, "celecoxib"를 검색하여, 클래스를 "Ingredient"로, 표준 개념을 "Standard"로 제한한 후, 그림 \@ref(fig:conceptSearchAtlas)와 같이 개념을 당신의 개념 모음에 추가하기 위해 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
 
 ```{r conceptSearchAtlas, fig.cap='"celecoxib" 성분의 표준 개념 선택하기.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/conceptSearchAtlas.png")
