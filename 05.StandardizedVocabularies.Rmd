@@ -1,4 +1,4 @@
-standard concept# OMOP 표준 용어 {#StandardizedVocabularies}
+# OMOP 표준 용어 {#StandardizedVocabularies}
 
 \index{standardized vocabularies}
 

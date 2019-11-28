@@ -1,4 +1,4 @@
-# (PART) Uniform Data Representation {-}
+# (PART) 공통 데이터 모델 {-}
 
 # 공통 데이터 모델 {#CommonDataModel}
 

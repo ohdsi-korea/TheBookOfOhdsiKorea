@@ -1,4 +1,4 @@
-# (PART) Data Analytics {-} 
+# (PART) 데이터 분석 {-} 
 
 # 데이터 분석 이용 사례 {#DataAnalyticsUseCases}
 
