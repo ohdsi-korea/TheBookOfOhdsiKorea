@@ -1,4 +1,4 @@
-# (PART) OHDSI Studies {-} 
+# (PART) OHDSI 연구 {-} 
 
 # 연구단계 {#StudySteps}
 

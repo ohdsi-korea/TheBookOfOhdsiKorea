@@ -5,7 +5,7 @@ output:
 ---
 \mainmatter
 
-# (PART) The OHDSI Community {-}
+# (PART) OHDSI 커뮤니티 {-}
 
 # OHDSI 커뮤니티 {#OhdsiCommunity}
 

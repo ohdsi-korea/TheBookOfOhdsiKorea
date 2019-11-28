@@ -1,4 +1,4 @@
-# (PART) Evidence Quality {-}
+# (PART) 근거의 질 {-}
 
 # 근거의 질 {#EvidenceQuality}
 
