@@ -2,7 +2,7 @@
 
 *Chapter leads: Martijn Schuemie & Frank DeFalco*
 
-OHDSI는 관찰 환자 수준 데이터에 대한 다양한 데이터 분석 사용 사례를 지원하는 광범위한 오픈 소스 툴을 제공한다. 이러한 툴의 공통점은 공통 데이터 모델(CDM)을 사용하여 하나 이상의 데이터베이스와 상호 작용할 수 있다는 것이다. 또한, 이러한 툴은 다양한 사용 사례use case에 대한 분석을 표준화한다. 처음부터 시작하는 것이 아니라 표준 템플릿을 작성함으로써 분석을 구현할 수 있다. 이렇게 하면 분석을 더 쉽게 수행할 수 있고, 재현성과 투명성을 향상할 수 있다. 예를 들어, 발생률을 계산하는 방법은 무한에 가까운 수가 있는 것처럼 보이지만, 이러한 방법은 몇 가지 선택사항으로 OHDSI 툴에 지정할 수 있으며, 동일한 선택을 하는 사람은 동일한 방법으로 발병률을 계산할 것이다.
+OHDSI는 관찰 환자 수준 데이터에 대한 다양한 데이터 분석 사용 사례를 지원하는 광범위한 오픈 소스 툴을 제공한다. 이러한 툴의 공통점은 공통 데이터 모델(CDM)을 사용하여 하나 이상의 데이터베이스와 상호 작용할 수 있다는 것이다. 또한, 이러한 툴은 다양한 사용 사례 use case에 대한 분석을 표준화한다. 처음부터 시작하는 것이 아니라 표준 템플릿을 작성함으로써 분석을 구현할 수 있다. 이렇게 하면 분석을 더 쉽게 수행할 수 있고, 재현성과 투명성을 향상할 수 있다. 예를 들어, 발생률을 계산하는 방법은 무한에 가까운 수가 있는 것처럼 보이지만, 이러한 방법은 몇 가지 선택사항으로 OHDSI 툴에 지정할 수 있으며, 동일한 선택을 하는 사람은 동일한 방법으로 발병률을 계산할 것이다.
 
 이 장에서는 먼저 분석을 실행하기 위해 선택할 수 있는 다양한 방법과 분석에서 어떤 전략을 사용할 수 있는지 설명한다. 그런 다음 다양한 OHDSI 툴과 다양한 사용 사례에 적합한 방법을 검토한다.
 
@@ -53,7 +53,7 @@ ATLAS 스크린샷은 그림 \@ref(fig:atlas)에 제공된다. 왼쪽에는 ATLA
 Data Sources \index{ATLAS!Data Sources} \index{Achilles|see {ATLAS!data sources}}
 : 데이터 원천Data sources은 ATLAS 플랫폼 내에서 구성한 각 데이터 원본에 대해 기술적이고 표준화된 보고 기능을 제공한다. 이 기능은 대규모 분석 전략을 사용한다. 모든 기술 통계량은 사전에 계산된 것이다. 데이터 출처는 \@ref(Characterization)장에서 논한다.
 
-Vocabulary Search \index{ATLAS!vocabulary search} 
+Vocabulary Search \index{ATLAS!vocabulary search}
 : ATLAS는 OMOP 표준용어집을 검색하고 탐색하여 그 어휘 안에 존재하는 개념과 데이터 소스에 대한 표준 분석에서 그 개념을 적용하는 방법을 이해할 수 있는 기능을 제공한다. 이 특성은 \@ref(StandardizedVocabularies)장에서 논한다.
 
 Concept Sets \index{ATLAS!concept sets}
@@ -99,7 +99,7 @@ ATLAS와 WebAPI는 전체 플랫폼 내의 기능 또는 데이터 소스에 대
 
 ATLAS에 대한 설명서는 ATLAS GitHub repository wiki.[^atlasRepoWikiUrl] 에 있다. 이 위키에는 온라인 비디오 튜토리얼에 대한 링크뿐만 아니라 다양한 애플리케이션 기능에 대한 정보가 포함되어 있다. \index{ATLAS!documentation}
 
-[^atlasRepoWikiUrl]: https://github.com/OHDSI/ATLAS/wiki 
+[^atlasRepoWikiUrl]: https://github.com/OHDSI/ATLAS/wiki
 
 ### 설치 방법
 
@@ -132,7 +132,7 @@ The Methods Library는 또한 매우 큰 데이터베이스에 대해 실행하�
 
 1. 대부분의 데이터 조작은 데이터베이스 서버에서 수행된다. 분석은 일반적으로 데이터베이스에 있는 전체 데이터의 극히 일부만을 필요로 하며 Methods Library는 SqlRender 및 DatabaseConnector 패키지를 통해 서버에서 고급 작업을 수행하여 관련 데이터를 사전 처리하고 추출할 수 있도록 한다.
 2. 대용량 로컬 데이터 객체는 메모리 효율적인 방식으로 저장된다. 로컬 시스템으로 다운로드되는 데이터의 경우 Method Library는 [ff](https://cran.r-project.org/web/packages/ff) 패키지를 사용하여 대용량 데이터 객체를 저장하고 작업한다. 이것은 우리가 메모리를 직접적으로 사용하는 것보다 훨씬 더 큰 데이터로 작업할 수 있게 해준다.
-3. 필요한 곳에 고성능 컴퓨팅을 적용한다. 예를 들어, [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지는 대량의 변수와 관측치로 인해 다른 방법으로는 할 수 없는 대규모 회귀를 수행할 수 있는 매우 효율적인 회귀 엔진을 구현했으며 Methods Library 전체에서 이 엔진을 사용할 수 있다. 
+3. 필요한 곳에 고성능 컴퓨팅을 적용한다. 예를 들어, [Cyclops](https://ohdsi.github.io/Cyclops/) 패키지는 대량의 변수와 관측치로 인해 다른 방법으로는 할 수 없는 대규모 회귀를 수행할 수 있는 매우 효율적인 회귀 엔진을 구현했으며 Methods Library 전체에서 이 엔진을 사용할 수 있다.
 
 ### 문서화
 
@@ -189,7 +189,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
 
 #### RTools 설치하기 {-}
 
-1. [https://cran.r-project.org/](https://cran.r-project.org/)으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하라. 
+1. [https://cran.r-project.org/](https://cran.r-project.org/)으로 이동하여 "Windows용 R 다운로드"를 클릭한 다음 "Rtools"를 클릭하고 다운로드할 최신 버전의 RTools를 선택하라.
 
 2. 다운로드가 완료된 후 설치 프로그램을 실행하라. 어디에서나 기본 옵션을 선택하라.
 
@@ -288,5 +288,3 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png")
 - OHDSI 툴의 구축을 촉진하는 몇 가지 전략이 존재한다.
 
 ```
-
-
