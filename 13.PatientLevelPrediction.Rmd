@@ -138,7 +138,7 @@ Table: (\#tab:gbmParameters) Hyper-parameters for gradient boosting machines.
 
 ### 랜덤 포레스트
 
-랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 연결하는 배깅 앙상블 기법(bagging ensemble technique)이다. 배깅의 기본 개념은 유사도가 낮은 classfiers들을 사용하여 유사도가 높은 classfier로 결합하여 과적합 가능성을 줄이는 것이다. 랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 학습하여 저장하는 것으로 하지만 각 나무(trees)에서 변수의 하위 집합만 사용하며 변수 하위 집합은 의사 결정 나무마다 다르다. 우리 패키지는 Python에서 Random Forest의 sklearn 수행을 사용한다. \index{random forest} \index{python} \index{sklearn}
+랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 연결하는 배깅 앙상블 기법(bagging ensemble technique)이다. 배깅의 기본 개념은 유사도가 낮은 classfiers들을 사용하여 유사도가 높은 classfier로 결합하여 과적합 가능성을 줄이는 것이다. 랜덤 포레스트(Random forest)는 다중 의사 결정 나무를 학습하여 저장하는 것으로 하지만 각 나무(trees)에서 변수의 하위 집합만 사용하며 변수 하위 집합은 의사 결정 나무마다 다르다. 우리 패키지는 Python의 Sklearn 내 Random forest를 사용한다. \index{random forest} \index{python} \index{sklearn}
 
 Table: (\#tab:randomForestParameters) Hyper-parameters for random forests.
 
@@ -481,7 +481,7 @@ knitr::include_graphics("images/PatientLevelPrediction/analysisSettings.png")
 여기에는 세 가지의 옵션이 있다:
 
 - “**표본추출 실행 Perform sampling**”: 표본추출을 실행할지 말지 선택할 수 있다 (기본값 = “아니오 NO”). 만약 “예 yes”라고 설정하면, 또 다른 옵션이 나타날 것이다: “**몇 명의 환자를 부분집합으로 사용할 것인가?** ”. 여기서 표본 크기는 결정될 수 있다. 표본추출은 대규모 모집단 (예로 1,000만 환자)을 대상으로 한 모형에서 환자의 표본을 가지고 모형을 테스트하여 구축함으로써 그 모델이 예측력이 있는지 아는데 효율적 수단이 될 것이다. 예를 들어, 그 추출한 표본에서 AUC가 0.5에 가까우면, 그 모형은 쓸모가 없으므로 버려야 할 것이다. 
-- “**최소 공변량 발생: 만약 어떤 공변량이 지정한 값보다 작적 수의 대상에서만 발생하면 제거된다: Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed:** ” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
+- “**최소 공변량 발생: 만약 어떤 공변량이 지정한 값보다 적은 수의 대상에서만 발생하면 제거된다: Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed:** ” 여기서 최소 공변량 발생을 선택할 수 있다 (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면 공변량 발생의 최소 임계값이 필요하다. 
 - “**공변량 정규화 Normalize covariate**”: 여기서 공변량을 표준화할 것인지 선택할 수 있다 (기본값 = yes). 공변량의 표준화는 LASSO 모형을 적용하기 위해서는 늘 필요하다.
 
 예를 들어, 그림 \@ref(fig:executionSettings)처럼 선택한다.
@@ -494,7 +494,7 @@ knitr::include_graphics("images/PatientLevelPrediction/executionSettings.png")
 
 여기에는 네 가지 옵션이 있다:
 
-- "**검증/학습 세트를 분할하는 방법 지정 Specify how to split the test/train se:**" 학습/검증 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모형을 학습하기 위해서는 이전 데이터를, 모형을 평가하기 위해서는 최근 데이터 사용) 별로 구분할지를 선택한다.
+- "**검증/학습 세트를 분할하는 방법 지정 Specify how to split the test/train set:**" 학습/검증 데이터를 사람 (관심 결과에 따라 분류됨) 별로 구분할지, 시간 (모형을 학습하기 위해서는 이전 데이터를, 모형을 평가하기 위해서는 최근 데이터 사용) 별로 구분할지를 선택한다.
 - "**테스트 세트로 사용될 데이터의 백분율 Percentage of the data to be used as the test set (0-100%)**": 테스트 데이터로 사용될 데이터의 백분율을 선택한다 (기본값 = 25%).
 - "**교차 검정에 사용된 폴드 수 The number of folds used in the cross validation**": 최적 하이퍼파라미터 선택에 사용되는 교차 검증을 위한 폴드 수를 선택한다 (기본값 = 3).
 - "**사람을 기준으로 검증/학습 세트를 분할하는 경우, 사용할 시드 (선택적) The seed used to split the test/train set when using a person type testSplit** ” : 사용자 유형 testSplit에서 학습/검증 세트를 분할하는 데 사용되는 seed로 임의의 초기값을 선택한다.
@@ -651,7 +651,7 @@ gbmModel <- setGradientBoostingMachine(ntrees = 5000,
                                        learnRate = c(0.001,0.01,0.1,0.9))
 ```
 
-`runPIP` 함수는 모델을 훈련하고 평가하기 위해 모집단, `plpData` 및 모델 설정을 사용한다. 데이터를 75% ~ 25%로 분할하기 위해 `testSplit`(사람/시간)과 `testFraction` 파라미터를 사용하고 환자 수준 예측 파이프라인을 실행할 수 있다:
+`runPlp` 함수는 모델을 훈련하고 평가하기 위해 모집단, `plpData` 및 모델 설정을 사용한다. 데이터를 75% ~ 25%로 분할하기 위해 `testSplit`(사람/시간)과 `testFraction` 파라미터를 사용하고 환자 수준 예측 파이프라인을 실행할 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 gbmResults <- runPlp(population = population, 
@@ -665,7 +665,7 @@ gbmResults <- runPlp(population = population,
 
 패키지 안에 R xgboost 패키지를 사용하여 데이터의 75%를 사용하는 점진적 부스팅 머신 모델(gradient boosting machine model)을 맞추고 나머지 25%에 대해 모델을 평가한다. 결과 데이터 구조는 모델과 성능에 대한 정보가 포함되어 있다.
 
-`runPIP` 함수에는 기본적으로 `TRUE`로 설정된 `plpData`, `plpResults`, `plpplots`, `evaluation` 등을 저장할 수 있는 몇 가지 파라미터가 있다.
+`runPlp` 함수에는 기본적으로 `TRUE`로 설정된 `plpData`, `plpResults`, `plpplots`, `evaluation` 등을 저장할 수 있는 몇 가지 파라미터가 있다.
 
 다음을 사용하여 모델을 저장할 수 있다:
 
@@ -693,7 +693,7 @@ gbmResults <- loadPlpResult("gbmResults")
 
 ### 내부 검증
 
-연구를 실행하면 `runPLP`함수는 학습/테스트 세트에서 학습된 모델과 학습/테스트 세트에서 모델의 평가를 해준다. `viewPLP(runPLP = gbmResults)`를 실행하여 양방향의 결과를 볼 수 있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든 측정값을 볼 수 있는 Shiny 앱을 열 것이다 (Shiny 어플리케이션 섹션의 그림 \@ref(fig:shinySummary) 참조). 
+연구를 실행하면 `runPlp`함수는 학습/테스트 세트에서 학습된 모델과 학습/테스트 세트에서 모델의 평가를 해준다. `viewPLP(runPLP = gbmResults)`를 실행하여 양방향의 결과를 볼 수 있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든 측정값을 볼 수 있는 Shiny 앱을 열 것이다 (Shiny 어플리케이션 섹션의 그림 \@ref(fig:shinySummary) 참조). 
 
 모든 평가 그림을 폴더에 생성하고 저장하려면 다음 코드를 실행하면 된다:
 
@@ -783,7 +783,7 @@ valResults <- externalValidatePlp(
 
 ### 모델 성능
 
-`viewPlp` 함수를 사용하면 예측 모델의 성능을 탐색하기에 가장 쉽다. 이 함수는 결과 객체를 입력값으로 한다. R에서 모델을 개발하는 경우에는 `runPLp`의 결과를 입력값으로 사용할 수 있다. ATLAS로 만든 연구 패키지를 이용한다면 모델 중 하나를 로딩해야 한다 (이 예제에서는 Analysis_1을 로딩할 것이다): \index{model viewer app}
+`viewPlp` 함수를 사용하면 예측 모델의 성능을 탐색하기에 가장 쉽다. 이 함수는 결과 객체를 입력값으로 한다. R에서 모델을 개발하는 경우에는 `runPlp`의 결과를 입력값으로 사용할 수 있다. ATLAS로 만든 연구 패키지를 이용한다면 모델 중 하나를 로딩해야 한다 (이 예제에서는 Analysis_1을 로딩할 것이다): \index{model viewer app}
 
 ```{r tidy=FALSE,eval=FALSE}
 plpResult <- loadPlpResult(file.path(outputFolder, 
