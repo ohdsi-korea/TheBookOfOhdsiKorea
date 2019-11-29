@@ -137,4 +137,4 @@ knitr::include_graphics("images/OhdsiCommunity/DSC01956.png")
 - OHDSI 참가자들은 개방형 공동체로서의 데이터 표준, 방법론 연구, 오픈소스 분석 소프트웨어 개발 및 임상적 적용을 통해 데이터에서부터 근거로의 여정을 발전시키고자 노력한다.
 
 ```
-ㅁ
+
