@@ -185,7 +185,7 @@ MedDRA의 선호되는 용어:
 
 A) 데이터 전문가와 CDM 전문가가 함께 ETL을 설계할 것
 C) 의학 지식이 있는 사람들이 코드 매핑을 할 것
-B) 기술자가 ETL을 수행할 것
+B) 엔지니어가 ETL을 수행할 것
 D) 모든 사람이 질 관리에 참여할 것
 
 #### 예제 \@ref(exr:exerciseEtl2) {-}
@@ -193,21 +193,21 @@ D) 모든 사람이 질 관리에 참여할 것
 Column | Value | Answer
 :---------------- |:----------- |:-----------------------
 PERSON_ID | A123B456 | This column has a data type of integer so the source record value needs to be translated to a numeric value.
-GENDER_CONCEPT_ID | 8532 | 
+GENDER_CONCEPT_ID | 8532 |
 YEAR_OF_BIRTH | NULL | If we do not know the month or day of birth, we do not guess. A person can exist without a month or day of birth. If a person lacks a birth year that person should be dropped. This person would have to be dropped due to now year of birth.
-MONTH_OF_BIRTH | NULL | 
-DAY_OF_BIRTH | NULL | 
+MONTH_OF_BIRTH | NULL |
+DAY_OF_BIRTH | NULL |
 RACE_CONCEPT_ID | 0 | The race is WHITE which should be mapped to 8527.
 ETHNICITY_CONCEPT_ ID | 8527 | No ethnicity was provided, this should be mapped to 0.
-PERSON_SOURCE_ VALUE | A123B456 | 
-GENDER_SOURCE_ VALUE | F | 
-RACE_SOURCE_VALUE | WHITE | 
-ETHNICITY_SOURCE_ VALUE | NONE PROVIDED | 
+PERSON_SOURCE_ VALUE | A123B456 |
+GENDER_SOURCE_ VALUE | F |
+RACE_SOURCE_VALUE | WHITE |
+ETHNICITY_SOURCE_ VALUE | NONE PROVIDED |
 
 #### 예제 \@ref(exr:exerciseEtl3) {-}
 
 Column | Value
-:------------------------ |:------------- 
+:------------------------ |:-------------
 VISIT_OCCURRENCE_ID | 1
 PERSON_ID | 11
 VISIT_START_DATE | 2004-09-26
@@ -228,7 +228,7 @@ VISIT_SOURCE_VALUE | inpatient
 
 #### 예제 \@ref(exr:exerciseUseCases2) {-}
 
-아마 아닐 것이다. 디클로페낙 diclofenac 노출 코호트와 비교할 수 있는 비노출 코호트를 정의한다는 것은 보통 불가능한데 이는 사람들이 각각의 이유가 있어 디클로페낙을 복용하기 때문이다. 이것은 사람 간의 비교를 금지한다. 사람 내 비교가 가능할 수는 있어서, 디클로페낙 코호트 안의 각각의 환자는 그들이 노출되지 않았을 때의 시간을 정의할 수 있다. 그러나, 비슷한 문제가 여기서 발생한다: 이런 시기는 비교가 되지 않는다. 왜냐하면 어떤 때 누군가는 노출되고, 누군가는 노출이 되지 않는 이유에서다.
+아마 아닐 것이다. 디클로페낙 diclofenac 노출 코호트와 비교할 수 있는 비노출 코호트를 정의한다는 것은 보통 불가능한데 이는 사람들이 각각의 이유가 있어 디클로페낙을 복용하기 때문이다. 이것은 사람 간의 비교를 금지한다. 사람 내 비교가 가능할 수는 있어서, 디클로페낙 코호트 안의 각각의 환자는 그들이 노출되지 않았을 때의 시간을 정의할 수 있다. 그러나, 비슷한 문제가 여기서 발생한다: 이런 시기는 비교가 되지 않는다. 왜냐하면 어떤 때 누군가는 노출되고, 누군가는 노출이 되지 않기 때문이다.
 
 
 
@@ -318,7 +318,7 @@ INNER JOIN @cdm.concept ingredient
 INNER JOIN @cdm.condition_occurrence
   ON condition_start_date >= drug_era_start_date
     AND condition_start_date <= drug_era_end_date
-INNER JOIN @cdm.concept_ancestor 
+INNER JOIN @cdm.concept_ancestor
   ON condition_concept_id =descendant_concept_id
 WHERE LOWER(ingredient.concept_name) = 'celecoxib'
   AND ingredient.concept_class_id = 'Ingredient'
@@ -333,7 +333,7 @@ cat("  DIAGNOSE_COUNT
 ")
 ```
 
-이런 경우에는 테이블 DRUG_EXPOSURE 대신에 테이블 DRUG_ERA를 사용하는 것이 중요하다는 것을 명심한다. 왜냐하면 같은 성분을 가진 약물 노출은 겹칠 수 있지만, 약물 범위도 그렇다. 이것은 이중 계산으로 이어질 수도 있다. 예를 들어, 한 개인이 동시에 celecoxib를 포함하는 두 개의 약물을 받았다고 상상해 보라. 이것은 두 개의 약물 노출로 기록될 것이며, 그러므로 노출 중에 일어나는 모든 증상이 두 번으로 집계될 것이다. 이 두 개의 노출은 하나의 비-겹침 약물 범위로 합병될 것이다.
+이런 경우에는 테이블 DRUG_EXPOSURE 대신에 테이블 DRUG_ERA를 사용하는 것이 중요하다는 것을 명심하자. 왜냐하면 같은 성분을 가진 약물 노출이 다수 겹치면서, 이중 계산으로 이어질 수도 있기 때문이다. 예를 들어, 한 개인이 동시에 celecoxib성분을 포함하는 두 개의 약물을 받았다고 상상해 보라. 이것은 두 개의 약물 노출로 기록될 것이며, 그러므로 노출 중에 일어나는 모든 증상이 두 번으로 집계될 것이다. 하지만 DRUG_ERA를 사용하면 이 두 개의 노출이 하나의 기록으로 합쳐진다.
 
 
 
@@ -374,7 +374,7 @@ NSAID의 개념 모음 표현은 그림 \@ref(fig:cohortsAtlasConceptSet2)와 �
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet2.png")
 ```
 
-추가로, 그림 \@ref(fig:cohortsAtlasInclusion2)에서 보이는 것과 같이, 이전의 암 증상이 없는 것을 필요로 한다.
+추가로, 그림 \@ref(fig:cohortsAtlasInclusion2)에서 보이는 것과 같이, 이전에 기록된 악성 암이 없도록 한다.
 
 ```{r cohortsAtlasInclusion2, fig.cap='이전의 암 증상이 없는 것이 필요하다.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInclusion2.png")
@@ -394,7 +394,7 @@ knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasExit.png")
 
 #### 예제 \@ref(exr:exerciseCohortsSql) {-}
 
-가독성을 위하여 SQL을 두 개의 과정으로 나누었다. 첫 번째로, 심근경색의 모든 증상 발생을 찾고, 이를 "#diagnoses"로 불리는 임시 테이블에 저장한다:
+가독성을 위하여 SQL을 두 개의 과정으로 나누었다. 첫 번째로, 심근경색의 모든 발생 기록을 찾고, 이를 "#diagnoses"로 불리는 임시 테이블에 저장한다:
 
 ```{r eval=FALSE}
 library(DatabaseConnector)
@@ -421,8 +421,8 @@ renderTranslateExecuteSql(connection, sql, cdm = "main")
 
 ```{r eval=FALSE}
 sql <- "INSERT INTO @cdm.cohort (
-  subject_id, 
-  cohort_start_date, 
+  subject_id,
+  cohort_start_date,
   cohort_definition_id
   )
 SELECT subject_id,
@@ -438,7 +438,7 @@ WHERE visit_concept_id IN (9201, 9203, 262); -- Inpatient or ER;"
 renderTranslateExecuteSql(connection, sql, cdm = "main")
 ```
 
-대체 접근 방식은 방문 시작과 종료 날짜 사이에 부합하는 condition 날짜를 요구하는 대신, VISIT_OCCURRENCE_ID에 근거하여 방문의 condition에 조인한 적이 있을 수도 있음을 명심한다. 이는 입원 혹은 응급실 방문과 관련되어 condition 기록되었음을 보장하기 때문에 더 정확할 수 있다. 하지만, 많은 관찰 데이터베이스는 방문과 증상의 관계를 기록하지 않고, 그러므로 날짜를 대신 사용하는 것을 선택하여, 아마 낮은 특이도일 수 있으나 높은 민감도를 줄 수도 있다.
+대개의 접근 방식은 방문 시작과 종료 날짜 사이에 부합하는 condition 날짜를 요구하는 대신, VISIT_OCCURRENCE_ID에 근거하여 방문의 condition에 조인할 수 있음을 명심하자. 이는 입원 혹은 응급실 방문 시 기록된 condition 만을 확인하여, 더 정확할 수 있다. 하지만, 많은 관찰 데이터베이스에서는 방문과 증상의 관계를 기록하지 않기 때문에, 날짜를 대신 사용하는 것을 선택하여 특이도는 낮을 수 있으나 민감도를 높일 수도 있다.
 
 또한 코호트 종료 날짜를 무시했다는 것을 명심한다. 종종, 결과를 정의하기 위해 코호트가 사용되었을 때 우리는 코호트 시작 날짜만 염두하고, (병명이 정의된) 코호트 종료 날짜를 생성하는 것은 의미가 없다.
 
@@ -485,7 +485,7 @@ knitr::include_graphics("images/SuggestedAnswers/celecoxibCohortDefinition.png")
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterization.png")
 ```
 
-"Exections" 탭을 클릭한 후, 데이터 원천 중의 하나로 "Generate"를 클릭한다. 생성이 끝날 때까지 시간이 걸릴 수 있다. 끝나면, "View latest results"를 클릭할 수 있다. 결과 화면은 그림 \@ref(fig:celecoxibCharacterizationResults)와 비슷하고, 이는 예를 들어 고통과 arthropathy가 흔히 관찰되는 것으로 보이는데, 이는 celecoxib의 조짐이므로 놀랄만한 사용은 아니다. 목록의 아래쪽에 기대하지 않은 conditions이 보일 수 있다.
+"Exections" 탭을 클릭한 후, 데이터 베이스 중 하나에 "Generate"를 클릭한다. 시간이 꽤나 걸릴 수 있다. 끝나면, "View latest results"를 클릭할 수 있다. 결과 화면은 그림 \@ref(fig:celecoxibCharacterizationResults)와 비슷하고, 이는 예를 들어 pain과 arthropathy가 흔히 관찰되는 것으로 보이는데, 진통제(celecoxib) 사용자 코호트의 특성으로 자연스러운 일이다. 목록의 아래쪽에 기대하지 않은 condition이 보일 수 있다.
 
 ```{r celecoxibCharacterizationResults, fig.cap='임상적 특성 설명.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterizationResults.png")
@@ -493,7 +493,7 @@ knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterizationResult
 
 #### 예제 \@ref(exr:exerciseCharacterization3) {-}
 
-![](images/Cohorts/cohortdefinition.png)를 클릭한 후 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미 있는 이름을 부여한다 (예를 들어 "GI bleed"). ![](images/Cohorts/search-2.png) 모듈을 열고, "Gastrointestinal hemorrhage"를 검색한 후, 그림 \@ref(fig:giBleedSearch)와 같이 개념을 당신의 개념 모음에 추가하기 위해 상위 개념 옆의 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
+![](images/Cohorts/cohortdefinition.png)를 클릭한 후 새로운 코호트를 생성하기 위해 "New cohort"를 클릭한다. 코호트에 의미 있는 이름을 부여한다 (예를 들어 "GI bleed"). ![](images/Cohorts/search-2.png) 모듈을 열고, "Gastrointestinal hemorrhage"를 검색한 후, 그림 \@ref(fig:giBleedSearch)와 같이 개념을 개념 모음에 추가하기 위해 상위 개념 옆의 ![](images/Cohorts/shoppingcart.png)를 클릭한다.
 
 ```{r giBleedSearch, fig.cap='"Gastrointestinal hemorrhage"의 표준 개념 선택하기.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedSearch.png")
@@ -532,7 +532,7 @@ knitr::include_graphics("images/SuggestedAnswers/irResults.png")
 
 #### 예제 \@ref(exr:exercisePle1) {-}
 
-공변량의 기본 모음을 명시하고 있지만, 반드시 비교하는 두 개의 약물은 제외하고, 그것의 하위 목록은 포함해야 한다. 그렇지 않으면 성향 모델은 완벽하게 예측이 가능해질 것이다:
+공변량 covariate의 기본 모음을 명시하고 있지만, 반드시 비교하는 두 개의 약물은 제외하고, 그것의 하위 목록은 포함해야 한다. 그렇지 않으면 성향 모델은 완벽하게 예측이 가능해질 것이다:
 
 ```{r eval=FALSE}
 library(CohortMethod)
@@ -577,7 +577,7 @@ Number of non-zero covariate values: 26923
 
 #### 예제 \@ref(exr:exercisePle2) {-}
 
-사양 specification을 따르는 인구 모집단을 생성하고, 소모 도표를 출력한다:
+사양 specification을 따르는 인구 모집단을 생성하고, attrition 도표를 출력한다:
 
 ```{r eval=FALSE}
 studyPop <- createStudyPopulation(
@@ -595,7 +595,7 @@ drawAttritionDiagram(studyPop)
 knitr::include_graphics("images/SuggestedAnswers/attrition.png")
 ```
 
-기존의 코호트와 비교하여 어떤 대상도 잃지 않은 것을 볼 수 있는데, 아마도 왜냐하면 여기서 사용한 제한이 이미 코호트 정의에서 사용된 것이기 때문이다.
+기존의 코호트와 비교하여 대상을 전혀 잃지 않은 것을 볼수 있는데, 여기서 사용한 제한이 이미 코호트 정의에서 사용된 것이기 때문이다.
 
 #### 예제 \@ref(exr:exercisePle3) {-}
 
@@ -618,7 +618,7 @@ treatment  1.34612   1.10065   1.65741 0.29723  0.1044
 ")
 ```
 
-celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 기저 차이는 이미 다른 결과의 위험으로 이어질 가능성이 있다. 이 차이를 조절하지 않으면, 이 분석과 같이 편향된 측정을 생성할 가능성이 있다.
+celecoxib 사용자가 diclofenac 사용자와 교환 가능하지 않을 가능성이 있고, 이러한 기저 과거력의 차이는 이와 같이 outcome 상의 차이가 있는 것처럼 결과가 나올 수도 있다. 이 차이를 조절하지 않으면, 이 분석과 같이 편향된 측정을 생성할 수 있다.
 
 #### 예제 \@ref(exr:exercisePle4) {-}
 
@@ -633,9 +633,9 @@ plotPs(ps, showCountsLabel = TRUE, showAucLabel = TRUE)
 knitr::include_graphics("images/SuggestedAnswers/ps.png")
 ```
 
-몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 왜냐하면 시뮬레이션 된 정말 작은 데이터 모음을 사용하기 때문이다. 실제의 선호 점수 분포는 더 매끄러운 경향이 있다.
+몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 예제에서는 시뮬레이션 된 정말 작은 데이터 모음을 사용했기 때문이다. 실제의 선호 점수 분포는 더 매끄러운 경향이 있다.
 
-성향 모델은 0.63의 AUC를 달성하는데, 대상 target과 대조 comparator 코호트 간의 차이가 있다는 것을 제안한다. PS 조정이 그들을 더욱 비교할 수 있게 함을 시사하는 두 집단 간의 꽤 많은 교차를 볼 수 있다.
+성향 모델은 0.63의 AUC를 달성하는데, 대상 target과 대조 comparator 코호트 간을 구분할 수 있다는 것을 의미한다. 두 집단 간의 꽤 많은 교차를 볼 수 있어, 성향 점수 조정으로 두 코호트를 더 동일하게 만들었음을 시사한다.
 
 
 #### 예제 \@ref(exr:exercisePle5) {-}
@@ -645,21 +645,21 @@ knitr::include_graphics("images/SuggestedAnswers/ps.png")
 ```{r eval=FALSE}
 strataPop <- stratifyByPs(ps, numberOfStrata = 5)
 bal <- computeCovariateBalance(strataPop, cmData)
-plotCovariateBalanceScatterPlot(bal, 
-                                showCovariateCountLabel = TRUE, 
-                                showMaxLabel = TRUE, 
-                                beforeLabel = "Before stratification", 
+plotCovariateBalanceScatterPlot(bal,
+                                showCovariateCountLabel = TRUE,
+                                showMaxLabel = TRUE,
+                                beforeLabel = "Before stratification",
                                 afterLabel = "After stratification")
 ```
 ```{r echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/scatter.png")
 ```
 
-다양한 기저 공변량은 층화 전의(x-axis) 큰(>0.3) 표준화된 평균의 차이를 보여준다. 층화 후에, 최대 표준화 차이(<= 0.1)와 같이 균형은 상승한다.
+다양한 기저 공변량은 층화 전의(x-axis) 큰(>0.3) 표준화된 평균의 차이를 보여준다. 층화 후에, 최대 표준화 차이(<= 0.1)와 같이 균형 balance가 좋아졌다.
 
 #### 예제 \@ref(exr:exercisePle6) {-}
 
-콕스 회귀를 사용하여 결과 모델을 적합하나 PS strata로 계층화한다:
+PS strata 기준 층화하여 콕스 회귀 적합을 시행한다:
 
 ```{r eval=FALSE}
 adjModel <- fitOutcomeModel(population = strataPop,
@@ -679,7 +679,7 @@ treatment  1.13211   0.92132   1.40008 0.12409  0.1068
 ")
 ```
 
-조정된 추정치는 조정되지 않은 추청지보다 낮고, 95% 신뢰 구간은 현재 1을 포함하는 것을 볼 수 있다. 왜냐하면 현재 두 개의 노출 집단, 즉 감소하는 비뚤림 사이의 기저 차이를 조절하는 중이기 때문이다.
+조정된 추정치는 조정되지 않은 추청지보다 낮고, 95% 신뢰 구간은 현재 1을 포함하는 것을 볼 수 있다. 기저 과거력의 차이를 보정함으로써, 비뚤림이 감소함을 볼 수 있다.
 
 
 
@@ -737,7 +737,7 @@ Number of non-zero covariate values: 54079
 
 #### 예제 \@ref(exr:exercisePlp2) {-}
 
-관심 결과의 연구 모집단을 생성하고 (이 경우에는 추출한 데이터의 유일한 결과만), 364일의 위험 노출 시간이 필요하며, NSAID를 시작하기 전의 결과를 경험한 피험자를 제거한다:
+관심 결과의 연구 모집단을 생성하고 (이 경우에는 추출한 데이터의 유일한 결과만), 364일의 위험 노출 시간 time-at-risk이 필요하며, NSAID를 시작하기 전의 결과를 경험한 피험자를 제거한다:
 
 ```{r eval=FALSE}
 population <- createStudyPopulation(plpData = plpData,
@@ -763,21 +763,21 @@ cat("[1] 2578")
 
 #### 예제 \@ref(exr:exercisePlp3) {-}
 
-먼저 모델 설정 객체를 만든 후에, `runPlp` 기능을 호출함으로써 LASSO 모델을 실행한다. 이 경우에는 person split을 행하고, 75%의 데이터를 모델에 학습시키며, 25%의 데이터로 평가한다:
+먼저 모델 설정 객체를 만든 후에, `runPlp` 기능을 호출함으로써 LASSO 모델을 실행한다. 이 경우에는 person split을 행하고, 75%의 데이터를 모델에 학습 train시키며, 25%의 데이터로 평가 test한다:
 
 ```{r eval=FALSE}
 lassoModel <- setLassoLogisticRegression(seed = 0)
 
-lassoResults <- runPlp(population = population, 
-                       plpData = plpData, 
-                       modelSettings = lassoModel, 
+lassoResults <- runPlp(population = population,
+                       plpData = plpData,
+                       modelSettings = lassoModel,
                        testSplit = 'person',
-                       testFraction = 0.25, 
-                       nfold = 2, 
+                       testFraction = 0.25,
+                       nfold = 2,
                        splitSeed = 0)
 ```
 
-이 예시에서는 LASSO 교차 검증과 학습-검증 데이터 분할을 위한 무작위 seed를 지정하여 여러 번 실행해도 결과가 동일한지 확인한다.
+이 예시에서는 LASSO 교차 검증과 학습-검증 데이터 분할을 위한 random seed를 지정하여 여러 번 실행해도 결과가 동일한지 확인한다.
 
 Shiny 앱을 사용하여 결과를 볼 수 있다:
 
@@ -785,7 +785,7 @@ Shiny 앱을 사용하여 결과를 볼 수 있다:
 viewPlp(lassoResults)
 ```
 
-이것은 그림 \@ref(fig:plpShiny)에서 보이는 것과 같이 앱을 실행할 것이다. 여기 0.645의 테스트 모음의 AUC가 있는데 이는 무작위 추측보다 더 나을 수 있으나 임상적 실천에는 충분하지 않을 것이다.
+이것은 그림 \@ref(fig:plpShiny)에서 보이는 것과 같이 앱을 실행할 것이다. 여기 0.645의 테스트 모음의 AUC가 있는데 이는 무작위 추측보다 더 나을 수 있으나 임상적으로 사용할만큼의 성능은 아니다.
 
 ```{r plpShiny, fig.cap='환자 수준 예측 Shiny 앱.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/plpShiny.png")
@@ -817,11 +817,11 @@ result <- achilles(connectionDetails,
 
 ```{r eval=FALSE}
 DataQualityDashboard::executeDqChecks(
-  connectionDetails, 
-  cdmDatabaseSchema = "main", 
+  connectionDetails,
+  cdmDatabaseSchema = "main",
   resultsDatabaseSchema = "main",
   cdmSourceName = "Eunomia",
-  outputFolder = "C:/dataQualityExample") 
+  outputFolder = "C:/dataQualityExample")
 ```
 
 #### 예제 \@ref(exr:exerciseViewDQD) {-}
@@ -830,5 +830,5 @@ DataQualityDashboard::executeDqChecks(
 
 ```{r eval=FALSE}
 DataQualityDashboard::viewDqDashboard(
-  "C:/dataQualityExample/Eunomia/results_Eunomia.json") 
+  "C:/dataQualityExample/Eunomia/results_Eunomia.json")
 ```

@@ -1,10 +1,10 @@
 # Negative controls {#NegativeControlsAppendix}
 
-This Appendix contains negative controls used in various chapters of the book.
+이 책의 여러 장에 나온 음성 대조군 Negative controls 예시이다.
 
-## ACEi and THZ {#AceiThzNsc}
+## ACE inhibitor 와 thiazide 계 이뇨제 {#AceiThzNsc}
 
-Table: (\#tab:AceiThzNsc) Negative control outcomes when comparing ACE inhibitors (ACEi) to thiazides and thiazide-like diuretics (THZ).
+Table: (\#tab:AceiThzNsc) ACE inhibitors (ACEi) 와 thiazide 계 이뇨제(THZ) 비교시 사용한 음성 대조군.
 
 | Concept ID | Concept Name                                               |
 | ----------:|:---------------------------------------------------------- |
@@ -84,4 +84,3 @@ Table: (\#tab:AceiThzNsc) Negative control outcomes when comparing ACE inhibitor
 | 140641 | Verruca vulgaris |
 | 440193 | Wristdrop |
 | 4115367 | Wrist joint pain |
-
