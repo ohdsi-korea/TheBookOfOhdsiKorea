@@ -4,7 +4,7 @@
 
 ## 서론
 
-원천 데이터에서 OMOP 공통 데이터 모델 Common Data Model(CDM)을 얻기 위해서는 추출 변환 적재 Extract Transform Load(ETL) 절차가 필요하다. 이 절차는 데이터를 CDM으로 변환하는 과정이며, 표준용어로의 매핑, SQL 코드를 이용한 자동화된 절차로 이루어지게 된다. ETL 절차는 원천 데이터가 갱신될 때마다 언제든지 재수행할 수 있게끔 반복할 수 있게 구축하는 것이 중요하다. \index{ETL|see {extract, transform and load (ETL)}} \index{raw data} \index{native data|se0++e {raw data}} \index{source data|see{raw data}}
+원천 데이터에서 OMOP 공통 데이터 모델 Common Data Model(CDM)을 얻기 위해서는 추출 변환 적재 Extract Transform Load(ETL) 절차가 필요하다. 이 절차는 데이터를 CDM으로 변환하는 과정이며, 표준용어로의 매핑, SQL 코드를 이용한 자동화된 절차로 이루어지게 된다. ETL 절차는 원천 데이터가 갱신될 때마다 언제든지 재수행할 수 있게끔 반복할 수 있게 구축하는 것이 중요하다. \index{ETL|see {extract, transform and load (ETL)}} \index{raw data} \index{native data|see {raw data}} \index{source data|see{raw data}}
 
 ETL을 진행하기 위해서는 다양한 작업이 필요하다. 몇 년 동안의 겅흠을 통해 우리는 4가지 주요 단계로 이루어진 모범사례를 개발하였다.
 
