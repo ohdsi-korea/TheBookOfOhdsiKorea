@@ -1,7 +1,7 @@
 ---
 title: "오딧세이 바이블 The Book of OHDSI"
 author: "한국 오딧세이"
-date: "2019-11-29"
+date: "2019-12-01"
 classoption: 10.5pt
 linestretch: 1.5
 geometry:
@@ -31,11 +31,11 @@ url: https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/
 
 # 서문 {-}
 
-<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이 OHDSI, Observational Health Data Sicence and Informatics 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)의 번역판이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 또한 [ohdsi-korea.github.io/TheBookOfOhdsiKorea/](https://ohdsi-korea.github.io/TheBookOfOhdsiKorea/)에서 온라인으로 최신 버전의 책을 무료로 받아 볼 수 있으며 서점에서 실물을 구입을 할 수도 있다.
+<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이 OHDSI, Observational Health Data Sicence and Informatics 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 영문판:  [ohdsi.github.io/TheBookOfOhdsi/](https://github.com/OHDSI/TheBookOfOhdsi)
 
 ## 이 책의 목표 {-}
 
-이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 OHDSI 커뮤니티, CDM 데이터 기준과 OHDSI 도구들에 중점을 두었다. OHDSI의 초보자와 숙련자 모두를 위해 현실적으로 필요한 이론과 사용방법에 대한 교육을 제공하는 실용적인 목표를 가지고 있다.  이 책을 읽은 뒤 당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여 이해하게 될 것이다. 또한 CDM과 표준화된 용어들이 무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게 사용되는지 알게 될 것이다. 이 데이터에 대해 임상적 특성 분석 clinical characterization,  인구 수준 측정 population-level estimation, 환자 수준 예측 patient-level prediction, 이 3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다.  데이터 품질, 임상적 타당성, 소프트웨어 타당성, 방법론적 타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할  것이다. 마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될 것이다.
+이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 OHDSI 커뮤니티, CDM 데이터 기준과 OHDSI 도구에 중점을 두었다. OHDSI 초보자와 숙련자 모두를 위해 현실적으로 필요한 이론과 사용방법에 대한 교육을 제공하는 실용적인 목표를 가지고 있다.  이 책을 읽은 뒤 당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여 이해하게 될 것이다. 또한 CDM과 표준화된 용어들이 무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게 사용되는지 알게 될 것이다. 이 데이터에 대해 임상적 특성 분석 clinical characterization,  인구 수준 측정 population-level estimation, 환자 수준 예측 patient-level prediction, 이 3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다.  데이터 품질, 임상적 타당성, 소프트웨어 타당성, 방법론적 타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할  것이다. 마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될 것이다.
 
 ## 이 책의 구성 {-}
 
@@ -78,13 +78,13 @@ Seng Chan You
 
 ## 소프트웨어 버전 {-}
 
-이 책의 많은 부분은 OHDSI의 오픈소스 소프트웨어를 다루고 있으며 이 소프트웨어는 시간이 지나면서 계속 진화해 나갈 것이다.  개발자들은 사용들에게 일관되고 안정적인 경험을 제공하고자 최선을 다할 것이나, 시간이 지나면서 소프트웨어의 개선으로 인해 불가피하게 이 책의 내용이 더이상 맞지 않는 경우가 발생할 것이다. 이를 보완하기 위해 커뮤니티는 온라인 버전을 통해 변화를 계속 업데이트할 예정이며 새로운 에디션의 실물 책을 출간할 예정이다.
-이 책이 쓰여진 버전의 소프트웨어 버전은 아래를 참고하면 된다 :
+이 책의 많은 부분은 OHDSI의 오픈소스 소프트웨어를 다루고 있으며 이 소프트웨어는 시간이 지나면서 계속 진화해 나갈 것이다.  개발자들은 사용자에게 일관되고 안정적인 경험을 제공하고자 최선을 다할 것이나, 시간이 지나면서 소프트웨어의 개선으로 인해 불가피하게 이 책의 내용이 더이상 맞지 않는 경우가 발생할 것이다. 이를 보완하기 위해 커뮤니티는 온라인 버전을 통해 변화를 계속 업데이트할 예정이며 새로운 에디션의 실물 책을 출간할 예정이다.
+이 책이 쓰여진 버전의 소프트웨어 버전은 아래와 같다:
 
 - ACHILLES: version 1.6.6
 - ATLAS: version 2.7.3
 - EUNOMIA: version 1.0.0
-- Methods Library packages: 테이블 참조 \@ref(tab:packageVersions)
+- Methods Library packages: 테이블 \@ref(tab:packageVersions)참조 
 
 
 Table: (\#tab:packageVersions)Versions of packages in the Methods Library used in this book.
@@ -106,19 +106,13 @@ SelfControlledCaseSeries   1.4.0
 SelfControlledCohort       1.5.0   
 SqlRender                  1.6.2   
 
-## 라이선스 {-}
-
-이 책은 [Creative Commons Zero v1.0 Universal license](http://creativecommons.org/publicdomain/zero/1.0/) 정책을 따르고 있다.
-
-![](images/Preface/cc0.png)
-
 ## The Book of OHDSI가 쓰여진 과정 {-}
 
-이 책의 원문인 The Book of OHDSI는 [bookdown](https://bookdown.org) 패키지를 사용한 [RMarkdown](https://rmarkdown.rstudio.com)으로 쓰여졌다. 온라인 버전은 지속적 통합 시스템인 ["travis"](http://travis-ci.org/)를 통해서 [https://github.com/OHDSI/TheBookOfOhdsi](https://github.com/OHDSI/TheBookOfOhdsi)의 저장소를 사용해 자동작성 되었다. 이러한 온라인 버전은 정기적으로 스냅샷 형식으로 저장되며 이렇게 저장된 파일을 “에디션”이라 표기한다. 이 에디션들의 실물 책자들은 아마존에서 구입이 가능하다.
+이 책의 원문인 The Book of OHDSI는 [bookdown](https://bookdown.org) 패키지를 사용한 [RMarkdown](https://rmarkdown.rstudio.com)으로 쓰여졌다. 온라인 버전은 지속적 통합 시스템인 ["travis"](http://travis-ci.org/)를 통해서 [https://github.com/OHDSI/TheBookOfOhdsi](https://github.com/OHDSI/TheBookOfOhdsi)의 저장소를 사용해 자동작성 되었다. 이러한 온라인 버전은 정기적으로 스냅샷 형식으로 저장되며 이렇게 저장된 파일을 “에디션”이라 표기한다. 이 에디션의 실물 책자는 아마존에서 구입 가능하다.
 
 ## 이 책이 번역된 과정 {-}
 
-2019년 OHDSI 심포지엄에서 The Book of OHDSI가 배포된 이후, 한국 OHDSI 연구자들이 공동으로 번역작업을 진행하였다. 원문과 마찬가지로 bookdown 패키지를 동일하게 사용하여, [https://github.com/OHDSI-Korea/TheBookOfOhdsiKorea](https://github.com/OHDSI-Korea/TheBookOfOhdsiKorea) 저장소에서 작성하였다. 원문 또는 번역의 오류가 발견된다면 활발한 의견 개진을 바란다.
+2019년 OHDSI 심포지엄에서 The Book of OHDSI가 배포된 이후, 한국 OHDSI 연구자들이 공동으로 번역작업을 진행하였다. 원문과 마찬가지로 bookdown 패키지를 동일하게 사용하여 작성하였다. 원문 또는 번역의 오류가 발견된다면 한국 오딧세이 포럼 [http://www.ohdsikorea.org/](http://www.ohdsikorea.org/)에 활발한 의견 개진을 바란다.
 
 한국 및 국제 OHDSI 네트워크의 발전을 위하여 대가를 바라지 않고, 번역 작업에 힘써주신 다음의 공동 번역자들에게 큰 감사의 말씀을 드린다.
 
