@@ -48,6 +48,7 @@ lapply(c('SqlRender', 'DatabaseConnector'), function(pkg) {
 # 서문 {-}
 
 <img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이 OHDSI, Observational Health Data Sicence and Informatics 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)이다. 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 오픈소스 개발 도구들을 통해 커뮤니티에 의해 관리되는 생명력있는 문서로 계속 진화하고 있다. 영문판:  [ohdsi.github.io/TheBookOfOhdsi/](https://github.com/OHDSI/TheBookOfOhdsi)
+
 ## 이 책의 목표 {-}
 
 이 책은 OHDSI 관련 모든 지식의 중앙저장소 역할을 담당하고자 쓰여졌으며 OHDSI 커뮤니티, CDM 데이터 기준과 OHDSI 도구에 중점을 두었다. OHDSI 초보자와 숙련자 모두를 위해 현실적으로 필요한 이론과 사용방법에 대한 교육을 제공하는 실용적인 목표를 가지고 있다.  이 책을 읽은 뒤 당신은 OHDSI란 무엇인가, 또한 그 여정에 어떻게 동참할 것인가에 관하여 이해하게 될 것이다. 또한 CDM과 표준화된 용어들이 무엇인지, 이러한 것들이 관찰 보건 데이터베이스의 표준화에 어떻게 사용되는지 알게 될 것이다. 이 데이터에 대해 임상적 특성 분석 clinical characterization,  인구 수준 측정 population-level estimation, 환자 수준 예측 patient-level prediction, 이 3가지 주요 이용 사례들을 배우게 될 것이다. 이 책을 통해 이 3가지 활동을 지원하는 OHDSI의 오픈 소스 도구와 사용법에 대해 익히게 될 것이다.  데이터 품질, 임상적 타당성, 소프트웨어 타당성, 방법론적 타당성 등에 관한 장들에서 CDM 에서 생성된 근거들의 품질을 어떻게 확립했는지를 설명할  것이다. 마지막으로, 분산 연구망에서 이러한 연구들을 실행하기 위해 OHDSI 를 어떻게 사용하는지를 배우게 될 것이다.
@@ -96,12 +97,6 @@ packageVersions <- read.csv("PackageVersions.csv")
 packageVersions <- packageVersions[order(packageVersions$package), ]
 knitr::kable(packageVersions, col.names = c("Package", "Version"), row.names = FALSE, booktabs = TRUE, caption = 'Versions of packages in the Methods Library used in this book.')
 ```
-
-## 라이선스 {-}
-
-이 책은 [Creative Commons Zero v1.0 Universal license](http://creativecommons.org/publicdomain/zero/1.0/) 정책을 따르고 있다.
-
-![](images/Preface/cc0.png)
 
 ## The Book of OHDSI가 쓰여진 과정 {-}
 
