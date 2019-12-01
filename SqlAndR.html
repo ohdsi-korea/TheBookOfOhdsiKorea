@@ -234,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#white-rabbit"><i class="fa fa-check"></i><b>6.2.1</b> White Rabbit</a></li>
 <li class="chapter" data-level="6.2.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.2.2</b> Rabbit-In-a-Hat</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>6.3</b> 2단계: 코드 매핑 생성</a><ul>
+<li class="chapter" data-level="6.3" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>6.3</b> 2단계: 용어 매핑 생성</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.3.1</b> Usagi</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#-etl-"><i class="fa fa-check"></i><b>6.4</b> 3단계: ETL 수행</a></li>
@@ -247,7 +247,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>III 데이터 분석</b></span></li>
 <li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> 데이터 분석 이용 사례</a><ul>
-<li class="chapter" data-level="7.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.1</b> 특성 분석</a></li>
+<li class="chapter" data-level="7.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.1</b> 임상적 특성 분석</a></li>
 <li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.2</b> 인구 수준 추정</a></li>
 <li class="chapter" data-level="7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>7.3</b> 환자 수준 예측</a></li>
 <li class="chapter" data-level="7.4" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>7.4</b> 고혈압 이용 사례 예</a><ul>
@@ -277,7 +277,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.4.4" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>8.4.4</b> 시스템 요구 사항</a></li>
 <li class="chapter" data-level="8.4.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.4.5</b> 설치 방법</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.5</b> 배치 전략</a><ul>
+<li class="chapter" data-level="8.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.5</b> 설치 전략</a><ul>
 <li class="chapter" data-level="8.5.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.5.1</b> Broadsea</a></li>
 <li class="chapter" data-level="8.5.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.5.2</b> Amazon AWS</a></li>
 </ul></li>
@@ -917,7 +917,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>예를 들면:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM #children;&quot;</span>
 <span class="kw">translate</span>(sql, <span class="dt">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="dt">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.tda6e30wchildren ;&quot;</code></pre>
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.ho5bu97qchildren ;&quot;</code></pre>
 <p>사용자는 <code>temp_schema</code>에 대한 쓰기 권한이 있어야 한다.</p>
 <p>또한 Oracle은 테이블 이름이 30자로 제한되어 있다. 세션 아이디를 추가한 후 이름이 너무 길어지기 때문에 <strong>임시 테이블 이름은 최대 22자까지만 허용된다</strong>.</p>
 <p>그뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 <code>TRUNCATE</code> 및 <code>DROP</code>을 해야 한다.</p>
