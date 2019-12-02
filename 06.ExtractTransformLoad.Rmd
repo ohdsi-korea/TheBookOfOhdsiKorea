@@ -132,14 +132,14 @@ Table: (\#tab:syntheaEtlPerson) Synthea 환자 테이블을 CDM PERSON 테이블
 
 | Destination Field | Source field | Logic & comments |
 | :---------------------- | :--------- | :---------------------------------------- |
-| PERSON_ID                   |             |  Autogenerate. The PERSON_ID will be generated at the time of implementation. This is because the id value from the source is a varchar value while the PERSON_ID is an integer. The id field from the source is set as the PERSON_SOURCE_VALUE to preserve that value and allow for error-checking if necessary. |
-| GENDER_CONCEPT_ID           | gender      | When gender = ‘M’ then set GENDER_CONCEPT_ID to 8507, when gender = ‘F’ then set to 8532. Drop any rows with missing/unknown gender. These two concepts were chosen as they are the only two standard concepts in the gender domain. The choice to drop patients with unknown genders tends to be site-based, though it is recommended they are removed as people without a gender are excluded from analyses.|
-| YEAR_OF_BIRTH               | birthdate   | Take year from birthdate |
-| MONTH_OF_BIRTH              | birthdate   | Take month from birthdate |
-| DAY_OF_BIRTH                | birthdate   | Take day from birthdate |
-| BIRTH_DATETIME              | birthdate   | With midnight as time 00:00:00. Here, the source did not supply a time of birth so the choice was made to set it at midnight.  |
-| RACE_CONCEPT_ID             | race        | When race = 'WHITE' then set as 8527, when race = 'BLACK' then set as 8516, when race = 'ASIAN' then set as 8515, otherwise set as 0. These concepts were chosen because they are the standard concepts belonging to the race domain that most closely align with the race categories in the source.  |
-| ETHNICITY_ CONCEPT_ID        | race  ethnicity | When race = ‘HISPANIC’, or when ethnicity in (‘CENTRAL_AMERICAN’, ‘DOMINICAN’, ‘MEXICAN’, ‘PUERTO_RICAN’, ‘SOUTH_AMERICAN’) then set as 38003563, otherwise set as 0. This is a good example of how multiple source columns can contribute to one CDM column. In the CDM ethnicity is represented as either Hispanic or not Hispanic so values from both the source column race and source column ethnicity will determine this value. |
+| PERSON_ID                   |             |  자동으로 생성된다. PERSON_ID는 실행과 동시에 생성될 것이다. 왜냐하면 PERSON_ID가 정수일 때 원천에서의 ID 값은 varchar이기 때문이다. 원천에서의 ID 필드는 PERSON_SOURCE_VALUE로 설정하는데 이는 그 값을 보존하고 필요 시 오류 검수를 해야 하기 위함이다. |
+| GENDER_CONCEPT_ID           | gender      | 성별이 ‘M’일 때, GENDER_CONCEPT_ID 를 8507로 설정하고, 성별이 ‘F’일 때, 8532로 설정한다. 성별이 확인되지 않거나 없는 경우 그 행을 삭제한다. 이 두 concept은 성별 도메인에서 오직 두 개의 표준 concept만 있는 것처럼 선택된다. 비록 분석에서 성별이 없는 사람을 제외하는 것처럼 그들을 제거하는 것을 권장할지라도, 성별이 확인되지 않는 환자를 삭제하는 선택은 site-based한 경향이 있다. |
+| YEAR_OF_BIRTH               | birthdate   | 생일에서 년도를 추출한다 |
+| MONTH_OF_BIRTH              | birthdate   | 생일에서 달을 추출한다 |
+| DAY_OF_BIRTH                | birthdate   | 생일에서 날짜를 추출한다 |
+| BIRTH_DATETIME              | birthdate   | 자정 00:00:00을 포함한다. 여기, 원천은 생시time of birth를 제공하지 않기 때문에, 모두 자정으로 선택된다. |
+| RACE_CONCEPT_ID             | race        | 인종이 'WHITE'일 때 8527로 설정하고, 'BLACK'이면 8516로 설정하고, 'ASIAN'이면 8515로 설정하고, 나머지는 0으로 설정한다. 이 concept이 선택되는데 왜냐하면 원천 안의 인종 카테고리에 가장 부합하는 인종 도메인에 속하는 표준 concept이기 때문이다. |
+| ETHNICITY_ CONCEPT_ID        | race  ethnicity | 인종이 ‘HISPANIC’일 때, 혹은 민족이 ‘CENTRAL_AMERICAN’, ‘DOMINICAN’, ‘MEXICAN’, ‘PUERTO_RICAN’, ‘SOUTH_AMERICAN’에 속하면 38003563로 설정하고, 그렇지 않으면 0으로 설정한다. 어떻게 다수의 원천 열이 하나의 CDM 열에 기여할 수 있는지를 보여주는 좋은 예시이다. CDM 안에서 민족이 Hispanic이거나 not Hispanic으로 나타나진다. 그래서 원천 열 인종과 원천 열 민족 둘 다 이 값으로 결정할 것이다. |
 | LOCATION_ID                 |             |   |
 | PROVIDER_ID                 |             |   |
 | CARE_SITE_ID                |             |   |
@@ -148,7 +148,7 @@ Table: (\#tab:syntheaEtlPerson) Synthea 환자 테이블을 CDM PERSON 테이블
 | GENDER_SOURCE_ CONCEPT_ID    |             |   |
 | RACE_SOURCE_ VALUE           | race        |   |
 | RACE_SOURCE_ CONCEPT_ID      |             |   |
-| ETHNICITY_ SOURCE_VALUE      | ethnicity   |  In this case the ETHNICITY_SOURCE_VALUE will have more granularity than the ETHNICITY_CONCEPT_ID.  |
+| ETHNICITY_ SOURCE_VALUE      | ethnicity   |  이 경우에는 ETHNICITY_SOURCE_VALUE 가 ETHNICITY_CONCEPT_ID보다 더 거칠 것이다. |
 | ETHNICITY_ SOURCE_CONCEPT_ID |             |   |
 
 Synthea 데이터의 CDM으로의 변환에 대한 더 자세한 설명은 전체 명세서를 참고하면 된다.[^syntheaEtlUrl]
