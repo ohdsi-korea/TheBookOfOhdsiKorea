@@ -7074,7 +7074,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.s2pqp663children ;"
+## [1] "SELECT * FROM temp_schema.d0ernfshchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
@@ -9321,7 +9321,7 @@ Database Level Characterization은 전체 데이터베이스에 대한 시간의
 Characterization}\label{---cohort-characterization}
 
 코호트 특성 분석 Cohort Characterization은 기준 날짜와 기준 날짜 이후
-코호트 구성원의 특징을 기술한다. OHDSI는 상태 condition, 약물 drug, 치료
+코호트 구성원의 특성을 기술한다. OHDSI는 상태 condition, 약물 drug, 치료
 재료 device, 시술 procedure, 임상 관찰 clinical observation 등 개인의
 의무기록에 존재하는 모든 것에 대한 기술 통계량을 바탕으로 특성 분석에
 접근한다. 또한, 기준 날짜 시점에서 코호트 구성원에 대한 사회인구학적
@@ -9345,7 +9345,7 @@ Epidemiology(STROBE) 가이드라인에서 자세히 제시하고 있는 관찰 
 인구 집단의 특성을 분석하는 또 하나의 방법은 기준 날짜 이후 post-index
 시간 동안의 치료 순서를 기술하는 것이다. 예를 들어, 이전 연구
 \citep{Hripcsak7329} 에서 OHDSI의 공통 데이터 모델(CDM)을 활용해 제2형
-당뇨, 고혈압, 우울증에 대한 치료 경로의 특징을 분석하기 위한 기술 통계를
+당뇨, 고혈압, 우울증에 대한 치료 경로의 특성을 분석하기 위한 기술 통계를
 고안하였다. 이러한 분석 방법을 표준화함으로써, Hripcsak과 그 연구팀은
 관심 집단의 특성 분석을 OHDSI 네트워크상에서 같은 통계 방법으로
 실행하였다. \index{characterization!treatment pathways}
@@ -9384,17 +9384,18 @@ metformin이 당뇨에서 가장 일반적으로 처방된 1차 치료제임을 
 치료경로를 가진 사람이 단 한 명도 없는 고유한 치료 경로를 따르고 있는
 것으로 나타났다.
 
-고전적인 약물 사용 연구(DUS) 개념에서, 치료 경로 분석은 특정 집단에서
+고전적인 약물 사용 연구(DUS) 용어에서, 치료 경로 분석은 특정 집단에서
 하나 이상의 약물 사용률과 같은 집단 수준의 약물 사용 연구
 population-level DUS 뿐 아니라 치료 방법의 지속률, 서로 다른 치료 간의
 전환율과 같은 개인 수준의 약물 사용 연구 person-level DUS가 포함된다.
 
 \section{발생 Incidence}\label{-incidence}
 
-발생률과 발생비는 공중 보건에서 위험 노출 기간 time-at-risk(TAR) 동안
-인구집단 내 새로운 질병 outcome의 발생 평가에 사용되는 통계적 지표이다.
-그림 \ref{fig:incidenceTimeline}는 한 사람에게서 발생률 계산에 필요한
-구성요소를 보여주고 있다: \index{incidence}
+발생률 incidence rate과 발생비 incidence proportion는 공중 보건에서 위험
+노출 기간 time-at-risk(TAR) 동안 인구집단 내 새로운 질병 outcome의 발생
+평가에 사용되는 통계적 지표이다. 그림 \ref{fig:incidenceTimeline}는 한
+사람에게서 발생률 계산에 필요한 구성요소를 보여주고 있다:
+\index{incidence}
 
 \begin{figure}
 
@@ -9415,40 +9416,40 @@ end을 갖게 된다. 위험 노출 기간은 우리가 질병 outcome의 발생
 
 발생 incidence을 계산하기 위해서는 두 가지 측정법이 있다:
 
-\[ 
-발생 Incidence\;분율 Proportion= \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{\#\;TAR을\;가지면서\;코호트에\;포함된\;사람}
+\[
+Incidence\;Proportion = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{\#\;persons\;in\;cohort\;with\;TAR}
 \]
 
-발생 분율은 위험 노출 기간 동안 집단 내 새로운 outcome의 발생을 측정하는
-방법이다. 다시 말해, 관심 집단에서 정해진 시간의 틀 안에서 발생한
-outcome의 비율이다. \index{incidence!proportion} (역자 주: incidence
-proportion = cumulative incidence (누적 발생률): 코호트에서 관찰 기간 내
-새롭게 발생하는 환자 수 / 관찰 시작 시점의 코호트 인구수)
+발생 분율 incidence proportion은 위험 노출 기간 동안 집단 내 새로운
+outcome의 발생을 측정하는 방법이다. 다시 말해, 관심 집단에서 정해진
+시간의 틀 안에서 발생한 outcome의 비율이다. \index{incidence!proportion}
+(역자 주: incidence proportion = cumulative incidence (누적 발생률):
+코호트에서 관찰 기간 내 새롭게 발생하는 환자 수 / 관찰 시작 시점의
+코호트 인구수)
 
 \[
-발생률 Incidence Rate= \frac{\#\;코호트에\;포함된\;사람\;중\;TAR\;동안\;새로운\;outcome이\;있는\;경우}{코호트에\;포함된\;사람의\;위험\;노출\;기간\;(TAR)로\;구한\;인-시\;(person\;time\;at\;risk)}
+Incidence\;Rate = \frac{\#\;persons\;in\;cohort\;with\;new\;outcome\;during\;TAR}{person\;time\;at\;risk\;contributed\;by\;persons\;in\;cohort}
 \]
 
-발생률은 인구집단에서 누적되는 위험 노출 기간의 새로 발생한 outcome의
-횟수를 측정한 것이다. 만일 한 환자가 위험 노출 기간 내에서 outcome을
-경험했을 때, 그 환자가 전체의 인-시 person-time에 outcome이
-발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 노출 기간은
-\textbf{인-시}라고 하고, 단위는 일(인-일), 월(인-월), 혹은 연(인-년)으로
-표현된다. \index{incidence!rate} \index{person-time} (역자 주: incidence
-Rate = cumulative incidence (누적 발생률): 코호트에서 관찰 기간 내
-새롭게 발생하는 환자 수 / 코호트 내 총 위험 노출 인-시)
+발생률 incidence rate은 인구집단에서 누적되는 위험 노출 기간의 새로
+발생한 outcome의 횟수를 측정한 것이다. 만일 한 환자가 위험 노출 기간
+내에서 outcome을 경험했을 때, 그 환자가 전체의 인-시 person-time에
+outcome이 발생하기까지의 시간만큼 기여했다고 산정한다. 누적된 위험 노출
+기간은 \textbf{인-시}라고 하고, 단위는 일(인-일), 월(인-월), 혹은
+연(인-년)으로 표현된다. \index{incidence!rate} \index{person-time} (역자
+주: incidence Rate = cumulative incidence (누적 발생률): 코호트에서 관찰
+기간 내 새롭게 발생하는 환자 수 / 코호트 내 총 위험 노출 인-시)
 
 치료 요법에 대하여 계산할 때, 정해진 치료 요법의 사용 비율 혹은 발생률을
 계산하는 것은 전형적인 인구 집단 수준의 약물 사용 연구 (population-level
 DUS)라 할 수 있다.
 
-\section{고혈압 환자의 특성 분석 Characterizing Hypertensive
-Persons}\label{----characterizing-hypertensive-persons}
+\section{고혈압 환자의 임상적 특성 분석}\label{----}
 
 세계보건기구(WHO)의 고혈압에 대한 보고서 \citep{WHOHypertension} 에
 따르면, 고혈압의 초기 발견과 적절한 치료 및 양호한 혈압 조절은 건강과
 경제적인 면에서 상당한 이득이 있다. WHO의 보고서에는 고혈압의 개요 및
-여러 국가의 질병 부담의 특징을 보여주고 있다. WHO는 지역과 사회 경제적
+여러 국가의 질병 부담의 특성을 보여주고 있다. WHO는 지역과 사회 경제적
 계급 및 성별 고혈압에 대한 기술통계를 제공하고 있다.
 
 WHO가 수행한 고혈압 환자의 특성 분석과 동일한 분석을 관찰형 데이터를
@@ -9484,7 +9485,7 @@ Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병�
 특정 관심 질환을 검색하기 위해 Table 탭을 클릭하면 환자 수, 유병률,
 환자별 기록 건수를 포함하는 데이터베이스의 전체 condition 목록이
 나타난다. 상단의 filter 상자를 이용해 ``hypertension''을 포함하는
-개념명만을 걸러낼 수 있다:
+concept name만을 걸러낼 수 있다:
 
 \begin{figure}
 
@@ -9492,7 +9493,7 @@ Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병�
 
 }
 
-\caption{Atlas 데이터 원천: 개념명에서 "고혈압 hypertension"이라는 단어를 이용해 걸러낸 결과}\label{fig:atlasDataSourcesConditionFiltered}
+\caption{Atlas 데이터 원천: concept name에서 "고혈압 hypertension"이라는 단어를 이용해 걸러낸 결과}\label{fig:atlasDataSourcesConditionFiltered}
 \end{figure}
 
 하나의 행을 클릭하면 해당 condition에 대한 자세한 드릴다운 보고서를
@@ -9509,19 +9510,18 @@ Condition Occurrence를 선택하면 해당 데이터베이스의 모든 질병�
 \caption{Atlas 데이터 원천: Essential hypertension 드릴다운 보고서}\label{fig:atlasDataSourcesDrillDownReport}
 \end{figure}
 
-지금까지 고혈압이라는 개념에 대한 데이터의 특징과 시간에 따른 경향을
+지금까지 고혈압이라는 concept에 대한 데이터의 특성과 시간에 따른 경향을
 살펴보았다. 데이터베이스 수준의 특성 분석을 통해 고혈압 환자의 치료에
 사용된 약물에 관해서도 확인할 수 있다. 이는 RxNorm 성분명에 요약된 약물
 특성 검토를 위해 Drug Era report를 사용한 것 외에는 위와 동일하게
-진행된다. 관심 있는 항목에 대한 데이터베이스 특성 탐색을 마쳤다면,
+진행하면 된다. 관심 있는 항목에 대한 데이터베이스 특성 탐색을 마쳤다면,
 이제는 특성화하고자 하는 고혈압 환자의 특성 분석을 위한 코호트를
 설계하는 단계로 나아갈 준비를 마친 것이다.
 
-\section{ATLAS를 이용한 코호트 특성 분석 Cohort Characterization in
-ATLAS}\label{atlas-----cohort-characterization-in-atlas}
+\section{ATLAS를 이용한 코호트 특성 분석}\label{atlas----}
 
-이 장에서는 ATLAS를 이용한 대규모의 코호트 특성 분석 방법에 관해 설명할
-것이다. ATLAS의 왼쪽 바에 있는
+이 장에서는 ATLAS를 이용한 대규모의 코호트 특성 분석 방법 cohort
+characterization에 관해 설명할 것이다. ATLAS의 왼쪽 바에 있는
 \includegraphics{images/Characterization/atlasCharacterizationMenuItem.png}를
 클릭하면, 새로운 특성 분석을 만들 수 있다. 분석을 명명하고
 \includegraphics{images/PopulationLevelEstimation/save.png} 버튼을 눌러
@@ -9532,10 +9532,10 @@ ATLAS}\label{atlas-----cohort-characterization-in-atlas}
 특성 분석은 하나 이상의 코호트와 분석하고자 하는 하나 이상의 속성이
 필요하다. 예시의 경우, 두 개의 코호트를 사용할 것이다. 첫 번째 코호트는
 고혈압 치료를 시작한 환자로 기준 날짜 index date 이전 1년간 한 번이라도
-고혈압 진단을 받은 환자로 정의한다고 하자. 또한 이 코호트에 속한 사람은
-고혈압 치료제를 복용하기 시작한 후 최소 1년의 관찰 기간을 갖는다고 하자
+고혈압 진단을 받은 환자로 정의하자. 또한 이 코호트에 속한 사람은 고혈압
+치료제를 복용하기 시작한 후 최소 1년의 관찰 기간을 갖는다고 정의하자
 (부록 \ref{HTN1yrFO}). 두 번째 코호트는 첫 번째 코호트와 모든 조건이
-동일하지만, 최소관찰 기간을 1년 대신 3년을 갖는다고 하자 (부록
+동일하지만, 최소관찰 기간을 1년 대신 3년을 갖는다고 한다 (부록
 \ref{HTN3yrFO}).
 
 \subsubsection*{코호트 정의}\label{-}
@@ -9560,12 +9560,12 @@ ATLAS}\label{atlas-----cohort-characterization-in-atlas}
 \addcontentsline{toc}{subsubsection}{속성 선택}
 
 ATLAS에서 OMOP CDM에서 모델링 된 임상 도메인에서 특성 분석을 수행하기
-위해 미리 만들어 둔 100개 이상의 특징 분석 도구 feature analyses (역자
+위해 미리 만들어 둔 100개 이상의 특성 분석 도구 feature analysis (역자
 주: CHADS2 score, Charlson comorbidity index 등 복잡한 쿼리나 계산을
 해야만 구할 수 있는 각종 계산 값)가 정의되어 있다. 각각의 미리 정의해 둔
-특징 분석 도구는 선택된 분석 대상 코호트에 대한 임상 관찰을 집계하고
-요약하는 기능을 수행한다. 이와 같은 계산은 코호트의 기저 날짜 그리고
-기저 날짜 후 특징을 설명하기 위해 수천 가지의 속성을 제공한다. ATLAS는
+특성 분석 도구는 선택된 분석 대상 코호트에 대한 임상 관찰을 집계하고
+요약하는 기능을 수행한다. 이와 같은 계산은 코호트의 index date 그리고
+index date 후 특성을 설명하기 위해 수천 가지의 속성을 제공한다. ATLAS는
 OHDSI에서 제공하는 FeatureExtraction R package를 이용해 개별 코호트에
 대한 특성 분석을 시행하며, 이 FeatureExtraction이라는 R package를
 사용하는 방법에 대하여 다음 절에서 더 자세하게 다룰 것이다.
@@ -9634,7 +9634,7 @@ ATLAS의 하위 그룹 분석은 층화 strata와 같지 않다. 층화는 상�
 특성 분석의 설계가 끝났다면, 우리의 환경 내에서 사용할 수 있는 하나
 이상의 데이터베이스에 대하여 설계한 특성 분석을 시행할 수 있다.
 Execution 탭으로 이동하여 Generate 버튼을 클릭하면 선택된
-데이터베이스에서 분석이 시작된다:
+데이터베이스에서 분석이 시작된다.
 
 \begin{figure}
 
@@ -9657,7 +9657,7 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 
 }
 
-\caption{특성 분석 결과 - condition occurrence long term.}\label{fig:atlasCharacterizationResultsSummary}
+\caption{특성 분석 결과 - condition occurrence long term}\label{fig:atlasCharacterizationResultsSummary}
 \end{figure}
 
 설계 시 선택한 각 코호트의 여러 속성은 표 형식으로 나타난다. 그림
@@ -9668,10 +9668,10 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 
 어떤 심혈관 질환이 모집단에서 관찰되는지 이해하고자
 \texttt{심\ 부정맥\ cardiac\ arrhythmia} 과거력을 갖는 환자의 비율이
-얼마인지를 알아보기 위해 검색창에서 필터를 사용하였다. 심 부정맥 개념
+얼마인지를 알아보기 위해 검색창에서 필터를 사용하였다. 심 부정맥 concept
 옆의 \texttt{Explore} 링크를 이용하면 그림
 \ref{fig:atlasCharacterizationResultsExplore}에 보이는 것과 같이 하나의
-코호트에 대하여 더 자세한 내용이 들어 있는 새로운 창을 띄울 수 있다:
+코호트에 대하여 더 자세한 내용이 들어 있는 새로운 창을 띄울 수 있다.
 
 \begin{figure}
 
@@ -9679,15 +9679,15 @@ result''를 클릭하면 가장 최근에 시행된 분석의 결과를 확인�
 
 }
 
-\caption{특성 분석 결과 - 하나의 개념에 대하여 자세한 내용이 들어 있는 새로운 창.}\label{fig:atlasCharacterizationResultsExplore}
+\caption{특성 분석 결과 - 하나의 concept에 대하여 자세한 내용이 들어 있는 새로운 창.}\label{fig:atlasCharacterizationResultsExplore}
 \end{figure}
 
-분석하고자 하는 코호트에 대하여 모든 condition에 대한 개념을 분석하고
-나면, 탐색 옵션을 통해 선택된 모든 개념의 모든 상, 하위 관계에 있는
-개념을 확인할 수 있다. 본 연구의 경우 심 부정맥에 관하여 확인했다. 이와
-같은 탐색 기능은 개념의 계층 구조를 탐색 할 수 있도록 하며, 고혈압
-환자에서 나타날 수 있는 다른 심장 질환을 확인할 수 있도록 한다. 요약된
-결과처럼 (갯)수와 백분율로써 화면에 출력된다.
+분석하고자 하는 코호트에 대하여 모든 condition에 대한 concept을 분석하고
+나면, 탐색 옵션을 통해 선택된 모든 concept의 모든 상, 하위 관계에 있는
+concept을 확인할 수 있다. 본 연구의 경우 심 부정맥에 관하여 확인했다.
+이와 같은 탐색 기능은 concept의 계층 구조를 탐색 할 수 있도록 하며,
+고혈압 환자에서 나타날 수 있는 다른 심장 질환을 확인할 수 있도록 한다.
+요약된 결과처럼 개수와 백분율로써 화면에 출력된다.
 
 같은 특성 분석은 혈관 부종과 같은 항고혈압제제의 부작용에 의한 상태를
 찾는 분석에도 사용할 수 있다. 방법은 위의 분석과 같이 그림
@@ -9700,7 +9700,7 @@ edema'를 검색하여 진행할 수 있다:
 
 }
 
-\caption{특성 분석 결과 - 금기 상태를 탐색한 결과.}\label{fig:atlasCharacterizationResultsContra}
+\caption{특성 분석 결과 - 금기 상태 contraindicated condition를 탐색한 결과.}\label{fig:atlasCharacterizationResultsContra}
 \end{figure}
 
 다시 한번, 고혈압 환자에서 혈관 부종의 발병률을 알아보기 위해 부종의
@@ -9727,20 +9727,20 @@ edema'를 검색하여 진행할 수 있다:
 \caption{각 코호트와 하위 집단의 연령 관련 특성 분석 결과.}\label{fig:atlasCharacterizationResultsContinuous}
 \end{figure}
 
-도메인 변수는 이분법적인 표지자를 사용해 계산되는 반면 (즉, 이전
-시간대에 존재했던 코드의 기록), 코호트 시작 시점의 연령과 같은 일부
-변수는 연속적인 값을 갖는다. 위의 예시와 같이 두 코호트에서 연령에 대한
+도메인 변수는 이분 변수 binary variable를 사용해 계산되는 반면 (즉,
+과거력 유/무), 코호트 시작 시점의 연령과 같은 일부 변수는 연속적인 값
+continuous variable을 갖는다. 위의 예시와 같이 두 코호트에서 연령에 대한
 특성 분석 결과는 사람의 총 수, 연령의 평균, 연령의 중앙값 그리고 표준
 편차를 통해 확인할 수 있었다.
 
-\subsection{사용자가 특징을 정의하기 Defining Custom
+\subsection{사용자-정의 속성 Defining Custom
 Features}\label{---defining-custom-features}
 
-사전에 정의되어 제공되는 특징뿐 아니라 ATLAS에서는 사용자가 필요에 따라
-특징을 주문 제작하고 정의할 수 있는 기능을 지원한다. 왼쪽 메뉴에서
+사전에 정의되어 제공되는 특성뿐 아니라 ATLAS에서는 사용자가 필요에 따라
+특성을 주문 제작하고 정의할 수 있는 기능을 지원한다. 왼쪽 메뉴에서
 \textbf{characterization}을 클릭하고, \textbf{Feature Analysis} 탭을
 클릭한 후, \textbf{New Feature Analysis} 버튼을 클릭하면 사용자가 정의한
-특징 분석을 할 수 있다. 사용자가 정의하는 특징을 명명하고,
+속성 분석을 할 수 있다. 사용자가 원하는 속성 분석을 정의하고,
 \includegraphics{images/PopulationLevelEstimation/save.png} 버튼을 통해
 저장할 수 있다. \index{ATLAS!characterization features}
 
@@ -9761,9 +9761,9 @@ Features}\label{---defining-custom-features}
 수 있다. 이는 위해 characterization을 열고, Feature Analysis로 이동해
 보자. \includegraphics{images/Characterization/atlasImportButton.png}
 버튼을 누르고 메뉴에서 new custom features를 선택하자. 그러면 분석할
-속성 목록에 사용자 정의 속성이 올라간 것이 보일 것이다. 앞 절에서 설명한
-것과 같이 사용자 정의 속성에 대한 분석을 데이터베이스에 적용하여 시행할
-수 있다:
+특특성 목록에 사용자 정의 속성이 올라간 것이 보일 것이다. 앞 절에서
+설명한 것과 같이 사용자 정의 속성에 대한 분석을 데이터베이스에 적용하여
+시행할 수 있다:
 
 \begin{figure}
 
@@ -9774,11 +9774,10 @@ Features}\label{---defining-custom-features}
 \caption{사용자 정의 속성을 적용하여 특성 분석을 진행한 결과 창}\label{fig:atlasCharacterizationCustomFeatureResults}
 \end{figure}
 
-\section{R을 이용한 코호트 특성 분석 Cohort Characterization in
-R}\label{r-----cohort-characterization-in-r}
+\section{R을 이용한 코호트 특성 분석}\label{r----}
 
 코호트의 특성 분석은 R을 통해서도 가능하다. R에서 고혈압 코호트에서 기저
-특징(변수)을 생성하기 위해 OHDSI의 FeatureExtraction이라고 하는 R
+특성(변수)을 생성하기 위해 OHDSI의 FeatureExtraction이라고 하는 R
 package를 사용하는 방법을 알아보기로 한다. FeatureExtraction은 세 가지
 방법으로 변수를 구성할 수 있는 기능을 제공한다. 그 방법은 다음과 같다:
 \index{FeatureExtraction}
@@ -9801,15 +9800,16 @@ FeatureExtraction은 개인 수준 특성 person-level feature과 통합된 특�
 알아볼 것이다. (기본 설정 모음에 대해서는 독자의 연습을 위해 남겨두도록
 하겠다)
 
-\subsection{코호트 인스턴스화 Cohort
+\subsection{코호트 생성 Cohort
 Instantiation}\label{--cohort-instantiation}
 
-특성 분석을 위해 우선 코호트를 예시를 들어 설명하겠다. 코호트 예시는
-\ref{Cohorts}장에서 실습했었다. 본 실습에서는 고혈압의 1차 약물치료를
-시작한 사람 중 1년간 관찰된 사람을 사용할 것이다 (부록 \ref{HTN1yrFO}).
-부록 \ref{CohortDefinitions}의 다른 코호트는 독자의 연습을 위해
-남겨두었다. cohort definition ID가 1인 \texttt{scratch.my\_cohorts}라는
-테이블에 실습에 사용할 코호트가 있다고 가정하자.
+특성 분석을 위해 우선 코호트를 예시를 들어 설명하겠다. 코호트 생성
+예시는 \ref{Cohorts}장에서 실습했었다. 본 실습에서는 고혈압의 1차
+약물치료를 시작한 사람 중 1년간 관찰된 사람을 사용할 것이다 (부록
+\ref{HTN1yrFO}). 부록 \ref{CohortDefinitions}의 다른 코호트는 독자의
+연습을 위해 남겨두었다. cohort definition ID가 1인
+\texttt{scratch.my\_cohorts}라는 테이블에 실습에 사용할 코호트가 있다고
+가정하자.
 
 \subsection{데이터 추출 Data Extraction}\label{--data-extraction}
 
@@ -9843,7 +9843,7 @@ Microsofe SQL Server에서 주의할 점은, 데이터베이스 스키마는
 데이터베이스와 스키마 정보를 둘 다 필요로 한다는 것이다. 예를 들면
 다음과 같다. \texttt{cdmDbSchema\ \textless{}-\ "my\_cdm\_data.dbo"}.
 
-\subsection{미리 만든 분석 모음 사용 Using Prespecified
+\subsection{미리 만든 분석 정의 사용 Using Prespecified
 Analyses}\label{-----using-prespecified-analyses}
 
 \texttt{createCovariateSettings} 함수는 사전에 정의된 대규모 변수의
@@ -9853,15 +9853,15 @@ Analyses}\label{-----using-prespecified-analyses}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{settings <-}\StringTok{ }\KeywordTok{createCovariateSettings}\NormalTok{(}
-  \DataTypeTok{useDemographicsGender =} \OtherTok{TRUE}\NormalTok{, }
-  \DataTypeTok{useDemographicsAgeGroup =} \OtherTok{TRUE}\NormalTok{, }
-  \DataTypeTok{useConditionOccurrenceAnyTimePrior =} \OtherTok{TRUE}\NormalTok{) }
+  \DataTypeTok{useDemographicsGender =} \OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{useDemographicsAgeGroup =} \OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{useConditionOccurrenceAnyTimePrior =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 다음과 같이 입력하면 성별, 연령 (5년 단위의 연령 그룹), 그리고 코호트
 시작 날짜를 포함한 이전의 모든 condition\_occurrence 테이블에서 관찰된
-각각의 개념에 대하여 이분법적인 변수를 생성할 수 있다.
+각각의 concept에 대하여 이분 변수 binary variable를 생성할 수 있다.
 
 많은 사전 정의 분석은 단기 short term, 중기 medium term, 혹은 장기 long
 term 구간 time window을 지정할 수 있다. 기본적으로 구간은 다음과 같이
@@ -9882,33 +9882,33 @@ term 구간 time window을 지정할 수 있다. 기본적으로 구간은 다�
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{settings <-}\StringTok{ }\KeywordTok{createCovariateSettings}\NormalTok{(}\DataTypeTok{useConditionEraLongTerm =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{useConditionEraShortTerm =} \OtherTok{TRUE}\NormalTok{, }
+\NormalTok{settings <-}\StringTok{ }\KeywordTok{createCovariateSettings}\NormalTok{(}\DataTypeTok{useConditionEraLongTerm =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{useConditionEraShortTerm =} \OtherTok{TRUE}\NormalTok{,}
                                     \DataTypeTok{useDrugEraLongTerm =} \OtherTok{TRUE}\NormalTok{,}
-                                    \DataTypeTok{useDrugEraShortTerm =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{longTermStartDays =} \OperatorTok{-}\DecValTok{180}\NormalTok{, }
-                                    \DataTypeTok{shortTermStartDays =} \OperatorTok{-}\DecValTok{14}\NormalTok{, }
-                                    \DataTypeTok{endDays =} \OperatorTok{-}\DecValTok{1}\NormalTok{) }
+                                    \DataTypeTok{useDrugEraShortTerm =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{longTermStartDays =} \OperatorTok{-}\DecValTok{180}\NormalTok{,}
+                                    \DataTypeTok{shortTermStartDays =} \OperatorTok{-}\DecValTok{14}\NormalTok{,}
+                                    \DataTypeTok{endDays =} \OperatorTok{-}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 이 코드에서 새로 정의된 장기 구간은 코호트 시작 날짜를 포함하지 않고
 180일 이전까지의 구간을 나타내고, 단기 구간은 코호트 시작 날짜를
 포함하지 않고 14일 이전까지의 구간을 나타낸다. 또한, 변수 구성에서
-필수적으로 들어가야 할 것과 빠져야 할 개념 ID를 지정할 수 있다:
+필수적으로 들어가야 할 것과 빠져야 할 concept ID를 지정할 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{settings <-}\StringTok{ }\KeywordTok{createCovariateSettings}\NormalTok{(}\DataTypeTok{useConditionEraLongTerm =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{useConditionEraShortTerm =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{useDrugEraLongTerm =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{useDrugEraShortTerm =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{longTermStartDays =} \OperatorTok{-}\DecValTok{180}\NormalTok{, }
-                                    \DataTypeTok{shortTermStartDays =} \OperatorTok{-}\DecValTok{14}\NormalTok{, }
-                                    \DataTypeTok{endDays =} \OperatorTok{-}\DecValTok{1}\NormalTok{, }
-                                    \DataTypeTok{excludedCovariateConceptIds =} \DecValTok{1124300}\NormalTok{, }
-                                    \DataTypeTok{addDescendantsToExclude =} \OtherTok{TRUE}\NormalTok{, }
-                                    \DataTypeTok{aggregated =} \OtherTok{TRUE}\NormalTok{) }
+\NormalTok{settings <-}\StringTok{ }\KeywordTok{createCovariateSettings}\NormalTok{(}\DataTypeTok{useConditionEraLongTerm =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{useConditionEraShortTerm =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{useDrugEraLongTerm =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{useDrugEraShortTerm =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{longTermStartDays =} \OperatorTok{-}\DecValTok{180}\NormalTok{,}
+                                    \DataTypeTok{shortTermStartDays =} \OperatorTok{-}\DecValTok{14}\NormalTok{,}
+                                    \DataTypeTok{endDays =} \OperatorTok{-}\DecValTok{1}\NormalTok{,}
+                                    \DataTypeTok{excludedCovariateConceptIds =} \DecValTok{1124300}\NormalTok{,}
+                                    \DataTypeTok{addDescendantsToExclude =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{aggregated =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9925,34 +9925,34 @@ Covariates}\label{---creating-aggregated-covariates}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{covariateSettings <-}\StringTok{ }\KeywordTok{createDefaultCovariateSettings}\NormalTok{() }
+\NormalTok{covariateSettings <-}\StringTok{ }\KeywordTok{createDefaultCovariateSettings}\NormalTok{()}
 
 \NormalTok{covariateData2 <-}\StringTok{ }\KeywordTok{getDbCovariateData}\NormalTok{(}
-  \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails, }
-  \DataTypeTok{cdmDatabaseSchema =}\NormalTok{ cdmDatabaseSchema, }
-  \DataTypeTok{cohortDatabaseSchema =}\NormalTok{ resultsDatabaseSchema, }
-  \DataTypeTok{cohortTable =} \StringTok{"cohorts_of_interest"}\NormalTok{, }
-  \DataTypeTok{cohortId =} \DecValTok{1}\NormalTok{, }
-  \DataTypeTok{covariateSettings =}\NormalTok{ covariateSettings, }
-  \DataTypeTok{aggregated =} \OtherTok{TRUE}\NormalTok{) }
+  \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails,}
+  \DataTypeTok{cdmDatabaseSchema =}\NormalTok{ cdmDatabaseSchema,}
+  \DataTypeTok{cohortDatabaseSchema =}\NormalTok{ resultsDatabaseSchema,}
+  \DataTypeTok{cohortTable =} \StringTok{"cohorts_of_interest"}\NormalTok{,}
+  \DataTypeTok{cohortId =} \DecValTok{1}\NormalTok{,}
+  \DataTypeTok{covariateSettings =}\NormalTok{ covariateSettings,}
+  \DataTypeTok{aggregated =} \OtherTok{TRUE}\NormalTok{)}
 
-\KeywordTok{summary}\NormalTok{(covariateData2) }
+\KeywordTok{summary}\NormalTok{(covariateData2)}
 \end{Highlighting}
 \end{Shaded}
 
 그 결과값은 다음과 비슷하게 보일 것이다:
 
 \begin{verbatim}
-## CovariateData Object Summary 
-## 
-## Number of Covariates: 41330 
+## CovariateData Object Summary
+##
+## Number of Covariates: 41330
 ## Number of Non-Zero Covariate Values: 41330
 \end{verbatim}
 
 \subsection{결과 형식 Output Format}\label{--output-format}
 
 통합된 \texttt{공변량\ 데이터\ covariateData}에서 주요한 두 가지
-구성요소는 이분법적인 혹은 연속적 변수에 대한
+구성요소는 이분 binary 혹은 연속적 continuous변수에 대한
 \texttt{공변량\ covariates}과
 \texttt{공변량\ 양\ covariatesContinuous}이다:
 
@@ -9999,8 +9999,8 @@ cohort의 코호트 시작 날짜 이후 발생한 사건을 요약하는 분석
 정의된 시작과 마지막 날짜를 볼 수 있다. 숫자가 매겨진 조각난 선은 해당
 환자에게서 해당 구간 동안 사건 코호트가 발생한 위치를 표현한 것이다.
 사건 코호트를 통해 CDM에서 표현되는 관심 있는 모든 임상적 사건을 설명 할
-수 있기 때문에 단일 도메인 혹은 개별 개념에 대한 경로를 만드는 데 제한을
-받지 않는다.
+수 있기 때문에 단일 도메인 혹은 개별 concept에 대한 경로를 만드는 데
+제한을 받지 않는다.
 
 경로 분석을 시작하기 위해서는 ATLAS 왼쪽 바에 있는
 \includegraphics{images/Characterization/atlasPathwaysMenuItem.png}를
@@ -10068,7 +10068,7 @@ cohort의 코호트 시작 날짜 이후 발생한 사건을 요약하는 분석
 실행 execution할 수 있다. 방법은 ATLAS의 코호트 특성 분석에서 진행한
 것과 같은 방식으로 진행된다. 실행이 끝나면 분석 결과를 확인할 수 있다.
 
-\subsection{결과 시각화 Viewing Results}\label{--viewing-results}
+\subsection{결과 시각화}\label{-}
 
 \begin{figure}
 
@@ -10112,8 +10112,7 @@ sunburst plot의 세션을 클릭하면 오른편에 세부 경로가 나타난�
 ACE inhibitor를 시작한 환자임을 알 수 있고, 가장 작은 비율을 차지하는
 약제는 thiazide나 thiazide diuretics임을 알 수 있었다.
 
-\section{ATLAS를 이용한 발생률 분석 Incidence Analysis in
-ATLAS}\label{atlas----incidence-analysis-in-atlas}
+\section{ATLAS를 이용한 발생률 분석}\label{atlas---}
 
 발생률 계산 시 대상 코호트의 사람 중 위험 노출 기간 동안 결과 코호트를
 경험한 환자에 대하여 설명하도록 한다. 예를 들어, ACE inhibitor(ACEi)를
@@ -10264,15 +10263,15 @@ ACEi 환자군 내에서 ARBs를 새롭게 사용하기 시작한 신규 환자�
   OHDSI는 모든 데이터베이스 혹은 관심 코호트에 대한 특성을 분석하는
   도구를 제공한다.
 \item
-  코호트의 특성 분석은 기저 날짜 이전 (\textbf{기저 baseline})과 기저
-  날짜 후 (\textbf{post-index}) 시간 동안의 관심 코호트를 설명해 준다.
+  코호트의 특성 분석은 index date 이전 (\textbf{baseline})과 index date
+  후 (\textbf{post-index}) 시간 동안의 관심 코호트를 설명해 준다.
 \item
   ATLAS의 특성 분석 모듈과 OHDSI 연구방법론 라이브러리 Methods Library는
   다양한 관찰 기간에 대한 기저 특성에 대해 계산 할 수 있는 기능을
   제공한다.
 \item
-  ATLAS의 경로와 발생률 모듈은 기저 날짜 후 시간 동안의 기술 통계를
-  제공한다.
+  ATLAS의 경로 pathway와 발생률 incidence모듈은 index date 이후 시간
+  동안의 기술 통계를 제공한다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
@@ -10307,9 +10306,9 @@ characterization을 생성하고, 동반 상병 질환과 약물 노출을 찾�
 gastrointestinal(GI) bleeds가 얼마나 자주 발생하는지를 알고 싶다. 우선
 GI bleed의 사건 코호트를 생성해야 한다. 해당 코호트의 정의를 위해
 \href{http://athena.ohdsi.org/search-terms/terms/192671}{192671}
-(``Gastrointestinal hemorrhage'')으로 정의된 개념이나 그 하위 개념을
-사용하자. 이전 예제에서 정의한 약물 노출 코호트를 이용해, celecoxib을
-시작한 이후 GI bleed의 발생률을 계산하자.
+(``Gastrointestinal hemorrhage'')으로 정의된 concept이나 그 하위
+concept을 사용하자. 이전 예제에서 정의한 약물 노출 코호트를 이용해,
+celecoxib을 시작한 이후 GI bleed의 발생률을 계산하자.
 \EndKnitrBlock{exercise}
 
 답변은 부록 \ref{Characterizationanswers} 에서 찾을 수 있다.
@@ -10378,74 +10377,49 @@ Population-Level Estimation} 연구설계를 설명한다. 예제 평가 연구�
 
 }
 
-\caption{새로운 사용자의 코호트 디자인 new-user cohort design: 표적 치료 target treatment를 시작하기 위해 관찰된 대상은 비교 대상 치료 comparator treatment를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화 stratification , 매칭 matching , 성향 점수에 의한 가중치 부여 weighting by propensity score, 결과 모델에 기저 특징 baseline characteristics 보정 추가와 같은 다양한 보정법 adjustment strategy을 사용할 수 있다. 성향 모델 propensity model 또는 결과 모델 outcome model에 포함된 특징은 치료 시작 전에 결정된다. (역자 주: new-user란 대상 위험에 생애 처음 노출된 환자를 말한다) }\label{fig:cohortMethod}
+\caption{새로운 사용자의 코호트 디자인 new-user cohort design: 표적 치료 target treatment를 시작하기 위해 관찰된 대상은 대조 대상 치료 comparator treatment를 시작한 대상과 비교된다. 두 치료군 간의 차이를 조정하기 위해 층화 stratification , 매칭 matching , 성향 점수에 의한 가중치 부여 weighting by propensity score, 결과 모델에 기저 특징 baseline characteristics 보정 추가와 같은 다양한 보정법 adjustment strategy을 사용할 수 있다. 성향 모델 propensity model 또는 결과 모델 outcome model에 포함된 특징은 치료 시작 전에 결정된다. (역자 주: new-user란 대상 위험에 생애 처음 노출된 환자를 말한다) }\label{fig:cohortMethod}
 \end{figure}
 
 코호트 방법론은 무작위 임상 시험을 모방하려고 한다. \citep{hernan_2016}
-하나의 치료를 시작한 환자 target는 다른 치료를 시작한 환자 comparator와
-비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를 받는 기간) 추적
-관찰된다. 표 \ref{tab:cmChoices} 에서 강조하는 5가지 사항을 선택함으로써
-코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다.
-\index{target cohort!cohort method} \index{comparator cohort}
-\index{outcome cohort!cohort method}
+하나의 치료를 시작한 환자(표적군 target cohort)는 다른 치료를 시작한
+환자(대조군 comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어
+치료를 받는 기간) 추적 관찰된다. 표 \ref{tab:cmChoices} 에서 강조하는
+5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한
+질문을 지정할 수 있다. \index{target cohort!cohort method}
+\index{comparator cohort} \index{outcome cohort!cohort method}
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:cmChoices} 코호트 비교연구 설계에서 주된
 고려사항.}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
-\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Description\strut
-\end{minipage}\tabularnewline
+선택 & 설명\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
-\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Description\strut
-\end{minipage}\tabularnewline
+선택 & 설명\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Target cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-A cohort representing the target treatment\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Comparator cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-A cohort representing the comparator treatment\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Outcome cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-A cohort representing the outcome of interest\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Time-at-risk\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-At what time (often relative to the target and comparator cohort start
-and end dates) do we consider the risk of the outcome?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Model\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-The model used to estimate the effect while adjusting for differences
-between the target and comparator\strut
-\end{minipage}\tabularnewline
+표적 코호트 Target cohort & 표적 치료를 받은 환자군
+cohort\tabularnewline
+대조 코호트 Comparator cohort & 대조 치료를 받은 환자군
+cohort\tabularnewline
+결과 코호트 Outcome cohort & 관심 결과 outcome of interest가 발생한
+환자군 cohort\tabularnewline
+위험노출기간 Time-at-risk & (보통 표적 및 대조 코호트의 시작과 종료
+시점에 기반하여) 결과 발생을 살펴볼 기간의 범위\tabularnewline
+모델 & 표적군과 대조군의 차이를 보정하여 효과 effect를 추정할 때
+사용하는 통계 모델\tabularnewline
 \bottomrule
 \end{longtable}
 
 모델 선택은 결과 모델의 유형을 지정한다. 예를 들어, 결과가 발생했는지를
 평가하고 교차비 odds ratio를 산출하는 로지스틱 회귀분석 logistic
 regression을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간(TAR)이
-실험군 target cohort과 비교군 comparator cohort 양쪽 모두에서 같거나
+표적군 target cohort과 대조군 comparator cohort 양쪽 모두에서 같거나
 무관하다고 가정한다. 대안으로, 포아송 회귀분석 poisson regression을
 선택할 수 있는데, 이는 일정한 발생률 incidence rate을 가정하고, 발생률
 비율 incidence rate ratio을 추정한다. 콕스 회귀분석 Cox regression을
-종종 사용하기도 하는데, 이는 실험군과 비교군 사이의 비례 위험
+종종 사용하기도 하는데, 이는 표적군과 대조군 사이의 비례 위험
 proportional hazard을 가정하며, 위험 비율 hazard ratio을 추정하려고 대상
 질병이 처음 발생할 때까지의 시간 time-to-first-outcome을 고려한다.
 \index{logistic regression} \index{Poisson regression}
@@ -10467,26 +10441,26 @@ ACE inhibitor 노출 군과 고혈압 치료제 비노출 군을 비교하기는
 보라). 하지만, 이러한 비교 대상을 항상 사용할 수 있는 것은 아니다.
 \EndKnitrBlock{rmdimportant}
 
-주요 관심사는 치료를 받는 군이 비교 치료를 받는 군과 전체적으로
+주요 관심사는 표적 치료를 받는 군이 대조 치료를 받는 군과 전체적으로
 systemically 다를 수 있다는 것이다. 예를 들어, 연구 대상 치료를 받는
-실험군 target 코호트가 평균 60세이지만, 해당 치료를 받지 않은 대조군
-comparator 코호트가 평균 40세라고 가정하자. 연령과 관련된 건강 결과
-(예를 들어 뇌졸중)는 양 군 간에 상당히 차이가 날 것이다. 이런 정보에
-대해 정확히 숙지하지 못한 연구자는 해당 치료가 뇌졸중과 유의미한
-인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당 치료를 받지
-않았다면 실험군의 환자가 뇌졸중에 걸리지 않으리라 생각할 수 있다. 이러한
-결과는 전적으로 잘못되었다. 단순히 실험군의 연령이 높아서 뇌졸중을 많이
-경험할 수 있기 때문이다. 실험군이 해당 치료를 받지 않았더라도, 뇌졸중의
-발병률은 비슷할 수 있다. 여기서 나이는 ``교란변수 confounder''이다.
-관찰형 연구에서 교란변수를 통제하는 한 가지 방법은 성향 점수 propensity
-score를 이용하는 것이다. \index{confounder}
+표적 코호트 target cohort의 평균 연령이 60세이지만, 해당 치료를 받지
+않은 대조 코호트 comparator cohort의 평균 연령이 40세라고 가정해보자.
+연령과 관련된 건강 결과 (예를 들어 뇌졸중)는 양 군 간에 상당히 차이가 날
+것이다. 이런 정보에 대해 정확히 숙지하지 못한 연구자는 해당 치료가
+뇌졸중과 유의미한 인과관계를 보인다고 결론을 내릴 수 있다. 따라서, 해당
+치료를 받지 않았다면 표적군의 환자가 뇌졸중에 걸리지 않으리라 생각할 수
+있다. 이러한 결과는 전적으로 잘못되었다. 단순히 표적군의 연령이 높아서
+뇌졸중을 많이 경험할 수 있기 때문이다. 표적군이 해당 치료를 받지
+않았더라도, 뇌졸중의 발병률은 비슷할 수 있다. 여기서 나이는 ``교란변수
+confounder''이다. 관찰형 연구에서 교란변수를 통제하는 한 가지 방법은
+성향 점수 propensity score를 이용하는 것이다. \index{confounder}
 
 \subsection{성향 점수}\label{-}
 
 \index{propensity score}
 
 무작위 배정 시험 randomized trial에서 (가상의) 동전 던지기를 통해 환자를
-각각의 그룹에 무작위로 배정한다. 이렇게 하면 설계상 치료군과 비교군에
+각각의 그룹에 무작위로 배정한다. 이렇게 하면 설계상 치료군과 대조군에
 속한 환자가 대상치료를 받을 확률은 나이와 같은 환자의 기본 특성과 관련이
 없게 된다. 동전에는 환자에 대한 정보가 없으며, 우리는 환자가 대상에
 노출될 정확한 확률을 확실하게 알 수 있다. 결과적으로 임상시험에서 환자
@@ -10495,17 +10469,17 @@ score를 이용하는 것이다. \index{confounder}
 시험이 측정한 특성 (예를 들어 나이)뿐 아니라 유전적 특성과 같이 무작위
 시험이 측정하지 못한 특성에도 모두 적용된다. \index{randomized trial}
 
-주어진 환자의 \textbf{성향 점수 Propensity score(PS)}는 환자가 비교
-치료군과 비교하여 대상 치료를 받을 확률이다. \citep{rosenbaum_1983} 균형
+주어진 환자의 \textbf{성향 점수 Propensity score(PS)}는 환자가 대조
+치료군과 비교하여 표적 치료를 받을 확률이다. \citep{rosenbaum_1983} 균형
 잡힌 two-arm 무작위 임상시험에서, 모든 환자의 성향 점수는 0.5이다. 성향
 점수 조정된 관찰 연구에서, 우리는 치료개시 시점과 치료개시 전 (환자가
-실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 대상 치료를
+실제로 받은 치료와 관계없이) 에 관찰할 수 있는 것에 근거해 표적 치료를
 받을 환자의 확률을 추정한다. 이것은 간단한 예측 모델링 응용프로그램이다.
-환자가 대상 치료를 받았는지의 여부를 예측하는 적합한 모델 (예를 들어
+환자가 표적 치료를 받았는지의 여부를 예측하는 적합한 모델 (예를 들어
 로지스틱 회귀분석)을 만들고, 이 모델을 사용하여 각 환자에 대한 예측
-확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 대상 치료를
+확률을 생성한다. 표준 무작위 임상시험과 달리, 다른 환자는 표적 치료를
 받을 확률이 다르다. 성향 점수는 여러 가지 방법으로 사용할 수 있다. 예를
-들어, 대상 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS
+들어, 표적 피험자를 유사한 PS를 가진 comparator 피험자에게 매칭(PS
 matching)하거나, 성향 점수를 기반으로 연구 집단을 층화 PS
 stratification하거나, 성향 점수에서 파생된 Inverse Probability of
 Treatment Weighting(IPTW)을 사용하여 피험자에게 가중치를 적용하여 사용할
@@ -10518,14 +10492,14 @@ Treatment Weighting(IPTW)을 사용하여 피험자에게 가중치를 적용하
 \index{inverse probability of treatment weighting (IPTW)|see {propensity score!weighting}}
 \index{variable ratio matching}
 
-예를 들어 one-on-one PS 매칭을 사용한다고 가정해보자. Jan이라는 환자가
-대상 치료를 받을 선험 확률 prior probability이 0.4이고, 실제로 표적 치료
-target treatment를 받고, Jun이라고 하는 또 다른 환자는 대상 치료를 받을
+예를 들어 일대일 PS 매칭을 사용한다고 가정해보자. Jan이라는 환자가 표적
+치료를 받을 선험 확률 prior probability이 0.4이고, 실제로 표적 치료
+target treatment를 받고, Jun이라고 하는 또 다른 환자는 표적 치료를 받을
 선험 확률이 0.4이지만, 사실상 대조 치료 comparator treatment를 받았다면,
 적어도 측정된 교란변수에 대해 Jan과 Jun의 결과 비교는 작은 무작위 시험과
 같다. 이 비교는 Jan과 Jun의 인과적인 대조를 무작위 시험으로 산출한
-결과만큼 양호하게 추정할 것이다. 추정은 다음과 같이 진행된다: 대상치료를
-받은 모든 환자에 대해, 대조 치료를 받았지만, 대상을 받는 선험적 확률이
+결과만큼 양호하게 추정할 것이다. 추정은 다음과 같이 진행된다: 표적치료를
+받은 모든 환자에 대해, 대조 치료를 받았지만, 표적을 받는 선험적 확률이
 동일한 하나 이상의 일치하는 환자를 찾는다. 그들의 짝지어진 환자군
 matched group 안에서 표적 환자 target group의 결과와 비교 그룹
 comparator group의 결과를 비교한다.
@@ -10540,7 +10514,7 @@ comparator group의 결과를 비교한다.
 
 \subsection{변수 선택}\label{VariableSelection}
 
-이전에 성향 점수는 연구자가 임의로 선택된 특성 manually selected
+전통적으로 성향 점수는 연구자가 임의로 선택된 특성 manually selected
 characteristics을 기반으로 계산되었다. OHDSI 도구가 그러한 관행을 지원할
 수는 있지만, 많은 일반적 특성 (즉, 연구의 특정 노출 및 결과에 따라
 선택되지 않은 특성)을 포함하는 것을 선호한다. \citep{tian_2018} 이러한
@@ -10550,14 +10524,14 @@ characteristics을 기반으로 계산되었다. OHDSI 도구가 그러한 관�
 \href{https://ohdsi.github.io/Cyclops/}{Cyclops} 패키지에서 구현되는
 large-scale regularized regression \citep{suchard_2013} 을 사용하여
 적합한다. 본질적으로 우리는 치료 배정의 예측을 위하여 어떠한 환자 특성이
-알고리즘에 사용되어야 하는지 데이터 스스로 결정하도록 한다.
+알고리즘에 사용되어야 하는지 데이터가 스스로 결정하도록 한다.
 
 \BeginKnitrBlock{rmdimportant}
 치료로 이어지는 진단과 같은 많은 관련 데이터 포인트가 해당 날짜에
 기록되기 때문에 일반적으로 공변량을 정의할 때 치료 개시일의 변수를
-포함한다. 이날에 연구의 주제가 되는 대상 치료와 대조 치료 자체도
+포함한다. 이날에 연구의 주제가 되는 표적 치료와 대조 치료 자체도
 기록되는데, 이러한 치료는 우리가 예측하려는 바로 그것이기 때문에 성향
-모델에 포함해서는 안 된다. 따라서 공변량 집합에서 대상 치료와 대조치료는
+모델에 포함해서는 안 된다. 따라서 공변량 집합에서 표적 치료와 대조치료는
 \textbf{반드시 제외해야 한다}.
 \EndKnitrBlock{rmdimportant}
 
@@ -10592,20 +10566,20 @@ default 캘리퍼를 사용한다.
 성향 매칭 방법은 일치하는 환자가 필요하다! 따라서 주요 진단은 두 그룹의
 성향 점수 분포를 보여준다. 해석을 용이하게 하기 위해 OHDSI 도구는 ``선호
 점수 preference score''라는 성향 점수의 변형을 그린다.
-\citep{walker_2013} 선호 점수는 대상 치료와 대조 치료, 두 가지 치료법의
-``market share''를 조정하다. 예를 들면, 10\%의 환자가 대상 치료를 받고
-(90\%가 비교 치료를 받는 경우), 선호 점수가 0.5인 환자는 대상 치료를
+\citep{walker_2013} 선호 점수는 표적 치료와 대조 치료, 두 가지 치료법의
+``market share''를 조정하다. 예를 들면, 10\%의 환자가 표적 치료를 받고
+(90\%가 대조 치료를 받는 경우), 선호 점수가 0.5인 환자는 표적 치료를
 받을 확률이 10\%이다. 수학적으로 선호 점수는 다음과 같다.
 
 \[\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{1-P}\right)\]
 
 여기서 \(F\) 는 선호 점수, \(S\) 는 성향 점수, 그리고 \(P\) 는
-대상치료를 받은 환자의 비율이다.
+표적치료를 받은 환자의 비율이다.
 
 \citet{walker_2013} 는 ``경험적 평형 empirical equipoise''의 개념을
 논의한다. 적어도 노출의 절반이 0.3과 0.7 사이의 선호 점수를 갖는
-환자에게 노출 쌍 exposure pair이 경험적 평형에서 나오는 것으로
-받아들인다. \index{clinical equipoise}
+환자에게 노출 쌍 exposure pair이 경험적 평형을 이루는 것으로 받아들인다.
+\index{clinical equipoise}
 
 \subsection{균형}
 
@@ -10614,11 +10588,12 @@ default 캘리퍼를 사용한다.
 좋은 방침 good practice은 성향 점수 보정이 균형 잡힌 환자 그룹을 만드는
 데 성공했는지 항상 확인하는 것이다. 그림 \ref{fig:balance}는 균형을
 점검하기 위한 표준 OHDSI 출력물을 보여준다. 각 환자의 특성에 대해 성향
-점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일부
-지침에서는 조정 후 표준화된 차이의 상한 0.1을 권장한다.
-\citep{rubin_2001}
+점수 보정 전과 후에 두 노출 그룹 간의 평균 차이를 표준화한다. 일반적으로
+조정 후 표준화된 차이 standardized mean difference의 상한이 0.1 미만가
+되도록 권장한다. \citep{rubin_2001}
 
-\section{자가 통제 코호트 연구 설계}\label{----}
+\section{자가 통제 코호트 연구 설계 Self-Controlled Cohort
+Design}\label{-----self-controlled-cohort-design}
 
 \index{self-controlled cohort design}
 
@@ -10628,27 +10603,27 @@ default 캘리퍼를 사용한다.
 
 }
 
-\caption{스스로 제어하는 코호트 디자인. 목표물에 노출되는 동안의 결과 비율은 사전 노출 시간의 결과 비율과 비교된다.}\label{fig:scc}
+\caption{자가 통제 코호트 연구 디자인. 목표물에 노출되는 동안의 결과 비율은 사전 노출 시간의 결과 비율과 비교된다.}\label{fig:scc}
 \end{figure}
 
 자가 통제 코호트 self-controlled cohort(SCC) 설계 \citep{ryan_2013} 는
-노출 직전의 결과 비율을 기준으로 노출하는 동안의 결과 비율을 비교한다.
+노출 직전의 결과 비율을 기준으로 노출되는 동안의 결과 비율을 비교한다.
 표 \ref{tab:sccChoices}에 제시된 4가지 선택 사항은 SCC 질문을
 정의한다.\index{target cohort!self-controlled cohort design}
 \index{outcome cohort!self-controlled cohort design}
 
 \begin{table}[t]
 
-\caption{\label{tab:sccChoices}Main design choices in a self-controlled cohort design.}
+\caption{\label{tab:sccChoices}자가 통제 코호트 연구에서의 주요 설계 선택}
 \centering
 \begin{tabu} to \linewidth {>{\raggedright}X>{\raggedright\arraybackslash}p{9cm}}
 \toprule
-Choice & Description\\
+선택 & 설명\\
 \midrule
-Target cohort & A cohort representing the treatment\\
-Outcome cohort & A cohort representing the outcome of interest\\
-Time-at-risk & At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?\\
-Control time & The time period used as the control time\\
+표적 코호트 Target cohort & 표적 치료를 받은 환자군 cohort\\
+결과 코호트 Outcome cohort & 관심 결과 outcome of interest가 발생한 환자군 cohort\\
+위험노출기간 Time-at-risk & (보통 표적 코호트의 시작과 종료 시점에 기준으로) 결과 발생을 살펴볼 기간의 범위\\
+통제 기간 Control time & 통제 기간 control time 으로 사용하는 기간\\
 \bottomrule
 \end{tabu}
 \end{table}
@@ -10658,7 +10633,8 @@ Control time & The time period used as the control time\\
 그러나 이 방법은 다른 기간 간의 기존의 위험도 차이 등 다른 차이점에 대해
 취약하다.
 
-\section{환자-대조군 연구 설계}\label{---}
+\section{환자-대조군 연구 설계 Case-Control
+Design}\label{----case-control-design}
 
 \index{case-control design}
 
@@ -10673,8 +10649,8 @@ Control time & The time period used as the control time\\
 
 환자-대조군 연구 \citep{vandenbroucke_2012} 는 ``특정 질병 결과가 있는
 사람이 질병이 없는 사람보다 특정 치료 agent에 더 자주 노출되는가?''라는
-질문을 고려한다. 따라서, 주요 아이디어는 환자 cases (다시 말하면 관심
-결과를 경험한 피험자)를 대조군 controls (다시 말하면 관심 결과를
+질문을 고려한다. 따라서, 주요 아이디어는 환자 cases (다시 말하면
+outcome을 경험한 피험자)를 대조군 controls (다시 말하면 관심 결과를
 경험하지 않은 피험자)에 비교하는 것이다. 표 \ref{tab:ccChoices}에 선택
 사항은 환자-대조군 case-control 질문을 정의한다.
 \index{outcome cohort!case-control design}
@@ -10683,17 +10659,17 @@ Control time & The time period used as the control time\\
 
 \begin{table}[t]
 
-\caption{\label{tab:ccChoices}Main design choices in a case-control design.}
+\caption{\label{tab:ccChoices}환자-대조군 연구에서의 주요 설계 선택}
 \centering
 \begin{tabu} to \linewidth {>{\raggedright}X>{\raggedright\arraybackslash}p{9cm}}
 \toprule
-Choice & Description\\
+선택 & 설명\\
 \midrule
-Outcome cohort & A cohort representing the cases (the outcome of interest)\\
-Control cohort & A cohort representing the controls. Typically the control cohort is automatically derived from the outcome cohort using some selection logic\\
-Target cohort & A cohort representing the treatment\\
-Nesting cohort & Optionally, a cohort defining the subpopulation from which cases and controls are drawn\\
-Time-at-risk & At what time (often relative to the index date) do we consider exposure status?\\
+결과 코호트 Outcome cohort & 관심 결과 outcome of interest가 발생한 환자군 cohort\\
+Control cohort & control 군. 일반적으로는 결과 코호트특정 선택 로직을 통해 결과 코호트 기반으로 자동으로 유도된다.\\
+표적 코호트 Target cohort & 표적 치료를 받은 환자군 cohort\\
+네스팅 코호트 Nesting cohort & 선택사항, case 와 control 을 유도할 부분집합 subpopulation 코호트\\
+위험노출기간 Time-at-risk & (보통 코호트의 index date 기준) 노출 상태를 판단할 기간\\
 \bottomrule
 \end{tabu}
 \end{table}
@@ -10702,7 +10678,8 @@ Time-at-risk & At what time (often relative to the index date) do we consider ex
 또 달리 많이 사용되는 방법은, 특정 질병이 있는 환자군처럼, 특정 하위
 집단 subgroup 환자군 안에서 nested analysis를 이용한다.
 
-\section{환자-교차 연구 설계}\label{---}
+\section{환자-교차 연구 설계 Case-Crossover
+Design}\label{----case-crossover-design}
 
 \index{case-crossover design}
 
@@ -10716,24 +10693,24 @@ Time-at-risk & At what time (often relative to the index date) do we consider ex
 \end{figure}
 
 환자-교차 연구 case-crossover study \citep{maclure_1991} 설계는 결과
-이전의 정해진 기간 노출률 rate of exposure의 차이가 나는지 평가하는
-방법이다. 이것은 결과 발생 시점의 특이한 사항이 있는지 확인하는
+outcome 이전의 정해진 기간 노출률 rate of exposure의 차이가 나는지
+평가하는 방법이다. 이것은 결과 발생 시점의 특이한 사항이 있는지 확인하는
 방법이다. 표 \ref{tab:ccrChoices}는 환자-연구 연구 정의를 위한 선택지를
 보여준다. \index{outcome cohort!case-crossover design}
 \index{target cohort!case-crossover design}
 
 \begin{table}[t]
 
-\caption{\label{tab:ccrChoices}Main design choices in a case-crossover design.}
+\caption{\label{tab:ccrChoices}환자-교차 연구에서의 주요 설계 선택}
 \centering
 \begin{tabu} to \linewidth {>{\raggedright}X>{\raggedright\arraybackslash}p{9cm}}
 \toprule
-Choice & Description\\
+선택 & 설명\\
 \midrule
-Outcome cohort & A cohort representing the cases (the outcome of interest)\\
-Target cohort & A cohort representing the treatment\\
-Time-at-risk & At what time (often relative to the index date) do we consider exposure status?\\
-Control time & The time period used as the control time\\
+결과 코호트 Outcome cohort & 관심 결과 outcome of interest가 발생한 환자군 cohort\\
+표적 코호트 Target cohort & 표적 치료를 받은 환자군 cohort\\
+위험노출기간 Time-at-risk & (보통 코호트의 index date 기준) 노출 상태를 판단할 기간\\
+Control 기간 & control 기간으로 사용할 기간\\
 \bottomrule
 \end{tabu}
 \end{table}
@@ -10748,7 +10725,8 @@ Control time & The time period used as the control time\\
 case-time-control design \citep{suissa_1995} 가 개발되었다.
 \index{case-time-control design}
 
-\section{자기 대조 환자군 연구 설계}\label{----}
+\section{자기 대조 환자군 연구 설계 Self-Controlled Case Series
+Design}\label{-----self-controlled-case-series-design}
 
 \index{self-controlled case series (SCCS) design}
 
@@ -10765,23 +10743,23 @@ case-time-control design \citep{suissa_1995} 가 개발되었다.
 \citep{farrington_1995, whitaker_2006} 는 전체 비노출 기간 (노출 이전,
 노출 사이, 노출 후)과 노출 기간의 결과 발생의 비율을 비교한다. 즉
 Poisson regression conditioned on the person이라고 할 수 있다. 따라서,
-그것은 ``환자에게 결과가 발생하였을 때, 비노출 기간보다 노출 기간이
+그것은 ``환자에게 결과가 발생하였을 때, 비노출 기간보다 노출 기간에
 발생할 가능성이 더 높은가?''이다. 표 \ref{tab:sccsChoices}의 선택사항은
 SCCS 질문을 정의한다. \index{outcome cohort!SCCS design}
 \index{target cohort!SCCS design}
 
 \begin{table}[t]
 
-\caption{\label{tab:sccsChoices}Main design choices in a self-controlled case series design.}
+\caption{\label{tab:sccsChoices}자기 대조 환자군 연구에서의 주요 설계 선택}
 \centering
 \begin{tabu} to \linewidth {>{\raggedright}X>{\raggedright\arraybackslash}p{9cm}}
 \toprule
-Choice & Description\\
+선택 & 설명\\
 \midrule
-Target cohort & A cohort representing the treatment\\
-Outcome cohort & A cohort representing the outcome of interest\\
-Time-at-risk & At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?\\
-Model & The model to estimate the effect, including any adjustments for time-varying confounders\\
+표적 코호트 Target cohort & 표적 치료를 받은 환자군 cohort\\
+결과 코호트 Outcome cohort & 관심 결과 outcome of interest가 발생한 환자군 cohort\\
+위험노출기간 Time-at-risk & (보통 표적 코호트의 시작과 종료 시점에 기준으로) 결과 발생을 살펴볼 기간의 범위\\
+모델 & 시간에 따라 변하는 교란변수 time-varying confounder의 보정을 포함하여 효과 effect를 추정할 때 사용할 통계 모델\\
 \bottomrule
 \end{tabu}
 \end{table}
@@ -10810,7 +10788,7 @@ ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 �
 당뇨병 또는 만성 신장 질환과 같은 다른 합병증이 있는 환자에게 널리
 사용된다. \citep{zaman_2002} 일반적으로 입술, 혀, 입, 후두, 인두 또는 눈
 주위 부위가 부어오르는 심각한 중증도의 때로는 생명을 위협하는 혈관부종
-부작용은 이러한 약물의 사용과 관련이 있다. \citep{sabroe_1997} 그러나
+부작용은 ACE 억제제 사용과 관련이 있다. \citep{sabroe_1997} 그러나
 이러한 약물의 사용과 관련된 혈관부종에 대한 절대 및 상대 위험에 대한
 정보는 제한적이다. 기존의 증거는 주로 다른 집단에 대한 일반화가 불가능한
 특정 코호트 (예를 들어 주로 남성 퇴역 군인이나 메디케이드 (역자 주:
@@ -10840,7 +10818,7 @@ Thiazide 및 thiazide-like 이뇨제를 새로 사용하는 환자에 비교해 
 이는 비교 효과 추정 comparative effect estimation 질문이기 때문에
 \ref{CohortMethod}장에서 설명한 대로 Cohort Method를 적용할 것이다.
 
-\subsection{대상군 및 비교군}\label{--}
+\subsection{표적군 및 대조군}\label{--}
 
 첫 번째 관찰된 고혈압 치료가 ACEi 또는 THZ 계열의 활성 성분을
 단독요법으로 사용하는 경우를 새 사용자로 간주한다. 이 중 치료 시작 후
@@ -10872,52 +10850,25 @@ Time-At-Risk(TAR)로 정의하였다.
 \subsection{연구 요약}\label{-}
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:aceChoices} Main design choices for our comparative
-cohort study.}\tabularnewline
+\caption{\label{tab:aceChoices} 코호트 비교 연구를 위한 주요 설계
+선택.}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
-\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Value\strut
-\end{minipage}\tabularnewline
+선택 & 설명\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
-\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Value\strut
-\end{minipage}\tabularnewline
+선택 & 설명\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Target cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-New users of ACE inhibitors as first-line monotherapy for
-hypertension.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Comparator cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-New users of thiazides or thiazide-like diuretics as first-line
-monotherapy for hypertension.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Outcome cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-Angioedema or acute myocardial infarction.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Time-at-risk\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-Starting the day after treatment initiation, stopping when exposure
-stops.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Model\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-Cox proportional hazards model using variable-ratio matching.\strut
-\end{minipage}\tabularnewline
+표적 코호트 Target cohort & 고혈압 치료로 ACE 억제제 초치료를 시작한
+환자 cohort\tabularnewline
+대조 코호트 Comparator cohort & 고혈압 치료로 thiazide 계 이뇨제
+초치료를 시작한 환자 cohort\tabularnewline
+결과 코호트 Outcome cohort & 혈관부종 또는 심근경색이 발생한
+코호트\tabularnewline
+위험노출기간 Time-at-risk & 치료 시작 다음날부터 치료
+중단까지\tabularnewline
+모델 & 일-대-다 매칭 후 콕스 비례위험모형 사용\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -10946,14 +10897,14 @@ comparisons, 분석 설정 analysis settings, 평가 설정 evaluation settings.
 다중 비교 및 다중 분석 설정을 할 수 있으며, ATLAS는 이러한 모든 조합을
 각각의 분석으로 수행한다. 여기서는 각 섹션에 대해 설명한다:
 
-\subsection{비교 코호트 설정}\label{ComparisonSettings}
+\subsection{대조 코호트 설정}\label{ComparisonSettings}
 
-한 연구에는 하나 이상의 비교 대상이 있을 수 있다. ``Add Comparison''을
+한 연구에는 하나 이상의 대조 대상이 있을 수 있다. ``Add Comparison''을
 클릭하면 새 대화 상자가 열린다. 표적 target 및 대조 comparator 코호트를
 선택하려면 \includegraphics{images/PopulationLevelEstimation/open.png}
 을 클릭하면 된다. ``Add Outcome''을 클릭하면, 위에서 정의한 두 개의 결과
 코호트를 추가할 수 있다. \ref{Cohorts}장에서 설명한 대로 이미 코호트가
-생성된 것으로 가정한다. 부록에서 대상군 (부록 \ref{AceInhibitorsMono}),
+생성된 것으로 가정한다. 부록에서 표적군 (부록 \ref{AceInhibitorsMono}),
 대조군 (부록 \ref{ThiazidesMono}), 결과 (부록 \ref{Angioedema}과 부록
 \ref{Ami}) 코호트에 대해 자세히 볼 수 있다. 완료되면 그림
 \ref{fig:comparisons}에서와 같은 창이 생성될 것이다.
@@ -10964,28 +10915,28 @@ comparisons, 분석 설정 analysis settings, 평가 설정 evaluation settings.
 
 }
 
-\caption{비교 dialog}\label{fig:comparisons}
+\caption{대조 dialog}\label{fig:comparisons}
 \end{figure}
 
-하나의 표적-비교 쌍 target-comparator pair에 대해 여러 개의 결과를
+하나의 표적-대조 쌍 target-comparator pair에 대해 여러 개의 결과를
 선택할 수 있다는 점에 주목하자. 각 결과는 독립적으로 처리되며 별도의
 분석이 이루어진다.
 
 \subsubsection*{음성 대조군 결과}\label{--}
 \addcontentsline{toc}{subsubsection}{음성 대조군 결과}
 
-음성 대조군 결과 Negative Control Outcome는 대상군 또는 비교군에 의해
+음성 대조군 결과 Negative Control Outcome는 표적군 또는 대조군에 의해
 야기된 것으로 생각되지 않는 결과이며 (역자 주: 즉, 위험 노출에
 독립적으로 발생한 결과, 예를 들면 고혈압 약물 노출에 따른 항문 용종 발생
 유무는 좋은 음성 대조군이 될 수 있다), 따라서 실제 위험 비는 1과
 동일해야 한다. 이상적으로는 각 결과 코호트에 대해 적절한 코호트 정의를
 가진다고 가정한다. 그러나, 우리는 일반적으로 음성 대조 결과 당 하나의
-개념 모음과 이를 결과 코호트로 변환하는 표준 논리만 가진다. 여기서는
-\ref{MethodValidity}장에서 설명한 대로 개념 모음이 이미 생성되었다고
-가정하고 간단하게 선택할 수 있다. 음성 통제 개념 집합에는 음성 통제 당
-하나의 개념만을 포함해야 하며, \textbf{하위 개념은 포함하지 않아야}
-한다. 그림 \ref{fig:ncConceptSet}은 본 연구에 사용된 음성 대조군 개념
-집합을 보여준다.
+concept set과 이를 결과 코호트로 변환하는 표준 논리만 가진다. 여기서는
+\ref{MethodValidity}장에서 설명한 대로 concept set이 이미 생성되었다고
+가정하고 간단하게 선택할 수 있다. 음성 통제 concept set에는 음성 통제 당
+하나의 concept만을 포함해야 하며, \textbf{하위 개념은 포함하지 않아야}
+한다. 그림 \ref{fig:ncConceptSet}은 본 연구에 사용된 음성 대조군 concept
+set을 보여준다.
 
 \begin{figure}
 
@@ -10993,35 +10944,36 @@ comparisons, 분석 설정 analysis settings, 평가 설정 evaluation settings.
 
 }
 
-\caption{음성 대조군 개념 집합.}\label{fig:ncConceptSet}
+\caption{음성 대조군 concept set}\label{fig:ncConceptSet}
 \end{figure}
 
 \subsubsection*{포함할 개념}\label{-}
 \addcontentsline{toc}{subsubsection}{포함할 개념}
 
-포함할 개념 선택 시, 우리는 성향점수 모델 등에 어떠한 공변량이
-생성되기를 원하는지 선택할 수 있다. 공변량을 지정하면, 모든 다른 공변량
-(선택하지 않은)은 제외된다. 보통 regularized regression을 이용해 환자의
-모든 기저 공변량에 대해 균형을 맞출 수 있는 모델이 만들어지기를 바란다.
-만약 특정 공변량만을 선택하기 원한다면, 그것은 다른 연구자가 직접
-공변량을 골라 수행한 다른 연구를 따라 해 보기를 원해서일 것이다. 가끔
-공변량이 특정한 비교 (비교 시 이미 알고 있는 교란변수) 또는 분석 (특정
-공변량 선택시 그 결과 차이에 대한 평가)에 관련되어 있기 때문에, 그러한
-공변량을 비교 comparison 섹션 또는 분석 analysis 섹션에서 정의할 수
-있다.
+포함할 개념 concepts to include 선택 시, 우리는 성향점수 모델 등에
+어떠한 공변량이 생성되기를 원하는지 선택할 수 있다. 공변량을 지정하면,
+모든 다른 공변량 (선택하지 않은)은 제외된다. 보통 regularized
+regression을 이용해 환자의 모든 기저 공변량에 대해 균형을 맞출 수 있는
+모델이 만들어지기를 바란다. 만약 특정 공변량만을 선택하기 원한다면,
+그것은 다른 연구자가 직접 공변량을 골라 수행한 다른 연구를 따라 해
+보기를 원해서일 것이다. 가끔 공변량이 특정한 비교 (비교 시 이미 알고
+있는 교란변수) 또는 분석 (특정 공변량 선택시 그 결과 차이에 대한 평가)에
+관련되어 있기 때문에, 그러한 공변량을 비교 comparison 섹션 또는 분석
+analysis 섹션에서 정의할 수 있다.
 
 \subsubsection*{배제할 개념}\label{-}
 \addcontentsline{toc}{subsubsection}{배제할 개념}
 
-추가하는 개념보다는 \textbf{배제할} 개념을 지정하는 경우가 많다. 배제할
-개념을 지정하면, 배제할 개념을 제외한 모든 공변량을 사용함을 뜻한다.
-기본 공변량 집합 default set of covariate 설정을 이용하면, 치료 시작
-시의 모든 약물, 시술을 이용하기 때문에, 대상 치료 및 비교 치료에
-해당하거나 이것과 직접적으로 관련된 개념을 배제해야 한다. 예를 들어,
-만약 대상 치료가 약물 정맥 주입 치료라면, 우리는 약물뿐 아니라 정맥 주입
-시술 역시도 성향 점수 모델에서 제외해야 한다. 이 예제에서 우리는 ACEi와
-THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ, 그리고 하위
-개념을 포함하여 배제할 개념 집합을 구성하는 것을 볼 수 있다.
+추가하는 개념보다는 \textbf{배제할} 개념 concepts to exclude을 지정하는
+경우가 많다. 배제할 concept을 지정하면, 배제할 concept을 제외한 모든
+공변량을 사용함을 뜻한다. 기본 공변량 집합 default set of covariate
+설정을 이용하면, 치료 시작 시의 모든 약물, 시술을 이용하기 때문에, 표적
+치료 및 대조 치료에 해당하거나 이것과 직접적으로 관련된 concept을
+배제해야 한다. 예를 들어, 만약 표적 치료가 약물 정맥 주입 치료라면,
+우리는 약물뿐 아니라 정맥 주입 시술 역시도 성향 점수 모델에서 제외해야
+한다. 이 예제에서 우리는 ACEi와 THZ를 배제했다. 그림
+\ref{fig:covsToExclude}에서 ACEi와 THZ, 그리고 하위 concept을 포함하여
+배제할 concept set을 구성하는 것을 볼 수 있다.
 
 \begin{figure}
 
@@ -11029,11 +10981,11 @@ THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ, 그리고
 
 }
 
-\caption{배제할 개념을 정의하는 개념 집합.}\label{fig:covsToExclude}
+\caption{배제할 concept을 정의하는 concept set}\label{fig:covsToExclude}
 \end{figure}
 
-음성 대조군과 배제할 개념을 지정한 후, 비교 섹션의 아래쪽 절반 창은 그림
-\ref{fig:comparisons2}과 같이 보일 것이다.
+음성 대조군과 배제할 concept을 지정한 후, 비교 섹션의 아래쪽 절반 창은
+그림 \ref{fig:comparisons2}과 같이 보일 것이다.
 
 \begin{figure}
 
@@ -11041,7 +10993,7 @@ THZ를 배제했다. 그림 \ref{fig:covsToExclude}에서 ACEi와 THZ, 그리고
 
 }
 
-\caption{음성 대조군에 대한 개념 집합과 배제할 개념을 보여주는 비교 창.}\label{fig:comparisons2}
+\caption{음성 대조군에 대한 concept set과 배제할 concept을 보여주는 비교 창}\label{fig:comparisons2}
 \end{figure}
 
 \subsection{효과 추정 분석 설정}\label{---}
@@ -11054,17 +11006,18 @@ matching''이라고 이름을 지을 수 있다.
 \subsubsection*{연구 집단}\label{-}
 \addcontentsline{toc}{subsubsection}{연구 집단}
 
-분석에 포함할 피험자 집단과 같은 연구 집단을 지정하는데 다양한 옵션이
-있다. 코호트 정의 cohort definition 도구에서 대상 및 대조 코호트를
-설계할 때 사용할 수 있는 옵션과 대부분 겹친다. 코호트 정의 도구 대신에
-Estimation 옵션을 사용하는 한 가지 이유는 재사용성 re-usability이다.
-대상, 대조 및 결과 코호트를 완전히 독립적으로 정의한 후에 이들 사이의
-종속관계를 추가할 수 있다. 예를 들어, 치료 개시 전에 결과가 있었던
-사람을 제외하기를 원한다면, 대상 및 대조 코호트 정의 내에서 그렇게
-설정할 수도 있지만, 그보다는 모든 결과에 대해 별도의 코호트를 작성해야
-한다! 대신에, Estimation 설정에서 이런 결과를 가진 사람을 제거하도록
-선택할 수 있다. 이렇게 함으로써 이제 우리는 (음성 대조군 결과뿐만
-아니라) 두 가지 관심 결과에 대해 대상 및 대조 코호트를 재사용할 수 있다.
+분석에 포함할 피험자 집단과 같은 연구 집단 study population을 지정하는데
+다양한 옵션이 있다. 코호트 정의 cohort definition 도구에서 표적 및 대조
+코호트를 설계할 때 사용할 수 있는 옵션과 대부분 겹친다. 코호트 정의 도구
+대신에 Estimation 옵션을 사용하는 한 가지 이유는 재사용성
+re-usability이다. 표적, 대조 및 결과 코호트를 완전히 독립적으로 정의한
+후에 이들 사이의 종속관계를 추가할 수 있다. 예를 들어, 치료 개시 전에
+결과가 있었던 사람을 제외하기를 원한다면, 표적 및 대조 코호트 정의
+내에서 그렇게 설정할 수도 있지만, 그렇게 한다면 모든 결과 outcome에 대해
+별도의 코호트를 작성해야 한다! 대신에, Estimation 설정에서 이런 결과를
+가진 사람을 제거하도록 선택할 수 있다. 이렇게 함으로써 이제 우리는 (음성
+대조군 결과뿐만 아니라) 두 가지 관심 결과에 대해 표적 및 대조 코호트를
+재사용할 수 있다.
 
 \textbf{연구 시작 및 종료일 study start and end dates}은 분석을 특정
 기간으로 제한하는데 사용할 수 있다. 연구 종료일 또한 위험 노출 기간 risk
@@ -11082,26 +11035,26 @@ yes''라고 설정하면, 새 약물이 데이터베이스에 존재하는 시�
 
 \textbf{``환자별로 첫 번째 위험 노출만 포함하겠는가? Should only the
 first exposure per subject be included?''} 옵션을 사용하여 환자별로 첫
-번째 위 노출만으로 코호트를 제한할 수 있다. 이 옵션은 이번 예제에서처럼
-코호트 정의에서 이미 수행한 경우가 많다. 유사하게, 코호트 정의에
-\textbf{``코호트에 포함될 사람이 기준 날짜 전에 최소 연속적 관측 시기
-The minimum required continuous observation time prior to index date for
-a person to be included in the cohort''} 옵션이 설정된 경우가 많아,
-여기에 0으로 남겨둘 수 있다. 이러한 옵션은 기준 날짜 이전에 관찰된 시간
-(OBSERVATION\_PERIOD 테이블에서 정의된)을 가짐으로써 성향 점수를 계산할
-수 있는 환자에 대한 충분한 정보가 있음을 보장하고, 환자가 이전에 노출된
-적 없는, 치료에 대한 진정한 새로운 사용자 new user임을 보장하기 위해
-자주 사용한다.
+번째 위험 노출만으로 코호트를 제한할 수 있다. 이 옵션은 이번
+예제에서처럼 코호트 정의에서 이미 수행한 경우가 많다. 유사하게, 코호트
+정의에 \textbf{``코호트에 포함될 사람이 기준 날짜 전에 최소 연속적 관측
+시기 The minimum required continuous observation time prior to index
+date for a person to be included in the cohort''} 옵션이 설정된 경우가
+많아, 여기에 0으로 남겨둘 수 있다. 이러한 옵션은 기준 날짜 이전에 관찰된
+시간 (OBSERVATION\_PERIOD 테이블에서 정의된)을 가짐으로써 성향 점수를
+계산할 수 있는 환자에 대한 충분한 정보가 있음을 보장하고, 환자가 이전에
+노출된 적 없는, 치료에 대한 진정한 새로운 사용자 new user임을 보장하기
+위해 자주 사용한다.
 
 \textbf{``만일 피험자가 여러 코호트에 중복되어 포함된다면, 중복포함을
 막기 위해 새로운 위험 노출 기간 시작 시 중도 절단할 것인가? If a subject
 is in multiple cohorts, should time-at-risk be censored when the new
-time-at-risk starts to prevent overlap?''} 하는 옵션과 함께 **``대상 및
-대조 코호트에 모두 포함된 피험자를 제거하겠는가? Remove subjects that
-are in both the target and comparator cohort?** 옵션은 피험자가 대상과
-대조 코호트 양쪽 모두에 포함되어 있을 때 어떻게 할지 정의한다.''대상 및
-대조 코호트에 모두 포함된 피험자를 제거하겠는가?" 옵션에 대해서는 세
-가지 선택 사항이 있다:
+time-at-risk starts to prevent overlap?''} 하는 옵션과 함께
+\textbf{``표적 및 대조 코호트에 모두 포함된 피험자를 제거하겠는가?
+Remove subjects that are in both the target and comparator cohort?''}
+옵션은 피험자가 표적과 대조 코호트 양쪽 모두에 포함되어 있을 때 어떻게
+할지 정의한다. ``표적 및 대조 코호트에 모두 포함된 피험자를
+제거하겠는가?'' 옵션에 대해서는 세 가지 선택 사항이 있다:
 
 \begin{itemize}
 \tightlist
@@ -11125,7 +11078,8 @@ are in both the target and comparator cohort?** 옵션은 피험자가 대상과
 (그림과 같이) 두 번 계산되기 때문에 ``keep all''을 선택하면 특히 문제가
 된다. 만약 절단하기를 선택하면 첫 번째 코호트의 위험 노출 기간은 두 번째
 코호트의 위험 노출 기간이 시작될 때 종료된다 (역자 주: 즉, Keep First를
-선택하면 아래 그림에서 Target TAR censored가 위험 노출 기간으로 설정됨).
+선택하면 그림 \ref{fig:tar} 에서 Target TAR censored가 위험 노출
+기간으로 설정됨).
 
 \begin{figure}
 
@@ -11136,14 +11090,14 @@ are in both the target and comparator cohort?** 옵션은 피험자가 대상과
 \caption{두 코호트에 모두 포함된 피험자의 위험 노출 기간 TAR은 치료 시작 다음 날부터 시작하여 노출 끝에서 멈춘다고 가정한다.}\label{fig:tar}
 \end{figure}
 
-최초의 결과 발생 이후 연속적으로 결과가 추가 발생하는 경우가 종종
-있어서, \textbf{위험 노출 기간이 시작하기 전 결과가 발생한 피험자를 제거
-remove subjects that have the outcome prior to the risk window start} 할
-수도 있다. 예를 들어, 누군가에게 심부전과 같은 만성 질병이 최초로 발생한
-후, 두 번째 발생이 있을 수 있는데, 이는 심부전이 새로 다시
+최초의 결과 outcome 발생 이후 연속적으로 결과가 추가 발생하는 경우가
+종종 있어서, \textbf{위험 노출 기간이 시작하기 전 결과가 발생한 피험자를
+제거 remove subjects that have the outcome prior to the risk window
+start} 할 수도 있다. 예를 들어, 누군가에게 심부전과 같은 만성 질병이
+최초로 발생한 후, 두 번째 발생이 있을 수 있는데, 이는 심부전이 새로 다시
 발생했다기보다는, 이전의 심부전이 완전히 치료되지 않은 상태를 의미할
-가능성이 높다. 한편으로는 어떠한 결과도 일시적일 수도 있다. 예를 들어
-상부 호흡기 감염 upper respiratory infection과 같은 급성 질병이 한
+가능성이 높다. 한편으로는 어떤 결과 outcome은 일시적일 수도 있다. 예를
+들어 상부 호흡기 감염 upper respiratory infection과 같은 급성 질병이 한
 환자에 여러 번 발생한다면, 이는 실제로 독립적인 질병이 시간 간격으로
 두고 발생함을 의미할 수도 있다. \textbf{이전 결과를 확인할 때 며칠
 전까지 검토해야 할지 how many days we should look back when identifying
@@ -11151,7 +11105,7 @@ prior outcomes}를 선택함으로써, 이전에 결과가 있는 사람을 제�
 방법을 선택할 수 있다.
 
 예제 연구에 대한 우리의 선택은 그림 \ref{fig:studyPopulation}과 같다.
-대상 및 대조 `코호트 정의' 시 이미 첫 번째 노출로 한정하고 치료 개시
+표적 및 대조 `코호트 정의' 시 이미 첫 번째 노출로 한정하고 치료 개시
 전에 관찰 시기가 필요하기 때문에 Estimation에서 이러한 기준을 다시
 적용하지 않았다.
 
@@ -11197,7 +11151,7 @@ proportional hazards model)에도 포함될 수 있다. \textbf{공변량 설정
 \subsubsection*{위험 노출 기간}\label{--}
 \addcontentsline{toc}{subsubsection}{위험 노출 기간}
 
-위험 노출 기간은 대상 및 대조 코호트의 시작일과 종료일을 기준으로
+위험 노출 기간은 표적 및 대조 코호트의 시작일과 종료일을 기준으로
 정의된다. 이 예제에서는, 치료 시작일을 코호트 시작일로, 약물 노출이 30일
 이상 중지되면 코호트 종료일이 되도록 설정하였다. 코호트 시작 후 1일 (즉,
 치료 시작 후 1일)을 위험 노출 기간의 시작으로 설정하였다. 치료 시작과
@@ -11252,15 +11206,15 @@ trimming} 수 있다. 상위 또는 하위 비율을 제거하도록 선택하�
 
 트리밍에 추가하여, 또는 트리밍 대신에 성향 점수를 이용해 \textbf{계층화
 stratification}하거나 \textbf{짝짓기 matching}하도록 선택할 수 있다.
-계층화할 때, \textbf{계층의 수 number of strata}를 지정하고, 대상 군,
+계층화할 때, \textbf{계층의 수 number of strata}를 지정하고, 표적군,
 대조군, 또는 전체 연구 집단을 기준으로 계층을 선택할지 여부를 지정해야
-한다. 성향 점수 짝짓기 시, 대상 군의 각 피험자와 일치시키기 위한
+한다. 성향 점수 짝짓기 시, 표적군의 각 피험자와 일치시키기 위한
 대조군에서의 \textbf{최대 피험자 수 짝짓기 비율}을 지정하여야 한다.
-일반적인 값은 one-on-one matching의 경우 1이고, 일-대-다 비율 짝짓기의
-경우 다수 (예를 들어 100) 이다. 또한, 매칭을 허용하는 성향 점수 사이의
-최대 허용 차이를 뜻하는 \textbf{캘리퍼 caliper}를 지정해야 한다:
-캘리퍼는 다음과 같이 서로 다른 \textbf{캘리퍼 척도 caliper scales}로
-정의할 수 있다: \index{caliper!scale}
+일반적인 값은 일대일 매칭 one-on-one matching의 경우 1이고, 일대다 매칭
+variable-ratio matching의 경우 다수 (예를 들어 100) 이다. 또한, 매칭을
+허용하는 성향 점수 사이의 최대 허용 차이를 뜻하는 \textbf{캘리퍼
+caliper}를 지정해야 한다: 캘리퍼는 다음과 같이 서로 다른 \textbf{캘리퍼
+척도 caliper scales}로 정의할 수 있다: \index{caliper!scale}
 
 \begin{itemize}
 \tightlist
@@ -11273,12 +11227,12 @@ stratification}하거나 \textbf{짝짓기 matching}하도록 선택할 수 있�
   정규분포로 만들기 위해 로그 변환한 성향 점수 분포의 표준편차
 \end{itemize}
 
-의심스러운 경우, 기본값을 사용하거나, 이 주제에 대한 \citet{austin_2011}
+잘 모르겠다면, 기본값을 사용하거나, 이 주제에 대한 \citet{austin_2011}
 의 연구를 참고하기를 권장한다.
 
 대규모 성향 점수 모델 large-scale propensity model을 최적화하는 것은
 많은 컴퓨팅 자원을 요구할 수 있어서, 계산 시 샘플링한 자료를 이용하고자
-할 수 있다. 기본 설정상, 대상 및 비교 코호트의 최대 크기는 250,000으로
+할 수 있다. 기본 설정상, 표적 및 대조 코호트의 최대 크기는 250,000으로
 설정되어 있다. 대부분의 연구에서 코호트의 전체 피험자 수가 이 한도에
 도달하지 못할 것이다. 이보다 많은 데이터를 이용한다고 해서 더 나은
 모델로 이어질 가능성은 희박하다. 비록 샘플링한 데이터를 이용해 성향 점수
@@ -11286,7 +11240,7 @@ stratification}하거나 \textbf{짝짓기 matching}하도록 선택할 수 있�
 유의하자.
 
 \textbf{각 공변량이 치료배정과 상관성이 있는지 검사하겠습니까? Test each
-covariate for correlation with the target assignment?)}을 '예 yes'로
+covariate for correlation with the target assignment?}을 '예 yes'로
 설정하면, 만약 어떤 공변량이 치료 배정과 비정상적으로 높은 (양 또는
 음의) 상관관계가 있으면 오류를 발생시키고 프로세스가 중단된다. 이것은
 대규모 성향 점수 모델 계산이 완전히 끝날 때까지 기다리는 것을 방지할 수
@@ -11314,7 +11268,7 @@ regularization가 필요하다. 만약 수동으로 몇 개의 공변량만 사�
 \subsubsection*{결과 모델 설정}\label{--}
 \addcontentsline{toc}{subsubsection}{결과 모델 설정}
 
-먼저, 대상 코호트와 대조 코호트 간 \textbf{결과의 상대 위험도 relative
+먼저, 표적 코호트와 대조 코호트 간 \textbf{결과의 상대 위험도 relative
 risk를 추정하기 위해 사용할 통계 모델을 명시할 필요가 있다.}
 \ref{CohortMethod}절에서 간략히 논의했던 것처럼, 콕스 Cox, 포아송
 Poisson 및 로지스틱 회귀분석 중에서 선택할 수 있다. 예제에서는 콕스 비례
@@ -11325,8 +11279,11 @@ the regression should be conditioned on the strata}를 명시할 필요가
 있다. 쉽게 말하자면, 조건부 conditioning는 각 층 strata 내에서 추정치를
 계산한 다음, 여러 층의 추정치를 결합한 것으로 생각하면 된다. One-to-one
 PS matching에서는 이러한 과정이 불필요할 것이며, 통계적 검정력 감소를
-유발할 것이다. 조건부는 층화 stratification 또는 일-대-다 비율 짝짓기를
-위해서 필요하다. \index{conditioned model}
+유발할 것이다. conditioning는 층화 stratification 또는 일-대-다 비율
+짝짓기 시행시 필요하다.(역자 주: 다시 한 번 말하자면, 일대일 PS 매칭
+시에는 conditioned on the strata 조건을 사용하지 말고, 일대다 매칭 또는
+PS stratification 에는 conditioned on the strata을 사용하기 바란다.)
+\index{conditioned model}
 \index{stratified model|see {conditioned model}}
 
 분석을 보정하기 위해 \textbf{결과 모델 outcome model에 공변량을 추가}할
@@ -11367,15 +11324,16 @@ the regression on the strata (다른 말로 matched sets)를 해야 함에
 \subsubsection*{음성 대조군 결과 코호트 정의}\label{----}
 \addcontentsline{toc}{subsubsection}{음성 대조군 결과 코호트 정의}
 
-\ref{ComparisonSettings}절에서 우리는 음성 대조군을 지정하는 개념 군을
-선택했다. 개념을 지정하는 것뿐 아니라, 분석을 위해서는 개념을 기반으로
-코호트를 생성하는 프로세스가 필요하다. ATLAS는 세 가지 선택 사항을 가진
-표준 프로세스를 제공한다. 첫 번째 선택은 \textbf{모든 발생}을 사용할지
-또는 개념의 \textbf{첫 번째 발생} 만을 사용할지 여부이다. 두 번째 선택은
-\textbf{하위 개념의 발생을 포함할지} 여부를 결정한다. 하위 개념의 발생을
-포함하면, 예를 들어 하위 개념 ``내성 발톱 ingrown nail of foot''의
-발생은 상위 개념 ``내성 손톱 ingrown nail''의 발생으로 간주한다. 세 번째
-선택사항은 개념을 찾을 때 고려할 도메인을 지정한다.
+\ref{ComparisonSettings}절에서 우리는 음성 대조군을 지정하는 concept
+set을 선택했다. concept을 지정하는 것뿐 아니라, 분석을 위해서는
+concept을 기반으로 코호트를 생성하는 프로세스가 필요하다. ATLAS는 세
+가지 선택 사항을 가진 표준 프로세스를 제공한다. 첫 번째 선택은
+\textbf{모든 발생}을 사용할지 또는 concept의 \textbf{첫 번째 발생} 만을
+사용할지 여부이다. 두 번째 선택은 \textbf{하위 개념의 발생을 포함할지}
+여부를 결정한다. 하위 개념의 발생을 포함하면, 예를 들어 하위 개념 ``내성
+발톱 ingrown nail of foot''의 발생은 상위 개념 ``내성 손톱 ingrown
+nail''의 발생으로 간주한다. 세 번째 선택사항은 개념을 찾을 때 고려할
+도메인을 지정한다.
 
 \begin{figure}
 
@@ -11419,7 +11377,7 @@ included}, \textbf{remove people with prior outcomes}). 그림
 
 이제 연구를 완전히 정의했으므로, 실행 가능한 R 패키지로 추출할 수 있다.
 이 패키지에는 CDM 데이터가 있는 사이트에서 연구를 실행하는데 필요한 모든
-것이 들어있다. 여기에는 분석을 실행하기 위한 R 코드뿐만 아니라 대상,
+것이 들어있다. 여기에는 분석을 실행하기 위한 R 코드뿐만 아니라 표적,
 대조 및 결과 코호트, 음성 대조군을 정의하기 위한 개념 군과 코호트 생성
 프로세스가 포함된다. 패키지를 생성하기 전에 연구를 저장한 다음,
 \textbf{Utilities} 탭을 클릭하면, 수행될 일련의 분석을 검토할 수 있다.
@@ -11464,14 +11422,14 @@ ATLAS를 사용하여 연구를 실행하는 R 코드를 작성하는 대신 R �
 \ref{MultipleAnalyses}절에서는 이것이 어떻게 급성 심근경색과 음성 대조군
 결과를 포함하도록 확장될 수 있는지 기술한다.
 
-\subsection{코호트 실체화}\label{-}
+\subsection{코호트 생성}\label{-}
 
-먼저 대상 및 결과 코호트를 실체화 Instantiation해야 한다. 코호트 실체화
-방법은 \ref{Cohorts}장에서 자세히 기술되어 있다. 부록에서 대상 (부록
-\ref{AceInhibitorsMono}), 대조 (부록 \ref{ThiazidesMono}) 및 결과 (부록
-\ref{Angioedema}) 코호트의 정의 전체를 제공한다. ACEi, THZ 및 혈관 부종
-코호트가 \texttt{scratch.my\_cohorts}라고 명명된 테이블에서 코호트 정의
-ID 1, 2, 3을 가지고 함께 실체화되었다고 가정한다.
+먼저 표적, 대조 및 결과 코호트를 생성 Instantiation해야 한다. 코호트
+실체화 방법은 \ref{Cohorts}장에서 자세히 기술되어 있다. 부록에서 표적
+(부록 \ref{AceInhibitorsMono}), 대조 (부록 \ref{ThiazidesMono}) 및 결과
+(부록 \ref{Angioedema}) 코호트의 정의 전체를 제공한다. ACEi, THZ 및 혈관
+부종 코호트가 \texttt{scratch.my\_cohorts}라고 명명된 테이블에서 코호트
+정의 ID 1, 2, 3을 가지고 함께 실체화되었다고 가정한다.
 
 \subsection{데이터 추출}\label{-}
 
@@ -11557,11 +11515,11 @@ CDM 버전 정보를 R에 전달한다. Microsoft SQL Server의 경우 데이터
 함수는
 \href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}
 패키지에 설명되어 있다. 간단히 말해, 코호트를 포함하는 테이블에 함수를
-지정하고 해당 테이블의 cohort definition ID가 대상, 대조 및 결과
+지정하고 해당 테이블의 cohort definition ID가 표적, 대조 및 결과
 코호트를 식별하도록 지정한다. index data 당일 혹은 이전에 발견된 모든
 진단명, 약물 노출, 시술 기록에 대한 공변량을 포함하여 공변량의 기본
 모음을 구성하도록 지시한다. \ref{CohortMethod}절에서 언급했듯이, 공변량
-집합에서 대상 및 대조 치료를 배제하여야 하며, 이 예제에서는 두 가지의
+집합에서 표적 및 대조 치료를 배제하여야 하며, 이 예제에서는 두 가지의
 약물군에 해당하는 성분명 ingredient을 나열하여 이를 달성한다. 또한,
 FeatureExtraction에 모든 하위 개념을 배제하도록 지시하여 나열된 성분을
 포함하는 모든 약물 노출을 공변량에서 제외한다.
@@ -11571,7 +11529,7 @@ FeatureExtraction에 모든 하위 개념을 배제하도록 지시하여 나열
 패키지를 사용하여 \ref{BigDataSupport}절에서 언급한 것처럼 데이터가
 크더라도, R이 메모리를 모두 소모하지 않도록 보장한다.
 
-generic \texttt{summary()} 함수를 사용하여 추출한 데이터에 대한 추가
+일반 함수 \texttt{summary()} 를 사용하여 추출한 데이터에 대한 추가
 정보를 볼 수 있다:
 
 \begin{Shaded}
@@ -11616,8 +11574,8 @@ generic \texttt{summary()} 함수를 사용하여 추출한 데이터에 대한 
 \subsubsection*{새로운 사용자 정의하기}\label{--}
 \addcontentsline{toc}{subsubsection}{새로운 사용자 정의하기}
 
-일반적으로 \textbf{새로운 사용자 new user}는 해당 약물 (대상군 또는
-비교군 내에서)의 최초 사용으로 정의되며, 최초 사용을 보장하는 확률을
+일반적으로 \textbf{새로운 사용자 new user}는 해당 약물 (표적군 또는
+대조군 내에서)의 최초 사용으로 정의되며, 최초 사용을 보장하는 확률을
 높이기 위해 최초 사용 이전의 최소 기간을 뜻하는 휴약기간 washout
 period를 사용할 수 있다. CohortMethod 패키지를 사용할 때 다음 세 가지
 방법으로 새로운 사용자를 정의할 수 있다.
@@ -11642,16 +11600,16 @@ period를 사용할 수 있다. CohortMethod 패키지를 사용할 때 다음 �
 방법의 장점은 CDM에서 DRUG\_ERA 테이블을 직접 사용할 수 있는 등, 새로운
 사용자를 정의하는 데 생기는 문제를 줄여준다는 것이다. 최초 사용에 대한
 데이터만 가져올 것이기 때문에 두 번째 방법이 세 번째 방법보다 더
-효율적이다. 세 번째 방법이 덜 효율적이긴 하지만, 원래 코호트를 연구
-대상군과 비교할 수 있다.
+효율적이다. 세 번째 방법이 컴퓨터 메모리 측면에서 덜 효율적이긴 하지만,
+원래 코호트를 연구 대상군과 비교할 수 있다.
 
 \subsection{연구군 정의}\label{-}
 
-일반적으로, 노출 코호트와 결과 코호트는 서로 독립적으로 정의된다. 효과
-크기 추정치를 생성하려면 노출 전에 결과가 있는 피험자는 제거하고 정의한
-위험 노출 기간 risk window에 발생하는 결과 만을 고려하는 등의 방법을
-추가해야 한다. 이를 위하여 \texttt{createStudyPopulation} 함수를 사용할
-수 있다.
+일반적으로, 표적, 대조 코호트와 결과 코호트는 서로 독립적으로 정의된다.
+효과 크기 추정치를 생성하려면 노출 전에 결과가 있는 피험자는 제거하고
+정의한 위험 노출 기간 risk window에 발생하는 결과 만을 고려하는 등의
+방법을 추가해야 한다. 이를 위하여 \texttt{createStudyPopulation} 함수를
+사용할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11770,7 +11728,7 @@ on the matched set을 이용하였다.
 설명(\href{https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html}{package
 vignette on running multiple analyses})에 자세히 설명되어 있다. 간단히
 말해서 먼저 필요한 코호트가 모두 생성되어 있다면, 분석하고자 하는 모든
-대상-대조-결과 조합을 미리 지정하여 한꺼번에 실행 할 수 있다.
+표적-대조-결과 조합을 미리 지정하여 한꺼번에 실행 할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11935,7 +11893,7 @@ ATLAS로 생성된 R 패키지를 이용한 결과에 자동으로 포함되어 
 
 \subsection{성향 점수 및 모델}\label{---}
 
-성향 점수 기반의 짝짓기 이후 먼저 대상 코호트와 비교 코호트가 어느 정도
+성향 점수 기반의 짝짓기 이후 먼저 표적 코호트와 대조 코호트가 어느 정도
 비슷한지를 평가할 필요가 있다. 이를 위해 성향 점수 모델에 대한 Area
 Under the Receiver Operator Curve(AUC) 통계값을 계산할 수 있다. AUC 1은
 기저 공변량에 근거해 치료배정이 완전히 예측 가능하다는 것을 나타내므로,
@@ -11963,15 +11921,16 @@ distribution를 생성할 수도 있다. 많은 피험자에 대해 그들이 �
 것이다. \index{propensity model!example}
 
 \begin{longtable}[]{@{}rl@{}}
-\caption{\label{tab:psModel} Top 10 predictors in the propensity model for
-ACEi and THZ. Positive values mean subjects with the covariate are more
-likely to receive the target treatment. ``(Intercept)'' indicates the
-intercept of this logistic regression model.}\tabularnewline
+\caption{\label{tab:psModel} ACEi와 THZ 비교 성향점수모델에서 상위 10개의
+예측인자. 베타 beta (기울기) 가 양수인 것은 해당 공변량이 있을 경우 표적
+치료 target treatment 군에 배정될 확률이 높다는 것을 의미한다.
+``(Intercept)'' 는 로지스틱 회귀 모델의 y 절편값을
+의미한다.}\tabularnewline
 \toprule
 \begin{minipage}[b]{0.07\columnwidth}\raggedleft\strut
 Beta\strut
 \end{minipage} & \begin{minipage}[b]{0.87\columnwidth}\raggedright\strut
-Covariate\strut
+공변량\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
@@ -11979,7 +11938,7 @@ Covariate\strut
 \begin{minipage}[b]{0.07\columnwidth}\raggedleft\strut
 Beta\strut
 \end{minipage} & \begin{minipage}[b]{0.87\columnwidth}\raggedright\strut
-Covariate\strut
+공변량\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
@@ -12045,7 +12004,7 @@ gender = MALE\strut
 \BeginKnitrBlock{rmdimportant}
 만약 어떤 변수가 매우 예측적 `highly predictive' 이라면, 두 가지 결론을
 내릴 수 있다. 하나는 변수가 노출과 매우 밀접한 관계가 있기 때문에 모델
-적합 전에 제외해야 한다든가, 또는 대상군과 대조군이 실제로 비교가
+적합 전에 제외해야 한다든가, 또는 표적군과 대조군이 실제로 비교가
 불가능하기 때문에 분석을 멈추어야 한다는 것이다.
 \EndKnitrBlock{rmdimportant}
 
@@ -12087,7 +12046,7 @@ means을 가져서는 안 된다는 것이다. 여기서는 성향점수 짝짓�
 
 }
 
-\caption{Attrition diagram. 맨 위에 표시된 계수는 우리의 목표와 대조군 코호트 정의를 충족하는 계수이다. 하단의 계수는 결과 모델에 입력되는 계수로서, 이 경우는 콕스 회귀 분석이다.}\label{fig:attrition}
+\caption{Attrition diagram. 맨 위에 표시된 개수는 우리의 목표와 대조군 코호트 정의를 충족하는 개수이다. 하단의 개수는 결과 모델에 입력되는 개수로서, 이 경우는 콕스 회귀 분석이다.}\label{fig:attrition}
 \end{figure}
 
 후향적 연구에서 표본 크기가 고정되어 있고 (데이터가 이미 수집된
@@ -12109,7 +12068,7 @@ follow-up time이 비슷하다는 것을 의미한다.
 
 }
 
-\caption{대상 및 대조군 코호트의 추적 시간 분포.}\label{fig:followUp}
+\caption{표적 및 대조군 코호트의 추적 시간 분포.}\label{fig:followUp}
 \end{figure}
 
 \subsection{Kaplan-Meier}\label{kaplan-meier}
@@ -12119,10 +12078,9 @@ follow-up time이 비슷하다는 것을 의미한다.
 함수를 사용하여 그림 \ref{fig:kmPlot}를 만들 수 있는데, 여기서 예를 들면
 위험 비례 가정이 성립하는지 확인할 수 있다. Kaplan-Meier plot은
 성향점수별로 층화 또는 가중치를 자동으로 조정한다. 이 경우, 일-대-다
-비율 짝짓기를 사용했으므로, 대조군의 생존 곡선이 조정되어 대상 군이 대조
-약물에 노출되었을 경우 대상 군의 생존 곡선이 어떤 모습인지 모방하여
-그려진다. \index{Kaplan-Meier plot}
-\index{survival plot|see {Kaplan-Meier plot}}
+비율 짝짓기를 사용했으므로, 대조군의 생존 곡선이 조정되어 표적 군이 대조
+약물에 노출되었을 경우 생존 곡선이 어떤 모습인지 모방하여 그려진다.
+\index{Kaplan-Meier plot} \index{survival plot|see {Kaplan-Meier plot}}
 
 \begin{figure}
 
@@ -12152,8 +12110,8 @@ ACEi가 THZ와 비교하여 혈관 부종의 위험을 증가시키는 것을 �
   인구 수준 추정은 관찰형 데이터의 인과 관계를 추론하는 것을 목적으로
   한다.
 \item
-  \textbf{반사실 counterfactual}, 즉 피험자가 만일 치료제에 노출되지
-  않았다거나, 또는 다른 대체 약물에 노출되었다면 어떤 일이
+  \textbf{반사실 counterfactual}, 즉 피험자가 만일 표적 치료제에
+  노출되지 않았다거나, 또는 다른 대체 약물에 노출되었다면 어떤 일이
   벌어졌을까라고 하는 것은 관찰할 수 없다.
 \item
   각 연구 설계는 서로 다른 방식으로 반사실을 구성하는 것을 목적으로
