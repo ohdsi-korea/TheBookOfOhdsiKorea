@@ -496,7 +496,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>15.3.1</b> 매핑 검사하기</a></li>
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES 실습</a></li>
-<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard 실습 (Data Quality Dashboard in Practice)</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard 실습</a></li>
 <li class="chapter" data-level="15.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>15.6</b> 연구별 검사 실습</a></li>
 <li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#-13"><i class="fa fa-check"></i><b>15.7</b> 요약</a></li>
 <li class="chapter" data-level="15.8" data-path="Characterization.html"><a href="Characterization.html#-9"><i class="fa fa-check"></i><b>15.8</b> 예제</a></li>
@@ -673,7 +673,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">15.1</span> 데이터 품질 문제에 대한 원인</h2>
 <p><a href="EvidenceQuality.html#EvidenceQuality">14</a>장에서 언급한 바와 같이, 의사들이 본인의 생각을 기록할 때 데이터 품질과 관련된 많은 위험요소가 발생한다. <span class="citation">Dasu and Johnson (<a href="#ref-dasu_2003">2003</a>)</span> 은 데이터의 수명 주기에 따른 단계를 명시하였고, 각 단계를 통합한 DQ 진행을 제시하였다. 그들은 이를 DQ 연속체 DQ continuum라 하였다:</p>
 <ol style="list-style-type: decimal">
-<li><strong>데이터 수집 및 통합 Data gathering and integration</strong>. 자료의 수기 입력 시 오류와 비뚤림 등의 발생 가능한 문제 (예를 들어 upcoding in claims; 청구를 위하여 진단명과 시술 등을 보다 심각하게 혹은 높은 비용으로 작성하는 것), EHR에서 잘못된 테이블 간의 결합, 결측값을 기본값으로 대체하는 것 등을 포함한다.</li>
+<li><strong>데이터 수집 및 통합 Data gathering and integration</strong>. 자료의 수기 입력 시 오류와 비뚤림 등의 발생 가능한 문제 (예를 들어 upcoding in claims; 청구를 위하여 없는 진단명을 추가하는 등), EHR에서 잘못된 테이블 간의 결합, 결측값을 기본값으로 대체하는 것 등을 포함한다.</li>
 <li><strong>데이터 저장 및 지식 공유 Data storage and knowledge sharing</strong>. 데이터 모델에 대한 문서화 부족, 메타 데이터의 부족이 잠재적인 문제로 여겨진다.</li>
 <li><strong>데이터 분석 Data analysis</strong>. 잘못된 데이터 변환, 부정확한 데이터 해석, 그리고 부적절한 방법론 사용 등의 문제가 포함될 수 있다.</li>
 <li><strong>데이터 공유 Data publishing</strong>. 후속 사용을 위해 데이터를 게시하는 경우 (When publishing data for downstream use).</li>
@@ -765,7 +765,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>DQ 확인 도구는 여러 가지 방법으로 구성되며 테이블, 필드, concept 수준의 확인이 예시가 될 수 있다. 테이블 점검은 CDM 내에서 상위 수준에서 수행되는 점검으로 예를 들면 모든 필수 테이블이 존재하는지를 확인하는 것이다. 필드 수준의 확인은 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는 방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과 모든 표준 concept 필드가 수많은 concept_ID 중 적절한 도메인의 concept_ID를 사용하는지 확인하는 것이 포함된다. Concept 수준의 검사는 개별적인 concept_id를 확인하기 위해 조금 더 깊이 들어간다. 이 중 상당수가 Kahn의 프레임워크 중 타당성 Plausibility 항목에 해당하며 성별과 관련된 특정 개념이 부적절한 성별에 할당되지 않도록 보장하는 것이 예시로 해당된다 (예를 들어 여성 환자에서 전립선암).</p>
+<p>DQ 확인 도구는 여러 가지 방법으로 구성되며 테이블, 필드, concept 수준의 확인이 예시가 될 수 있다. 테이블 점검은 CDM 내에서 상위 수준에서 수행되는 점검으로 예를 들면 모든 필수 테이블이 존재하는지를 확인하는 것이다. 필드 수준의 확인은 모든 테이블의 모든 필드가 CDM 규격에 적합한지 평가하는 방법으로 수행된다. 이는 모든 기본 키가 실제로 고유한지 확인하는 것과 모든 표준 concept 필드가 수많은 CONCEPT_ID 중 적절한 도메인의 CONCEPT_ID 사용하는지 확인하는 것이 포함된다. Concept 수준의 검사는 개별적인 CONCEPT_ID를 확인하기 위해 조금 더 깊이 들어간다. 이 중 상당수가 Kahn의 프레임워크 중 타당성 Plausibility 항목에 해당하며 성별과 관련된 특정 개념이 부적절한 성별에 할당되지 않도록 보장하는 것이 예시로 해당된다 (예를 들어 여성 환자에서 전립선암).</p>
 
 <div class="rmdimportant">
 <p>ACHILLES와 DQD는 CDM 데이터를 대상으로 실행된다. 이렇게 식별된 DQ 문제는 CDM으로의 변환 과정이 원인일 수 있지만, 원천 데이터 상에서 이미 존재하는 DQ 문제를 반영할 수도 있다. 만일 변환 과정의 문제로 확인되는 경우 일반적으로 문제 해결을 연구자의 역량 내에서 진행할 수 있지만, 원천 데이터의 오류로 인한 문제의 유일한 조치는 오류 데이터 자체를 삭제하는 것이다.</p>
@@ -830,15 +830,15 @@ Figure 15.1: Rabbit-in-a-Hat 테스팅 프레임워크를 사용한 ETL 단위 �
 <p>또 다른 평가는 연구를 위해 설정된 코호트 정의를 사용해 생성된 코호트 결과에 대한 유병률과 시간에 따른 유병률의 변화를 검토하고 이것이 외부 임상 지식에 기반한 예상값과 일치하는지 확인하는 것이다. 예를 들어, 신약의 노출은 시장에 소개되기 전에는 없어야 하고, 도입 이후에 시간이 지남에 따라 증가할 가능성이 있다. 유사하게 결과에 대한 유병률은 모집단에서 질환의 유병률에 대해 알려진 것과 일치해야 한다. 만약 연구가 데이터베이스의 네트워크에서 실행한다면, 우리는 데이터베이스 간의 코호트 유병률을 비교할 수 있다. 한 데이터베이스에서 높은 유병률을 보이지만, 다른 데이터베이스에서는 누락된 경우, DQ 문제가 있을 수 있다. 이러한 평가는 <a href="ClinicalValidity.html#ClinicalValidity">16</a>장에서 논의한 바와 같이, <em>임상적 타당성 clinical validity</em>의 개념과 중복된다는 것을 유의해야 한다. 몇몇 데이터베이스에서는 예상하지 못한 유병률 결과가 나올 수가 있는데, 이는 DQ 문제가 아니라 코호트 정의에서 연구 주제와 부합하는 건강 상태를 온전히 잡아내지 못했거나 데이터베이스마다 환자 모집단이 상이하여 발생할 수 있다.</p>
 <div id="-" class="section level3">
 <h3><span class="header-section-number">15.3.1</span> 매핑 검사하기</h3>
-<p>우리가 통제할 수 있는 오류의 원인 중 한 가지는 원천 코드를 표준 concept에 매핑하는 것이다. 용어 매핑은 정교하게 제작되었으며, 매핑 상의 문제가 있다면 공동체 구성원에 의해 발견되어<a href="#fn53" class="footnoteRef" id="fnref53"><sup>53</sup></a>에 보고 된후 다음 업데이트에 반영된다. 그런데도 모든 매핑을 직접 확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기 때문에, 연구를 수행할 때 연구와 관련 있는 concept의 매핑을 검토해보는 것을 권장한다. 다행히도, CDM에서 표준 용어(Concept)뿐만 아니라 원천 코드도 같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 원천 코드뿐만 아니라 그렇지 않은 원천 코드도 검토할 수 있다.</p>
-<p>원천 코드를 검토하는 방법 중 하나는 <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> R 패키지의 <code>checkCohortSourceCodes</code> 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 코호트 정의를 입력 input으로 사용하고 코호트 정의에서 사용된 각 concept 모음에 대해 concept과 매핑되는 원천 코드를 확인한다. 또한 전체 기간에 대한 코드의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제를 확인하는 데 도움이 될 수 있다. 그림 <a href="DataQuality.html#fig:sourceCodes">15.2</a> 예시 결과는 “우울증 Depression disorder”이라 불리는 concept 모음의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 모음의 가장 보편적인 concept은 <a href="http://athena.ohdsi.org/search-terms/terms/440383">440383</a> (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세 가지 코드가 해당 concept으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 concept은 시간이 지남에 따라 초반에는 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합된 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 (“주요 우울 장애, 단일 에피소드, 불특정”)도 이 concept으로 매핑돼야 했었기 때문이다. 이 문제는 Vocabulary에서 해결되었다.</p>
+<p>우리가 통제할 수 있는 오류의 원인 중 한 가지는 원천 용어 코드를 표준 concept에 매핑하는 것이다. 용어 매핑은 정교하게 제작되었으며, 매핑 상의 문제가 있다면 공동체 구성원에 의해 발견되어<a href="#fn53" class="footnoteRef" id="fnref53"><sup>53</sup></a>에 보고 된후 다음 업데이트에 반영된다. 그런데도 모든 매핑을 직접 확인하는 것은 불가능하고 오류가 계속 존재할 수 있다. 그렇기 때문에, 연구를 수행할 때 연구와 관련 있는 concept의 매핑을 검토해보는 것을 권장한다. 다행히도, CDM에서 표준 용어 Concept뿐만 아니라 원천 코드도 같이 저장하기 때문에 이러한 작업은 쉽게 할 수 있다. 연구에 사용된 concept에 매핑된 원천 코드뿐만 아니라 그렇지 않은 원천 코드도 검토할 수 있다.</p>
+<p>원천 코드를 검토하는 방법 중 하나는 <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> R 패키지의 <code>checkCohortSourceCodes</code> 함수를 사용하는 것이다. 이 함수는 ATLAS에서 생성된 코호트 정의를 입력 input으로 사용하고 코호트 정의에서 사용된 각 concept 모음에 대해 concept과 매핑되는 원천 코드를 확인한다. 또한 전체 기간에 대한 코드의 빈도를 계산하여 특정 코드에서 발생하는 시간적인 문제를 확인하는 데 도움이 될 수 있다. 그림 <a href="DataQuality.html#fig:sourceCodes">15.2</a> 예시 결과는 “우울증 Depression disorder”이라 불리는 concept 모음의 분석을 보여준다. 관심 분야의 데이터베이스에서 이 concept 모음의 가장 보편적인 concept은 <a href="http://athena.ohdsi.org/search-terms/terms/440383">440383</a> (우울증; Depressive disorder)이다. 데이터베이스 내의 ICD-9 코드의 3.11, ICD-10 코드의 F32.8과 F32.89 이 세 가지 코드가 해당 concept으로 매핑이 된 걸 볼 수 있다. 그림의 왼쪽부터 보면 전체로서의 concept은 시간이 지남에 따라 초반에는 증가하지만, 그 후에 급격히 감소하는 것을 볼 수 있다. 개별 코드를 살펴보면, 이러한 하락은 하락 시점에 ICD-9 코드의 사용이 중단되는 것으로 설명될 수 있다는 것을 알 수 있다. 이것이 ICD-10 코드가 사용되기 시작한 것과 같은 시간임에도 불구하고, 결합된 ICD-10 코드의 빈도가 ICD-9 코드의 빈도보다 훨씬 적다. 이 구체적인 예시는 ICD-10 코드 F32.9 (“주요 우울 장애, 단일 에피소드, 불특정”)도 이 concept으로 매핑돼야 했었기 때문이다. 이 문제는 vocabulary에서 해결되었다.</p>
 <div class="figure" style="text-align: center"><span id="fig:sourceCodes"></span>
 <img src="images/DataQuality/sourceCodes.png" alt="checkCohortSourceCodes 기능의 output 예시. " width="100%" />
 <p class="caption">
 Figure 15.2: checkCohortSourceCodes 기능의 output 예시.
 </p>
 </div>
-<p>앞의 예시는 매핑되지 않은 원천 코드를 발견하는 것을 묘사한 것으로, 일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는 것 보다 더 어렵다. 이는 어떤 원천 코드가 매핑되어야 하지만 매핑되지 않았는지 알아야 한다. 이를 평가하는 반-자동화된 방법은 <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> R 패키지의 <code>findOrphanSourceCodes</code> 함수를 사용하는 것이다. 이 함수는 간단한 텍스트 검색을 통해 원천 코드에 대한 Vocabulary를 검색할 수 있게 하고, 이 원천 코드가 특정 concept이나 그 concept의 하위 concept 중 하나와 매핑되는지 여부를 확인한다. 원천 코드의 결과는 현재 CDM 데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, “괴저 장애 Gangrenous disorder” (<a href="http://athena.ohdsi.org/search-terms/terms/439928">439928</a>) 와 모든 하위 concept은 모든 괴저 발생을 찾기 위해 사용되었다. 이것이 실제로 괴저를 나타내는 모든 원천 코드를 포함하는지 여부를 평가하기 위해, 원천 코드를 식별하기 위한 CONCEPT 테이블과 SOURCE_TO_CONCEPT_MAP 테이블의 설명을 검색하는데 몇 가지 용어 (예를 들어 “괴저 gangrene”)가 사용되었다. 자동 검색은 데이터에 나타나는 각 괴저 코드가 “괴저 장애”라는 concept에 직접 또는 간접적으로 매핑되었는지 여부를 평가하기 위해 사용된다. 이러한 평가의 결과는 그림 <a href="DataQuality.html#fig:missingMapping">15.3</a>과 같으며, ICD-10 코드 J85.0 (“폐의 괴저 및 괴사”; Gangrene and necrosis of lung)은 “괴저 장애의 하위 concept이 아닌 concept <a href="http://athena.ohdsi.org/search-terms/terms/4324261">4324261</a> (”폐 괴사“; Pulmonary necrosis)에만 매핑된 것을 알게 되었다. </p>
+<p>앞의 예시는 매핑되지 않은 원천 용어 코드를 발견하는 것을 묘사한 것으로, 일반적으로 누락된 매핑을 식별하는 것이 존재하는 매핑을 확인하는 것 보다 더 어렵다. 매핑 되어야 하는 원천 용어 코드 중 매핑 되지 않은 것을 알아야 한다. 이를 평가하는 반-자동화된 방법은 <a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a> R 패키지의 <code>findOrphanSourceCodes</code> 함수를 사용하는 것이다. 이 함수는 간단한 텍스트 검색을 통해 원천 용어 코드에 대한 Vocabulary를 검색할 수 있게 하고, 이 원천 용어 코드가 특정 concept이나 그 concept의 하위 concept 중 하나와 매핑되는지 여부를 확인한다. 원천 코드의 결과는 현재 CDM 데이터베이스에 나타나는 코드로만 제한된다. 예를 들어, “괴저 장애 Gangrenous disorder” (<a href="http://athena.ohdsi.org/search-terms/terms/439928">439928</a>) 와 모든 하위 concept은 모든 괴저 발생을 찾기 위해 사용되었다. 이것이 실제로 괴저를 나타내는 모든 원천 코드를 포함하는지 여부를 평가하기 위해, 원천 코드를 식별하기 위한 CONCEPT 테이블과 SOURCE_TO_CONCEPT_MAP 테이블의 설명을 검색하는데 몇 가지 용어 (예를 들어 “괴저 gangrene”)가 사용되었다. 자동 검색은 데이터에 나타나는 각 괴저 코드가 “괴저 장애”라는 concept에 직접 또는 간접적으로 매핑되었는지 여부를 평가하기 위해 사용된다. 이러한 평가의 결과는 그림 <a href="DataQuality.html#fig:missingMapping">15.3</a>과 같으며, ICD-10 코드 J85.0 (“폐의 괴저 및 괴사”; Gangrene and necrosis of lung)은 “괴저 장애의 하위 concept이 아닌 concept <a href="http://athena.ohdsi.org/search-terms/terms/4324261">4324261</a> (”폐 괴사“; Pulmonary necrosis)에만 매핑된 것을 알게 되었다. </p>
 <div class="figure" style="text-align: center"><span id="fig:missingMapping"></span>
 <img src="images/DataQuality/missingMapping.png" alt="orphan 원천 코드 예시. " width="70%" />
 <p class="caption">
@@ -888,12 +888,12 @@ Figure 15.5: ACHILLES 웹 뷰어에서 코딩된 월별 당뇨병 발생률.
 </div>
 </div>
 <div id="dqdInPractice" class="section level2">
-<h2><span class="header-section-number">15.5</span> Data Quality Dashboard 실습 (Data Quality Dashboard in Practice)</h2>
+<h2><span class="header-section-number">15.5</span> Data Quality Dashboard 실습</h2>
 <p>여기에서는 CDM 형식의 데이터베이스에서 Data Quality Dashboard를 실행하는 방법을 보여준다. <a href="DataQuality.html#achillesInPractice">15.4</a>절에서 설명한 CDM conncection에 대해 더 많은 checks를 수행한다. 현재 DQD는 CDM v5.3.1만 지원하기 때문에 실행 전 데이터베이스가 올바른 버전인지 확인이 필요하다. ACHILLES와 마찬가지로 <code>cdmDbSchema</code>를 작성하여 데이터를 찾을 위치를 R에 입력해야 한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cdmDbSchema &lt;-<span class="st"> &quot;my_cdm_data.dbo&quot;</span></code></pre></div>
 <p>다음으로, Dashboard를 실행한다…</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DataQualityDashboard<span class="op">::</span><span class="kw">executeDqChecks</span>(<span class="dt">connectionDetails =</span> connectionDetails, 
-                                      <span class="dt">cdmDatabaseSchema =</span> cdmDbSchema, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DataQualityDashboard<span class="op">::</span><span class="kw">executeDqChecks</span>(<span class="dt">connectionDetails =</span> connectionDetails,
+                                      <span class="dt">cdmDatabaseSchema =</span> cdmDbSchema,
                                       <span class="dt">resultsDatabaseSchema =</span> cdmDbSchema,
                                       <span class="dt">cdmSourceName =</span> <span class="st">&quot;My database&quot;</span>,
                                       <span class="dt">outputFolder =</span> <span class="st">&quot;My output&quot;</span>)</code></pre></div>
@@ -933,7 +933,7 @@ sql &lt;-<span class="st"> </span><span class="kw">readChar</span>(<span class="
 Figure 15.8: Angioedema 코호트 정의에서 사용된 원천 코드.
 </p>
 </div>
-<p>다음으로, 표준 concept 코드에 매핑되지 않은 원천 코드인 orphan 원천 코드를 검색할 수 있다. 표준 concept인 “혈관 부종 Angioedema”을 찾은 다음 “혈관 부종” 또는 그 이름이 일부 포함되어 있거나 동의어가 있는 concept과 코드를 찾는다:</p>
+<p>다음으로, 표준 concept 코드에 매핑되지 않은 원천 코드인 orphan 원천 용어 코드를 검색할 수 있다. 표준 concept인 “혈관 부종 Angioedema”을 찾은 다음 “혈관 부종” 또는 그 이름이 일부 포함되어 있거나 동의어가 있는 concept과 코드를 찾는다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">orphans &lt;-<span class="st"> </span><span class="kw">findOrphanSourceCodes</span>(connectionDetails,
                                  <span class="dt">cdmDatabaseSchema =</span> cdmDbSchema,
                                  <span class="dt">conceptName =</span> <span class="st">&quot;Angioedema&quot;</span>,
@@ -1000,7 +1000,7 @@ Figure 15.8: Angioedema 코호트 정의에서 사용된 원천 코드.
 <li><p>대부분의 관찰형 의료 데이터는 연구를 위해 수집되지 않는다.</p></li>
 <li><p>데이터 품질은 데이터가 연구 목적에 적합한지를 확인하기 위해 평가되어야 한다.</p></li>
 <li><p>보편적인 연구 목적을 위해, 특정 연구의 맥락에서 비판적으로 데이터 품질을 평가해야 한다.</p></li>
-<li><p>데이터 품질의 일부 측면은 데이터 품질 Dashboard의 예시와 같이 사전 정의된 많은 규칙을 통해 자동적으로 평가될 수 있다.</p></li>
+<li><p>데이터 품질의 일부 측면은 Data Quality Dashboard의 예시와 같이 사전 정의된 많은 규칙을 통해 자동적으로 평가될 수 있다.</p></li>
 <li>특정 연구와 관련된 코드 매핑을 평가하기 위한 다른 도구가 있다.</li>
 </ul>
 </div>

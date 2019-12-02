@@ -496,7 +496,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15.3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>15.3.1</b> 매핑 검사하기</a></li>
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.4</b> ACHILLES 실습</a></li>
-<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard 실습 (Data Quality Dashboard in Practice)</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#dqdInPractice"><i class="fa fa-check"></i><b>15.5</b> Data Quality Dashboard 실습</a></li>
 <li class="chapter" data-level="15.6" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>15.6</b> 연구별 검사 실습</a></li>
 <li class="chapter" data-level="15.7" data-path="DataQuality.html"><a href="DataQuality.html#-13"><i class="fa fa-check"></i><b>15.7</b> 요약</a></li>
 <li class="chapter" data-level="15.8" data-path="Characterization.html"><a href="Characterization.html#-9"><i class="fa fa-check"></i><b>15.8</b> 예제</a></li>
@@ -917,7 +917,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>예를 들면:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sql &lt;-<span class="st"> &quot;SELECT * FROM #children;&quot;</span>
 <span class="kw">translate</span>(sql, <span class="dt">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="dt">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.t7y1ay7achildren ;&quot;</code></pre>
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.rcxahsu5children ;&quot;</code></pre>
 <p>사용자는 <code>temp_schema</code>에 대한 쓰기 권한이 있어야 한다.</p>
 <p>또한 Oracle은 테이블 이름이 30자로 제한되어 있다. 세션 아이디를 추가한 후 이름이 너무 길어지기 때문에 <strong>임시 테이블 이름은 최대 22자까지만 허용된다</strong>.</p>
 <p>그뿐만 아니라 Oracle의 임시 테이블은 자동 삭제되지 않으므로 Oracle에 임시 테이블 스키마가 쌓이는 것을 방지하기 위해 모든 임시 테이블을 사용한 후에는 명시적으로 <code>TRUNCATE</code> 및 <code>DROP</code>을 해야 한다.</p>
