@@ -1,7 +1,7 @@
 ---
 title: "오딧세이 바이블 The Book of OHDSI"
 author: "한국 오딧세이"
-date: "2019-12-01"
+date: "2019-12-02"
 classoption: 10.5pt
 linestretch: 1.5
 geometry:

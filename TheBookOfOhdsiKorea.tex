@@ -128,7 +128,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-12-01}
+    \date{2019-12-02}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -6644,25 +6644,25 @@ OHDSIonAWS는 기관이 그들의 데이터 분석을 수행하는 데 사용할
 
 \emph{Chapter leads: Martijn Schuemie \& Peter Rijnbeek}
 
-공통 데이터 모델Common Data Model(CDM)은 모든 데이터가 필드가 있는
+공통 데이터 모델 Common Data Model(CDM)은 모든 데이터가 필드가 있는
 테이블의 레코드로 표시되는 관계형 데이터베이스 모델이다. 이는 일반적으로
 PostgreSQL, Oracle, Microsoft SQL Server와 같은 소프트웨어 플랫폼을
 사용하여 데이터가 관계형 데이터베이스에 저장된다는 것을 의미한다.
 사용자는 ATLAS와 Methods Library 같은 다양한 OHDSI 도구를 통해
-데이터베이스에 간접적으로 질의하여 분석을 수행하지만, 적절한 접근 권한이
-있으면 이 도구를 사용하지 않고 직접 데이터베이스에 질의할 수도 있다.
-데이터베이스에 직접 질의하는 주된 이유는 현재 기존 도구가 지원하지 않는
-분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를
-적절하게 분석을 할 수 있도록 (전문가가 오랜 시간 고려하여 만든) 지침을
-안내하도록 설계되어 있어서 직접 데이터베이스에 질의하는 것은 실수를 범할
-위험이 더 커진다. 직접 질의하는 것은 그런 지침을 제공하지 않는다. 관계형
-데이터베이스에 질의하기 위한 표준 언어는 Structured Query
-Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터베이스에
-대한 질의를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고
-소프트웨어 플랫폼 전반에 걸쳐 같은 의미가 있지만, 플랫폼마다 미묘한
-변경이 있는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서 PERSON
-테이블에서 상위 10개의 행을 검색하려면 다음을 입력한다: \index{SQL}
-\index{structured query language|see {SQL}}
+데이터베이스에 간접적으로 쿼리를 작성하여 분석을 수행하지만, 적절한 접근
+권한이 있으면 이 도구를 사용하지 않고 직접 데이터베이스에 쿼리를 이용해
+분석할 수도 있다. 직접 쿼리를 작성하는 주된 이유는 기존 도구가 지원하지
+않는 분석을 수행하기 위한 것이다. 그러나 OHDSI 도구는 사용자가 데이터를
+적절하게 분석을 할 수 있도록 (전문가가 오랜 시간 고려하여 만든 지침을
+따르도록) 설계되어 있고, 직접 쿼리를 작성하다보면 실수를 범할 위험이 더
+커진다. 직접 쿼리를 작성할 때는 질의하는 것은 그런 지침을 제공하지
+않는다. 관계형 데이터베이스에 쿼리를 작성하는 표준 언어는 Structured
+Query Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터
+추출용 쿼리를 위해 사용할 수 있다. SQL의 기본 명령어는 실제로 표준이고
+소프트웨어 플랫폼 전반에 걸쳐 같은 의미가 있지만, 각각의 SQL 플랫폼마다
+미묘한 변경되는 고유한 문법을 가지고 있다. 예를 들면, SQL Server에서
+PERSON 테이블에서 상위 10개의 행을 검색하려면 다음과 같은 쿼리를
+입력한다: \index{SQL} \index{structured query language|see {SQL}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6670,7 +6670,7 @@ Language(SQL)이며, 이는 데이터에 대한 변경뿐만 아니라 데이터
 \end{Highlighting}
 \end{Shaded}
 
-PostgreSQL의 동일한 질의는 다음과 같다:
+PostgreSQL의 동일한 쿼리는 다음과 같다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6689,29 +6689,30 @@ OHDSI는 이 장의 뒤에서 논의하게 될, 하나의 표준 문법을 다�
 \index{Standard SQL Dialect|see {SqlRender}}
 \index{OHDSI SQL|see {SqlRender}}
 
-각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 질의하기 위한
+각 데이터베이스 플랫폼에는 SQL을 사용하여 데이터베이스를 쿼리하기 위한
 자체 소프트웨어 도구가 제공된다. OHDSI는 여러 데이터베이스 플랫폼에
 연결할 수 있는 하나의 R 패키지인
 \href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}를
 개발하였다. DatabaseConnector도 이 장의 뒤에서 논의할 것이다.
 \index{DatabaseConnector}
 
-따라서 OHDSI 도구를 사용하지 않고도 CDM에 맞게 질의할 수 있지만
+따라서 OHDSI 도구를 사용하지 않고도 CDM에 맞게 쿼리를 작성할 수 있지만
 DatabaseConnector 및 SqlRender 패키지를 사용하는 것을 권장한다. 이를
-통해 한 사이트에서 개발된 질의를 수정하지 않고도 다른 사이트에서 사용할
-수 있다. R 자체는 통계 분석 및 대화식 그래프 생성과 같이
-데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접 제공한다.
-\index{R}
+통해 한 기관에서 개발한 쿼리를 수정하지 않고도 다른 기관에서 사용할 수
+있다. 즉, SQL server를 사용하는 기관이 작성한 쿼리를 PostgreSQL을
+사용하는 기관에서도 적용할 수 있다. R 자체는 통계 분석 및 대화식 그래프
+생성과 같이 데이터베이스에서 추출된 데이터를 추가로 분석하는 기능도 직접
+제공한다. \index{R}
 
 이 장에서는 독자가 SQL에 대한 기본 지식을 가지고 있다고 가정한다. 먼저
-SqlRender 및 DatabaseConnector 사용 방법을 검토한다. 독자가 이 패키지를
-사용할 의도가 없는 경우 이 절은 건너뛸 수 있다.
-\ref{QueryTheCdm}절에서는 SQL(OHDSI SQL)을 사용하여 CDM에 질의하는
-방법에 관해 설명한다. 그다음 절에서는 CDM에 질의할 때 OHDSI 표준 용어를
-사용하는 방법을 강조한다. 공개적으로 이용 가능한 CDM에 대해 일반적으로
-사용되는 질의 모음인 QueryLibrary를 특히 자세히 살펴본다. 발생률을
-추정하는 예제 연구로 이 장을 마무리하고 SqlRender 및 DatabaseConnector를
-사용하여 이 연구를 구현한다. \index{Query Library}
+SqlRender 및 DatabaseConnector 사용 방법을 안내한다. 독자가 이 패키지를
+사용할 생각이 없다면 이 절은 건너뛰어도 된다. \ref{QueryTheCdm}절에서는
+SQL(OHDSI SQL)을 사용하여 CDM에 쿼리하는 방법에 관해 설명한다. 그 다음
+절에서는 CDM 쿼리 작성 시 OHDSI 표준 용어를 사용하는 방법을 강조한다.
+공개적으로 이용 가능한 CDM에 대해 일반적으로 사용되는 쿼리 모음인
+QueryLibrary를 특히 자세히 살펴본다. 발생률을 추정하는 예제 연구로 이
+장을 마무리하고 SqlRender 및 DatabaseConnector를 사용하여 이 연구를
+구현한다. \index{Query Library}
 \index{SQL Query Libary|see {Query Library}}
 
 \hypertarget{SqlRender}{\section{SqlRender}\label{SqlRender}}
@@ -6733,11 +6734,13 @@ and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
 
 \subsection{SQL의 매개 변수화}\label{sql--}
 
-패키지의 기능 중 하나는 SQL문에 매개 변수를 지원하는 것이다. 일부 매개
-변수에 기반하여 SQL문을 조금씩 변형할 필요가 종종 있다. SqlRender는 매개
-변수를 허용하기 위해 SQL 코드 내에서 간단한 마크업 구문을 제공한다. 매개
-변수를 기반으로 SQL을 렌더링하는 것은 \texttt{render()} 함수를 사용하여
-수행한다. \index{SqlRender!parameterization}
+패키지의 기능 중 하나는 SQL문에 매개 변수를 지원하는 것이다. 때때로 일부
+매개 변수에 기반하여 SQL문을 조금씩 변형할 필요가 있다. 일반적인 SQL
+문법에서 매개변수 이용은 매우 복잡하며, 매개변수화 지원은 SqlRender 의
+매우 강력한 기능이다. SqlRender는 매개 변수를 허용하기 위해 SQL 코드
+내에서 간단한 마크업 구문을 제공한다. 매개 변수를 기반으로 SQL을
+렌더링하는 것은 \texttt{render()} 함수를 사용하여 수행한다.
+\index{SqlRender!parameterization}
 
 \subsubsection*{매개 변수값 대체하기}\label{--}
 \addcontentsline{toc}{subsubsection}{매개 변수값 대체하기}
@@ -6758,8 +6761,8 @@ and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
 ## [1] "SELECT * FROM concept WHERE concept_id = 123;"
 \end{verbatim}
 
-대부분의 데이터베이스 관리 시스템에서 제공하는 매개 변수와 달리 테이블
-또는 필드 이름을 값으로 매개 변수화하기가 쉽다는 것에 주목하라:
+대부분의 SQL 문법과 달리 테이블 또는 필드 이름을 값으로 매개 변수화하기
+매우 쉽다!
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6773,7 +6776,7 @@ and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
 \end{verbatim}
 
 매개 변수값은 숫자, 문자열, 부울 및 쉼표를 기준으로 항목을 나눈 리스트로
-변환된 벡터일 수 있다:
+변환된 벡터일 수도 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6793,7 +6796,7 @@ and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
 이 작업은 \texttt{\{Condition\}\ ?\ \{if\ true\}\ :\ \{if\ false\}}
 구문을 사용한다. \emph{조건}이 참 또는 1로 평가되면, \emph{if true}
 블록이 사용되고 그렇지 않으면, \emph{if false} 블록이 표시된다 (있는
-경우).
+경우). (역주 저: 매개변수화 기능은 전반적으로 정말 놀라운 기능이다!)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6871,15 +6874,14 @@ IN 연산자도 지원된다:
 
 \texttt{targetDialect} 매개 변수는 다음과 같은 값을 가질 수 있다:
 ``oracle'', ``postgresql'', ``pdw'', ``redshift'', ``impala'',
-``netezza'', ``bigquery'', ``sqlite'', and ``sql server''.
+``netezza'', ``bigquery'', ``sqlite'', ``sql server''.
 \index{SqlRender!translation}
 
 \BeginKnitrBlock{rmdimportant}
 패키지에는 제한된 변환 규칙 세트만 구현되었기 때문에 SQL의 함수 및
-구성을 적절하게 번역되는 것에는 한계가 있을 뿐 아니라 일부 SQL의 특징은
-모든 언어에서 동일하지 않다. OHDSI SQL이 독자적인 새로운 문법으로 개발된
-주된 이유이다. 하지만 이미 있는 것을 다시 만드느라 쓸데없이 시간을
-낭비하지 않기 위해 SQL Server 구문을 유지하였다.
+구성을 모두 적절하게 번역하지 못할 수 있고, 일부 SQL의 특징은 모든
+언어에서 동일하지 않다. OHDSI SQL이 독자적인 새로운 문법으로 개발된 주된
+이유이다. OHDSI SQL은 SQL Server 구문을 유지하였다.
 \EndKnitrBlock{rmdimportant}
 
 최선의 노력에도 불구하고, 지원되는 모든 플랫폼에서 오류 없이 실행될
@@ -6961,10 +6963,10 @@ EOMONTH & POWER &\tabularnewline
 \CommentTok{-- Drop table if it exists:}
 \KeywordTok{IF}\NormalTok{ OBJECT_ID(}\StringTok{'ACHILLES_analysis'}\NormalTok{, }\StringTok{'U'}\NormalTok{) }\KeywordTok{IS} \KeywordTok{NOT} \KeywordTok{NULL}
   \KeywordTok{DROP} \KeywordTok{TABLE}\NormalTok{ ACHILLES_analysis;}
-  
+
 \CommentTok{-- Drop temp table if it exists:}
 \KeywordTok{IF}\NormalTok{ OBJECT_ID(}\StringTok{'tempdb..#cohorts'}\NormalTok{, }\StringTok{'U'}\NormalTok{) }\KeywordTok{IS} \KeywordTok{NOT} \KeywordTok{NULL}
-  \KeywordTok{DROP} \KeywordTok{TABLE}\NormalTok{ #cohorts;  }
+  \KeywordTok{DROP} \KeywordTok{TABLE}\NormalTok{ #cohorts;}
 
 \CommentTok{-- Common table expressions:}
 \KeywordTok{WITH}\NormalTok{ cte }\KeywordTok{AS}\NormalTok{ (}\KeywordTok{SELECT}\NormalTok{ * }\KeywordTok{FROM} \KeywordTok{table}\NormalTok{) }\KeywordTok{SELECT}\NormalTok{ * }\KeywordTok{FROM}\NormalTok{ cte;}
@@ -6972,7 +6974,7 @@ EOMONTH & POWER &\tabularnewline
 \CommentTok{-- OVER clauses:}
 \KeywordTok{SELECT} \FunctionTok{ROW_NUMBER}\NormalTok{() }\KeywordTok{OVER}\NormalTok{ (}\KeywordTok{PARTITION} \KeywordTok{BY}\NormalTok{ a }\KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ b)}
   \KeywordTok{AS} \OtherTok{"Row Number"} \KeywordTok{FROM} \KeywordTok{table}\NormalTok{;}
-  
+
 \CommentTok{-- CASE WHEN clauses:}
 \KeywordTok{SELECT} \KeywordTok{CASE} \KeywordTok{WHEN}\NormalTok{ a=}\DecValTok{1} \KeywordTok{THEN}\NormalTok{ a }\KeywordTok{ELSE} \DecValTok{0} \KeywordTok{END} \KeywordTok{AS} \FunctionTok{value} \KeywordTok{FROM} \KeywordTok{table}\NormalTok{;}
 
@@ -7016,7 +7018,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{-- Using AS keyword}
-\KeywordTok{SELECT}\NormalTok{ * }
+\KeywordTok{SELECT}\NormalTok{ *}
 \KeywordTok{FROM}\NormalTok{ my_table }\KeywordTok{AS}\NormalTok{ table_}\DecValTok{1}
 \KeywordTok{INNER} \KeywordTok{JOIN}\NormalTok{ (}
   \KeywordTok{SELECT}\NormalTok{ * }\KeywordTok{FROM}\NormalTok{ other_table}
@@ -7024,7 +7026,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \KeywordTok{ON}\NormalTok{ table_1.person_id = table_2.person_id;}
 
 \CommentTok{-- Not using AS keyword}
-\KeywordTok{SELECT}\NormalTok{ * }
+\KeywordTok{SELECT}\NormalTok{ *}
 \KeywordTok{FROM}\NormalTok{ my_table table_}\DecValTok{1}
 \KeywordTok{INNER} \KeywordTok{JOIN}\NormalTok{ (}
   \KeywordTok{SELECT}\NormalTok{ * }\KeywordTok{FROM}\NormalTok{ other_table}
@@ -7034,7 +7036,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 그러나 Oracle에서는 \texttt{AS} 키워드를 사용하면 오류가 발생한다. 위의
-예제 중 첫 번째 질의는 실패한다. 따라서 테이블 별칭을 지정할 때
+예제 중 첫 번째 쿼리는 실패한다. 따라서 테이블 별칭을 지정할 때
 \texttt{AS} 키워드를 사용하지 않는 것이 좋다. (참고로 Oracle에서
 \texttt{AS}를 사용할 수 없는 테이블 별칭과 이 \texttt{AS}를 사용해야
 하는 필드 별칭을 쉽게 구별할 수 없기 때문에 SqlRender가 이것을
@@ -7044,8 +7046,8 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \addcontentsline{toc}{subsubsection}{임시 테이블}
 
 임시 테이블은 중간 결과를 저장하는 데 매우 유용할 수 있으며 올바르게
-사용하면 질의 성능을 크게 향상할 수 있다. 대부분의 데이터베이스
-플랫폼에서 임시 테이블이라는 매우 좋은 기능을 가지고 있다: 현재
+사용하면 쿼리 성능을 크게 향상할 수 있다. 대부분의 데이터베이스
+플랫폼에서 임시 테이블이라는 매우 좋은 기능을 가지고 있다. 현재
 사용자에게만 보이며 세션이 끝나면 자동으로 삭제되고 사용자에게 쓰기
 권한이 없어도 생성할 수 있다. 불행히도, Oracle에서는 임시테이블은
 기본적으로 영구적인 테이블이며, 데이터의 내부는 현재 사용자에게만
@@ -7072,7 +7074,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.fzvrzbj8children ;"
+## [1] "SELECT * FROM temp_schema.s2pqp663children ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
@@ -7102,10 +7104,12 @@ SQL Server가 다른 언어보다 덜 명시적인 몇 가지 점 중 하나는 
 \end{Highlighting}
 \end{Shaded}
 
-비록 \texttt{txt}는 VARCHAR 필드이고 이것을 정수와 비교하고 있지만, SQL
+비록 \texttt{txt}는 VARCHAR 필드이고 이것을 정수와 비교하고 있다. 즉,
+이는 논리적으로 비교할 수 없는 (문자열과 정수의 비교) 비교이지만, SQL
 Server는 비교를 허용하기 위해 두 가지 중 하나를 자동으로 올바른 타입으로
-변환한다. 이와 대조적으로, PostgreSQL과 같은 다른 언어는 VARCHAR과 INT를
-비교하려고 할 때 오류를 일으킬 것이다.
+변환한다 (보통 정수를 문자열로 `암묵적으로' 변환한다). 이와 대조적으로,
+PostgreSQL과 같은 다른 언어는 VARCHAR과 INT를 비교하려고 할 때 오류를
+일으킬 것이다.
 
 따라서 형 변환은 항상 명시적으로 해야 한다. 위의 마지막에 있는 예는
 
@@ -7304,9 +7308,9 @@ Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가
 ## Connecting using PostgreSQL driver
 \end{verbatim}
 
-\subsection{질의하기}
+\subsection{쿼리하기}
 
-데이터베이스 질의를 위한 주요 함수는 \texttt{querySql}과
+데이터베이스 쿼리를 위한 주요 함수는 \texttt{querySql}과
 \texttt{executeSql} 이다. 이러한 함수의 차이점은 \texttt{querySql}은
 데이터베이스가 데이터를 반환할 것으로 예상하며, 한 번에 하나의 SQL 문만
 처리할 수 있다는 것이다. 이와 대조적으로 \texttt{executeSql}은 데이터를
@@ -7341,7 +7345,7 @@ Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가
 않은 경우 패키지는 \texttt{lowLevelQuerySql}과
 \texttt{lowLevelExecuteSql} 함수도 제공한다.
 
-\subsection{Ffdf 객체를 사용하여 질의하기}\label{ffdf---}
+\subsection{Ffdf 객체를 사용하여 쿼리하기}\label{ffdf---}
 
 데이터베이스에서 가져올 데이터가 너무 커서 종종 메모리에 들어갈 수 없는
 경우도 있다. \ref{BigDataSupport}절에서 언급했듯이, 그러한 경우
@@ -7357,7 +7361,7 @@ Netezza 및 Impla 용 드라이버는 포함되어 있지 않아서 사용자가
 
 x는 이제 ffdf 객체이다.
 
-\subsection{같은 SQL을 사용하여 다른 플랫폼 질의하기}\label{-sql----}
+\subsection{같은 SQL을 사용하여 다른 플랫폼 쿼리하기}\label{-sql----}
 
 SqlRender 패키지의 \texttt{render} 및 \texttt{translate} 함수를 먼저
 호출하는 다음과 같은 편의 함수를 사용할 수 있다:
@@ -7366,7 +7370,7 @@ SqlRender 패키지의 \texttt{render} 및 \texttt{translate} 함수를 먼저
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\KeywordTok{renderTranslateQuerySql}\NormalTok{(conn, }
+\NormalTok{x <-}\StringTok{ }\KeywordTok{renderTranslateQuerySql}\NormalTok{(conn,}
                              \DataTypeTok{sql =} \StringTok{"SELECT TOP 10 * FROM @schema.person"}\NormalTok{,}
                              \DataTypeTok{schema =} \StringTok{"cdm_synpuf"}\NormalTok{)}
 \end{Highlighting}
@@ -7392,13 +7396,14 @@ SQL Server 관련 `TOP 10' 구문은 PostgreSQL에서 예를 들어 `LIMIT 10'�
 이 예는 mtcars 데이터 프레임을 자동으로 서버의 'mtcars'라는 테이블로
 업로드하고 생성한다.
 
-\section{CDM 질의하기}\label{QueryTheCdm}
+\section{CDM 쿼리 실행}\label{QueryTheCdm}
 
-다음 예시에서는 CDM이 적용된 데이터베이스를 질의하기 위해 OHDSI SQL을
-사용한다. 이러한 쿼리는 CDM의 데이터를 찾을 수 있는 데이터베이스
+다음 예시에서는 CDM이 적용된 데이터베이스를 쿼리 실행하기 위해 OHDSI
+SQL을 사용한다. 이러한 쿼리는 CDM의 데이터를 찾을 수 있는 데이터베이스
 스키마를 나타내기 위해 \texttt{@cdm}을 사용한다.
 
-데이터베이스에 얼마나 많은 사람이 있는지 질의하는 것부터 시작할 수 있다:
+데이터베이스에 얼마나 많은 사람이 있는지 쿼리 실행하는 것부터 시작할 수
+있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7419,8 +7424,8 @@ PERSON\_COUNT\tabularnewline
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(DATEDIFF(}\DataTypeTok{DAY}\NormalTok{, }
-\NormalTok{                    observation_period_start_date, }
+\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(DATEDIFF(}\DataTypeTok{DAY}\NormalTok{,}
+\NormalTok{                    observation_period_start_date,}
 \NormalTok{                    observation_period_end_date) / }\FloatTok{365.25}\NormalTok{) }\KeywordTok{AS}\NormalTok{ num_years}
 \KeywordTok{FROM}\NormalTok{ @cdm.observation_period;}
 \end{Highlighting}
@@ -7464,14 +7469,14 @@ MAX\_AGE\tabularnewline
 \bottomrule
 \end{longtable}
 
-관찰 시작 당시 연령 분포를 결정하려면 훨씬 더 복잡한 질의가 필요하다. 이
-질의에서는 먼저 PERSON 테이블과 OBSERVATION\_PERIOD을 조인하여 관찰 당시
+관찰 시작 당시 연령 분포를 결정하려면 훨씬 더 복잡한 쿼리가 필요하다. 이
+쿼리에서는 먼저 PERSON 테이블과 OBSERVATION\_PERIOD을 조인하여 관찰 당시
 연령을 계산한다. 또한 연령을 기준으로 이 조인된 집합의 순서를 정렬하고
 order\_nr로 저장한다. 이 조인의 결과를 여러 번 사용하고 싶기 때문에
 ``ages''라고 하는 common table expression(CTE) (\texttt{WITH\ ...\ AS}를
 사용하여 정의된) 으로 정의한다. 즉, 연령을 기존 테이블인 것처럼 나타낼
 수 있다. ``ages''의 행 수를 세어 ``n''을 생성하고 각 사분위 수에 대해
-order\_nr이 분수 시간 ``n,'' 보다 작은 최소 연령을 찾는다. 예를 들어,
+order\_nr이 분수 시간 ``n'' 보다 작은 최소 연령을 찾는다. 예를 들어,
 중앙값을 찾기 위해 \(order\_nr < .50 * n\)인 최소 연령을 사용한다. 최소
 및 최대 연령은 별도로 계산된다:
 
@@ -7491,17 +7496,17 @@ order\_nr이 분수 시간 ``n,'' 보다 작은 최소 연령을 찾는다. 예�
 \NormalTok{        ) age_computed}
 \NormalTok{    )}
 \KeywordTok{SELECT} \FunctionTok{MIN}\NormalTok{(age) }\KeywordTok{AS}\NormalTok{ min_age,}
-    \FunctionTok{MIN}\NormalTok{(}\KeywordTok{CASE} 
+    \FunctionTok{MIN}\NormalTok{(}\KeywordTok{CASE}
             \KeywordTok{WHEN}\NormalTok{ order_nr < .}\DecValTok{25}\NormalTok{ * n}
                 \KeywordTok{THEN} \DecValTok{9999}
             \KeywordTok{ELSE}\NormalTok{ age}
             \KeywordTok{END}\NormalTok{) }\KeywordTok{AS}\NormalTok{ q25_age,}
-    \FunctionTok{MIN}\NormalTok{(}\KeywordTok{CASE} 
+    \FunctionTok{MIN}\NormalTok{(}\KeywordTok{CASE}
             \KeywordTok{WHEN}\NormalTok{ order_nr < .}\DecValTok{50}\NormalTok{ * n}
                 \KeywordTok{THEN} \DecValTok{9999}
             \KeywordTok{ELSE}\NormalTok{ age}
             \KeywordTok{END}\NormalTok{) }\KeywordTok{AS}\NormalTok{ median_age,}
-    \FunctionTok{MIN}\NormalTok{(}\KeywordTok{CASE} 
+    \FunctionTok{MIN}\NormalTok{(}\KeywordTok{CASE}
             \KeywordTok{WHEN}\NormalTok{ order_nr < .}\DecValTok{75}\NormalTok{ * n}
                 \KeywordTok{THEN} \DecValTok{9999}
             \KeywordTok{ELSE}\NormalTok{ age}
@@ -7540,7 +7545,7 @@ SQL을 사용하는 대신 R에서 더 복잡한 계산을 수행할 수도 있�
 \end{Shaded}
 
 \begin{verbatim}
-##   0%  25%  50%  75% 100% 
+##   0%  25%  50%  75% 100%
 ##    0    6   17   34   90
 \end{verbatim}
 
@@ -7549,12 +7554,12 @@ SQL을 사용하는 대신 R에서 더 복잡한 계산을 수행할 수도 있�
 데이터를 다운로드해야 하므로 효율성이 떨어진다. 계산이 SQL에서 가장 잘
 수행되는지 R에서 가장 잘 수행되는지를 사례별로 결정해야 한다.
 
-질의는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여
+쿼리는 CDM의 source value를 사용할 수도 있다. 예를 들어, 다음을 사용하여
 가장 빈번한 상위 10개의 condition source code를 검색할 수 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ TOP }\DecValTok{10}\NormalTok{ condition_source_value, }
+\KeywordTok{SELECT}\NormalTok{ TOP }\DecValTok{10}\NormalTok{ condition_source_value,}
   \FunctionTok{COUNT}\NormalTok{(*) }\KeywordTok{AS}\NormalTok{ code_count}
 \KeywordTok{FROM}\NormalTok{ @cdm.condition_occurrence}
 \KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ condition_source_value}
@@ -7584,13 +7589,13 @@ I10 & 19453451\tabularnewline
 필드의 값으로 그룹화하고 각 그룹의 행 수를 세었다. 우리는
 CONDITION\_SOURCE\_VALUE, count, 그리고 count의 역순을 검색했다.
 
-\section{질의할 때 Vocabulary 사용하기}\label{--vocabulary-}
+\section{쿼리 작성 시 OMOP 용어 사용하기}\label{---omop--}
 
-많은 작업에서 Vocabulary는 유용하다. Vocabulary 테이블은 CDM의
-일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 질의가
-CDM에 대한 질의와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는
-CONCEPT 테이블을 사용하여 확인할 수 있는 개념 ID가 포함되어 있다. 예를
-들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때,
+많은 작업에서 용어 vocabulary는 유용하다. Vocabulary 테이블은 CDM의
+일부이므로 SQL 쿼리를 사용하여 이용할 수 있다. Vocabulary에 대한 쿼리가
+CDM에 대한 쿼리와 어떻게 결합할 수 있는지 보여준다. CDM의 많은 필드에는
+CONCEPT 테이블을 사용하여 확인할 수 있는 concept ID가 포함되어 있다.
+예를 들어, 데이터베이스에서 성별에 따라 계층화된 인원수를 세려고 할 때,
 GENDER\_CONCEPT\_ID를 개념 이름으로 찾아 바꾸어 사용하는 것이 더 편리할
 것이다:
 
@@ -7615,10 +7620,9 @@ SUBJECT\_COUNT & CONCEPT\_NAME\tabularnewline
 \bottomrule
 \end{longtable}
 
-용어Vocabulary의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에
-속하는 \emph{모든 하위 개념}을 찾는 쿼리를 사용하는 경우가 빈번하다.
-예를 들어, ibuprofen 성분이 들어 있는 처방전의 수를 세고 싶다고
-상상해보라:
+용어의 매우 강력한 특징은 계층구조에 있다. 특정 개념과 그에 속하는
+\emph{모든 하위 개념}을 찾는 쿼리를 사용하는 경우가 빈번하다. 예를 들어,
+ibuprofen 성분이 들어 있는 모든 약의 처방 개수를 세고 싶다고 상상해보라:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7647,7 +7651,7 @@ PRESCRIPTION\_COUNT\tabularnewline
 
 \index{QueryLibrary}
 
-QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의의 라이브러리이다.
+QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 쿼리의 라이브러리이다.
 그림 \ref{fig:queryLibrary}에 표시된 응용 프로그램\footnote{\url{http://data.ohdsi.org/QueryLibrary}}
 및 R 패키지로 제공된다.\footnote{\url{https://github.com/OHDSI/QueryLibrary}}
 
@@ -7660,15 +7664,15 @@ QueryLibrary는 CDM에 대해 일반적으로 사용되는 SQL 질의의 라이�
 \caption{QueryLibrary: CDM에 대한 SQL 조회 라이브러리.}\label{fig:queryLibrary}
 \end{figure}
 
-라이브러리의 목적은 새로운 사용자가 CDM에 질의하는 방법을 배우도록 돕는
-것이다. 라이브러리의 질의는 OHDSI 커뮤니티에서 검토하고 승인하였다. 질의
+라이브러리의 목적은 새로운 사용자가 CDM에 쿼리하는 방법을 배우도록 돕는
+것이다. 라이브러리의 쿼리는 OHDSI 커뮤니티에서 검토하고 승인하였다. 쿼리
 라이브러리는 주로 교육 목적으로 사용되지만 숙련된 사용자에게 유용한
 자원이기도 하다.
 
-QueryLibrary는 SqlRender를 사용하여 선택한 SQL 언어로 질의를 출력한다.
+QueryLibrary는 SqlRender를 사용하여 선택한 SQL 언어로 쿼리를 출력한다.
 사용자는 CDM 데이터베이스 스키마, vocabulary 데이터베이스 스키마 (별도의
 경우) 및 Oracle 임시 스키마 (필요한 경우)를 지정할 수 있으므로 이러한
-설정으로 질의가 자동으로 렌더링 된다.
+설정으로 쿼리가 자동으로 렌더링 된다.
 
 \section{간단한 연구 구성하기}\label{--}
 
@@ -7687,7 +7691,7 @@ Lisinopril 치료 개시 후 첫 주에 나이와 성별에 따라 계층화되�
 
 \subsection{노출}
 
-노출Exposure은 lisinopril에 대한 첫 번째 노출로 정의한다. 먼저 이전에
+노출 Exposure은 lisinopril에 대한 첫 번째 노출로 정의한다. 먼저 이전에
 lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365일의 연속 관찰
 기간이 필요하다.
 
@@ -7696,7 +7700,7 @@ lisinopril에 노출되지 않았음을 의미한다. 첫 노출 전에 365일�
 입원 또는 응급실 방문 중 혈관 부종 진단 코드의 발생으로 혈관 부종을
 정의한다.
 
-\subsection{위험 노출 기간Time-at-risk}\label{--time-at-risk}
+\subsection{위험 노출 기간 Time-at-risk}\label{---time-at-risk}
 
 환자가 일주일 동안 노출되었는지와 관계없이 이 치료 시작 후 첫 주에
 발생률을 계산한다.
@@ -7707,8 +7711,8 @@ OHDSI 툴 규약에 구속되지 않지만 동일한 원칙을 따르는 것은 
 이 경우 OHDSI 툴의 작동 방식과 유사하게 SQL을 사용하여 코호트 테이블을
 채운다. 코호트 테이블은 CDM에 정의되어 있으며 사전 정의된 필드 집합도
 있다. 먼저 쓰기 접근 권한이 있는 데이터베이스 스키마에 COHORT 테이블을
-만들어야 하는데, 이는 CDM 형식으로 데이터를 저장하는 데이터베이스
-스키마와 동일하지 않을 수 있다.
+만들어야 하는데, 이는 CDM 데이터를 저장하는 데이터베이스 스키마와
+동일하지 않을 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7790,12 +7794,13 @@ OHDSI 툴 규약에 구속되지 않지만 동일한 원칙을 따르는 것은 
 
 여기에서는 DRUG\_EXPOSURE 테이블에서 자동으로 파생되는 CDM의 표준
 테이블인 DRUG ERA 테이블을 사용한다. DRUG ERA 테이블에는 성분 수준에서
-연속 노출 기간이 포함되어 있다. 따라서 lisinopril을 검색할 수 있으며,
-이는 lisinopril을 함유한 약물에 대한 모든 노출을 자동으로 식별한다.
-사람당 첫 번째 약물 노출을 취한 다음 OBSERVATION\_PERIOD 테이블과
-조인하고 한 사람이 여러 관찰 기간을 가질 수 있으므로 약물 노출이 포함된
-기간에만 조인해야 한다. 그런 다음 OBSERVATION\_PERIOD\_START\_DATE와
-COHORT\_START\_DATE 사이에 적어도 365일이 필요하다.
+연속 노출 기간이 기록되어 있다. 따라서 lisinopril을 검색할 수 있으며,
+이는 lisinopril을 함유한 모든 약물에 대한 노출을 자동으로 식별할 수
+있다. 사람당 첫 번째 약물 노출을 취한 다음 OBSERVATION\_PERIOD 테이블과
+조인한다. 청구 데이터의 경우 한 사람이 여러 개의 관찰 기간을 가질 수
+있으므로 약물 노출이 포함된 기간과 겹치는 OBSERVATION PERIOD를 조인해야
+한다. 그런 다음 OBSERVATION\_PERIOD\_START\_DATE와 COHORT\_START\_DATE
+사이에 적어도 365일이 필요함을 명시한다.
 
 \subsection{결과 코호트}\label{-}
 
@@ -7916,7 +7921,7 @@ VISIT\_OCCURRENCE 테이블과 조인하여 입원이나 응급실 환경에서
 우선 적절한 위험 노출 기간으로 모든 노출을 포함하는 CTE인 ``tar''를
 만든다. OBSERVATION\_PERIOD\_END\_DATE에서 위험 관찰 기간을 단축한다는
 점에 유의한다. 또한 10년 단위로 나이를 계산하고 성별을 파악한다. CTE를
-사용하면 동일한 중간 결과 집합을 질의에서 여러 번 사용할 수 있다는
+사용하면 동일한 중간 결과 집합을 쿼리에서 여러 번 사용할 수 있다는
 장점이 있다. 이 경우 위험 관찰 기간 동안 발생하는 혈관 부종 사건의 수와
 총 위험 관찰 기간의 양을 계산하는 데 사용된다.
 
@@ -7947,7 +7952,7 @@ ggplot2 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시�
 
 \subsection{마무리하기}
 
-생성한 테이블을 정리하고 연결을 닫는 것을 잊지 마십시오:
+생성한 테이블을 정리하고 연결을 닫는 것을 잊지 말자.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7968,10 +7973,10 @@ ggplot2 패키지의 도움을 받아 다음과 같은 결과를 쉽게 표시�
 OHDSI SQL을 DatabaseConnector 및 SQLRender와 함께 사용하기 때문에 여기서
 검토한 코드는 OHDSI가 지원하는 모든 데이터베이스 플랫폼에서 실행된다.
 
-시연 목적으로 수작업으로 만든 SQL을 사용하여 코호트를 만들기로 했다는
-점에 유의하십시오. ATLAS에서 코호트 정의를 구성하고 ATALS에서 생성된
-SQL을 사용하여 코호트를 인스턴스화 하는 것이 더 편리했을 것이다. ATLAS는
-또한 OHDSI SQL을 생성하였고, 따라서 SqlRender 및 DatabaseConnector와
+여기에서는 예시 목적으로 수작업으로 만든 SQL 쿼리를 사용하여 코호트를
+만들었다는 점에 유의하라. ATLAS에서 코호트 정의를 구성하고 ATALS에서
+생성된 SQL을 사용하여 코호트를 생성하는 것이 훨씬 더 편리했을 것이다.
+ATLAS는 OHDSI SQL을 생성하기 때문에, SqlRender 및 DatabaseConnector와
 함께 쉽게 사용할 수 있다.
 
 \section{요약}\label{-7}
@@ -7982,17 +7987,18 @@ SQL을 사용하여 코호트를 인스턴스화 하는 것이 더 편리했을 
   \textbf{SQL}은 공통 데이터 모델을 따르는 데이터베이스를 포함하여
   데이터베이스를 조회하기 위한 표준 언어이다.
 \item
-  데이터베이스 플랫폼마다 SQL 언어가 다르며 이를 질의하기 위해서는 다른
-  툴이 필요하다.
+  데이터베이스 플랫폼마다 SQL 언어가 다르며 각 플랫폼별 쿼리를 작성하기
+  위해서는 다른 많은 작업이 필요하다.
 \item
   \textbf{SqlRender} 및 \textbf{DatabaseConnector} R 패키지는 CDM에서
-  데이터를 질의하는 통합된 방법을 제공하므로 동일한 분석 코드를 수정
+  데이터를 쿼리하는 통합된 방법을 제공하므로 동일한 분석 코드를 수정
   없이 다른 환경에서 실행할 수 있다.
 \item
   R과 SQL을 함께 사용하면 OHDSI 툴에서 지원하지 않는 사용자 맞춤 분석
   연구를 구현할 수 있다.
 \item
-  \textbf{QueryLibrary} 는 CDM에 재사용 가능한 SQL 질의 모음을 제공한다.
+  \textbf{QueryLibrary} 는 CDM용으로 재사용 가능한 SQL 쿼리 모음을
+  제공한다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
@@ -8053,15 +8059,15 @@ CDM 데이터베이스 스키마는 ``main''이다.
 Observational health data는 다양한 출처에서 꾸준하게 수집되는 환자의
 건강 상태나 환자에게 제공되는 의료서비스에 관한 정보이다. CDM 데이터
 유지를 위해 노력하는 OHDSI 공동 연구자는 전자 의무 기록(EHR), 보험 청구
-자료, 결제 자료, 제품 및 질병 등록 정보 등을 포함하는 다양한 출처의
-데이터를 활용하며, 환자 개인이 가정 내에서, 혹은 핸드폰 등의 다른 기기를
-통해 생성한 건강 정보를 활용하기도 한다. 이러한 데이터는 연구 목적으로
-수집된 데이터가 아니기 때문에 우리가 보고자 하는 임상 정보를 명료하게
-담고 있지 못할 수도 있다.
+자료, 결제 자료, 제품 및 질병 정보 등을 포함하는 다양한 출처의 데이터를
+활용하며, 환자 개인이 가정 내에서, 혹은 핸드폰 등의 다른 기기를 통해
+생성한 건강 정보를 활용하기도 한다. 이러한 데이터는 연구 목적으로 수집된
+데이터가 아니기 때문에 우리가 보고자 하는 임상 정보를 명료하게 담고 있지
+못할 수도 있다.
 
 예를 들어, 건강 보험 청구 자료 데이터베이스는 특정 질병 (예를 들어
 혈관성 부종)이 있는 환자에게 제공된 의료 서비스를 파악하고 그 치료비용을
-의료기관에 상환해주기 위해 설립되었기 때문에, 상환목적에 맞는 정보만
+의료기관에 상환해주기 위해 설립되었기 때문에, 청구목적에 맞는 정보만
 부분적으로 담고 있다. 우리가 그런 데이터를 연구 목적으로 사용하기를
 원한다면, 우리가 데이터를 사용할 때 실제로 관심 있는 것을 추론해야 하며,
 타당한 추론을 가능케 하는 적절한 코호트를 설정해서 연구를 진행해야 한다.
@@ -8081,21 +8087,22 @@ Observational health data는 다양한 출처에서 꾸준하게 수집되는 �
 \section{코호트란 무엇인가?}\label{-}
 
 OHDSI 연구에서는 특정 기간 안에 하나 이상의 포함 기준에 속하는 사람의
-집단을 코호트라고 정의한다. 코호트는 때로 \emph{표현형 phenotype}이라는
-용어로 대신 사용하기도 한다. 코호트는 OHDSI 분석 도구를 사용하거나
+집단을 코호트라고 정의한다. 때로 \emph{표현형 phenotype}이라는 용어로
+코호트를 대신 사용하기도 한다. 코호트는 OHDSI 분석 도구를 사용하거나
 연구를 시작하기 위한 첫 단계로 사용된다. 예를 들어 고혈압 치료약물인 ACE
 inhibitor를 복용하기 시작한 사람 중에서 혈관성 부종이 일어날 위험을
 예측하기 위한 연구를 진행할 때, 우리는 다음 두 가지 코호트를 지정해야
-한다: 결과 코호트 (혈관성 부종이 발생한 사람), 그리고 대상 코호트 (ACE
-inhibitor를 복용하기 시작한 사람). OHDSI에서 사용되는 코호트라는 개념이
-가지는 중요한 특성은, 연구 내에서 지정된 각각의 코호트는 연구 내의 다른
-코호트와 상호 비의존적이기 때문에 (그 연구만이 아닌 다른 연구에서도)
-재사용이 가능하다는 것이다. 앞서 제시된 혈관성 부종 코호트를 예로 들어
-보면, 이 코호트는 관찰되는 인구 내의 모든 혈관성 부종 발생 예를 담게
-되며, 이는 대상 코호트에 포함되는 사람만이 아닌 그 외 다른 사람도 포함될
-수 있다는 것이다. 우리의 분석 도구는 두 코호트의 교집합을 분석할 것이다.
-이것이 가지는 장점은, ACE inhibitor를 복용함으로써 발생하는 다른 결과를
-분석할 때에도 이번에 만든 동일한 혈관성 부종 코호트를 재사용할 수 있다는
+한다: 결과 코호트 outcome cohort(혈관성 부종이 발생한 사람), 그리고 대상
+코호트 target cohort(ACE inhibitor를 복용하기 시작한 사람). OHDSI에서
+사용되는 코호트라는 개념이 가지는 중요한 특성은, 연구 내에서 지정된
+각각의 코호트는 연구 내의 다른 코호트와 상호 독립적이기 때문에 (그
+연구만이 아닌 다른 연구에서도) 재사용이 가능하다는 것이다. 앞서 제시된
+혈관성 부종 코호트를 예로 들어 보면, 이 코호트는 관찰되는 인구 내의 모든
+혈관성 부종 발생 예를 담게 되며, 이는 혈관성 부종 코호트에는 ACE
+inhibitor를 사용한 사람과 사용하지 않은 사람 모두가 포함된다는 것을
+의미한다. 우리의 분석 도구는 두 코호트의 교집합을 분석할 것이다. 이것이
+가지는 장점은, ACE inhibitor를 복용함으로써 발생하는 다른 결과를 분석할
+때에도 이번에 만든 동일한 혈관성 부종 코호트를 재사용할 수 있다는
 것이다.
 
 \BeginKnitrBlock{rmdimportant}
@@ -8105,9 +8112,9 @@ inhibitor를 복용하기 시작한 사람). OHDSI에서 사용되는 코호트�
 
 \index{cohort} \index{cohort definition} OHDSI에서 사용되는 코호트의
 정의가 다른 분야에서 사용되는 코호트의 정의와 다를 수 있다는 것을
-인지하는 것이 중요하다. 예를 들어 제삼자 심사를 거친 많은 과학 논문에서,
-코호트는 특정 임상 코드 집합 (예를 들어 ICD-9/ICD-10, NDC, HCPCS 등)과
-동일한 의미로 사용되었다. 하지만, 코드 집합은 코호트를 설정하는 데
+인지하는 것이 중요하다. 예를 들어 동료 심사 peer review를 거친 많은 과학
+논문에서, 코호트는 특정 임상 코드 집합 (예를 들어 ICD-9/ICD-10, NDC,
+HCPCS 등)과 동일한 의미로 사용되었다. 코드 집합은 코호트를 설정하는 데
 중요한 부분을 담당하지만, 코호트는 코드 집합에 의해서만 정의되는 것은
 아니다. 코호트는 기준에 맞도록 코드 집합을 사용하는 특정 논리가
 필요하다. (예를 들어 그 환자에게 첫 번째로 발생된 ICD-9/ICD-10
@@ -8137,14 +8144,14 @@ inhibitor를 복용하기 시작한 사람). OHDSI에서 사용되는 코호트�
 \item
   \textbf{규칙 기반 코호트 정의}는 언제 환자가 코호트 내에 속하는지에
   관한 명확한 포함 규칙을 가진다. 이 포함 규칙을 정하는 것은 코호트를
-  디자인하는 사람의 전문가적인 지식에 상당히 의존한다.
+  디자인하는 사람의 전문적인 지식에 상당히 의존한다.
 \item
   \textbf{확률적 코호트 정의}는 확률 모델을 사용하여 환자가 코호트에
   속할 확률 (0\textasciitilde{}100\%)을 계산한다. 이 확률은 역치 값을
   사용하여 `예-아니오' 분류로 전환할 수도 있고, 그대로 사용할 수도 있다.
   확률 모델은 일반적으로 예측 가능한 관련 환자 특성을 자동으로 식별하기
-  위해 일부 기계학습모델 (예를 들어 로지스틱 회귀)의 학습을 위해
-  사용된다.
+  위해 일부 기계학습모델 (예를 들어 로지스틱 회귀)의 학습을 통해
+  만들어진다.
 \end{enumerate}
 
 다음으로 이 두 가지의 방법에 대해서 구체적으로 알아보겠다.
@@ -8166,11 +8173,11 @@ inhibitor를 복용하기 시작한 사람). OHDSI에서 사용되는 코호트�
   도메인에 관한 세부사항은 \ref{domains}절에서 확인할 수 있다.
 \item
   \textbf{개념 모음 Concept set}: 우리가 관심을 가지는 임상적 개념을
-  대변하는 하나 이상의 표준화된 개념의 모음을 의미한다. 개념 모음은 표준
-  용어 (임상에서 쓰이는 용어는 국가나 병원, 사람에 따라 동일한 개념도
-  조금씩 다른 용어로 사용되는데 이를 표준 용어로 매핑함)로 구성되어 있기
-  때문에 다양한 관찰 의료 데이터에서 상호 운용이 가능하다. 개념 모음에
-  관하여 \ref{conceptSets}절에 자세한 설명이 있다.
+  대변하는 하나 이상의 표준화된 개념의 모음을 의미한다. concept set은
+  표준 용어 (임상에서 쓰이는 용어는 국가나 병원, 사람에 따라 동일한
+  개념도 조금씩 다른 용어로 사용되는데 이를 표준 용어로 매핑함)로
+  구성되어 있기 때문에 다양한 관찰 의료 데이터에서 상호 운용이 가능하다.
+  concept set에 관하여 \ref{conceptSets}절에 자세한 설명이 있다.
 \item
   \textbf{도메인별 속성}: 관심 있는 임상 실체와 연관된 추가적인 속성
   (예를 들어 DRUG\_EXPOSURE의 DAYS\_SUPPLY, MEASUREMENT의
@@ -8206,39 +8213,39 @@ inhibitor를 복용하기 시작한 사람). OHDSI에서 사용되는 코호트�
   \emph{코호트 종료 시간을 정의하는 것은 무엇인가?}
 \end{itemize}
 
-\textbf{코호트 진입 이벤트}: 코호트 진입 이벤트 (초기 이벤트)는 사람이
-코호트에 진입하는 \textbf{코호트 기준 시점 cohort index date}으로
-정의된다. 코호트 진입 이벤트는 약물 노출 Drug exposure, 질병 상태
-conditions, 절차 procedures, 측정 measurements 및 방문 visits과 같은
-CDM에 기록된 모든 사건일 수 있다. 초기 이벤트는 데이터가 저장되는 CDM
-도메인 (예를 들어 PROCEDURS\_OCCURRENCE, DRUG\_EXPOSURE 등), 임상 활동을
-식별하기 위해 구축된 개념 모음 (예를 들어 질병 상태에 대한 SNOMED 코드,
-약물에 대한 RxNorm 코드) 및 기타 특정 속성 (예를 들어 발생 연령, 첫 진단
-/ 절차 등, 지정된 시작 및 종료 날짜, 방문 유형 등)에 의해 정의된다. 진입
-이벤트를 가진 사람의 집합을 \textbf{초기 사건 코호트 initial event
-cohort}라고 한다. \index{cohort!entry event}
+\textbf{코호트 진입 이벤트 cohort entry event}: 코호트 진입 이벤트 (초기
+이벤트)는 환자가 코호트에 진입하는 \textbf{코호트 기준 시점 cohort index
+date}으로 정의된다. 코호트 진입 이벤트는 약물 노출 Drug exposure, 질병
+상태 conditions, 절차 procedures, 측정 measurements 및 방문 visits과
+같은 CDM에 기록된 모든 사건일 수 있다. 초기 이벤트는 데이터가 저장되는
+CDM 도메인 (예를 들어 PROCEDURS\_OCCURRENCE, DRUG\_EXPOSURE 등), 임상
+활동을 식별하기 위해 구축된 concept set (예를 들어 질병 상태에 대한
+SNOMED 코드, 약물에 대한 RxNorm 코드) 및 기타 특정 속성 (예를 들어 발생
+연령, 첫 진단 / 절차 등, 지정된 시작 및 종료 날짜, 방문 유형 등)에 의해
+정의된다. 진입 이벤트를 가진 사람의 집합을 \textbf{초기 사건 코호트
+initial event cohort}라고 한다. \index{cohort!entry event}
 
-\textbf{포함 기준}: 포함 기준은 초기 이벤트 코호트에 적용되어 코호트에
-진입할 사람을 추가로 제한한다. 각 포함 기준을 만들 때는 데이터가
-저장되는 CDM 도메인, 개념 모음, 도메인별 속성 (예를 들어 days supply,
-방문 유형) 및 코호트 색인 날짜에 관한 시간 논리를 결정해야 한다.
-\textbf{적격 코호트 qualifying cohort}는 초기 이벤트 코호트에서 모든
-포함 기준을 충족하는 사람의 집합으로 정의한다.
+\textbf{포함 기준 inclusion criteria}: 포함 기준은 초기 이벤트 코호트에
+적용되어 코호트에 진입할 사람을 추가로 제한한다. 각 포함 기준을 만들
+때는 데이터가 저장되는 CDM 도메인, concept set, 도메인별 속성 (예를 들어
+days supply, 방문 유형) 및 코호트 색인 날짜에 관한 시간 논리를 결정해야
+한다. \textbf{적격 코호트 qualifying cohort}는 초기 이벤트 코호트에서
+모든 포함 기준을 충족하는 사람의 집합으로 정의한다.
 \index{cohort!inclusion criteria}
 
-\textbf{코호트 종료 기준}: 코호트 종료 이벤트는 한 사람이 더 이상 코호트
-자격 요건을 갖추지 못했을 때를 의미한다. 코호트 종료는 관찰 기간이
-끝났을 때, 초기 진입 이벤트로부터 일정한 시간이 지났을 때 혹은 마지막
-이벤트가 발생했을 때 등 여러 방법으로 정의할 수 있다. 코호트 종료 기준에
-따라 한 사람의 오랜 시간에 걸친 기록 중에서 특정한 기간이 선정기준에
-맞아 코호트에 한 번 포함된 후에 또 다른 기간이 코호트 선정 기간에 맞아
-다시 코호트에 포함되는 등 한 사람의 관찰이 하나의 코호트에 여러 번 속할
-수 있다.\index{cohort!exit criteria}
+\textbf{코호트 종료 기준 cohort exit criteria}: 코호트 종료 이벤트는 한
+사람이 더 이상 코호트 자격 요건을 갖추지 못했을 때를 의미한다. 코호트
+종료는 관찰 기간이 끝났을 때, 초기 진입 이벤트로부터 일정한 시간이
+지났을 때 혹은 마지막 이벤트가 발생했을 때 등 여러 방법으로 정의할 수
+있다. 코호트 종료 기준에 따라 한 사람의 오랜 시간에 걸친 기록 중에서
+특정한 기간이 선정기준에 맞아 코호트에 한 번 포함된 후에 또 다른 기간이
+코호트 선정 기간에 맞아 다시 코호트에 포함되는 등 한 사람의 관찰이
+하나의 코호트에 여러 번 속할 수 있다.\index{cohort!exit criteria}
 
 \BeginKnitrBlock{rmdimportant}
 OHDSI 도구에는 포함 기준과 제외 기준이 구분되지 않는다. 모든 기준은 포함
-기준으로 설정해야 한다. 예를 들어 `사전 고혈압 환자 제외'라는 제외
-기준을 `사전 고혈압 발생이 0인 사람 포함'이라는 포함 기준으로 설정해야
+기준으로 설정해야 한다. 예를 들어 `이전 고혈압 환자 제외'라는 제외
+기준을 `이전 고혈압 발생이 0인 사람 포함'이라는 포함 기준으로 설정해야
 한다.
 \EndKnitrBlock{rmdimportant}
 
@@ -8246,14 +8253,14 @@ OHDSI 도구에는 포함 기준과 제외 기준이 구분되지 않는다. 모
 
 \index{concept set}
 
-개념 모음을 구성하는 개념은 다양한 다른 분석에서 재사용이 가능하다. 개념
-모음은 관찰 연구에서 종종 사용되는 표준화된 컴퓨터 코드라고 생각해도
-된다. 개념 모음은 다음 특성을 포함하고 있다:
+개념 모음 concept set을 구성하는 개념은 다양한 다른 분석에서 재사용이
+가능하다. concept set은 관찰 연구에서 종종 사용되는 표준화된 컴퓨터
+코드라고 생각해도 된다. concept set은 다음 특성을 포함하고 있다:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Exclude}: 개념 모음으로부터 해당 개념과 해당 개념의 하위
+  \textbf{Exclude}: concept set으로부터 해당 개념과 해당 개념의 하위
   개념을 제외한다.
 \item
   \textbf{Descendants}: 이 개념뿐만 아니라 모든 하위 항목 개념을
@@ -8262,7 +8269,7 @@ OHDSI 도구에는 포함 기준과 제외 기준이 구분되지 않는다. 모
   \textbf{Mapped}: 표준화되지 않은 개념도 검색한다.
 \end{itemize}
 
-예를 들어 표 \ref{tab:conceptSetExpression}과 같이 개념 모음은 두 개의
+예를 들어 표 \ref{tab:conceptSetExpression}과 같이 concept set은 두 개의
 개념을 포함할 수 있다. 여기서 우리는
 \href{http://athena.ohdsi.org/search-terms/terms/4329847}{4329847}
 (``심근경색 Myocardial infarction'')과 그 모든 하위 개념을 포함했고,
@@ -8270,7 +8277,7 @@ OHDSI 도구에는 포함 기준과 제외 기준이 구분되지 않는다. 모
 심근경색 Old myocardial infarction'')과 그 모든 하위 개념은 제외했다.
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:conceptSetExpression} 개념 모음의 예시}\tabularnewline
+\caption{\label{tab:conceptSetExpression} concept set의 예시}\tabularnewline
 \toprule
 Concept Id & Concept Name & Excluded & Descendants &
 Mapped\tabularnewline
@@ -8288,9 +8295,10 @@ Mapped\tabularnewline
 
 그림 \ref{fig:conceptSet}에서 볼 수 있다시피, ``심근경색''과 그 모든
 하위 개념을 포함할 것이고, 하위 개념 중에서 ``과거 심근경색''과 그 모든
-하위 개념은 제외할 것이다. 결과적으로 거의 100개 정도의 표준 개념을
-포함한 개념 모음이 만들어졌다. 이 표준 개념은 다양한 데이터베이스에서
-사용되는 수백 개의 원천 코드 (예를 들어 ICD-9, ICD-10)를 반영한다.
+하위 개념은 제외할 것이다. 결과적으로 거의 100개 정도의 표준 개념
+standard concept을 포함한 concept set이 만들어졌다. 이 standard
+concept은 다양한 데이터베이스에서 사용되는 수백 개의 원천 코드 (예를
+들어 ICD-9, ICD-10)를 반영한다.
 
 \begin{figure}
 
@@ -8298,7 +8306,7 @@ Mapped\tabularnewline
 
 }
 
-\caption{"심근경색"과 그 하위 개념을 포함하지만 "과거 심근경색"과 그 하위 개념은 제외하는 개념 모음}\label{fig:conceptSet}
+\caption{"심근경색"과 그 하위 개념을 포함하지만 "과거 심근경색"과 그 하위 개념은 제외하는 concept set}\label{fig:conceptSet}
 \end{figure}
 
 \section{확률적 코호트 정의}\label{--}
@@ -8306,9 +8314,10 @@ Mapped\tabularnewline
 규칙 기반 코호트 정의는 코호트 정의를 수행할 때 널리 사용되는 방법이다.
 그러나 코호트를 만들기 위해 전문가끼리 합의를 이루는 것은 매우 많은
 시간이 소요되는 일이다. 확률적 코호트 정의는 코호트 속성의 효율적인
-선택을 위한 대안적인 기계 구동 방식이다. 이 접근법에서, 지도 기계학습은
-코호트를 설계하는 알고리즘이 레이블이 붙은 증례로부터 학습할 수 있게
-한다. 이 알고리즘은 더 나은 코호트 설계를 위해 사용될 것이다.
+선택을 위한 대안적인 기계 구동 방식이다. 이 접근법에서, 레이블이 붙은
+증례를 이용하여 지도 기계학습이 코호트 설계 알고리즘을 학습한다. 이
+알고리즘은 전반적인 연구의 정확도의 균형 (민감도/특이도 간의 균형
+trade-off)를 향상시킬 수 있도록 추가 수정을 거칠 수 있다.
 \index{cohort!probabilistic design}
 
 이 접근 방법을 CDM의 데이터에 적용한 예는 아프로디테 (APHRODITE:
@@ -8345,14 +8354,14 @@ Standard Phenotype Library(GSPL) 그룹이 형성되었다. GSPL 그룹의 목�
 개발하는 것이다. GSPL은 OHDSI 커뮤니티의 멤버가 각자의 연구를 위해
 커뮤니티가 검증한 코호트를 찾아서 실행시킬 수 있게 하였다. 이 `절대 표준
 gold standard' 코호트는 라이브러리 안에 들어 있다. GSPL과 관련된
-추가적인 정보를 얻으려면 OHDSI work group 페이지에 문의한다. 이전에
+추가적인 정보를 얻으려면 OHDSI 워크그룹 페이지에 문의한다. 이전에
 소개되었던 APHRODITE \citep{Banda2017APHRODITE} 와 PheValuator tool
 \citep{Swerdel2019phevaluator} 뿐만 아니라 OHDSI 네트워크에서 EHR과 유전
-정보를 공유하기 위해 만들어진 eMERGE Phenotype Library
-\href{https://emerge.mc.vanderbilt.edu/}{eMERGE}
+정보를 공유하기 위해 만들어진 Electronic Medical Records and Genomics
+(\href{https://emerge.mc.vanderbilt.edu/}{eMERGE})
 \href{https://phekb.org/phenotypes}{Phenotype Library}
 \citep{Hripcsak2019eMERGE} 도 해당 작업 그룹에서 다루고 있다. 당신이
-코호트를 설계하는 데 관심이 많다면, 이 작업 그룹에 참여한다.
+코호트를 설계하는 데 관심이 많다면, 이 워크 그룹에 참여한다.
 \index{phenotype library}
 
 \section{고혈압 환자 코호트 작성하기}\label{---}
@@ -8361,9 +8370,9 @@ gold standard' 코호트는 라이브러리 안에 들어 있다. GSPL과 관련
 \emph{고혈압의 초기 치료를 위해 ACE inhibitors 단일 치료를 시작한
 환자}를 찾을 것이다.
 
-이 연습을 진행하면서 표준 감소 차트와 비슷한 코호트를 작성하게 될
-것이다. 그림 \ref{fig:CohortPractice}은 우리가 어떤 논리로 코호트를
-작성할지 보여준다.
+이 연습을 진행하면서 표준 소모 도표 attrition chart와 비슷한 코호트를
+작성하게 될 것이다. 그림 \ref{fig:CohortPractice}은 우리가 어떤 논리로
+코호트를 작성할지 보여준다.
 
 \begin{figure}
 
@@ -8406,7 +8415,8 @@ ATLAS는 동일한 이름을 가진 두 개의 코호트를 허용하지 않는�
 이름을 정했으면, \includegraphics{images/Cohorts/save.png}을 눌러서
 코호트를 저장하라.
 
-\subsection{초기 이벤트 기준}\label{--}
+\subsection{초기 이벤트 기준 Initial Event
+Criteria}\label{---initial-event-criteria}
 
 이제 우리는 초기 코호트 이벤트를 정의해야 한다. ``Add initial event''를
 클릭한다. 어떤 도메인 내에서 기준을 설정할지 결정해야 한다. 초기 코호트
@@ -8430,15 +8440,15 @@ CONDITION\_OCCURRENCE 도메인에서 기준을 만들어야 한다. 특정 약�
 단독요법을 시행한 환자를 찾고 싶기 때문에 DRUG\_EXPOSURE 도메인에서
 기준을 만들어야 한다. 그런데 고혈압을 진단받은 환자도 찾아야 하지
 않는가? 맞다! 고혈압 진단과 관련해서는 다른 기준을 만들 것이다. 하지만
-고혈압 약물을 복용하기 시작한 날짜가 코호트 시작 날짜, 즉 시작 이벤트가
-될 것이다. 고혈압 진단은 소위 \emph{추가적 적격 기준 additional
-qualifying criteria}이 된다. 이에 관해서는 뒤에서 다시 설명하겠다. 이제
-'Add Drug Exposure'를 클릭한다.
+고혈압 약물을 복용하기 시작한 날짜가 코호트 시작 날짜, 즉 시작 이벤트
+initial event가 될 것이다. 고혈압 진단은 소위 \emph{추가적 적격 기준
+additional qualifying criteria}이 된다. 이에 관해서는 뒤에서 다시
+설명하겠다. 이제 'Add Drug Exposure'를 클릭한다.
 
 화면은 당신이 선택한 기준에 따라 업데이트되겠지만, 아직 끝난 것은
 아니다. 그림 \ref{fig:ATLASdrugexposure}에서 볼 수 있다시피 ATLAS는
-우리가 어떤 약물을 찾고자 하는지 아직 모른다. ATLAS에게 어떤 개념 모음이
-ACE inhibitors와 연관이 있는지 알려주어야 한다.
+우리가 어떤 약물을 찾고자 하는지 아직 모른다. ATLAS에게 어떤 concept
+set이 ACE inhibitors와 연관이 있는지 알려주어야 한다.
 
 \begin{figure}
 
@@ -8449,20 +8459,20 @@ ACE inhibitors와 연관이 있는지 알려주어야 한다.
 \caption{약물 복용에 관하여 정의하기}\label{fig:ATLASdrugexposure}
 \end{figure}
 
-\subsection{개념 모음 정의하기}\label{--}
+\subsection{concept set 정의하기}\label{concept-set-}
 
 ACE inhibitors를 정의하기 위한 대화 상자를 열기 위해
 \includegraphics{images/Cohorts/downarrow.png}을 클릭한다.
 
-\subsubsection*{시나리오 1: 당신은 아직 개념 모음을 만들지
-않았다}\label{-1------}
-\addcontentsline{toc}{subsubsection}{시나리오 1: 당신은 아직 개념 모음을
-만들지 않았다}
+\subsubsection*{시나리오 1: 당신은 아직 concept set을 만들지
+않았다}\label{-1---concept-set--}
+\addcontentsline{toc}{subsubsection}{시나리오 1: 당신은 아직 concept
+set을 만들지 않았다}
 
-아직 당신의 코호트에 추가할 개념 모음을 만들지 않았다면, 이것을 먼저
+아직 당신의 코호트에 추가할 concept set을 만들지 않았다면, 이것을 먼저
 진행해야 한다. `Concept set' 탭의 'New Concept Set'을 클릭하여 코호트를
-작성하는 데 쓰일 개념 모음을 만들 수 있다. 개념 모음의 이름을 'Unnamed
-Concept Set'에서 새로 만들어 주어야 한다. 이제
+작성하는 데 쓰일 concept set을 만들 수 있다. concept set의 이름을
+'Unnamed Concept Set'에서 새로 만들어 주어야 한다. 이제
 \includegraphics{images/Cohorts/search-2.png} 모듈을 통해 ACE
 inhibitors를 나타내는 개념을 찾아보자. (그림 \ref{fig:aceinhibitors})
 
@@ -8482,7 +8492,7 @@ inhibitors를 나타내는 개념을 찾아보자. (그림 \ref{fig:aceinhibitor
 적절한 용어를 찾기 위한 방법은 \ref{StandardizedVocabularies}장 (``OMOP
 표준 용어'')을 참고한다.
 
-그림 \ref{fig:aceConceptSetExpression}에서 우리가 선택한 개념 모음의
+그림 \ref{fig:aceConceptSetExpression}에서 우리가 선택한 concept set의
 구성을 확인할 수 있다. 우리는 모든 ACE inhibitors 성분을 선택했으며,
 하위 개념도 포함했다. 'Included concepts'를 클릭하여 포함된 21,536개의
 모든 개념을 확인할 수 있고, 'Included Source Codes'를 클릭하여 모든 원천
@@ -8494,23 +8504,23 @@ inhibitors를 나타내는 개념을 찾아보자. (그림 \ref{fig:aceinhibitor
 
 }
 
-\caption{ACE inhibitor를 포함한 약물의 개념 모음}\label{fig:aceConceptSetExpression}
+\caption{ACE inhibitor를 포함한 약물의 concept set}\label{fig:aceConceptSetExpression}
 \end{figure}
 
-\subsubsection*{시나리오 2: 당신은 이미 개념 모음을
-만들었다}\label{-2-----}
-\addcontentsline{toc}{subsubsection}{시나리오 2: 당신은 이미 개념 모음을
-만들었다}
+\subsubsection*{시나리오 2: 당신은 이미 concept set을
+만들었다}\label{-2---concept-set-}
+\addcontentsline{toc}{subsubsection}{시나리오 2: 당신은 이미 concept
+set을 만들었다}
 
-만약 당신이 이미 개념 모음을 만들었고, ATLAS에 저장했다면, 'Import
+만약 당신이 이미 concept set을 만들었고, ATLAS에 저장했다면, 'Import
 Concept Set'을 클릭한다. 그러면 그림 \ref{fig:ATLASfindyourconcept}에서
-볼 수 있다시피 ATLAS의 개념 모음 저장소에서 당신의 개념 모음을 찾을 수
-있는 대화창이 뜬다. 이번 예시에서는 사용자가 ATLAS에 저장되어 있던 개념
-모음을 이용한다고 가정하자. 사용자는 검색 창에 'ACE inhibitors'를
-검색하였고, 검색 내용이 이름에 포함된 개념 모음을 볼 수 있을 것이다.
-사용자는 해당하는 개념 모음을 클릭하여 선택할 수 있다 (참고로 당신이
-개념 모음을 선택하면 대화창은 사라진다). Any Drug 칸이 당신이 선택한
-개념 모음의 이름으로 바뀌어 있다면 성공한 것이다.
+볼 수 있다시피 ATLAS의 concept set 저장소에서 당신의 concept set을 찾을
+수 있는 대화창이 뜬다. 이번 예시에서는 사용자가 ATLAS에 저장되어 있던
+concept set을 이용한다고 가정하자. 사용자는 검색 창에 'ACE inhibitors'를
+검색하였고, 검색 내용이 이름에 포함된 concept set을 볼 수 있을 것이다.
+사용자는 해당하는 concept set을 클릭하여 선택할 수 있다 (참고로 당신이
+concept set을 선택하면 대화창은 사라진다). Any Drug 칸이 당신이 선택한
+concept set의 이름으로 바뀌어 있다면 성공한 것이다.
 
 \begin{figure}
 
@@ -8518,13 +8528,14 @@ Concept Set'을 클릭한다. 그러면 그림 \ref{fig:ATLASfindyourconcept}에
 
 }
 
-\caption{ATLAS 저장소에서 개념 모음 가져오기}\label{fig:ATLASfindyourconcept}
+\caption{ATLAS 저장소에서 concept set 가져오기}\label{fig:ATLASfindyourconcept}
 \end{figure}
 
-\subsection{추가적 초기 이벤트 기준}\label{---}
+\subsection{추가적 초기 이벤트 기준 Additional Initial Event
+Criteria}\label{----additional-initial-event-criteria}
 
-이제 코호트에 개념 모음을 만들어 붙였지만, 아직 끝난 것이 아니다. 우리는
-ACE inhibitors를 태어나서 처음 복용한 사람을 찾고 있다. 이는 ACE
+이제 코호트에 concept set을 만들어 붙였지만, 아직 끝난 것이 아니다.
+우리는 ACE inhibitors를 태어나서 처음 복용한 사람을 찾고 있다. 이는 ACE
 inhibitors를 처음 복용한 환자 기록을 찾는 것을 의미한다. 이를 지정하기
 위해 당신은 '+Add attribute'를 클릭하여 'Add first exposure criteria'를
 선택해야 한다. 당신이 만든 기준에 다른 특성도 지정할 수 있다는 것을
@@ -8593,10 +8604,10 @@ per person} (한 환자에서 발생한 여러 번의 ACE inhibitor 복용 중, 
 inhibitors를 처음으로 복용하였으며, 복용 이전에 최소 365일의 관찰 기간을
 가진 환자 (환자 1번, 환자 3번, 환자 5번의 진한 별은 관찰에 포함; 환자
 1번의 연한 별은 관찰에서 탈락)를 확인할 수 있다. 당신의 코호트를 설계할
-때 \href{http://forums.ohdsi.org}{OHDSI Forum}에 참여하는 연구자의
-의견을 참고하면 더 좋을 것이다.
+때 \href{http://forums.ohdsi.org}{OHDSI 포럼}에 참여하는 연구자의 의견을
+참고하면 더 좋을 것이다.
 
-\subsection{포함 기준}\label{-}
+\subsection{포함 기준 Inclusion Criteria}\label{--inclusion-criteria}
 
 코호트 진입 이벤트를 설정했으면, 다음 두 옵션을 통해 추가적 이벤트를
 설정할 수 있다: `Restrict initial events', 그리고 `New inclusion
@@ -8631,7 +8642,7 @@ Event''와 비슷한데, 다만 ``+Add criteria to group'' 버튼은 초기 이�
 MEASUREMENT를 사용한 방법). 모두 다른 도메인이고 각각 다른 기준이
 필요하겠지만 특정 조건을 찾는 하나의 기준으로 그룹화할 수 있다. 이
 경우에는, 우리는 고혈압의 진단을 찾고 싶기 때문에 ``Add condition
-occurrence''를 선택한다. 여기에 적절한 개념 모음을 붙이는 등 초기
+occurrence''를 선택한다. 여기에 적절한 concept set을 붙이는 등 초기
 이벤트를 설정할 때와 비슷하게 하면 된다. 또한, ACE inhibitor를 처음
 복용한 날 index date로 이후 0\textasciitilde{}365일의 기간을 설정한다.
 그림 \ref{fig:ATLASIC1}와 같이 작성될 수 있을 것이다.
@@ -8651,11 +8662,11 @@ before index start date (ACE inhibitor 투여 이전에 어떠한 고혈압 약�
 복용하지 않은 사람).} (역자주: xx before and yy 구문은 항상
 혼란스럽지만, from xx to yy로 고쳐서 생각하면 이해하기 쉽다. 즉 해당
 조건의 시작과 끝을 지정하는 용법이다. 앞선 예라면 ``과거 전체로부터
-시작해서 (ACE inhibitor가 최초 투여된) 기준 날짜 바로 하루 전까지
-고혈압치료제를 한 번도 복용하지 않은 경우''가 된다) 먼저 ``New inclusion
-criteria''를 클릭해 당신의 기준을 설정한 다음, ``+Add criteria to
-group''을 클릭한다. 이는 DRUG\_EXPOSURE의 영역이니 ``Add Drug
-Exposure''를 클릭한 다음, 고혈압 약물의 개념 모음을 붙인다. 그리고,
+시작해서 (ACE inhibitor가 최초 투여된) 기준 날짜 index date 바로 하루
+전까지 고혈압치료제를 한 번도 복용하지 않은 경우''가 된다) 먼저 ``New
+inclusion criteria''를 클릭해 당신의 기준을 설정한 다음, ``+Add criteria
+to group''을 클릭한다. 이는 DRUG\_EXPOSURE의 영역이니 ``Add Drug
+Exposure''를 클릭한 다음, 고혈압 약물의 concept set을 붙인다. 그리고,
 index date로부터 ALL days before and 0 days after라는 시간을 설정해준다
 (역자 주: ``ALL days before and 0 days after'' 는 ``ALL days before and
 0 days before''와 같은 의미이며 기준 날짜 index date를 포함하여
@@ -8688,13 +8699,13 @@ before and 7 days after index start date AND can only start one HT drug
 (an ACE inhibitor) -- index date 이후 0\textasciitilde{}7일 동안 정확히
 1회의 항고혈압제 처방이 발생했으며, 반드시 ACE inhibitor로 고혈압
 약물치료를 시작해야 한다.} 먼저 ``New inclusion criteria''를 클릭해
-당신의 기준을 설정한 다음, ``+Add criteria to group''을 클릭한다. 이는
-DRUG\_ERA의 영역이니 ``Add Drug Era''를 클릭한 다음, 고혈압 약물의 개념
-모음을 붙인다. (역자 주: Drug era는 9.7.1에 간략히 설명되어 있는데 약물
-노출 테이블에서 계산된 것으로 연속으로 처방된 동일한 성분의 여러 약물
-노출을 합쳐서 하나의 기간으로 표현한 것이다. 동일한 성분의 약물 노출
-간에 30일 이상의 공백이 있으면 다른 drug era로 계산된다. 이 점은
-condition era도 마찬가지이다) 그리고 index date 이후
+당신의 기준을 설정한 다음, ``+Add criteria to group''을 클릭한다.
+DRUG\_ERA 를 사용하여 ``Add Drug Era''를 클릭한 다음, 고혈압 약물의
+concept set을 붙였다. (역자 주: Drug era는 9.7.1에 간략히 설명되어
+있는데 약물 노출 테이블에서 계산된 것으로 연속으로 처방된 동일한 성분의
+여러 약물 노출을 합쳐서 하나의 기간으로 표현한 것이다. 동일한 성분의
+약물 노출 간에 30일 이상의 공백이 있으면 다른 drug era로 계산된다. 이
+점은 condition era도 마찬가지이다) 그리고 index date 이후
 0\textasciitilde{}7일이라는 시간을 설정해준다. 그림 \ref{fig:ATLASIC3}를
 통해 진행된 모습을 확인한다.
 
@@ -8707,7 +8718,8 @@ condition era도 마찬가지이다) 그리고 index date 이후
 \caption{추가적 포함 기준 3}\label{fig:ATLASIC3}
 \end{figure}
 
-\subsection{코호트 종료 기준}\label{--}
+\subsection{코호트 종료 기준 Cohort Exit
+Criteria}\label{---cohort-exit-criteria}
 
 이제 모든 적절한 포함 기준을 추가했다. 다음으로 코호트 종료 기준을
 정해야 한다. 사람이 더 이상 이 코호트에 포함될 자격이 없어질 때는
@@ -8922,8 +8934,6 @@ OBSERVATION\_PERIOD 테이블을 조인하여 약물 복용 이전 최소 365일
 
 Left join을 사용했으며, DRUG\_EXPOSURE 테이블의 person\_id 행이 NULL인
 (일치하는 기록이 없음을 의미) 행만 찾을 수 있도록 했다는 점에 유의한다.
-(역자 주: NOT EXISTS나 NOT IN과 같은 SQL 명령문을 사용하여 다르게 표현할
-수도 있겠으나 SQL 수행 속도에서 차이가 난다)
 
 \subsection{단독 요법}\label{-}
 
@@ -8966,7 +8976,7 @@ drug\_era 테이블에서는 30일 이내에 처방된 같은 동일 성분명�
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{코호트 종료}\label{-}
+\subsection{코호트 종료 Cohort Exit}\label{--cohort-exit}
 
 이제 코호트 종료 일자를 제외하고 코호트를 완전히 지정했다. 코호트는
 노출이 중단되면 종료되도록 정의되며, 노출 사이에 최대 30일의 간격까지는
@@ -18308,9 +18318,9 @@ fidelity를 검토해야 한다. 연구 패키지가 사용자 환경에서 올�
 
 \emph{Chapter leads: Kristin Kostka, Greg Klebanov \& Sara Dempster}
 
-OHDSI의 사명은 관찰 연구를 통해 높은 수준의 증거를 도출하는 것이다.
+OHDSI의 사명은 관찰 연구를 통해 높은 수준의 근거를 도출하는 것이다.
 이것은 공동 연구를 통해 달성할 수 있는데, 이전 장에서 후향적
-데이터베이스 연구를 수행하기 위해, OHDSI 커뮤니티가 OMOP 표준화 어휘,
+데이터베이스 연구를 수행하기 위해, OHDSI 커뮤니티가 OMOP 표준화 용어,
 공통 데이터 모델(CDM), 분석 방법 패키지, ATLAS 및 연구 단계
 \ref{StudySteps}장을 포함하여 높은 수준의 재현 가능한 연구를 용이하게
 하는 표준과 도구를 어떻게 작성했는지 확인할 수 있었다. OHDSI 네트워크
@@ -18332,9 +18342,9 @@ OHDSI 연구 네트워크는 의료 분야에서 관찰 데이터 연구를 발�
 변환이 완료되면 OHDSI 프로그램 관리자 (mailto :
 \href{mailto:contact@ohdsi.org}{\nolinkurl{contact@ohdsi.org}})는 데이터
 네트워크 인구 조사 현황에 기관의 정보를 게시하도록 알려준다. 각 OHDSI
-네트워크 사이트는 자발적으로 참여하고, 의무는 없다. 각 사이트는 각각의
+네트워크 기관은 자발적으로 참여하고, 의무는 없다. 각 기관은 각각의
 네트워크 연구를 선택할 수 있고, 각 연구에서 데이터는 기관의 방화벽 안에
-위치하며, 네트워크 사이트에서 환자 수준 데이터는 수집되지 않는다.
+위치하며, 네트워크 기관에서 환자 수준 데이터는 수집되지 않는다.
 \textbf{단지, 연구 최종 결과만 공유할 수 있다.}
 
 \BeginKnitrBlock{rmdimportant}
@@ -18344,8 +18354,8 @@ OHDSI 연구 네트워크는 의료 분야에서 관찰 데이터 연구를 발�
 \tightlist
 \item
   \textbf{무료 도구 이용 :} OHDSI는 데이터 특성 분석 및 표준화된 분석
-  (임상 개념 탐색, 코호트 정의 및 특성 분석, 인구 수준 추정 및 환자 수준
-  예측 연구 실행)을 위한 오픈 소스 도구를 무료로 제공한다.
+  (OMOP concept 탐색, 코호트 정의 및 특성 분석, 인구 수준 추정 및 환자
+  수준 예측 연구 실행)을 위한 오픈 소스 도구를 무료로 제공한다.
 \item
   \textbf{최고의 연구 커뮤니티 참여 :} 네트워크 연구를 작성 및 게시하고
   다양한 분야 및 관계자 그룹의 리더와 협력할 수 있다.
@@ -18383,7 +18393,7 @@ OHDSI 연구 네트워크는 의료 분야에서 관찰 데이터 연구를 발�
 상태와 같이 데이터 원천의 위치에 따라 달라지는 많은 요인에 의해 영향을
 받을 수 있다. 따라서 네트워크에서 관측 연구를 실행하려는 일반적인 이유는
 데이터 원천의 다양성을 늘리고 잠재적으로 연구를 통해 일반화된 결과를
-얻기 위함이다. 바꿔 말하면, 연구 결과가 여러 사이트에서도 같은 결과를
+얻기 위함이다. 바꿔 말하면, 연구 결과가 여러 기관에서도 같은 결과를
 보이는지 여부와 만약 다른 결과를 보이는 경우 원인을 확인할 수 있는지를
 알아보기 위함이다.
 
@@ -18408,7 +18418,7 @@ OHDSI 연구 네트워크는 의료 분야에서 관찰 데이터 연구를 발�
 수행하거나 선택된 기관에서만 시행하도록 제한할 수 있다. 연구가 단일
 데이터베이스에서 실행되도록 설계되었는지, 제한된 파트너 집합을 대상으로
 연구를 수행하거나, OHDSI 네트워크에 완전히 참여하기 위해 연구를
-시작하는지 여부는 각 조사자의 재량에 달려있다. 이 장에서는 OHDSI
+시작하는지 여부는 각 연구자의 재량에 달려있다. 이 장에서는 OHDSI
 커뮤니티가 수행하는 개방형 네트워크 연구에 대해 다루도록 하겠다.
 
 \textbf{\emph{개방형} OHDSI 네트워크 연구 요소} 개방형 OHDSI 네트워크
@@ -18448,31 +18458,34 @@ OHDSI 네트워크에서 실행할 연구를 설계하려면 연구 코드를 �
 조립하는 방법에 대한 패러다임 전환이 필요하다. 일반적으로 목표 데이터
 모음을 염두에 두고 연구를 설계하게 되는데, 연구 분석에 이용되는 데이터
 중에서 자신의 연구에 유리한 결과가 나오도록 코드를 작성할 가능성이 있다.
-예를 들어, 혈관 부종 코호트를 구성하는 경우 CDM에 표시된 혈관 부종에
-대한 개념 코드만 선택하게 되는데, 그렇게 하는 경우 연구용 데이터가 특정
-의료 환경 (1차 의료, 외래 환경) 또는 특정 지역 (미국 중부)에만 있는 경우
-문제가 될 수 있다. 결국 이렇게 선택된 연구 코드는 코호트 정의에 있어서
-선택비뚤림 selection bias이 발생하게 된다.
+예를 들어, 혈관 부종 코호트를 구성하는 경우 보통 개별 연구자들은 자신의
+CDM 데이터 상의 혈관 부종에 대한 concept 1 가지만 선택할 수 있는데,
+그렇게 하는 경우 연구용 데이터가 특정 의료 환경 (1차 의료, 외래 환경)
+또는 특정 지역 (미국 중부)에만 있는 경우 문제가 될 수 있다. 결국 이렇게
+선택된 연구 코드는 코호트 정의에 있어서 선택비뚤림 selection bias이
+발생하게 된다. (역자 주: OHDSI 연구를 설계할 때는, 반드시 다른 의료 용어
+체계 (예를 들어 ICD-9) 상에서도 나의 phenotype이 잘 작동할 수 있을지
+면밀히 고민하면서 설계해야 한다.)
 
 OHDSI 네트워크 연구에서는 본인의 데이터만을 위한 연구 패키지를 설계 및
-구축하지 않고, 전 세계 여러 사이트에서 실행할 연구 패키지를 구축한다.
-기관 외부의 참여 사이트에 대한 기본 데이터를 검색하거나 공유하는 것은
+구축하지 않고, 전 세계 여러 기관에서 실행할 연구 패키지를 구축한다. 기관
+외부의 참여 기관에 대한 기본 데이터를 검색하거나 공유하는 것은
 불가능하고, 결과 파일만 공유한다. 연구 패키지는 CDM의 도메인에서 사용
-가능한 데이터 만 수집할 수 있다. 관찰 의료 연구 데이터가 확인되는 기관은
-매우 다양하기 때문에 연구자는 이런 다양한 연구 기관에서 개념 셋을 적용할
-수 있도록 포괄적인 접근법이 필요하다. OHDSI 연구 패키지는 종종 모든
-사이트에서 동일한 코호트 정의를 사용해야 한다. 다시 말하면, 적격한
-데이터 (보험 청구 자료 또는 전자 의무 기록(EHR) 자료)의 하부 구조에서만
+가능한 데이터만 수집할 수 있다. 관찰 의료 연구 데이터가 확인되는 기관은
+매우 다양하기 때문에 연구자는 이런 다양한 연구 기관에서 concept set을
+적용할 수 있도록 포괄적인 접근법이 필요하다. OHDSI 연구 패키지는 보통
+모든 기관에서 동일한 코호트 정의를 사용한다. 다시 말하면, 적격한 데이터
+(보험 청구 자료 또는 전자 의무 기록(EHR) 자료)의 하부 구조에서만
 적용되는 코호트 정의를 함으로써 편중이 발생하지 않도록 주의해야 한다.
 따라서, 코호트 정의를 작성할 때는 여러 CDM에서 적용 가능한 코호트 정의를
 작성하도록 신경 써야 한다. OHDSI 연구 패키지에서는 데이터베이스 연결이나
-저장 위치와 같은 일부 부분만 각 사이트에서 변경하고, 연구에 관련된
-변수는 모두 같은 매개 변수를 사용하고 있다. 나중에 다양한 데이터
-모음에서 임상적 소견을 해석하는 데 미치는 영향에 대해 알아보도록 한다.
+저장 위치와 같은 일부 부분만 각 기관에서 변경하고, 연구에 관련된 변수는
+모두 같은 매개 변수를 사용하고 있다. 나중에 다양한 데이터 모음에서
+임상적 소견을 해석하는 데 미치는 영향에 대해 알아보도록 한다.
 
-임상 코딩 변형 외에도 로컬 기술 인프라에서 변형을 예상하여 설계해야
+임상 용어 코딩 변형 외에도 로컬 기술 인프라에서 변형을 예상하여 설계해야
 한다. 연구자가 작성한 학습 코드는 단일 기술 환경에서 실행되지 않을
-것이다. 각 OHDSI 네트워크 사이트는 데이터베이스를 독립적으로 선택할 수
+것이다. 각 OHDSI 네트워크 기관은 데이터베이스를 독립적으로 선택할 수
 있다. 이는 연구 패키지를 특정 데이터베이스 용어로만 하드 코딩할 수
 없음을 의미한다. 연구 코드는 해당 데이터베이스의 운영자가 쉽게 수정할 수
 있는 SQL 유형으로 매개 변수화되어있어야 한다. 다행히 OHDSI 커뮤니티에는
@@ -18482,28 +18495,36 @@ ATLAS, \protect\hyperlink{DatabaseConnector}{DatabaseConnector}
 (\url{https://ohdsi.github.io/SqlRender/}) 와 같은 솔루션이 있어, 각자의
 데이터베이스 용어로 변환하여 연구자의 연구 패키지를 실행시킬 수 있다.
 OHDSI 연구자는 여러 환경에서 연구 패키지를 테스트하고 검증할 수 있도록
-다른 네트워크 연구 사이트의 도움을 요청하는 것이 필요하다. 코딩 오류가
+다른 네트워크 연구 기관의 도움을 요청하는 것이 필요하다. 코딩 오류가
 발생하면 연구자는 \protect\hyperlink{ohdsi-}{OHDSI 포럼}
-(\url{http://forums.ohdsi.org)을} 사용하여 패키지를 다른 연구자와
+(\url{http://forums.ohdsi.org}) 을 사용하여 패키지를 다른 연구자와
 논의하고 디버깅할 수 있다.
+
+많은 방법론적인 혁신이 있었지만, 그럼에도 불구하고 OHDSI 연구를 진행하는
+것은 결코 쉽지 않다. 만약, 당신이 적절한 연구 주제를 가지고 있고, 공개
+ATLAS 등을 통해 연구 패키지를 만들어보았음에도 불구하고 OHDSI 네트워크
+연구 진행에 어려움을 겪는다면,
+\href{https://github.com/ohdsistudynurture/OhdsiStudyNurtureCommittee/wiki}{OHDSI
+연구 육성 커뮤니티 study nurture committee} 에 문의하여 도움을 청하기
+바란다.
 
 \subsection{OHDSI 네트워크 연구를 위한 물류적 관점의
 고려사항}\label{ohdsi------}
 
 \index{logistics of network research}
 
-OHDSI는 개방형 연구 커뮤니티이며 OHDSI 중앙 조정 센터는 공동 연구자가
+OHDSI는 개방형 연구 커뮤니티이며 OHDSI 중앙 조정 센터 는 공동 연구자가
 커뮤니티 연구를 이끌고 참여할 수 있도록 커뮤니티 인프라를 제공하는
 역할을 한다. 모든 OHDSI 네트워크 연구에는 연구 책임자가 필요하며 OHDSI
 커뮤니티의 참여자의 누구라도 될 수 있다. OHDSI 네트워크 연구는 연구
 책임자, 공동 연구자 및 참여 네트워크 데이터 파트너 간의 긴밀한 협업이
-필요하다. 사이트마다 각자의 CDM에서 실행될 수 있도록 필요시 자체 승인
-절차를 수행해야 한다. 데이터 분석가는 연구를 수행할 수 있는 적절한
+필요하다. 기관마다 각자의 CDM에서 연구가 실행될 수 있도록 필요시 자체
+승인 절차를 수행해야 한다. 데이터 분석가는 연구를 수행할 수 있는 적절한
 권한을 부여하기 위해 현지 IT 팀의 지원을 받아야 할 수도 있다. 각
-사이트에서 연구팀의 규모와 범위는 OMOP CDM과 OHDSI 패키지의 숙련도뿐만
+기관에서 연구팀의 규모와 범위는 OMOP CDM과 OHDSI 패키지의 숙련도뿐만
 아니라 제안된 네트워크 연구의 크기와 복잡성에 따라 결정되어야 한다.
-또한, OHDSI 네트워크 연구를 수행하는 사이트의 숙련도에 따라 필요한
-인력이 결정될 수 있다.
+또한, OHDSI 네트워크 연구를 수행하는 기관의 숙련도에 따라 필요한 인력이
+결정될 수 있다.
 
 각각의 연구에 따라 초기 준비 절차는 다음과 같을 수 있다 (기관별 상이).
 
@@ -18528,28 +18549,28 @@ OHDSI는 개방형 연구 커뮤니티이며 OHDSI 중앙 조정 센터는 공�
 \textbf{데이터 품질 및 네트워크 연구:} \ref{ExtractTransformLoad}장에서
 논의한 것처럼 품질 관리는 ETL 프로세스의 기본적이고 반복적인 부분이다.
 이는 네트워크 연구 프로세스와 관계없이 정기적으로 수행해야 한다.
-네트워크 연구의 경우, 연구 책임자는 참여 사이트의 데이터 품질 보고서를
+네트워크 연구의 경우, 연구 책임자는 참여 기관의 데이터 품질 보고서를
 검토하거나 사용자 지정 SQL 쿼리를 작성 및 배포하여 데이터 원천 간의
 차이점을 확인할 수 있다. OHDSI 내에서 진행되는 데이터 품질 노력에 대한
 자세한 내용은 \ref{DataQuality}장을 참조한다.
 \EndKnitrBlock{rmdimportant}
 
-각 사이트에는 연구 패키지를 실행하는 데이터 분석가가 있을 것이다. 이
+각 기관에는 연구 패키지를 실행하는 데이터 분석가가 있을 것이다. 이
 인원은 환자의 민감한 정보가 전송되지 않는지 연구 패키지의 결과를
 검토해야 한다. 인구 수준 추정 Population-Level Effect Estimation(PLE) 및
 환자 수준 예측 Patient Level Prediction(PLP)과 같은 사전 구축된 OHDSI
-패키지를 사용하는 경우 지정된 분석에 대한 최소 셀 수를 정할 수 있는
+패키지를 사용하는 경우 지정된 분석에 대한 최소 환자 수를 정할 수 있는
 설정이 있다. 데이터 분석가는 이러한 임계값을 검토하고 각 기관의 정책을
 준수하는지 확인해야 한다.
 
 연구 결과를 공유할 때 데이터 분석가는 결과 전송 방법을 포함하여 모든
 사항에 대해 각 기관의 정책을 준수해야 하며 결과의 외부 반출을 위한 승인
-프로세스를 준수해야 한다. ** OHDSI 네트워크 연구는 환자 수준 데이터를
-공유하지 않는다. 즉, 각 사이트의 환자 수준 데이터는 중앙에 저장되지
-않는다. 연구 패키지는 집계 결과 (통계 결과 요약, 포인트 추정치, 진단
-플롯 등)로 설계된 결과 파일을 작성하며 환자 수준 정보는 공유되지 않는다.
-따라서, 많은 조직에서는 참여 연구팀 구성원 간에 데이터 공유 계약을
-실행할 필요가 없다. 그러나 관련 기관 및 데이터 원천에 따라 특정
+프로세스를 준수해야 한다. \textbf{OHDSI 네트워크 연구는 환자 수준
+데이터를 공유하지 않는다.} 즉, 각 기관의 환자 수준 데이터는 중앙에
+저장되지 않는다. 연구 패키지는 집계 결과 (통계 결과 요약, 포인트 추정치,
+진단 플롯 등)로 설계된 결과 파일을 작성하며 환자 수준 정보는 공유되지
+않는다. 따라서, 많은 기관에서는 참여 연구팀 구성원 간에 데이터 공유
+계약을 실행할 필요가 없다. 그러나 관련 기관 및 데이터 원천에 따라 특정
 연구팀원이 확인하고 보다 공식적인 데이터 공유 계약을 체결해야 할 수도
 있다. 네트워크 연구에 관심이 있는 CDM 데이터 소유 연구기관 연구자인 경우
 각 기관의 관련 팀과 협의하여 OHDSI 커뮤니티 연구에 참여하기 위해
@@ -18575,13 +18596,13 @@ OHDSI 네트워크 연구를 수행하기 위한 세 가지 단계는 다음과 
 
 연구 타당성 단계 \emph{(또는 사전 학습 단계)}는 연구 주제를 정의하고
 연구 프로토콜에 따른 주제의 결과를 도출하는 프로세스를 의미한다. 이
-단계는 참여 사이트에서 연구 프로토콜을 실행할 수 있는 가능성을 평가하는
-데 중점을 둔다.
+단계는 참여 기관에서 연구 프로토콜을 실행할 수 있는 가능성을 평가하는 데
+중점을 둔다.
 
 타당성 단계의 결과는 네트워크 실행 준비가 완료된 최종 프로토콜 및 연구
 패키지를 생성하는 것이다. 공식 프로토콜은 지정된 연구 책임자 (논문에서는
 책임저자) 및 연구 일정에 대한 정보를 포함한 내용으로 연구팀을 자세히
-설명한다. 이 프로토콜은 추가로 연구에 참여하는 네트워크 사이트가 CDM
+설명한다. 이 프로토콜은 추가로 연구에 참여하는 네트워크 기관이 CDM
 데이터에서 전체 연구 패키지를 검토, 승인 및 실행하는 데 중요한 구성
 요소가 되고 있다. 임상 시험 계획서에는 연구 모집단, 사용되는 방법, 결과
 저장 및 분석 방법, 완료 후 연구 결과 배포 방법 (논문, 프레젠테이션 등)이
@@ -18589,12 +18610,12 @@ OHDSI 네트워크 연구를 수행하기 위한 세 가지 단계는 다음과 
 
 타당성 검증 단계는 정립된 절차는 없다. 이 과정은 연구의 종류에 따라
 달라진다. 최소한 연구 책임자는 필요로 하는 약물 노출, 처치 정보, 진단명
-또는 환자의 인구학적 정보가 있는 네트워크 사이트를 알아보는 데 시간을
+또는 환자의 인구학적 정보가 있는 네트워크 기관을 알아보는 데 시간을
 할애한다. 가능한 경우, 연구 책임자는 자신의 CDM을 이용하여 연구 대상을
 설계해야 한다. 그러나, 연구 책임자는 네트워크 연구를 실행하기 위해 실제
 환자 데이터가 있는 OMOP CDM에 접속할 필요는 없다. 책임자는 가상의 데이터
 (CMS sybthetic Public Use Files, Mitre 또는 Synthea의 syntheticMass)를
-사용하여 대상 코호트 정의를 설계하고, OHDSI 네트워크 사이트 공동
+사용하여 대상 코호트 정의를 설계하고, OHDSI 네트워크 기관 공동
 연구자에게 코호트의 타당성을 검증하도록 요청하는 방식으로도 할 수 있다.
 타당성 조사 단계는 공동 연구자에게 ATLAS에서 만들어진 코호트 정의 JSON
 file을 이용하여 코호트를 생성하도록 요청하거나, \ref{StudySteps}장에서
@@ -18607,7 +18628,7 @@ file을 이용하여 코호트를 생성하도록 요청하거나, \ref{StudySte
 \subsection{연구 실행}\label{--1}
 
 타당성 연구를 완료한 후에는 실행의 단계로 진행한다. 이 단계는 OHDSI
-네트워크 사이트가 분석에 참여하는 시기이다. 이 단계는 우리가 이전에
+네트워크 기관이 분석에 참여하는 시기이다. 이 단계는 우리가 이전에
 논의하였던 연구 설계와 논리적 고려 사항이 가장 중요한 시기이다.
 
 연구의 실행은 연구 책임자가 새로운 OHDSI 네트워크 연구에 대해 공식적으로
@@ -18615,14 +18636,14 @@ file을 이용하여 코호트를 생성하도록 요청하거나, \ref{StudySte
 책임자는 연구 프로토콜을 OHDSI GitHub에 공개하고, 매주 열리는 OHDSI
 커뮤니티 원격 회의나 \href{http://forums.ohdsi.org}{OHDSI 포럼}에 연구에
 대해 소개하고, 참여하는 센터와 공동 연구자를 모집하도록 한다. 연구에
-사이트가 참여하려고 하면, 연구 책임자는 각 사이트에 직접 연락하여 연구
+기관이 참여하려고 하면, 연구 책임자는 각 기관에 직접 연락하여 연구
 프로토콜과 코드뿐만 아니라 연구 패키지를 실행하는 방법 안내서를 저장하고
-있는 GitHub 저장소를 알려주도록 한다. 모든 사이트에서 동시에 진행하여 각
-사이트의 결과가 동시에 공유되어 다른 사이트의 결과값에 의해 자신의
-사이트 결과에 영향을 주지 않도록 하는 것 이상적이다.
+있는 GitHub 저장소를 알려주도록 한다. 모든 기관에서 동시에 진행하여 각
+기관의 결과가 동시에 공유되어 다른 기관의 결과값에 의해 자신의 기관
+결과에 영향을 주지 않도록 하는 것 이상적이다.
 
-각 사이트 연구팀은 각자의 기관에서 패키지를 실행하고 외부로 결과를
-공유할 수 있는 절차를 확인해서 진행해야 한다. 어떤 부분에서는
+각 기관 연구팀은 각자의 기관에서 패키지를 실행하고 외부로 결과를 공유할
+수 있는 절차를 확인해서 진행해야 한다. 어떤 부분에서는
 기관생명윤리위원회의 승인을 받거나 동등한 승인을 받는 것과 같은 절차일
 것이다. 연구 실행이 승인되면 각자 기관의 연구자나 통계학자가 연구
 책임자의 안내서대로 패키지를 실행하고, OHDSI 가이드라인에 따라서
@@ -18632,10 +18653,10 @@ file을 이용하여 코호트를 생성하도록 요청하거나, \ref{StudySte
 
 연구 책임자는 연구 결과를 받을 방법 (예를 들어, SFTP나 Amazon S3
 bucket)을 결정해야 하고 결과를 전환하는 시간표를 결정해야 한다. 각
-사이트에서는 전송 방법이 내부 규약에 맞지 않는 경우에는 새로운
-해결방법을 개발해야 할 수도 있다.
+기관에서는 전송 방법이 내부 규약에 맞지 않는 경우에는 새로운 해결방법을
+개발해야 할 수도 있다.
 
-실행 단계에서는 통합된 연구팀 (연구 책임자와 참여 사이트 구성원 포함)은
+실행 단계에서는 통합된 연구팀 (연구 책임자와 참여 기관 구성원 포함)은
 합당한 조정이 필요한 경우, 실행을 반복해야 할 수 있다. 만약 이러한
 과정에서 수정된 연구 프로토콜이 승인된 연구 내용을 벗어난 경우 각 참여
 기관에서는 업데이트된 프로토콜을 받아서 각자의 기관생명윤리위원회의 검토
@@ -18643,23 +18664,23 @@ bucket)을 결정해야 하고 결과를 전환하는 시간표를 결정해야 
 
 연구 책임자와 데이터 사이언티스트나 통계학자는 여러 기관에서 공유된
 데이터를 모으고, 적절하게 메타분석을 시행하는 최종적인 역할을 한다.
-OHDSI 커뮤니티에는 단일 결과를 얻기 위해 여러 네트워크 사이트에서 생성된
+OHDSI 커뮤니티에는 단일 결과를 얻기 위해 여러 네트워크 기관에서 생성된
 결과를 모으고 분석하는 검증된 방법이 있다.
 \href{https://github.com/OHDSI/EvidenceSynthesis}{EvidenceSynthesis}는
-여러 사이트에서 생성된 결과로 증거를 통합하고 진단을 실행할 수 있는
-공개된 R 패키지이다. 이것은 메타 분석과 포레스트 플롯을 작성할 수 있는
-함수를 포함하고 있다.
+여러 기관에서 생성된 결과로 증거를 통합하고 진단을 실행할 수 있는 공개된
+R 패키지이다. 이것은 메타 분석과 포레스트 플롯을 작성할 수 있는 함수를
+포함하고 있다.
 
 연구 책임자는 참여 기관의 상황을 모니터하고 정기적으로 확인함으로써
-패키지 실행 시 문제점을 해결할 수 있도록 도와줘야 한다. 연구 패키지
-실행은 각 사이트에 일괄적으로 적용되기 어려울 수 있다. 데이터베이스 측면
-(권한 설정/스키마 승인)과 연관된 문제점과 각자의 환경이 달라서 생기는
-(필요한 패키지가 설치되지 않거나, R에서 데이터베이스에 접속이 되지 않는
-등) 분석 도구 실행에 관계된 문제점이 생긴다. 참여 기관은 여러 상황을
-직접적으로 처리하게 되고, 결국 연구를 실행할 때 발생하는 문제점을
-해결하는 방법에 대해 의견을 나눌 것이다. 궁극적으로는 각자 CDM에서
-발생하는 문제점을 해결하는 적절한 리소스를 찾는 절차는 참여하는
-사이트에서 고려해야 하는 사항이다.
+패키지 실행 시 문제점을 해결할 수 있도록 도와줘야 한다. 연구 패키지가 각
+기관에서 일괄적으로 실행되지 않을 수 있다. 데이터베이스 측면 (권한
+설정/스키마 승인)과 연관된 문제점과 각자의 환경이 달라서 생기는 (필요한
+패키지가 설치되지 않거나, R에서 데이터베이스에 접속이 되지 않는 등) 분석
+도구 실행에 관계된 문제점이 생긴다. 참여 기관은 여러 상황을 직접적으로
+처리하게 되고, 결국 연구를 실행할 때 발생하는 문제점을 해결하는 방법에
+대해 의견을 나눌 것이다. 궁극적으로는 각자 CDM에서 발생하는 문제점을
+해결하는 적절한 리소스를 찾는 절차는 참여하는 기관에서 고려해야 하는
+사항이다.
 
 OHDSI 연구의 실행이 신속하게 진행될 수 있더라도, 모든 참여 기관이 연구를
 실행하고, 결과를 배포할 때 적절한 승인을 얻을 수 있는 충분한 시간을 주는
@@ -18680,11 +18701,11 @@ OHDSI 연구의 실행이 신속하게 진행될 수 있더라도, 모든 참여
 시각화와 같은 다양한 업무에 대해 다른 참여자와 협력한다. 일단 연구가
 시행되면, 연구 결과는 중앙에 저장되고 연구 책임자는 추가적인 분석을 할
 수 있다. 연구 책임자는 참여기관의 연구 결과 검토를 위해 전체 연구 결과
-(Shiny 앱)를 작성하고 배포하도록 한다. 연구 책임자가 OHDSI study
-skeleton, Atlas에서 생성된 코드 또는 GitHub code를 수동으로 수정해서
-사용하고 있으면, Shiny 앱이 자동으로 생성된다. 연구 책임자가 custom
-코드를 작성하는 경우에는 자신의 연구 패키지에 대한 shiny 앱을 생성하는데
-문의하거나 도움을 얻을 때는 OHDSI 포럼을 이용할 수 있다.
+(Shiny 앱)를 작성하고 배포하도록 한다. 연구 책임자가 Atlas에서 생성된
+코드 또는 GitHub code를 수동으로 수정한 OHDSI study skeleton를 사용하고
+있으면, Shiny 앱이 자동으로 생성된다. 연구 책임자가 임의로 코드를 작성한
+경우, 자신의 연구 패키지에 대한 shiny 앱을 생성하는데 문의하거나 도움을
+얻기 위해 OHDSI 포럼에 문의할 수 있다.
 
 \BeginKnitrBlock{rmdimportant}
 자신의 OHDSI 네트워크 연구를 어디에 게재할지 결정하기 어렵다면, 초록과
@@ -18693,23 +18714,23 @@ Estimator)을 사용하라. \footnote{\url{http://jane.biosemantics.org/}}
 \EndKnitrBlock{rmdimportant}
 
 일단 논문이 작성되면, 모든 연구 참여자가 내용을 검토하고 외부 출판
-과정에 이르는 결과를 확인하도록 한다. 최소한 참여한 사이트에서는 출판
-책임자를 결정해야 한다. - 이 인원은 논문의 준비와 투고 과정에 내부적인
-조정을 담당하게 된다. 어느 저널에 투고할지는 시작 단계에서 연구 참여자와
-논의하는 것이 바람직하지만 연구자의 재량에 달려있다. OHDSI 연구에서 모든
-공저자는 ICMJE 저자 가이드라인에 충족해야 한다. \footnote{\url{http://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html}}
+과정에 이르는 결과를 확인하도록 한다. 최소한 개별 참여한 기관에서는 출판
+책임자를 결정해야 한다(이 인원은 논문의 준비와 투고 과정에 내부적인
+조정을 담당하게 된다). 어느 저널에 투고할지는 시작 단계에서 연구
+참여자와 논의하는 것이 바람직하지만 연구자의 재량에 달려있다. OHDSI
+연구에서 모든 공저자는 ICMJE 저자 가이드라인에 충족해야 한다. \footnote{\url{http://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html}}
 결과의 발표는 OHDSI 심포지엄, 다른 학술 심포지엄이나 논문 게재 등의
 다양한 방법을 사용할 수 있다. 연구자는 OHDSI 네트워크 연구를 매주 열리는
-OHDSI 커뮤니티 회의나 국제 OHDSI 심포지엄에서 발표하도록 초대한다.
+OHDSI 커뮤니티 회의나 국제 OHDSI 심포지엄에서 발표하기 바란다.
 
 \section{미래의 모습: 네트워크 연구의 자동화}\label{----}
 
 \index{arachne}
 
-현재 네트워크 연구 방식은 수동이다. - 연구팀 구성원이 다양한 방법 (wiki,
-GitHub, email)을 이용하여 연구 디자인, 코드와 결과 공유를 시행하고 있다.
-이러한 방법은 일관적이지 못하고 확장성이 낮아, OHDSI 커뮤니티에서는 연구
-프로세스를 체계화하기 위해 노력하고 있다.
+현재 네트워크 연구 방식은 수동이다. 즉, 연구팀 구성원이 다양한 방법
+(wiki, GitHub, email)을 이용하여 연구 디자인, 코드와 결과 공유를
+시행하고 있다. 이러한 방법은 일관적이지 못하고 확장성이 낮아, OHDSI
+커뮤니티에서는 연구 프로세스를 체계화하기 위해 노력하고 있다.
 
 \begin{figure}[h]
 
@@ -18731,7 +18752,7 @@ ARACHNE는 네트워크 연구 과정을 간소화하고 자동화할 수 있도
 R, Python, SQL 기반 실행 환경을 만들 수 있다.
 
 ARACHNE는 ACHILLES 보고서 및 ATLAS 디자인 인공물 artifact 가져오기, 자체
-포함된 패키지 작성 및 여러 사이트에서 자동으로 실행하는 기능을 포함하여
+포함된 패키지 작성 및 여러 기관에서 자동으로 실행하는 기능을 포함하여
 다른 OHDSI 도구와 완벽하게 통합되도록 설계되었다. 미래 비전은 단일
 네트워크 내의 조직뿐만 아니라 여러 네트워크의 조직 간에도 연구를 수행할
 목적으로 여러 네트워크를 서로 연결하는 것이다.
@@ -18753,23 +18774,23 @@ ARACHNE는 ACHILLES 보고서 및 ATLAS 디자인 인공물 artifact 가져오�
 진행할 수 있도록 OHDSI 커뮤니티는 도움을 줄 수 있다.
 
 \textbf{연구 설계와 타당도} 네트워크 연구를 시행할 때, 자신의 연구가 한
-형태의 데이터에 편향되어 있지 않은지 확인해야 한다. 모든 사이트에서
-동일한 대상을 표현할 수 있는 코호트 정의를 조율하는 과정은 데이터 형태의
-이질성의 정도와 연구 사이트에서 데이터를 OMOP CDM으로 변환할 때,
+형태의 데이터에 편향되어 있지 않은지 확인해야 한다. 모든 기관에서 동일한
+대상을 표현할 수 있는 코호트 정의를 조율하는 과정은 데이터 형태의
+이질성의 정도와 연구 기관에서 데이터를 OMOP CDM으로 변환할 때,
 표준규약을 얼마나 잘 따랐는지에 따라 그 난이도가 결정될 것이다. 이
-작업이 중요한 이유는 각 네트워크 사이트와 실제 임상적으로 의미 있는
-데이터 선택, 표현, 변환 간의 차이를 조정해야 하기 때문이다. 특히, 효과를
-비교하는 연구에서는 각 데이터 사이트 간에 일치된 노출 코호트와 결과
-코호트 정의가 문제 될 수 있다. 예를 들어, 약물 노출 정도는 분류가
-잘못되었을 가능성이 존재하는 데이터 원천에서 수집될 수 있다. 약국에서
-수집된 약물 처방전의 경우, 약물에 대한 청구가 있을 때 환자가 처방을
-받았을 가능성이 높다는 것을 의미한다. 그러나, EHR에 입력된 처방전은
-약물의 실제 소비 여부를 확인하는 데이터와 연결이 되지 않는다. 또한,
-의사가 처방전을 발급한 시간, 약사가 처방전에 따라 약을 조제한 시간,
-약국에서 환자가 약을 수령한 시간, 실제로 약의 첫 복용이 일어난 시간 간의
-차이가 존재한다. 이러한 측정 오류는 어떠한 연구를 하더라도 편향될 수
-있다. 따라서, 연구 계획서를 개발할 때에는 데이터 참여 적절성을 고려하여
-타당성 연구를 시행하는 것이 중요하다.
+작업이 중요한 이유는 각 네트워크 기관과 실제 임상적으로 의미 있는 데이터
+선택, 표현, 변환 간의 차이를 조정해야 하기 때문이다. 특히, 효과를
+비교하는 연구에서는 각 데이터 기관 간에 일치된 노출 코호트와 결과 코호트
+정의가 문제 될 수 있다. 예를 들어, 약물 노출 정도는 분류가 잘못되었을
+가능성이 존재하는 데이터 원천에서 수집될 수 있다. 약국에서 수집된 약물
+처방전의 경우, 약물에 대한 청구가 있을 때 환자가 처방을 받았을 가능성이
+높다는 것을 의미한다. 그러나, EHR에 입력된 처방전은 약물의 실제 소비
+여부를 확인하는 데이터와 연결이 되지 않는다. 또한, 의사가 처방전을
+발급한 시간, 약사가 처방전에 따라 약을 조제한 시간, 약국에서 환자가 약을
+수령한 시간, 실제로 약의 첫 복용이 일어난 시간 간의 차이가 존재한다.
+이러한 측정 오류는 어떠한 연구를 하더라도 편향될 수 있다. 따라서, 연구
+계획서를 개발할 때에는 데이터 참여 적절성을 고려하여 타당성 연구를
+시행하는 것이 중요하다.
 
 \textbf{연구 실행} 가능하면 연구 책임자가 ATLAS나 OHDSI 연구방법론
 라이브러리 Method Library, OHDSI Study Skeleton을 이용하여 표준화된 분석
@@ -18779,18 +18800,18 @@ ARACHNE는 ACHILLES 보고서 및 ATLAS 디자인 인공물 artifact 가져오�
 (데이터베이스 연결 정보, 로컬 드라이브 경로, 운영체제를 지정하지
 않는다). 참여 기관을 모집할 때는 연구 책임자는 각 참여 기관이 CDM 규약에
 맞는지, 최신 OMOP 표준 용어집에 따라 업데이트되어 있는지 확인해야 한다.
-연구 책임자는 각 네트워크 사이트에서 CDM에 대해 데이터 품질 검사를
+연구 책임자는 각 네트워크 기관에서 CDM에 대해 데이터 품질 검사를
 수행하고 문서화하도록 하고 이에 대한 점검을 해야 한다 (ETL 수행이 THEMIS
 규약과 규칙에 따라서 올바른 CDM 테이블과 필드로 데이터가 배치되었는지
 확인). 각 데이터 분석가는 연구 패키지는 실행하기 전에 R 패키지를 최신
 OHDSI 패키지 버전으로 업데이트하도록 한다.
 
-\textbf{결과와 배포} 연구 책임자는 결과를 공유하기 전에 각 사이트가 각
+\textbf{결과와 배포} 연구 책임자는 결과를 공유하기 전에 각 기관이 각
 기관의 규칙을 준수하도록 해야 한다. 연구가 개방적이고 재현 가능하다는
 의미는 설계되고 실행되는 모든 것이 가능하다는 의미이다. OHDSI 네트워크
 연구는 모든 문서와 결과가 OHDSI GitHub 저장소나 data.ohdsi.org R Shiny
 server에 게시되어 투명하게 관리된다. 논문을 준비할 때는 연구 책임자는
-저널에서 OHDSI 네트워크 사이트 간에 데이터가 어떻게 달라질 수 있는지
+저널에서 OHDSI 네트워크 기관 간에 데이터가 어떻게 달라질 수 있는지
 이해시킬 수 있도록 OMOP CDM과 표준화된 용어 원칙에 대해 언급을 해야
 한다. 예를 들어, Claim 데이터베이스와 EHR을 이용한 네트워크 연구를
 진행할 때에 저널 리뷰어는 다양한 데이터 형태에서 코호트 정의의 일관성을
@@ -18829,7 +18850,9 @@ OMOP에서 observation period table을 추출하는 방식에 익숙하지 않�
   제공할 수 있다.
 \item
   네트워크 연구를 하는 데 도움이 필요하면 연구를 디자인하고 실행하는 데
-  도움을 줄 수 있는 OHDSI 연구 육성 커뮤니티와 상의한다.
+  도움을 줄 수 있는
+  \href{https://github.com/ohdsistudynurture/OhdsiStudyNurtureCommittee/wiki}{OHDSI
+  연구 육성 커뮤니티 study nurture committee} 와 상의한다.
 \item
   \textbf{공유는 조심스럽게 시행한다.} 모든 연구 문서, 코드 및 결과는
   OHDSI GitHub 또는 R Shiny 앱에 게시된다. 연구 책임자는 OHDSI 행사에
@@ -19040,9 +19063,10 @@ ETL을 CDM으로 정의하기 전에 데이터베이스를 수집하기 위한 �
 
 \chapter{Cohort definitions}\label{CohortDefinitions}
 
-This Appendix contains cohort definitions used throughout the book.
+이 책의 여러 장에 나온 코호트 정의를 부록에 상세히 기록하였다. ATLAS에서
+구현을 따라하기 편하도록 가급적 영어 원문을 그대로 실었다.
 
-\section{ACE Inhibitors}\label{AceInhibitors}
+\section{ACE Inhibitor 사용 코호트}\label{AceInhibitors}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19115,8 +19139,8 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{New Users of ACE Inhibitors
-Monotherapy}\label{AceInhibitorsMono}
+\section{ACE inhibitor 단독 요법의 새로운 사용자 코호트 New
+User}\label{AceInhibitorsMono}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort-1}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19324,7 +19348,7 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Acute Myocardial Infarction (AMI)}\label{Ami}
+\section{심근경색 Acute myocardial infarction(AMI) 코호트}\label{Ami}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort-2}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19408,7 +19432,7 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Angioedema}\label{Angioedema}
+\section{혈관부종 Angioedema}\label{Angioedema}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort-3}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19491,8 +19515,8 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{New Users of Thiazide-Like Diuretics
-Monotherapy}\label{ThiazidesMono}
+\section{Thiazide 계 이뇨제 Thiazide-Like Diuretics 단독 요법 새로운
+사용자 New User 코호트}\label{ThiazidesMono}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort-4}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19694,8 +19718,7 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Patients Initiating First-Line Therapy for
-Hypertension}\label{HTN1yrFO}
+\section{고혈압 일차 요법 사용자 코호트}\label{HTN1yrFO}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort-5}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19886,14 +19909,14 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Patients Initiating First-Line Therapy for Hypertension With
-\textgreater{}3 Yr Follow-Up}\label{HTN3yrFO}
+\section{3년 이상 follow-up 된 고혈압 일차 요법 사용자
+코호트}\label{HTN3yrFO}
 
-Same as \emph{cohort definition \ref{HTN1yrFO}} but with continuous
-observation of at least 365 days prior and \textbf{1095 days} after
-event index date
+\emph{\ref{HTN1yrFO} 코호트 정의 } 에서 continuous observtion 조건만
+``continuous observation of at least 365 days prior and \textbf{1095
+days} after event index date'' 으로 바꾼다.
 
-\section{ACE Inhibitor Use}\label{ACEiUse}
+\section{ACE Inhibitor 사용자 코호트}\label{ACEiUse}
 
 \subsubsection*{Initial Event Cohort}\label{initial-event-cohort-6}
 \addcontentsline{toc}{subsubsection}{Initial Event Cohort}
@@ -19965,11 +19988,11 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Angiotensin Receptor Blocker (ARB) Use}\label{ARBUse}
+\section{Angiotensin Receptor Blocker (ARB) 사용자 코호트}\label{ARBUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with \emph{Angiotensin
-Receptor Blockers (ARBs)} (Table \ref{tab:ARBUseARBs}) in place of
-\emph{ACE inhibitors} (Table \ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{Angiotensin Receptor Blockers (ARBs)} (표
+\ref{tab:ARBUseARBs})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-7}
@@ -19999,11 +20022,11 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Thiazide Or Thiazide-Like Diuretic Use}\label{THZUse}
+\section{Thiazide 이뇨제 사용자 코호트}\label{THZUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with \emph{Thiazide or
-thiazide-like diuretic} (Table \ref{tab:THZUseTHZ}) in place of
-\emph{ACE inhibitors} (Table \ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{Thiazide or thiazide-like diuretic} (표
+\ref{tab:THZUseTHZ})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-8}
@@ -20029,13 +20052,12 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Dihydropyridine Calcium Channel Blocker (dCCB)
-Use}\label{dCCBUse}
+\section{Dihydropyridine Calcium Channel Blocker (dCCB) 사용자
+코호트}\label{dCCBUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with
-\emph{dihydropyridine Calcium Channel Blocker (dCCB)} (Table
-\ref{tab:dCCBUsedCBB}) in place of \emph{ACE inhibitors} (Table
-\ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{dihydropyridine Calcium Channel Blocker
+(dCCB)} (표 \ref{tab:dCCBUsedCBB})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-9}
@@ -20063,13 +20085,12 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Non-Dihydropyridine Calcium Channel Blocker (ndCCB)
-Use}\label{ndCCBUse}
+\section{Non-Dihydropyridine Calcium Channel Blocker (ndCCB) 사용자
+코호트}\label{ndCCBUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with
-\emph{non-dihydropyridine Calcium channel blockers (ndCCB)} (Table
-\ref{tab:ndCCBUsendCCB}) in place of \emph{ACE inhibitors} (Table
-\ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{non-dihydropyridine Calcium channel
+blockers (ndCCB)} (표 \ref{tab:ndCCBUsendCCB})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-10}
@@ -20095,9 +20116,9 @@ Mapped\tabularnewline
 
 \section{Beta-Blocker Use}\label{BBUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with \emph{Beta blockers}
-(Table \ref{tab:BBUseBB}) in place of \emph{ACE inhibitors} (Table
-\ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{Beta blockers} (표 \ref{tab:BBUseBB})으로
+바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-11}
@@ -20130,11 +20151,11 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Diuretic-Loop Use}\label{DLoopUse}
+\section{Loop 이뇨제 사용자 코호트}\label{DLoopUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with \emph{Diuretics -
-Loop} (Table \ref{tab:DLoopUseDLoops}) in place of \emph{ACE inhibitors}
-(Table \ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{Diuretics - Loop} (표
+\ref{tab:DLoopUseDLoops})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-12}
@@ -20158,11 +20179,11 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Diuretic-Potassium Sparing Use}\label{DPUse}
+\section{칼륨보존 이뇨제 사용자 코호트}\label{DPUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with \emph{Diuretics -
-potassium sparing} (Table \ref{tab:DPUseDPs}) in place of \emph{ACE
-inhibitors} (Table \ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{Diuretics - potassium sparing} (표
+\ref{tab:DPUseDPs})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-13}
@@ -20185,11 +20206,11 @@ Mapped\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section{Alpha-1 Blocker Use}\label{A1BUse}
+\section{Alpha-1 길항제 사용자 코호트}\label{A1BUse}
 
-Same as \emph{cohort definition \ref{ACEiUse}} with \emph{Alpha-1
-blocker} (Table \ref{tab:A1BUseA1Bs}) in place of \emph{ACE inhibitors}
-(Table \ref{tab:ACEiUseACE}).
+\emph{\ref{ACEiUse} 코호트 정의} 에서 \emph{ACE inhibitors} (표
+\ref{tab:ACEiUseACE})를 \emph{Alpha-1 blocker} (표
+\ref{tab:A1BUseA1Bs})으로 바꾼다.
 
 \subsubsection*{Concept Set
 Definitions}\label{concept-set-definitions-14}
@@ -20215,15 +20236,13 @@ Mapped\tabularnewline
 
 \chapter{Negative controls}\label{NegativeControlsAppendix}
 
-This Appendix contains negative controls used in various chapters of the
-book.
+이 책의 여러 장에 나온 음성 대조군 Negative controls 예시이다.
 
-\section{ACEi and THZ}\label{AceiThzNsc}
+\section{ACE inhibitor 와 thiazide 계 이뇨제}\label{AceiThzNsc}
 
 \begin{longtable}[]{@{}rl@{}}
-\caption{\label{tab:AceiThzNsc} Negative control outcomes when comparing ACE
-inhibitors (ACEi) to thiazides and thiazide-like diuretics
-(THZ).}\tabularnewline
+\caption{\label{tab:AceiThzNsc} ACE inhibitors (ACEi) 와 thiazide 계
+이뇨제(THZ) 비교시 사용한 음성 대조군.}\tabularnewline
 \toprule
 Concept ID & Concept Name\tabularnewline
 \midrule
@@ -20980,7 +20999,7 @@ MedDRA의 선호되는 용어:
 \item
   의학 지식이 있는 사람들이 코드 매핑을 할 것
 \item
-  기술자가 ETL을 수행할 것
+  엔지니어가 ETL을 수행할 것
 \item
   모든 사람이 질 관리에 참여할 것
 \end{enumerate}
@@ -21126,7 +21145,7 @@ VISIT\_SOURCE\_VALUE & inpatient\tabularnewline
 금지한다. 사람 내 비교가 가능할 수는 있어서, 디클로페낙 코호트 안의
 각각의 환자는 그들이 노출되지 않았을 때의 시간을 정의할 수 있다. 그러나,
 비슷한 문제가 여기서 발생한다: 이런 시기는 비교가 되지 않는다. 왜냐하면
-어떤 때 누군가는 노출되고, 누군가는 노출이 되지 않는 이유에서다.
+어떤 때 누군가는 노출되고, 누군가는 노출이 되지 않기 때문이다.
 
 \section{SQL과 R}\label{SqlAndRanswers}
 
@@ -21235,7 +21254,7 @@ condition concept을 찾기 위해서는 테이블 CONCEPT\_ANCESTOR를 조인�
 \StringTok{INNER JOIN @cdm.condition_occurrence}
 \StringTok{  ON condition_start_date >= drug_era_start_date}
 \StringTok{    AND condition_start_date <= drug_era_end_date}
-\StringTok{INNER JOIN @cdm.concept_ancestor }
+\StringTok{INNER JOIN @cdm.concept_ancestor}
 \StringTok{  ON condition_concept_id =descendant_concept_id}
 \StringTok{WHERE LOWER(ingredient.concept_name) = 'celecoxib'}
 \StringTok{  AND ingredient.concept_class_id = 'Ingredient'}
@@ -21252,12 +21271,12 @@ condition concept을 찾기 위해서는 테이블 CONCEPT\_ANCESTOR를 조인�
 \end{verbatim}
 
 이런 경우에는 테이블 DRUG\_EXPOSURE 대신에 테이블 DRUG\_ERA를 사용하는
-것이 중요하다는 것을 명심한다. 왜냐하면 같은 성분을 가진 약물 노출은
-겹칠 수 있지만, 약물 범위도 그렇다. 이것은 이중 계산으로 이어질 수도
-있다. 예를 들어, 한 개인이 동시에 celecoxib를 포함하는 두 개의 약물을
-받았다고 상상해 보라. 이것은 두 개의 약물 노출로 기록될 것이며, 그러므로
-노출 중에 일어나는 모든 증상이 두 번으로 집계될 것이다. 이 두 개의
-노출은 하나의 비-겹침 약물 범위로 합병될 것이다.
+것이 중요하다는 것을 명심하자. 왜냐하면 같은 성분을 가진 약물 노출이
+다수 겹치면서, 이중 계산으로 이어질 수도 있기 때문이다. 예를 들어, 한
+개인이 동시에 celecoxib성분을 포함하는 두 개의 약물을 받았다고 상상해
+보라. 이것은 두 개의 약물 노출로 기록될 것이며, 그러므로 노출 중에
+일어나는 모든 증상이 두 번으로 집계될 것이다. 하지만 DRUG\_ERA를
+사용하면 이 두 개의 노출이 하나의 기록으로 합쳐진다.
 
 \section{코호트 만들기}\label{Cohortsanswers}
 
@@ -21330,7 +21349,7 @@ NSAID이 포함된 모든 약물을 포함한다.
 \end{figure}
 
 추가로, 그림 \ref{fig:cohortsAtlasInclusion2}에서 보이는 것과 같이,
-이전의 암 증상이 없는 것을 필요로 한다.
+이전에 기록된 악성 암이 없도록 한다.
 
 \begin{figure}
 
@@ -21371,7 +21390,7 @@ NSAID이 포함된 모든 약물을 포함한다.
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exerciseCohortsSql}}
 
 가독성을 위하여 SQL을 두 개의 과정으로 나누었다. 첫 번째로, 심근경색의
-모든 증상 발생을 찾고, 이를 ``\#diagnoses''로 불리는 임시 테이블에
+모든 발생 기록을 찾고, 이를 ``\#diagnoses''로 불리는 임시 테이블에
 저장한다:
 
 \begin{Shaded}
@@ -21403,8 +21422,8 @@ NSAID이 포함된 모든 약물을 포함한다.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{sql <-}\StringTok{ "INSERT INTO @cdm.cohort (}
-\StringTok{  subject_id, }
-\StringTok{  cohort_start_date, }
+\StringTok{  subject_id,}
+\StringTok{  cohort_start_date,}
 \StringTok{  cohort_definition_id}
 \StringTok{  )}
 \StringTok{SELECT subject_id,}
@@ -21421,13 +21440,13 @@ NSAID이 포함된 모든 약물을 포함한다.
 \end{Highlighting}
 \end{Shaded}
 
-대체 접근 방식은 방문 시작과 종료 날짜 사이에 부합하는 condition 날짜를
-요구하는 대신, VISIT\_OCCURRENCE\_ID에 근거하여 방문의 condition에
-조인한 적이 있을 수도 있음을 명심한다. 이는 입원 혹은 응급실 방문과
-관련되어 condition 기록되었음을 보장하기 때문에 더 정확할 수 있다.
-하지만, 많은 관찰 데이터베이스는 방문과 증상의 관계를 기록하지 않고,
-그러므로 날짜를 대신 사용하는 것을 선택하여, 아마 낮은 특이도일 수
-있으나 높은 민감도를 줄 수도 있다.
+대개의 접근 방식은 방문 시작과 종료 날짜 사이에 부합하는 condition
+날짜를 요구하는 대신, VISIT\_OCCURRENCE\_ID에 근거하여 방문의
+condition에 조인할 수 있음을 명심하자. 이는 입원 혹은 응급실 방문 시
+기록된 condition 만을 확인하여, 더 정확할 수 있다. 하지만, 많은 관찰
+데이터베이스에서는 방문과 증상의 관계를 기록하지 않기 때문에, 날짜를
+대신 사용하는 것을 선택하여 특이도는 낮을 수 있으나 민감도를 높일 수도
+있다.
 
 또한 코호트 종료 날짜를 무시했다는 것을 명심한다. 종종, 결과를 정의하기
 위해 코호트가 사용되었을 때 우리는 코호트 시작 날짜만 염두하고, (병명이
@@ -21536,13 +21555,13 @@ Group Era Any Time Prior''와 ``Condition Group Era Any Time Prior''이다.
 \caption{임상적 특성 설정하기.}\label{fig:celecoxibCharacterization}
 \end{figure}
 
-``Exections'' 탭을 클릭한 후, 데이터 원천 중의 하나로 ``Generate''를
-클릭한다. 생성이 끝날 때까지 시간이 걸릴 수 있다. 끝나면, ``View latest
-results''를 클릭할 수 있다. 결과 화면은 그림
+``Exections'' 탭을 클릭한 후, 데이터 베이스 중 하나에 ``Generate''를
+클릭한다. 시간이 꽤나 걸릴 수 있다. 끝나면, ``View latest results''를
+클릭할 수 있다. 결과 화면은 그림
 \ref{fig:celecoxibCharacterizationResults}와 비슷하고, 이는 예를 들어
-고통과 arthropathy가 흔히 관찰되는 것으로 보이는데, 이는 celecoxib의
-조짐이므로 놀랄만한 사용은 아니다. 목록의 아래쪽에 기대하지 않은
-conditions이 보일 수 있다.
+pain과 arthropathy가 흔히 관찰되는 것으로 보이는데, 진통제(celecoxib)
+사용자 코호트의 특성으로 자연스러운 일이다. 목록의 아래쪽에 기대하지
+않은 condition이 보일 수 있다.
 
 \begin{figure}
 
@@ -21563,9 +21582,8 @@ conditions이 보일 수 있다.
 이름을 부여한다 (예를 들어 ``GI bleed'').
 \includegraphics{images/Cohorts/search-2.png} 모듈을 열고,
 ``Gastrointestinal hemorrhage''를 검색한 후, 그림
-\ref{fig:giBleedSearch}와 같이 개념을 당신의 개념 모음에 추가하기 위해
-상위 개념 옆의 \includegraphics{images/Cohorts/shoppingcart.png}를
-클릭한다.
+\ref{fig:giBleedSearch}와 같이 개념을 개념 모음에 추가하기 위해 상위
+개념 옆의 \includegraphics{images/Cohorts/shoppingcart.png}를 클릭한다.
 
 \begin{figure}
 
@@ -21646,9 +21664,9 @@ Target Cohort''를 클릭한 후 celecoxib 새로운 사용자 코호트를 선�
 \subsubsection*{예제 \ref{exr:exercisePle1}}\label{-refexrexerciseple1}
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePle1}}
 
-공변량의 기본 모음을 명시하고 있지만, 반드시 비교하는 두 개의 약물은
-제외하고, 그것의 하위 목록은 포함해야 한다. 그렇지 않으면 성향 모델은
-완벽하게 예측이 가능해질 것이다:
+공변량 covariate의 기본 모음을 명시하고 있지만, 반드시 비교하는 두 개의
+약물은 제외하고, 그것의 하위 목록은 포함해야 한다. 그렇지 않으면 성향
+모델은 완벽하게 예측이 가능해질 것이다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21696,7 +21714,7 @@ Target Cohort''를 클릭한 후 celecoxib 새로운 사용자 코호트를 선�
 \subsubsection*{예제 \ref{exr:exercisePle2}}\label{-refexrexerciseple2}
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePle2}}
 
-사양 specification을 따르는 인구 모집단을 생성하고, 소모 도표를
+사양 specification을 따르는 인구 모집단을 생성하고, attrition 도표를
 출력한다:
 
 \begin{Shaded}
@@ -21716,9 +21734,8 @@ Target Cohort''를 클릭한 후 celecoxib 새로운 사용자 코호트를 선�
 
 \begin{center}\includegraphics[width=0.8\linewidth]{images/SuggestedAnswers/attrition} \end{center}
 
-기존의 코호트와 비교하여 어떤 대상도 잃지 않은 것을 볼 수 있는데, 아마도
-왜냐하면 여기서 사용한 제한이 이미 코호트 정의에서 사용된 것이기
-때문이다.
+기존의 코호트와 비교하여 대상을 전혀 잃지 않은 것을 볼수 있는데, 여기서
+사용한 제한이 이미 코호트 정의에서 사용된 것이기 때문이다.
 
 \subsubsection*{예제 \ref{exr:exercisePle3}}\label{-refexrexerciseple3}
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePle3}}
@@ -21744,9 +21761,10 @@ Target Cohort''를 클릭한 후 celecoxib 새로운 사용자 코호트를 선�
 ## treatment  1.34612   1.10065   1.65741 0.29723  0.1044
 \end{verbatim}
 
-celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 기저 차이는
-이미 다른 결과의 위험으로 이어질 가능성이 있다. 이 차이를 조절하지
-않으면, 이 분석과 같이 편향된 측정을 생성할 가능성이 있다.
+celecoxib 사용자가 diclofenac 사용자와 교환 가능하지 않을 가능성이 있고,
+이러한 기저 과거력의 차이는 이와 같이 outcome 상의 차이가 있는 것처럼
+결과가 나올 수도 있다. 이 차이를 조절하지 않으면, 이 분석과 같이 편향된
+측정을 생성할 수 있다.
 
 \subsubsection*{예제 \ref{exr:exercisePle4}}\label{-refexrexerciseple4}
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePle4}}
@@ -21764,13 +21782,14 @@ celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 �
 
 \begin{center}\includegraphics[width=0.8\linewidth]{images/SuggestedAnswers/ps} \end{center}
 
-몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 왜냐하면
-시뮬레이션 된 정말 작은 데이터 모음을 사용하기 때문이다. 실제의 선호
+몇 개의 spike가 있는 이 분포가 조금 이상해 보일 수 있다. 예제에서는
+시뮬레이션 된 정말 작은 데이터 모음을 사용했기 때문이다. 실제의 선호
 점수 분포는 더 매끄러운 경향이 있다.
 
 성향 모델은 0.63의 AUC를 달성하는데, 대상 target과 대조 comparator
-코호트 간의 차이가 있다는 것을 제안한다. PS 조정이 그들을 더욱 비교할 수
-있게 함을 시사하는 두 집단 간의 꽤 많은 교차를 볼 수 있다.
+코호트 간을 구분할 수 있다는 것을 의미한다. 두 집단 간의 꽤 많은 교차를
+볼 수 있어, 성향 점수 조정으로 두 코호트를 더 동일하게 만들었음을
+시사한다.
 
 \subsubsection*{예제 \ref{exr:exercisePle5}}\label{-refexrexerciseple5}
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePle5}}
@@ -21782,10 +21801,10 @@ celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 �
 \begin{Highlighting}[]
 \NormalTok{strataPop <-}\StringTok{ }\KeywordTok{stratifyByPs}\NormalTok{(ps, }\DataTypeTok{numberOfStrata =} \DecValTok{5}\NormalTok{)}
 \NormalTok{bal <-}\StringTok{ }\KeywordTok{computeCovariateBalance}\NormalTok{(strataPop, cmData)}
-\KeywordTok{plotCovariateBalanceScatterPlot}\NormalTok{(bal, }
-                                \DataTypeTok{showCovariateCountLabel =} \OtherTok{TRUE}\NormalTok{, }
-                                \DataTypeTok{showMaxLabel =} \OtherTok{TRUE}\NormalTok{, }
-                                \DataTypeTok{beforeLabel =} \StringTok{"Before stratification"}\NormalTok{, }
+\KeywordTok{plotCovariateBalanceScatterPlot}\NormalTok{(bal,}
+                                \DataTypeTok{showCovariateCountLabel =} \OtherTok{TRUE}\NormalTok{,}
+                                \DataTypeTok{showMaxLabel =} \OtherTok{TRUE}\NormalTok{,}
+                                \DataTypeTok{beforeLabel =} \StringTok{"Before stratification"}\NormalTok{,}
                                 \DataTypeTok{afterLabel =} \StringTok{"After stratification"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -21794,12 +21813,12 @@ celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 �
 
 다양한 기저 공변량은 층화 전의(x-axis) 큰(\textgreater{}0.3) 표준화된
 평균의 차이를 보여준다. 층화 후에, 최대 표준화 차이(\textless{}= 0.1)와
-같이 균형은 상승한다.
+같이 균형 balance가 좋아졌다.
 
 \subsubsection*{예제 \ref{exr:exercisePle6}}\label{-refexrexerciseple6}
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePle6}}
 
-콕스 회귀를 사용하여 결과 모델을 적합하나 PS strata로 계층화한다:
+PS strata 기준 층화하여 콕스 회귀 적합을 시행한다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21822,8 +21841,8 @@ celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 �
 \end{verbatim}
 
 조정된 추정치는 조정되지 않은 추청지보다 낮고, 95\% 신뢰 구간은 현재 1을
-포함하는 것을 볼 수 있다. 왜냐하면 현재 두 개의 노출 집단, 즉 감소하는
-비뚤림 사이의 기저 차이를 조절하는 중이기 때문이다.
+포함하는 것을 볼 수 있다. 기저 과거력의 차이를 보정함으로써, 비뚤림이
+감소함을 볼 수 있다.
 
 \section{환자 수준 예측}\label{Plpanswers}
 
@@ -21882,8 +21901,8 @@ celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 �
 \addcontentsline{toc}{subsubsection}{예제 \ref{exr:exercisePlp2}}
 
 관심 결과의 연구 모집단을 생성하고 (이 경우에는 추출한 데이터의 유일한
-결과만), 364일의 위험 노출 시간이 필요하며, NSAID를 시작하기 전의 결과를
-경험한 피험자를 제거한다:
+결과만), 364일의 위험 노출 시간 time-at-risk이 필요하며, NSAID를
+시작하기 전의 결과를 경험한 피험자를 제거한다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21916,23 +21935,23 @@ celecoxib 사용자가 디클로페낙 사용자와 교환될 수 없고, 이 �
 
 먼저 모델 설정 객체를 만든 후에, \texttt{runPlp} 기능을 호출함으로써
 LASSO 모델을 실행한다. 이 경우에는 person split을 행하고, 75\%의
-데이터를 모델에 학습시키며, 25\%의 데이터로 평가한다:
+데이터를 모델에 학습 train시키며, 25\%의 데이터로 평가 test한다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{lassoModel <-}\StringTok{ }\KeywordTok{setLassoLogisticRegression}\NormalTok{(}\DataTypeTok{seed =} \DecValTok{0}\NormalTok{)}
 
-\NormalTok{lassoResults <-}\StringTok{ }\KeywordTok{runPlp}\NormalTok{(}\DataTypeTok{population =}\NormalTok{ population, }
-                       \DataTypeTok{plpData =}\NormalTok{ plpData, }
-                       \DataTypeTok{modelSettings =}\NormalTok{ lassoModel, }
+\NormalTok{lassoResults <-}\StringTok{ }\KeywordTok{runPlp}\NormalTok{(}\DataTypeTok{population =}\NormalTok{ population,}
+                       \DataTypeTok{plpData =}\NormalTok{ plpData,}
+                       \DataTypeTok{modelSettings =}\NormalTok{ lassoModel,}
                        \DataTypeTok{testSplit =} \StringTok{'person'}\NormalTok{,}
-                       \DataTypeTok{testFraction =} \FloatTok{0.25}\NormalTok{, }
-                       \DataTypeTok{nfold =} \DecValTok{2}\NormalTok{, }
+                       \DataTypeTok{testFraction =} \FloatTok{0.25}\NormalTok{,}
+                       \DataTypeTok{nfold =} \DecValTok{2}\NormalTok{,}
                        \DataTypeTok{splitSeed =} \DecValTok{0}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-이 예시에서는 LASSO 교차 검증과 학습-검증 데이터 분할을 위한 무작위
+이 예시에서는 LASSO 교차 검증과 학습-검증 데이터 분할을 위한 random
 seed를 지정하여 여러 번 실행해도 결과가 동일한지 확인한다.
 
 Shiny 앱을 사용하여 결과를 볼 수 있다:
@@ -21945,7 +21964,7 @@ Shiny 앱을 사용하여 결과를 볼 수 있다:
 
 이것은 그림 \ref{fig:plpShiny}에서 보이는 것과 같이 앱을 실행할 것이다.
 여기 0.645의 테스트 모음의 AUC가 있는데 이는 무작위 추측보다 더 나을 수
-있으나 임상적 실천에는 충분하지 않을 것이다.
+있으나 임상적으로 사용할만큼의 성능은 아니다.
 
 \begin{figure}
 
@@ -21984,11 +22003,11 @@ ACHILLES을 실행하기 위해서는:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{DataQualityDashboard}\OperatorTok{::}\KeywordTok{executeDqChecks}\NormalTok{(}
-\NormalTok{  connectionDetails, }
-  \DataTypeTok{cdmDatabaseSchema =} \StringTok{"main"}\NormalTok{, }
+\NormalTok{  connectionDetails,}
+  \DataTypeTok{cdmDatabaseSchema =} \StringTok{"main"}\NormalTok{,}
   \DataTypeTok{resultsDatabaseSchema =} \StringTok{"main"}\NormalTok{,}
   \DataTypeTok{cdmSourceName =} \StringTok{"Eunomia"}\NormalTok{,}
-  \DataTypeTok{outputFolder =} \StringTok{"C:/dataQualityExample"}\NormalTok{) }
+  \DataTypeTok{outputFolder =} \StringTok{"C:/dataQualityExample"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -22001,7 +22020,7 @@ ACHILLES을 실행하기 위해서는:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{DataQualityDashboard}\OperatorTok{::}\KeywordTok{viewDqDashboard}\NormalTok{(}
-  \StringTok{"C:/dataQualityExample/Eunomia/results_Eunomia.json"}\NormalTok{) }
+  \StringTok{"C:/dataQualityExample/Eunomia/results_Eunomia.json"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
