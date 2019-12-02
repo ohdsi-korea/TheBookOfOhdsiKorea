@@ -32,7 +32,7 @@ Table: (\#tab:cmChoices) 코호트 비교연구 설계에서 주된 고려사항
 | 표적 코호트 Target cohort     | 표적 치료를 받은 환자군 cohort               |
 | 대조 코호트 Comparator cohort | 대조 치료를 받은 환자군 cohort           |
 | 결과 코호트 Outcome cohort    | 관심 결과 outcome of interest가 발생한 환자군 cohort |
-| 위험노출기간 Time-at-risk      | 표적 및 대조 코호트의 시작과 종료 시점에 기반하여 결과 발생을 살펴볼 기간의 범위 |
+| 위험노출기간 Time-at-risk      | (보통 표적 및 대조 코호트의 시작과 종료 시점에 기반하여) 결과 발생을 살펴볼 기간의 범위 |
 | 모델             | 표적군과 대조군의 차이를 보정하여 효과 effect를 추정할 때 사용하는 통계 모델 |
 
 모델 선택은 결과 모델의 유형을 지정한다. 예를 들어, 결과가 발생했는지를 평가하고 교차비 odds ratio를 산출하는 로지스틱 회귀분석 logistic regression을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간(TAR)이 표적군 target cohort과 대조군 comparator cohort 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석 poisson regression을 선택할 수 있는데, 이는 일정한 발생률 incidence rate을 가정하고, 발생률 비율 incidence rate ratio을 추정한다. 콕스 회귀분석 Cox regression을 종종 사용하기도 하는데, 이는 표적군과 대조군 사이의 비례 위험 proportional hazard을 가정하며, 위험 비율 hazard ratio을 추정하려고 대상 질병이 처음 발생할 때까지의 시간 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
@@ -105,7 +105,7 @@ table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.wh
 |:----------------- |:-------------------------------------------------------- |
 | 표적 코호트 Target cohort     | 표적 치료를 받은 환자군 cohort               |
 | 결과 코호트 Outcome cohort    | 관심 결과 outcome of interest가 발생한 환자군 cohort |
-| 위험노출기간 Time-at-risk      | 표적 코호트의 시작과 종료 시점에 기반하여 결과 발생을 살펴볼 기간의 범위 |
+| 위험노출기간 Time-at-risk      | (보통 표적 코호트의 시작과 종료 시점에 기준으로) 결과 발생을 살펴볼 기간의 범위 |
 | 통제 기간 Control time      | 통제 기간 control time 으로 사용하는 기간                 |
 ")
 table <- table[-1, 2:(ncol(table) - 1), -1]
@@ -131,13 +131,13 @@ knitr::include_graphics("images/PopulationLevelEstimation/caseControl.png")
 
 ```{r ccChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
-| Choice            | Description                                               |
+| 선택            | 설명                                               |
 |:----------------- |:--------------------------------------------------------- |
-| Outcome cohort    | A cohort representing the cases (the outcome of interest) |
-| Control cohort    | A cohort representing the controls. Typically the control cohort is automatically derived from the outcome cohort using some selection logic |
-| Target cohort     | A cohort representing the treatment                       |
-| Nesting cohort  | Optionally, a cohort defining the subpopulation from which cases and controls are drawn  |
-| Time-at-risk      | At what time (often relative to the index date) do we consider exposure status?  |
+| 결과 코호트 Outcome cohort    | 관심 결과 outcome of interest가 발생한 환자군 cohort |
+| Control cohort    | control 군. 일반적으로는 결과 코호트특정 선택 로직을 통해 결과 코호트 기반으로 자동으로 유도된다. |
+| 표적 코호트 Target cohort     | 표적 치료를 받은 환자군 cohort                       |
+| 네스팅 코호트 Nesting cohort  | 선택사항, case 와 control 을 유도할 부분집합 subpopulation 코호트 |
+| 위험노출기간 Time-at-risk  | (보통 코호트의 index date 기준) 노출 상태를 판단할 기간 |
 ")
 table <- table[-1, 2:(ncol(table) - 1), -1]
 table <- knitr::kable(table, caption = "환자-대조군 연구에서의 주요 설계 선택", booktabs = TRUE, row.names = FALSE)
@@ -162,12 +162,12 @@ knitr::include_graphics("images/PopulationLevelEstimation/caseCrossover.png")
 
 ```{r ccrChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
-| Choice            | Description                                              |
+| 선택            | 설명                                              |
 |:----------------- |:-------------------------------------------------------- |
-| Outcome cohort    | A cohort representing the cases (the outcome of interest)  |
-| Target cohort     | A cohort representing the treatment  |
-| Time-at-risk      | At what time (often relative to the index date) do we consider exposure status?  |
-| Control time      | The time period used as the control time                 |
+| 결과 코호트 Outcome cohort    | 관심 결과 outcome of interest가 발생한 환자군 cohort |
+| 표적 코호트 Target cohort     | 표적 치료를 받은 환자군 cohort               |
+| 위험노출기간 Time-at-risk  | (보통 코호트의 index date 기준) 노출 상태를 판단할 기간 |
+| Control 기간      | control 기간으로 사용할 기간      |
 ")
 table <- table[-1, 2:(ncol(table) - 1), -1]
 table <- knitr::kable(table, caption = "환자-교차 연구에서의 주요 설계 선택", booktabs = TRUE, row.names = FALSE)
@@ -192,12 +192,12 @@ knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCaseSeri
 
 ```{r sccsChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
-| Choice            | Description                                              |
+| 선택            | 설명                                              |
 |:----------------- |:-------------------------------------------------------- |
-| Target cohort     | A cohort representing the treatment                      |
-| Outcome cohort    | A cohort representing the outcome of interest            |
-| Time-at-risk      | At what time (often relative to the target cohort start and end dates) do we consider the risk of the outcome?  |
-| Model             | The model to estimate the effect, including any adjustments for time-varying confounders |
+| 표적 코호트 Target cohort     | 표적 치료를 받은 환자군 cohort               |
+| 결과 코호트 Outcome cohort    | 관심 결과 outcome of interest가 발생한 환자군 cohort |
+| 위험노출기간 Time-at-risk      | (보통 표적 코호트의 시작과 종료 시점에 기준으로) 결과 발생을 살펴볼 기간의 범위 |
+| 모델             | 시간에 따라 변하는 교란변수 time-varying confounder의 보정을 포함하여 효과 effect를 추정할 때 사용할 통계 모델 |
 ")
 table <- table[-1, 2:(ncol(table) - 1), -1]
 table <- knitr::kable(table, caption = "자기 대조 환자군 연구에서의 주요 설계 선택", booktabs = TRUE, row.names = FALSE)
@@ -244,15 +244,15 @@ ACE 억제제(ACEi)는 고혈압이나 허혈성 심장 질환 환자, 특히 �
 
 ### 연구 요약
 
-Table: (\#tab:aceChoices) Main design choices for our comparative cohort study.
+Table: (\#tab:aceChoices) 코호트 비교 연구를 위한 주요 설계 선택.
 
-| Choice            | Value                                                    |
+| 선택            | 설명                                              |
 |:----------------- |:-------------------------------------------------------- |
-| Target cohort     | New users of ACE inhibitors as first-line monotherapy for hypertension. |
-| Comparator cohort | New users of thiazides or thiazide-like diuretics as first-line monotherapy for hypertension. |
-| Outcome cohort    | Angioedema or acute myocardial infarction. |
-| Time-at-risk      | Starting the day after treatment initiation, stopping when exposure stops. |
-| Model             | Cox proportional hazards model using variable-ratio matching. |
+| 표적 코호트 Target cohort     | 고혈압 치료로 ACE 억제제 초치료를 시작한 환자 cohort               |
+| 대조 코호트 Comparator cohort | 고혈압 치료로 thiazide 계 이뇨제 초치료를 시작한 환자 cohort           |
+| 결과 코호트 Outcome cohort    | 혈관부종 또는 심근경색이 발생한 코호트 |
+| 위험노출기간 Time-at-risk      | 치료 시작 다음날부터 치료 중단까지 |
+| 모델             | 일-대-다 매칭 후 콕스 비례위험모형 사용|
 
 ### 대조군 질문
 
