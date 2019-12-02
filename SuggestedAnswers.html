@@ -436,7 +436,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k--"><i class="fa fa-check"></i><b>13.3.4</b> K-최근접 이웃</a></li>
 <li class="chapter" data-level="13.3.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.5</b> 나이브 베이즈</a></li>
 <li class="chapter" data-level="13.3.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.3.6</b> AdaBoost</a></li>
-<li class="chapter" data-level="13.3.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.3.7</b> 의사 결정 트리</a></li>
+<li class="chapter" data-level="13.3.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.3.7</b> 의사 결정 나무</a></li>
 <li class="chapter" data-level="13.3.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#multilayer-perceptron"><i class="fa fa-check"></i><b>13.3.8</b> Multilayer Perceptron</a></li>
 <li class="chapter" data-level="13.3.9" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.9</b> 딥 러닝</a></li>
 <li class="chapter" data-level="13.3.10" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.10</b> 다른 알고리즘</a></li>
@@ -453,8 +453,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.5.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>13.5.5</b> 연구 요약</a></li>
 </ul></li>
 <li class="chapter" data-level="13.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#atlas--"><i class="fa fa-check"></i><b>13.6</b> ATLAS에서의 연구 구현하기</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.6.1</b> 예측 문제 설정</a></li>
-<li class="chapter" data-level="13.6.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.2</b> 분석 설정</a></li>
+<li class="chapter" data-level="13.6.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#---prediction-problem-setting"><i class="fa fa-check"></i><b>13.6.1</b> 예측 문제 설정 Prediction Problem Setting</a></li>
+<li class="chapter" data-level="13.6.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--analysis-setting"><i class="fa fa-check"></i><b>13.6.2</b> 분석 설정 Analysis Setting</a></li>
 <li class="chapter" data-level="13.6.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.3</b> 실행 설정</a></li>
 <li class="chapter" data-level="13.6.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.4</b> 학습 설정</a></li>
 <li class="chapter" data-level="13.6.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>13.6.5</b> 연구 가져오기 및 내보내기</a></li>
@@ -467,7 +467,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.7.3</b> 추가 포함 기준</a></li>
 <li class="chapter" data-level="13.7.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.4</b> 모델 개발</a></li>
 <li class="chapter" data-level="13.7.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.5</b> 내부 검증</a></li>
-<li class="chapter" data-level="13.7.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증</a></li>
+<li class="chapter" data-level="13.7.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--external-validation"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증 External Validation</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8</b> 결과 보급</a><ul>
 <li class="chapter" data-level="13.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.1</b> 모델 성능</a></li>
@@ -1660,6 +1660,7 @@ result &lt;-<span class="st"> </span><span class="kw">achilles</span>(connection
 <p>데이터의 질 검사 목록을 보기 위해서는:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DataQualityDashboard<span class="op">::</span><span class="kw">viewDqDashboard</span>(
   <span class="st">&quot;C:/dataQualityExample/Eunomia/results_Eunomia.json&quot;</span>)</code></pre></div>
+<p>이 도서의 국립중앙도서관 출판예정도서목록(CIP)은 서지정보유통지원시스템 홈페이지(<a href="http://seoji.nl.go.kr)와" class="uri">http://seoji.nl.go.kr)와</a> 국가자료종합목록 구축시스템(<a href="http://kolis-net.nl.go.kr)에서" class="uri">http://kolis-net.nl.go.kr)에서</a> 이용하실 수 있습니다. (CIP제어번호 : CIP2019049074)</p>
 
 </div>
 </div>

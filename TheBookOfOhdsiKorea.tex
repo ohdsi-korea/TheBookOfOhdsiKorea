@@ -7074,7 +7074,7 @@ Server, PostgreSQL, RedShift 등에 적합하다:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.pz0nnitachildren ;"
+## [1] "SELECT * FROM temp_schema.abhyoeqvchildren ;"
 \end{verbatim}
 
 사용자는 \texttt{temp\_schema}에 대한 쓰기 권한이 있어야 한다.
@@ -12231,30 +12231,30 @@ strata를 사용하여 Cox 비례 위험 모델을 구축하라. 조정되지 �
 \index{prognostic outcome}
 
 임상 예측 모델을 설명하는 출판물의 수가 지난 10년 동안 많이 증가했다.
-현재 사용되는 대부분의 모델은 소규모 데이터 집합을 사용하여 추정되며,
-소규모 환자 특성만 고려한다. 이처럼 소 표본이고 그래서 낮아지는 통계적
-검정력으로 인해 데이터 분석가는 엄격한 가정하게 모델링을 수행하게 된다.
-제한적인 환자 특성을 가진 데이터 집합의 선택은 현재 알고 있는 전문가의
-지식에만 의존해서 강하게 설명된다. 이는 환자가 풍부한 디지털 트레일
-digital trail을 생성하는 현대 의학의 현실과 크게 대조되며, 이는 모든
-의료 전문가가 완전히 동화될 힘을 훨씬 뛰어넘는다. 현재, 건강 관리는 전자
-의무 기록 Electronic Health Records(EHR)에 저장된 엄청난 양의 환자
-개인별 정보를 생성하고 있다. 여기에는 진단, 약물치료, 실험실 검사 결과와
-같은 정형화된 데이터와 임상적 기술 clinical narratives에 포함된
-비정형화된 데이터가 포함되어 있다. 대량의 환자 데이터를 완전한 EHR로부터
-얻고 이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다.
+현재 사용되는 대부분의 모델은 소규모 데이터를 이용하여 학습하며, 적은
+수의 환자 특성만 고려한다. 이처럼 소표본이고 그래서 낮아지는 통계적
+검정력으로 인해 데이터 분석가는 엄격한 가정 하에 모델링을 수행하게 된다.
+환자 특성 또는 사용되는 변수 선택은 현재의 전문적 지식에 강하게
+의존한다. 이는 환자가 매우 다양한 자료, 디지털 트레일 digital trail을
+생성하는 현대 의학의 현실과 크게 대조되며, 이는 다양한 의료 전문가가
+협력할 수 있는 방향이 아니다. 현재의 의학 관리 체계는 전자 의무 기록
+Electronic Health Records(EHR)에 엄청난 양의 환자의 개인별 정보를 생성
+및 저장하고 있다. 여기에는 진단, 약물치료, 실험실 검사 결과와 같은
+정형화된 데이터와 임상적 기술 clinical narratives에 포함된 비정형화된
+데이터가 포함되어 있다. 방대한 EHR으로부터 대량의 환자 데이터를 얻고
+이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다.
 \index{prediction model}
 
 대규모 데이터 모음 분석을 위한 머신 러닝의 발전으로 이러한 유형의
 데이터에 환자-수준 예측을 적용하는 데 관심이 높아졌다. 그러나 환자-수준
 예측을 위한 많은 수의 출판물은 모델 개발 지침을 따르지 않아 광범위한
-외적 타당도를 수행에 실패하거나 또는 독립적인 연구자가 그 모델을
-재현하고 외적 타당도를 검증하기 위해 필요 가능성을 제한하는 모델링을
-위한 세부사항을 제공하지 않는다. 이것은 모델의 예측 성능을 공정하게
-평가하기 어렵게 하고 임상 실무에서 모델이 적절하게 사용될 가능성을
-줄인다. 표준화를 개선하기 위해 예측 모델을 개발하고 보고하는 모범 사례에
-대한 지침을 자세히 설명하는 여러 논문이 작성되었다. 예를 들어, 개별 예측
-또는 진단(TRIPOD)\footnote{\url{https://www.equator-network.org/reporting-guidelines/tripod-statement/}}
+외적 타당도 external validation 수행에 실패하거나 또는 독립적인 연구자가
+그 모델을 재현하고 외적 타당도를 검증하기 위한 세부사항을 제공하지
+않는다. 이로 인해, 모델의 예측 성능을 공정하게 평가하기 어렵고 임상
+실무에서 모델이 적절하게 사용될 가능성이 낮아진다. 표준화를 개선하기
+위해 예측 모델을 개발하고 보고하는 모범 사례에 대한 지침을 자세히
+설명하는 여러 논문이 작성되었다. 예를 들어, 개별 예측 또는
+진단(TRIPOD)\footnote{\url{https://www.equator-network.org/reporting-guidelines/tripod-statement/}}
 선언문에 다변량 예측 모델의 투명한 보고 Transparent Reporting는 예측
 모델 개발 및 타당도 보고에 대한 명확한 권장 사항을 제공하고 투명성과
 관련된 일부 우려를 해결한다. \index{machine learning} \index{TRIPOD}
@@ -12262,7 +12262,7 @@ digital trail을 생성하는 현대 의학의 현실과 크게 대조되며, �
 OHDSI CDM을 통해 전례 없는 규모의 데이터를 균일하고 투명하게 분석할 수
 있게 되어, 대규모의 환자별 예측 모델링이 현실이 되었다. CDM으로 표준화된
 데이터베이스 네트워크가 증가하면서 전 세계의 다양한 의료 환경에서 모델의
-외적 타당도 검증이 가능하게 되었다. 우리는 이런 환경이 치료의 질적
+외적 타당성 검증이 가능하게 되었다. 우리는 이런 환경이 치료의 질적
 개선을 가장 필요로 하는 많은 수의 환자 공동체를 돌볼 수 있는 즉각적인
 기회를 제공한다고 믿는다. 그러한 모델은 진정한 개인 맞춤형 의료를 제공할
 수 있기 때문에, 환자의 예후를 크게 개선할 수 있게 될 것으로 믿는다.
@@ -12276,7 +12276,9 @@ R 패키지에 관해 설명한다. 우리는 환자-수준 예측의 개발과 
 수준의 개요를 제공할 것이다. 그런 다음 예측 문제에 대한 예제에 대하여
 논의하고 ATLAS 또는 사용자 정의 R 코드를 사용하여 예측 문제를 정의하고
 실행하는 단계별 지침을 제공할 것이다. 마지막으로 연구 결과를 널리 알리기
-위한 Shiny 앱 사용법에 대해서 논의한다.
+위한 Shiny 앱 사용법에 대해서 논의한다. 이는 최근 많이 각광 받는 인공
+지능, 머신 러닝 모델을 코딩 전문성이 없는 일반 연구자가 구현하고 평가할
+수 있음을 의미한다!
 
 \section{예측 문제}\label{-}
 
@@ -12295,9 +12297,10 @@ R 패키지에 관해 설명한다. 우리는 환자-수준 예측의 개발과 
 \end{figure}
 
 표 \ref{tab:plpDesign}에서 볼 수 있듯이 예측 문제를 밝히려면 대상 코호트
-target cohort의 t = 0, 결과 코호트에 의해 예측하고자 하는 결과, 그리고
-위험 노출 시간을 정의해야 한다. 표준 예측 질문을 다음과 같이 정의한다:
-\index{target cohort} \index{outcome cohort} \index{time-at-risk}
+target cohort의 t = 0, 결과 코호트 outcome cohort에 의해 예측하고자 하는
+결과, 그리고 위험 노출 시간을 정의해야 한다. 표준 예측 질문을 다음과
+같이 정의한다: \index{target cohort} \index{outcome cohort}
+\index{time-at-risk}
 
 \begin{quote}
 \emph{{[}대상 코호트, T{]}}에서, 누가 \emph{{[}위험에 노출된 시간, t{]}}
@@ -12308,47 +12311,23 @@ target cohort의 t = 0, 결과 코호트에 의해 예측하고자 하는 결과
 검증을 수행할 관찰 데이터 모음을 결정해야 한다.
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:plpDesign} Main design choices in a prediction
-design.}\tabularnewline
+\caption{\label{tab:plpDesign} 예측 모델의 주요 설계 선택.}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
-\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Description\strut
-\end{minipage}\tabularnewline
+선택 & 설명\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
-\end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Description\strut
-\end{minipage}\tabularnewline
+선택 & 설명\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Target cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-How do we define the cohort of persons for whom we wish to
-predict?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Outcome cohort\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-How do we define the outcome we want to predict?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Time-at-risk\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-In which time window relative to t=0 do we want to make the
-prediction?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Model\strut
-\end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-What algorithms do we want to use, and which potential predictor
-variables do we include?\strut
-\end{minipage}\tabularnewline
+대상 코호트 Target cohort & 우리가 예측을 원하는 대상이 되는
+환자군\tabularnewline
+결과 코호트 Outcome cohort & 예측을 원하는 결과 outcome
+발생군\tabularnewline
+위험노출기간 Time-at-risk & t=0와 비교하여 결과 발생 여부를 살펴볼 기간
+time window\tabularnewline
+모델 Model & 머신 러닝 알고리즘 및 예측 모델 개발시 사용할
+변수\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -12361,8 +12340,8 @@ variables do we include?\strut
   질병 발병 및 진행
 \item
   \textbf{구조}: \emph{{[}질병 A{]}}로 새로 진단된 환자 중,
-  \emph{{[}진단 시점 t{]}} 내에 *{[}또 다른 질병이나 합병증, B*{]} 이
-  생길 사람은 누구인가?
+  \emph{{[}진단 시점 t{]}} 내에 \emph{{[}또 다른 질병이나 합병증, B{]}}
+  이 생길 사람은 누구인가?
 \item
   \textbf{예제}: 새로 진단된 심방세동 환자 중 향후 3년 이내에 허혈성
   뇌졸중이 발생할 사람은 누구인가?
@@ -12370,8 +12349,8 @@ variables do we include?\strut
   치료 선택
 \item
   \textbf{구조}: \emph{{[}치료 1{]}} 또는 \emph{{[}치료 2{]}}로 치료한
-  \emph{{[}대상 질병, D{]}}에 걸린 환자 중 {[}치료 1{]}로 치료받은
-  환자는 누구인가?
+  \emph{{[}대상 질병, D{]}}에 걸린 환자 중 \emph{{[}치료 1{]}}로
+  치료받은 환자는 누구인가?
 \item
   \textbf{예제}: 와파린 또는 리바록사반을 복용한 심방세동 환자 중 어떤
   환자가 와파린을 복용했는가? (예를 들어 성향 모델의 경우)
@@ -12425,14 +12404,14 @@ CDM에서 공변량을 추출하는 방법이 필요하며 그들의 결과 레�
 
 \subsection{데이터 추출 예제}\label{--}
 
-표 \ref{tab:plpExampleCohorts}는 두 개의 코호트가 있는 COHORT에 대한
-예를 보여준다. 코호트 정의 ID 1인 코호트는 대상 코호트 (예를 들어 ``최근
-심방세동 진단을 받은 사람'')이고 코호트 정의 ID 2는 결과 코호트 (예를
-들어 ``뇌졸중'')이다.
+표 \ref{tab:plpExampleCohorts}는 두 개의 코호트가 있는 COHORT 테이블에
+대한 예를 보여준다. 코호트 정의 ID 1인 코호트는 대상 코호트 (예를 들어
+``최근 심방세동 진단을 받은 사람'')이고 코호트 정의 ID 2는 결과 코호트
+(예를 들어 ``뇌졸중'')이다.
 
 \begin{longtable}[]{@{}ccc@{}}
-\caption{\label{tab:plpExampleCohorts} Example COHORT table. For simplicity
-the COHORT\_END\_DATE has been omitted.}\tabularnewline
+\caption{\label{tab:plpExampleCohorts} COHORT 테이블 예제. COHORT\_END\_DATE
+는 생략하였다.}\tabularnewline
 \toprule
 COHORT\_DEFINITION\_ID & SUBJECT\_ID &
 COHORT\_START\_DATE\tabularnewline
@@ -12455,8 +12434,8 @@ COHORT\_START\_DATE\tabularnewline
 ``본태성 고혈압''을 나타낸다.
 
 \begin{longtable}[]{@{}ccc@{}}
-\caption{\label{tab:plpExampleConditions} Example CONDITION\_OCCURRENCE
-table. For simplicity only three columns are shown.}\tabularnewline
+\caption{\label{tab:plpExampleConditions} CONDITION\_OCCURRENCE 테이블 예제.
+3개의 컬럼만 보여주었다.}\tabularnewline
 \toprule
 PERSON\_ID & CONDITION\_CONCEPT\_ID &
 CONDITION\_START\_DATE\tabularnewline
@@ -12485,10 +12464,11 @@ CONDITION\_START\_DATE\tabularnewline
 
 관찰 의료 데이터는 데이터 누락 여부를 거의 반영하지 않는다. 이전의
 예제에서, 우리는 person ID가 1인 환자가 인덱스 날짜 이전에 본태성
-고혈압이 없었음을 관찰했다. 이는 그 당시 본태성 고혈압이 없었거나
-기록되지 않았기 때문일 수 있다. 머신 러닝 알고리즘은 두 시나리오를
-구분할 수 없고 사용 가능한 데이터 안에서 예측값을 대략 평가한다는 것을
-인지해야 한다. \index{missing data}
+고혈압이 없었음을 관찰했다. 사실은 10년 전에 고혈압 진단을 받았으나,
+해당 데이터베이스에 기록이 없었을 수도 있다.머신 러닝 알고리즘은 두
+시나리오를 구분할 수 없고 사용 가능한 데이터 안에서 예측값을 대략
+평가한다는 것을 인지해야 한다. (역자 주: 개인적으로는 결측 자체도 의미를
+가진다고 생각한다.) \index{missing data}
 
 \section{모델 적합}\label{modelFitting}
 
@@ -12498,11 +12478,10 @@ CONDITION\_START\_DATE\tabularnewline
 2차원 공간에서 그림으로 각 환자를 나타낼 수 있다. 이 그림에서 데이터를
 나타내는 점의 모양은 환자의 결과 상태 (예를 들어, 뇌졸중) 를 나타낸다.
 
-지도 학습 모델은 두 결과 분류 classes를 최적으로 분리하는 결정 경계
-decision boundaries를 찾아내려고 노력할 것이다. 다른 지도 학습 기법은
-다른 분류 결정 경계로 이어지고 분류 결정 경계의 복잡성에 영향을 줄 수
-있는 하이퍼-파라미터 hyper-parameters가 종종 있다.
-\index{decision boundary}
+지도 학습 모델은 두 결과 분류 class를 최적으로 분리하는 결정 경계
+decision boundary를 찾아내려고 노력할 것이다. 다른 지도 학습 기법은 다른
+분류 결정 경계로 이어지고 분류 결정 경계의 복잡성에 영향을 줄 수 있는
+하이퍼-파라미터 hyper-parameters가 종종 있다. \index{decision boundary}
 
 \begin{figure}
 
@@ -12510,7 +12489,7 @@ decision boundaries를 찾아내려고 노력할 것이다. 다른 지도 학습
 
 }
 
-\caption{결정 경계.}\label{fig:decisionBoundary}
+\caption{결정 경계 Decision boundary}\label{fig:decisionBoundary}
 \end{figure}
 
 그림 \ref{fig:decisionBoundary}에서 세 가지 다른 결정 경계를 볼 수 있다.
@@ -12554,17 +12533,17 @@ coordinate descent for logistic, Poisson and survival analysis) 패키지를
 \index{regularization} \index{Cyclops}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:lassoParameters} Hyper-parameters for the regularized
-logistic regression.}\tabularnewline
+\caption{\label{tab:lassoParameters} 정규화된 로지스틱 회귀 모델의 하이퍼
+파라미터.}\tabularnewline
 \toprule
-Parameter & Description & Typical values\tabularnewline
+파라미터 & 설명 & 주로 사용되는 설정\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Parameter & Description & Typical values\tabularnewline
+파라미터 & 설명 & 주로 사용되는 설정\tabularnewline
 \midrule
 \endhead
-Starting variance & The starting variance of the prior distribution. &
+시작 분산Starting variance & 사전 분포에 대한 시작 분산. &
 0.1\tabularnewline
 \bottomrule
 \end{longtable}
@@ -12579,23 +12558,23 @@ Starting variance & The starting variance of the prior distribution. &
 Machines}\label{gradient-boosting-machines}
 
 Gradient boosting machines은 부스팅 앙상블 기법 boosting ensemble
-technique이며 프레임워크 안에서 다중 의사 결정 나무를 연결한다. 부스팅은
-의사 결정 나무 tree를 반복적으로 추가하는 것이지만, 다음에 생성될 의사
-결정 나무를 학습할 때 비용 함수 cost function에서 이전 의사 결정 나무에
-의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 추가한다. CRAN에서
-제공하는 xgboost R 패키지로 수행된 gradient boosting framework를
-효율적으로 구현하는 Extreme Gradient Boosting을 사용한다.
-\index{gradient boosting} \index{xgboost}
+technique이며 프레임워크 안에서 다중 의사 결정 나무 multiple decision
+tree를 연결한다. 부스팅은 의사 결정 나무 tree를 반복적으로 추가하는
+것이지만, 다음에 생성될 의사 결정 나무를 학습할 때 비용 함수 cost
+function에서 이전 의사 결정 나무에 의해 잘못 분류된 데이터 포인트에 더
+많은 가중치를 추가한다. CRAN에서 제공하는 xgboost R 패키지로 수행된
+gradient boosting framework를 효율적으로 구현하는 Extreme Gradient
+Boosting을 사용한다. \index{gradient boosting} \index{xgboost}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:gbmParameters} Hyper-parameters for gradient boosting
-machines.}\tabularnewline
+\caption{\label{tab:gbmParameters} gradient boosting machine의 하이퍼
+파라미터.}\tabularnewline
 \toprule
-Parameter & Description & Typical values\tabularnewline
+파라미터 & 설명 & 주로 사용되는 설정\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Parameter & Description & Typical values\tabularnewline
+파라미터 & 설명 & 주로 사용되는 설정\tabularnewline
 \midrule
 \endhead
 earlyStopRound & Stopping after rounds without improvement &
@@ -12609,35 +12588,35 @@ ntrees & Number of trees & 100,1000\tabularnewline
 
 \subsection{랜덤 포레스트}\label{-}
 
-랜덤 포레스트 Random forest는 다중 의사 결정 나무를 연결하는 배깅 앙상블
-기법 bagging ensemble technique이다. 배깅의 기본 개념은 유사도가 낮은
-분류기를 사용하여 유사도가 높은 분류기로 결합하여 과적합 가능성을 줄이는
-것이다. 랜덤 포레스트 Random forest는 다중 의사 결정 나무를 학습하여
-저장하는 것으로 하지만 각 나무에서 변수의 하위 집합만 사용하며 변수 하위
-집합은 의사 결정 나무마다 다르다. 우리 패키지는 Python의 Sklearn 내
-Random forest를 사용한다. \index{random forest} \index{python}
-\index{sklearn}
+랜덤 포레스트 Random forest는 다중 의사 결정 나무 multiple decision
+tree를 연결하는 배깅 앙상블 기법 bagging ensemble technique이다. 배깅의
+기본 개념은 유사도가 낮은 분류기를 사용하여 유사도가 높은 분류기로
+결합하여 과적합 가능성을 줄이는 것이다. 랜덤 포레스트 Random forest는
+다중 의사 결정 나무를 학습하여 저장하는 것으로 하지만 각 나무에서 변수의
+하위 집합만 사용하며 변수 하위 집합은 의사 결정 나무마다 다르다. 우리
+패키지는 Python의 Sklearn 내 Random forest를 사용한다.
+\index{random forest} \index{python} \index{sklearn}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:randomForestParameters} Hyper-parameters for random
-forests.}\tabularnewline
+\caption{\label{tab:randomForestParameters} 랜덤 포레스트 모델의 하이퍼
+파라미터.}\tabularnewline
 \toprule
 \begin{minipage}[b]{0.13\columnwidth}\raggedright\strut
-Parameter\strut
+파라미터\strut
 \end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright\strut
-Description\strut
+설명\strut
 \end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\raggedright\strut
-Typical values\strut
+주로 사용되는 설정\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
 \begin{minipage}[b]{0.13\columnwidth}\raggedright\strut
-Parameter\strut
+파라미터\strut
 \end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright\strut
-Description\strut
+설명\strut
 \end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\raggedright\strut
-Typical values\strut
+주로 사용되는 설정\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
@@ -12673,20 +12652,20 @@ metric를 사용하여 레이블이 지정되지 않은 새로운 데이터 포�
 데이터 포인트의 예측은 K-최근접의 레이블이 된 데이터 포인트의 가장
 보편적인 분류이다. 모델에 새 데이터에 대한 예측을 수행하기 위해 레이블이
 지정된 데이터가 필요하므로 KNN의 공유 제한이 있으며 데이터 사이트 간에
-이 데이터를 공유할 수 없는 경우가 종종 있다. 우리는 대규모 KNN
+이 데이터를 공유할 수 없는 경우가 종종 있다. 여기에서는 대규모 KNN
 classifier인 OHDSI에서 개발된
-\href{https://github.com/OHDSI/BigKnn}{BigKnn} 패키지를 포함했다.
+\href{https://github.com/OHDSI/BigKnn}{BigKnn} 패키지를 이용한다.
 \index{k-nearest neighbors} \index{bigknn}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:knnParameters} Hyper-parameters for K-nearest
-neighbors.}\tabularnewline
+\caption{\label{tab:knnParameters} K-최근접 이웃 모델의 하이퍼
+파라미터.}\tabularnewline
 \toprule
-Parameter & Description & Typical values\tabularnewline
+파라미터 & 설명 & Typical values\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Parameter & Description & Typical values\tabularnewline
+파라미터 & 설명 & Typical values\tabularnewline
 \midrule
 \endhead
 k & Number of neighbors & 1000\tabularnewline
@@ -12706,17 +12685,17 @@ k & Number of neighbors & 1000\tabularnewline
 AdaBoost는 부스팅 앙상블 기법이다. 부스팅은 분류기 classifier를
 반복적으로 추가하여 수행되지만, 다음 분류기가 학습될 때 비용 함수에서
 이전 분류기에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 준다.
-우리는 Python에 있는 sklearn AdaboostClassifier 구현을 사용한다.
-\index{adaboost} \index{python}
+Python에 있는 sklearn AdaboostClassifier 을 사용한다. \index{adaboost}
+\index{python}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:adaBoostParameters} Hyper-parameters for
-AdaBoost.}\tabularnewline
+\caption{\label{tab:adaBoostParameters} AdaBoost 모델의 하이퍼
+파라미터.}\tabularnewline
 \toprule
 \begin{minipage}[b]{0.13\columnwidth}\raggedright\strut
-Parameter\strut
+파라미터\strut
 \end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright\strut
-Description\strut
+설명\strut
 \end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\raggedright\strut
 Typical values\strut
 \end{minipage}\tabularnewline
@@ -12724,9 +12703,9 @@ Typical values\strut
 \endfirsthead
 \toprule
 \begin{minipage}[b]{0.13\columnwidth}\raggedright\strut
-Parameter\strut
+파라미터\strut
 \end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright\strut
-Description\strut
+설명\strut
 \end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\raggedright\strut
 Typical values\strut
 \end{minipage}\tabularnewline
@@ -12751,13 +12730,13 @@ nEstimators\strut
 \bottomrule
 \end{longtable}
 
-\subsection{의사 결정 트리}\label{--}
+\subsection{의사 결정 나무}\label{--}
 
-의사 결정 나무는 탐욕 접근 greedy approach방식을 사용하여 선택한 개별
-테스트를 사용하여 가변 공간을 분할하는 분류기이다. 이것은 클래스를
-분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로 한다. 의사
-결정 나무는 많은 수의 파티션 tree depth을 사용하게 되면 쉽게 과적합 되기
-때문에 종종 일부 정규화 (예를 들어, 모델의 복잡성을 제한하는
+의사 결정 나무 decision tree는 탐욕 접근 greedy approach방식을 사용하여
+선택한 개별 테스트를 사용하여 가변 공간을 분할하는 분류기이다. 이것은
+클래스를 분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로
+한다. 의사 결정 나무는 많은 수의 파티션 tree depth을 사용하게 되면 쉽게
+과적합 되기 때문에 종종 일부 정규화 (예를 들어, 모델의 복잡성을 제한하는
 하이퍼-파라미터의 정리 또는 지정) 가 필요하다. 우리는 Python에 있는
 sklearn DecisionTreeClassifier 구현을 사용한다. \index{decision tree}
 \index{python}
@@ -12861,7 +12840,7 @@ Deep net, convolutional neural networks 또는 recurrent neural networks와
 \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}
 패키지의 별도의
 \href{https://ohdsi.github.io/PatientLevelPrediction/articles/BuildingDeepLearningModels.html}{vignette}
-이러한 모델과 하이퍼-파라미터에 대해 자세히 기술되어
+에 이러한 모델과 하이퍼-파라미터에 대해 자세히 기술되어
 있다.\index{deep learning} \index{convolutional neural network}
 \index{recurrent neural networks}
 
@@ -12893,11 +12872,12 @@ Custom Patient-Level Prediction Algorithms'' vignette}에 있다.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{내적 타당도}: 같은 데이터베이스에서 추출된 다른 데이터 모음을
-  사용하여 모델을 개발하고 평가.
+  \textbf{내적 타당도 internal validation}: 같은 데이터베이스에서 추출된
+  다른 데이터 모음을 사용하여 모델을 개발하고 평가.
 \item
-  \textbf{외적 타당도}: 한 데이터베이스에서 모델을 개발하고 다른
-  데이터베이스에서 평가. \index{validation!internal validation}
+  \textbf{외적 타당도 external validation}: 한 데이터베이스에서 모델을
+  개발하고 다른 데이터베이스에서 평가.
+  \index{validation!internal validation}
   \index{validation!external validation}
 \end{itemize}
 
@@ -12907,20 +12887,23 @@ Custom Patient-Level Prediction Algorithms'' vignette}에 있다.
 \tightlist
 \item
   \textbf{홀드 아웃 모음 holdout set 접근법}은 레이블이 지정된 데이터를
-  두 개의 독립된 훈련 모음과 테스트 모음으로 나누는 것이다. 훈련 모음은
-  모델 학습에 사용되고, 테스트 모음은 모델 평가에 사용된다. 환자군을
-  무작위로 훈련 모음과 테스트 모음으로 나누거나 다음과 같이 선택할 수
-  있다:
+  두 개의 독립된 훈련 모음 training set과 테스트 모음 test set으로
+  나누는 것이다. 훈련 모음은 모델 학습에 사용되고, 테스트 모음은 모델
+  평가에 사용된다. 환자군을 무작위로 훈련 모음과 테스트 모음으로
+  나누거나 다음과 같이 선택할 수 있다:
 
   \begin{itemize}
   \tightlist
   \item
-    날짜를 기반으로 데이터를 분할한다 (시점 타당도). 예를 들어, 특정
-    날짜 이전의 데이터로 학습시키고, 그 특정 날짜 이후 데이터로 평가하는
-    것이다. 이것은 모델이 서로 다른 기간에서도 일반화가 가능한지 여부를
-    알 수 있게 해준다. \index{validation!temporal validation}
+    날짜를 기반으로 데이터를 분할한다 (시점 타당도 temporal validation).
+    예를 들어, 특정 날짜 이전의 데이터로 학습시키고, 그 특정 날짜 이후
+    데이터로 평가하는 것이다. 이것은 모델이 서로 다른 기간에서도
+    일반화가 가능한지 여부를 알 수 있게 해준다.
+    \index{validation!temporal validation}
   \item
-    지리적 위치를 기반으로 데이터를 분할한다 (공간 타당도).
+    지리적 위치를 기반으로 데이터를 분할한다. 이는 훈련 모음과 테스트
+    모음에 outcome 발생이 동일한 비율로 나타나도록 환자들을 나눈다는
+    뜻이다.(공간 타당도 spatial validation).
     \index{validation!spatial validation}
   \end{itemize}
 \item
@@ -13104,7 +13087,7 @@ FP\strut
 \bottomrule
 \end{longtable}
 
-환자에게 관심 결과가 예측되고 (위험 노출 시간 동안) 관심 결과가
+환자에게 관심 결과 outcome가 예측되고 (위험 노출 시간 동안) 관심 결과가
 발생했다면 이를 진양성(TP)이라고 한다. 환자에게 관심 결과가 있을 것으로
 예상되지만 그 결과가 없는 경우라면 이를 거짓 양성(FP)이라고 한다.
 환자에게 관심 결과가 없을 것으로 예상되고 실제 결과가 없는 경우 이를
@@ -13118,13 +13101,13 @@ FP\strut
 \begin{itemize}
 \tightlist
 \item
-  정확도(accuracy): \((TP+TN)/(TP+TN+FP+FN)\)
+  정확도 accuracy: \((TP+TN)/(TP+TN+FP+FN)\)
 \item
-  민감도(sensitivity): \(TP/(TP+FN)\)
+  민감도 sensitivity: \(TP/(TP+FN)\)
 \item
-  특이도(specificity): \(TN/(TN+FP)\)
+  특이도 specificity: \(TN/(TN+FP)\)
 \item
-  양성예측도(positive predictive value): \(TP/(TP+FP)\)
+  양성예측도 positive predictive value: \(TP/(TP+FP)\)
 \end{itemize}
 
 임계값을 낮추면 이러한 값이 감소하거나 증가 할 수 있다. 분류기의
@@ -13163,7 +13146,8 @@ AUC는 위험에 노출된 시간 동안 관심 결과를 경험한 환자와 �
 임계값을 초과하는 모든 양성에 대해 음성이 많을 수 있으므로 (즉, 양성
 예측도가 낮을 수 있기 때문에) 실용적이지 않을 수 있다. 결과의 심각성과
 일부 중재에 대한 비용 (건강 위험/금전적)에 따라, 거짓 양성비가 커질 수
-있다. 결과가 드물게 발생하는 것이라면 area under the precision-recall
+있다. 즉, outcome 이 매우 드물다면, AUROC가 높더라도 실제 예측력은 낮을
+수 있다는 뜻이다. 이런 경우 area under the precision-recall
 curve(AUPRC)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 민감도
 (재현율 recall이라고도 함)와 y축은 양성예측도 (정밀도 precision라고도
 함)을 나타내는 곡선하 면적이다.
@@ -13177,7 +13161,7 @@ curve(AUPRC)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 
 10명의 환자는 위험 노출 시간 중에 결과를 경험해야 한다. 모델이 100명의
 환자에게 80\%의 위험 발생 가능성이 있다고 하면 80명의 환자는 위험 노출
 시간 동안 결과를 경험해야 한다. 적합도는 일반적으로 예측된 위험에 따라
-환자를 십분 위(열 등분)로 분할하고 각 그룹에서 평균 예측 위험과 실제
+환자를 십분위(열 등분)로 분할하고 각 그룹에서 평균 예측 위험과 실제
 결과를 경험한 환자의 비율을 이용하여 계산한다. 그런 다음 10개의 점
 (y축에 예측 위험과 x축에 관찰된 위험)을 그린 후 그 점들이 x = y인 선에
 가까이 있는지, 즉 모델이 잘 보정되었는지를 확인한다. 적합도 그래프는 이
@@ -13209,22 +13193,22 @@ curve(AUPRC)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 
 사망으로 이어질 수 있기 때문에 이러한 부작용에 대한 환자 모니터링은
 중요하다. \citep{norman_2013} 또한, 혈관 부종이 조기에 인식되지 않으면,
 식별할 원인의 범위가 넓어지고 값비싼 정밀검사를 해야 할 수 있다.
-\citep{norman_2013, thompson_1993} 아프리카계 미국인 환자 사이에서
-발생한 높은 위험 외에 ACE 억제제 관련 혈관 부종의 발생에 대해 알려진
-소인은 없다. \citep{byrd_2006} 대부분의 반응은 초기 요법의 첫 주 또는 한
-달 안에, 그리고 종종 초기 복용 후 몇 시간 내에 발생한다
-\citep{circardi_2004}. 그러나 치료가 시작된 후 몇 년이 걸릴 수도 있다.
-\citep{mara_1996} 위험에 처한 사람을 구체적으로 식별하는 진단 테스트는
-없다. 우리가 위험에 처한 사람을 식별 할 수 있다면, 예를 들어, 의사는 ACE
-억제제 처방을 중단하고 다른 고혈압 약물을 처방할 수도
-있다.\index{angioedema} \index{ACE inhibitors}
+\citep{norman_2013, thompson_1993} 아프리카계 미국인 인종이 ACE
+억제제으로 인한 혈관 부종 발생의 위험 인자라는 것을 제외하면 알려진
+소인은 없다. \citep{byrd_2006} 대부분의 혈관부종은 ACE 억제제 시작 후 첫
+주 또는 한 달 안에, 그리고 종종 초기 복용 후 몇 시간 내에 발생한다
+\citep{circardi_2004}. 그러나 치료가 시작된 후 몇 년 후에 발생할 수도
+있다. \citep{mara_1996} 어떤 환자가 고위험군인지 구체적으로 식별하는
+진단 테스트는 없다. 만약 고위험군을 식별할 수만 있다면, 의사는 ACE
+억제제 처방을 중단하고 다른 고혈압 약물을 처방할
+것이다.\index{angioedema} \index{ACE inhibitors}
 
 관찰 의료 데이터에 환자-수준 예측 프레임워크를 적용하여 다음의 환자-수준
 예측 질문에 응용해 보자:
 
 \begin{quote}
-처음에 ACE 억제제로 치료를 시작한 환자 중, 그다음 해에 혈액 부종을
-경험한 환자는 누구인가?
+처음에 ACE 억제제로 치료를 시작한 환자 중, 어떤 환자에서 1년 안에 혈액
+부종이 발생할 것인가?
 \end{quote}
 
 \subsection{연구 모집단 정의}\label{--}
@@ -13263,20 +13247,21 @@ curve(AUPRC)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 
   아니므로 대상 코호트에서 제외돼야 한다. 다른 상황에서, 유행하는
   에피소드를 예측하고자 하는 경우가 있을 수 있는데, 이로 인해 사전에
   관심 결과를 가진 환자가 분석에 포함될 수 있고 사전 결과 자체가 미래
-  결과를 예측하기 위한 변수가 될 수 있다. 예측을 위한 예제로, 우리는
-  이전에 혈관 부종을 앓는 사람을 포함하지 않도록 선택할 것이다.
+  결과를 예측하기 위한 변수가 될 수 있다. 예제에서는, 이전에 혈관 부종을
+  앓는 사람을 포함하지 않도록 선택할 것이다.
 \item
   \emph{대상 코호트 시작 날짜를 기준으로 결과 발생을 예측할 기간을
   어떻게 정의하는가?} 이 질문에 답하기 위해 두 가지 결정을 내려야 한다.
-  첫째, 결과가 발생할 수 있는 위험 기간은 대상 코호트가 시작된 그 날짜
-  (기준 날짜)에 시작되는가 혹은 그 후에 시작되는가? 결과 발생 예측
-  기간을 나중으로 하자는 주장은, 결과 발생이 실제로는 대상 코호트가
-  시작되기 전에 이미 발생했지만, 기록이 늦게 되는 경우를 방지하기 원하기
-  때문이거나, 혹은 결과를 막기 위한 개입이 일어날 수 있는 여유시간을
-  남겨 두고 싶을 수 있기 때문이다. 둘째, 대상 코호트 시작 또는 종료
-  날짜를 기준으로 며칠을 오프셋으로 정하여 결과 발생 가능 기간의 끝에
-  더하여 정의해야 한다. 예제에서는 대상 코호트의 시작일 하루 뒤부터
-  365일까지를 위험 발생 가능 기간으로 정하여 예측할 것이다.
+  첫째, 결과가 발생할 수 있는 위험 기간이 대상 코호트가 시작된 그 날짜
+  (기준 날짜 index date)에 시작되는가 혹은 그 후에 시작되는가? 결과 발생
+  예측 기간을 나중으로 하자는 주장은, 결과 발생이 실제로는 대상 코호트가
+  시작되기 전에 이미 발생했지만, 기록이 늦게 되어 마치 기준 날짜와
+  비슷한 날짜에 나타난 것처럼 보일 수 있는 가능성을 배제하기 원하거나,
+  혹은 결과를 막기 위한 개입이 일어날 수 있는 여유시간을 남겨 두고 싶을
+  수 있기 때문이다. 둘째, 대상 코호트 시작 또는 종료 날짜를 기준으로
+  얼마동안의 기간 time window 동안 결과 발생을 관찰할 지 여부이다.
+  예제에서는 대상 코호트의 시작일 하루 뒤부터 365일까지를 위험 발생 가능
+  기간으로 정하여 예측할 것이다.
 \item
   \emph{결과 발생 최소 위험 시간 minimum amount of time-at-risk이
   필요한가?} 관심 결과가 생기지는 않았지만, 정의한 위험 발생 기간이
@@ -13320,50 +13305,48 @@ curve(AUPRC)라고 알려진 다른 측정법이 권장된다. AUPRC는 x축은 
 나타내었다.
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:plpSummary} Main design choices for our
-study.}\tabularnewline
+\caption{\label{tab:plpSummary} 예제에서의 모델 선택.}\tabularnewline
 \toprule
 \begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
+선택\strut
 \end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Value\strut
+설명\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
 \begin{minipage}[b]{0.23\columnwidth}\raggedright\strut
-Choice\strut
+선택\strut
 \end{minipage} & \begin{minipage}[b]{0.71\columnwidth}\raggedright\strut
-Value\strut
+설명\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
 \begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Target cohort\strut
+대상 코호트 Target cohort\strut
 \end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-Patients who have just started on an ACE inhibitor for the first time.
-Patients are excluded if they have less than 365 days of prior
-observation time or have prior angioedema.\strut
+생애 처음으로 ACE 억제제를 사용하기 시작한 환자군. 기저 관찰 기간이 1년
+미만이거나 이전에 혈관부종이 발생한 환자는 제외한다.\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Outcome cohort\strut
+결과 코호트 Outcome cohort\strut
 \end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-Angioedema.\strut
+혈관부종 발생군\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Time-at-risk\strut
+위험노출기간 Time-at-risk\strut
 \end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-1 day until 365 days from cohort start. We will require at least 364
-days at risk.\strut
+코호트 시작일로부터 1일 이후부터 365일까지. 즉 위험노출기간이 최소한
+364일 필요하다.\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.23\columnwidth}\raggedright\strut
-Model\strut
+모델 Model\strut
 \end{minipage} & \begin{minipage}[t]{0.71\columnwidth}\raggedright\strut
-Gradient Boosting Machine with hyper-parameters ntree: 5000, max depth:
-4 or 7 or 10 and learning rate: 0.001 or 0.01 or 0.1 or 0.9. Covariates
-will include gender, age, conditions, drugs, drug groups, and visit
-count. Data split: 75\% train - 25\% test, randomly assigned by
-person.\strut
+Gradient boosting machine에 다음의 하이퍼파라미터를 사용한다:
+ntree=5000, max depth=4 or 7 or 10, learning rate=0.001 or 0.01 or 0.1
+or 0.9; 예측 변수로는 성별, 나이, 상태 condition, 약물력 drug, 약물 그룹
+drug group 과 방문 횟수 visit count를 포함한다. 데이터 분할: 훈련 모음
+75\%, 테스트 모음 25\%를 사람별로 무작위 배정한다.\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
@@ -13377,10 +13360,12 @@ person.\strut
 \includegraphics{images/PopulationLevelEstimation/save.png} 버튼을
 클릭하면 언제든지 저장이 가능하다. \index{ATLAS}
 
-예측 디자인 기능에는 4개의 세션이 있다: 예측 문제 설정, 분석 설정, 실행
-설정, 학습 설정. 다음은 각 세션에 대한 설명이다.
+예측 디자인 기능에는 4개의 세션이 있다: 예측 문제 설정 Prediction
+Problem Setting, 분석 설정 Analysis Setting, 실행 설정 Execution
+Setting, 학습 설정 Training Setting. 다음은 각 세션에 대한 설명이다.
 
-\subsection{예측 문제 설정}\label{--}
+\subsection{예측 문제 설정 Prediction Problem
+Setting}\label{---prediction-problem-setting}
 
 여기서는 대상 코호트와 결과 코호트를 선택할 수 있다. 대상 코호트와 결과
 코호트의 모든 조합에 대해 예측 모델이 개발될 것이다. 예를 들어, 만약 두
@@ -13405,25 +13390,24 @@ person.\strut
 \caption{예측 문제 설정.}\label{fig:problemSettings}
 \end{figure}
 
-\subsection{분석 설정}\label{-}
+\subsection{분석 설정 Analysis Setting}\label{--analysis-setting}
 
 분석 설정에서 지도 학습 알고리즘, 공변량 및 모집단 설정을 할 수 있다.
 
-\subsubsection*{모델 설정}\label{-}
-\addcontentsline{toc}{subsubsection}{모델 설정}
+\subsubsection*{모델 설정 Model Setting}\label{--model-setting}
+\addcontentsline{toc}{subsubsection}{모델 설정 Model Setting}
 
 모델 개발을 위해 하나 혹은 더 많은 지도 학습 알고리즘을 선택할 수 있다.
 지도 학습 알고리즘을 추가하기 위해서는 ``모델 설정 추가 {[}Add Model
 Settings{]}''버튼을 눌러라. 현재 ATLAS에서 지원되는 모든 모델이 포함된
 드롭다운이 나타난다. 드롭다운 메뉴에 있는 이름을 클릭하여 원하는 연구가
 포함된 지도 학습 모델을 선택 할 수 있다. 그러고 나면 지정된 모델의 창을
-볼 수 있고, 하이퍼-파라미터값을 선택 할 수 있다. 여러 값이 제공되는 경우
+볼 수 있고, 하이퍼 파라미터값을 선택 할 수 있다. 여러 값이 제공되는 경우
 가능한 모든 값의 조합으로 교차 검증을 사용하여 최적의 조합을 선택하기
 위해 그리드서치 Grid Search를 시행한다.
 
-여기의 예에서는 점진적 부스팅 머신 Gradient Boosting Machine(GBM)을
-선택하고 그림 \ref{fig:gbmSettings}에 지정된 것처럼 하이퍼-파라미터를
-설정한다.
+여기의 예에서는 Gradient Boosting Machine(GBM)을 선택하고 그림
+\ref{fig:gbmSettings}에 지정된 것처럼 하이퍼 파라미터를 설정한다.
 
 \begin{figure}
 
@@ -13431,7 +13415,7 @@ Settings{]}''버튼을 눌러라. 현재 ATLAS에서 지원되는 모든 모델�
 
 }
 
-\caption{점진적 부스팅 머신 설정.}\label{fig:gbmSettings}
+\caption{Gradient Boosting Machine 설정.}\label{fig:gbmSettings}
 \end{figure}
 
 \subsubsection*{공변량 설정}\label{--1}
@@ -13456,16 +13440,16 @@ covariates in the patient-level prediction model?''} 아래
 개념 모음을 선택한다. \textbf{``포함한 개념 목록에 그 하위 개념을
 추가합니까? Should descendant concepts be added to the list of included
 concepts?''} 라는 질문에 ``예''라고 답함으로써 모든 하위 개념을 자동으로
-개념 모음에 추가할 수 있다. 같은 절차는 **환자 수준 예측 모형의 기저
-공변량에 어떤 개념을 제외하시겠습니까? (모든 것을 포함하려면 비워
-두십시오) What concepts do you want to exclude in baseline covariates in
-the patient-level prediction model``** 질문에서 동일한 과정을 반복할 수
-있고 선택된 개념에 해당하는 공변량을 제거할 수 있다. 마지막 옵션인
-\textbf{``쉼표로 구분되는 공변량 ID의 리스트의 범위를 정한다. A comma
-delimited list of covariate IDs that should be restricted to''}를
-사용하면 공변량의 ID 모음 (개념 ID가 아닌) 을 쉼표로 구분하여 추가할 수
-있다. 이 옵션은 고급 사용자에게만 필요하다. 완료되면 포함 및 제외 옵션이
-그림 \ref{fig:covariateSettings1}과 같아야 한다.
+개념 모음에 추가할 수 있다. 같은 절차는 \textbf{``환자 수준 예측 모형의
+기저 공변량에 어떤 개념을 제외하시겠습니까? (모든 것을 포함하려면
+공란으로 남겨두자) What concepts do you want to exclude in baseline
+covariates in the patient-level prediction model''} 질문에서 동일한
+과정을 반복할 수 있고 선택된 개념에 해당하는 공변량을 제거할 수 있다.
+마지막 옵션인 \textbf{``쉼표로 구분되는 공변량 ID의 리스트의 범위를
+정한다. A comma delimited list of covariate IDs that should be
+restricted to''}를 사용하면 공변량의 ID 모음 (개념 ID가 아닌) 을 쉼표로
+구분하여 추가할 수 있다. 이 옵션은 고급 사용자에게만 필요하다. 완료되면
+포함 및 제외 옵션이 그림 \ref{fig:covariateSettings1}과 같아야 한다.
 
 \begin{figure}
 
@@ -13476,7 +13460,7 @@ delimited list of covariate IDs that should be restricted to''}를
 \caption{공변량 포함 및 제외 설정.}\label{fig:covariateSettings1}
 \end{figure}
 
-다음에서는 시간과 연계하지 않는 변수를 선택할 수 있다.
+다음에서는 시간과 독립적인 변수를 선택할 수 있다.
 
 \begin{itemize}
 \tightlist
@@ -13494,28 +13478,32 @@ delimited list of covariate IDs that should be restricted to''}를
   민족 {[}Ethnicity{]}: 민족에 대한 이항 변수, 1은 환자의 민족 기록이
   있음을 의미하며, 그렇지 않으면 0이다.
 \item
-  기준 연도 {[}Index year{]}: 각 코호트 연도 시작 날짜에 대한 이항변수,
-  1은 환자 코호트 시작 날짜 연도를 의미하고, 그렇지 않으면 0이다.
-  \textbf{미래에 이 모형을 적용하길 원할 수 있기 때문에, 때때로는 색인
-  연도를 포함하는 것은 합리적이지 않다.}
+  기준 연도 {[}Index year{]}: 각 코호트 연도 시작 날짜에 대한 이항 변수,
+  예를 들어 2012라는 기준 연도 값에 1이라는 값이 있다면 해당 환자의
+  코호트 시작 연도가 2012년이라는 것을 뜻하고, 코호트 시작 연도가
+  2013이라면 해당 값은 0일 것이다. 환자의 코호트 시작 연도가 2013이라면
+  2013이라는 기준 연도 값에 1이 표기 될 것이다.\textbf{미래에 발생하는
+  일에 대해서도 이 모형을 적용하길 원할 수 있기 때문에, 색인 연도를
+  포함하는 것은 보통 합리적이지 않다.}
 \item
   기준인 월 {[}Index month{]}: 각 코호트 달 시작 날짜에 대한 이항 변수,
-  1은 환자 코호트 월 시작 날짜를 의미하고, 그렇지 않으면 0이다.
+  값에 1이 있다면 해당 월이 환자 코호트 시작 월임을 의미하고, 그렇지
+  않으면 0이다.
 \item
-  사전 관찰 시간 {[}Prior observation time{]}: {[}예측에 권장되지
+  사전 관찰 시간 {[}Prior observation time{]}: {[}예측에 사용을 권장하지
   않음{]} 코호트 시작일 이전에 환자가 데이터베이스에 있었던 기간(일)에
   해당하는 연속 변수
 \item
-  사후 관찰 시간 {[}Post observation time{]}: {[}예측에 권장되지 않음{]}
-  코호트 시작일 이후에 환자가 데이터베이스에 있었던 기간(일)에 해당하는
-  연속 변수
+  사후 관찰 시간 {[}Post observation time{]}: {[}예측에 사용을 권장하지
+  않음{]} 코호트 시작일 이후에 환자가 데이터베이스에 있었던 기간(일)에
+  해당하는 연속 변수
 \item
   코호트 내 시간 {[}Time in cohort{]}: 환자가 코호트에 있었던 기간에
   해당하는 연속 변수 (코호트 종료일에서 코호트 시작일을 뺀)
 \item
-  기준 연도 및 월 {[}Index year and month{]}: {[}예측에 권장되지 않음{]}
-  각 코호트 시작 연월 날짜에 대한 이항변수, 1은 환자 코호트 시작 연월
-  날짜이고, 그렇지 않으면 0이다.
+  기준 연도 및 월 {[}Index year and month{]}: {[}예측에 사용을 권장하지
+  않음{]} 각 코호트 시작 연월 날짜에 대한 이항변수, 1은 환자 코호트 시작
+  연월 날짜이고, 그렇지 않으면 0이다.
 \end{itemize}
 
 완료된다면, 그림 \ref{fig:covariateSettings2}과 같아야 한다.
@@ -13574,8 +13562,13 @@ delimited list of covariate IDs that should be restricted to''}를
   기간 (era)과 선택한 시간 간격을 이용해서 공변량 구축. 환자가 질병 era
   테이블에서 코호트 시작일 이전에 지정된 시간 간격 동안, era가 있는 개념
   ID \textbf{또는 하위 개념 ID(any descendant concept ID)} 를 갖는 경우,
-  공변량 값은 1이고, 그렇지 않으면 0이다. (역자 주: 위 condition에서
-  하위(자식) 개념도 포함한 것)
+  공변량 값은 1이고, 그렇지 않으면 0이다. (역자 주: PLP package는
+  대부분의 예측인자에 대해 이항 변수화 one-hot encoding을 취하기 때문에
+  condition을 추가할 경우 환자들이 가지고 있는 진단 코드 하나하나가 모두
+  예측인자로 추가된다. 우리는 `당뇨망막증을 동반한 당뇨병' 보다는
+  상위개념인 '당뇨병'만을 예측인자로 사용하고 싶을 수 있다.
+  grouping이라는 것은 상위 개념을 사용하여 granularity를 감소시킨다는
+  것을 의미한다.)
 \item
   Drug: 각 약물 개념의 연속된 기간(era)과 선택한 시간 간격을 이용해서
   공변량 구축. 환자가 약물 era 테이블에서 코호트 시작일 이전의 지정된
@@ -13607,13 +13600,13 @@ era를 찾는 것으로 제한된다. (역자 주: 위 drug에서 하위(자식)
 \caption{Time bound era 공변량.}\label{fig:covariateSettings4}
 \end{figure}
 
-다음은 도메인별 개념 ID에 대해 다양한 시간 간격을 옵션으로 가진 공변량을
-선택한다.
+다음은 도메인별 개념 concept ID에 대해 다양한 시간 간격을 옵션으로 가진
+공변량을 선택한다.
 
 \begin{itemize}
 \tightlist
 \item
-  Condition: 각 질병 개념 ID와 선택한 시간 간격으로 공변량을 구축.
+  Condition: 각 질병 concept ID와 선택한 시간 간격으로 공변량을 구축.
   코호트 시작일 이전을 기준으로 선택한 시간 간격 동안 질병 개념 ID가
   나타나면 공변량 값은 1이며, 그렇지 않으면 0이다. (역자 주: 예를 들어
   연구 대상군에 포함된 환자는 100명이고, 그들 환자 데이터에서 코호트
@@ -13641,7 +13634,8 @@ era를 찾는 것으로 제한된다. (역자 주: 위 drug에서 하위(자식)
   검사 값 Measurement Value: 각 검사 개념 ID, 값 및 선택한 시간 간격으로
   공변량을 구축. 환자가 측정 테이블의 코호트 시작일 이전에 지정된 시간
   간격 동안 기록된 개념 ID를 가지고 있는 경우 값은 측정값, 그렇지 않으면
-  0이다.
+  0이다. 다른 변수들과 다르게 해당 값에는 혈압=120 과 같이 연속 변수
+  continuous value이 들어간다.
 \item
   검사 값 범위 그룹 Measurement range group: 검사 값이 정상 범위
   이하인지 이내인지 또는 그 이상인지를 나타내는 이항 공변량이다.
@@ -13741,10 +13735,11 @@ Time-at-Risk(TAR) 중에 결과가 발생했지만, 최소 위험 기간을 채�
 방지하여 설정한 TAR 이내에 결과가 발생해서 TAR이 짧은 환자도 당연히
 연구에 포함될 수 있도록 하는 기능이다.)
 
-\textbf{``대상자마다 첫 번째 노출만 포함되어야 하는가?''} 옵션은 한
-환자가 코호트 시작일이 다른 여러 개의 관찰 기간을 가질 경우에 유용하다.
-예를 선택하면 환자당 가장 처음의 대상 코호트만 유지될 것이다. 그렇지
-않으면 같은 환자가 한 데이터 모음에 여러 번 포함되게 된다.
+\textbf{``대상자마다 첫 번째 노출만 포함되어야 하는가? Should only the
+first exposure per subject be included?''} 옵션은 한 환자가 코호트
+시작일이 다른 여러 개의 관찰 기간을 가질 경우에 유용하다. ``예''를
+선택하면 환자당 가장 처음의 대상 코호트만 유지될 것이다. 그렇지 않으면
+같은 환자가 한 데이터 모음에 여러 번 포함되게 된다.
 
 \textbf{``코호트 시작일 전에 해당 관심 결과가 있던 환자를
 제거하시겠습니까? Remove patients who have observed the outcome prior to
@@ -13787,22 +13782,25 @@ cohort entry?''}에서 예를 선택하면 위험 노출 기간 시작일 이전
   ``\textbf{표본추출 실행 Perform sampling}'': 표본추출을 실행할지 말지
   선택할 수 있다 (기본값 = ``아니오 NO''). 만약 ``예 yes''라고 설정하면,
   또 다른 옵션이 나타날 것이다: ``\textbf{몇 명의 환자를 부분집합으로
-  사용할 것인가?}''. 여기서 표본 크기는 결정될 수 있다. 표본추출은
-  대규모 모집단 (예로 1,000만 환자)을 대상으로 한 모형에서 환자의 표본을
-  가지고 모형을 테스트하여 구축함으로써 그 모델이 예측력이 있는지 아는데
-  효율적 수단이 될 것이다. 예를 들어, 그 추출한 표본에서 AUC가 0.5에
-  가까우면, 그 모형은 쓸모가 없으므로 버려야 할 것이다.
+  사용할 것인가?}''. 여기서 표본 크기는 결정될 수 있다. 예를 들어
+  대상환자 수가 매우 클 경우 (예를 1,000만)을 일부만을 추출하여 모형을
+  만들고 구축해볼 수 있을 것이다. 하지만, 그 추출한 표본으로 만든 모형의
+  AUC가 0.5에 가까우면, 그 모형은 쓸모가 없으므로 버려야 할 것이다.
 \item
   ``\textbf{최소 공변량 발생: 만약 어떤 공변량이 지정한 값보다 적은 수의
   대상에서만 발생하면 제거된다: Minimum covariate occurrence: If a
   covariate occurs in a fraction of the target population less than this
   value, it will be removed:}'' 여기서 최소 공변량 발생을 선택할 수 있다
   (기본값 = 0.001). 전체 모집단을 대표하지 않은 드문 사건을 제거하려면
-  공변량 발생의 최소 임계값이 필요하다.
+  공변량 발생의 최소 임계값이 필요하다. 기본값을 사용한다면, 0.1\%로
+  발생하는 condition, drug 등의 변수는 예측 인자에 포함되지 않을 것이다.
 \item
   ``\textbf{공변량 정규화 Normalize covariate}'': 여기서 공변량을
-  표준화할 것인지 선택할 수 있다 (기본값 = yes). 공변량의 표준화는 LASSO
-  모형을 적용하기 위해서는 늘 필요하다.
+  표준화할 것인지 선택할 수 있다 (기본값 = yes). 대부분의 예측 인자는
+  이항 변수 (0 또는 1)이지만 measurement value, visit count 등은 1
+  이상의 값을 가질 수 있기 때문에 정규화를 해주는 것이 좋다. PLP
+  package에서는 현재 최소-최대 정규화를 사용하고 있다. 공변량의 표준화는
+  LASSO 모형을 적용하기 위해서는 반드시 필요하다.
 \end{itemize}
 
 예를 들어, 그림 \ref{fig:executionSettings}처럼 선택한다.
@@ -13907,8 +13905,8 @@ Prediction Installation Guide'' vignette}를 참조하면 된다.
 
 \section{R에서의 연구 실행}\label{r--}
 
-ATLAS 사용하여 연구 디자인을 실행하는 방법은 R에서 코드를 직접 작성하는
-것이다.
+ATLAS 사용하는 방법 외에도 R에서 코드를 직접 작성하여 연구를 진행할 수
+있다.
 \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}
 패키지에서 제공하는 함수를 사용할 수 있다. 패키지는 OMOP CDM으로 변환된
 데이터로부터 데이터 추출, 모델 구축 및 모델 평가를 가능하게 한다.
@@ -13962,7 +13960,7 @@ ATLAS 사용하여 연구 디자인을 실행하는 방법은 R에서 코드를 
 \StringTok{"FROM @cohortsDbSchema.cohortsDbTable"}\NormalTok{,}
 \StringTok{"GROUP BY cohort_definition_id"}\NormalTok{)}
 \NormalTok{conn <-}\StringTok{ }\KeywordTok{connect}\NormalTok{(connDetails)}
-\KeywordTok{renderTranslateQuerySql}\NormalTok{(}\DataTypeTok{connection =}\NormalTok{ conn, }
+\KeywordTok{renderTranslateQuerySql}\NormalTok{(}\DataTypeTok{connection =}\NormalTok{ conn,}
                         \DataTypeTok{sql =}\NormalTok{ sql,}
                         \DataTypeTok{cohortsDbSchema =}\NormalTok{ cohortsDbSchema,}
                         \DataTypeTok{cohortsDbTable =}\NormalTok{ cohortsDbTable)}
@@ -14020,16 +14018,17 @@ ID, 해당 사람이 데이터에 포함되도록 관찰되어야 하는 코호�
 \end{Highlighting}
 \end{Shaded}
 
-(번역 생략된 부분) There are many additional parameters for the
-\texttt{getPlpData} function which are all documented in the
+\texttt{getPlpData} 함수에는 추가적으로 많은 매개변수 parameter가
+있으며,
 \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}
-manual. The resulting \texttt{plpData} object uses the package
-\texttt{ff} to store information in a way that ensures R does not run
-out of memory, even when the data are large. (번역 생략된 부분) Creating
-the \texttt{plpData} object can take considerable computing time, and it
-is probably a good idea to save it for future sessions. Because
-\texttt{plpData} uses \texttt{ff}, we cannot use R's regular save
-function. Instead, we'll have to use the \texttt{savePlpData} function:
+매뉴얼에 모두 정리되어 있다. 결과상 나오는 \texttt{plpData} object는 R
+에서 큰 데이터 사용시 메모리를 효율적으로 관리하기 위하여
+\texttt{ff}패키지를 사용한다. \texttt{plpData} object를 생성하는 것은
+꽤나 시간이 걸릴 수 있어서 (머신 러닝 모델 학습 및 교차검증, 결과
+분석까지 완료해야하기 때문에), 나중을 위해 저장하는 것이 좋다.
+\texttt{plpData} 데이터는 \texttt{ff} 패키지 기반으로 만들어지기 때문에,
+일반적인 save 함수로는 저장할 수 없다. 대신에, \texttt{savePlpData}
+함수를 이용한다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14037,8 +14036,7 @@ function. Instead, we'll have to use the \texttt{savePlpData} function:
 \end{Highlighting}
 \end{Shaded}
 
-(번역 생략된 부분) We can use the \texttt{loadPlpData()} function to
-load the data in a future session.
+앞으로는 \texttt{loadPlpData()} 를 이용하여 PLP 모델을 불러올 수 있다.
 
 \subsection{추가 포함 기준}\label{--}
 
@@ -14094,8 +14092,8 @@ load the data in a future session.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{gbmModel <-}\StringTok{ }\KeywordTok{setGradientBoostingMachine}\NormalTok{(}\DataTypeTok{ntrees =} \DecValTok{5000}\NormalTok{, }
-                                       \DataTypeTok{maxDepth =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{10}\NormalTok{), }
+\NormalTok{gbmModel <-}\StringTok{ }\KeywordTok{setGradientBoostingMachine}\NormalTok{(}\DataTypeTok{ntrees =} \DecValTok{5000}\NormalTok{,}
+                                       \DataTypeTok{maxDepth =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{10}\NormalTok{),}
                                        \DataTypeTok{learnRate =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.001}\NormalTok{,}\FloatTok{0.01}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.9}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -14108,12 +14106,12 @@ load the data in a future session.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{gbmResults <-}\StringTok{ }\KeywordTok{runPlp}\NormalTok{(}\DataTypeTok{population =}\NormalTok{ population, }
-                     \DataTypeTok{plpData =}\NormalTok{ plpData, }
-                     \DataTypeTok{modelSettings =}\NormalTok{ gbmModel, }
+\NormalTok{gbmResults <-}\StringTok{ }\KeywordTok{runPlp}\NormalTok{(}\DataTypeTok{population =}\NormalTok{ population,}
+                     \DataTypeTok{plpData =}\NormalTok{ plpData,}
+                     \DataTypeTok{modelSettings =}\NormalTok{ gbmModel,}
                      \DataTypeTok{testSplit =} \StringTok{'person'}\NormalTok{,}
-                     \DataTypeTok{testFraction =} \FloatTok{0.25}\NormalTok{, }
-                     \DataTypeTok{nfold =} \DecValTok{2}\NormalTok{, }
+                     \DataTypeTok{testFraction =} \FloatTok{0.25}\NormalTok{,}
+                     \DataTypeTok{nfold =} \DecValTok{2}\NormalTok{,}
                      \DataTypeTok{splitSeed =} \DecValTok{1234}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -14134,7 +14132,7 @@ load the data in a future session.
 \end{Highlighting}
 \end{Shaded}
 
-(번역 생략된 부분) We can load the model using:
+다음과 같이 모델을 불러온다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14142,7 +14140,7 @@ load the data in a future session.
 \end{Highlighting}
 \end{Shaded}
 
-(번역 생략된 부분) You can also save the full results structure using:
+또한 모든 결과를 저장할 수도 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14150,7 +14148,7 @@ load the data in a future session.
 \end{Highlighting}
 \end{Shaded}
 
-(번역 생략된 부분) To load the full results structure use:
+결과를 불러 올 수도 있다:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14162,9 +14160,9 @@ load the data in a future session.
 
 연구를 실행하면 \texttt{runPlp}함수는 학습/테스트 모음에서 학습된 모델과
 학습/테스트 모음에서 모델의 평가를 해준다.
-\texttt{viewPLP(runPLP\ =\ gbmResults)}를 실행하여 양방향의 결과를 볼 수
-있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든 측정값을 볼
-수 있는 Shiny 앱을 열 것이다 (Shiny 애플리케이션 섹션의 그림
+\texttt{viewPLP(runPLP\ =\ gbmResults)}를 실행하여 인터액티브하게 결과를
+볼 수 있다. 이것은 대화식 그림을 포함하여 프레임워크에 생성한 모든
+측정값을 볼 수 있는 Shiny 앱을 열 것이다 (Shiny 애플리케이션 섹션의 그림
 \ref{fig:shinySummary} 참조).
 
 모든 평가 그림을 폴더에 생성하고 저장하려면 다음 코드를 실행하면 된다:
@@ -14177,7 +14175,7 @@ load the data in a future session.
 
 도표는 \ref{performance}장에서 더욱 자세하게 기술된다.
 
-\subsection{외부 검증}\label{-}
+\subsection{외부 검증 External Validation}\label{--external-validation}
 
 항상 외적 타당도를 수행하는 것을 권장한다. 즉 가능한 많은 새로운
 데이터에 최종모델을 적용하고 성능을 평가해야 한다. 여기서 이미 두 번째
@@ -14223,7 +14221,7 @@ load the data in a future session.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{valResult <-}\StringTok{ }\KeywordTok{externalValidatePlp}\NormalTok{(}
-    \DataTypeTok{plpResult =}\NormalTok{ result, }
+    \DataTypeTok{plpResult =}\NormalTok{ result,}
     \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails,}
     \DataTypeTok{validationSchemaTarget =} \StringTok{'mainschema.dob'}\NormalTok{,}
     \DataTypeTok{validationSchemaOutcome =} \StringTok{'mainschema.dob'}\NormalTok{,}
@@ -14242,13 +14240,13 @@ load the data in a future session.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{valResults <-}\StringTok{ }\KeywordTok{externalValidatePlp}\NormalTok{(}
-    \DataTypeTok{plpResult =}\NormalTok{ result, }
+    \DataTypeTok{plpResult =}\NormalTok{ result,}
     \DataTypeTok{connectionDetails =}\NormalTok{ connectionDetails,}
     \DataTypeTok{validationSchemaTarget =} \KeywordTok{list}\NormalTok{(}\StringTok{'mainschema.dob'}\NormalTok{,}
-                                \StringTok{'difschema.dob'}\NormalTok{, }
+                                \StringTok{'difschema.dob'}\NormalTok{,}
                                 \StringTok{'anotherschema.dob'}\NormalTok{),}
     \DataTypeTok{validationSchemaOutcome =} \KeywordTok{list}\NormalTok{(}\StringTok{'mainschema.dob'}\NormalTok{,}
-                                 \StringTok{'difschema.dob'}\NormalTok{, }
+                                 \StringTok{'difschema.dob'}\NormalTok{,}
                                  \StringTok{'anotherschema.dob'}\NormalTok{),}
     \DataTypeTok{validationSchemaCdm =} \KeywordTok{list}\NormalTok{(}\StringTok{'cdms1chema.dbo'}\NormalTok{,}
                              \StringTok{'cdm2schema.dbo'}\NormalTok{,}
@@ -14280,8 +14278,8 @@ load the data in a future session.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{plpResult <-}\StringTok{ }\KeywordTok{loadPlpResult}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(outputFolder, }
-                                     \StringTok{'Analysis_1'}\NormalTok{, }
+\NormalTok{plpResult <-}\StringTok{ }\KeywordTok{loadPlpResult}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(outputFolder,}
+                                     \StringTok{'Analysis_1'}\NormalTok{,}
                                      \StringTok{'plpResult'}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -14577,12 +14575,12 @@ calibration plot와 인구통계학적 보정을 보여준다.
   당면한 문제와 데이터에 의해 결정된다.
 \item
   환자 수준 예측 PatientLevelPrediction 패키지는 OMOP-CDM의 데이터를
-  사용하여 예측 모델을 개발하고 검증하기 위한 사례를 제공한다.
+  사용하여 예측 모델을 개발하고 검증하기 위한 모범 프로세스를 제공한다.
 \item
-  모델 및 그 성능 지표 보급은 대화식 대시보드로 수행된다.
+  모델 및 그 성능 지표 보급은 대화식 interactive 대시보드로 수행된다.
 \item
-  OHDSI의 예측 프레임워크는 임상 허가의 전제 조건인 예측 모델의 대규모
-  외적 타당도 검증을 가능하게 한다.
+  OHDSI의 예측 프레임워크는 인공지능의 임상 허가 전제 조건인 예측 모델의
+  대규모 외적 타당도 검증을 가능하게 한다.
 \end{itemize}
 \EndKnitrBlock{rmdsummary}
 
@@ -15707,9 +15705,8 @@ CDM 데이터베이스 스키마는 ``main''이다.
 Ryan}
 
 \begin{quote}
-질량을 에너지로 바꾸는 확률은 마치 몇 마리의 새만 존재하는 나라에서 눈을
-감고 총을 쏘아 나는 새를 맞출 확률과 비슷하다. \emph{알베르트
-아인슈타인, 1935}
+사람이 질량을 에너지로 바꾸는 일의 가능성은 눈을 가리고 총을 쏘아 나는
+새를 맞출 가능성과 마찬가지다. \emph{알베르트 아인슈타인, 1935}
 \end{quote}
 
 OHDSI의 이상은 `관찰형 연구를 통하여 세계에 건강과 질병에 대한 포괄적인
@@ -21980,6 +21977,11 @@ ACHILLES을 실행하기 위해서는:
   \StringTok{"C:/dataQualityExample/Eunomia/results_Eunomia.json"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+이 도서의 국립중앙도서관 출판예정도서목록(CIP)은 서지정보유통지원시스템
+홈페이지(\url{http://seoji.nl.go.kr)와} 국가자료종합목록
+구축시스템(\url{http://kolis-net.nl.go.kr)에서} 이용하실 수 있습니다.
+(CIP제어번호 : CIP2019049074)
 
 \bibliography{book.bib,packages.bib}
 

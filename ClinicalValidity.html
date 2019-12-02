@@ -436,7 +436,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k--"><i class="fa fa-check"></i><b>13.3.4</b> K-최근접 이웃</a></li>
 <li class="chapter" data-level="13.3.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.5</b> 나이브 베이즈</a></li>
 <li class="chapter" data-level="13.3.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.3.6</b> AdaBoost</a></li>
-<li class="chapter" data-level="13.3.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.3.7</b> 의사 결정 트리</a></li>
+<li class="chapter" data-level="13.3.7" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.3.7</b> 의사 결정 나무</a></li>
 <li class="chapter" data-level="13.3.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#multilayer-perceptron"><i class="fa fa-check"></i><b>13.3.8</b> Multilayer Perceptron</a></li>
 <li class="chapter" data-level="13.3.9" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.9</b> 딥 러닝</a></li>
 <li class="chapter" data-level="13.3.10" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.3.10</b> 다른 알고리즘</a></li>
@@ -453,8 +453,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.5.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#--1"><i class="fa fa-check"></i><b>13.5.5</b> 연구 요약</a></li>
 </ul></li>
 <li class="chapter" data-level="13.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#atlas--"><i class="fa fa-check"></i><b>13.6</b> ATLAS에서의 연구 구현하기</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.6.1</b> 예측 문제 설정</a></li>
-<li class="chapter" data-level="13.6.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.2</b> 분석 설정</a></li>
+<li class="chapter" data-level="13.6.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#---prediction-problem-setting"><i class="fa fa-check"></i><b>13.6.1</b> 예측 문제 설정 Prediction Problem Setting</a></li>
+<li class="chapter" data-level="13.6.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--analysis-setting"><i class="fa fa-check"></i><b>13.6.2</b> 분석 설정 Analysis Setting</a></li>
 <li class="chapter" data-level="13.6.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.3</b> 실행 설정</a></li>
 <li class="chapter" data-level="13.6.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.6.4</b> 학습 설정</a></li>
 <li class="chapter" data-level="13.6.5" data-path="index.html"><a href="index.html#---"><i class="fa fa-check"></i><b>13.6.5</b> 연구 가져오기 및 내보내기</a></li>
@@ -467,7 +467,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.7.3" data-path="index.html"><a href="index.html#--"><i class="fa fa-check"></i><b>13.7.3</b> 추가 포함 기준</a></li>
 <li class="chapter" data-level="13.7.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.4</b> 모델 개발</a></li>
 <li class="chapter" data-level="13.7.5" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.5</b> 내부 검증</a></li>
-<li class="chapter" data-level="13.7.6" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증</a></li>
+<li class="chapter" data-level="13.7.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#--external-validation"><i class="fa fa-check"></i><b>13.7.6</b> 외부 검증 External Validation</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8</b> 결과 보급</a><ul>
 <li class="chapter" data-level="13.8.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>13.8.1</b> 모델 성능</a></li>
@@ -659,7 +659,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 16</span> 임상적 타당성</h1>
 <p><em>Chapter leads: Joel Swerdel, Seng Chan You, Ray Chen &amp; Patrick Ryan</em></p>
 <blockquote>
-<p>질량을 에너지로 바꾸는 확률은 마치 몇 마리의 새만 존재하는 나라에서 눈을 감고 총을 쏘아 나는 새를 맞출 확률과 비슷하다. <em>알베르트 아인슈타인, 1935</em></p>
+<p>사람이 질량을 에너지로 바꾸는 일의 가능성은 눈을 가리고 총을 쏘아 나는 새를 맞출 가능성과 마찬가지다. <em>알베르트 아인슈타인, 1935</em></p>
 </blockquote>
 <p>OHDSI의 이상은 ‘관찰형 연구를 통하여 세계에 건강과 질병에 대한 포괄적인 이해를 제공’ 하는 것이다. 후향적 연구는 이미 존재하는 데이터를 이용할 수 있다는 편리함이 있지만, 이전 <a href="EvidenceQuality.html#EvidenceQuality">14</a>장에서 기술한 바와 같이 다양한 타당성의 한계를 지니고 있다. 데이터의 질과 통계적 방법론과 별개로 임상적 타당성 clinical validity을 논하기는 쉽지 않지만 이번 장에서는 보건의료 데이터의 특성, 코호트 정의 검증, 근거의 일반화, 이 세 가지에 집중해보려 한다. 인구 수준 추정(PLE) <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>장의 예제로 돌아가 보자. 앞장에서 ’ACE inhibitor가 thiazide 또는 thiazide-like diuretics에 비해 혈관부종 위험성이 높은가?’에 대해 대답하려 했었고, ACE inhibitor가 thiazide 또는 thiazide-like diuretics에 비해 혈관부종을 더 많이 야기함을 증명했었다. 이번 장은 다음의 질문에 답하기 위해 쓰였다: “수행한 분석이 어느 정도로 임상적 의도와 일치하는가?” </p>
 <div id="CharacteristicsOfDatabase" class="section level2">
