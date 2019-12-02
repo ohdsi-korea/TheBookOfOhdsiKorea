@@ -30,13 +30,13 @@ OHDSI에서는 플랫폼이 사용하는 고유한 문법에 구애받지 않고
 
 ## SqlRender {#SqlRender}
 
-[SqlRender](https://ohdsi.github.io/SqlRender/) 패키지는 Comprehensive R Archive Network (CRAN)에서 이용할 수 있으므로 다음을 사용하여 설치할 수 있다:
+[SqlRender](https://ohdsi.github.io/SqlRender/) 패키지는 Comprehensive R Archive Network(CRAN)에서 이용할 수 있으므로 다음을 사용하여 설치할 수 있다:
 
 ```{r, eval=FALSE}
 install.packages("SqlRender")
 ```
 
-SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite, and Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, and Amazon RedShift), 빅데이터 플랫폼 (Hadoop through Impala, and Google BigQuery) 을 포함한 다수의 기술 플랫폼을 지원한다.
+SqlRender는 전통적인 데이터베이스 시스템 (PostgreSQL, Microsoft SQL Server, SQLite, and Oracle), 병렬 데이터 웨어하우스 (Microsoft APS, IBM Netezza, and Amazon RedShift), 빅데이터 플랫폼 (Hadoop through Impala, and Google BigQuery)을 포함한 다수의 기술 플랫폼을 지원한다.
 
 ### SQL의 매개 변수화
 
@@ -67,7 +67,7 @@ render(sql, a = c(123, 234, 345))
 
 #### If-Then-Else {-}
 
-때로는 하나 이상의 매개 변수값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 `{Condition} ? {if true} : {if false}` 구문을 사용한다. *조건*이 참 또는 1로 평가되면, *if true* 블록이 사용되고 그렇지 않으면, *if false* 블록이 표시된다 (있는 경우). (역주 저: 매개변수화 기능은 전반적으로 정말 놀라운 기능이다!)
+때로는 하나 이상의 매개 변수값에 따라 코드 블록을 켜거나 끌 필요가 있다. 이 작업은 `{Condition} ? {if true} : {if false}` 구문을 사용한다. *조건*이 참 또는 1로 평가되면, *if true* 블록이 사용되고 그렇지 않으면, *if false* 블록이 표시된다 (있는 경우). (역자 주: 매개변수화 기능은 전반적으로 정말 놀라운 기능이다!)
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM cohort {@x} ? {WHERE subject_id = 1}"
