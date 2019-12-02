@@ -604,16 +604,15 @@ plpData <- getPlpData(connectionDetails = connDetails,
 )
 ```
 
-(번역 생략된 부분)
-There are many additional parameters for the `getPlpData` function which are all documented in the [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) manual. The resulting `plpData` object uses the package `ff` to store information in a way that ensures R does not run out of memory, even when the data are large.
-(번역 생략된 부분)
-Creating the `plpData` object can take considerable computing time, and it is probably a good idea to save it for future sessions. Because `plpData` uses `ff`, we cannot use R's regular save function. Instead, we'll have to use the `savePlpData` function:
+`getPlpData` 함수의 많은 파라미터가 모두 [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) 매뉴얼에 문서화되어있다. 생성된 `plpData` 객체는 데이터가 크더라도 R이 메모리가 부족하지 않도록 정보를 저장하는 방식으로 `ff` 패키지를 사용한다. 
+
+`plpData` 객체를 생성하는 것은 계산하는 데 상당한 시간이 걸릴 수도 있다. 그리고 향후 세션을 위해 이를 저장하는 것은 아마 좋은 생각일 것이다. 왜냐하면 `plpData`는 `ff`를 사용하고, R의 기본 저장 기능을 사용할 수 없기 때문이다. 대신에, `savePlpData` 함수를 사용해야 한다:
 
 ```{r tidy=FALSE,eval=FALSE}
 savePlpData(plpData, "angio_in_ace_data")
 ```
-(번역 생략된 부분)
-We can use the `loadPlpData()` function to load the data in a future session.
+
+향후 세션에서 데이터를 불러오기 위해서 `loadPlpData()` 함수를 사용할 수 있다. 
 
 ### 추가 포함 기준
 
@@ -672,20 +671,20 @@ gbmResults <- runPlp(population = population,
 ```{r tidy=FALSE,eval=FALSE}
 savePlpModel(gbmResults$model, dirPath = "model")
 ```
-(번역 생략된 부분)
-We can load the model using:
+
+다음을 사용하여 모델을 불러올 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 plpModel <- loadPlpModel("model")
 ```
-(번역 생략된 부분)
-You can also save the full results structure using:
+
+다음을 사용하여 전체 결과 구조를 저장할 수 있다:
 
 ```{r tidy=FALSE,eval=FALSE}
 savePlpResult(gbmResults, location = "gbmResults")
 ```
-(번역 생략된 부분)
-To load the full results structure use:
+
+전체 결과 구조를 불러오기 위해서는 다음을 사용하라:
 
 ```{r tidy=FALSE,eval=FALSE}
 gbmResults <- loadPlpResult("gbmResults")
