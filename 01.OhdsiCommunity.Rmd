@@ -64,7 +64,7 @@ OHDSI(Observational Health data Sciences and Informatics)는 보다 더 나은 �
 
 ### OHDSI의 목표 Objectives
 
-* **혁신 Innovation**: 관찰 연구는 파괴적 사유disruptive thinking를 통해서 가장 큰 혜택을 얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인 접근을 적극적으로 찾고 격려한다.
+* **혁신 Innovation**: 관찰 연구는 파괴적 사유 disruptive thinking를 통해서 가장 큰 혜택을 얻을 수 있는 분야이다. 우리는 우리의 업무에 새로운 방법론적인 접근을 적극적으로 찾고 격려한다.
 
 > Observational research is a field which will benefit greatly from disruptive thinking. We actively seek and encourage fresh methodological approaches in our work.
 
