@@ -133,7 +133,7 @@ Table: (\#tab:syntheaEtlPerson) Synthea 환자 테이블을 CDM PERSON 테이블
 | Destination Field | Source field | Logic & comments |
 | :---------------------- | :--------- | :---------------------------------------- |
 | PERSON_ID                   |             |  자동으로 생성된다. PERSON_ID는 실행과 동시에 생성될 것이다. 왜냐하면 PERSON_ID가 정수일 때 원천에서의 ID 값은 varchar이기 때문이다. 원천에서의 ID 필드는 PERSON_SOURCE_VALUE로 설정하는데 이는 그 값을 보존하고 필요 시 오류 검수를 해야 하기 위함이다. |
-| GENDER_CONCEPT_ID           | gender      | 성별이 ‘M’일 때, GENDER_CONCEPT_ID 를 8507로 설정하고, 성별이 ‘F’일 때, 8532로 설정한다. 성별이 확인되지 않거나 없는 경우 그 행을 삭제한다. 이 두 concept은 성별 도메인에서 오직 두 개의 표준 concept만 있는 것처럼 선택된다. 비록 분석에서 성별이 없는 사람을 제외하는 것처럼 그들을 제거하는 것을 권장할지라도, 성별이 확인되지 않는 환자를 삭제하는 선택은 site-based한 경향이 있다. |
+| GENDER_CONCEPT_ID           | gender      | 성별이 ‘M’일 때, GENDER_CONCEPT_ID 를 8507로 설정하고, 성별이 ‘F’일 때, 8532로 설정한다. 성별이 확인되지 않거나 없는 경우 그 행을 삭제한다. 이 두 concept은 성별 도메인에서 오직 두 개의 표준 concept만 있는 것처럼 선택된다. 비록 분석에서 성별이 없는 사람을 제외하는 것처럼 그들을 제거하는 것을 권장할지라도, 성별이 확인되지 않는 환자를 삭제하는 기준은 기관별로 다를 수 있다. |
 | YEAR_OF_BIRTH               | birthdate   | 생일에서 년도를 추출한다 |
 | MONTH_OF_BIRTH              | birthdate   | 생일에서 달을 추출한다 |
 | DAY_OF_BIRTH                | birthdate   | 생일에서 날짜를 추출한다 |
