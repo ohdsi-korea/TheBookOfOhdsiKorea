@@ -1,4 +1,4 @@
-# 추출 변환 적재 Extract Transform Load {#ExtractTransformLoad}
+# 추출 변환 적재 ETL {#ExtractTransformLoad}
 
 *Chapter leads: Clair Blacketer & Erica Voss*
 

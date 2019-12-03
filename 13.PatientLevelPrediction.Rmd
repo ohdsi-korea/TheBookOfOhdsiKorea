@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # 환자 수준 예측 {#PatientLevelPrediction}
 
 *Chapter leads: Peter Rijnbeek & Jenna Reps*
@@ -6,9 +11,9 @@
 
 임상 의사 결정 clinical decision making이란 임상 의사가 알 수 있는 환자의 병력에 대한 정보와 현재 임상지침에 따라 진단 또는 치료 경로를 추론해야 하는 복잡한 일이다. 임상 예측 모델은 이러한 의사 결정 과정을 지원하기 위해 개발되었으며 광범위한 전문 분야에서 임상 실무에 사용된다. 이러한 모델은 인구 통계학적 정보, 질병력 및 치료력과 같은 환자 특성을 조합하여 이를 기반으로 진단 또는 예후 결과를 예측한다. \index{clinical decision making} \index{diagnostic outcome} \index{prognostic outcome}
 
-임상 예측 모델을 설명하는 출판물의 수가 지난 10년 동안 많이 증가했다. 현재 사용되는 대부분의 모델은 소규모 데이터를 이용하여 학습하며, 적은 수의 환자 특성만 고려한다. 이처럼 소표본이고 그래서 낮아지는 통계적 검정력으로 인해 데이터 분석가는 엄격한 가정 하에 모델링을 수행하게 된다. 환자 특성 또는 사용되는 변수 선택은 현재의 전문적 지식에 강하게 의존한다. 이는 환자가 매우 다양한 자료, 디지털 트레일 digital trail을 생성하는 현대 의학의 현실과 크게 대조되며, 이는 다양한 의료 전문가가 협력할 수 있는 방향이 아니다. 현재의 의학 관리 체계는 전자 의무 기록 Electronic Health Records(EHR)에 엄청난 양의 환자의 개인별 정보를 생성 및 저장하고 있다. 여기에는 진단, 약물치료, 실험실 검사 결과와 같은 정형화된 데이터와 임상적 기술 clinical narratives에 포함된 비정형화된 데이터가 포함되어 있다. 방대한 EHR으로부터 대량의 환자 데이터를 얻고 이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다. \index{prediction model}
+임상 예측 모델을 설명하는 출판물의 수가 지난 10년 동안 많이 증가했다. 현재 사용되는 대부분의 모델은 소규모 데이터를 이용하여 학습하며, 적은 수의 환자 특성만 고려한다. 이처럼 소표본이고 그래서 낮아지는 통계적 검정력으로 인해 데이터 분석가는 엄격한 가정 하에 모델링을 수행하게 된다. 환자 특성 또는 사용되는 변수 선택은 현재의 전문적 지식에 강하게 의존한다. 이는 환자가 매우 다양한 자료, 디지털 트레일 digital trail을 생성하는 현대 의학의 현실과 크게 대조되며, 다양한 의료 전문가가 협력할 수 있는 방향이 아니다. 현재의 의학 관리 체계는 전자 의무 기록 Electronic Health Records(EHR)에 엄청난 양의 환자의 개인별 정보를 생성 및 저장하고 있다. 여기에는 진단, 약물치료, 실험실 검사 결과와 같은 정형화된 데이터와 임상적 기술 clinical narratives이 포함된 비정형화된 데이터가 포함되어 있다. 방대한 EHR으로부터 대량의 환자 데이터를 얻고 이것을 활용하여도 예측 정확도를 얼마나 얻을 수 있는지는 알 수 없다. \index{prediction model}
 
-대규모 데이터 모음 분석을 위한 머신 러닝의 발전으로 이러한 유형의 데이터에 환자-수준 예측을 적용하는 데 관심이 높아졌다. 그러나 환자-수준 예측을 위한 많은 수의 출판물은 모델 개발 지침을 따르지 않아 광범위한 외적 타당도 external validation 수행에 실패하거나 또는 독립적인 연구자가 그 모델을 재현하고 외적 타당도를 검증하기 위한 세부사항을 제공하지 않는다. 이로 인해, 모델의 예측 성능을 공정하게 평가하기 어렵고 임상 실무에서 모델이 적절하게 사용될 가능성이 낮아진다. 표준화를 개선하기 위해 예측 모델을 개발하고 보고하는 모범 사례에 대한 지침을 자세히 설명하는 여러 논문이 작성되었다. 예를 들어, 개별 예측 또는 진단(TRIPOD)[^tripodUrl] 선언문에 다변량 예측 모델의 투명한 보고 Transparent Reporting는 예측 모델 개발 및 타당도 보고에 대한 명확한 권장 사항을 제공하고 투명성과 관련된 일부 우려를 해결한다. \index{machine learning} \index{TRIPOD}
+대규모 데이터 분석을 위한 머신러닝의 발전으로 이러한 유형의 데이터에 환자-수준 예측을 적용하는 데 관심이 높아졌다. 그러나 대부분의 의료 인공지능 연구들은 모델 개발 지침을 따르지 않아 광범위한 외적 타당도 external validation 수행에 실패하거나 또는 독립적인 연구자가 그 모델을 재현하고 외적 타당도를 검증하기 위한 세부사항을 제공하지 않는다. 이로 인해, 모델의 예측 성능을 공정하게 평가하기 어렵고 임상 실무에서 모델이 적절하게 사용될 가능성이 낮아진다. 표준화를 개선하기 위해 예측 모델을 개발하고 보고하는 모범 사례에 대한 지침을 자세히 설명하는 여러 논문이 작성되었다. 예를 들어, 개별 예측 또는 진단(TRIPOD)[^tripodUrl] 선언문에 다변량 예측 모델의 투명한 보고 Transparent Reporting는 예측 모델 개발 및 타당도 보고에 대한 명확한 권장 사항을 제공하고 투명성과 관련된 일부 우려를 해결할 수 있다. \index{machine learning} \index{TRIPOD}
 
 [^tripodUrl]: https://www.equator-network.org/reporting-guidelines/tripod-statement/
 
@@ -41,21 +46,21 @@ Table: (\#tab:plpDesign) 예측 모델의 주요 설계 선택.
 
 이 개념적 프레임워크는 다음과 같은 모든 유형의 예측 문제에 적용된다, 예를 들면:
 
-- 질병 발병 및 진행
-  - **구조**: *[질병 A]*로 새로 진단된 환자 중, *[진단 시점 t]* 내에 *[또 다른 질병이나 합병증, B]* 이 생길 사람은 누구인가?
-  - **예제**: 새로 진단된 심방세동 환자 중 향후 3년 이내에 허혈성 뇌졸중이 발생할 사람은 누구인가?
-- 치료 선택
-  - **구조**: *[치료 1]* 또는 *[치료 2]*로 치료한 *[대상 질병, D]*에 걸린 환자 중 *[치료 1]*로 치료받은 환자는 누구인가?
-  - **예제**: 와파린 또는 리바록사반을 복용한 심방세동 환자 중 어떤 환자가 와파린을 복용했는가? (예를 들어 성향 모델의 경우)
-- 치료 반응
-  - **구조**: *[치료 1]*을 처음 사용하는 사람 중, 누가 *[시간대 t]*에서 *[어떤 효과, E]*를 경험했는가?
-  - **예제**: 메트포민으로 치료받기 시작한 당뇨병 환자 중 어떤 환자가 3년 동안 메트포민을 유지하는가?
-- 치료 안전
-  - **구조**: *[치료 1]*을 처음 사용하는 사람 중 누가 *[시간대 t]*에서 *[이상 반응 E]*를 경험하게 되는가?
-  - **예제**: 와파린을 처음 사용하는 사람 중 누가 1년 안에 위장관 출혈이 발생하는가?
-- 치료 준수
-  - **구조**: *[치료 1]*을 처음 사용하는 사람 중 누가 *[시간대, t]*에서 *[준수 지표 수치]*를 달성하는가?
-  - **예제**: 메트포민으로 치료를 시작한 당뇨병 환자 중 어떤 환자가 1년 중 80% 이상의 복용 순응도를 보이는가?
+* 질병 발병 및 진행
+  * **구조**: *[질병 A]*로 새로 진단된 환자 중, *[진단 시점 t]* 내에 *[또 다른 질병이나 합병증, B]* 이 생길 사람은 누구인가?
+  * **예제**: 새로 진단된 심방세동 환자 중 향후 3년 이내에 허혈성 뇌졸중이 발생할 사람은 누구인가?
+* 치료 선택
+  * **구조**: *[치료 1]* 또는 *[치료 2]*로 치료한 *[대상 질병, D]*에 걸린 환자 중 *[치료 1]*로 치료받은 환자는 누구인가?
+  * **예제**: 와파린 또는 리바록사반을 복용한 심방세동 환자 중 어떤 환자가 와파린을 복용했는가? (예를 들어 성향 모델의 경우)
+* 치료 반응
+  * **구조**: *[치료 1]*을 처음 사용하는 사람 중, 누가 *[시간대 t]*에서 *[어떤 효과, E]*를 경험했는가?
+  * **예제**: 메트포민으로 치료받기 시작한 당뇨병 환자 중 어떤 환자가 3년 동안 메트포민을 유지하는가?
+* 치료 안전
+  * **구조**: *[치료 1]*을 처음 사용하는 사람 중 누가 *[시간대 t]*에서 *[이상 반응 E]*를 경험하게 되는가?
+  * **예제**: 와파린을 처음 사용하는 사람 중 누가 1년 안에 위장관 출혈이 발생하는가?
+* 치료 준수
+  * **구조**: *[치료 1]*을 처음 사용하는 사람 중 누가 *[시간대, t]*에서 *[준수 지표 수치]*를 달성하는가?
+  * **예제**: 메트포민으로 치료를 시작한 당뇨병 환자 중 어떤 환자가 1년 중 80% 이상의 복용 순응도를 보이는가?
 
 ## 데이터 추출
 
@@ -65,11 +70,12 @@ Table: (\#tab:plpDesign) 예측 모델의 주요 설계 선택.
 
 또한, 위험 노출 기간 time-at-risk(TAR) 동안 모든 환자의 **결과 상태** ("라벨" 또는 "분류"라고도 함) 를 생성할 필요가 있다. 만약 결과가 위험에 노출된 시간 안에 발생하거나 그 결과 상태는 “양성”으로 정의된다.\index{outcome status} \index{labels} \index{classes}
 
+
 ### 데이터 추출 예제
 
 표 \@ref(tab:plpExampleCohorts)는 두 개의 코호트가 있는 COHORT 테이블에 대한 예를 보여준다. 코호트 정의 ID 1인 코호트는 대상 코호트 (예를 들어 "최근 심방세동 진단을 받은 사람")이고 코호트 정의 ID 2는 결과 코호트 (예를 들어 "뇌졸중")이다.
 
-Table: (\#tab:plpExampleCohorts) COHORT 테이블 예제. COHORT_END_DATE 는 생략하였다.
+Table: (\#tab:plpExampleConditions) COHORT 테이블 예제. 3개의 컬럼만 보여주었다.
 
 | COHORT_DEFINITION_ID | SUBJECT_ID | COHORT_START_DATE |
 |:--------------------:|:----------:|:-----------------:|
@@ -114,7 +120,7 @@ Least Absolute Shrinkage and Selection Operator(LASSO) 로지스틱 회귀는 �
 
 Table: (\#tab:lassoParameters) 정규화된 로지스틱 회귀 모델의 하이퍼 파라미터.
 
-| 파라미터                   | 설명                  | 주로 사용되는 설정 |
+| 파라미터                   | 설명                  | 기본 설정|
 |:------------------------ |:-------------------- |:---- |
 | 시작 분산Starting variance | 사전 분포에 대한 시작 분산. | 0.1 |
 
@@ -127,7 +133,7 @@ Gradient boosting machines은 부스팅 앙상블 기법 boosting ensemble techn
 
 Table: (\#tab:gbmParameters) gradient boosting machine의 하이퍼 파라미터.
 
-| 파라미터| 설명 | 주로 사용되는 설정 |
+| 파라미터| 설명 | 기본 설정 |
 |:-------- |:----------- |:-------------- |
 | earlyStopRound | Stopping after rounds without improvement | 25 |
 | learningRate| The boosting learn rate | 0.005,0.01,0.1|
@@ -142,11 +148,11 @@ Table: (\#tab:gbmParameters) gradient boosting machine의 하이퍼 파라미터
 
 Table: (\#tab:randomForestParameters) 랜덤 포레스트 모델의 하이퍼 파라미터.
 
-| 파라미터| 설명 | 주로 사용되는 설정 |
-|:-------- |:----------- |:-------------- |
+| 파라미터 | 설명 | 기본 설정 |
+|:-------- |:---------------- |:------------------------------- |
 | maxDepth | Max levels in a tree | 4,10,17 |
-| mtries | Number of features in each tree | -1 = square root of total features,5,20 |
-| ntrees | Number of trees | 500 |
+| mtries   | Number of features in each tree | -1 = square root of total features,5,20 |
+| ntrees   | Number of trees | 500 |
 
 
 ### K-최근접 이웃
@@ -155,7 +161,7 @@ K-최근접 이웃 K-nearest neighbors(KNN)은 몇 개의 거리 척도 distance
 
 Table: (\#tab:knnParameters) K-최근접 이웃 모델의 하이퍼 파라미터.
 
-| 파라미터| 설명 | Typical values |
+| 파라미터| 설명 | 기본 설정 |
 |:-------- |:----------- |:-------------- |
 | k | Number of neighbors | 1000 |
 
@@ -169,8 +175,8 @@ AdaBoost는 부스팅 앙상블 기법이다. 부스팅은 분류기 classifier�
 
 Table: (\#tab:adaBoostParameters) AdaBoost 모델의 하이퍼 파라미터.
 
-| 파라미터 | 설명 | Typical values |
-|:-------- |:----------- |:-------------- |
+| 파라미터 | 설명 | 기본 설정 |
+|:----------- |:--------------------------------------- |:----- |
 | nEstimators | The maximum number of estimators at which boosting is terminated | 4 |
 | learningRate | Learning rate shrinks the contribution of each classifier by learning_rate. There is a trade-off between learningRate and nEstimators | 1 |
 
@@ -178,10 +184,10 @@ Table: (\#tab:adaBoostParameters) AdaBoost 모델의 하이퍼 파라미터.
 
 의사 결정 나무 decision tree는 탐욕 접근 greedy approach방식을 사용하여 선택한 개별 테스트를 사용하여 가변 공간을 분할하는 분류기이다. 이것은 클래스를 분리하는 데 가장 많은 정보를 얻는 파티션을 찾는 것을 목표로 한다. 의사 결정 나무는 많은 수의 파티션 tree depth을 사용하게 되면 쉽게 과적합 되기 때문에 종종 일부 정규화 (예를 들어, 모델의 복잡성을 제한하는 하이퍼-파라미터의 정리 또는 지정) 가 필요하다. 우리는 Python에 있는 sklearn DecisionTreeClassifier 구현을 사용한다. \index{decision tree} \index{python}
 
-Table: (\#tab:decisionTreeParameters) Hyper-parameters for decision trees.
+Table: (\#tab:decisionTreeParameters) 의사결정나무 모델의 하이퍼 파라미터.
 
-| Parameter| Description | Typical values |
-|:-------- |:----------- |:-------------- |
+| 파라미터| 설명 | 기본 설정 |
+|:----------- |:---------------------------------- |:------------ |
 | classWeight | "Balance" or "None" | None |
 | maxDepth | The maximum depth of the tree | 10 |
 | minImpuritySplit | Threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf | 10^-7|
@@ -193,9 +199,9 @@ Table: (\#tab:decisionTreeParameters) Hyper-parameters for decision trees.
 
 Multilayer perceptrons은 비선형 함수를 사용하여 입력에 가중치를 부여하는 여러 계층의 노드를 포함하는 신경망이다. 첫 번째 레이어는 입력 레이어 input layer이고 마지막 레이어는 출력 레이어 output layer이며 그리고 그 사이에는 히든 레이어 hidden layers가 있다. 신경망은 일반적으로 역 전파 back-propagation를 사용하여 학습된다. 즉, 학습 입력 training input이 네트워크를 통해 앞으로 전달되어 출력을 생성하고, 출력과 결과 상태 사이의 오류가 계산되며, 이 오류는 네트워크를 통해 뒤로 전달되어 선형 함수 가중치를 업데이트한다. \index{neural network} \index{perceptron} \index{back-propagation}
 
-Table: (\#tab:mpParameters) Hyper-parameters for Multilayer Perceptrons.
+Table: (\#tab:mpParameters) Multilayer Perceptrons 모델의 하이퍼 파라미터.
 
-| Parameter| Description | Typical values |
+| 파라미터| 설명 | 기본 설정 |
 |:-------- |:----------- |:-------------- |
 | alpha | The l2 regularization | 0.00001 |
 | size | The number of hidden nodes | 4 |
@@ -239,7 +245,7 @@ Deep net, convolutional neural networks 또는 recurrent neural networks와 같�
 
 예측 모델은 위험에 노출된 시간 동안 관심 결과가 발생할 위험이 있는 각 환자에 대해 0과 1 사이의 값을 할당한다. 0값은 0% 위험을 의미하고 0.5값은 50% 위험을 의미하고 1값은 100% 위험을 의미한다. 위험에 처한 시간 동안 환자가 관심 결과를 갖는지 여부를 결정하는 임계치(기준치)를 정하면 정확도, 민감도, 특이도, 양성 예측도와 같은 일반적인 측정 지표를 계산해 낼 수 있다. 예를 들어, 표 \@ref(tab:tabletheorytab)에서 임계값을 0.5로 설정하면 환자 1, 3, 7 및 10은 예상 위험이 임계값 0.5보다 크거나 같으므로 관심 결과가 발생할 것으로 예측된다. 다른 모든 환자는 0.5 미만의 예측 위험을 가지고 있으므로 관심 결과는 없을 것으로 예측된다. \index{performance metrics} \index{accuracy} \index{sensitivity} \index{specificity} \index{positive predictive value}
 
-Table: (\#tab:tabletheorytab) Example of using a threshold on the predicted probability.
+Table: (\#tab:tabletheorytab) 예측된 위험성의 임계값 예시
 
 | Patient ID    | Predicted risk  | Predicted class at 0.5 threshold | Has outcome during time-at-risk | Type |
 |:-------:|:---------:|:---------:|:---------:|:------:|

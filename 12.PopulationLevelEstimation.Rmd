@@ -25,15 +25,24 @@ knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 
 코호트 방법론은 무작위 임상 시험을 모방하려고 한다. [@hernan_2016] 하나의 치료를 시작한 환자(표적군 target cohort)는 다른 치료를 시작한 환자(대조군 comparator)와 비교되고, 치료를 받은 후 특정 기간 (예를 들어 치료를 받는 기간) 추적 관찰된다. 표 \@ref(tab:cmChoices) 에서 강조하는 5가지 사항을 선택함으로써 코호트 연구에서 연구자가 얻기 원하는 답에 대한 질문을 지정할 수 있다. \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
 
-Table: (\#tab:cmChoices) 코호트 비교연구 설계에서 주된 고려사항.
-
-| 선택            | 설명                                              |
-|:----------------- |:-------------------------------------------------------- |
+```{r cmChoices, echo=FALSE}
+table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
+| 선택              | 설명              |
+|:----------------- |:------------------|
 | 표적 코호트 Target cohort     | 표적 치료를 받은 환자군 cohort               |
 | 대조 코호트 Comparator cohort | 대조 치료를 받은 환자군 cohort           |
 | 결과 코호트 Outcome cohort    | 관심 결과 outcome of interest가 발생한 환자군 cohort |
 | 위험노출기간 Time-at-risk      | (보통 표적 및 대조 코호트의 시작과 종료 시점에 기반하여) 결과 발생을 살펴볼 기간의 범위 |
 | 모델             | 표적군과 대조군의 차이를 보정하여 효과 effect를 추정할 때 사용하는 통계 모델 |
+")
+table <- table[-1, 2:(ncol(table) - 1), -1]
+table <- knitr::kable(table, caption = "코호트 비교연구 설계에서 주된 고려사항.", booktabs = TRUE, row.names = FALSE)
+if ( knitr:::is_latex_output()) {
+  table <- kableExtra::kable_styling(table, full_width = TRUE)
+  table <- kableExtra::column_spec(table, 2, width = "9cm")
+}
+table
+```
 
 모델 선택은 결과 모델의 유형을 지정한다. 예를 들어, 결과가 발생했는지를 평가하고 교차비 odds ratio를 산출하는 로지스틱 회귀분석 logistic regression을 사용할 수 있다. 로지스틱 회귀분석은 위험 노출 기간(TAR)이 표적군 target cohort과 대조군 comparator cohort 양쪽 모두에서 같거나 무관하다고 가정한다. 대안으로, 포아송 회귀분석 poisson regression을 선택할 수 있는데, 이는 일정한 발생률 incidence rate을 가정하고, 발생률 비율 incidence rate ratio을 추정한다. 콕스 회귀분석 Cox regression을 종종 사용하기도 하는데, 이는 표적군과 대조군 사이의 비례 위험 proportional hazard을 가정하며, 위험 비율 hazard ratio을 추정하려고 대상 질병이 처음 발생할 때까지의 시간 time-to-first-outcome을 고려한다. \index{logistic regression} \index{Poisson regression} \index{Cox regression} \index{Cox proportional hazards model|see {Cox regression}}
 
@@ -83,7 +92,7 @@ $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{
 
 @walker_2013 는 “경험적 평형 empirical equipoise”의 개념을 논의한다. 적어도 노출의 절반이 0.3과 0.7 사이의 선호 점수를 갖는 환자에게 노출 쌍 exposure pair이 경험적 평형을 이루는 것으로 받아들인다. \index{clinical equipoise}
 
-### 균형
+### 균형 Balance
 
 \index{covariate balance} \index{balance|see {covariate balance}}
 
