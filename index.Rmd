@@ -47,7 +47,7 @@ lapply(c('SqlRender', 'DatabaseConnector'), function(pkg) {
 
 # 서문 {-}
 
-<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이 OHDSI, Observational Health Data Sicence and Informatics 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)이다. 이 책은 OHDSI 관련 모든 지식의 중앙 저장소 역할을 담당하고자 쓰였으며 오픈소스 개발 도구를 통해 커뮤니티에 의해 관리되는 생명력 있는 문서로 계속 진화하고 있다. 영문판: [ohdsi.github.io/TheBookOfOhdsi/](https://github.com/OHDSI/TheBookOfOhdsi)
+<img src="images/Cover/Cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /> 이 책은 오딧세이 OHDSI, Observational Health Data Sicence and Informatics 커뮤니티가 작성한 [The Book of OHDSI](book.ohdsi.org)이다. 이 책은 OHDSI 관련 모든 지식의 중앙 저장소 역할을 담당하고자 쓰였으며 오픈소스 개발 도구를 통해 커뮤니티에 의해 관리되는 생명력 있는 문서로 계속 진화하고 있다.
 
 ## 이 책의 목표 {-}
 
@@ -90,7 +90,7 @@ knitr::kable(table, col.names = NULL)
 - ACHILLES: version 1.6.6
 - ATLAS: version 2.7.3
 - EUNOMIA: version 1.0.0
-- Methods Library packages: 테이블 \@ref(tab:packageVersions) 참조 
+- Methods Library packages: 테이블 \@ref(tab:packageVersions) 참조
 
 ```{r packageVersions, echo=FALSE, eval=TRUE}
 packageVersions <- read.csv("PackageVersions.csv")

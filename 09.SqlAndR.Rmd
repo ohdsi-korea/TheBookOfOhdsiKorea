@@ -111,7 +111,7 @@ translate(sql, targetDialect = "postgresql")
 
 다음과 같은 SQL Server 함수는 테스트 되었으며 다양한 언어로 올바르게 변환되는 것으로 확인되었다: \index{SqlRender!supported functions}
 
-Table: (\#tab:sqlFunctions) Functions supported by translate.
+Table: (\#tab:sqlFunctions) SqlRender에서 지원하는 SQL 함수(SQL server 기준).
 
 |Function           |Function           |Function           |
 |:----------------- |:----------------- |:----------------- |

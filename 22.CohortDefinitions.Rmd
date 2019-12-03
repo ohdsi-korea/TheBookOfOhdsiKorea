@@ -46,7 +46,7 @@ Table: (\#tab:aceInhibitors) ACE inhibitors
 | 1373225 | Perindopril | NO | YES | NO |
 
 
-##  ACE inhibitor 단독 요법의 새로운 사용자 코호트 New User {#AceInhibitorsMono}
+##  ACE inhibitor 단독 요법의 새로운 사용자 new user 코호트 {#AceInhibitorsMono}
 
 #### Initial Event Cohort {-}
 
@@ -268,7 +268,7 @@ Table: (\#tab:inpatientOrEr) Inpatient or ER visit
 | 9203 | Emergency Room Visit | NO | YES | NO |
 
 
-## Thiazide 계 이뇨제 Thiazide-Like Diuretics 단독 요법 새로운 사용자 New User 코호트 {#ThiazidesMono}
+## Thiazide 계 이뇨제 Thiazide-Like Diuretics 단독 요법 새로운 사용자 코호트 {#ThiazidesMono}
 
 #### Initial Event Cohort {-}
 
@@ -640,7 +640,7 @@ Table: (\#tab:ndCCBUsendCCB) non-dihydropyridine Calcium channel blockers (ndCCB
 | 1307863 | Verapamil | NO | YES | NO |
 | 1328165 | Diltiazem | NO | YES | NO |
 
-## Beta-Blocker Use {#BBUse}
+## 베타 차단제 사용자 코호트 {#BBUse}
 
 *\@ref(ACEiUse) 코호트 정의* 에서 *ACE inhibitors* (표 \@ref(tab:ACEiUseACE))를 *Beta blockers* (표 \@ref(tab:BBUseBB))으로 바꾼다.
 

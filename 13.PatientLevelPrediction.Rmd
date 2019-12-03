@@ -123,7 +123,7 @@ Table: (\#tab:lassoParameters) 정규화된 로지스틱 회귀 모델의 하이
 
 ### Gradient Boosting Machines
 
-Gradient boosting machines은 부스팅 앙상블 기법 boosting ensemble technique이며 프레임워크 안에서 다중 의사 결정 나무 multiple decision tree를 연결한다. 부스팅은 의사 결정 나무 tree를 반복적으로 추가하는 것이지만, 다음에 생성될 의사 결정 나무를 학습할 때 비용 함수 cost function에서 이전 의사 결정 나무에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 추가한다. CRAN에서 제공하는 xgboost R 패키지로 수행된 gradient boosting framework를 효율적으로 구현하는 Extreme Gradient Boosting을 사용한다. \index{gradient boosting} \index{xgboost}
+Gradient boosting machines은 부스팅 앙상블 기법 boosting ensemble technique이며 프레임워크 안에서 다중 의사 결정 나무 multiple decision tree를 연결한다. 부스팅은 의사 결정 나무를 반복적으로 추가하는 것이지만, 다음에 생성될 의사 결정 나무를 학습할 때 비용 함수 cost function에서 이전 의사 결정 나무에 의해 잘못 분류된 데이터 포인트에 더 많은 가중치를 추가한다. CRAN에서 제공하는 xgboost R 패키지로 수행된 gradient boosting framework를 효율적으로 구현하는 Extreme Gradient Boosting을 사용한다. \index{gradient boosting} \index{xgboost}
 
 Table: (\#tab:gbmParameters) gradient boosting machine의 하이퍼 파라미터.
 
@@ -730,14 +730,14 @@ population <- createStudyPopulation(plpData = plpData,
 validationResults <- applyModel(population, plpData, plpModel)
 ```
 
-또한 필요한 데이터를 추출하는 외부 검증을 더욱 쉽게 하기 위해 `externalValidatePLP` 함수를 제공한다. `result <- runPlp(...)`을 실행했다고 가정했을 때 모델에 필요한 데이터를 추출하여 새 데이터에 대해 평가할 수 있다. 검증 코호트가 ID 1과2가 있는 테이블 `mainschema.dob.cohort`과 CDM 데이터가 스키마 `cdmschema.dob` 라고 가정한다:
+또한 필요한 데이터를 추출하는 외부 검증을 더욱 쉽게 하기 위해 `externalValidatePLP` 함수를 제공한다. `result <- runPlp(...)`을 실행했다고 가정했을 때 모델에 필요한 데이터를 추출하여 새 데이터에 대해 평가할 수 있다. 검증 코호트가 ID 1과2가 있는 테이블 `mainschema.dbo.cohort`과 CDM 데이터 스키마가 `cdmschema.dbo` 라고 가정한다:
 
 ```{r tidy=FALSE,eval=FALSE}
 valResult <- externalValidatePlp(
 	plpResult = result,
 	connectionDetails = connectionDetails,
-	validationSchemaTarget = 'mainschema.dob',
-	validationSchemaOutcome = 'mainschema.dob',
+	validationSchemaTarget = 'mainschema.dbo',
+	validationSchemaOutcome = 'mainschema.dbo',
 	validationSchemaCdm = 'cdmschema.dbo',
 	databaseNames = 'new database',
 	validationTableTarget = 'cohort',
@@ -753,12 +753,12 @@ valResult <- externalValidatePlp(
 valResults <- externalValidatePlp(
 	plpResult = result,
 	connectionDetails = connectionDetails,
-	validationSchemaTarget = list('mainschema.dob',
-								'difschema.dob',
-								'anotherschema.dob'),
-	validationSchemaOutcome = list('mainschema.dob',
-								 'difschema.dob',
-								 'anotherschema.dob'),
+	validationSchemaTarget = list('mainschema.dbo',
+								'difschema.dbo',
+								'anotherschema.dbo'),
+	validationSchemaOutcome = list('mainschema.dbo',
+								 'difschema.dbo',
+								 'anotherschema.dbo'),
 	validationSchemaCdm = list('cdms1chema.dbo',
 							 'cdm2schema.dbo',
 							 'cdm3schema.dbo'),
