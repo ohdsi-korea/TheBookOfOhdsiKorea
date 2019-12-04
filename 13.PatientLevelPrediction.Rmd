@@ -75,7 +75,7 @@ Table: (\#tab:plpDesign) 예측 모델의 주요 설계 선택.
 
 표 \@ref(tab:plpExampleCohorts)는 두 개의 코호트가 있는 COHORT 테이블에 대한 예를 보여준다. 코호트 정의 ID 1인 코호트는 대상 코호트 (예를 들어 "최근 심방세동 진단을 받은 사람")이고 코호트 정의 ID 2는 결과 코호트 (예를 들어 "뇌졸중")이다.
 
-Table: (\#tab:plpExampleConditions) COHORT 테이블 예제. 3개의 컬럼만 보여주었다.
+Table: (\#tab:plpExampleCohorts) COHORT 테이블 예제. 3개의 컬럼만 보여주었다.
 
 | COHORT_DEFINITION_ID | SUBJECT_ID | COHORT_START_DATE |
 |:--------------------:|:----------:|:-----------------:|
